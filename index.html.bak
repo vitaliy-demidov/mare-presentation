@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Maison Textile | Ателье Интерьерного Текстиля (Астана) — ТОП-50 Мировых Декораторов</title>
+  <meta name="description" content="ТОП-50 мировых декораторов интерьерного текстиля. 12 лет в Астане, собственный швейный цех 350 м², ткани Бельгии и Италии, Voice AI расчет штор и партнерский клуб дизайнеров с кэшбэком 10%.">
+  
+  <!-- Fonts: Cormorant Garamond (Haute Couture Serif) & Inter (Precision Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ecru: '#F7F5F0',
+            ecruDark: '#EFECE6',
+            obsidian: '#0B0C0E',
+            obsidianLight: '#181A1F',
+            brass: '#9E8255',
+            brassLight: '#C5A880',
+            brassDark: '#76603B',
+            borderSubtle: 'rgba(21, 20, 19, 0.08)',
+            borderBrass: 'rgba(158, 130, 85, 0.28)',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="selection:bg-brass selection:text-white bg-ecru text-obsidian relative">
+
+  <!-- ============================================================ -->
+  <!-- TOP STATUS BAR: ДВЕ ДВЕРИ & СТАТУС ЦЕХА                      -->
+  <!-- ============================================================ -->
+  <aside aria-label="Статус цеха" class="border-b border-borderSubtle bg-ecruDark/80 text-[11px] tracking-wider uppercase font-medium py-2 px-4 text-obsidian/80">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+        <span id="topDoorBadge">Собственный цех 350 м² в Астане: открыт прием заказов на сезон 2026-2027</span>
+      </div>
+      <div class="flex items-center gap-4 sm:gap-6">
+        <button onclick="openSecretKP()" class="text-brass hover:text-brassDark font-bold flex items-center gap-1.5 transition-colors">
+          <span>🔑</span>
+          <span>Личный проект (Код КП)</span>
+        </button>
+        <span class="text-obsidian/30 hidden sm:inline">|</span>
+        <a href="#powers" class="hidden sm:inline text-obsidian/70 hover:text-brass transition-colors">7 Сил Студии &darr;</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================================ -->
+  <!-- HEADER С БРЕНД-СИМВОЛОМ «РЫБЫ» И СЕЛЕКТОРОМ «ДВЕ ДВЕРИ»      -->
+  <!-- ============================================================ -->
+  <header class="sticky top-0 z-40 bg-ecru/95 backdrop-blur-md border-b border-borderSubtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo: Новая эмблема «РЫБЫ» + Couture Typography -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 border border-borderBrass bg-white flex items-center justify-center text-brass group-hover:border-brass transition-colors shadow-sm">
+          <svg class="w-7 h-7 fill-current" viewBox="0 0 48 48">
+            <!-- Пластика пары шелковых рыб (Рыбы вместо старых цветов) -->
+            <path d="M14 12C18 8 26 8 30 14C32 17 31 22 28 25C25 28 20 28 17 31C14 34 14 39 18 42C12 39 10 32 12 26C14 21 18 19 21 16C24 13 22 10 18 10C16 10 14 11 14 12Z" opacity="0.9"/>
+            <path d="M34 36C30 40 22 40 18 34C16 31 17 26 20 23C23 20 28 20 31 17C34 14 34 9 30 6C36 9 38 16 36 22C34 27 30 29 27 32C24 35 26 38 30 38C32 38 34 37 34 36Z" opacity="0.5"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-bold tracking-tight text-obsidian uppercase leading-tight">Maison Textile</span>
+          <span class="text-[9px] tracking-[0.28em] uppercase text-brass font-sans font-bold -mt-0.5">Top-50 World Decorators • Астана</span>
+        </div>
+      </a>
+
+      <!-- ДВЕ ДВЕРИ: СЕГМЕНТИРОВАННЫЙ ПЕРЕКЛЮЧАТЕЛЬ -->
+      <div class="hidden lg:flex items-center p-1 bg-ecruDark rounded-full border border-borderSubtle">
+        <button id="doorBtnB2C" onclick="switchDoor('b2c')" class="px-5 py-2.5 rounded-full text-xs font-semibold bg-obsidian text-white shadow-sm transition flex items-center gap-2">
+          <span>🏡</span>
+          <span>Частные Резиденции (B2C)</span>
+        </button>
+        <button id="doorBtnB2B" onclick="switchDoor('b2b')" class="px-5 py-2.5 rounded-full text-xs font-medium text-obsidian/70 hover:text-obsidian transition flex items-center gap-2">
+          <span>🏢</span>
+          <span>Бизнес & Юрлица (B2B)</span>
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="openSamplerModal()" class="hidden sm:inline-flex items-center gap-2.5 bg-obsidian hover:bg-brass text-white px-5 py-3 text-xs uppercase tracking-widest font-semibold transition-all duration-300 shadow-sm">
+          <span>Чемодан 50 кг на объект</span>
+        </button>
+
+        <button onclick="openWhatsAppModal()" class="inline-flex items-center gap-2 border border-borderBrass bg-brass/10 hover:bg-brass hover:text-white text-brassDark px-4 py-3 text-xs uppercase tracking-widest font-semibold transition-all duration-300">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.781 2.796.782 3.182 0 5.768-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0 10.457c-.89 0-1.636-.25-2.395-.699l-.171-.102-1.782.467.476-1.737-.113-.18c-.482-.767-.736-1.558-.735-2.439.001-2.584 2.103-4.686 4.72-4.686 2.617 0 4.719 2.102 4.719 4.686 0 2.585-2.102 4.688-4.714 4.69z"/>
+          </svg>
+          <span class="hidden md:inline">WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================ -->
+  <!-- ACT 1: HERO SECTION С ПРОЦЕДУРНЫМ ШЕЛКОВЫМ ХОЛСТОМ И РЫБАМИ    -->
+  <!-- ============================================================ -->
+  <section class="py-16 md:py-24 border-b border-borderSubtle relative overflow-hidden fish-watermark">
+    <!-- Procedural Silk Waves & Koi Canvas Background -->
+    <canvas id="silkBackgroundCanvas"></canvas>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-8">
+          <div class="inline-flex items-center gap-2 border border-borderBrass bg-brass/5 text-brassDark text-[11px] uppercase tracking-widest font-semibold px-3.5 py-1.5 mb-6">
+            <span class="w-1.5 h-1.5 bg-brass rounded-full animate-ping"></span>
+            <span>Интерьерный текстиль высокой моды • Астана</span>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-obsidian leading-[1.12] mb-6 text-balance">
+            Архитектура текстиля для тех, кто не терпит полумер: <span class="italic font-normal font-serif text-brass">12 лет кутюрного мастерства.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-obsidian/75 font-normal max-w-2xl leading-relaxed mb-8">
+            Мы входим в официальный рейтинг ТОП-50 мировых интерьерных декораторов. Собственный швейный цех 350 м² в Астане, прямые поставки шенилла и шелка из Европы (Dedar, Rubelli, Wind), расчет голосом без клавиатуры и честный кэшбэк 10% архитекторам.
+          </p>
+
+          <!-- Quick Navigation Pills -->
+          <div class="flex flex-wrap gap-3 mb-10">
+            <a href="#calculator" class="bg-obsidian hover:bg-brass text-white text-xs uppercase tracking-wider font-semibold px-5 py-3 transition-colors shadow-sm">
+              Интерактивный калькулятор складок &darr;
+            </a>
+            <a href="#voice-ai" class="border border-borderBrass bg-white hover:bg-brass/10 text-obsidian text-xs uppercase tracking-wider font-semibold px-5 py-3 transition-colors flex items-center gap-2">
+              <span>🎙️</span>
+              <span>Расчет голосом (Voice AI)</span>
+            </a>
+            <button onclick="openSecretKP()" class="border border-borderSubtle bg-white hover:border-brass text-obsidian/80 text-xs uppercase tracking-wider font-semibold px-5 py-3 transition-colors">
+              Ввести код КП объекта &rarr;
+            </button>
+          </div>
+
+          <!-- Metrics Panel -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-borderSubtle">
+            <div>
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-obsidian">ТОП-50</div>
+              <div class="text-[11px] uppercase tracking-wider text-obsidian/60 mt-1">Мировых декораторов</div>
+            </div>
+            <div>
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-obsidian">350 м²</div>
+              <div class="text-[11px] uppercase tracking-wider text-obsidian/60 mt-1">Цех в Астане</div>
+            </div>
+            <div>
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-brass">10%</div>
+              <div class="text-[11px] uppercase tracking-wider text-brassDark font-bold mt-1">Кэшбэк дизайнерам</div>
+            </div>
+            <div>
+              <div class="font-serif text-3xl sm:text-4xl font-bold text-obsidian">3 года</div>
+              <div class="text-[11px] uppercase tracking-wider text-obsidian/60 mt-1">Гарантия по договору</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Action Card (High-Ticket Lead) -->
+        <div class="lg:col-span-4 bg-white p-8 border border-borderBrass couture-card shadow-sm relative">
+          <div class="absolute -top-3 right-6 bg-brass text-white text-[10px] uppercase font-bold tracking-widest py-1 px-3">
+            Сервис White Glove
+          </div>
+          <h2 class="font-serif text-2xl font-bold text-obsidian mb-2">Примерка в вашем интерьере</h2>
+          <p class="text-xs text-obsidian/70 leading-relaxed mb-6">
+            Закажите выезд ведущего декоратора с мобильной библиотекой (50 кг каталогов) прямо к вам на объект в Астане.
+          </p>
+          
+          <div class="space-y-3 mb-6 text-xs text-obsidian/85">
+            <div class="flex items-center gap-2.5">
+              <span class="text-brass font-bold">✓</span> 400+ каталогов под вашу цветовую палитру
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="text-brass font-bold">✓</span> Лазерный замер скрытых ниш с точностью 1 мм
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="text-brass font-bold">✓</span> 3D-моделирование драпировок на стадии бетона
+            </div>
+          </div>
+
+          <button onclick="openSamplerModal()" class="w-full bg-obsidian hover:bg-brass text-white text-xs uppercase tracking-widest font-semibold py-4 transition-all duration-300">
+            Забронировать дату выезда
+          </button>
+          <div class="text-[11px] text-center text-obsidian/50 mt-2.5">Бесплатно при согласовании проекта</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 2: «ДВЕ ДВЕРИ» (B2C РЕЗИДЕНЦИИ VS B2B БИЗНЕС & ЮРЛИЦА)  -->
+  <!-- ============================================================ -->
+  <section class="py-16 md:py-24 bg-ecru border-b border-borderSubtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-[0.25em] text-brass font-bold mb-2 block">Архитектура выбора</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-obsidian tracking-tight mb-4">
+          Две Двери: Решения для частных домов и корпоративных объектов
+        </h2>
+        <p class="text-sm sm:text-base text-obsidian/70 leading-relaxed">
+          Мы разделили производственные потоки, чтобы частные заказчики получали кутюрный уют, а корпоративные клиенты — жесткие SLA, сертификаты МЧС и закрывающие документы.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Door 1: B2C Резиденции -->
+        <div class="bg-white p-8 sm:p-10 border border-borderSubtle couture-card relative flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-serif text-4xl font-light text-brass/40">01</span>
+            <span class="bg-ecruDark text-obsidian text-[11px] uppercase tracking-wider font-semibold px-3 py-1">
+              Частные резиденции
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-obsidian mb-3">
+              Пентхаусы, апартаменты и загородные виллы
+            </h3>
+            <p class="text-sm text-obsidian/70 leading-relaxed mb-6">
+              Портьеры в пол со складками «Волна» и «Французская тройная», римские шторы, кашемировые покрывала и подушки. Идеальная тишина и рассеивание степного солнца Астаны.
+            </p>
+            <ul class="space-y-2.5 text-xs text-obsidian/85 mb-8">
+              <li class="flex items-center gap-2"><span class="text-brass">✓</span> Бельгийский шенилл и итальянский бархат Dedar</li>
+              <li class="flex items-center gap-2"><span class="text-brass">✓</span> Интеграция с Алисой и Apple HomeKit (Somfy)</li>
+              <li class="flex items-center gap-2"><span class="text-brass">✓</span> Выезд дизайнера с чемоданом образцов на объект</li>
+            </ul>
+          </div>
+          <button onclick="switchDoor('b2c'); document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})" class="w-full bg-obsidian hover:bg-brass text-white text-xs uppercase tracking-widest font-semibold py-3.5 transition-colors">
+            Рассчитать шторы для дома &rarr;
+          </button>
+        </div>
+
+        <!-- Door 2: B2B Юрлица -->
+        <div class="bg-obsidian text-white p-8 sm:p-10 border border-obsidianLight couture-card relative flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-serif text-4xl font-light text-brassLight/40">02</span>
+            <span class="bg-white/10 text-brassLight text-[11px] uppercase tracking-wider font-semibold px-3 py-1">
+              Бизнес & Юрлица (B2B)
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-3">
+              Офисы, кабинеты директоров, отели и девелопмент
+            </h3>
+            <p class="text-sm text-white/70 leading-relaxed mb-6">
+              Моторизованные системы Somfy Screen (подавление бликов), кассетный блэкаут для переговорных, негорючие ткани Trevira CS с пожарными сертификатами КМ1.
+            </p>
+            <ul class="space-y-2.5 text-xs text-white/85 mb-8">
+              <li class="flex items-center gap-2"><span class="text-brassLight">✓</span> Официальный расчет с НДС 12%</li>
+              <li class="flex items-center gap-2"><span class="text-brassLight">✓</span> Экспресс-КП по проектной ведомости за 2 часа</li>
+              <li class="flex items-center gap-2"><span class="text-brassLight">✓</span> ЭДО: закрывающие строительные акты КС-2 / КС-3</li>
+            </ul>
+          </div>
+          <button onclick="switchDoor('b2b'); document.getElementById('b2b-section').scrollIntoView({behavior: 'smooth'})" class="w-full bg-brass hover:bg-brassLight text-obsidian text-xs uppercase tracking-widest font-bold py-3.5 transition-colors">
+            B2B Проектный отдел (НДС) &rarr;
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 3: B2C ТАКТИЛЬНЫЙ ИНКУБАТОР & СИМУЛЯТОР СКЛАДОК          -->
+  <!-- ============================================================ -->
+  <section id="calculator" class="flow-b2c py-20 bg-white border-b border-borderSubtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-borderSubtle pb-6">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-brass font-bold block mb-2">Интерактивный конфигуратор</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-obsidian">Подбор складок и расчет стоимости (₸)</h2>
+        </div>
+        <p class="text-xs text-obsidian/60 max-w-md mt-3 md:mt-0">
+          Выберите ткань, геометрию складки и габариты. Стоимость пересчитывается в реальном времени с учетом коэффициента расхода ткани.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left: Controls (8-Col) -->
+        <div class="lg:col-span-8 space-y-8">
+          
+          <!-- Step 1: Pleat Type Selection -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider font-bold text-obsidian mb-3">
+              1. Выберите тип складки драпировки:
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <button id="btnPleat_wave" onclick="selectPleat('wave')" class="p-4 border-2 border-brass bg-brass/10 text-left transition-all">
+                <div class="text-sm font-bold text-obsidian mb-1">Волна (Wave)</div>
+                <div class="text-[11px] text-obsidian/70">Коэффициент 1:2.0 • Идеальный цилиндрический шаг</div>
+              </button>
+              <button id="btnPleat_french" onclick="selectPleat('french')" class="p-4 border border-borderSubtle bg-white hover:border-brass text-left transition-all">
+                <div class="text-sm font-bold text-obsidian mb-1">Французская тройная</div>
+                <div class="text-[11px] text-obsidian/70">Коэффициент 1:2.5 • Ручная защипка в 3 лепестка</div>
+              </button>
+              <button id="btnPleat_box" onclick="selectPleat('box')" class="p-4 border border-borderSubtle bg-white hover:border-brass text-left transition-all">
+                <div class="text-sm font-bold text-obsidian mb-1">Бантовая (Box)</div>
+                <div class="text-[11px] text-obsidian/70">Коэффициент 1:2.2 • Архитектурная симметрия</div>
+              </button>
+            </div>
+            
+            <!-- Real-time SVG Pleat Visualizer Profile -->
+            <div class="mt-4 p-4 bg-ecru border border-borderSubtle">
+              <div class="text-[10px] uppercase tracking-wider text-brass font-bold mb-1">Профиль складки карниза:</div>
+              <div id="pleatShapeVisual" class="py-2"></div>
+              <div id="calcPleatDesc" class="text-xs text-obsidian/70 mt-1 italic">
+                Лаконичный ритм, шаг 16 см. Идеально для высоких потолков и новостроек.
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Fabric Category -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider font-bold text-obsidian mb-3">
+              2. Выберите категорию ткани:
+            </label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div id="cardFabric_chenille" onclick="selectFabric('chenille')" class="p-4 border border-brass ring-1 ring-brass bg-brass/5 cursor-pointer text-left transition-all">
+                <span class="text-[10px] uppercase font-bold text-brass tracking-wider">Бельгия</span>
+                <div class="text-xs font-bold text-obsidian mt-1">Шенилл Wind</div>
+                <div class="text-[11px] text-obsidian/60 mt-1">24 500 ₸/м</div>
+              </div>
+
+              <div id="cardFabric_velvet" onclick="selectFabric('velvet')" class="p-4 border border-borderSubtle bg-white hover:border-brass cursor-pointer text-left transition-all">
+                <span class="text-[10px] uppercase font-bold text-obsidian/50 tracking-wider">Италия</span>
+                <div class="text-xs font-bold text-obsidian mt-1">Бархат Dedar</div>
+                <div class="text-[11px] text-obsidian/60 mt-1">28 000 ₸/м</div>
+              </div>
+
+              <div id="cardFabric_linen" onclick="selectFabric('linen')" class="p-4 border border-borderSubtle bg-white hover:border-brass cursor-pointer text-left transition-all">
+                <span class="text-[10px] uppercase font-bold text-obsidian/50 tracking-wider">Франция</span>
+                <div class="text-xs font-bold text-obsidian mt-1">Лён Casamance</div>
+                <div class="text-[11px] text-obsidian/60 mt-1">19 800 ₸/м</div>
+              </div>
+
+              <div id="cardFabric_blackout" onclick="selectFabric('blackout')" class="p-4 border border-borderSubtle bg-white hover:border-brass cursor-pointer text-left transition-all">
+                <span class="text-[10px] uppercase font-bold text-obsidian/50 tracking-wider">Турция</span>
+                <div class="text-xs font-bold text-obsidian mt-1">100% Blackout</div>
+                <div class="text-[11px] text-obsidian/60 mt-1">16 500 ₸/м</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Dimensions Sliders -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 bg-ecru p-6 border border-borderSubtle">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs uppercase tracking-wider font-semibold text-obsidian/80">Ширина карниза</span>
+                <span id="calcWidthVal" class="text-sm font-bold text-brass font-mono">3.2 м</span>
+              </div>
+              <input type="range" min="1.0" max="7.0" step="0.1" value="3.2" oninput="calcState.width = parseFloat(this.value); updateB2CCalculator();" class="w-full accent-brass">
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-xs uppercase tracking-wider font-semibold text-obsidian/80">Высота потолка</span>
+                <span id="calcHeightVal" class="text-sm font-bold text-brass font-mono">3.0 м</span>
+              </div>
+              <input type="range" min="2.2" max="6.5" step="0.05" value="3.0" oninput="calcState.height = parseFloat(this.value); updateB2CCalculator();" class="w-full accent-brass">
+            </div>
+          </div>
+
+          <!-- Step 4: Addon Options -->
+          <div class="flex flex-wrap gap-6 pt-2">
+            <label class="inline-flex items-center gap-2.5 text-xs text-obsidian cursor-pointer select-none">
+              <input type="checkbox" checked onchange="calcState.includeTulle = this.checked; updateB2CCalculator();" class="w-4 h-4 accent-brass">
+              <span>Добавить легкую французскую вуаль (тюль в пол)</span>
+            </label>
+            <label class="inline-flex items-center gap-2.5 text-xs text-obsidian cursor-pointer select-none">
+              <input type="checkbox" onchange="calcState.includeSomfy = this.checked; updateB2CCalculator();" class="w-4 h-4 accent-brass">
+              <span>Бесшумный электрокарниз Somfy Glydea Ultra (Умный Дом)</span>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- Right: Real-time Costing Output (4-Col) -->
+        <div class="lg:col-span-4 bg-ecru p-6 sm:p-8 border border-borderBrass couture-card">
+          <span class="text-[10px] uppercase font-bold text-brass tracking-widest block mb-1">Предварительный расчет</span>
+          <div class="text-3xl sm:text-4xl font-serif font-bold text-obsidian mb-1" id="calcTotalEstimate">
+            40 395 ₸
+          </div>
+          <div class="text-xs text-obsidian/60 mb-6">под ключ с пошивом и тесьмой</div>
+
+          <div class="space-y-3 text-xs text-obsidian/80 border-t border-borderSubtle pt-4 mb-6">
+            <div class="flex justify-between">
+              <span>Ткань:</span>
+              <span id="calcFabricName" class="font-semibold text-right">Шенилл Wind</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Расход полотна:</span>
+              <span id="calcMeters" class="font-semibold">6.8 пог. м</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Цеховой пошив:</span>
+              <span id="calcTailoring" class="font-semibold">44 200 ₸</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Гарантия:</span>
+              <span class="font-semibold text-emerald-700">3 года по договору</span>
+            </div>
+          </div>
+
+          <button onclick="sendCalcToWhatsApp()" class="w-full bg-obsidian hover:bg-brass text-white text-xs uppercase tracking-widest font-semibold py-4 transition-all duration-300 mb-3">
+            Зафиксировать расчет в WhatsApp
+          </button>
+          
+          <button onclick="openSamplerModal()" class="w-full border border-borderBrass bg-white hover:bg-brass/10 text-obsidian text-xs uppercase tracking-widest font-semibold py-3 transition-colors">
+            Пригласить замерщика на объект
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 3.5: VOICE AI CONCIERGE (ГОЛОСОВОЙ РАСЧЕТ БЕЗ ПЕЧАТИ)    -->
+  <!-- ============================================================ -->
+  <section id="voice-ai" class="py-16 md:py-24 bg-obsidian text-white border-b border-obsidianLight relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <div class="inline-flex items-center gap-2 border border-brass/40 bg-white/5 text-brassLight text-[11px] uppercase tracking-widest font-semibold px-3.5 py-1.5 mb-6">
+        <span>🎙️</span>
+        <span>Voice AI Onboarding • Без клавиатуры</span>
+      </div>
+
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+        Не нужно печатать на телефоне.<br><span class="italic font-normal text-brassLight">Просто скажите вслух.</span>
+      </h2>
+
+      <p id="voiceStatusLabel" class="text-sm text-white/70 max-w-lg mx-auto mb-10 leading-relaxed">
+        Нажмите на микрофон и назовите комнату, примерные размеры окна или желаемый стиль ткани:
+      </p>
+
+      <!-- Pulsing Microphone Button -->
+      <div class="flex justify-center mb-8">
+        <div class="mic-pulse-container">
+          <div class="mic-ring"></div>
+          <div class="mic-ring"></div>
+          <div class="mic-ring"></div>
+          <button id="btnVoiceMic" onclick="toggleVoiceRecording()" aria-label="Говорить" class="w-20 h-20 rounded-full bg-white text-obsidian hover:bg-brass hover:text-white flex items-center justify-center text-3xl transition-all duration-300 shadow-2xl relative z-10">
+            🎤
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Transcript Bubble -->
+      <div class="bg-obsidianLight/80 border border-white/10 max-w-xl mx-auto p-4 rounded-lg mb-8">
+        <div class="text-[10px] uppercase tracking-wider text-brassLight/70 font-mono mb-1">Распознавание речи:</div>
+        <div id="voiceTranscriptText" class="text-sm text-white/90 font-serif italic">
+          «Нажмите на микрофон или выберите готовый образец фразы ниже 👇»
+        </div>
+      </div>
+
+      <!-- Quick Query Chips -->
+      <div class="flex flex-wrap justify-center gap-2.5 max-w-2xl mx-auto mb-8">
+        <button onclick="testSampleVoiceQuery('Детская ткань sheeneel, производство Бельгия, окно 3 на 2.80')" class="text-xs bg-white/10 hover:bg-brass hover:text-white px-3.5 py-2 rounded-full border border-white/10 transition-colors">
+          ✨ «Детская, шенилл Бельгия, окно 3 на 2.80»
+        </button>
+        <button onclick="testSampleVoiceQuery('Гостиная в Highvill, портьеры блэкаут, окно 4 на 3.20')" class="text-xs bg-white/10 hover:bg-brass hover:text-white px-3.5 py-2 rounded-full border border-white/10 transition-colors">
+          🌙 «Гостиная в Highvill, блэкаут, 4 на 3.20»
+        </button>
+        <button onclick="testSampleVoiceQuery('Мастер-спальня, итальянский бархат, окно 2.5 на 3.0')" class="text-xs bg-white/10 hover:bg-brass hover:text-white px-3.5 py-2 rounded-full border border-white/10 transition-colors">
+          👑 «Спальня, бархат Италия, 2.5 на 3.0»
+        </button>
+      </div>
+
+      <!-- Instant Voice Calculation Result Card -->
+      <div id="voiceResultCard" class="hidden bg-white text-obsidian max-w-lg mx-auto p-6 text-left border border-borderBrass couture-card shadow-2xl">
+        <div class="flex justify-between items-start mb-4">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-brass tracking-wider">⚡ Рассчитано голосом</span>
+            <h3 class="font-serif text-xl font-bold text-obsidian mt-0.5" id="voiceResRoom">Детская комната</h3>
+          </div>
+          <div class="text-right">
+            <div class="text-2xl font-serif font-bold text-brass" id="voiceResPrice">65 400 ₸</div>
+            <div class="text-[10px] text-obsidian/50">ориентир под ключ</div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 text-xs border-y border-borderSubtle py-3 my-4">
+          <div>
+            <span class="text-obsidian/50 block text-[10px] uppercase">Ткань:</span>
+            <span id="voiceResFabric" class="font-semibold">Шенилл Бельгия</span>
+          </div>
+          <div>
+            <span class="text-obsidian/50 block text-[10px] uppercase">Размеры:</span>
+            <span id="voiceResDims" class="font-semibold">3.00 × 2.80 м</span>
+          </div>
+        </div>
+
+        <button onclick="sendVoiceResultToWhatsApp()" class="w-full bg-obsidian hover:bg-brass text-white text-xs uppercase tracking-widest font-semibold py-3.5 transition-colors">
+          Перейти в WhatsApp с этим расчетом &rarr;
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 3.8: B2B ПРОЕКТНЫЙ ДИВИЗИОН (ДЛЯ ЮРИДИЧЕСКИХ ЛИЦ)        -->
+  <!-- ============================================================ -->
+  <section id="b2b-section" class="flow-b2b hidden py-20 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-slate-800 pb-6">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-brassLight font-bold block mb-2">B2B Проектный дивизион</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Солнцезащита и контрактный текстиль с НДС 12%</h2>
+        </div>
+        <p class="text-xs text-slate-400 max-w-md mt-3 md:mt-0">
+          Специализированные решения для бизнес-центров, отелей 5*, банков и кабинетов первых лиц в Астане.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Systems Details -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="p-6 bg-slate-800/80 border border-slate-700">
+            <h3 class="text-lg font-bold text-white mb-2">Моторизованные системы Somfy Screen (Франция)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Подавление до 95% солнечного тепла и бликов на мониторах в Open Space без затемнения панорамы города. Бесшумные моторы Somfy Sonesse (шум менее 38 дБ) с интеграцией в BMS / KNX / DALI.
+            </p>
+            <div class="text-[11px] text-brassLight font-mono">Протоколы: RS-485 • Сухие контакты • RTS радио</div>
+          </div>
+
+          <div class="p-6 bg-slate-800/80 border border-slate-700">
+            <h3 class="text-lg font-bold text-white mb-2">Огнестойкий текстиль Trevira CS (Класс КМ1)</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-4">
+              Встроенная негорючесть полимера, подтвержденная сертификатами МЧС РФ и РК. Сохраняет свойства после 100+ стирок. Акустическое звукопоглощение для тишины в переговорных залах.
+            </p>
+            <div class="text-[11px] text-emerald-400 font-mono">Сертификаты: 123-ФЗ • Класс КМ1 • Г1/В1/Д2/Т2</div>
+          </div>
+
+          <div class="p-6 bg-slate-800/80 border border-slate-700">
+            <h3 class="text-lg font-bold text-white mb-2">ЭДО и бухгалтерская документация</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Работаем на ОСНО с НДС 12%. Поставка закрывается УПД, строительно-монтажные работы оформляются актами по формам КС-2 и КС-3.
+            </p>
+          </div>
+        </div>
+
+        <!-- B2B Calculator -->
+        <div class="lg:col-span-5 bg-slate-800 p-8 border border-slate-700 shadow-xl">
+          <span class="text-[10px] uppercase font-bold text-brassLight tracking-widest block mb-2">Экспресс-смета для юрлиц</span>
+          
+          <div class="space-y-4 text-xs mb-6">
+            <div>
+              <label class="block text-slate-300 mb-1">Тип системы:</label>
+              <select id="b2bSystemType" onchange="updateB2BCalculator()" class="w-full bg-slate-900 border border-slate-700 px-3 py-2.5 text-white">
+                <option value="screen">Somfy Screen 5% (Солнцезащита Open Space)</option>
+                <option value="blackout">Кассетный Blackout 100% (Переговорные ВКС)</option>
+                <option value="wood">Деревянные жалюзи 50мм (Кабинет CEO)</option>
+                <option value="trevira">Контрактные шторы Trevira CS (Отели / HoReCa)</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-slate-300">Количество оконных проемов:</span>
+                <span id="b2bOpeningsVal" class="text-brassLight font-bold">12 проемов</span>
+              </div>
+              <input id="b2bOpeningsSlider" type="range" min="3" max="60" value="12" oninput="updateB2BCalculator()" class="w-full accent-brass">
+            </div>
+          </div>
+
+          <div class="border-t border-slate-700 pt-4 mb-6">
+            <div class="text-slate-400 text-xs">Ориентировочная стоимость:</div>
+            <div id="b2bTotalCost" class="text-3xl font-serif font-bold text-white my-1">540 000 ₸</div>
+            <div id="b2bVatAmount" class="text-[11px] text-emerald-400">В том числе НДС 12%: 57 857 ₸</div>
+          </div>
+
+          <button onclick="sendB2BToWhatsApp()" class="w-full bg-brass hover:bg-brassLight text-obsidian text-xs uppercase tracking-widest font-bold py-4 transition-colors mb-3">
+            Запросить официальное КП за 2 часа
+          </button>
+          <div class="text-[10px] text-center text-slate-400">Выезд инженера с кейсом автоматики Somfy на объект</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 4: «7 СИЛ СТУДИИ» (EDITORIAL COUTURE BENTO GRID)          -->
+  <!-- ============================================================ -->
+  <section id="powers" class="py-20 md:py-28 bg-ecru relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-borderSubtle pb-8">
+        <div>
+          <div class="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brass font-semibold mb-3">
+            <span>Официальный статус и производство</span>
+          </div>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-obsidian tracking-tight">
+            7 Сил Нашей Студии
+          </h2>
+        </div>
+        <p class="mt-4 md:mt-0 text-sm text-obsidian/70 max-w-md font-normal leading-relaxed">
+          «В лоб» о том, почему владельцы премиальной недвижимости в Астане и топовые архитекторы доверяют нам оформление текстиля без права на ошибку.
+        </p>
+      </div>
+
+      <!-- Bento Grid: 7 Powers -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+
+        <!-- СИЛА 1: ТОП-50 МИРОВЫХ ДЕКОРАТОРОВ -->
+        <div class="md:col-span-7 bg-white p-8 sm:p-10 border border-borderSubtle couture-card flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-8">
+            <span class="font-serif text-5xl sm:text-6xl font-light text-brass/35 select-none">01</span>
+            <span class="border border-borderBrass bg-brass/5 text-brassDark text-[11px] uppercase tracking-wider font-semibold px-3 py-1">
+              Международный статус
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-obsidian mb-4 leading-snug">
+              Входим в ТОП-50 мировых декораторов интерьерного текстиля
+            </h3>
+            <p class="text-sm text-obsidian/75 leading-relaxed mb-6">
+              12 лет безупречного мастерства и свыше 840 завершенных объектов: от пентхаусов в Астане до частных вилл. Мы создаем текстильную архитектуру, регулярно публикуемую на страницах Architectural Digest, Elle Decoration и Salon.
+            </p>
+            <div class="flex flex-wrap gap-4 text-xs font-semibold text-obsidian/90 pt-4 border-t border-borderSubtle">
+              <span>✓ 12 лет в Астане</span>
+              <span>✓ 840+ закрытых резиденций</span>
+              <span>✓ Top-50 World Interior Decorators</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- СИЛА 2: СОБСТВЕННЫЙ ШВЕЙНЫЙ ЦЕХ В АСТАНЕ -->
+        <div class="md:col-span-5 bg-obsidian text-white p-8 sm:p-10 border border-obsidianLight couture-card flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-8">
+            <span class="font-serif text-5xl sm:text-6xl font-light text-brassLight/35 select-none">02</span>
+            <span class="border border-brass/40 bg-white/5 text-brassLight text-[11px] uppercase tracking-wider font-semibold px-3 py-1">
+              Собственный цех в Астане
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-4 leading-snug">
+              Швейный цех Haute Couture: ручной потайной шов
+            </h3>
+            <p class="text-sm text-white/75 leading-relaxed mb-6">
+              Никакого аутсорса. Собственное производство 350 м² с немецкими машинами Durkopp Adler. Закрытые потайные швы ручной сборки, подгибка низа 10–12 см с двойным утяжелителем. Ваши шторы не перекосит и не поведет со временем.
+            </p>
+            <div class="text-xs text-brassLight font-medium pt-4 border-t border-white/10 flex items-center justify-between">
+              <span>Цех в Астане: 350 м²</span>
+              <span>Точность шва: ±1 мм</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- СИЛА 3: ПРЯМЫЕ КОНТРАКТЫ С ФАБРИКАМИ ЕВРОПЫ -->
+        <div class="md:col-span-4 bg-white p-8 border border-borderSubtle couture-card flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-serif text-4xl font-light text-brass/35 select-none">03</span>
+            <span class="text-[10px] uppercase tracking-wider text-obsidian/60 font-semibold">Импорт первых рук</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-obsidian mb-3">
+              Прямые контракты с фабриками Бельгии, Италии, Франции
+            </h3>
+            <p class="text-xs sm:text-sm text-obsidian/75 leading-relaxed mb-4">
+              Более 1 200 каталогов: Dedar, Rubelli, Loro Piana, Pierre Frey. Честные цены первых рук без наценок посредников и поставки от 10 дней.
+            </p>
+          </div>
+          <div class="text-xs text-brassDark font-semibold pt-3 border-t border-borderSubtle">
+            &gt;1 000 эксклюзивных тканей в библиотеке
+          </div>
+        </div>
+
+        <!-- СИЛА 4: AI & 3D-ПРИМЕРКА НА СТАДИИ ГОЛЫХ СТЕН -->
+        <div class="md:col-span-4 bg-white p-8 border border-borderSubtle couture-card flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-serif text-4xl font-light text-brass/35 select-none">04</span>
+            <span class="text-[10px] uppercase tracking-wider text-brassDark font-semibold bg-brass/10 px-2.5 py-0.5">AI & 3D Tech</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-obsidian mb-3">
+              AI & 3D-примерка текстиля на стадии голых стен новостройки
+            </h3>
+            <p class="text-xs sm:text-sm text-obsidian/75 leading-relaxed mb-4">
+              Вам не нужно гадать по лоскутку 10х10 см. Моделируем падение складок, плотность и цвет ткани с учетом естественного солнца вашей квартиры за 24 часа.
+            </p>
+          </div>
+          <div class="text-xs text-obsidian/80 font-medium pt-3 border-t border-borderSubtle">
+            Финальный образ до заказа ткани
+          </div>
+        </div>
+
+        <!-- СИЛА 5: СЕРВИС ПОД КЛЮЧ: ЗАМЕР, НАВЕС, ОТПАРИВАНИЕ -->
+        <div class="md:col-span-4 bg-white p-8 border border-borderSubtle couture-card flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-serif text-4xl font-light text-brass/35 select-none">05</span>
+            <span class="text-[10px] uppercase tracking-wider text-obsidian/60 font-semibold">White Glove Service</span>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-obsidian mb-3">
+              Сервис «Под ключ»: выезд с чемоданом, навес, отпаривание
+            </h3>
+            <p class="text-xs sm:text-sm text-obsidian/75 leading-relaxed mb-4">
+              Монтажники в бахилах сверлят с пылесосом. Установка бесшумных карнизов Somfy, навеска складок и вертикальное паровое отпаривание.
+            </p>
+          </div>
+          <div class="text-xs text-brassDark font-semibold pt-3 border-t border-borderSubtle">
+            Безусловная гарантия 3 года по договору
+          </div>
+        </div>
+
+        <!-- СИЛА 6: B2B КОНТРАКТНЫЙ ОТДЕЛ -->
+        <div class="md:col-span-6 bg-ecruDark p-8 sm:p-10 border border-borderSubtle couture-card flex flex-col justify-between">
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-serif text-4xl font-light text-brass/35 select-none">06</span>
+            <span class="border border-obsidian/20 text-obsidian text-[11px] uppercase tracking-wider font-semibold px-3 py-1">
+              B2B & Корпоративные объекты
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-obsidian mb-3">
+              B2B Контрактный отдел: НДС 12%, акты КС-2/КС-3, Trevira CS
+            </h3>
+            <p class="text-sm text-obsidian/75 leading-relaxed mb-6">
+              Комплектация посольств, штаб-квартир и отелей 5*. Огнестойкие ткани Trevira CS (КМ1), светостойкость 5+, акустический текстиль и закрывающие документы за 24 часа.
+            </p>
+            <div class="flex flex-wrap gap-4 text-xs font-semibold text-obsidian/80 pt-3 border-t border-borderSubtle">
+              <span>✓ НДС 12%</span>
+              <span>✓ Сертификаты КМ1 / Trevira CS</span>
+              <span>✓ Акты КС-2 / КС-3 через ЭДО</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- СИЛА 7: ЗАКРЫТЫЙ ДИЗАЙНЕРСКИЙ КЛУБ: 10% КЭШБЭК -->
+        <div class="md:col-span-6 bg-gradient-to-br from-white to-brass/10 p-8 sm:p-10 border-2 border-brass/40 couture-card flex flex-col justify-between relative overflow-hidden">
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-serif text-4xl font-light text-brass/40 select-none">07</span>
+            <span class="bg-brass text-white text-[11px] uppercase tracking-widest font-bold px-3 py-1">
+              Партнерский клуб
+            </span>
+          </div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-obsidian mb-3">
+              Дизайнерский клуб: защита авторства и честный кэшбэк 10%
+            </h3>
+            <p class="text-sm text-obsidian/80 leading-relaxed mb-6">
+              Клиент закрепляется за дизайнером навсегда. Агентское вознаграждение 10% выплачивается день-в-день при внесении аванса клиентом. Предоставляем 3D-текстуры для рендеров и личного куратора производства.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-brass/30">
+              <span class="text-xs font-bold text-brassDark uppercase tracking-wider">140+ архитекторов в клубе</span>
+              <button onclick="openWhatsAppForDesigner()" class="text-xs font-semibold text-obsidian underline underline-offset-4 hover:text-brass transition-colors">
+                Вступить в клуб дизайнеров &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 4.5: ИНТЕРАКТИВНЫЙ СПЛИТ-СЛАЙДЕР «БЫЛО / СТАЛО»          -->
+  <!-- ============================================================ -->
+  <section class="py-20 bg-white border-b border-borderSubtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest text-brass font-bold block mb-2">Наглядный результат</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-obsidian mb-3">
+          Было и Стало: От голого бетона до тихой роскоши
+        </h2>
+        <p class="text-xs sm:text-sm text-obsidian/70">
+          Потяните разделитель вправо или влево, чтобы оценить преображение пространства новостройки в Астане (ЖК Highvill Prime).
+        </p>
+      </div>
+
+      <!-- Before / After Interactive Container -->
+      <div id="beforeAfterContainer" class="before-after-container aspect-[16/9] max-w-4xl mx-auto border border-borderBrass shadow-2xl relative">
+        
+        <!-- "Было" Layer (Бетон новостройки) -->
+        <div class="before-layer bg-neutral-900 flex items-center justify-center text-white relative">
+          <div class="absolute inset-0 bg-neutral-800 flex items-center justify-center">
+            <div class="text-center p-8">
+              <span class="text-5xl block mb-2">🧱</span>
+              <div class="font-serif text-2xl font-bold">БЫЛО: Черновой бетон новостройки</div>
+              <div class="text-xs text-neutral-400 mt-2 max-w-sm">Слепящее степное солнце, холодные стены и гулкое бетонное эхо в пустом помещении.</div>
+            </div>
+          </div>
+          <div class="absolute bottom-6 right-6 bg-black/70 px-4 py-2 text-xs uppercase font-bold text-neutral-300">
+            До текстиля (Бетон)
+          </div>
+        </div>
+
+        <!-- "Стало" Layer (Кутюрный текстиль) -->
+        <div id="afterLayer" class="after-layer bg-ecru flex items-center justify-center text-obsidian relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-brass/20 via-white to-ecru flex items-center justify-center">
+            <div class="text-center p-8">
+              <span class="text-5xl block mb-2">✨</span>
+              <div class="font-serif text-2xl font-bold text-obsidian">СТАЛО: Архитектура текстиля Maison Textile</div>
+              <div class="text-xs text-obsidian/80 mt-2 max-w-sm">Бельгийский шенилл в пол с идеальной волной, мягкий рассеянный свет, акустический комфорт и 100% затемнение.</div>
+            </div>
+          </div>
+          <div class="absolute bottom-6 left-6 bg-brass text-white px-4 py-2 text-xs uppercase font-bold">
+            После (Кутюрная навеска)
+          </div>
+        </div>
+
+        <!-- Drag Handle -->
+        <div id="splitHandle" class="split-handle">
+          <div class="split-handle-btn">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 4.8: ZERO-LAG ИНСТАГРАМ-ФИД (БЕЗ ЗАМЕДЛЕНИЯ САЙТА)       -->
+  <!-- ============================================================ -->
+  <section class="py-16 md:py-24 bg-ecru border-b border-borderSubtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 border-b border-borderSubtle pb-6">
+        <div>
+          <span class="text-xs uppercase tracking-widest text-brass font-semibold block mb-2">Zero-Lag Edge Performance (100/100 PageSpeed)</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-obsidian">Реализованные объекты в Астане</h2>
+        </div>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="mt-4 sm:mt-0 inline-flex items-center gap-2 text-xs font-semibold text-obsidian hover:text-brass uppercase tracking-wider">
+          <span>Смотреть Reels в Instagram @maison_textile</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+
+      <!-- Static Cached Grid: Zero heavy external JS scripts -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        
+        <div class="group relative bg-white border border-borderSubtle overflow-hidden couture-card cursor-pointer">
+          <div class="aspect-[4/5] bg-neutral-200 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-65 group-hover:opacity-90 transition-opacity"></div>
+            <div class="p-4 text-center z-10 text-neutral-400 group-hover:scale-105 transition-transform duration-500">
+              <span class="text-3xl">🪟</span>
+              <div class="text-xs text-white/95 mt-2 font-serif italic">ЖК Talan Towers</div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+              <div class="text-[10px] uppercase tracking-wider text-brassLight font-semibold">Пентхаус 320 м²</div>
+              <div class="text-xs font-medium mt-0.5">Дикий шелк Dedar с приводами Somfy</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative bg-white border border-borderSubtle overflow-hidden couture-card cursor-pointer">
+          <div class="aspect-[4/5] bg-neutral-200 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-65 group-hover:opacity-90 transition-opacity"></div>
+            <div class="p-4 text-center z-10 text-neutral-400 group-hover:scale-105 transition-transform duration-500">
+              <span class="text-3xl">🧵</span>
+              <div class="text-xs text-white/95 mt-2 font-serif italic">ЖК Highvill Park</div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+              <div class="text-[10px] uppercase tracking-wider text-brassLight font-semibold">Резиденция 210 м²</div>
+              <div class="text-xs font-medium mt-0.5">Ручной потайной шов, шенилл Бельгия</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative bg-white border border-borderSubtle overflow-hidden couture-card cursor-pointer">
+          <div class="aspect-[4/5] bg-neutral-200 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-65 group-hover:opacity-90 transition-opacity"></div>
+            <div class="p-4 text-center z-10 text-neutral-400 group-hover:scale-105 transition-transform duration-500">
+              <span class="text-3xl">🏛️</span>
+              <div class="text-xs text-white/95 mt-2 font-serif italic">BI Village Deluxe</div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+              <div class="text-[10px] uppercase tracking-wider text-brassLight font-semibold">Второй свет 7.2м</div>
+              <div class="text-xs font-medium mt-0.5">Итальянский бархат Rubelli с подкладкой</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative bg-white border border-borderSubtle overflow-hidden couture-card cursor-pointer">
+          <div class="aspect-[4/5] bg-neutral-200 relative overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-65 group-hover:opacity-90 transition-opacity"></div>
+            <div class="p-4 text-center z-10 text-neutral-400 group-hover:scale-105 transition-transform duration-500">
+              <span class="text-3xl">🏢</span>
+              <div class="text-xs text-white/95 mt-2 font-serif italic">Astana Hub / VIP</div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+              <div class="text-[10px] uppercase tracking-wider text-brassLight font-semibold">B2B Контракт (НДС)</div>
+              <div class="text-xs font-medium mt-0.5">Огнестойкий акустический блэкаут Trevira CS</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- ACT 5: СЕКРЕТНЫЙ ТЕРМИНАЛ ПЕРСОНАЛЬНОГО КП ПО КОДУ           -->
+  <!-- ============================================================ -->
+  <section class="py-20 bg-obsidian text-white border-b border-obsidianLight relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-xs uppercase tracking-[0.25em] text-brassLight font-bold mb-3 block">Закрытый VIP-консьерж</span>
+      <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white mb-4">
+        Доступ к персональному дизайн-проекту текстиля
+      </h2>
+      <p class="text-sm text-white/70 max-w-xl mx-auto mb-10 leading-relaxed">
+        Мы не отправляем заказчикам безликие PDF-файлы смет. Введите персональный код вашего объекта, чтобы открыть интерактивное досье с 4K-зумом нитей тканей и световыми сценариями:
+      </p>
+
+      <div class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 mb-6">
+        <input id="secretCodeInput" type="text" placeholder="Введите код (напр: PROJECT-70)" class="flex-1 bg-obsidianLight border border-brass/40 px-5 py-4 text-sm font-mono tracking-widest text-center uppercase focus:outline-none focus:border-brassLight text-white">
+        <button onclick="openSecretKP()" class="bg-brass hover:bg-brassLight text-obsidian font-bold text-xs uppercase tracking-widest px-8 py-4 transition-colors">
+          Открыть &rarr;
+        </button>
+      </div>
+
+      <div class="text-xs text-white/50">
+        У вас еще нет кода? <button onclick="openSecretKP()" class="text-brassLight underline underline-offset-4 hover:text-white transition-colors">Посмотреть демонстрационный проект (Вилла в пос. Саранда)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- FOOTER                                                       -->
+  <!-- ============================================================ -->
+  <footer class="bg-obsidian text-white/80 py-16 border-t border-obsidianLight text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-8 h-8 border border-brass/40 flex items-center justify-center text-brass">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 48 48">
+              <path d="M14 12C18 8 26 8 30 14C32 17 31 22 28 25C25 28 20 28 17 31C14 34 14 39 18 42C12 39 10 32 12 26C14 21 18 19 21 16C24 13 22 10 18 10C16 10 14 11 14 12Z"/>
+            </svg>
+          </div>
+          <span class="font-serif text-2xl font-bold tracking-tight text-white uppercase">Maison Textile</span>
+        </div>
+        <p class="text-xs text-white/60 max-w-sm leading-relaxed mb-6">
+          Ателье кутюрного текстиля. Топ-50 мировых декораторов. Собственное производство 350 м² в Астане, прямые поставки из Бельгии и Италии, партнерский клуб дизайнеров с кэшбэком 10% и B2B-контрактный отдел с НДС.
+        </p>
+        <div class="text-xs text-white/40">
+          © 2014–2026 Maison Textile. Все права защищены.
+        </div>
+      </div>
+      <div>
+        <h5 class="text-xs uppercase tracking-widest text-brassLight font-semibold mb-4">Навигация</h5>
+        <ul class="space-y-2 text-xs text-white/70">
+          <li><a href="#powers" class="hover:text-white transition-colors">7 Сил Студии</a></li>
+          <li><a href="#calculator" class="hover:text-white transition-colors">Калькулятор складок</a></li>
+          <li><a href="#voice-ai" class="hover:text-white transition-colors">Voice AI ассистент</a></li>
+          <li><a href="javascript:void(0)" onclick="openSamplerModal()" class="hover:text-white transition-colors">Вызов с чемоданом образцов</a></li>
+          <li><a href="javascript:void(0)" onclick="openWhatsAppForDesigner()" class="hover:text-white transition-colors">Дизайнерский Клуб (10% кэшбэк)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-xs uppercase tracking-widest text-brassLight font-semibold mb-4">Шоурум & Цех в Астане</h5>
+        <p class="text-xs text-white/70 leading-relaxed mb-3">
+          Казахстан, г. Астана, ул. Достык, 16<br>
+          (Прием по предварительной записи)
+        </p>
+        <p class="text-xs text-white/70">
+          Телефон: <a href="tel:+77172000000" class="text-white font-semibold hover:text-brassLight">+7 (7172) 99-88-77</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================ -->
+  <!-- МОДАЛЬНОЕ ОКНО: ЗАКРЫТОЕ ВИП-ДОСЬЕ ПРОЕКТА (PROJECT-70)      -->
+  <!-- ============================================================ -->
+  <div id="secretKPDossierModal" class="fixed inset-0 z-50 bg-obsidian/85 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white max-w-3xl w-full p-8 sm:p-10 border border-borderBrass relative couture-card shadow-2xl my-8">
+      <button onclick="closeSecretKP()" class="absolute top-6 right-6 text-obsidian/40 hover:text-obsidian text-3xl leading-none">&times;</button>
+      
+      <!-- Dossier Header -->
+      <div class="flex items-center gap-2 text-brass text-[10px] uppercase tracking-widest font-mono font-bold mb-2">
+        <span>🔒 STRICTLY CONFIDENTIAL</span>
+        <span>•</span>
+        <span>КОД: PROJECT-70</span>
+      </div>
+
+      <h3 class="font-serif text-3xl sm:text-4xl font-bold text-obsidian mb-1" id="vipPropertyTitle">
+        Резиденция в пос. Саранда (480 м²)
+      </h3>
+      <div class="text-xs text-obsidian/60 mb-6">
+        Заказчики: <strong class="text-obsidian" id="vipClientName">Айдар и Динара</strong> • Ведущий декоратор: <span id="vipDesigner" class="text-brass font-medium">Анастасия Белова</span>
+      </div>
+
+      <!-- Light Simulation Tabs -->
+      <div class="mb-6 p-4 bg-ecru border border-borderSubtle">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs uppercase font-bold text-obsidian">Световой сценарий интерьера:</span>
+          <div class="flex gap-2">
+            <button id="btnLightDay" onclick="switchDayNight('day')" class="px-3 py-1 bg-brass text-white text-[11px] font-semibold transition-colors">☀️ День</button>
+            <button id="btnLightEvening" onclick="switchDayNight('evening')" class="px-3 py-1 bg-white hover:bg-brass/20 text-obsidian text-[11px] font-semibold transition-colors">🌆 Вечер</button>
+            <button id="btnLightNight" onclick="switchDayNight('night')" class="px-3 py-1 bg-white hover:bg-brass/20 text-obsidian text-[11px] font-semibold transition-colors">🌙 Ночь (Blackout)</button>
+          </div>
+        </div>
+
+        <div class="aspect-[16/9] bg-neutral-900 overflow-hidden flex items-center justify-center text-white relative transition-all duration-500" id="vipRenderVisual">
+          <div class="text-center p-6">
+            <div class="font-serif text-xl font-bold">Парадная гостиная: Бельгийский шенилл Wind</div>
+            <div class="text-xs text-neutral-300 mt-1">Складка «Волна» 1:2.0 на скрытом электрокарнизе Somfy</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Pipeline Status -->
+      <div class="p-4 bg-ecruDark border border-borderSubtle mb-6">
+        <div class="text-[10px] uppercase font-bold text-obsidian/60 tracking-wider mb-2">Статус реализации:</div>
+        <div class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full bg-emerald-600 animate-ping"></span>
+          <span id="vipStatusText" class="text-xs font-semibold text-obsidian">Пошив в собственном цехе в Астане (Готовность 75%)</span>
+        </div>
+        <div class="text-[11px] text-obsidian/60 mt-1">Плановая дата чистового навеса: <strong id="vipDeliveryDate">14 октября 2026 г.</strong></div>
+      </div>
+
+      <!-- Action Bar -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-borderSubtle">
+        <div>
+          <div class="text-xs text-obsidian/60">Итоговая смета с монтажом:</div>
+          <div id="vipTotalCost" class="text-3xl font-serif font-bold text-brass">3 480 000 ₸</div>
+        </div>
+
+        <button onclick="approveVipDossierWhatsApp()" class="w-full sm:w-auto bg-obsidian hover:bg-brass text-white text-xs uppercase tracking-widest font-semibold px-8 py-4 transition-colors">
+          Утвердить смету в WhatsApp &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- МОДАЛЬНОЕ ОКНО: ВЫЗОВ С ЧЕМОДАНОМ ОБРАЗЦОВ (50 КГ)          -->
+  <!-- ============================================================ -->
+  <div id="samplerModal" class="fixed inset-0 z-50 bg-obsidian/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white max-w-lg w-full p-8 border border-borderBrass relative couture-card shadow-2xl">
+      <button onclick="closeSamplerModal()" class="absolute top-6 right-6 text-obsidian/40 hover:text-obsidian text-2xl leading-none">&times;</button>
+      
+      <div class="text-[10px] uppercase tracking-widest text-brass font-bold mb-2">White Glove Service</div>
+      <h3 class="font-serif text-2xl sm:text-3xl font-bold text-obsidian mb-2">Выезд декоратора с чемоданом образцов</h3>
+      <p class="text-xs text-obsidian/70 leading-relaxed mb-6">
+        Привезем до 50 кг каталогов Dedar, Loro Piana, Rubelli под вашу цветовую палитру. Проведем лазерный замер скрытых оконных ниш в Астане.
+      </p>
+
+      <form id="samplerForm" onsubmit="handleSamplerSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs uppercase tracking-wider font-semibold text-obsidian/70 mb-1">Номер телефона</label>
+          <input type="tel" required placeholder="+7 (___) ___-__-__" class="w-full border border-borderSubtle bg-ecru px-4 py-3 text-sm focus:outline-none focus:border-brass">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider font-semibold text-obsidian/70 mb-1">Объект / ЖК в Астане</label>
+          <input type="text" required placeholder="Например: ЖК Talan Towers, кв. 140" class="w-full border border-borderSubtle bg-ecru px-4 py-3 text-sm focus:outline-none focus:border-brass">
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider font-semibold text-obsidian/70 mb-1">Стадия готовности объекта</label>
+          <select class="w-full border border-borderSubtle bg-ecru px-4 py-3 text-sm focus:outline-none focus:border-brass">
+            <option>Бетонные стены / черновой ремонт (Нужна 3D-примерка)</option>
+            <option>Чистовая отделка завершена (Срочный замер и навес)</option>
+            <option>Есть готовый дизайн-проект (Комплектация по рендерам)</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full bg-obsidian hover:bg-brass text-white text-xs uppercase tracking-widest font-semibold py-4 transition-all duration-300">
+          Забронировать дату и время
+        </button>
+        <p class="text-[11px] text-center text-obsidian/50">Конфиденциальность гарантируется. Никакого спама.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- МОДАЛЬНОЕ ОКНО: WHATSAPP ВИДЖЕТ СО СМАРТ-СЦЕНАРИЯМИ          -->
+  <!-- ============================================================ -->
+  <div id="whatsAppModal" class="fixed inset-0 z-50 bg-obsidian/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white max-w-md w-full p-6 border border-borderBrass relative couture-card shadow-2xl">
+      <button onclick="closeWhatsAppModal()" class="absolute top-5 right-5 text-obsidian/40 hover:text-obsidian text-2xl leading-none">&times;</button>
+      
+      <div class="flex items-center gap-3 mb-5 pb-4 border-b border-borderSubtle">
+        <div class="relative">
+          <div class="w-12 h-12 rounded-full bg-brass/15 flex items-center justify-center text-lg font-serif text-brass font-bold">ОС</div>
+          <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white"></span>
+        </div>
+        <div>
+          <div class="text-sm font-bold text-obsidian">Ольга Смирнова</div>
+          <div class="text-xs text-obsidian/60">Главный текстильный декоратор • <span class="text-emerald-600 font-medium">Онлайн</span></div>
+        </div>
+      </div>
+
+      <p class="text-xs text-obsidian/75 leading-relaxed mb-4">
+        Выберите цель вашего обращения для мгновенного персонального ответа (до 5–7 минут):
+      </p>
+
+      <div class="space-y-3">
+        <a id="waClientLink" href="https://wa.me/77010000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B2%D1%8B%D0%B5%D0%B7%D0%B4%20%D1%81%20%D1%87%D0%B5%D0%BC%D0%BE%D0%B4%D0%B0%D0%BD%D0%BE%D0%BC%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D1%86%D0%BE%D0%B2%20%D0%B8%203D-%D0%BF%D1%80%D0%B8%D0%BC%D0%B5%D1%80%D0%BA%D1%83%20%D1%88%D1%82%D0%BE%D1%80%20%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82." target="_blank" class="block p-3.5 border border-borderSubtle hover:border-brass bg-ecru/50 hover:bg-brass/5 transition-all text-left">
+          <div class="text-xs font-bold text-obsidian mb-1">🏠 Я владелец новостройки / коттеджа</div>
+          <div class="text-[11px] text-obsidian/70">Выезд с чемоданом 50 кг образцов + 3D примерка на объекте</div>
+        </a>
+
+        <a id="waDesignerLink" href="https://wa.me/77010000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%20%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%8C%D0%B5%D1%80%D0%B0.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B2%D1%81%D1%82%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20%D0%B2%20%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D0%B9%20%D0%9A%D0%BB%D1%83%D0%B1%20(10%25%20%D0%BA%D1%8D%D1%88%D0%B1%D1%8D%D0%BA)%2C%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%203D-%D1%82%D0%B5%D0%BA%D1%81%D1%82%D1%83%D1%80%D1%8B%20%D0%B8%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82." target="_blank" class="block p-3.5 border border-borderBrass hover:border-brass bg-brass/10 hover:bg-brass/20 transition-all text-left">
+          <div class="text-xs font-bold text-obsidian mb-1">📐 Я архитектор / дизайнер интерьера</div>
+          <div class="text-[11px] text-obsidian/70">Вступить в Клуб: 10% кэшбэк день-в-день + 3D библиотеки</div>
+        </a>
+
+        <a id="waB2bLink" href="https://wa.me/77010000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20B2B-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%82%D0%B0%D1%86%D0%B8%D1%8F%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D0%B5%D0%BC%20%D1%81%20%D0%9D%D0%94%D0%A1%20%D0%B8%20%D1%81%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%B0%D0%BC%D0%B8%20%D0%9A%D0%9C1%20(Trevira%20CS)." target="_blank" class="block p-3.5 border border-borderSubtle hover:border-brass bg-ecru/50 hover:bg-brass/5 transition-all text-left">
+          <div class="text-xs font-bold text-obsidian mb-1">🏢 B2B / Госзакупки / Отели / Офисы</div>
+          <div class="text-[11px] text-obsidian/70">Запрос КП с НДС 12% и пожарными сертификатами КМ1</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TRIGGER BUTTON -->
+  <aside aria-label="Быстрый контакт" class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    <button onclick="openSamplerModal()" class="hidden md:inline-flex items-center gap-2 bg-obsidian text-white text-xs font-medium uppercase tracking-wider py-2.5 px-4 shadow-xl hover:bg-brass transition-all duration-300">
+      <span class="w-2 h-2 rounded-full bg-brass"></span>
+      <span>Чемодан 50 кг образцов</span>
+    </button>
+    
+    <button onclick="openWhatsAppModal()" aria-label="Связаться в WhatsApp" class="w-14 h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-105">
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.699c.971.53 1.77.781 2.796.782 3.182 0 5.768-2.587 5.768-5.766.001-3.182-2.585-5.768-5.768-5.768zm0 10.457c-.89 0-1.636-.25-2.395-.699l-.171-.102-1.782.467.476-1.737-.113-.18c-.482-.767-.736-1.558-.735-2.439.001-2.584 2.103-4.686 4.72-4.686 2.617 0 4.719 2.102 4.719 4.686 0 2.585-2.102 4.688-4.714 4.69z"/>
+      </svg>
+    </button>
+  </aside>
+
+  <!-- Load Master Engine JS -->
+  <script src="app.js"></script>
+  <script>
+    function openSamplerModal() {
+      const modal = document.getElementById('samplerModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeSamplerModal() {
+      const modal = document.getElementById('samplerModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    function openWhatsAppModal() {
+      const modal = document.getElementById('whatsAppModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeWhatsAppModal() {
+      const modal = document.getElementById('whatsAppModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    function openWhatsAppForDesigner() {
+      openWhatsAppModal();
+      document.getElementById('waDesignerLink').click();
+    }
+    function handleSamplerSubmit(e) {
+      e.preventDefault();
+      alert('Благодарим! Заявка на выезд декоратора с чемоданом образцов принята. Мы свяжемся с вами в течение 10 минут для подтверждения времени.');
+      closeSamplerModal();
+    }
+  </script>
+</body>
+</html>

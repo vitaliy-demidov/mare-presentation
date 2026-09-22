@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>MARÉ Studio · Цифровой Флагман (Для Основательницы)</title>
+  <meta name="description" content="Презентация нового цифрового флагмана MARÉ Decorative Studio: архитектура света, закрытые КП и математика окупаемости с 1 виллы в Астане.">
+
+  <!-- OpenGraph для красивого превью в WhatsApp / Telegram -->
+  <meta property="og:title" content="MARÉ Decorative Studio · Концепция цифрового флагмана">
+  <meta property="og:description" content="Почему сайт за 3.5 млн ₸ окупается ровно с 1 виллы в Астане. Наглядная презентация для основательницы.">
+  <meta property="og:image" content="../screenshot-ba-living.png">
+  <meta property="og:type" content="website">
+
+  <!-- Шрифты Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A880'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
+
+  <style>
+    :root {
+      --bg: #0B0C0E;
+      --card-bg: rgba(18, 20, 24, 0.88);
+      --card-border: rgba(197, 168, 128, 0.22);
+      --gold: #C5A880;
+      --gold-light: #E7D7C1;
+      --gold-dark: #98784C;
+      --gold-grad: linear-gradient(135deg, #C5A880 0%, #E7D7C1 50%, #98784C 100%);
+      --cream: #F5EFEB;
+      --muted: #A39E98;
+      --subtle: rgba(255, 255, 255, 0.08);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --vh: 1vh;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background-color: var(--bg);
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    /* Фоновое премиальное свечение */
+    .ambient-glow {
+      position: fixed;
+      top: -10vh;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120vw;
+      height: 50vh;
+      background: radial-gradient(circle, rgba(197, 168, 128, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* STORY PROGRESS BAR ВВЕРХУ (КАК В INSTAGRAM / TELEGRAM) */
+    .story-progress {
+      position: fixed;
+      top: env(safe-area-inset-top, 8px);
+      left: 12px;
+      right: 12px;
+      display: flex;
+      gap: 5px;
+      z-index: 100;
+      padding-top: 6px;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0%;
+      background: var(--gold-grad);
+      box-shadow: 0 0 6px var(--gold);
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    .progress-bar.completed .progress-fill {
+      width: 100% !important;
+    }
+
+    .progress-bar.active .progress-fill {
+      transition: width 0.1s linear;
+    }
+
+    /* ВЕРХНЯЯ ШАПКА */
+    .mobile-header {
+      position: fixed;
+      top: calc(env(safe-area-inset-top, 8px) + 16px);
+      left: 16px;
+      right: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 90;
+      padding: 6px 0;
+    }
+
+    .brand-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-mark {
+      font-size: 16px;
+      color: var(--gold);
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+      text-transform: uppercase;
+    }
+
+    .slide-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold);
+      background: rgba(197, 168, 128, 0.12);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      padding: 3px 9px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ОСНОВНОЙ КОНТЕЙНЕР СЛАЙДОВ (СВАЙП / ТАП) */
+    .deck-viewport {
+      width: 100%;
+      height: 100%;
+      height: 100dvh;
+      position: relative;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .slide-deck {
+      display: flex;
+      width: 700%;
+      height: 100%;
+      transition: transform 0.38s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .slide {
+      width: 100vw;
+      height: 100%;
+      height: 100dvh;
+      padding: calc(env(safe-area-inset-top, 8px) + 54px) 16px calc(env(safe-area-inset-bottom, 12px) + 68px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
+    }
+
+    /* СТИЛИ КОНТЕНТА ВНУТРИ СЛАЙДА */
+    .slide-content-top {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 12px;
+    }
+
+    .slide-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .slide-label::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    .slide-h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 7.5vw, 36px);
+      line-height: 1.08;
+      font-weight: 700;
+      color: #FFF;
+      letter-spacing: -0.01em;
+    }
+
+    .slide-h1 em {
+      font-style: italic;
+      background: var(--gold-grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-desc {
+      font-size: 14.5px;
+      line-height: 1.45;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .slide-desc strong {
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    /* ИНТЕРАКТИВНЫЕ КАРТОЧКИ ВНУТРИ СЛАЙДА */
+    .interactive-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 14px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    /* ТАКТИЛЬНЫЕ ПЕРЕКЛЮЧАТЕЛИ */
+    .toggle-row {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 3px;
+      gap: 3px;
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      background: transparent;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn.active {
+      background: var(--gold-grad);
+      color: #0B0C0E;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(197, 168, 128, 0.35);
+    }
+
+    /* СИМУЛЯТОР СВЕТА ВНУТРИ СЛАЙДА */
+    .light-preview-frame {
+      width: 100%;
+      height: 180px;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(197, 168, 128, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .light-preview-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.4s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(1.03);
+    }
+
+    .light-preview-img.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .light-overlay-hud {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      background: rgba(11, 12, 14, 0.78);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 6px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .light-badge {
+      color: var(--gold);
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    /* ПОЛЗУНОК ВЫБОРА */
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--cream);
+    }
+
+    .slider-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .mobile-slider {
+      width: 100%;
+      -webkit-appearance: none;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      outline: none;
+    }
+
+    .mobile-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--gold-grad);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--gold);
+    }
+
+    /* ЦИФРОВЫЕ ПЛАШКИ ЦЕНЫ И ВЫГОДЫ */
+    .metric-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .metric-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .metric-card.gold-border {
+      border-color: rgba(197, 168, 128, 0.35);
+      background: rgba(197, 168, 128, 0.05);
+    }
+
+    .metric-title {
+      font-size: 10.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .metric-num {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 700;
+      color: #FFF;
+      margin-top: 2px;
+    }
+
+    .metric-card.gold-border .metric-num {
+      color: var(--gold-light);
+    }
+
+    .metric-sub {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ПАНЕЛЬ ПЕРЕКЛЮЧЕНИЯ КП */
+    .kp-chip-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .kp-chip {
+      flex: 1;
+      padding: 6px 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: var(--cream);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .kp-chip.active {
+      background: rgba(197, 168, 128, 0.2);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    .kp-preview-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .kp-prop-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+    }
+
+    .kp-prop-row b {
+      color: var(--cream);
+    }
+
+    /* НИЖНИЙ ИНСПЕКТОР «ПОЧЕМУ ЭТО ПРОДАЕТ» */
+    .slide-why-box {
+      background: rgba(197, 168, 128, 0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 12px 12px 0;
+      padding: 10px 12px;
+      font-size: 12.5px;
+      line-height: 1.4;
+      color: var(--cream);
+      margin-top: 8px;
+    }
+
+    .slide-why-box strong {
+      color: var(--gold-light);
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 2px;
+    }
+
+    /* НИЖНИЕ КНОПКИ УПРАВЛЕНИЯ НА ТЕЛЕФОНЕ */
+    .mobile-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 16px calc(env(safe-area-inset-bottom, 12px) + 8px);
+      background: linear-gradient(to top, rgba(11, 12, 14, 0.98) 70%, transparent 100%);
+      z-index: 90;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-arrow-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .nav-arrow-btn:active {
+      transform: scale(0.92);
+      background: rgba(197, 168, 128, 0.2);
+    }
+
+    .main-cta-btn {
+      flex: 1;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--gold-grad);
+      color: #0B0C0E;
+      font-weight: 800;
+      font-size: 13.5px;
+      letter-spacing: 0.02em;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(197, 168, 128, 0.4);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .main-cta-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* ЗОНЫ ТАПА ДЛЯ БЫСТРОГО ПЕРЕХОДА (КАК В STORIES) */
+    .tap-zone {
+      position: absolute;
+      top: 0;
+      bottom: 70px;
+      width: 32%;
+      z-index: 30;
+    }
+    .tap-zone.left {
+      left: 0;
+    }
+    .tap-zone.right {
+      right: 0;
+    }
+
+    /* АНИМАЦИИ */
+    @keyframes pulseGold {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.08); }
+    }
+    .pulse-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #25D366;
+      box-shadow: 0 0 8px #25D366;
+      margin-right: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <!-- ВЕРХНИЙ ПРОГРЕСС-БАР (7 СТОРИС-СЕКЦИЙ) -->
+  <div class="story-progress" id="storyProgress">
+    <div class="progress-bar" data-step="0"><div class="progress-fill"></div></div>
+    <div class="progress-bar" data-step="1"><div class="progress-fill"></div></div>
+    <div class="progress-bar" data-step="2"><div class="progress-fill"></div></div>
+    <div class="progress-bar" data-step="3"><div class="progress-fill"></div></div>
+    <div class="progress-bar" data-step="4"><div class="progress-fill"></div></div>
+    <div class="progress-bar" data-step="5"><div class="progress-fill"></div></div>
+    <div class="progress-bar" data-step="6"><div class="progress-fill"></div></div>
+  </div>
+
+  <!-- ШАПКА С НАЗВАНИЕМ И НОМЕРОМ СЛАЙДА -->
+  <header class="mobile-header">
+    <div class="brand-tag">
+      <span class="brand-mark">✦</span>
+      <span class="brand-title">MARÉ STUDIO</span>
+    </div>
+    <div class="slide-badge" id="slideBadge">01 / 07</div>
+  </header>
+
+  <!-- ЗОНЫ ТАПА СЛЕВА/СПРАВА ДЛЯ ПЕРЕКЛЮЧЕНИЯ КАК В STORIES -->
+  <div class="tap-zone left" id="tapLeft" title="Предыдущий слайд"></div>
+  <div class="tap-zone right" id="tapRight" title="Следующий слайд"></div>
+
+  <!-- КОНТЕЙНЕР 7 СЛАЙДОВ ДЛЯ ТЕЛЕФОНА -->
+  <div class="deck-viewport">
+    <div class="slide-deck" id="slideDeck">
+
+      <!-- ===================================================================
+           СЛАЙД 1: ДИАГНОЗ И ПОЗИЦИОНИРОВАНИЕ
+           =================================================================== -->
+      <section class="slide" id="mob-slide-1">
+        <div class="slide-content-top">
+          <div class="slide-label">Для основательницы MARÉ</div>
+          <h1 class="slide-h1">Почему обычные сайты <em>убивают</em> крупные чеки?</h1>
+          <p class="slide-desc">
+            Вы 12 лет на рынке и входите в <strong>топ-50 мировых декораторов</strong>. Но шаблонный сайт кричит о дешевизне. Состоятельный владелец виллы заходит, видит «обычный салон штор» и начинает торговаться за 40 000 ₸.
+          </p>
+
+          <div class="interactive-box">
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.08em; font-weight: 700;">
+              Сравните восприятие в глазах клиента:
+            </div>
+            
+            <div class="toggle-row">
+              <button class="toggle-btn active" id="btnOldSite" onclick="setComparison('old')">Обычный салон (Tilda)</button>
+              <button class="toggle-btn" id="btnNewSite" onclick="setComparison('new')">Флагман MARÉ</button>
+            </div>
+
+            <div id="compResultBox" class="kp-preview-box" style="margin-top: 4px;">
+              <div class="kp-prop-row"><span>Средний чек:</span> <b style="color: #FF7B7B;">350 000 ₸ (эконом)</b></div>
+              <div class="kp-prop-row"><span>Клиенты:</span> <b>Торг за каждый метр, розница</b></div>
+              <div class="kp-prop-row"><span>Дизайнеры:</span> <b>Уходят к прямым байерам</b></div>
+              <div class="kp-prop-row"><span>Имидж:</span> <b>«Пошив штор на заказ»</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-why-box">
+          <strong>Суть решения:</strong>
+          Мы строим <strong>Цифровой Флагман Haute Couture</strong>, который с первого экрана отсекает демпинг и привлекает пентхаусы <em>Talan Towers</em> и виллы <em>BI Village</em> с чеками от 5–15 млн ₸.
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           СЛАЙД 2: СИМУЛЯТОР СВЕТА (ВАУ-ЭФФЕКТ)
+           =================================================================== -->
+      <section class="slide" id="mob-slide-2">
+        <div class="slide-content-top">
+          <div class="slide-label">Архитектура света в Астане</div>
+          <h1 class="slide-h1">Клиент покупает <em>не ткань</em>, а сценарий света</h1>
+          <p class="slide-desc">
+            В Астане солнце встает в 04:30 утра и слепит панорамные окна. Нажмите на режимы ниже — посмотрите, как клиент видит преображение своей комнаты:
+          </p>
+
+          <div class="interactive-box">
+            <div class="light-preview-frame">
+              <img src="../screenshot-ba-living.png" id="mobLightDay" class="light-preview-img active" alt="День">
+              <img src="../screenshot-kp-evening.png" id="mobLightEve" class="light-preview-img" alt="Вечер">
+              <img src="../screenshot-kp-night.png" id="mobLightNight" class="light-preview-img" alt="Ночь">
+              
+              <div class="light-overlay-hud">
+                <span id="lightHudMode" class="light-badge">☀️ ДЕНЬ: Рассеянный свет</span>
+                <span style="color: var(--muted); font-size: 10px;">Вуаль · 1200 lx</span>
+              </div>
+            </div>
+
+            <div class="toggle-row">
+              <button class="toggle-btn active" id="btnModeDay" onclick="setLightMode('day')">☀️ День</button>
+              <button class="toggle-btn" id="btnModeEve" onclick="setLightMode('eve')">🌅 Вечер</button>
+              <button class="toggle-btn" id="btnModeNight" onclick="setLightMode('night')">🌙 Ночь Blackout</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-why-box">
+          <strong>Почему это закрывает сделку:</strong>
+          Клиент сам видит разницу своими глазами. Продать дорогой 100% Blackout (150 €/м) становится легко — симулятор снимает любые возражения по цене без споров с менеджером.
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           СЛАЙД 3: ИНЖЕНЕРНЫЙ КАЛЬКУЛЯТОР ДРАПИРОВОК
+           =================================================================== -->
+      <section class="slide" id="mob-slide-3">
+        <div class="slide-content-top">
+          <div class="slide-label">Эргономика уровня iPhone</div>
+          <h1 class="slide-h1">Смета и расход ткани <em>за 10 секунд</em></h1>
+          <p class="slide-desc">
+            Больше никаких расчетов на листочках и долгих пауз. Клиент или дизайнер задает параметры пальцем:
+          </p>
+
+          <div class="interactive-box">
+            <div class="slider-container">
+              <div class="slider-header">
+                <span>Длина карниза в комнате:</span>
+                <span class="slider-val" id="mobCurtainWidth">4.5 метра</span>
+              </div>
+              <input type="range" class="mobile-slider" id="sliderWidth" min="2.5" max="8.0" step="0.5" value="4.5" oninput="calcCurtains()" aria-label="Ширина карниза">
+            </div>
+
+            <div class="toggle-row">
+              <button class="toggle-btn active" id="btnFoldWave" onclick="setFold('wave')">Волна 1:2.0</button>
+              <button class="toggle-btn" id="btnFoldFrench" onclick="setFold('french')">Французская 1:2.5</button>
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-card">
+                <div class="metric-title">Расход ткани:</div>
+                <div class="metric-num" id="mobFabricMeters">13.5 м</div>
+                <div class="metric-sub" id="mobBandexMeters">Bandex: 13.5 м</div>
+              </div>
+              <div class="metric-card gold-border">
+                <div class="metric-title">Смета под ключ:</div>
+                <div class="metric-num" id="mobCurtainPrice">1 890 000 ₸</div>
+                <div class="metric-sub">Шенилл Бельгия + Somfy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-why-box">
+          <strong>Мгновенный результат:</strong>
+          В 1 клик смета формирует аккуратное, вежливое сообщение и открывает WhatsApp ведущего мастера. Никаких потерянных лидов.
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           СЛАЙД 4: ЗАКРЫТОЕ ЦИФРОВОЕ КП (VIP ДОСЬЕ)
+           =================================================================== -->
+      <section class="slide" id="mob-slide-4">
+        <div class="slide-content-top">
+          <div class="slide-label">Приватный VIP-сервис</div>
+          <h1 class="slide-h1">Персональное досье <em>по секретному коду</em></h1>
+          <p class="slide-desc">
+            Состоятельные заказчики ценят конфиденциальность. Вы присылаете клиенту короткий код, он вводит его на смартфоне:
+          </p>
+
+          <div class="interactive-box">
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--gold); letter-spacing: 0.08em; font-weight: 700;">
+              Нажмите на тестовый код объекта:
+            </div>
+            
+            <div class="kp-chip-row">
+              <button class="kp-chip active" id="chipVilla" onclick="loadKp('VILLA')"># VILLA</button>
+              <button class="kp-chip" id="chip70" onclick="loadKp('70')"># 70 (Саранда)</button>
+              <button class="kp-chip" id="chip140" onclick="loadKp('140')"># 140 (Talan)</button>
+            </div>
+
+            <div class="kp-preview-box" id="mobKpDossier">
+              <div class="kp-prop-row"><span>Объект:</span> <b id="kpObj">BI Village Deluxe (480 м²)</b></div>
+              <div class="kp-prop-row"><span>Комплектация:</span> <b id="kpSpec">18 окон · Dedar & Loro Piana</b></div>
+              <div class="kp-prop-row"><span>Статус цеха:</span> <b style="color: #9FF0C4;" id="kpStatus">Готовность 75% · Монтаж в чт</b></div>
+              <div class="kp-prop-row"><span>Смета:</span> <b style="color: var(--gold-light);" id="kpSum">9 850 000 ₸</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-why-box">
+          <strong>Впечатление на миллион:</strong>
+          Клиент ощущает сервис уровня швейцарского Private Banking. Он утверждает спецификацию в WhatsApp за секунды без бумажной волокиты.
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           СЛАЙД 5: ДВЕ ДВЕРИ — B2C И B2B
+           =================================================================== -->
+      <section class="slide" id="mob-slide-5">
+        <div class="slide-content-top">
+          <div class="slide-label">Деньги столицы: B2C + B2B</div>
+          <h1 class="slide-h1">Доступ к <em>60% бюджетов</em> Астаны</h1>
+          <p class="slide-desc">
+            В Астане находятся посольства, министерства и банки. Им нельзя платить на карту Kaspi. «Вторая дверь» открывает официальный контрактный дивизион:
+          </p>
+
+          <div class="interactive-box">
+            <div class="toggle-row">
+              <button class="toggle-btn active" id="btnDoorB2C" onclick="setDoor('b2c')">Дверь 1: Виллы (B2C)</button>
+              <button class="toggle-btn" id="btnDoorB2B" onclick="setDoor('b2b')">Дверь 2: Бизнес (B2B)</button>
+            </div>
+
+            <div class="kp-preview-box" id="doorBox">
+              <div class="kp-prop-row"><span>Юр. контур:</span> <b style="color: var(--gold-light);">ТОО на ОУР с НДС 12%</b></div>
+              <div class="kp-prop-row"><span>Сертификаты:</span> <b>МЧС РК КМ1 (Trevira CS)</b></div>
+              <div class="kp-prop-row"><span>Документы:</span> <b>ЭСФ, АВР (Р-1), акты КС-2/КС-3</b></div>
+              <div class="kp-prop-row"><span>Производство:</span> <b>Собственный цех 350 м² в Астане</b></div>
+              <div class="kp-prop-row"><span>Чек контракта:</span> <b style="color: #9FF0C4;">5 000 000 – 45 000 000 ₸</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-why-box">
+          <strong>Масштабирование бизнеса:</strong>
+          Студия перестает зависеть только от настроения частных заказчиков и получает стабильные многомиллионные контракты от корпораций и дипмиссий.
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           СЛАЙД 6: ЖЕЛЕЗНАЯ МАТЕМАТИКА ОКУПАЕМОСТИ (ROI)
+           =================================================================== -->
+      <section class="slide" id="mob-slide-6">
+        <div class="slide-content-top">
+          <div class="slide-label">Юнит-экономика и прибыль</div>
+          <h1 class="slide-h1">Окупаемость ровно с <em>одной виллы</em></h1>
+          <p class="slide-desc">
+            Подвигайте слайдер закрытых вилл в месяц и посмотрите на чистую прибыль вашей студии:
+          </p>
+
+          <div class="interactive-box">
+            <div class="slider-container">
+              <div class="slider-header">
+                <span>Закрытых вилл / пентхаусов в месяц:</span>
+                <span class="slider-val" id="roiCountText">1 вилла</span>
+              </div>
+              <input type="range" class="mobile-slider" id="sliderRoi" min="1" max="5" step="1" value="1" oninput="calcRoi()" aria-label="Количество вилл в месяц">
+            </div>
+
+            <div class="metric-row">
+              <div class="metric-card">
+                <div class="metric-title">Инвестиция в сайт:</div>
+                <div class="metric-num" style="color: #E2D3B8;">3 500 000 ₸</div>
+                <div class="metric-sub">Разово под ключ</div>
+              </div>
+              <div class="metric-card gold-border">
+                <div class="metric-title">Прибыль студии:</div>
+                <div class="metric-num" id="roiProfitText">3 800 000 ₸</div>
+                <div class="metric-sub" id="roiPaybackText">Окупаемость: 1-й объект!</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-why-box">
+          <strong>Простая логика:</strong>
+          Средний чек загородного дома в BI Village — 9.5 млн ₸. Чистая маржа студии (~40%) — 3.8 млн ₸. <strong>Один-единственный клиент полностью возвращает 100% инвестиций в цифровой флагман.</strong>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           СЛАЙД 7: ФИНАЛЬНЫЙ ШАГ И ЗАПУСК
+           =================================================================== -->
+      <section class="slide" id="mob-slide-7">
+        <div class="slide-content-top">
+          <div class="slide-label">Сроки и гарантии</div>
+          <h1 class="slide-h1">Запуск за <em>4 недели</em> без вашей головной боли</h1>
+          <p class="slide-desc">
+            Мы берем на себя весь цикл: арт-дирекшн, 60fps видео складок, калькулятор, симулятор света и интеграцию с вашим WhatsApp.
+          </p>
+
+          <div class="interactive-box">
+            <div style="font-size: 13px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--gold); font-size: 16px;">✓</span>
+                <span><strong>Срок:</strong> ровно 4 недели (спринты по 7 дней)</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--gold); font-size: 16px;">✓</span>
+                <span><strong>Гарантия:</strong> 12 месяцев на весь программный код</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--gold); font-size: 16px;">✓</span>
+                <span><strong>Формат:</strong> чистый PWA без абонентских плат конструкторов</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: var(--gold); font-size: 16px;">✓</span>
+                <span><strong>Окупаемость:</strong> с 1-й закрытой виллы в Астане</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-why-box" style="border-color: #25D366; background: rgba(37, 211, 102, 0.08);">
+          <strong style="color: #25D366;"><span class="pulse-dot"></span> Готовы к старту:</strong>
+          Команда забронирована на ближайший слот. Нажмите зеленую кнопку ниже, чтобы согласовать детали запуска прямо сейчас.
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- НИЖНЯЯ ПАНЕЛЬ НАВИГАЦИИ ПО ТЕЛЕФОНУ -->
+  <footer class="mobile-footer">
+    <button class="nav-arrow-btn" id="btnPrev" onclick="prevSlide()" aria-label="Предыдущий слайд">‹</button>
+    
+    <a href="https://wa.me/?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D0%BB%D0%B0%20%D0%BF%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20MAR%C3%89.%20%D0%94%D0%B0%D0%B2%D0%B0%D0%B9%D1%82%D0%B5%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D0%BC%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D1%84%D0%BB%D0%B0%D0%B3%D0%BC%D0%B0%D0%BD%D0%B0!" class="main-cta-btn" id="mobMainCta" target="_blank" rel="noopener">
+      <span>Обсудить запуск в WhatsApp</span>
+      <span style="font-size: 16px;">→</span>
+    </a>
+
+    <button class="nav-arrow-btn" id="btnNext" onclick="nextSlide()" aria-label="Следующий слайд">›</button>
+  </footer>
+
+  <script>
+    (function() {
+      const TOTAL_SLIDES = 7;
+      let currentSlide = 0;
+      const slideDeck = document.getElementById('slideDeck');
+      const progressBars = document.querySelectorAll('.progress-bar');
+      const slideBadge = document.getElementById('slideBadge');
+
+      function updateSlide(index, userInitiated = false) {
+        if (index < 0) index = 0;
+        if (index >= TOTAL_SLIDES) index = TOTAL_SLIDES - 1;
+        currentSlide = index;
+
+        // Смещение слайдера
+        slideDeck.style.transform = `translateX(-${currentSlide * 100}vw)`;
+
+        // Бейдж номера
+        slideBadge.textContent = `0${currentSlide + 1} / 0${TOTAL_SLIDES}`;
+
+        // Обновление прогресс-бара сверху
+        progressBars.forEach((bar, i) => {
+          bar.classList.remove('completed', 'active');
+          const fill = bar.querySelector('.progress-fill');
+          if (i < currentSlide) {
+            bar.classList.add('completed');
+            fill.style.width = '100%';
+          } else if (i === currentSlide) {
+            bar.classList.add('active');
+            fill.style.width = '100%';
+          } else {
+            fill.style.width = '0%';
+          }
+        });
+
+        // Вибрация (haptic feedback) на смартфонах только по жесту
+        if (userInitiated && navigator.vibrate) {
+          try { navigator.vibrate(25); } catch(_) {}
+        }
+
+        // Кнопка CTA на последнем слайде
+        const ctaBtn = document.getElementById('mobMainCta');
+        if (currentSlide === TOTAL_SLIDES - 1) {
+          ctaBtn.innerHTML = `<span>Запустить проект в WhatsApp</span> <span style="font-size: 16px;">🚀</span>`;
+          ctaBtn.style.background = 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)';
+          ctaBtn.style.color = '#FFF';
+        } else {
+          ctaBtn.innerHTML = `<span>Далее: ${getSlideNextName(currentSlide)}</span> <span style="font-size: 16px;">→</span>`;
+          ctaBtn.style.background = 'var(--gold-grad)';
+          ctaBtn.style.color = '#0B0C0E';
+        }
+      }
+
+      function getSlideNextName(i) {
+        const names = [
+          'Симулятор света',
+          'Калькулятор сметы',
+          'Закрытые VIP-КП',
+          'Выход на B2B',
+          'Окупаемость (ROI)',
+          'Запуск за 4 недели'
+        ];
+        return names[i] || 'Далее';
+      }
+
+      window.nextSlide = function() {
+        if (currentSlide < TOTAL_SLIDES - 1) {
+          updateSlide(currentSlide + 1, true);
+        } else {
+          // Если на последнем слайде — переход в WhatsApp
+          document.getElementById('mobMainCta').click();
+        }
+      };
+
+      window.prevSlide = function() {
+        if (currentSlide > 0) {
+          updateSlide(currentSlide - 1, true);
+        }
+      };
+
+      // Тап-зоны по краям экрана
+      document.getElementById('tapRight').addEventListener('click', () => nextSlide());
+      document.getElementById('tapLeft').addEventListener('click', () => prevSlide());
+
+      // Поддержка свайпов пальцем влево/вправо
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchEndX = 0;
+      let touchEndY = 0;
+
+      document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      document.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        // Только если горизонтальный свайп сильнее вертикального
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+          if (diffX < 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
+        }
+      }
+
+      // Кнопка CTA по центру
+      document.getElementById('mobMainCta').addEventListener('click', (e) => {
+        if (currentSlide < TOTAL_SLIDES - 1) {
+          e.preventDefault();
+          nextSlide();
+        }
+      });
+
+      // ----------------------------------------------------------------------
+      // ИНТЕРАКТИВНЫЕ МОДУЛИ НА СЛАЙДАХ
+      // ----------------------------------------------------------------------
+
+      // Слайд 1: Сравнение
+      window.setComparison = function(type) {
+        const btnOld = document.getElementById('btnOldSite');
+        const btnNew = document.getElementById('btnNewSite');
+        const box = document.getElementById('compResultBox');
+
+        if (type === 'old') {
+          btnOld.classList.add('active');
+          btnNew.classList.remove('active');
+          box.innerHTML = `
+            <div class="kp-prop-row"><span>Средний чек:</span> <b style="color: #FF7B7B;">350 000 ₸ (эконом)</b></div>
+            <div class="kp-prop-row"><span>Клиенты:</span> <b>Торг за каждый метр, розница</b></div>
+            <div class="kp-prop-row"><span>Дизайнеры:</span> <b>Уходят к прямым байерам</b></div>
+            <div class="kp-prop-row"><span>Имидж:</span> <b>«Пошив штор на заказ»</b></div>
+          `;
+        } else {
+          btnNew.classList.add('active');
+          btnOld.classList.remove('active');
+          box.innerHTML = `
+            <div class="kp-prop-row"><span>Средний чек:</span> <b style="color: #9FF0C4;">5 000 000 – 15 000 000 ₸</b></div>
+            <div class="kp-prop-row"><span>Клиенты:</span> <b>Виллы BI Village, пентхаусы</b></div>
+            <div class="kp-prop-row"><span>Дизайнеры:</span> <b>140+ в закрытом клубе (10%)</b></div>
+            <div class="kp-prop-row"><span>Имидж:</span> <b>Архитектурный Дом Света MARÉ</b></div>
+          `;
+        }
+      };
+
+      // Слайд 2: Симулятор света
+      window.setLightMode = function(mode) {
+        const d = document.getElementById('mobLightDay');
+        const e = document.getElementById('mobLightEve');
+        const n = document.getElementById('mobLightNight');
+        const hud = document.getElementById('lightHudMode');
+
+        document.querySelectorAll('#mob-slide-2 .toggle-btn').forEach(b => b.classList.remove('active'));
+
+        d.classList.remove('active');
+        e.classList.remove('active');
+        n.classList.remove('active');
+
+        if (mode === 'day') {
+          d.classList.add('active');
+          document.getElementById('btnModeDay').classList.add('active');
+          hud.textContent = '☀️ ДЕНЬ: Рассеянный свет';
+        } else if (mode === 'eve') {
+          e.classList.add('active');
+          document.getElementById('btnModeEve').classList.add('active');
+          hud.textContent = '🌅 ВЕЧЕР: Теплый акцент 2700K';
+        } else {
+          n.classList.add('active');
+          document.getElementById('btnModeNight').classList.add('active');
+          hud.textContent = '🌙 НОЧЬ: 100% Blackout (0 lx)';
+        }
+      };
+
+      // Слайд 3: Калькулятор
+      let currentFold = 'wave';
+      window.setFold = function(fold) {
+        currentFold = fold;
+        document.getElementById('btnFoldWave').classList.toggle('active', fold === 'wave');
+        document.getElementById('btnFoldFrench').classList.toggle('active', fold === 'french');
+        calcCurtains();
+      };
+
+      window.calcCurtains = function() {
+        const width = parseFloat(document.getElementById('sliderWidth').value);
+        document.getElementById('mobCurtainWidth').textContent = width.toFixed(1) + ' метра';
+
+        const k = currentFold === 'wave' ? 2.0 : 2.5;
+        const fabric = (width * k).toFixed(1);
+        document.getElementById('mobFabricMeters').textContent = fabric + ' м';
+        document.getElementById('mobBandexMeters').textContent = 'Bandex: ' + fabric + ' м';
+
+        // Цена: 110,000 ₸ за метр ткани + 195,000 ₸ Somfy привод + пошив
+        const price = Math.round(width * k * 115000 + 350000);
+        document.getElementById('mobCurtainPrice').textContent = price.toLocaleString('ru-RU') + ' ₸';
+      };
+
+      // Слайд 4: VIP КП
+      window.loadKp = function(code) {
+        document.querySelectorAll('.kp-chip').forEach(c => c.classList.remove('active'));
+        const obj = document.getElementById('kpObj');
+        const spec = document.getElementById('kpSpec');
+        const status = document.getElementById('kpStatus');
+        const sum = document.getElementById('kpSum');
+
+        if (code === 'VILLA') {
+          document.getElementById('chipVilla').classList.add('active');
+          obj.textContent = 'BI Village Deluxe (480 м²)';
+          spec.textContent = '18 окон · Dedar & Loro Piana';
+          status.textContent = 'Готовность 75% · Монтаж в чт';
+          sum.textContent = '9 850 000 ₸';
+        } else if (code === '70') {
+          document.getElementById('chip70').classList.add('active');
+          obj.textContent = 'Пос. Саранда, Резиденция 70';
+          spec.textContent = '12 окон · Casamance + Somfy';
+          status.textContent = 'Ткань поступила из Бельгии';
+          sum.textContent = '6 420 000 ₸';
+        } else {
+          document.getElementById('chip140').classList.add('active');
+          obj.textContent = 'Talan Towers, Пентхаус 140';
+          spec.textContent = '22 окна · Blackout 100% КМ1';
+          status.textContent = 'Стендовый тест моторов KNX';
+          sum.textContent = '14 200 000 ₸';
+        }
+      };
+
+      // Слайд 5: B2C / B2B Двери
+      window.setDoor = function(door) {
+        document.getElementById('btnDoorB2C').classList.toggle('active', door === 'b2c');
+        document.getElementById('btnDoorB2B').classList.toggle('active', door === 'b2b');
+        const box = document.getElementById('doorBox');
+
+        if (door === 'b2c') {
+          box.innerHTML = `
+            <div class="kp-prop-row"><span>Сегмент:</span> <b style="color: var(--gold-light);">Частные виллы и пентхаусы</b></div>
+            <div class="kp-prop-row"><span>Текстиль:</span> <b>Шенилл, шелк, лен (Бельгия, Италия)</b></div>
+            <div class="kp-prop-row"><span>Сервис:</span> <b>Выезд мастера с чемоданом 50 кг</b></div>
+            <div class="kp-prop-row"><span>Управление:</span> <b>Somfy Glydea Ultra, Apple HomeKit</b></div>
+            <div class="kp-prop-row"><span>Чек объекта:</span> <b style="color: #9FF0C4;">4 000 000 – 15 000 000 ₸</b></div>
+          `;
+        } else {
+          box.innerHTML = `
+            <div class="kp-prop-row"><span>Юр. контур:</span> <b style="color: var(--gold-light);">ТОО на ОУР с НДС 12%</b></div>
+            <div class="kp-prop-row"><span>Сертификаты:</span> <b>МЧС РК КМ1 (Trevira CS негорючая)</b></div>
+            <div class="kp-prop-row"><span>Документы:</span> <b>ЭСФ, АВР (Р-1), акты КС-2/КС-3</b></div>
+            <div class="kp-prop-row"><span>Производство:</span> <b>Собственный цех 350 м² в Астане</b></div>
+            <div class="kp-prop-row"><span>Чек контракта:</span> <b style="color: #9FF0C4;">5 000 000 – 45 000 000 ₸</b></div>
+          `;
+        }
+      };
+
+      // Слайд 6: ROI калькулятор
+      window.calcRoi = function() {
+        const count = parseInt(document.getElementById('sliderRoi').value, 10);
+        document.getElementById('roiCountText').textContent = count + (count === 1 ? ' вилла' : count < 5 ? ' виллы' : ' вилл');
+
+        const profit = count * 3800000;
+        document.getElementById('roiProfitText').textContent = profit.toLocaleString('ru-RU') + ' ₸';
+
+        if (count === 1) {
+          document.getElementById('roiPaybackText').textContent = 'Окупаемость: 1-й объект!';
+        } else {
+          document.getElementById('roiPaybackText').textContent = `Сверхприбыль: +${(profit - 3500000).toLocaleString('ru-RU')} ₸`;
+        }
+      };
+
+      // Инициализация
+      updateSlide(0);
+
+    })();
+  </script>
+</body>
+</html>

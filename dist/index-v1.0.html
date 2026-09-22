@@ -1,0 +1,3162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F7F4EF">
+<title>MARÉ — Студия штор и текстиля · Астана | Топ-50 мировых декораторов</title>
+<meta name="description" content="MARÉ — ателье интерьерного текстиля в Астане. Входим в Топ-50 мировых декораторов. Собственный цех 350 м², 1200+ европейских тканей (Loro Piana, Dedar), Voice AI расчет, B2B контрактный отдел с НДС 12% и 10% кэшбэк дизайнерам.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory: #F7F4EF;
+  --ivory-warm: #EFECE4;
+  --white: #FFFFFF;
+  --ink: #1C1917;
+  --ink-soft: #2B2623;
+  --petrol: #1F3A3D;
+  --petrol-light: #2C4E52;
+  --petrol-dark: #14282A;
+  --gold: #B98A4B;
+  --gold-soft: #D9BC8B;
+  --gold-light: #F4ECE1;
+  --muted: #827A71;
+  --line: rgba(28, 25, 23, 0.10);
+  --line-gold: rgba(185, 138, 75, 0.28);
+  --line-light: rgba(255, 255, 255, 0.16);
+  --shadow-s: 0 2px 10px rgba(28, 25, 23, 0.05);
+  --shadow-m: 0 18px 45px -22px rgba(28, 25, 23, 0.25);
+  --shadow-l: 0 40px 80px -40px rgba(28, 25, 23, 0.40);
+  --r: 22px;
+  --maxw: 1260px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: clamp(2.5rem, 6.4vw, 5rem); font-weight: 500; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+p { margin: 0; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+.wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.section { padding: clamp(72px, 9vw, 130px) 0; position: relative; }
+.center { text-align: center; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--gold); opacity: 0.7; }
+.eyebrow.c::after { content: ""; width: 32px; height: 1px; background: var(--gold); opacity: 0.7; }
+.lead { color: var(--muted); font-size: 1.02rem; max-width: 62ch; margin-top: 16px; line-height: 1.65; }
+.section-head { max-width: 760px; margin-bottom: clamp(38px, 5vw, 64px); }
+.section-head.center { margin-left: auto; margin-right: auto; }
+.serif-accent { font-style: italic; color: var(--gold); font-weight: 400; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.3, 1), background 0.35s, color 0.35s, box-shadow 0.35s, border-color 0.35s;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-petrol {
+  background: var(--petrol);
+  color: #fff;
+  box-shadow: 0 14px 30px -18px rgba(31, 58, 61, 0.9);
+}
+.btn-petrol:hover {
+  background: var(--petrol-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px -18px rgba(31, 58, 61, 0.9);
+}
+.btn-gold {
+  background: var(--gold);
+  color: #fff;
+  box-shadow: 0 14px 30px -18px rgba(185, 138, 75, 0.95);
+}
+.btn-gold:hover { background: #9E743A; transform: translateY(-3px); }
+.btn-ghost {
+  background: transparent;
+  border-color: rgba(28, 25, 23, 0.22);
+  color: var(--ink);
+}
+.btn-ghost:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  transform: translateY(-3px);
+}
+.btn-ghost-light {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+.btn-ghost-light:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.btn-wa { background: #1F7A55; color: #fff; }
+.btn-wa:hover { background: #176544; transform: translateY(-3px); }
+.btn-sm { padding: 10px 20px; font-size: 0.84rem; }
+.btn-block { width: 100%; }
+
+/* TOP STATUS BAR */
+.top-bar {
+  background: var(--petrol-dark);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.78rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 101;
+}
+.top-bar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: pulseGreen 2s infinite;
+  flex: none;
+}
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(37, 211, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+.top-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.top-bar-links button, .top-bar-links a {
+  color: var(--gold-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  transition: color 0.3s;
+}
+.top-bar-links button:hover, .top-bar-links a:hover { color: #fff; }
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.45s, box-shadow 0.45s, padding 0.45s, backdrop-filter 0.45s;
+  padding: 16px 0;
+  background: rgba(247, 244, 239, 0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.header.scrolled {
+  padding: 10px 0;
+  box-shadow: 0 18px 40px -30px rgba(28, 25, 23, 0.3);
+}
+.header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--petrol);
+}
+.logo svg { width: 44px; height: 28px; overflow: visible; }
+.logo-word { display: flex; flex-direction: column; line-height: 1; }
+.logo-word b {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.48rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--petrol);
+}
+.logo-word i {
+  font-style: normal;
+  font-size: 0.56rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Door Pills in Header */
+.door-pills {
+  display: flex;
+  align-items: center;
+  background: var(--ivory-warm);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px;
+  gap: 4px;
+}
+.door-pill {
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: 0.3s;
+}
+.door-pill.active {
+  background: var(--petrol);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(31, 58, 61, 0.3);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.nav a {
+  position: relative;
+  color: var(--ink);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  padding: 4px 0;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--gold);
+  transition: right 0.35s;
+}
+.nav a:hover, .nav a.active { opacity: 1; }
+.nav a.active::after, .nav a:hover::after { right: 0; }
+
+.header-cta { display: flex; align-items: center; gap: 12px; }
+.burger {
+  display: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  background: #fff;
+}
+.burger span { width: 20px; height: 1.6px; background: var(--ink); transition: 0.35s; border-radius: 2px; }
+.burger.x span:nth-child(1) { transform: translateY(6.6px) rotate(45deg); }
+.burger.x span:nth-child(2) { opacity: 0; }
+.burger.x span:nth-child(3) { transform: translateY(-6.6px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(247, 244, 239, 0.98);
+  backdrop-filter: blur(18px);
+  transform: translateY(-102%);
+  transition: transform 0.5s cubic-bezier(0.6, 0.05, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 96px 30px 40px;
+  overflow-y: auto;
+}
+.mobile-menu.open { transform: translateY(0); }
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  opacity: 0.9;
+}
+.mobile-menu .btn { margin-top: 20px; font-family: 'Manrope', sans-serif; }
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: flex-end;
+  padding: 120px 0 64px;
+  color: #fff;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) brightness(0.82);
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 32, 34, 0.68) 0%, rgba(16, 32, 34, 0.35) 40%, rgba(16, 32, 34, 0.72) 75%, rgba(14, 26, 28, 0.96) 100%);
+}
+#silkBackgroundCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+.hero-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.hero h1 { max-width: 17ch; text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4); }
+.hero-sub {
+  max-width: 58ch;
+  margin-top: 22px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.08rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+.hero-sub b { font-weight: 600; color: #fff; }
+
+.doors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 44px;
+}
+.door {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 196px;
+  padding: 28px;
+  border-radius: var(--r);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1), border-color 0.5s, background 0.5s;
+}
+.door img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.32;
+  transition: opacity 0.6s, transform 1.2s;
+}
+.door:hover {
+  transform: translateY(-6px);
+  border-color: rgba(217, 188, 139, 0.95);
+  background: rgba(255, 255, 255, 0.18);
+}
+.door:hover img { opacity: 0.48; transform: scale(1.06); }
+.door-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; }
+.door h3 { font-size: clamp(1.6rem, 2.5vw, 2.15rem); color: #fff; font-weight: 600; }
+.door p { color: rgba(255, 255, 255, 0.84); font-size: 0.92rem; font-weight: 300; margin-top: 8px; max-width: 36ch; }
+.door-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  display: grid;
+  place-items: center;
+  flex: none;
+  transition: 0.45s;
+}
+.door-arrow svg { width: 18px; height: 18px; stroke: #fff; }
+.door:hover .door-arrow {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: rotate(-45deg);
+}
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 36px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+.trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500;
+}
+.trust svg { width: 17px; height: 17px; stroke: var(--gold-soft); flex: none; }
+
+/* ACT: TWO FLOWS DETAIL */
+#flows { background: var(--white); }
+.flow-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.flow-card {
+  border-radius: calc(var(--r) + 6px);
+  overflow: hidden;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.5s, border-color 0.5s;
+}
+.flow-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-l);
+  border-color: rgba(185, 138, 75, 0.45);
+}
+.flow-media { position: relative; aspect-ratio: 16/10; overflow: hidden; }
+.flow-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s; }
+.flow-card:hover .flow-media img { transform: scale(1.05); }
+.flow-tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--petrol);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.flow-tag.g { background: var(--petrol); color: #fff; }
+.flow-body { padding: 32px 32px 36px; display: flex; flex-direction: column; flex: 1; }
+.flow-body h3 { margin-bottom: 8px; font-size: 1.7rem; }
+.flow-body .kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.flow-list { list-style: none; padding: 0; margin: 20px 0 28px; display: grid; gap: 12px; }
+.flow-list li {
+  position: relative;
+  padding-left: 28px;
+  font-size: 0.94rem;
+  color: #38342F;
+}
+.flow-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 4px;
+  top: 0;
+  color: var(--gold);
+  font-weight: bold;
+}
+.flow-actions { display: flex; gap: 12px; margin-top: auto; flex-wrap: wrap; }
+
+/* ACT: BEFORE & AFTER SPLIT SLIDER */
+#beforeAfter { background: var(--ivory-warm); }
+.ba-container {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  border-radius: var(--r);
+  overflow: hidden;
+  box-shadow: var(--shadow-l);
+  border: 1px solid var(--line-gold);
+  user-select: none;
+}
+.ba-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.ba-before {
+  background: #23211F;
+  color: #fff;
+  z-index: 1;
+}
+.ba-before img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.8) contrast(1.1) brightness(0.75);
+}
+.ba-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  overflow: hidden;
+  z-index: 2;
+}
+.ba-after img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+}
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: var(--gold);
+  z-index: 10;
+  cursor: ew-resize;
+  transform: translateX(-50%);
+}
+.ba-handle-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--gold);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  color: var(--petrol);
+}
+.ba-handle-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+.ba-pill {
+  position: absolute;
+  bottom: 24px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  z-index: 5;
+  backdrop-filter: blur(8px);
+}
+.ba-pill.before-pill { right: 24px; background: rgba(0, 0, 0, 0.65); color: rgba(255, 255, 255, 0.85); }
+.ba-pill.after-pill { left: 24px; background: var(--gold); color: #fff; }
+
+/* ACT: 7 POWERS (EDITORIAL BENTO GRID) */
+#powers { background: var(--ivory); }
+.powers-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+.power-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 34px 30px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.5s, border-color 0.5s;
+}
+.power-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-m);
+  border-color: transparent;
+}
+.power-card .p-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: rgba(31, 58, 61, 0.12);
+  line-height: 1;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+.power-card .p-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold);
+  background: var(--gold-light);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+  width: fit-content;
+}
+.power-card h3 { font-size: 1.45rem; margin-bottom: 12px; line-height: 1.25; }
+.power-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+.power-meta {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--petrol);
+}
+.power-card.dark {
+  background: var(--petrol);
+  color: #fff;
+  border-color: var(--petrol);
+}
+.power-card.dark .p-num { color: rgba(255, 255, 255, 0.12); }
+.power-card.dark h3 { color: #fff; }
+.power-card.dark p { color: rgba(255, 255, 255, 0.74); }
+.power-card.dark .p-badge { background: rgba(255, 255, 255, 0.12); color: var(--gold-soft); }
+.power-card.dark .power-meta { border-color: rgba(255, 255, 255, 0.14); color: var(--gold-soft); }
+
+.col-12 { grid-column: span 12; }
+.col-8 { grid-column: span 8; }
+.col-7 { grid-column: span 7; }
+.col-6 { grid-column: span 6; }
+.col-5 { grid-column: span 5; }
+.col-4 { grid-column: span 4; }
+
+/* ACT: PROCESS */
+#process { background: var(--petrol); color: #fff; }
+#process .eyebrow { color: var(--gold-soft); }
+#process .eyebrow::before { background: var(--gold-soft); }
+#process .lead { color: rgba(255, 255, 255, 0.7); }
+#process h2 { color: #fff; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+.step {
+  position: relative;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  transition: 0.5s;
+}
+.step:hover { border-color: var(--gold); }
+.step .sn { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--gold-soft); letter-spacing: 0.12em; }
+.step .dot {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 5px rgba(185, 138, 75, 0.2);
+}
+.step h3 { font-size: 1.3rem; margin: 14px 0 8px; color: #fff; }
+.step p { font-size: 0.88rem; color: rgba(255, 255, 255, 0.65); line-height: 1.5; }
+
+/* ACT: CALCULATOR + VOICE AI */
+#calculator { background: var(--white); }
+.calc-shell {
+  border: 1px solid var(--line);
+  border-radius: calc(var(--r) + 8px);
+  overflow: hidden;
+  box-shadow: var(--shadow-m);
+  background: var(--ivory);
+}
+.calc-modes {
+  display: flex;
+  gap: 8px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.mode-btn {
+  flex: 1;
+  min-width: 180px;
+  padding: 15px 22px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--muted);
+  border: 1px solid transparent;
+  transition: 0.4s;
+}
+.mode-btn:hover { color: var(--ink); }
+.mode-btn.active {
+  background: var(--petrol);
+  color: #fff;
+  box-shadow: 0 14px 30px -20px rgba(31, 58, 61, 0.9);
+}
+.calc-body { display: grid; grid-template-columns: 1.38fr 1fr; }
+.calc-fields { padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 26px; }
+.field-group { display: none; }
+.field-group.show { display: flex; flex-direction: column; gap: 24px; }
+.f-label {
+  display: block;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  padding: 11px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #443F39;
+  transition: 0.35s;
+}
+.chip small { display: block; font-size: 0.68rem; color: var(--muted); font-weight: 400; }
+.chip:hover { border-color: var(--gold); color: var(--ink); transform: translateY(-2px); }
+.chip.active {
+  background: var(--petrol);
+  border-color: var(--petrol);
+  color: #fff;
+  box-shadow: 0 12px 24px -18px rgba(31, 58, 61, 0.85);
+}
+.chip.active small { color: rgba(255, 255, 255, 0.7); }
+
+/* SVG Pleat Curve Visualizer */
+.pleat-visualizer {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-top: 6px;
+}
+.pleat-visualizer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.pleat-svg {
+  width: 100%;
+  height: 38px;
+  overflow: visible;
+}
+.pleat-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.inputs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.inp { display: flex; flex-direction: column; gap: 8px; }
+.inp label { font-size: 0.78rem; color: var(--muted); font-weight: 600; }
+.inp .unit { position: relative; }
+.inp input {
+  width: 100%;
+  padding: 14px 40px 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  transition: 0.3s;
+}
+.inp input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(185, 138, 75, 0.15);
+}
+.inp .suf {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.84rem;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px 18px;
+}
+.switch {
+  width: 52px;
+  height: 29px;
+  border-radius: 999px;
+  background: #DAD3C8;
+  position: relative;
+  flex: none;
+  transition: 0.4s;
+  outline: none;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.4s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.switch.on { background: var(--petrol); }
+.switch.on::after { left: 26px; }
+.toggle-row p { font-size: 0.85rem; color: var(--muted); line-height: 1.4; }
+.toggle-row b { display: block; color: var(--ink); font-size: 0.92rem; font-weight: 600; }
+
+.calc-result {
+  background: var(--petrol);
+  color: #fff;
+  padding: clamp(28px, 3.4vw, 42px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.calc-result::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(185, 138, 75, 0.3), transparent 70%);
+}
+.calc-result .r-lbl {
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 700;
+  position: relative;
+}
+.price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5.2vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 14px 0 6px;
+  position: relative;
+  color: #fff;
+}
+.price.flash { animation: pop 0.5s cubic-bezier(0.2, 0.8, 0.3, 1); }
+@keyframes pop {
+  0% { transform: scale(0.97); opacity: 0.7; }
+  60% { transform: scale(1.02); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.r-note { font-size: 0.82rem; color: rgba(255, 255, 255, 0.6); position: relative; }
+.r-break {
+  margin: 22px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  position: relative;
+}
+.r-line {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+.r-line b { color: #fff; font-weight: 600; text-align: right; }
+.r-line .dots { flex: 1; border-bottom: 1px dotted rgba(255, 255, 255, 0.25); transform: translateY(-3px); }
+.r-actions { margin-top: auto; display: flex; flex-direction: column; gap: 14px; position: relative; }
+
+/* Voice AI Sub-widget */
+.voice-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 18px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.voice-row { display: flex; align-items: center; gap: 12px; }
+.mic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: grid;
+  place-items: center;
+  flex: none;
+  transition: 0.4s;
+  background: rgba(255, 255, 255, 0.12);
+}
+.mic svg { width: 20px; height: 20px; stroke: #fff; fill: none; stroke-width: 1.5; }
+.mic:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
+.mic.rec {
+  background: var(--gold);
+  border-color: var(--gold);
+  animation: pulseGold 1.4s infinite;
+}
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(185, 138, 75, 0.6); }
+  50% { box-shadow: 0 0 0 12px rgba(185, 138, 75, 0); }
+}
+.mic-hint { font-size: 0.78rem; color: rgba(255, 255, 255, 0.7); line-height: 1.4; }
+.voice-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.v-chip {
+  font-size: 0.72rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 4px 10px;
+  border-radius: 999px;
+  transition: 0.3s;
+}
+.v-chip:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
+
+/* ACT: PORTFOLIO */
+#projects { background: var(--ivory); }
+.tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; justify-content: center; }
+.tab {
+  padding: 11px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: var(--white);
+  transition: 0.35s;
+}
+.tab:hover { color: var(--ink); border-color: var(--gold); }
+.tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+.gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.gal-item {
+  position: relative;
+  border-radius: var(--r);
+  overflow: hidden;
+  background: var(--petrol);
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.55s;
+}
+.gal-item:nth-child(1), .gal-item:nth-child(6) { grid-row: span 2; }
+.gal-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  transition: transform 1.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.gal-item:nth-child(1) img, .gal-item:nth-child(6) img { aspect-ratio: auto; height: 100%; }
+.gal-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-l); }
+.gal-item:hover img { transform: scale(1.07); }
+.gal-cap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+  color: #fff;
+  background: linear-gradient(0deg, rgba(16, 30, 32, 0.92) 0%, rgba(16, 30, 32, 0.4) 60%, transparent 100%);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.45s;
+}
+.gal-item:hover .gal-cap { opacity: 1; transform: translateY(0); }
+.gal-cap span { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
+.gal-cap h4 { font-size: 1.45rem; font-weight: 600; margin-top: 4px; }
+.gal-cap p { font-size: 0.8rem; color: rgba(255, 255, 255, 0.8); margin-top: 4px; }
+.gal-item.hide { display: none; }
+
+/* ACT: INSTAGRAM REELS STRIP */
+#instagram { background: var(--white); padding-bottom: clamp(60px, 7vw, 96px); }
+.ig-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 30px; flex-wrap: wrap; }
+.ig-strip { display: flex; gap: 16px; overflow-x: auto; padding: 4px 24px 24px; scroll-snap-type: x mandatory; }
+.ig-strip::-webkit-scrollbar { height: 6px; }
+.ig-strip::-webkit-scrollbar-thumb { background: rgba(31, 58, 61, 0.25); border-radius: 99px; }
+.ig-tile {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(300px, 74vw);
+  aspect-ratio: 1/1;
+  border-radius: 18px;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: var(--petrol);
+  transition: 0.45s;
+}
+.ig-tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s; }
+.ig-tile:hover img { transform: scale(1.06); }
+.ig-tile::after { content: ""; position: absolute; inset: 0; background: rgba(16, 30, 32, 0); transition: 0.45s; }
+.ig-tile:hover::after { background: rgba(16, 30, 32, 0.24); }
+.ig-tile svg {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
+  stroke: #fff;
+  fill: none;
+  stroke-width: 1.5;
+  z-index: 2;
+  opacity: 0.95;
+}
+
+/* ACT: DIGITAL KP TERMINAL */
+#kp { background: var(--ivory); }
+.kp-shell { display: grid; grid-template-columns: 1.05fr 1fr; gap: 28px; align-items: stretch; }
+.kp-intro {
+  background: var(--petrol);
+  color: #fff;
+  border-radius: calc(var(--r) + 6px);
+  padding: clamp(32px, 3.6vw, 48px);
+  position: relative;
+  overflow: hidden;
+}
+.kp-intro h2 { color: #fff; font-size: clamp(2rem, 3.5vw, 2.8rem); }
+.kp-intro p { color: rgba(255, 255, 255, 0.76); margin-top: 16px; font-size: 0.98rem; line-height: 1.6; }
+.kp-intro ul { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+.kp-intro li { display: flex; gap: 12px; font-size: 0.94rem; color: rgba(255, 255, 255, 0.9); }
+.kp-intro li svg { width: 18px; height: 18px; stroke: var(--gold-soft); flex: none; margin-top: 4px; }
+
+.kp-demo {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--r) + 6px);
+  padding: clamp(26px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.code-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.code-row input {
+  flex: 1;
+  min-width: 180px;
+  padding: 15px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--ivory);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.code-row input:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(185, 138, 75, 0.15);
+}
+.kp-card {
+  display: none;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--ivory);
+}
+.kp-card.show { display: block; animation: fadeUp 0.6s both; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.kp-card .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--petrol);
+  color: #fff;
+  font-size: 0.85rem;
+}
+.kp-card .top .lb {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+.kp-card .rows { padding: 18px 20px; display: grid; gap: 12px; }
+.kp-card .r { display: flex; justify-content: space-between; gap: 12px; font-size: 0.9rem; color: var(--muted); }
+.kp-card .r b { color: var(--ink); font-weight: 600; text-align: right; }
+
+/* Light Simulation Tabs inside KP */
+.kp-light-tabs {
+  margin: 0 20px 14px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.kp-light-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.kp-light-btns { display: flex; gap: 6px; }
+.kp-light-btn {
+  flex: 1;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  background: var(--ivory);
+  transition: 0.3s;
+}
+.kp-light-btn.active {
+  background: var(--petrol);
+  color: #fff;
+  border-color: var(--petrol);
+}
+.kp-preview-box {
+  margin: 0 20px 14px;
+  aspect-ratio: 16/9;
+  border-radius: 14px;
+  background: #181A1F;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  transition: 0.5s;
+}
+.kp-preview-box.day { background: #E8E5DD; color: var(--ink); }
+.kp-preview-box.evening { background: #3B3028; color: #fff; }
+.kp-preview-box.night { background: #0E1214; color: #fff; }
+
+.kp-card .tot {
+  margin: 0 20px 18px;
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.kp-card .tot b {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  color: var(--petrol);
+  font-weight: 700;
+}
+
+/* CONTACTS */
+#contacts { background: var(--white); }
+.contact-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; align-items: start; }
+.form-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: calc(var(--r) + 6px);
+  padding: clamp(28px, 3.2vw, 42px);
+}
+.form-grid { display: grid; gap: 16px; }
+.fg { display: flex; flex-direction: column; gap: 8px; }
+.fg label { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+.fg input, .fg textarea, .fg select {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-family: inherit;
+  font-size: 0.98rem;
+  color: var(--ink);
+  transition: 0.3s;
+  width: 100%;
+}
+.fg textarea { resize: vertical; min-height: 104px; }
+.fg input:focus, .fg textarea:focus, .fg select:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 4px rgba(185, 138, 75, 0.15);
+}
+.f2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.form-note svg { width: 16px; height: 16px; stroke: var(--gold); flex: none; margin-top: 4px; }
+
+.info-card { display: grid; gap: 14px; }
+.info {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 20px 22px;
+  transition: 0.45s;
+}
+.info:hover { transform: translateY(-4px); box-shadow: var(--shadow-m); border-color: transparent; }
+.info .ic {
+  margin: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--white);
+  display: grid;
+  place-items: center;
+  flex: none;
+  transition: 0.4s;
+}
+.info:hover .ic { background: var(--petrol); }
+.info:hover .ic svg { stroke: var(--gold-soft); }
+.info .ic svg { width: 22px; height: 22px; stroke: var(--petrol); fill: none; stroke-width: 1.5; }
+.info .txt b { display: block; font-size: 1rem; font-weight: 600; color: var(--ink); }
+.info .txt span, .info .txt a:not(b) { font-size: 0.86rem; color: var(--muted); display: block; }
+.info .txt a:hover { color: var(--gold); }
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.74);
+  padding: clamp(56px, 6vw, 84px) 0 32px;
+}
+.f-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 34px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+footer .logo { color: #fff; }
+footer .logo-word b { color: #fff; }
+footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
+.f-top h5 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin: 0 0 18px;
+  font-weight: 700;
+}
+.f-top ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; font-size: 0.9rem; }
+.f-top a:hover { color: #fff; }
+.f-desc { font-size: 0.92rem; color: rgba(255, 255, 255, 0.65); max-width: 38ch; margin-top: 18px; line-height: 1.6; }
+.f-social { display: flex; gap: 10px; margin-top: 22px; }
+.f-social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  transition: 0.4s;
+}
+.f-social a:hover { background: var(--gold); border-color: var(--gold); transform: translateY(-3px); }
+.f-social svg { width: 19px; height: 19px; stroke: #fff; fill: none; stroke-width: 1.5; }
+.f-bot {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 26px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* FLOATING TRIGGER BUTTONS */
+.float-triggers {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 85;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.float-sampler-btn {
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--gold);
+  transition: 0.35s;
+}
+.float-sampler-btn:hover { background: var(--gold); transform: translateY(-3px); }
+.float-wa {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #1F7A55;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 18px 36px -14px rgba(31, 122, 85, 0.9);
+  transition: 0.45s;
+}
+.float-wa:hover { transform: translateY(-4px) scale(1.06); }
+.float-wa svg { width: 30px; height: 30px; fill: #fff; }
+
+/* MODALS */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(18, 26, 28, 0.82);
+  backdrop-filter: blur(12px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+.modal-backdrop.open { display: flex; animation: fadeIn 0.35s both; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal-card {
+  background: var(--white);
+  border-radius: calc(var(--r) + 4px);
+  border: 1px solid var(--line-gold);
+  max-width: 580px;
+  width: 100%;
+  padding: clamp(28px, 4vw, 42px);
+  position: relative;
+  box-shadow: var(--shadow-l);
+}
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--muted);
+  transition: 0.3s;
+}
+.modal-close:hover { background: var(--ink); color: #fff; }
+
+/* Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.2, 0.7, 0.3, 1), transform 0.85s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 1080px) {
+  .nav { display: none; }
+  .door-pills { display: none; }
+  .header-cta .btn-wa { display: none; }
+  .burger { display: flex; }
+  .calc-body { grid-template-columns: 1fr; }
+  .kp-shell { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .powers-grid { grid-template-columns: 1fr; }
+  .col-12, .col-8, .col-7, .col-6, .col-5, .col-4 { grid-column: span 1; }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .gal { grid-template-columns: repeat(2, 1fr); }
+  .gal-item:nth-child(1), .gal-item:nth-child(6) { grid-row: span 1; }
+  .gal-item img { aspect-ratio: 4/3; }
+}
+@media (max-width: 760px) {
+  body { font-size: 15.5px; }
+  .doors { grid-template-columns: 1fr; }
+  .flow-grid { grid-template-columns: 1fr; }
+  .f-top { grid-template-columns: 1fr 1fr; }
+  .inputs { grid-template-columns: 1fr; }
+  .f2 { grid-template-columns: 1fr; }
+  .hero { min-height: auto; padding: 110px 0 54px; }
+  .mode-btn { min-width: 0; }
+  .steps { grid-template-columns: 1fr; }
+  .gal { grid-template-columns: 1fr; }
+  .top-bar { text-align: center; }
+  .top-bar .wrap { justify-content: center; }
+  .float-sampler-btn { display: none; }
+}
+@media (max-width: 460px) {
+  .f-top { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- TOP STATUS BAR: ЦЕХ В АСТАНЕ & БЫСТРЫЙ ДОСТУП                -->
+<!-- ============================================================ -->
+<div class="top-bar">
+  <div class="wrap">
+    <div class="top-bar-left">
+      <span class="pulse-dot"></span>
+      <span>Собственный швейный цех 350 м² в Астане: открыт прием заказов на сезон 2026–2027</span>
+    </div>
+    <div class="top-bar-links">
+      <button onclick="openKPModal()">
+        <span>🔑</span>
+        <span>Личный проект (Код КП)</span>
+      </button>
+      <span>•</span>
+      <button onclick="openSamplerModal()">
+        <span>🧳</span>
+        <span>Чемодан 50 кг образцов</span>
+      </button>
+      <span>•</span>
+      <a href="tel:+77000000000">+7 700 000 00 00</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- HEADER С ЭМБЛЕМОЙ РЫБ И СЕЛЕКТОРОМ «ДВЕ ДВЕРИ»               -->
+<!-- ============================================================ -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="MARÉ — на главную">
+      <svg viewBox="0 0 72 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 22C18 6 46 6 60 22 46 38 18 38 4 22Z"/>
+        <path d="M60 22C63.5 14.5 68 10.5 71.5 8.5"/>
+        <path d="M60 22C63.5 29.5 68 33.5 71.5 35.5"/>
+        <path d="M23 14.5C31 8.5 42 9.5 50 16.5"/>
+        <path d="M21 29.5C29 35.5 40 34.5 48 27.5"/>
+        <circle cx="16.5" cy="20.2" r="1.5" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="logo-word"><b>MARÉ</b><i>декоративная студия · астана</i></span>
+    </a>
+
+    <!-- Segmented Two Doors Selector -->
+    <div class="door-pills">
+      <button class="door-pill active" id="pill-b2c" onclick="setMode('b2c');scrollToId('calculator')">🏡 Частным клиентам</button>
+      <button class="door-pill" id="pill-b2b" onclick="setMode('b2b');scrollToId('calculator')">🏢 Юрлицам (НДС 12%)</button>
+    </div>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#flows">Две двери</a>
+      <a href="#beforeAfter">Было / Стало</a>
+      <a href="#powers">7 Сил MARÉ</a>
+      <a href="#calculator">Калькулятор</a>
+      <a href="#projects">Проекты</a>
+      <a href="#kp">Цифровое КП</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header-cta">
+      <button class="btn btn-wa btn-sm" onclick="openWhatsAppModal()">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+        WhatsApp
+      </button>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#flows">Два направления (B2C & B2B)</a>
+  <a href="#beforeAfter">Было / Стало</a>
+  <a href="#powers">7 Сил MARÉ</a>
+  <a href="#process">Как мы работаем</a>
+  <a href="#calculator">Калькулятор & Voice AI</a>
+  <a href="#projects">Проекты в Астане</a>
+  <a href="#kp">Цифровое КП</a>
+  <a href="#contacts">Контакты и шоурум</a>
+  <button class="btn btn-gold" style="margin-top:16px" onclick="openSamplerModal();toggleMenu(false);">Чемодан 50 кг на объект</button>
+  <button class="btn btn-wa" onclick="openWhatsAppModal();toggleMenu(false);">Написать в WhatsApp</button>
+</div>
+
+<!-- ============================================================ -->
+<!-- HERO С ШЕЛКОВЫМ CANVAS И ВХОДНЫМИ ДВЕРЯМИ                    -->
+<!-- ============================================================ -->
+<section class="hero" id="top">
+  <canvas id="silkBackgroundCanvas"></canvas>
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1800&q=75"
+         alt="Кутюрный интерьер со шторами MARÉ" width="1800" height="1100" fetchpriority="high" decoding="async"
+         onerror="this.onerror=null;this.src='https://picsum.photos/seed/mare-hero/1600/1067'">
+  </div>
+  <div class="hero-inner">
+    <span class="eyebrow" style="color:var(--gold-soft)">Ателье интерьерного текстиля · Астана</span>
+    <h1>Шторы и текстиль, которые делают интерьер завершённым</h1>
+    <p class="hero-sub">
+      <b>Входим в Топ-50 мировых декораторов.</b> 12 лет в Астане, собственный цех 350 м², 1200+ европейских тканей (Loro Piana, Dedar), 3D-моделирование драпировок на стадии бетонных стен.
+    </p>
+
+    <div class="doors">
+      <a class="door" href="#flows" onclick="setMode('b2c')">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=65" alt="Частные резиденции" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mare-door1/900/600'">
+        <div class="door-top">
+          <div>
+            <h3>Частным клиентам</h3>
+            <p>Пентхаусы, виллы, квартиры. Портьеры в пол, складка «Волна», римские шторы и покрывала под ключ.</p>
+          </div>
+          <span class="door-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+      <a class="door" href="#flows" onclick="setMode('b2b')">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=65" alt="Юридическим лицам" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mare-door2/900/600'">
+        <div class="door-top">
+          <div>
+            <h3>Юридическим лицам</h3>
+            <p>Офисы, кабинеты директоров, отели. Системы Somfy Screen, огнестойкий Trevira CS (КМ1) и договор с НДС 12%.</p>
+          </div>
+          <span class="door-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </a>
+    </div>
+
+    <div class="trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.6L21 9.4l-4.5 4.3 1.1 6.3L12 17l-5.6 3 1.1-6.3L3 9.4l6.4-.8L12 3Z"/></svg>Топ-50 мировых декораторов</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>12+ лет и 840+ резиденций</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>Собственный цех 350 м² в Астане</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v4H4zM4 14h16v4H4z"/></svg>1200+ европейских тканей</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Чемодан 50 кг образцов на замер</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 2: ДВЕ ДВЕРИ — ДВА ПРОИЗВОДСТВЕННЫХ ПОТОКА              -->
+<!-- ============================================================ -->
+<section class="section" id="flows">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow c">Архитектура выбора</span>
+      <h2>Две двери — <span class="serif-accent">безупречный уровень сервиса</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        Мы разделили производственные потоки, чтобы частные заказчики получали кутюрный уют и ручной потайной шов, а корпоративные клиенты — жесткие SLA, сертификаты МЧС и закрывающие акты КС-2/КС-3 с НДС.
+      </p>
+    </div>
+
+    <div class="flow-grid">
+      <!-- Card B2C -->
+      <article class="flow-card reveal" id="private">
+        <div class="flow-media">
+          <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=900&q=65" alt="Спальня с римскими шторами MARÉ" loading="lazy" decoding="async" width="900" height="563" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mare-flow1/900/563'">
+          <span class="flow-tag">Для дома · B2C</span>
+        </div>
+        <div class="flow-body">
+          <span class="kicker">Физическим лицам</span>
+          <h3>Дом, который хочется показывать</h3>
+          <ul class="flow-list">
+            <li>Пентхаусы, апартаменты и загородные виллы в Астане</li>
+            <li>Бельгийский шенилл Wind, итальянский бархат Dedar, дикий шелк</li>
+            <li>Складки «Волна» и «Французская тройная» с шагом ±1 мм</li>
+            <li>Бесплатный выезд дизайнера с чемоданом 50 кг образцов</li>
+            <li>AI & 3D-примерка текстиля на стадии бетонных стен новостройки</li>
+            <li>Монтажники в бахилах сверлят с пылесосом + вертикальное отпаривание</li>
+          </ul>
+          <div class="flow-actions">
+            <button class="btn btn-petrol" onclick="setMode('b2c');scrollToId('calculator')">Рассчитать для дома
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="btn btn-ghost" onclick="openSamplerModal()">Заказать выезд с образцами</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card B2B -->
+      <article class="flow-card reveal" id="business">
+        <div class="flow-media">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=65" alt="Современный B2B офис" loading="lazy" decoding="async" width="900" height="563" onerror="this.onerror=null;this.src='https://picsum.photos/seed/mare-flow2/900/563'">
+          <span class="flow-tag g">Для бизнеса · B2B</span>
+        </div>
+        <div class="flow-body">
+          <span class="kicker">Юридическим лицам</span>
+          <h3>Контрактные решения для офисов и отелей</h3>
+          <ul class="flow-list">
+            <li>Бизнес-центры, банки, посольства, кабинеты первых лиц</li>
+            <li>Моторизованные системы Somfy Screen (Франция) — подавление 95% бликов</li>
+            <li>Кассетный блэкаут для переговорных комнат и видеоконференций</li>
+            <li>Огнестойкий текстиль Trevira CS (Класс пожарной безопасности КМ1)</li>
+            <li>Официальная работа на ОСНО с выделением НДС 12%</li>
+            <li>Бухгалтерский ЭДО: закрывающие акты КС-2 / КС-3 за 24 часа</li>
+          </ul>
+          <div class="flow-actions">
+            <button class="btn btn-gold" onclick="setMode('b2b');scrollToId('calculator')">B2B Экспресс-смета (НДС)
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="btn btn-ghost" onclick="openWhatsAppForRole('b2b')">Запросить КП с НДС 12%</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 3: ИНТЕРАКТИВНЫЙ СПЛИТ-СЛАЙДЕР «БЫЛО / СТАЛО»           -->
+<!-- ============================================================ -->
+<section class="section" id="beforeAfter">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow c">Наглядное преображение</span>
+      <h2>От голого бетона новостройки — <span class="serif-accent">до тихой роскоши</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        Потяните ползунок вправо или влево: посмотрите, как текстильная архитектура MARÉ полностью преображает холодное пространство с панорамными окнами в Астане.
+      </p>
+    </div>
+
+    <div class="ba-container reveal" id="splitSliderBox">
+      <!-- BEFORE: Bare Concrete -->
+      <div class="ba-layer ba-before">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=70" alt="До: бетонные стены новостройки">
+        <span class="ba-pill before-pill">БЫЛО: Черновой бетон</span>
+      </div>
+
+      <!-- AFTER: Couture Drapery -->
+      <div class="ba-after" id="splitAfterLayer">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=75" alt="После: кутюрные шторы MARÉ" id="splitAfterImg">
+        <span class="ba-pill after-pill">СТАЛО: Кутюрный текстиль MARÉ</span>
+      </div>
+
+      <!-- Handle -->
+      <div class="ba-handle" id="splitHandle">
+        <div class="ba-handle-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 4: «7 СИЛ СТУДИИ MARÉ» (EDITORIAL BENTO GRID)            -->
+<!-- ============================================================ -->
+<section class="section" id="powers">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow c">Официальный статус и факты</span>
+      <h2>7 Сил <span class="serif-accent">Студии MARÉ</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        «В лоб» о том, почему владельцы премиальной недвижимости в Астане и ведущие архитекторы доверяют нам текстильное оформление объектов без права на ошибку.
+      </p>
+    </div>
+
+    <div class="powers-grid">
+      <!-- Power 1: Top 50 -->
+      <article class="power-card col-7 reveal">
+        <span class="p-num">01</span>
+        <div>
+          <span class="p-badge">Международный статус</span>
+          <h3>Входим в ТОП-50 мировых декораторов интерьерного текстиля</h3>
+          <p>
+            12 лет безупречного мастерства и 840+ реализованных резиденций в Казахстане и за рубежом. Мы не подбираем «занавесочки под обои» — мы создаем текстильную архитектуру, которая регулярно публикуется в Architectural Digest, Elle Decoration и Salon.
+          </p>
+        </div>
+        <div class="power-meta">
+          <span>✓ 12 лет безупречной репутации</span>
+          <span>✓ 840+ закрытых резиденций</span>
+          <span>✓ Top-50 World Textile Decorators</span>
+        </div>
+      </article>
+
+      <!-- Power 2: Workshop Haute Couture -->
+      <article class="power-card col-5 dark reveal">
+        <span class="p-num">02</span>
+        <div>
+          <span class="p-badge">Собственный цех в Астане</span>
+          <h3>Швейный дом Haute Couture 350 м²: ручной потайной шов</h3>
+          <p>
+            Никакого аутсорса и подвальных швей. Собственный цех в Астане с немецкими станками Dürkopp Adler. Закрытые потайные швы ручной сборки, подгибка низа 10–12 см с двойным утяжелителем. Ваши шторы не перекосит и не поведет со временем.
+          </p>
+        </div>
+        <div class="power-meta">
+          <span>Цех в Астане: 350 м²</span>
+          <span>Точность шага: ±1 мм</span>
+        </div>
+      </article>
+
+      <!-- Power 3: Direct Contracts Europe -->
+      <article class="power-card col-4 reveal">
+        <span class="p-num">03</span>
+        <div>
+          <span class="p-badge">Импорт первых рук</span>
+          <h3>Прямые контракты с мануфактурами Италии и Бельгии</h3>
+          <p>
+            1 200+ каталогов закрытых коллекций: Loro Piana Interiors, Dedar, Rubelli, Casamance. Натуральный кашемир, дикий шелк, плотный бельгийский лен без наценок посредников и риска реплик. Доставка от 10 рабочих дней.
+          </p>
+        </div>
+        <div class="power-meta">
+          <span>&gt;1 000 эксклюзивных тканей</span>
+        </div>
+      </article>
+
+      <!-- Power 4: AI & 3D Tech -->
+      <article class="power-card col-4 reveal">
+        <span class="p-num">04</span>
+        <div>
+          <span class="p-badge">AI & 3D Tech</span>
+          <h3>AI & 3D-примерка на стадии бетонных стен новостройки</h3>
+          <p>
+            Вам не нужно гадать по лоскутку 10х10 см. Моделируем поведение ткани, шаг складок и цвет с учетом падения лучей солнца Астаны и высоты потолков за 24 часа — за недели до завершения чистового ремонта.
+          </p>
+        </div>
+        <div class="power-meta">
+          <span>Финальный образ до заказа ткани</span>
+        </div>
+      </article>
+
+      <!-- Power 5: White Glove Service -->
+      <article class="power-card col-4 reveal">
+        <span class="p-num">05</span>
+        <div>
+          <span class="p-badge">White Glove Service</span>
+          <h3>Сервис «Под ключ»: чемодан 50 кг образцов, навес с пылесосом</h3>
+          <p>
+            Бесплатный выезд с лазерным замерщиком. Монтажники в бахилах сверлят строго с пылесосом. Навеска карнизов Somfy, формирование складок, вертикальное паровое отпаривание и безусловная гарантия 3 года по договору.
+          </p>
+        </div>
+        <div class="power-meta">
+          <span>Безусловная гарантия 3 года</span>
+        </div>
+      </article>
+
+      <!-- Power 6: B2B Contract Division -->
+      <article class="power-card col-6 reveal">
+        <span class="p-num">06</span>
+        <div>
+          <span class="p-badge">B2B & Корпоративные объекты</span>
+          <h3>B2B Контрактный отдел: НДС 12%, акты КС-2/КС-3, Trevira CS</h3>
+          <p>
+            Комплектация штаб-квартир, бизнес-центров и отелей 5*. Огнестойкие ткани Trevira CS (Класс пожарной безопасности КМ1), светостойкость 5+, акустический текстиль для переговорных и закрывающие бухгалтерские акты за 24 часа.
+          </p>
+        </div>
+        <div class="power-meta">
+          <span>✓ ОСНО с НДС 12%</span>
+          <span>✓ Сертификаты МЧС (КМ1)</span>
+          <span>✓ Акты КС-2 / КС-3 в ЭДО</span>
+        </div>
+      </article>
+
+      <!-- Power 7: Designer Club 10% -->
+      <article class="power-card col-6 reveal" style="border: 2px solid var(--line-gold); background: linear-gradient(135deg, #fff 0%, rgba(217, 188, 139, 0.14) 100%);">
+        <span class="p-num">07</span>
+        <div>
+          <span class="p-badge" style="background: var(--gold); color: #fff;">Партнерский клуб</span>
+          <h3>Дизайнерский клуб: защита авторского надзора и 10% кэшбэк</h3>
+          <p>
+            Защищаем авторский проект: клиент закрепляется за дизайнером навсегда. Выплата вознаграждения 10% день-в-день при внесении аванса клиентом. Предоставляем 3D-текстуры тканей для 3ds Max / Corona и личного технолога производства.
+          </p>
+        </div>
+        <div class="power-meta" style="justify-content: space-between; align-items: center;">
+          <span style="font-weight: 700; color: var(--gold);">140+ архитекторов в клубе Астаны</span>
+          <button onclick="openWhatsAppForRole('designer')" style="color: var(--ink); text-decoration: underline; font-weight: 700;">Вступить в клуб &rarr;</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 5: ПЯТЬ ШАГОВ ДО ГОТОВОГО ИНТЕРЬЕРА                     -->
+<!-- ============================================================ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Прозрачный регламент</span>
+      <h2>Пять шагов <span class="serif-accent">до готового интерьера</span></h2>
+      <p class="lead">От первой заявки до идеальной кутюрной навески с гарантией 3 года.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 01</span>
+        <h3>Заявка</h3>
+        <p>WhatsApp, звонок или форма на сайте — менеджер связывается в течение 10 минут.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 02</span>
+        <h3>Чемодан образцов</h3>
+        <p>Бесплатный выезд дизайнера с чемоданом 50 кг каталогов и лазерным замером оконных ниш.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 03</span>
+        <h3>3D-визуализация</h3>
+        <p>Моделируем геометрию складок и поведение драпировки с учетом света вашей комнаты.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 04</span>
+        <h3>Цифровое КП</h3>
+        <p>Персональная онлайн-смета с детализацией полотен, фурнитуры и сроков сдачи.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 05</span>
+        <h3>Цех & Навес</h3>
+        <p>Пошив в цехе 350 м² в Астане, чистый монтаж с пылесосом, отпаривание и гарантия 3 года.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 6: ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР & VOICE AI КОНСЬЕРЖ         -->
+<!-- ============================================================ -->
+<section class="section" id="calculator">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow c">Онлайн-конфигуратор</span>
+      <h2>Предварительный расчет <span class="serif-accent">за 60 секунд</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        Выберите геометрию складок, ткань и габариты — стоимость и расход полотна пересчитываются мгновенно в реальном времени.
+      </p>
+    </div>
+
+    <div class="calc-shell reveal">
+      <!-- Mode tabs: B2C vs B2B -->
+      <div class="calc-modes" role="tablist" aria-label="Режим расчёта">
+        <button class="mode-btn active" data-mode="b2c" role="tab" aria-selected="true" onclick="setMode('b2c')">
+          🏡 Для дома · Частные резиденции (B2C)
+        </button>
+        <button class="mode-btn" data-mode="b2b" role="tab" aria-selected="false" onclick="setMode('b2b')">
+          🏢 Для бизнеса · Юридические лица (с НДС 12%)
+        </button>
+      </div>
+
+      <div class="calc-body">
+        <div class="calc-fields">
+          
+          <!-- B2C GROUP -->
+          <div class="field-group show" id="group-b2c">
+            <!-- Product -->
+            <div>
+              <span class="f-label">1. Изделие</span>
+              <div class="chips" data-group="product">
+                <button class="chip active" data-v="roman">Римская штора</button>
+                <button class="chip" data-v="curtain">Портьеры в пол</button>
+                <button class="chip" data-v="bedspread">Покрывало & текстиль</button>
+              </div>
+            </div>
+
+            <!-- Fold / Pleat Type with SVG visualizer -->
+            <div>
+              <span class="f-label">2. Геометрия складки драпировки</span>
+              <div class="chips" data-group="fold">
+                <button class="chip active" data-v="wave">Волна (Wave) <small>Коэфф. 1:2.0</small></button>
+                <button class="chip" data-v="french">Французская тройная <small>Коэфф. 1:2.5</small></button>
+                <button class="chip" data-v="box">Бантовая (Box) <small>Коэфф. 1:2.2</small></button>
+                <button class="chip" data-v="straight">Прямая <small>Коэфф. 1:1.5</small></button>
+              </div>
+              
+              <!-- Real-time SVG Profile -->
+              <div class="pleat-visualizer">
+                <div class="pleat-visualizer-head">
+                  <span>Профиль драпировки на карнизе:</span>
+                  <span id="pleatNameDisplay" style="color: var(--petrol); font-weight:800;">Волна (Wave)</span>
+                </div>
+                <svg class="pleat-svg" id="pleatSvg" viewBox="0 0 500 40">
+                  <path d="M 0 20 Q 25 0, 50 20 T 100 20 T 150 20 T 200 20 T 250 20 T 300 20 T 350 20 T 400 20 T 450 20 T 500 20" fill="none" stroke="#B98A4B" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <div class="pleat-desc" id="pleatDesc">Идеальный цилиндрический ритм с шагом 16 см. Безупречно для панорамных окон и высоких потолков.</div>
+              </div>
+            </div>
+
+            <!-- Dimensions -->
+            <div>
+              <span class="f-label">3. Габариты окна и количество</span>
+              <div class="inputs">
+                <div class="inp"><label for="b2c-w">Ширина карниза</label><div class="unit"><input id="b2c-w" type="number" min="0.5" max="25" step="0.1" value="3.2"><span class="suf">м</span></div></div>
+                <div class="inp"><label for="b2c-h">Высота потолка</label><div class="unit"><input id="b2c-h" type="number" min="1.0" max="12" step="0.1" value="2.8"><span class="suf">м</span></div></div>
+                <div class="inp"><label for="b2c-q">Количество окон</label><div class="unit"><input id="b2c-q" type="number" min="1" max="50" step="1" value="2"><span class="suf">шт</span></div></div>
+              </div>
+            </div>
+
+            <!-- Fabric Category -->
+            <div>
+              <span class="f-label">4. Категория и происхождение ткани</span>
+              <div class="chips" data-group="fabric">
+                <button class="chip active" data-v="chenille">Бельгия: Шенилл Wind <small>24 500 ₸/м</small></button>
+                <button class="chip" data-v="velvet">Италия: Бархат Dedar <small>28 000 ₸/м</small></button>
+                <button class="chip" data-v="linen">Франция: Лён Casamance <small>19 800 ₸/м</small></button>
+                <button class="chip" data-v="blackout">Турция: 100% Blackout <small>16 500 ₸/м</small></button>
+              </div>
+            </div>
+
+            <!-- Options -->
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <span class="f-label">5. Дополнительные опции</span>
+              <label class="toggle-row" style="cursor: pointer;">
+                <input type="checkbox" id="checkTulle" checked style="width: 20px; height: 20px; accent-color: var(--petrol);" onchange="recalc(false)">
+                <p><b>Французская вуаль в пол (тюль)</b>Легкая полупрозрачная вуаль для мягкого рассеивания дневного света.</p>
+              </label>
+              <label class="toggle-row" style="cursor: pointer;">
+                <input type="checkbox" id="checkSomfy" style="width: 20px; height: 20px; accent-color: var(--petrol);" onchange="recalc(false)">
+                <p><b>Бесшумный электрокарниз Somfy Glydea Ultra (Франция)</b>Интеграция с Apple HomeKit, Алисой и системой «Умный Дом».</p>
+              </label>
+            </div>
+          </div>
+
+          <!-- B2B GROUP -->
+          <div class="field-group" id="group-b2b">
+            <div>
+              <span class="f-label">1. Специализированная B2B система</span>
+              <div class="chips" data-group="b2b-product">
+                <button class="chip active" data-v="screen">Somfy Screen 5% <small>Open Space / Без бликов</small></button>
+                <button class="chip" data-v="blackout">Кассетный Blackout 100% <small>Переговорные ВКС</small></button>
+                <button class="chip" data-v="wood">Деревянные жалюзи 50мм <small>Кабинет CEO</small></button>
+                <button class="chip" data-v="trevira">Контрактные Trevira CS <small>Отели / КМ1 негорючие</small></button>
+              </div>
+            </div>
+
+            <div class="inputs">
+              <div class="inp"><label for="b2b-w">Ширина проема</label><div class="unit"><input id="b2b-w" type="number" min="0.5" max="30" step="0.1" value="2.4"><span class="suf">м</span></div></div>
+              <div class="inp"><label for="b2b-h">Высота проема</label><div class="unit"><input id="b2b-h" type="number" min="0.5" max="15" step="0.1" value="2.8"><span class="suf">м</span></div></div>
+              <div class="inp"><label for="b2b-q">Количество оконных проемов</label><div class="unit"><input id="b2b-q" type="number" min="1" max="500" step="1" value="12"><span class="suf">окон</span></div></div>
+            </div>
+
+            <div class="toggle-row">
+              <div class="switch" id="sunSwitch" role="switch" aria-checked="false" tabindex="0" aria-label="Автоматика Somfy RTS / KNX"></div>
+              <p><b>Электропривод с интеграцией в BMS / KNX / DALI</b>Французские моторы Somfy Sonesse (уровень шума менее 38 дБ) — ×1.35 к смете.</p>
+            </div>
+
+            <div style="background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px;">
+              <span style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; display: block; margin-bottom: 6px;">Юридический пакет MARÉ для бизнеса:</span>
+              <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
+                Работаем по официальному договору на ОСНО с НДС 12%. Предоставляем сертификаты МЧС (Класс КМ1), протоколы испытаний и закрывающие строительные акты КС-2 / КС-3 через ЭДО за 24 часа.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: RESULTS & VOICE AI -->
+        <aside class="calc-result">
+          <span class="r-lbl" id="resTitleLabel">Предварительная смета под ключ</span>
+          <div class="price" id="priceOut" data-v="0">0 ₸</div>
+          <p class="r-note" id="modeNote">Режим: для дома (B2C)</p>
+
+          <div class="r-break" id="breakdown"></div>
+
+          <div class="r-actions">
+            <button class="btn btn-wa btn-block" id="calcWa">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+              Зафиксировать расчет в WhatsApp
+            </button>
+
+            <!-- VOICE AI BOX -->
+            <div class="voice-box">
+              <div class="voice-row">
+                <button class="mic" id="micBtn" aria-label="Сказать голосом" title="Нажмите и скажите параметры">
+                  <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+                </button>
+                <div style="display:flex; flex-direction:column; gap:2px;">
+                  <span style="font-size:0.75rem; font-weight:700; color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.1em;">Voice AI Консьерж</span>
+                  <span class="mic-hint" id="micHint">Нажмите на микрофон или выберите готовый образец фразы:</span>
+                </div>
+              </div>
+              <div class="voice-chips">
+                <button class="v-chip" onclick="applySampleVoice('Гостиная, шенилл Бельгия, волна, 3.2 на 2.8, 2 окна')">✨ «Гостиная, шенилл Бельгия, волна, 3.2 на 2.8»</button>
+                <button class="v-chip" onclick="applySampleVoice('Спальня, бархат Италия, тройная, 2.5 на 3.0, 1 окно')">👑 «Спальня, бархат Италия, 2.5 на 3.0»</button>
+                <button class="v-chip" onclick="applySampleVoice('Офис, ролл шторы, 2 на 2.5, 10 окон')">🏢 «Офис, ролл шторы, 2 на 2.5, 10 окон»</button>
+              </div>
+            </div>
+
+            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.5); line-height: 1.4;">
+              Предварительный расчет включает пошив в цехе 350 м² в Астане и безусловную гарантию 3 года. Точную смету утвердит дизайнер на бесплатном замере.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 7: ПОРТФОЛИО И ОБЪЕКТЫ В АСТАНЕ                          -->
+<!-- ============================================================ -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow c">Реализованные проекты</span>
+      <h2>Проекты, <span class="serif-accent">которые говорят сами</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        Премиальные жилые комплексы и корпоративные резиденции в Астане — оформленные тканями и потайными швами MARÉ.
+      </p>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-filter="all">Все объекты</button>
+      <button class="tab" data-filter="flat">Квартиры и пентхаусы</button>
+      <button class="tab" data-filter="home">Загородные виллы</button>
+      <button class="tab" data-filter="office">Офисы и отели (B2B)</button>
+    </div>
+
+    <div class="gal" id="gal">
+      <!-- Item 1 -->
+      <a class="gal-item reveal" data-cat="flat" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=70" alt="Пентхаус ЖК Talan Towers" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Квартира · Пентхаус 320 м²</span>
+          <h4>ЖК Talan Towers, Астана</h4>
+          <p>Дикий шелк Dedar на скрытых электрокарнизах Somfy с интеграцией в Умный Дом.</p>
+        </div>
+      </a>
+
+      <!-- Item 2 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=800&q=70" alt="Вилла в пос. Саранда" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Вилла · 480 м²</span>
+          <h4>Вилла, пос. Саранда</h4>
+          <p>Бельгийский шенилл Wind, второй свет 6.8 м, двойной потайной утяжелитель.</p>
+        </div>
+      </a>
+
+      <!-- Item 3 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=70" alt="Офис БЦ Есиль" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>B2B Контракт · НДС 12%</span>
+          <h4>БЦ «Есиль», Штаб-квартира</h4>
+          <p>Somfy Screen 5% против бликов на мониторах, кассетный блэкаут в переговорных.</p>
+        </div>
+      </a>
+
+      <!-- Item 4 -->
+      <a class="gal-item reveal" data-cat="flat" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=70" alt="ЖК Highvill Prime" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Апартаменты · 210 м²</span>
+          <h4>ЖК Highvill Prime</h4>
+          <p>Французская тройная складка, акустический бархат, 100% блокирование солнца.</p>
+        </div>
+      </a>
+
+      <!-- Item 5 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=70" alt="BI Village Deluxe" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Загородный дом · 520 м²</span>
+          <h4>BI Village Deluxe</h4>
+          <p>Итальянский бархат Rubelli, кашемировые покрывала и декоративные подушки.</p>
+        </div>
+      </a>
+
+      <!-- Item 6 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=70" alt="Кабинет CEO" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Представительский комплекс</span>
+          <h4>Кабинет первого лица</h4>
+          <p>Деревянные жалюзи 50 мм из канадской липы и негорючий текстиль Trevira CS (КМ1).</p>
+        </div>
+      </a>
+
+      <!-- Item 7 -->
+      <a class="gal-item reveal" data-cat="flat" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=70" alt="ЖК Sensata Park" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Квартира · 145 м²</span>
+          <h4>ЖК Sensata Park</h4>
+          <p>Римские шторы из натурального французского льна Casamance с электроприводом.</p>
+        </div>
+      </a>
+
+      <!-- Item 8 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=70" alt="Мастер-спальня" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Резиденция</span>
+          <h4>Косшы, Частная усадьба</h4>
+          <p>Комплексный текстильный декор: портьеры, вуаль, покрывала и мягкое изголовье кровати.</p>
+        </div>
+      </a>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-top: 44px;">
+      <a class="btn btn-ghost" href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+        Смотреть больше кейсов в Instagram @mare_studio
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 8: ZERO-LAG INSTAGRAM ЛЕНТА                              -->
+<!-- ============================================================ -->
+<section class="section" id="instagram">
+  <div class="wrap">
+    <div class="ig-head">
+      <div>
+        <span class="eyebrow">Живой процесс производства</span>
+        <h2>@mare_studio <span class="serif-accent">в Instagram</span></h2>
+      </div>
+      <a class="btn btn-gold" href="https://instagram.com" target="_blank" rel="noopener noreferrer">Подписаться</a>
+    </div>
+  </div>
+  <div class="ig-strip">
+    <a class="ig-tile" href="https://instagram.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff"/></svg><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=60" alt="работа в цехе" loading="lazy" decoding="async"></a>
+    <a class="ig-tile" href="https://instagram.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff"/></svg><img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=60" alt="образцы ткани" loading="lazy" decoding="async"></a>
+    <a class="ig-tile" href="https://instagram.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff"/></svg><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=60" alt="навеска штор" loading="lazy" decoding="async"></a>
+    <a class="ig-tile" href="https://instagram.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff"/></svg><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=600&q=60" alt="складка волна" loading="lazy" decoding="async"></a>
+    <a class="ig-tile" href="https://instagram.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff"/></svg><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=600&q=60" alt="интерьер" loading="lazy" decoding="async"></a>
+    <a class="ig-tile" href="https://instagram.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff"/></svg><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=60" alt="покрывала" loading="lazy" decoding="async"></a>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 9: ЦИФРОВОЕ КП ПО КОДУ СО СВЕТОВЫМИ СЦЕНАРИЯМИ          -->
+<!-- ============================================================ -->
+<section class="section" id="kp">
+  <div class="wrap">
+    <div class="kp-shell">
+      <div class="kp-intro reveal">
+        <span class="eyebrow" style="color:var(--gold-soft)">VIP-Консьерж по коду</span>
+        <h2>Персональное коммерческое предложение</h2>
+        <p>
+          Мы не отправляем заказчикам устаревшие PDF-файлы. Введите персональный код вашего объекта, чтобы открыть интерактивное досье: ткани, размеры, световые сценарии интерьера и согласование в один клик.
+        </p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Точный расчет и состав текстильного проекта</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Выбранные мануфактуры, ткани и геометрия складок</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Симуляция световых сценариев: День / Вечер / Blackout</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Прямое утверждение проекта в WhatsApp</li>
+        </ul>
+      </div>
+
+      <div class="kp-demo reveal">
+        <div>
+          <span class="f-label" style="color:var(--gold)">Открыть закрытое досье проекта</span>
+          <div class="code-row">
+            <input id="kpCode" type="text" placeholder="Введите код (напр. 70 или VILLA-ASTANA)" aria-label="Код проекта">
+            <button class="btn btn-petrol" id="kpOpen">Открыть КП</button>
+          </div>
+        </div>
+
+        <div class="kp-card" id="kpCard">
+          <div class="top">
+            <span class="lb">Коммерческое предложение</span>
+            <span>№ <b id="kpNum">70</b></span>
+          </div>
+          
+          <div class="rows">
+            <div class="r"><span>Объект</span><b id="kpName">Резиденция, пос. Саранда (480 м²)</b></div>
+            <div class="r"><span>Мануфактура</span><b>Sheenel, производство Бельгия</b></div>
+            <div class="r"><span>Складка</span><b>«Волна» 1:2.0 на электрокарнизе Somfy</b></div>
+            <div class="r"><span>Параметры</span><b>3,2 × 2,8 м · 2 окна</b></div>
+            <div class="r"><span>Статус цеха</span><b style="color:#1F7A55;">Готовность 75% · Пошив в цехе</b></div>
+          </div>
+
+          <!-- Light simulation -->
+          <div class="kp-light-tabs">
+            <div class="kp-light-title">Световой сценарий интерьера:</div>
+            <div class="kp-light-btns">
+              <button class="kp-light-btn active" onclick="setKpLight('day', this)">☀️ День</button>
+              <button class="kp-light-btn" onclick="setKpLight('evening', this)">🌆 Вечер</button>
+              <button class="kp-light-btn" onclick="setKpLight('night', this)">🌙 Ночь (Blackout)</button>
+            </div>
+          </div>
+
+          <div class="kp-preview-box day" id="kpPreviewBox">
+            <div>
+              <div style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700;" id="kpLightText">
+                Парадная гостиная: Рассеянный дневной свет
+              </div>
+              <div style="font-size:0.8rem; opacity:0.8; margin-top:3px;">
+                Бельгийский шенилл с вуалью фильтрует яркое степное солнце
+              </div>
+            </div>
+          </div>
+
+          <div class="tot">
+            <span>Итоговая смета с монтажом:</span>
+            <b id="kpPriceVal">348 000 ₸</b>
+          </div>
+
+          <div style="padding: 0 20px 20px;">
+            <a class="btn btn-wa btn-block" id="kpAgree" href="#" target="_blank" rel="noopener noreferrer">
+              Утвердить проект в WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <p style="font-size: 0.76rem; color: var(--muted); line-height: 1.4;">
+          Демонстрационный терминал. Введите любой номер (например: <strong>70</strong>, <strong>140</strong> или <strong>VILLA</strong>) для проверки работы.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ACT 10: ЗАЯВКА И КОНТАКТЫ                                    -->
+<!-- ============================================================ -->
+<section class="section" id="contacts">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow c">Заявка на проект</span>
+      <h2>Оставьте заявку — <span class="serif-accent">мы свяжемся за 10 минут</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        Дизайнер оперативно ответит вам в WhatsApp или по телефону и согласует удобное время выезда с чемоданом образцов.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Form -->
+      <form class="form-card reveal" id="leadForm" novalidate>
+        <div class="form-grid">
+          <div class="f2">
+            <div class="fg"><label for="fName">Имя</label><input id="fName" type="text" placeholder="Как к вам обращаться" required></div>
+            <div class="fg"><label for="fPhone">Телефон</label><input id="fPhone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+          </div>
+          <div class="fg">
+            <label for="fWho">Сегмент и задача</label>
+            <select id="fWho">
+              <option value="b2c">Частное лицо (Квартира, пентхаус, дом)</option>
+              <option value="b2b">Юридическое лицо (Офис, отель, контракт с НДС 12%)</option>
+              <option value="designer">Архитектор / Дизайнер (Партнерский клуб 10%)</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label for="fMsg">Комментарий или ЖК в Астане</label>
+            <textarea id="fMsg" placeholder="Например: ЖК Talan Towers, 3 комнаты, черновой ремонт, нужен выезд с чемоданом образцов"></textarea>
+          </div>
+          <button class="btn btn-wa btn-block" id="leadBtn" type="submit">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+            Отправить заявку в WhatsApp
+          </button>
+        </div>
+        <p class="form-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+          Заявка мгновенно транслируется дежурному текстильному декоратору MARÉ.
+        </p>
+      </form>
+
+      <!-- Info cards -->
+      <div class="info-card reveal">
+        <a class="info" href="https://wa.me/77000000000" target="_blank" rel="noopener noreferrer">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/><path d="M8.5 9c1 2.5 3 4.5 5.5 5.5"/></svg></span>
+          <span class="txt"><b>WhatsApp Консьерж</b><span>Отвечаем за 10–15 минут</span></span>
+        </a>
+        <a class="info" href="tel:+77000000000">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h4l2 5-3 2a12 12 0 0 0 6 6l2-3 5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 3 5a1 1 0 0 1 1-1Z"/></svg></span>
+          <span class="txt"><b>Прямой звонок</b><span>+7 700 000 00 00</span></span>
+        </a>
+        <a class="info" href="https://t.me/mare_studio" target="_blank" rel="noopener noreferrer">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l5 2 2 6 3-4 5 3z"/></svg></span>
+          <span class="txt"><b>Telegram канал & бот</b><span>@mare_studio</span></span>
+        </a>
+        <div class="info">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+          <span class="txt"><b>Шоурум & Цех в Астане</b><span>г. Астана, ул. Достык, 16 (прием по записи)</span></span>
+        </div>
+        <div class="info">
+          <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <span class="txt"><b>График работы</b><span>Пн–Сб: 10:00–19:00 · Вс: выезды по записи</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER                                                       -->
+<!-- ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a href="#top" class="logo">
+          <svg viewBox="0 0 72 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 22C18 6 46 6 60 22 46 38 18 38 4 22Z"/>
+            <path d="M60 22C63.5 14.5 68 10.5 71.5 8.5"/>
+            <path d="M60 22C63.5 29.5 68 33.5 71.5 35.5"/>
+            <path d="M23 14.5C31 8.5 42 9.5 50 16.5"/>
+            <path d="M21 29.5C29 35.5 40 34.5 48 27.5"/>
+            <circle cx="16.5" cy="20.2" r="1.5" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="logo-word"><b>MARÉ</b><i>ателье интерьерного текстиля</i></span>
+        </a>
+        <p class="f-desc">
+          Топ-50 мировых декораторов. 12 лет безупречного текстильного оформления резиденций и контрактных объектов в Астане. Собственный цех 350 м², прямые поставки мануфактур Европы, 3D-моделирование и 10% кэшбэк дизайнерам.
+        </p>
+        <div class="f-social">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
+          <a href="https://wa.me/77000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/><path d="M8.5 9c1 2.5 3 4.5 5.5 5.5"/></svg></a>
+          <a href="https://t.me/mare_studio" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l5 2 2 6 3-4 5 3z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Навигация</h5>
+        <ul>
+          <li><a href="#flows">Две двери (B2C & B2B)</a></li>
+          <li><a href="#beforeAfter">Было / Стало</a></li>
+          <li><a href="#powers">7 Сил MARÉ</a></li>
+          <li><a href="#process">Как мы работаем</a></li>
+          <li><a href="#calculator">Калькулятор складок</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Сервисы</h5>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="openSamplerModal()">Чемодан 50 кг образцов</a></li>
+          <li><a href="#kp">Цифровое VIP-досье</a></li>
+          <li><a href="javascript:void(0)" onclick="openWhatsAppForRole('designer')">Дизайнерский Клуб (10%)</a></li>
+          <li><a href="#calculator" onclick="setMode('b2b')">B2B отдел с НДС 12%</a></li>
+          <li><a href="#projects">Галерея проектов</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h5>Контакты</h5>
+        <ul>
+          <li><a href="https://wa.me/77000000000" target="_blank" rel="noopener noreferrer">WhatsApp консьерж</a></li>
+          <li><a href="tel:+77000000000">+7 700 000 00 00</a></li>
+          <li><a href="https://t.me/mare_studio" target="_blank" rel="noopener noreferrer">Telegram: @mare_studio</a></li>
+          <li><a href="#contacts">Астана, ул. Достык, 16</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="f-bot">
+      <span>© 2014–2026 MARÉ. Все права защищены.</span>
+      <span>Сделано с вниманием к текстильному мастерству.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- ПЛАВАЮЩИЕ КНОПКИ                                             -->
+<!-- ============================================================ -->
+<div class="float-triggers">
+  <button class="float-sampler-btn" onclick="openSamplerModal()">
+    <span>🧳</span>
+    <span>Чемодан 50 кг образцов</span>
+  </button>
+  <a class="float-wa" href="javascript:void(0)" onclick="openWhatsAppModal()" aria-label="Связаться в WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+  </a>
+</div>
+
+<!-- ============================================================ -->
+<!-- МОДАЛЬНОЕ ОКНО: ВЫЕЗД С ЧЕМОДАНОМ 50 КГ ОБРАЗЦОВ             -->
+<!-- ============================================================ -->
+<div class="modal-backdrop" id="samplerModal">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeSamplerModal()">&times;</button>
+    <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:var(--gold); letter-spacing:0.18em; display:block; margin-bottom:8px;">White Glove Service</span>
+    <h3 style="font-size:1.8rem; margin-bottom:8px;">Выезд декоратора с чемоданом образцов</h3>
+    <p style="font-size:0.88rem; color:var(--muted); line-height:1.5; margin-bottom:20px;">
+      Привезем до 50 кг оригинальных каталогов (Loro Piana, Dedar, Rubelli) прямо на ваш объект в Астане. Проведем лазерный замер скрытых оконных ниш и подберем ткань под ваш свет.
+    </p>
+
+    <form onsubmit="handleSamplerSubmit(event)" style="display:grid; gap:14px;">
+      <div class="fg">
+        <label>Номер телефона</label>
+        <input type="tel" id="samplerPhone" required placeholder="+7 (___) ___-__-__">
+      </div>
+      <div class="fg">
+        <label>Объект или ЖК в Астане</label>
+        <input type="text" id="samplerObj" required placeholder="Например: ЖК Talan Towers, 14 этаж">
+      </div>
+      <div class="fg">
+        <label>Стадия ремонта</label>
+        <select id="samplerStage">
+          <option>Бетонные стены / черновой ремонт (Нужна 3D-примерка)</option>
+          <option>Чистовая отделка завершена (Срочный замер и навес)</option>
+          <option>Есть готовый дизайн-проект (Комплектация по рендерам)</option>
+        </select>
+      </div>
+      <button class="btn btn-petrol btn-block" type="submit" style="margin-top:6px;">
+        Забронировать дату и время выезда
+      </button>
+      <span style="font-size:0.75rem; color:var(--muted); text-align:center;">Бесплатно при согласовании проекта. Конфиденциальность гарантируется.</span>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- МОДАЛЬНОЕ ОКНО: WHATSAPP ВИДЖЕТ ПО РОЛЯМ                     -->
+<!-- ============================================================ -->
+<div class="modal-backdrop" id="whatsAppModal">
+  <div class="modal-card" style="max-width: 480px;">
+    <button class="modal-close" onclick="closeWhatsAppModal()">&times;</button>
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px; padding-bottom:16px; border-bottom:1px solid var(--line);">
+      <div style="width:48px; height:48px; border-radius:50%; background:var(--petrol); color:#fff; display:grid; place-items:center; font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:700;">
+        МС
+      </div>
+      <div>
+        <div style="font-weight:700; font-size:1rem; color:var(--ink);">MARÉ Консьерж · Астана</div>
+        <div style="font-size:0.8rem; color:#1F7A55; display:flex; align-items:center; gap:6px;">
+          <span class="pulse-dot"></span> Сейчас онлайн
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:0.86rem; color:var(--muted); margin-bottom:16px;">
+      Выберите направление обращения для мгновенного персонального ответа (до 10 минут):
+    </p>
+
+    <div style="display:grid; gap:10px;">
+      <a class="info" href="#" onclick="openWhatsAppForRole('b2c')" style="padding:14px 16px; border-radius:14px;">
+        <span style="font-size:1.4rem;">🏡</span>
+        <div class="txt">
+          <b>Для частных резиденций</b>
+          <span>Шторы в дом, 50 кг образцов, замер и 3D-примерка</span>
+        </div>
+      </a>
+      <a class="info" href="#" onclick="openWhatsAppForRole('designer')" style="padding:14px 16px; border-radius:14px; border-color:var(--line-gold);">
+        <span style="font-size:1.4rem;">📐</span>
+        <div class="txt">
+          <b>Дизайнерам и архитекторам</b>
+          <span>Клуб 10% кэшбэк, 3D-текстуры, защита авторского надзора</span>
+        </div>
+      </a>
+      <a class="info" href="#" onclick="openWhatsAppForRole('b2b')" style="padding:14px 16px; border-radius:14px;">
+        <span style="font-size:1.4rem;">🏢</span>
+        <div class="txt">
+          <b>Корпоративным клиентам (B2B)</b>
+          <span>КП с НДС 12%, Somfy Screen, Trevira CS (КМ1)</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SCRIPTS                                                      -->
+<!-- ============================================================ -->
+<script>
+(function(){
+  "use strict";
+  var WA = "77000000000";
+
+  var fmt = function(n){ return Math.round(n).toLocaleString('ru-RU') + ' ₸'; };
+  var num = function(v, d){ return (Math.round(v*Math.pow(10,d))/Math.pow(10,d)).toFixed(d).replace('.', ','); };
+
+  function $(s, c){ return (c||document).querySelector(s); }
+  function $$(s, c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); }
+
+  window.scrollToId = function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    var y = el.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top:y, behavior:'smooth' });
+  };
+
+  /* Header scroll */
+  var header = $('#header');
+  window.addEventListener('scroll', function(){
+    if(window.pageYOffset > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }, { passive:true });
+
+  /* Mobile menu */
+  var burger = $('#burger'), menu = $('#mobileMenu');
+  function toggleMenu(force){
+    var open = (typeof force === 'boolean') ? force : !menu.classList.contains('open');
+    menu.classList.toggle('open', open);
+    burger.classList.toggle('x', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  window.toggleMenu = toggleMenu;
+  burger.addEventListener('click', function(){ toggleMenu(); });
+  $$('#mobileMenu a').forEach(function(a){ a.addEventListener('click', function(){ toggleMenu(false); }); });
+
+  /* Smooth Anchors */
+  $$('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(1);
+      if(!id) return;
+      var el = document.getElementById(id);
+      if(!el) return;
+      e.preventDefault();
+      scrollToId(id);
+      try { if(history.replaceState) history.replaceState(null,'','#'+id); } catch(err){}
+    });
+  });
+
+  /* Intersection Reveal */
+  var revealEls = $$('.reveal');
+  if('IntersectionObserver' in window){
+    var rObs = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var el = en.target;
+          var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function(c){ return c.classList && c.classList.contains('reveal'); });
+          var i = sibs.indexOf(el);
+          el.style.transitionDelay = (i>0 ? Math.min(i,6)*80 : 0) + 'ms';
+          el.classList.add('in');
+          obs.unobserve(el);
+        }
+      });
+    }, { rootMargin:'0px 0px -6% 0px', threshold:0.1 });
+    revealEls.forEach(function(el){ rObs.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ------------------------------------------------------------- */
+  /* PROCEDURAL SILK & KOI CANVAS (LIGHTWEIGHT BACKGROUND)         */
+  /* ------------------------------------------------------------- */
+  (function initSilkCanvas(){
+    var canvas = document.getElementById('silkBackgroundCanvas');
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var w, h, time = 0;
+    var mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
+
+    function resize(){
+      w = canvas.width = canvas.parentElement.clientWidth;
+      h = canvas.height = canvas.parentElement.clientHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    window.addEventListener('mousemove', function(e){
+      var rect = canvas.getBoundingClientRect();
+      targetMouseX = e.clientX - rect.left;
+      targetMouseY = e.clientY - rect.top;
+    });
+
+    var kois = [
+      { x: 140, y: 220, speed: 0.7, angle: 0.4, length: 65, color: 'rgba(217, 188, 139, 0.22)' },
+      { x: 420, y: 380, speed: 0.6, angle: 2.2, length: 80, color: 'rgba(185, 138, 75, 0.18)' }
+    ];
+
+    function loop(){
+      time += 0.015;
+      mouseX += (targetMouseX - mouseX) * 0.05;
+      mouseY += (targetMouseY - mouseY) * 0.05;
+
+      ctx.clearRect(0, 0, w, h);
+
+      // Flowing silk curves
+      var count = 6;
+      for(var i = 0; i < count; i++){
+        ctx.beginPath();
+        var baseX = (w / (count + 1)) * (i + 1);
+        ctx.moveTo(baseX, 0);
+        for(var y = 0; y <= h; y += 30){
+          var dist = Math.hypot(baseX - mouseX, y - mouseY);
+          var repel = Math.max(0, 36 - dist * 0.1);
+          var offset = Math.sin(y * 0.007 + time + i) * 22 + (baseX < mouseX ? -repel : repel);
+          ctx.lineTo(baseX + offset, y);
+        }
+        ctx.strokeStyle = (i % 2 === 0) ? 'rgba(217, 188, 139, 0.15)' : 'rgba(255, 255, 255, 0.06)';
+        ctx.lineWidth = (i === 2) ? 2 : 1;
+        ctx.stroke();
+      }
+
+      // Elegant swimming koi silhouettes
+      kois.forEach(function(koi, idx){
+        koi.x += Math.cos(koi.angle) * koi.speed;
+        koi.y += Math.sin(koi.angle) * koi.speed;
+        koi.angle += Math.sin(time * 0.5 + idx) * 0.008;
+
+        if(koi.x < -100) koi.x = w + 100;
+        if(koi.x > w + 100) koi.x = -100;
+        if(koi.y < -100) koi.y = h + 100;
+        if(koi.y > h + 100) koi.y = -100;
+
+        ctx.save();
+        ctx.translate(koi.x, koi.y);
+        ctx.rotate(koi.angle);
+
+        ctx.beginPath();
+        ctx.ellipse(0, 0, koi.length * 0.45, koi.length * 0.16, 0, 0, Math.PI * 2);
+        ctx.fillStyle = koi.color;
+        ctx.fill();
+
+        var tailWiggle = Math.sin(time * 3.5 + idx) * 7;
+        ctx.beginPath();
+        ctx.moveTo(-koi.length * 0.35, 0);
+        ctx.quadraticCurveTo(-koi.length * 0.65, tailWiggle * 0.5, -koi.length * 0.85, tailWiggle);
+        ctx.lineTo(-koi.length * 0.75, -tailWiggle * 0.5);
+        ctx.closePath();
+        ctx.fillStyle = koi.color;
+        ctx.fill();
+
+        ctx.restore();
+      });
+
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  /* ------------------------------------------------------------- */
+  /* BEFORE & AFTER SPLIT SLIDER                                   */
+  /* ------------------------------------------------------------- */
+  (function initSplitSlider(){
+    var box = document.getElementById('splitSliderBox');
+    var afterLayer = document.getElementById('splitAfterLayer');
+    var afterImg = document.getElementById('splitAfterImg');
+    var handle = document.getElementById('splitHandle');
+    if(!box || !afterLayer || !handle) return;
+
+    var isDragging = false;
+
+    function setSplit(percent){
+      var p = Math.max(0, Math.min(100, percent));
+      afterLayer.style.width = p + '%';
+      handle.style.left = p + '%';
+      if(afterImg) afterImg.style.width = box.clientWidth + 'px';
+    }
+
+    function onMove(e){
+      if(!isDragging) return;
+      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      var rect = box.getBoundingClientRect();
+      var x = clientX - rect.left;
+      var pct = (x / rect.width) * 100;
+      setSplit(pct);
+    }
+
+    handle.addEventListener('mousedown', function(){ isDragging = true; });
+    window.addEventListener('mouseup', function(){ isDragging = false; });
+    box.addEventListener('mousemove', onMove);
+
+    handle.addEventListener('touchstart', function(){ isDragging = true; }, { passive:true });
+    window.addEventListener('touchend', function(){ isDragging = false; });
+    box.addEventListener('touchmove', onMove, { passive:true });
+
+    window.addEventListener('resize', function(){
+      if(afterImg) afterImg.style.width = box.clientWidth + 'px';
+    });
+    setSplit(50);
+  })();
+
+  /* ------------------------------------------------------------- */
+  /* CALCULATOR ENGINE                                             */
+  /* ------------------------------------------------------------- */
+  var B2C_PRODUCT = {
+    roman: { name:'Римская штора', base: 22000 },
+    curtain: { name:'Портьеры в пол', base: 18000 },
+    bedspread: { name:'Покрывало & текстиль', base: 14000 }
+  };
+  var FABRIC = {
+    chenille: { name:'Бельгия: Шенилл Wind', price: 24500, k: 1.35 },
+    velvet: { name:'Италия: Бархат Dedar', price: 28000, k: 1.55 },
+    linen: { name:'Франция: Лён Casamance', price: 19800, k: 1.15 },
+    blackout: { name:'Турция: 100% Blackout', price: 16500, k: 1.0 }
+  };
+  var FOLD = {
+    wave: { name:'Волна (Wave)', k: 2.0, desc:'Идеальный цилиндрический ритм с шагом 16 см. Безупречно для панорамных окон и высоких потолков.', svg:'M 0 20 Q 25 0, 50 20 T 100 20 T 150 20 T 200 20 T 250 20 T 300 20 T 350 20 T 400 20 T 450 20 T 500 20' },
+    french: { name:'Французская тройная', k: 2.5, desc:'Классическая ручная защипка в три лепестка. Роскошная пышность для неоклассики и вилл.', svg:'M 0 25 L 30 25 L 35 8 L 40 25 L 45 8 L 50 25 L 55 8 L 60 25 L 120 25 L 125 8 L 130 25 L 135 8 L 140 25 L 145 8 L 150 25 L 210 25 L 215 8 L 220 25 L 225 8 L 230 25 L 235 8 L 240 25 L 300 25' },
+    box: { name:'Бантовая (Box)', k: 2.2, desc:'Симметричная бантовая складка. Строгая архитектурная геометрия для парадных залов.', svg:'M 0 25 L 20 25 L 20 10 L 60 10 L 60 25 L 90 25 L 90 10 L 130 10 L 130 25 L 160 25 L 160 10 L 200 10 L 200 25 L 230 25' },
+    straight: { name:'Прямая', k: 1.5, desc:'Лаконичное прямое полотно с легкой волной. Минимализм и умеренный расход ткани.', svg:'M 0 20 C 50 14, 100 26, 150 20 C 200 14, 250 26, 300 20 C 350 14, 400 26, 450 20' }
+  };
+
+  var B2B_PRODUCT = {
+    screen: { name:'Somfy Screen 5% (Open Space)', base: 26000 },
+    blackout: { name:'Кассетный Blackout 100% (ВКС)', base: 24000 },
+    wood: { name:'Деревянные жалюзи 50мм (CEO)', base: 32000 },
+    trevira: { name:'Контрактные Trevira CS (КМ1)', base: 28000 }
+  };
+
+  var calcState = {
+    mode: 'b2c',
+    b2c: { product:'curtain', fold:'wave', fabric:'chenille', w:3.2, h:2.8, q:2 },
+    b2b: { product:'screen', sun:false, w:2.4, h:2.8, q:12 }
+  };
+
+  function compute(){
+    if(calcState.mode === 'b2c'){
+      var s = calcState.b2c;
+      var prod = B2C_PRODUCT[s.product] || B2C_PRODUCT.curtain;
+      var fold = FOLD[s.fold] || FOLD.wave;
+      var fab = FABRIC[s.fabric] || FABRIC.chenille;
+      var w = Math.max(s.w, 0.5), h = Math.max(s.h, 1.0), q = Math.max(s.q, 1);
+
+      var fabricMeters = w * fold.k * q;
+      var fabricCost = fabricMeters * fab.price;
+      var tailoring = (fabricMeters * 4500) + (q * 8000); // Пошив в цехе + монтажные узлы
+      var baseTotal = fabricCost + tailoring;
+
+      var hasTulle = $('#checkTulle') && $('#checkTulle').checked;
+      var hasSomfy = $('#checkSomfy') && $('#checkSomfy').checked;
+
+      var tulleCost = hasTulle ? (w * 2.0 * 9500 * q) : 0;
+      var somfyCost = hasSomfy ? (q * 85000) : 0;
+      var total = baseTotal + tulleCost + somfyCost;
+
+      var lines = [
+        ['Изделие', prod.name],
+        ['Ткань', fab.name],
+        ['Складка', fold.name + ' (расход 1:' + fold.k.toFixed(1) + ')'],
+        ['Расход полотна', num(fabricMeters, 1) + ' пог. м'],
+        ['Габариты', num(w, 1) + ' × ' + num(h, 1) + ' м · ' + q + ' шт.'],
+        ['Цеховой пошив & навес', fmt(tailoring)]
+      ];
+      if(hasTulle) lines.push(['Французская вуаль', fmt(tulleCost)]);
+      if(hasSomfy) lines.push(['Электрокарниз Somfy', fmt(somfyCost)]);
+
+      return { total: total, lines: lines, meters: fabricMeters };
+    } else {
+      var b = calcState.b2b;
+      var bprod = B2B_PRODUCT[b.product] || B2B_PRODUCT.screen;
+      var bw = Math.max(b.w, 0.5), bh = Math.max(b.h, 0.5), bq = Math.max(b.q, 1);
+      var area = bw * bh * bq;
+      var motorMult = b.sun ? 1.35 : 1.0;
+      var totalWithoutVat = bprod.base * area * motorMult;
+      var vat = totalWithoutVat * 0.12;
+      var totalB2B = totalWithoutVat + vat;
+
+      var blines = [
+        ['B2B Система', bprod.name],
+        ['Общий метраж', num(area, 1) + ' м² (' + bq + ' проемов)'],
+        ['Базовая смета без НДС', fmt(totalWithoutVat)],
+        ['НДС 12% (официально)', fmt(vat)]
+      ];
+      if(b.sun) blines.push(['Somfy автоматика BMS', 'Включена (×1.35)']);
+      blines.push(['Закрывающие акты', 'КС-2 / КС-3 через ЭДО']);
+
+      return { total: totalB2B, lines: blines, vat: vat };
+    }
+  }
+
+  var animId = null;
+  function animatePrice(to){
+    var priceOut = $('#priceOut');
+    if(animId) cancelAnimationFrame(animId);
+    var from = parseFloat(priceOut.dataset.v || 0) || 0;
+    var dur = 400, t0 = null;
+    priceOut.classList.remove('flash');
+    void priceOut.offsetWidth;
+    priceOut.classList.add('flash');
+    function step(ts){
+      if(t0 === null) t0 = ts;
+      var p = Math.min(1, (ts - t0)/dur);
+      var e = 1 - Math.pow(1 - p, 3);
+      var v = from + (to - from) * e;
+      priceOut.textContent = fmt(v);
+      if(p < 1){ animId = requestAnimationFrame(step); }
+      else { priceOut.textContent = fmt(to); priceOut.dataset.v = to; animId = null; }
+    }
+    animId = requestAnimationFrame(step);
+  }
+
+  function renderBreakdown(lines){
+    var breakdown = $('#breakdown');
+    breakdown.innerHTML = '';
+    lines.forEach(function(l){
+      var row = document.createElement('div');
+      row.className = 'r-line';
+      var a = document.createElement('span'); a.textContent = l[0];
+      var dots = document.createElement('span'); dots.className = 'dots';
+      var b = document.createElement('b'); b.textContent = l[1];
+      row.appendChild(a); row.appendChild(dots); row.appendChild(b);
+      breakdown.appendChild(row);
+    });
+  }
+
+  function recalc(instant){
+    var r = compute();
+    renderBreakdown(r.lines);
+    var priceOut = $('#priceOut');
+    if(instant){ priceOut.textContent = fmt(r.total); priceOut.dataset.v = r.total; }
+    else { animatePrice(r.total); }
+  }
+  window.recalc = recalc;
+
+  function updatePleatVisual(foldKey){
+    var fold = FOLD[foldKey] || FOLD.wave;
+    var nameEl = $('#pleatNameDisplay');
+    var descEl = $('#pleatDesc');
+    var svgPath = $('#pleatSvg path');
+    if(nameEl) nameEl.textContent = fold.name;
+    if(descEl) descEl.textContent = fold.desc;
+    if(svgPath) svgPath.setAttribute('d', fold.svg);
+  }
+
+  function setMode(mode){
+    calcState.mode = mode;
+    $$('.mode-btn').forEach(function(b){
+      var on = b.dataset.mode === mode;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+
+    var pB2c = $('#pill-b2c'), pB2b = $('#pill-b2b');
+    if(pB2c) pB2c.classList.toggle('active', mode === 'b2c');
+    if(pB2b) pB2b.classList.toggle('active', mode === 'b2b');
+
+    $('#group-b2c').classList.toggle('show', mode === 'b2c');
+    $('#group-b2b').classList.toggle('show', mode === 'b2b');
+
+    $('#modeNote').textContent = mode === 'b2c' ? 'Режим: для дома (B2C)' : 'Режим: для бизнеса с НДС 12% (B2B)';
+    $('#resTitleLabel').textContent = mode === 'b2c' ? 'Предварительная смета под ключ' : 'Ориентировочная B2B смета с НДС 12%';
+
+    recalc(true);
+  }
+  window.setMode = setMode;
+
+  /* Chips click handling */
+  $$('.chips').forEach(function(group){
+    var gname = group.dataset.group;
+    group.addEventListener('click', function(e){
+      var chip = e.target.closest('.chip');
+      if(!chip || !group.contains(chip)) return;
+      $$('.chip', group).forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+
+      if(calcState.mode === 'b2c'){
+        if(gname === 'product') calcState.b2c.product = chip.dataset.v;
+        if(gname === 'fold'){
+          calcState.b2c.fold = chip.dataset.v;
+          updatePleatVisual(chip.dataset.v);
+        }
+        if(gname === 'fabric') calcState.b2c.fabric = chip.dataset.v;
+      } else {
+        if(gname === 'b2b-product') calcState.b2b.product = chip.dataset.v;
+      }
+      recalc(false);
+    });
+  });
+
+  /* Inputs sync */
+  [['b2c-w','b2c','w'],['b2c-h','b2c','h'],['b2c-q','b2c','q'],
+   ['b2b-w','b2b','w'],['b2b-h','b2b','h'],['b2b-q','b2b','q']].forEach(function(t){
+    var el = document.getElementById(t[0]);
+    if(!el) return;
+    el.addEventListener('input', function(){
+      var v = parseFloat(el.value);
+      if(isNaN(v) || v <= 0) v = 0.1;
+      calcState[t[1]][t[2]] = v;
+      recalc(false);
+    });
+  });
+
+  /* Sun / Motor Switch */
+  var sun = $('#sunSwitch');
+  function toggleSun(){
+    calcState.b2b.sun = !calcState.b2b.sun;
+    sun.classList.toggle('on', calcState.b2b.sun);
+    sun.setAttribute('aria-checked', calcState.b2b.sun ? 'true' : 'false');
+    recalc(false);
+  }
+  if(sun){
+    sun.addEventListener('click', toggleSun);
+    sun.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleSun(); } });
+  }
+
+  /* WhatsApp direct calculation dispatch */
+  $('#calcWa').addEventListener('click', function(){
+    var r = compute();
+    var lines = r.lines.map(function(l){ return '• ' + l[0] + ': ' + l[1]; }).join('\n');
+    var txt = 'Здравствуйте! Хочу заказать текстильное оформление в MARÉ.\n' +
+              'Режим: ' + (calcState.mode === 'b2c' ? 'Для дома (B2C)' : 'Для бизнеса с НДС 12% (B2B)') + '\n\n' +
+              lines + '\n\nПредварительная стоимость: ' + fmt(r.total) + '\n(Собственный цех 350 м² в Астане, гарантия 3 года)';
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+  });
+
+  /* ------------------------------------------------------------- */
+  /* VOICE AI ASSISTANT                                            */
+  /* ------------------------------------------------------------- */
+  var micBtn = $('#micBtn'), micHint = $('#micHint');
+
+  function applySampleVoice(t){
+    var low = t.toLowerCase();
+    var nums = (low.match(/\d+[.,]?\d*/g) || []).map(function(x){ return parseFloat(x.replace(',', '.')); });
+
+    if(/офис|бизнес|b2b/.test(low)){
+      setMode('b2b');
+      if(/ролл|скрин/.test(low)) setChip('b2b-product', 'screen');
+      if(/блэкаут|blackout/.test(low)) setChip('b2b-product', 'blackout');
+      if(/дерев|жалюзи/.test(low)) setChip('b2b-product', 'wood');
+      if(nums.length){
+        calcState.b2b.w = nums[0];
+        if(nums[1]) calcState.b2b.h = nums[1];
+        if(nums[2]) calcState.b2b.q = Math.round(nums[2]);
+        $('#b2b-w').value = calcState.b2b.w;
+        $('#b2b-h').value = calcState.b2b.h;
+        $('#b2b-q').value = calcState.b2b.q;
+      }
+    } else {
+      setMode('b2c');
+      if(/римск/.test(low)) setChip('product', 'roman');
+      else if(/портьер|штор/.test(low)) setChip('product', 'curtain');
+      else if(/покрывал/.test(low)) setChip('product', 'bedspread');
+
+      if(/шенилл|бельг/.test(low)) setChip('fabric', 'chenille');
+      else if(/бархат|итал/.test(low)) setChip('fabric', 'velvet');
+      else if(/лён|лен|франц/.test(low)) setChip('fabric', 'linen');
+      else if(/блэкаут|blackout/.test(low)) setChip('fabric', 'blackout');
+
+      if(/тройн|француз/.test(low)) setChip('fold', 'french');
+      else if(/бант/.test(low)) setChip('fold', 'box');
+      else if(/волн/.test(low)) setChip('fold', 'wave');
+
+      if(nums.length){
+        calcState.b2c.w = nums[0];
+        if(nums[1]) calcState.b2c.h = nums[1];
+        if(nums[2]) calcState.b2c.q = Math.round(nums[2]);
+        $('#b2c-w').value = calcState.b2c.w;
+        $('#b2c-h').value = calcState.b2c.h;
+        $('#b2c-q').value = calcState.b2c.q;
+      }
+    }
+
+    recalc(false);
+    micHint.textContent = 'Распознано: «' + t + '»';
+  }
+  window.applySampleVoice = applySampleVoice;
+
+  function setChip(group, val){
+    var scope = document.querySelector(calcState.mode === 'b2c' ? '#group-b2c' : '#group-b2b');
+    if(!scope) return;
+    var g = scope.querySelector('.chips[data-group="'+group+'"]');
+    if(!g) return;
+    var chip = g.querySelector('.chip[data-v="'+val+'"]');
+    if(chip) chip.click();
+  }
+
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(SR){
+    var rec = new SR();
+    rec.lang = 'ru-RU';
+    rec.interimResults = false;
+    var listening = false;
+
+    micBtn.addEventListener('click', function(){
+      if(listening){ rec.stop(); return; }
+      try { rec.start(); } catch(err){}
+    });
+
+    rec.onstart = function(){
+      listening = true;
+      micBtn.classList.add('rec');
+      micHint.textContent = 'Слушаю… Назовите комнату, ткань и размеры (напр.: «Гостиная, шенилл, 3 на 2.8, 2 окна»)';
+    };
+    rec.onend = function(){
+      listening = false;
+      micBtn.classList.remove('rec');
+    };
+    rec.onerror = function(e){
+      listening = false;
+      micBtn.classList.remove('rec');
+      micHint.textContent = 'Ошибка распознавания. Выберите готовый образец фразы ниже.';
+    };
+    rec.onresult = function(ev){
+      var t = ev.results[0][0].transcript;
+      applySampleVoice(t);
+    };
+  } else {
+    micBtn.addEventListener('click', function(){
+      micHint.textContent = 'Голосовой ввод не поддерживается в этом браузере. Выберите готовый образец фразы:';
+    });
+  }
+
+  /* ------------------------------------------------------------- */
+  /* PORTFOLIO TABS                                                */
+  /* ------------------------------------------------------------- */
+  $$('#tabs .tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      $$('#tabs .tab').forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.dataset.filter;
+      $$('#gal .gal-item').forEach(function(item){
+        var show = (f === 'all' || item.dataset.cat === f);
+        item.classList.toggle('hide', !show);
+      });
+    });
+  });
+
+  /* ------------------------------------------------------------- */
+  /* DIGITAL KP TERMINAL                                           */
+  /* ------------------------------------------------------------- */
+  var kpDossiers = [
+    { title:'Резиденция, пос. Саранда (480 м²)', price:'348 000 ₸', fabric:'Sheenel (Бельгия)', pleat:'«Волна» 1:2.0 на Somfy', dims:'3,2 × 2,8 м · 2 окна' },
+    { title:'Пентхаус, ЖК Talan Towers (320 м²)', price:'580 000 ₸', fabric:'Дикий шелк Dedar (Италия)', pleat:'Французская тройная', dims:'4,0 × 3,2 м · 3 окна' },
+    { title:'Апартаменты, ЖК Highvill Prime (210 м²)', price:'295 000 ₸', fabric:'Бархат Rubelli (Италия)', pleat:'«Волна» 1:2.0', dims:'2,8 × 2,8 м · 2 окна' },
+    { title:'Штаб-квартира, БЦ «Есиль» (B2B Контракт)', price:'840 000 ₸', fabric:'Somfy Screen 5% + Trevira CS (КМ1)', pleat:'Кассетные системы', dims:'12 проемов · с НДС 12%' }
+  ];
+
+  $('#kpOpen').addEventListener('click', function(){
+    var code = ($('#kpCode').value || '').trim();
+    if(!code){
+      $('#kpCode').focus();
+      $('#kpCode').style.borderColor = 'var(--gold)';
+      return;
+    }
+    $('#kpNum').textContent = code.toUpperCase().replace(/[^0-9A-ZА-Я-]/g, '').slice(0, 10) || '70';
+    var hash = Math.abs(code.split('').reduce(function(a,c){ return a + c.charCodeAt(0); }, 0));
+    var item = kpDossiers[hash % kpDossiers.length];
+
+    $('#kpName').textContent = item.title;
+    $('#kpPriceVal').textContent = item.price;
+    $('#kpCard').classList.add('show');
+
+    var msg = 'Здравствуйте! Я ознакомился с персональным КП №' + $('#kpNum').textContent + ' («' + item.title + '», ' + item.price + '). Хочу согласовать дату выезда/монтажа.';
+    $('#kpAgree').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+  });
+  $('#kpCode').addEventListener('keydown', function(e){ if(e.key === 'Enter') $('#kpOpen').click(); });
+
+  window.setKpLight = function(mode, btn){
+    $$('.kp-light-btn').forEach(function(b){ b.classList.remove('active'); });
+    if(btn) btn.classList.add('active');
+    var pBox = $('#kpPreviewBox');
+    var pText = $('#kpLightText');
+    pBox.className = 'kp-preview-box ' + mode;
+    if(mode === 'day'){
+      pText.textContent = 'Парадная гостиная: Рассеянный дневной свет';
+    } else if(mode === 'evening'){
+      pText.textContent = 'Теплый вечерний сценарий: Драпировка потайного шва';
+    } else {
+      pText.textContent = 'Ночной сценарий: 100% Blackout и акустическая тишина';
+    }
+  };
+
+  /* ------------------------------------------------------------- */
+  /* LEAD FORM SUBMISSION                                          */
+  /* ------------------------------------------------------------- */
+  $('#leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = $('#fName').value.trim();
+    var phone = $('#fPhone').value.trim();
+    var who = $('#fWho').value;
+    var msg = $('#fMsg').value.trim();
+    if(!name || !phone){
+      if(!name) $('#fName').style.borderColor = 'var(--gold)';
+      if(!phone) $('#fPhone').style.borderColor = 'var(--gold)';
+      return;
+    }
+    var whoMap = { b2c:'Частное лицо (Дом/квартира)', b2b:'Юридическое лицо (B2B с НДС)', designer:'Архитектор/Дизайнер (Клуб 10%)' };
+    var txt = 'Заявка на текстиль MARÉ:\n' +
+              'Имя: ' + name + '\n' +
+              'Телефон: ' + phone + '\n' +
+              'Направление: ' + (whoMap[who] || who) + '\n' +
+              (msg ? 'Комментарий: ' + msg : '');
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+  });
+
+  /* ------------------------------------------------------------- */
+  /* MODALS MANAGEMENT                                             */
+  /* ------------------------------------------------------------- */
+  window.openSamplerModal = function(){ $('#samplerModal').classList.add('open'); };
+  window.closeSamplerModal = function(){ $('#samplerModal').classList.remove('open'); };
+  window.openWhatsAppModal = function(){ $('#whatsAppModal').classList.add('open'); };
+  window.closeWhatsAppModal = function(){ $('#whatsAppModal').classList.remove('open'); };
+  window.openKPModal = function(){
+    scrollToId('kp');
+    $('#kpCode').focus();
+  };
+
+  window.handleSamplerSubmit = function(e){
+    e.preventDefault();
+    var phone = $('#samplerPhone').value.trim();
+    var obj = $('#samplerObj').value.trim();
+    var stage = $('#samplerStage').value;
+    var txt = 'Заявка на выезд с чемоданом 50 кг образцов (MARÉ):\n' +
+              'Телефон: ' + phone + '\n' +
+              'Объект: ' + obj + '\n' +
+              'Стадия: ' + stage;
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+    closeSamplerModal();
+  };
+
+  window.openWhatsAppForRole = function(role){
+    var txt = '';
+    if(role === 'designer'){
+      txt = 'Здравствуйте! Я дизайнер интерьера / архитектор. Хочу вступить в Дизайнерский Клуб MARÉ (10% кэшбэк день-в-день, 3D-текстуры, защита авторского надзора).';
+    } else if(role === 'b2b'){
+      txt = 'Здравствуйте! Интересует корпоративное текстильное оформление с НДС 12% (Somfy Screen, огнестойкий Trevira CS КМ1, закрывающие акты КС-2/КС-3).';
+    } else {
+      txt = 'Здравствуйте! Хочу заказать текстильное оформление для дома в MARÉ и пригласить декоратора с чемоданом 50 кг образцов.';
+    }
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+    closeWhatsAppModal();
+  };
+
+  /* Initialize default calculator */
+  recalc(true);
+})();
+</script>
+</body>
+</html>

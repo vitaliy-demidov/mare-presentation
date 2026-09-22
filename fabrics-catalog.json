@@ -1,0 +1,2005 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "catalog_title": "Maison Poisson — Haute Textile & Sourcing Swatch Archive",
+    "brand": "Maison Poisson (MARÉ Atelier)",
+    "location": "Astana, Kazakhstan • International Contract Division",
+    "edition": "2026 Sovereign Couture Archive",
+    "curator": "Haute Textile & Sourcing Curator",
+    "total_inventory_scope": "1200+ European mill-direct swatches (Belgium, Italy, France, Germany, UK)",
+    "currency": "KZT",
+    "currency_symbol": "₸",
+    "b2c_vat_included": true,
+    "b2b_vat_rate_pct": 12,
+    "lead_time_standard_days": "10-14 working days direct air-cargo from European mills",
+    "craftsmanship_standards": {
+      "atelier_area_sqm": 350,
+      "machinery": "Dürkopp Adler industrial heavy-drape sewing stations (Germany)",
+      "heading_tapes": "Bandex corded permanent-pleat buckram buckled tapes (Austria)",
+      "motorization_partner": "Somfy (France) Glydea Ultra 35/60 RTS/WT with Apple HomeKit/KNX/Alice",
+      "hem_finishing": "10-12 cm double-folded blind hand-stitch with 50g/m lead weighted cords",
+      "steaming_station": "Laurastar vertical continuous dry-microfine steam finishing"
+    },
+    "tested_standards": [
+      "ISO 354:2003 (Acoustics — Measurement of sound absorption in a reverberation room)",
+      "ISO 11654:1997 (Acoustics — Sound absorbers for use in buildings — Rating)",
+      "Russian & EAEU Federal Law 123-FZ (Fire Safety Class KM1: G1, V1, D2, T2)",
+      "DIN 4102-B1 (Schwerentflammbare Baustoffe, Germany)",
+      "NF P 92-507 M1 (Non-inflammable, France)",
+      "Martindale ISO 12947-2 (Abrasion resistance > 50,000 cycles)",
+      "OEKO-TEX Standard 100 (Free of hazardous aromatic amines and formaldehyde)",
+      "Masters of Linen / European Flax Certified (100% Western European long-staple)"
+    ]
+  },
+  "pleat_compatibility_matrix": {
+    "triple_pinch_pleat": {
+      "code": "french_triple_pinch",
+      "name_en": "French Triple Pinch Pleat",
+      "name_ru": "Французская тройная складка (Pinch Pleat)",
+      "fullness_ratio": 2.5,
+      "heading_tape": "Bandex 100mm translucent triple-pinch buckram tape",
+      "recommended_carrier_spacing_cm": 8,
+      "niche_depth_single_cm": 15,
+      "niche_depth_dual_somfy_cm": 22,
+      "drape_profile": "Traditional Haute Couture fluted columns. Triple fabric folds hand-pinched and stitched at heading base, allowing opulent, deep folds to billow gently down to the floor.",
+      "best_fabric_types": [
+        "Heavy Belgian Chenille",
+        "Dedar Wild Silk Dupioni",
+        "Heavy Cotton/Silk Velvet",
+        "Loro Piana Cashmere-Wool Blends"
+      ],
+      "astana_architectural_context": "Recommended for master bedroom suites, formal dining rooms, and classical penthouses (ЖК Talan Towers, Sensata, Highvill). Eliminates light leakage between pinch tops and provides maximum thermal barrier against winter draft."
+    },
+    "ripplefold_wave": {
+      "code": "ripplefold_wave",
+      "name_en": "Architectural Ripplefold / Wave Fold",
+      "name_ru": "Архитектурная складка «Идеальная волна» (Wave / Ripplefold)",
+      "fullness_ratio": 2,
+      "heading_tape": "Bandex Wave 77mm continuous carrier string tape (60mm/80mm snap spacing)",
+      "recommended_carrier_spacing_cm": 6,
+      "niche_depth_single_cm": 12,
+      "niche_depth_dual_somfy_cm": 18,
+      "drape_profile": "Pure contemporary architectural rhythm. Continuous sinusoidal curves (S-fold) that appear identical from both interior and exterior vantage points. Compact stack-back width.",
+      "best_fabric_types": [
+        "Italian Textured Organic Extra-Wide Linen",
+        "German Trevira CS Acoustic Dimout",
+        "French Silk Organza",
+        "Somfy Solar Screen 5%"
+      ],
+      "astana_architectural_context": "Essential for panoramic floor-to-ceiling windows up to 6.8m (second-light living rooms). Stacks neatly into corners without occluding panoramic city views over the Ishim River."
+    },
+    "inverted_box_pleat": {
+      "code": "inverted_box_pleat",
+      "name_en": "Inverted Architectural Box Pleat",
+      "name_ru": "Бантовая складка (Архитектурный бокс)",
+      "fullness_ratio": 2.2,
+      "heading_tape": "Bandex 90mm structured box header",
+      "recommended_carrier_spacing_cm": 9,
+      "niche_depth_single_cm": 14,
+      "niche_depth_dual_somfy_cm": 20,
+      "drape_profile": "Flat front face with deep hidden inverted pleats on reverse. Modern, tailored, geometric silhouette.",
+      "best_fabric_types": [
+        "Architectural Trevira CS",
+        "Structured Heavy Linens",
+        "Executive Boardroom Drapery"
+      ],
+      "astana_architectural_context": "Ideal for executive home offices, diplomatic libraries, and contemporary minimalist interiors."
+    },
+    "tailored_roman": {
+      "code": "tailored_roman",
+      "name_en": "Couture Batten-Back Roman Shade",
+      "name_ru": "Дизайнерская римская штора с фибергласовыми ребрами",
+      "fullness_ratio": 1.15,
+      "mechanism": "Coulisse (Netherlands) / Somfy silent motorized cassette",
+      "niche_depth_single_cm": 8,
+      "drape_profile": "Crisp horizontal cascade with concealed fiberglass rods and bottom counterweight bar.",
+      "best_fabric_types": [
+        "Italian Washed Slub Linen",
+        "Belgian Chenille Rib",
+        "Trevira CS Blackout 100%"
+      ],
+      "astana_architectural_context": "For panoramic kitchen prep zones, master bathrooms with freestanding tubs, and compact guest bedrooms."
+    }
+  },
+  "categories": [
+    {
+      "id": "belgian_chenille_acoustic",
+      "name_en": "Belgian Heavy Chenille & Acoustic Weaves",
+      "name_ru": "Бельгийский шенилл и тяжелые акустические полотна",
+      "curatorial_mission": "Engineered for acoustic reverberation dampening, luxury tactile weight, and thermal insulation against severe continental winter temperature differentials.",
+      "origin": "Flanders & Kortrijk, Belgium",
+      "typical_weight_range_gsm": "500 - 640 g/m²",
+      "typical_nrc_range": "0.75 - 0.85 (ISO 354 Class B/A Sound Absorber)",
+      "recommended_pleat": "french_triple_pinch"
+    },
+    {
+      "id": "italian_organic_linen",
+      "name_en": "Italian Textured Organic Linen (Extra-Wide Seamless)",
+      "name_ru": "Итальянский натуральный лен фактурного плетения (300-330 см без швов)",
+      "curatorial_mission": "Spun from certified organic European flax for monumental panoramic floor-to-ceiling windows. Delivers diffused luminous light filtration without vertical seam interruption.",
+      "origin": "Biella & Lombardy, Italy",
+      "typical_weight_range_gsm": "190 - 360 g/m²",
+      "typical_nrc_range": "0.32 - 0.50",
+      "recommended_pleat": "ripplefold_wave"
+    },
+    {
+      "id": "french_organza_dedar_silk",
+      "name_en": "French Silk Organza & Dedar Wild Silk Couture",
+      "name_ru": "Французская шелковая органза и дикий шелк Dedar Milano",
+      "curatorial_mission": "Uncompromising Haute Couture. Sourced from the historic silk looms of Lyon and Dedar Milano. Combines crisp sculptural memory, natural slubbed wild tussah sheen, and ethereal iridescent transparency.",
+      "origin": "Lyon, France & Como/Milan, Italy",
+      "typical_weight_range_gsm": "40 - 240 g/m² (organza sheer to heavy wild silk dupioni)",
+      "typical_nrc_range": "0.18 - 0.45",
+      "recommended_pleat": "french_triple_pinch"
+    },
+    {
+      "id": "german_trevira_cs_b2b",
+      "name_en": "German Trevira CS Non-Flam Architectural Fabrics (B2B / Contract)",
+      "name_ru": "Негорючий архитектурный текстиль Trevira CS (Германия, КМ1 / B1 для B2B)",
+      "curatorial_mission": "Inherently flame-retardant phosphorus-modified polyester for luxury hotels, embassy residences, headquarters, and videoconference suites. Complies with Federal Law 123-FZ (KM1) and DIN 4102-B1.",
+      "origin": "Bobingen / Frankfurt, Germany",
+      "typical_weight_range_gsm": "120 - 440 g/m²",
+      "typical_nrc_range": "0.55 - 0.85 (Acoustic certified)",
+      "recommended_pleat": "ripplefold_wave"
+    },
+    {
+      "id": "couture_heritage_blends",
+      "name_en": "Haute Couture Cashmere, Damask & Blackout Essentials",
+      "name_ru": "Кутюрный кашемир, венецианский дамаск и светозащитные основы",
+      "curatorial_mission": "The crowning zenith of European textile arts: Loro Piana Interiors noble wools, Rubelli Venetian silk jacquards, and soft-touch satin blackout backings.",
+      "origin": "Piedmont & Venice, Italy",
+      "typical_weight_range_gsm": "360 - 580 g/m²",
+      "typical_nrc_range": "0.58 - 0.76",
+      "recommended_pleat": "french_triple_pinch"
+    }
+  ],
+  "swatches": [
+    {
+      "id": "bel-chenille-wind-acoustic",
+      "sku": "MP-BEL-01-WND",
+      "name_en": "Wind Flanders 'Acoustic Grand' Heavy Chenille",
+      "name_ru": "Бельгийский тяжелый шенилл Wind «Acoustic Grand»",
+      "category": "belgian_chenille_acoustic",
+      "mill": "Wind Architectural Textiles",
+      "origin_country": "Belgium",
+      "origin_region": "Flanders",
+      "composition": "62% Cotton Chenille, 26% Spun Viscose, 12% Highland Wool",
+      "width_cm": 140,
+      "is_double_width": false,
+      "weight_gsm": 580,
+      "light_blockage_pct": 92,
+      "blackout_classification": "Heavy Dimout (92% Light Block)",
+      "acoustic_absorption_nrc": 0.82,
+      "acoustic_class": "Class B Sound Absorber (ISO 11654)",
+      "sound_transmission_loss_db": 14,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 98,
+          "status": "Highly Recommended",
+          "note": "Creates majestic, architectural fluted columns with weighted hem puddling."
+        },
+        "ripplefold": {
+          "score": 90,
+          "status": "Compatible",
+          "note": "Requires minimum 16 cm clearance in ceiling niche due to dense yarn pile."
+        },
+        "box_pleat": {
+          "score": 88,
+          "status": "Compatible",
+          "note": "Strict tailored box pleats hold firm under fabric weight."
+        },
+        "roman_shade": {
+          "score": 84,
+          "status": "Compatible with heavy-duty motor",
+          "note": "Superb acoustic Roman shade for private cinema and master bedroom."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Heavy, sculptural, deep puddling drape with luxurious matte velvet luster and silent motion.",
+      "price_tier": "Tier 2: Premium European Atelier",
+      "price_per_meter_kzt": 24500,
+      "price_per_meter_eur": 52,
+      "b2b_volume_price_kzt": 20800,
+      "fire_rating": "Class 1 Residential / Optional FR Salt Backcoating for KM2",
+      "martindale_rubs": 65000,
+      "colorways": [
+        {
+          "name": "Ecru Sable",
+          "hex": "#ECE7DE",
+          "pantone_ref": "11-0601 TCX",
+          "finish": "Warm pearlescent cream matte"
+        },
+        {
+          "name": "Obsidian Truffle",
+          "hex": "#282522",
+          "pantone_ref": "19-0303 TCX",
+          "finish": "Deep charcoal slate"
+        },
+        {
+          "name": "Steppe Greige",
+          "hex": "#A99F92",
+          "pantone_ref": "16-1107 TCX",
+          "finish": "Earthy mineral taupe"
+        },
+        {
+          "name": "Antique Brass Ochre",
+          "hex": "#9E8255",
+          "pantone_ref": "17-1045 TCX",
+          "finish": "Muted golden brass tone"
+        },
+        {
+          "name": "Petrol Deep Forest",
+          "hex": "#2C3E3A",
+          "pantone_ref": "19-5411 TCX",
+          "finish": "Deep muted peacock green"
+        }
+      ],
+      "ideal_applications": [
+        "Master Bedroom acoustic sanctuaries in high-rise penthouses",
+        "Acoustic damping in high-ceiling living rooms (eliminates room echo)",
+        "Home theater blackout & sound absorption drapery",
+        "Thermal barrier curtains for panoramic northern elevations"
+      ],
+      "care_maintenance": "Dry clean only (Hydrocarbon solvent). Vertical micro-steam with Laurastar at 100°C without mechanical surface pressure.",
+      "curator_notes": "The foundation fabric of Maison Poisson. Spun from ultra-soft Flemish chenille yarns with a wool core. In Astana's dry winters, this fabric grounds the room physically and acoustically, eliminating the hollow reverberation of bare concrete and monolithic glass."
+    },
+    {
+      "id": "bel-boucle-deltracon-havana",
+      "sku": "MP-BEL-02-DLT",
+      "name_en": "Deltracon Flemish Heavy Bouclé-Chenille",
+      "name_ru": "Фламандское букле-шенилл Deltracon «Havana Luxe»",
+      "category": "belgian_chenille_acoustic",
+      "mill": "Deltracon Weaving Mill",
+      "origin_country": "Belgium",
+      "origin_region": "Deerlijk, Flanders",
+      "composition": "55% Cotton, 30% Belgian Wool, 15% Polyacrylic Chenille",
+      "width_cm": 145,
+      "is_double_width": false,
+      "weight_gsm": 620,
+      "light_blockage_pct": 90,
+      "blackout_classification": "Heavy Dimout (90% Light Block)",
+      "acoustic_absorption_nrc": 0.85,
+      "acoustic_class": "Class A Sound Absorber (ISO 11654)",
+      "sound_transmission_loss_db": 16,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 96,
+          "status": "Highly Recommended",
+          "note": "Massive tactile presence; crowns beautifully with hand-anchored triple pinch."
+        },
+        "ripplefold": {
+          "score": 86,
+          "status": "Compatible with wide spacing",
+          "note": "Use 80mm carrier spacing on heavy Somfy Glydea 60 motors."
+        },
+        "box_pleat": {
+          "score": 92,
+          "status": "Recommended",
+          "note": "Tailored couture look for libraries and study rooms."
+        },
+        "roman_shade": {
+          "score": 80,
+          "status": "Compatible",
+          "note": "Heavyweight roman shade with reinforced cross-rods."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Substantial, three-dimensional tactile bouclé hand with soft woolly loft and grounded fall.",
+      "price_tier": "Tier 3: Haute Couture Luxury",
+      "price_per_meter_kzt": 29000,
+      "price_per_meter_eur": 62,
+      "b2b_volume_price_kzt": 24500,
+      "fire_rating": "Class 1 Residential / BS 5852 Source 0 & 1",
+      "martindale_rubs": 70000,
+      "colorways": [
+        {
+          "name": "Raw Alpaca Ecrù",
+          "hex": "#F4EFE6",
+          "pantone_ref": "11-0105 TCX",
+          "finish": "Unbleached raw flecked wool"
+        },
+        {
+          "name": "Havane Tabac",
+          "hex": "#7A5E44",
+          "pantone_ref": "18-1031 TCX",
+          "finish": "Warm hazelnut tobacco"
+        },
+        {
+          "name": "Basalt Anthracite",
+          "hex": "#343434",
+          "pantone_ref": "19-4007 TCX",
+          "finish": "Matte textured granite"
+        },
+        {
+          "name": "Nordic Moss",
+          "hex": "#50584B",
+          "pantone_ref": "18-0312 TCX",
+          "finish": "Earthy pine lichen"
+        }
+      ],
+      "ideal_applications": [
+        "Executive private study rooms and diplomatic salons",
+        "Luxury chalet and contemporary villa living halls",
+        "Acoustic dividing portieres between open-plan zones"
+      ],
+      "care_maintenance": "Delicate professional dry cleaning. Brush gently with natural horsehair textile brush to preserve bouclé loops.",
+      "curator_notes": "Deltracon is legendary for combining coarse textural yarns with delicate softness. This fabric boasts the highest NRC coefficient in our residential portfolio (0.85), functioning as an invisible acoustic panel disguised as Haute Couture drapery."
+    },
+    {
+      "id": "bel-velours-kortrijk-royal",
+      "sku": "MP-BEL-03-KRT",
+      "name_en": "Kortrijk Heritage Chenille-Velours",
+      "name_ru": "Бельгийский шенилл-велюр Kortrijk «Heritage Royal»",
+      "category": "belgian_chenille_acoustic",
+      "mill": "Kortrijk Velvet Artisans",
+      "origin_country": "Belgium",
+      "origin_region": "Kortrijk",
+      "composition": "70% Cotton Chenille, 30% Micro-Modal Velvet Pile",
+      "width_cm": 140,
+      "is_double_width": false,
+      "weight_gsm": 540,
+      "light_blockage_pct": 95,
+      "blackout_classification": "Near-Complete Blackout (95% Light Block)",
+      "acoustic_absorption_nrc": 0.78,
+      "acoustic_class": "Class B Sound Absorber",
+      "sound_transmission_loss_db": 13,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 99,
+          "status": "Ideal Master Match",
+          "note": "Unrivaled deep folds that mimic Parisian grand apartment draperies."
+        },
+        "ripplefold": {
+          "score": 92,
+          "status": "Recommended",
+          "note": "Smooth liquid ripples that shimmer subtly when electric light grazes the surface."
+        },
+        "box_pleat": {
+          "score": 85,
+          "status": "Compatible",
+          "note": "Neat geometric presence."
+        },
+        "roman_shade": {
+          "score": 78,
+          "status": "Optional",
+          "note": "Best suited for grand vertical cascades rather than fold-ups."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Silky-soft deep pile, heavy vertical cascade with rich light-trapping shadows and couture drape memory.",
+      "price_tier": "Tier 3: Haute Couture Luxury",
+      "price_per_meter_kzt": 32500,
+      "price_per_meter_eur": 69,
+      "b2b_volume_price_kzt": 27200,
+      "fire_rating": "Residential Heavy FR Standard",
+      "martindale_rubs": 80000,
+      "colorways": [
+        {
+          "name": "Chantilly Cream",
+          "hex": "#F8F5EE",
+          "pantone_ref": "11-0602 TCX",
+          "finish": "Luminous satin velvet"
+        },
+        {
+          "name": "Imperial Petrol",
+          "hex": "#1C3633",
+          "pantone_ref": "19-5320 TCX",
+          "finish": "Deep jewel teal velvet"
+        },
+        {
+          "name": "Venetian Ochre",
+          "hex": "#A77B42",
+          "pantone_ref": "17-1047 TCX",
+          "finish": "Warm antique gold shimmer"
+        },
+        {
+          "name": "Nocturne Obsidian",
+          "hex": "#181716",
+          "pantone_ref": "19-4005 TCX",
+          "finish": "Deep non-reflective black velvet"
+        }
+      ],
+      "ideal_applications": [
+        "Presidential master suites and luxury hotel suites",
+        "Grand neo-classical and art-deco architectural projects",
+        "Formal dining rooms and music salons with grand pianos"
+      ],
+      "care_maintenance": "Specialist velvet dry clean. Never apply direct iron flat; vertical steaming only with velvet brush head.",
+      "curator_notes": "Woven in Kortrijk on traditional wire-loom double-plush machinery. The combination of cotton chenille and modal gives it an incandescent depth of color that responds magically to low evening chandelier lighting."
+    },
+    {
+      "id": "bel-chenille-brabant-rib",
+      "sku": "MP-BEL-04-BRB",
+      "name_en": "Brabant Ribbed Architectural Chenille",
+      "name_ru": "Архитектурный рельефный шенилл Brabant «Cord Weave»",
+      "category": "belgian_chenille_acoustic",
+      "mill": "Brabant Textile Works",
+      "origin_country": "Belgium",
+      "origin_region": "Brabant Wallon",
+      "composition": "60% Organic Cotton, 40% Viscose Chenille",
+      "width_cm": 142,
+      "is_double_width": false,
+      "weight_gsm": 510,
+      "light_blockage_pct": 88,
+      "blackout_classification": "Dimout (88% Light Block)",
+      "acoustic_absorption_nrc": 0.75,
+      "acoustic_class": "Class B Sound Absorber",
+      "sound_transmission_loss_db": 12,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 94,
+          "status": "Recommended",
+          "note": "Linear ribs align vertically with pleat fluting."
+        },
+        "ripplefold": {
+          "score": 95,
+          "status": "Highly Recommended",
+          "note": "Vertical corded texture accentuates the cylindrical wave rhythm."
+        },
+        "box_pleat": {
+          "score": 90,
+          "status": "Recommended",
+          "note": "Architectural linear alignment."
+        },
+        "roman_shade": {
+          "score": 92,
+          "status": "Highly Recommended",
+          "note": "The horizontal cross-bars contrast crisply with vertical ribs."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Structured vertical corded texture with supple pliable body and matte architectural relief.",
+      "price_tier": "Tier 2: Premium European Atelier",
+      "price_per_meter_kzt": 26000,
+      "price_per_meter_eur": 55,
+      "b2b_volume_price_kzt": 21500,
+      "fire_rating": "Class 1 Residential",
+      "martindale_rubs": 55000,
+      "colorways": [
+        {
+          "name": "Alabaster Cord",
+          "hex": "#F1EEE7",
+          "pantone_ref": "11-0604 TCX",
+          "finish": "Fine architectural chalk rib"
+        },
+        {
+          "name": "Smoked Cashmere",
+          "hex": "#9E968B",
+          "pantone_ref": "16-1305 TCX",
+          "finish": "Warm silver-taupe"
+        },
+        {
+          "name": "Cognac Vintage",
+          "hex": "#8A5A36",
+          "pantone_ref": "18-1148 TCX",
+          "finish": "Deep saddle leather warm amber"
+        }
+      ],
+      "ideal_applications": [
+        "Contemporary penthouses with minimalist wood and travertine paneling",
+        "Executive home offices and high-end residential libraries",
+        "Bespoke roman shades in modern architectural kitchens"
+      ],
+      "care_maintenance": "Dry clean only. Steam in the direction of the vertical ribbing.",
+      "curator_notes": "A favorite of Astana architects working on minimalist interior projects. The subtle ribbing breaks acoustic surface waves while giving modern rooms a sense of grounded stability."
+    },
+    {
+      "id": "ita-linen-loropiana-altai",
+      "sku": "MP-ITA-01-LP",
+      "name_en": "Loro Piana Interiors 'Terra Altai' Textured Master Linen",
+      "name_ru": "Итальянский органический лен Loro Piana Interiors «Terra Altai» (330 см)",
+      "category": "italian_organic_linen",
+      "mill": "Loro Piana Interiors (Biella)",
+      "origin_country": "Italy",
+      "origin_region": "Biella, Piedmont",
+      "composition": "100% Certified European Organic Flax (Masters of Linen)",
+      "width_cm": 330,
+      "is_double_width": true,
+      "weight_gsm": 340,
+      "light_blockage_pct": 55,
+      "blackout_classification": "Luminous Solar Filter (55% Light Block)",
+      "acoustic_absorption_nrc": 0.48,
+      "acoustic_class": "Class D Sound Absorber",
+      "sound_transmission_loss_db": 8,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 99,
+          "status": "Absolute Masterpiece",
+          "note": "Unrivaled continuous wave across 3.3m-6.5m panoramic heights without a single vertical seam."
+        },
+        "triple_pinch": {
+          "score": 90,
+          "status": "Recommended for Classic Villa",
+          "note": "Tailored triple pinch creates crisp organic fluting."
+        },
+        "box_pleat": {
+          "score": 85,
+          "status": "Compatible",
+          "note": "Refined rustic-chic minimalism."
+        },
+        "roman_shade": {
+          "score": 92,
+          "status": "Recommended for wide spans",
+          "note": "Seamless wide Roman shades up to 3.2m width."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Airy yet weighted organic drape with natural slub irregularity; cascades with effortless nonchalant Italian 'sprezzatura'.",
+      "price_tier": "Tier 3: Haute Couture Luxury",
+      "price_per_meter_kzt": 36000,
+      "price_per_meter_eur": 76,
+      "b2b_volume_price_kzt": 31000,
+      "fire_rating": "Natural fiber class / Inherent low toxicity",
+      "martindale_rubs": 35000,
+      "colorways": [
+        {
+          "name": "Lino Greggio Naturale",
+          "hex": "#E9E3D5",
+          "pantone_ref": "12-0710 TCX",
+          "finish": "Raw unbleached linen with flax flecks"
+        },
+        {
+          "name": "Sabbia di Biella",
+          "hex": "#D8CFBC",
+          "pantone_ref": "14-1116 TCX",
+          "finish": "Warm golden dune sand"
+        },
+        {
+          "name": "Pietra di Carrara",
+          "hex": "#C5BFB5",
+          "pantone_ref": "15-1304 TCX",
+          "finish": "Cool travertine pale stone"
+        },
+        {
+          "name": "Terra Bruciata",
+          "hex": "#7D6B5B",
+          "pantone_ref": "18-1017 TCX",
+          "finish": "Warm washed earth"
+        }
+      ],
+      "ideal_applications": [
+        "Floor-to-ceiling panoramic glass facades in luxury penthouses (Sensata, Talan Towers)",
+        "Second-light double-height living halls (up to 6.8 meters high)",
+        "Organic minimalist villas and country residences (BI Village Deluxe)"
+      ],
+      "care_maintenance": "Delicate dry clean or gentle eco-clean. Pre-shrunk through mechanical water-bath finishing in Biella. Steam with Laurastar on medium setting.",
+      "curator_notes": "Sourced from the historic Piedmont spinning mills of Loro Piana Interiors. The 330 cm extra-wide roll width allows Maison Poisson to fabricate 12-meter wide seamless panoramic curtains with zero joining seams. It filters the harsh sun into an incandescent, honeyed Mediterranean atmosphere."
+    },
+    {
+      "id": "ita-linen-ccmilano-delave",
+      "sku": "MP-ITA-02-CCM",
+      "name_en": "C&C Milano 'Delavé Sabbia' Washed Slub Linen",
+      "name_ru": "Итальянский умягченный лен C&C Milano «Delavé Sabbia» (310 см)",
+      "category": "italian_organic_linen",
+      "mill": "C&C Milano Tessuti",
+      "origin_country": "Italy",
+      "origin_region": "Lombardy",
+      "composition": "100% Washed Organic Flax (Enzyme Stone-Washed)",
+      "width_cm": 310,
+      "is_double_width": true,
+      "weight_gsm": 310,
+      "light_blockage_pct": 50,
+      "blackout_classification": "Filtered Light Translucent (50% Block)",
+      "acoustic_absorption_nrc": 0.44,
+      "acoustic_class": "Class D Sound Absorber",
+      "sound_transmission_loss_db": 7,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 98,
+          "status": "Master Match",
+          "note": "Fluid sinusoidal drape that moves gracefully with ambient indoor airflow."
+        },
+        "triple_pinch": {
+          "score": 88,
+          "status": "Compatible",
+          "note": "Relaxed European couture pinch."
+        },
+        "box_pleat": {
+          "score": 82,
+          "status": "Compatible",
+          "note": "Casual tailored look."
+        },
+        "roman_shade": {
+          "score": 95,
+          "status": "Master Match",
+          "note": "Soft folds stack in relaxed, cloud-like horizontal clouds."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Ultra-soft tumbling hand, enzyme-washed drape with relaxed organic memory and zero stiff crispness.",
+      "price_tier": "Tier 2: Premium European Atelier",
+      "price_per_meter_kzt": 26500,
+      "price_per_meter_eur": 56,
+      "b2b_volume_price_kzt": 22500,
+      "fire_rating": "European Residential Standard",
+      "martindale_rubs": 30000,
+      "colorways": [
+        {
+          "name": "Latte di Mandorla",
+          "hex": "#F5EFE6",
+          "pantone_ref": "11-0104 TCX",
+          "finish": "Almond cream warm matte"
+        },
+        {
+          "name": "Grigio Perla",
+          "hex": "#D1CCC4",
+          "pantone_ref": "14-4102 TCX",
+          "finish": "Soft oyster pearl"
+        },
+        {
+          "name": "Argilla Naturale",
+          "hex": "#B5A795",
+          "pantone_ref": "16-1310 TCX",
+          "finish": "Muted clay biscuit"
+        },
+        {
+          "name": "Salvia della Toscana",
+          "hex": "#8A9483",
+          "pantone_ref": "16-0213 TCX",
+          "finish": "Dusty Tuscan sage green"
+        }
+      ],
+      "ideal_applications": [
+        "Panoramic living rooms with south and south-west exposure",
+        "Master bedroom lounges combined with hidden Somfy blackout roller shades",
+        "Bespoke relaxed roman shades for designer kitchens"
+      ],
+      "care_maintenance": "Specialist dry cleaning recommended to retain exact dimensional stability. Can be lightly steamed on hang.",
+      "curator_notes": "C&C Milano's enzyme delavé wash removes the rigid pectin from flax fibers, yielding a drape that feels as comforting as heirloom vintage linen yet retains the clean architectural lines demanded by modern architects."
+    },
+    {
+      "id": "ita-linen-solbiati-brezza",
+      "sku": "MP-ITA-03-SLB",
+      "name_en": "Solbiati 'Brezza Grande' Open-Weave Architectural Sheer",
+      "name_ru": "Итальянская панорамная вуаль Solbiati «Brezza Grande» (325 см)",
+      "category": "italian_organic_linen",
+      "mill": "Solbiati (Loro Piana Group)",
+      "origin_country": "Italy",
+      "origin_region": "Busto Arsizio, Lombardy",
+      "composition": "85% Pure Flax Linen, 15% Silk Filament",
+      "width_cm": 325,
+      "is_double_width": true,
+      "weight_gsm": 190,
+      "light_blockage_pct": 35,
+      "blackout_classification": "Architectural Sheer / Day Glare Diffuser",
+      "acoustic_absorption_nrc": 0.32,
+      "acoustic_class": "Class E Sound Diffuser",
+      "sound_transmission_loss_db": 5,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 99,
+          "status": "Unsurpassed Perfection",
+          "note": "Floats like mist along motorized Ripplefold tracks without waving or snagging."
+        },
+        "triple_pinch": {
+          "score": 86,
+          "status": "Compatible",
+          "note": "Delicate French triple pleats require lightweight Bandex sheer tape."
+        },
+        "box_pleat": {
+          "score": 80,
+          "status": "Lightweight Minimalist",
+          "note": "Transparent airy planes."
+        },
+        "roman_shade": {
+          "score": 88,
+          "status": "Compatible",
+          "note": "Translucent daylight roman shade."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Airy, ethereal, luminous suspension; filters light with shimmering micro-reflections from the silk core.",
+      "price_tier": "Tier 2: Premium European Atelier",
+      "price_per_meter_kzt": 21000,
+      "price_per_meter_eur": 45,
+      "b2b_volume_price_kzt": 17800,
+      "fire_rating": "Natural Sheer Residential Standard",
+      "martindale_rubs": 25000,
+      "colorways": [
+        {
+          "name": "Brezza Bianca",
+          "hex": "#FAF8F2",
+          "pantone_ref": "11-0601 TCX",
+          "finish": "Luminous frosted sheer white"
+        },
+        {
+          "name": "Aura d'Avorio",
+          "hex": "#F0EAE1",
+          "pantone_ref": "12-0404 TCX",
+          "finish": "Warm candlelight ivory"
+        },
+        {
+          "name": "Nebbia d'Argento",
+          "hex": "#DAD6CE",
+          "pantone_ref": "14-4105 TCX",
+          "finish": "Pale silver mist"
+        }
+      ],
+      "ideal_applications": [
+        "Daytime sheer layer for floor-to-ceiling panoramic penthouses",
+        "Softening high-altitude steppe glare while preserving panoramic skyline views",
+        "Dual-layer Somfy motorized curtain systems behind heavy night drapes"
+      ],
+      "care_maintenance": "Gentle hand-wash at 30°C in protective wash-bag or professional gentle dry cleaning. Do not tumble dry. Hang damp for self-relaxation.",
+      "curator_notes": "Solbiati is considered the world's foremost authority on fine drapery linen. 'Brezza Grande' blends fine Italian flax with a 15% Mulberry silk filament for strength, creating a seamless 3.25m veil that dances with the light."
+    },
+    {
+      "id": "ita-linen-casamance-natura",
+      "sku": "MP-ITA-04-CSM",
+      "name_en": "Casamance 'Linen Raw Structure' Heavy Organic Weave",
+      "name_ru": "Европейский фактурный лен Casamance «Natura Raw» (300 см)",
+      "category": "italian_organic_linen",
+      "mill": "Casamance Atelier Weaves",
+      "origin_country": "France / Italy border weaving",
+      "origin_region": "European Union",
+      "composition": "100% Belgian-Italian Grown Flax",
+      "width_cm": 300,
+      "is_double_width": true,
+      "weight_gsm": 280,
+      "light_blockage_pct": 60,
+      "blackout_classification": "Dense Solar Filter (60% Block)",
+      "acoustic_absorption_nrc": 0.42,
+      "acoustic_class": "Class D Sound Absorber",
+      "sound_transmission_loss_db": 7,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 96,
+          "status": "Highly Recommended",
+          "note": "Holds crisp, rhythmic wave folds with excellent lateral recovery."
+        },
+        "triple_pinch": {
+          "score": 92,
+          "status": "Recommended",
+          "note": "Crisp tailored headers."
+        },
+        "box_pleat": {
+          "score": 88,
+          "status": "Recommended",
+          "note": "Clean architectural lines."
+        },
+        "roman_shade": {
+          "score": 94,
+          "status": "Master Match",
+          "note": "Structure gives razor-straight horizontal folds without sagging."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Crisp organic body with textured slub cross-grain, balanced vertical drop, and tactile substance.",
+      "price_tier": "Tier 2: Premium European Atelier",
+      "price_per_meter_kzt": 19800,
+      "price_per_meter_eur": 42,
+      "b2b_volume_price_kzt": 16900,
+      "fire_rating": "Standard Residential",
+      "martindale_rubs": 32000,
+      "colorways": [
+        {
+          "name": "Ecru Pur",
+          "hex": "#EFECE4",
+          "pantone_ref": "11-0606 TCX",
+          "finish": "Natural raw flax chalk"
+        },
+        {
+          "name": "Taupe Cendre",
+          "hex": "#B8AEA0",
+          "pantone_ref": "16-1315 TCX",
+          "finish": "Cool ash taupe"
+        },
+        {
+          "name": "Anthracite Fume",
+          "hex": "#4A4643",
+          "pantone_ref": "19-0809 TCX",
+          "finish": "Deep charcoal smoked linen"
+        }
+      ],
+      "ideal_applications": [
+        "Modern luxury apartments with Scandinavian or Japandi aesthetics",
+        "Bedrooms requiring gentle morning illumination without harsh blinding light",
+        "High-end Roman shades over marble island counters"
+      ],
+      "care_maintenance": "Professional dry clean. Cold steam with Laurastar.",
+      "curator_notes": "Our top-volume European linen selection. It bridges the gap between high design and everyday functional durability, offering 300 cm seamless drop capability at an accessible luxury price point."
+    },
+    {
+      "id": "ita-linen-bellagio-panoramic",
+      "sku": "MP-ITA-05-BLG",
+      "name_en": "Bellagio Melange Slub Panoramic Linen",
+      "name_ru": "Панорамный меланжевый лен Bellagio «Slub Melange» (320 см)",
+      "category": "italian_organic_linen",
+      "mill": "Manifattura Tessile Bellagio",
+      "origin_country": "Italy",
+      "origin_region": "Como, Lombardy",
+      "composition": "90% Organic Flax, 10% Spun Tussah Silk",
+      "width_cm": 320,
+      "is_double_width": true,
+      "weight_gsm": 320,
+      "light_blockage_pct": 52,
+      "blackout_classification": "Medium Solar Filter (52% Block)",
+      "acoustic_absorption_nrc": 0.46,
+      "acoustic_class": "Class D Sound Absorber",
+      "sound_transmission_loss_db": 8,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 97,
+          "status": "Highly Recommended",
+          "note": "Two-tone melange yarns create dynamic depth as folds curve in and out."
+        },
+        "triple_pinch": {
+          "score": 89,
+          "status": "Recommended",
+          "note": "Refined bespoke look."
+        },
+        "box_pleat": {
+          "score": 84,
+          "status": "Compatible",
+          "note": "Modern architectural."
+        },
+        "roman_shade": {
+          "score": 91,
+          "status": "Recommended",
+          "note": "Smooth flat panels with slub visual interest."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Textured melange slub with subtle tonal variations; supple drape with balanced gravitational pull.",
+      "price_tier": "Tier 2: Premium European Atelier",
+      "price_per_meter_kzt": 28500,
+      "price_per_meter_eur": 60,
+      "b2b_volume_price_kzt": 24000,
+      "fire_rating": "Standard Residential",
+      "martindale_rubs": 36000,
+      "colorways": [
+        {
+          "name": "Melange Chiaro",
+          "hex": "#E7E2D6",
+          "pantone_ref": "13-0905 TCX",
+          "finish": "Bi-color cream and champagne"
+        },
+        {
+          "name": "Grigio Caldo",
+          "hex": "#A79D8E",
+          "pantone_ref": "16-1210 TCX",
+          "finish": "Warm silver-grey heather"
+        },
+        {
+          "name": "Bronzo Antico",
+          "hex": "#8C7E6A",
+          "pantone_ref": "17-1022 TCX",
+          "finish": "Muted antique bronze shimmer"
+        }
+      ],
+      "ideal_applications": [
+        "Panoramic floor-to-ceiling glass in master suites and penthouse living rooms",
+        "Villa sunrooms and glazed architectural corridors",
+        "Modern minimalist interiors where texture replaces printed pattern"
+      ],
+      "care_maintenance": "Dry clean only. Steam vertical without compression.",
+      "curator_notes": "Woven with double-twisted melange yarns where raw linen is twisted alongside raw tussah silk. When sunlight strikes the window, the fabric produces an optical micro-depth that single-color fabrics cannot match."
+    },
+    {
+      "id": "ita-silk-dedar-splendido",
+      "sku": "MP-ITA-06-DDR",
+      "name_en": "Dedar Milano 'Splendido' Raw Wild Silk Dupioni",
+      "name_ru": "Итальянский дикий шелк Dedar Milano «Splendido Dupioni»",
+      "category": "french_organza_dedar_silk",
+      "mill": "Dedar Milano (Como)",
+      "origin_country": "Italy",
+      "origin_region": "Como, Lombardy",
+      "composition": "100% Wild Tussah Raw Silk (Hand-Spun Slubs)",
+      "width_cm": 140,
+      "is_double_width": false,
+      "weight_gsm": 210,
+      "light_blockage_pct": 78,
+      "blackout_classification": "Dense Shading Silk (78% Alone / 100% with Cotton-Sateen Interlining)",
+      "acoustic_absorption_nrc": 0.42,
+      "acoustic_class": "Class D Sound Absorber",
+      "sound_transmission_loss_db": 8,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 99,
+          "status": "The Haute Couture Standard",
+          "note": "Holds crisp sculptural pinched pleats like an evening gown; creates royal floor puddling."
+        },
+        "ripplefold": {
+          "score": 86,
+          "status": "Compatible on motorized track",
+          "note": "Must be backed with light interlining to maintain wave curvature."
+        },
+        "box_pleat": {
+          "score": 93,
+          "status": "Recommended",
+          "note": "Sharp architectural knife edges."
+        },
+        "roman_shade": {
+          "score": 82,
+          "status": "Optional",
+          "note": "Best deployed as full-length flowing drapery."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Crisp architectural hand, structured memory, natural organic slubs with dual-tone iridescent luster.",
+      "price_tier": "Tier 3: Haute Couture Luxury",
+      "price_per_meter_kzt": 34000,
+      "price_per_meter_eur": 72,
+      "b2b_volume_price_kzt": 29000,
+      "fire_rating": "Silk Natural Low Flame Spread / Can be FR treated",
+      "martindale_rubs": 28000,
+      "colorways": [
+        {
+          "name": "Seta Greggia Perla",
+          "hex": "#EFECE1",
+          "pantone_ref": "11-0603 TCX",
+          "finish": "Raw natural tussah pearl"
+        },
+        {
+          "name": "Champagne Reale",
+          "hex": "#D6C7A9",
+          "pantone_ref": "14-1025 TCX",
+          "finish": "Warm imperial champagne gold"
+        },
+        {
+          "name": "Bronzo Dedar",
+          "hex": "#9B7E58",
+          "pantone_ref": "17-1038 TCX",
+          "finish": "Signature antique bronze silk"
+        },
+        {
+          "name": "Notte Veneziana",
+          "hex": "#1A2530",
+          "pantone_ref": "19-4024 TCX",
+          "finish": "Deep midnight petrol blue"
+        },
+        {
+          "name": "Rubino Barocco",
+          "hex": "#68252C",
+          "pantone_ref": "19-1725 TCX",
+          "finish": "Deep vintage garnet burgundy"
+        }
+      ],
+      "ideal_applications": [
+        "Penthouses and VIP master bedrooms (e.g. ЖК Talan Towers, Sensata)",
+        "Formal state salons and ambassadorial reception chambers",
+        "Executive suites with integrated Somfy Glydea Ultra motorized whisper-tracks"
+      ],
+      "care_maintenance": "Strict specialist dry cleaning only (P solvent). Never spray water drops directly on raw silk. Protect from direct unshaded UV with interlining.",
+      "curator_notes": "The crowning glory of Italian silk craftsmanship from Como. Dedar's 'Splendido' preserves the natural irregular slubs of wild tussah caterpillars. In our atelier, every silk drapery is lined with European cotton sateen to safeguard the delicate protein fibers against Astana's intense solar radiation, guaranteeing decades of royal beauty."
+    },
+    {
+      "id": "ita-velvet-dedar-adamo",
+      "sku": "MP-ITA-07-DDR",
+      "name_en": "Dedar Milano 'Adamo & Eva' Cotton-Silk Haute Velvet",
+      "name_ru": "Итальянский бархат Dedar Milano «Adamo & Eva Soft»",
+      "category": "french_organza_dedar_silk",
+      "mill": "Dedar Milano",
+      "origin_country": "Italy",
+      "origin_region": "Como",
+      "composition": "80% Combed Mako Cotton, 20% Mulberry Silk",
+      "width_cm": 140,
+      "is_double_width": false,
+      "weight_gsm": 520,
+      "light_blockage_pct": 94,
+      "blackout_classification": "Near-Complete Dimout (94% Light Block)",
+      "acoustic_absorption_nrc": 0.76,
+      "acoustic_class": "Class B Sound Absorber",
+      "sound_transmission_loss_db": 13,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 98,
+          "status": "Absolute Masterpiece",
+          "note": "Tailored French triple pleats form dramatic, deep light-absorbing valleys."
+        },
+        "ripplefold": {
+          "score": 94,
+          "status": "Highly Recommended",
+          "note": "Fluid S-waves reflect velvet highlights smoothly across the room."
+        },
+        "box_pleat": {
+          "score": 90,
+          "status": "Recommended",
+          "note": "Substantial tailored weight."
+        },
+        "roman_shade": {
+          "score": 75,
+          "status": "Not recommended",
+          "note": "Folds may mark velvet pile over time."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Sumptuous, ultra-dense plush pile with matte-silk depth, zero synthetic sheen, and liquid drape flow.",
+      "price_tier": "Tier 3: Haute Couture Luxury",
+      "price_per_meter_kzt": 28000,
+      "price_per_meter_eur": 60,
+      "b2b_volume_price_kzt": 23800,
+      "fire_rating": "Class 1 Italian Residential Velvet Standard",
+      "martindale_rubs": 50000,
+      "colorways": [
+        {
+          "name": "Velluto Cipria",
+          "hex": "#E3D3C8",
+          "pantone_ref": "13-1405 TCX",
+          "finish": "Delicate antique rose powder"
+        },
+        {
+          "name": "Ambra Calda",
+          "hex": "#B7864B",
+          "pantone_ref": "16-1144 TCX",
+          "finish": "Warm cognac amber"
+        },
+        {
+          "name": "Verde Salvia Nobile",
+          "hex": "#4D5B4D",
+          "pantone_ref": "18-0210 TCX",
+          "finish": "Deep noble sage olive"
+        },
+        {
+          "name": "Nero Assoluto",
+          "hex": "#141312",
+          "pantone_ref": "19-4004 TCX",
+          "finish": "Total absorption deep obsidian"
+        }
+      ],
+      "ideal_applications": [
+        "Master bedrooms requiring acoustic serenity and light buffering",
+        "Opulent living room portieres and architectural dividers",
+        "Private cinema rooms and sound-insulated music studios"
+      ],
+      "care_maintenance": "Specialist velvet cleaner only. Store and transport hung in specialized tall wardrobe boxes to prevent pile pressure marking.",
+      "curator_notes": "Adamo & Eva is Dedar's legendary signature cotton-silk velvet. Unlike cheap synthetic polyesters that shine harshly under LEDs, this fabric swallows light, creating an aura of supreme discretion and wealth."
+    },
+    {
+      "id": "fra-organza-pierrefrey-lyon",
+      "sku": "MP-FRA-01-PF",
+      "name_en": "Pierre Frey 'Organza de Lyon' 100% Crisp Silk Organza",
+      "name_ru": "Лионская шелковая органза Pierre Frey «Organza de Lyon»",
+      "category": "french_organza_dedar_silk",
+      "mill": "Pierre Frey Haute Couture Ateliers",
+      "origin_country": "France",
+      "origin_region": "Lyon",
+      "composition": "100% Natural Mulberry Silk (Pure Sericin Crisp Finish)",
+      "width_cm": 140,
+      "is_double_width": false,
+      "weight_gsm": 45,
+      "light_blockage_pct": 20,
+      "blackout_classification": "Haute Couture Sheer Transparency (20% Block)",
+      "acoustic_absorption_nrc": 0.18,
+      "acoustic_class": "Class E Light Diffuser",
+      "sound_transmission_loss_db": 3,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 95,
+          "status": "Highly Recommended",
+          "note": "Airy waves with crisp architectural paper-like folds."
+        },
+        "triple_pinch": {
+          "score": 96,
+          "status": "Recommended",
+          "note": "Sharp, origami-like pleats that hold their form with zero sag."
+        },
+        "box_pleat": {
+          "score": 92,
+          "status": "Recommended",
+          "note": "Pristine geometric transparency."
+        },
+        "roman_shade": {
+          "score": 85,
+          "status": "Compatible",
+          "note": "Ultra-light translucent daytime roman shade."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Crisp, airy, gossamer sheer with fine papery spring, crystalline transparency, and shimmering light diffraction.",
+      "price_tier": "Tier 3: Haute Couture Luxury",
+      "price_per_meter_kzt": 31500,
+      "price_per_meter_eur": 67,
+      "b2b_volume_price_kzt": 26800,
+      "fire_rating": "Natural Silk Standard / Non-melting",
+      "martindale_rubs": 15000,
+      "colorways": [
+        {
+          "name": "Blanc Céleste",
+          "hex": "#FFFFFF",
+          "pantone_ref": "11-0601 TCX",
+          "finish": "Pure optical diamond silk"
+        },
+        {
+          "name": "Perle de Nacre",
+          "hex": "#F4F0E8",
+          "pantone_ref": "11-0107 TCX",
+          "finish": "Mother-of-pearl iridescent luster"
+        },
+        {
+          "name": "Champagne Pâle",
+          "hex": "#EAE2CF",
+          "pantone_ref": "12-0712 TCX",
+          "finish": "Pale golden veil"
+        },
+        {
+          "name": "Gris Brumeux",
+          "hex": "#D8D6D1",
+          "pantone_ref": "14-4103 TCX",
+          "finish": "Parisian morning fog"
+        }
+      ],
+      "ideal_applications": [
+        "Daytime sheer drapes in luxury dressing suites and master bedrooms",
+        "Layering over French doors and private garden terraces",
+        "Under-curtain accompaniment to heavy Dedar silks and Belgian chenilles"
+      ],
+      "care_maintenance": "Ultra-delicate dry cleaning. Never wring or machine-wash. Steam lightly from a distance of 15 cm with Laurastar micro-vapor.",
+      "curator_notes": "Woven on the historical heritage looms of Lyon, the capital of French silk since the Renaissance. Pierre Frey retains the natural sericin silk protein to give the organza its legendary 'crisp hand' (la main craquante), producing dramatic origami-like folds that float around windows."
+    },
+    {
+      "id": "fra-silk-prelle-filcoupe",
+      "sku": "MP-FRA-02-PRL",
+      "name_en": "Prelle Lyon 'L'Air du Temps' Silk-Linen Fil-Coupé Voile",
+      "name_ru": "Французский шелковый филь-купе Prelle «L'Air du Temps»",
+      "category": "french_organza_dedar_silk",
+      "mill": "Manufacture Prelle (Lyon, founded 1752)",
+      "origin_country": "France",
+      "origin_region": "Lyon",
+      "composition": "60% Mulberry Silk, 40% Fine Italian Linen",
+      "width_cm": 145,
+      "is_double_width": false,
+      "weight_gsm": 75,
+      "light_blockage_pct": 28,
+      "blackout_classification": "Decorative Sheer Voile (28% Block)",
+      "acoustic_absorption_nrc": 0.22,
+      "acoustic_class": "Class E Light Diffuser",
+      "sound_transmission_loss_db": 4,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 97,
+          "status": "Master Match",
+          "note": "Displays the intricate clipped fil-coupé floating motifs across pleat crowns."
+        },
+        "ripplefold": {
+          "score": 92,
+          "status": "Recommended",
+          "note": "Fluid motion."
+        },
+        "box_pleat": {
+          "score": 88,
+          "status": "Compatible",
+          "note": "Refined classical French salon."
+        },
+        "roman_shade": {
+          "score": 86,
+          "status": "Compatible",
+          "note": "Stunning translucent Roman panel."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Sensual, gossamer fil-coupé texture with cut-fringe yarn halos, floating motifs, and luminous transparency.",
+      "price_tier": "Tier 4: Ultra Exclusive Bespoke",
+      "price_per_meter_kzt": 48000,
+      "price_per_meter_eur": 102,
+      "b2b_volume_price_kzt": 42000,
+      "fire_rating": "Haute Couture Residential Standard",
+      "martindale_rubs": 18000,
+      "colorways": [
+        {
+          "name": "Ivoire Ancien",
+          "hex": "#F6F2E9",
+          "pantone_ref": "11-0604 TCX",
+          "finish": "Antique ivory with floating silk motifs"
+        },
+        {
+          "name": "Argent Ciselé",
+          "hex": "#DDD8CE",
+          "pantone_ref": "14-4107 TCX",
+          "finish": "Chiseled silver-grey halos"
+        },
+        {
+          "name": "Or Pâle de Lyon",
+          "hex": "#E0CEAD",
+          "pantone_ref": "13-0917 TCX",
+          "finish": "Pale gilded French court tone"
+        }
+      ],
+      "ideal_applications": [
+        "Collector's salons and museum-grade residential living rooms",
+        "Haute Couture boudoirs and dressing salons",
+        "Bespoke embroidery-matched curtains for historic neoclassical villas"
+      ],
+      "care_maintenance": "Strict conservation-grade dry clean only. Protect from pet claws and direct heat sources.",
+      "curator_notes": "Prelle is Lyon's oldest operating silk manufacture (established in 1752), weaver to the Palace of Versailles. Each meter of this fil-coupé voile involves manual shear-clipping of floating weft threads to create feather-like silk halos that catch the sunlight."
+    },
+    {
+      "id": "ita-silk-dedar-metallic-shantung",
+      "sku": "MP-ITA-08-DDR",
+      "name_en": "Dedar Milano 'Lucente' Metallic-Warp Wild Shantung",
+      "name_ru": "Итальянский дикий шантунг Dedar Milano «Lucente Metallizzato»",
+      "category": "french_organza_dedar_silk",
+      "mill": "Dedar Milano",
+      "origin_country": "Italy",
+      "origin_region": "Como",
+      "composition": "75% Wild Shantung Silk, 25% Lurex Micro-Filament",
+      "width_cm": 140,
+      "is_double_width": false,
+      "weight_gsm": 230,
+      "light_blockage_pct": 80,
+      "blackout_classification": "Dense Shading Silk (80% Block)",
+      "acoustic_absorption_nrc": 0.4,
+      "acoustic_class": "Class D Sound Absorber",
+      "sound_transmission_loss_db": 8,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 98,
+          "status": "Master Match",
+          "note": "Sculptural metallic fluting catches ceiling spot lighting dramatically."
+        },
+        "ripplefold": {
+          "score": 88,
+          "status": "Recommended",
+          "note": "Smooth wave."
+        },
+        "box_pleat": {
+          "score": 94,
+          "status": "Recommended",
+          "note": "High-fashion geometric appeal."
+        },
+        "roman_shade": {
+          "score": 85,
+          "status": "Compatible",
+          "note": "Statement Roman blinds."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Crisp, architectural, tactile slubbed shantung with subtle metallic bronze glow that shifts with viewing angle.",
+      "price_tier": "Tier 3: Haute Couture Luxury",
+      "price_per_meter_kzt": 42000,
+      "price_per_meter_eur": 89,
+      "b2b_volume_price_kzt": 36000,
+      "fire_rating": "Class 1 Residential",
+      "martindale_rubs": 30000,
+      "colorways": [
+        {
+          "name": "Bronzo Specchiato",
+          "hex": "#A88B63",
+          "pantone_ref": "17-1040 TCX",
+          "finish": "Burnished brass metallic sheen"
+        },
+        {
+          "name": "Platino Lunare",
+          "hex": "#CDC8BE",
+          "pantone_ref": "14-4103 TCX",
+          "finish": "Lunar platinum frost"
+        },
+        {
+          "name": "Rame Bruciato",
+          "hex": "#945C3F",
+          "pantone_ref": "18-1248 TCX",
+          "finish": "Warm hammered copper luster"
+        }
+      ],
+      "ideal_applications": [
+        "Penthouses with skyline night views (ЖК Talan Towers, Ray Residence)",
+        "Glamour dining rooms and private cocktail salons",
+        "Executive media rooms with mood lighting"
+      ],
+      "care_maintenance": "Specialist dry cleaning. Avoid heavy pressing; vertical steam only.",
+      "curator_notes": "A dramatic showcase piece by Dedar that fuses ancient raw shantung slubs with ultra-fine bronze wire filaments. Under evening chandelier lighting, the drapery glows from within like molten metal."
+    },
+    {
+      "id": "deu-trevira-acoustic-forte-km1",
+      "sku": "MP-DEU-01-TRV",
+      "name_en": "Trevira CS 'Acoustic Forte' Heavy Dimout KM1",
+      "name_ru": "Негорючий акустический димаут Trevira CS «Acoustic Forte» (КМ1, 310 см)",
+      "category": "german_trevira_cs_b2b",
+      "mill": "Trevira GmbH / Contract Weaving Partners",
+      "origin_country": "Germany",
+      "origin_region": "Bobingen / Frankfurt",
+      "composition": "100% Trevira CS (Inherently Flame-Retardant Modified Polyester)",
+      "width_cm": 310,
+      "is_double_width": true,
+      "weight_gsm": 420,
+      "light_blockage_pct": 99,
+      "blackout_classification": "Near-100% Dimout / Total Night Glare Shield",
+      "acoustic_absorption_nrc": 0.82,
+      "acoustic_class": "Class B Sound Absorber (ISO 354 / ISO 11654)",
+      "sound_transmission_loss_db": 15,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 99,
+          "status": "Corporate Standard",
+          "note": "Flawless glide along automated Somfy Glydea Ultra motorized systems."
+        },
+        "triple_pinch": {
+          "score": 92,
+          "status": "Compatible",
+          "note": "Appropriate for ambassadorial residences and state conference rooms."
+        },
+        "box_pleat": {
+          "score": 90,
+          "status": "Recommended",
+          "note": "Crisp architectural symmetry."
+        },
+        "roman_shade": {
+          "score": 88,
+          "status": "Compatible",
+          "note": "Acoustic conference room roman shade."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Dense, supple, matte architectural drape with permanent acoustic micro-cavities and zero synthetic shine.",
+      "price_tier": "Tier 1: Architectural Commercial B2B",
+      "price_per_meter_kzt": 28000,
+      "price_per_meter_eur": 60,
+      "b2b_volume_price_kzt": 22500,
+      "fire_rating": "KM1 (123-FZ РФ / ЕАЭС: Г1, В1, Д2, Т2) • DIN 4102-B1 • NF P 92-507 M1 • EN 13773 Class 1",
+      "martindale_rubs": 80000,
+      "colorways": [
+        {
+          "name": "Architectural Concrete Grey",
+          "hex": "#9C9B98",
+          "pantone_ref": "16-5803 TCX",
+          "finish": "Neutral matte acoustic flannel"
+        },
+        {
+          "name": "Executive Obsidian Black",
+          "hex": "#1B1A19",
+          "pantone_ref": "19-4006 TCX",
+          "finish": "Deep non-reflective boardroom black"
+        },
+        {
+          "name": "Federal Ecru",
+          "hex": "#E8E4DB",
+          "pantone_ref": "12-0601 TCX",
+          "finish": "Warm diplomatic ivory"
+        },
+        {
+          "name": "Midnight Diplomatic Navy",
+          "hex": "#1F2833",
+          "pantone_ref": "19-4028 TCX",
+          "finish": "Corporate navy blue"
+        }
+      ],
+      "ideal_applications": [
+        "Videoconference halls (ВКС) requiring zero echo and complete glare control",
+        "5-Star hotel guestrooms (St. Regis, Ritz-Carlton, Sheraton standards)",
+        "Embassies, ministry auditoriums, and state protocol chambers",
+        "Executive CEO boardrooms with panoramic glass facades"
+      ],
+      "care_maintenance": "Washable at 60°C in industrial laundering. Flame-retardant properties are molecularly bonded and cannot be washed out. Steam or iron up to 150°C.",
+      "curator_notes": "The gold standard for commercial B2B architecture in Kazakhstan and the EAEU. Certified under Federal Law 123-FZ with Class KM1 fire rating, eliminating any inspection issues with fire marshals. Its NRC of 0.82 resolves the acoustic echo issues of large glass and marble conference rooms instantly."
+    },
+    {
+      "id": "deu-trevira-screen-somfy-5",
+      "sku": "MP-DEU-02-TRV",
+      "name_en": "Trevira CS 'Solar Screen 5% Horizon' Anti-Glare KM1",
+      "name_ru": "Негорючий архитектурный скрин Somfy Screen 5% Trevira CS (КМ1)",
+      "category": "german_trevira_cs_b2b",
+      "mill": "Mermet / Trevira CS High-Tech Weaving",
+      "origin_country": "Germany / France",
+      "origin_region": "Frankfurt / Lyon",
+      "composition": "64% Trevira CS Coated Fibers, 36% High-Tenacity Fiberglass Core",
+      "width_cm": 300,
+      "is_double_width": true,
+      "weight_gsm": 360,
+      "light_blockage_pct": 95,
+      "blackout_classification": "5% Openness Solar Glare Control (Filters 95% UV / Preserves View)",
+      "acoustic_absorption_nrc": 0.55,
+      "acoustic_class": "Class C Sound Absorber",
+      "sound_transmission_loss_db": 10,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 85,
+          "status": "Compatible",
+          "note": "Primarily deployed on motorized roller screen tubes (Somfy Sonesse)."
+        },
+        "triple_pinch": {
+          "score": 70,
+          "status": "Specialist only",
+          "note": "Screen weave is best kept flat on tensioned rollers."
+        },
+        "box_pleat": {
+          "score": 75,
+          "status": "Specialist only",
+          "note": "Architectural panel screens."
+        },
+        "roman_shade": {
+          "score": 98,
+          "status": "Master Match",
+          "note": "Ideal motorized Roman or Roller screen for open-plan offices."
+        }
+      },
+      "recommended_pleat": "roman_shade",
+      "drape_character": "High-precision micro-perforated architectural grid; blocks solar heat and screen glare while maintaining clear exterior city vistas.",
+      "price_tier": "Tier 1: Architectural Commercial B2B",
+      "price_per_meter_kzt": 26000,
+      "price_per_meter_eur": 55,
+      "b2b_volume_price_kzt": 21000,
+      "fire_rating": "KM1 (123-FZ) • DIN 4102-B1 • NFPA 701 • Euroclass B-s1,d0",
+      "martindale_rubs": 100000,
+      "colorways": [
+        {
+          "name": "Chalk White 5%",
+          "hex": "#F4F3EF",
+          "pantone_ref": "11-0601 TCX",
+          "finish": "Clean bright exterior solar reflection"
+        },
+        {
+          "name": "Pearl Grey 5%",
+          "hex": "#C2BFB8",
+          "pantone_ref": "14-4102 TCX",
+          "finish": "Balanced glare control"
+        },
+        {
+          "name": "Anthracite Charcoal 5%",
+          "hex": "#302F2D",
+          "pantone_ref": "19-4007 TCX",
+          "finish": "Maximum contrast and optimum outward view"
+        }
+      ],
+      "ideal_applications": [
+        "Open-space corporate offices and IT company headquarters",
+        "Financial institutions and trading floors with intense monitor glare",
+        "Commercial tower atriums and southwest-facing panoramic facades"
+      ],
+      "care_maintenance": "Wipe clean with damp sponge and mild neutral soap. Antistatic, water-resistant, mold-resistant.",
+      "curator_notes": "Engineered for modern glass skyscrapers where monitor glare paralyzes productivity. With 5% openness factor, staff can look out over the city while 95% of blinding solar radiation and heat is deflected."
+    },
+    {
+      "id": "deu-trevira-blackout-sanctuary-km1",
+      "sku": "MP-DEU-03-TRV",
+      "name_en": "Trevira CS 'Sanctuary 100% Contract Blackout 4-Pass' KM1",
+      "name_ru": "Негорючий кассетный блэкаут 100% Trevira CS «Sanctuary» (КМ1)",
+      "category": "german_trevira_cs_b2b",
+      "mill": "Contract Weavers Germany",
+      "origin_country": "Germany",
+      "origin_region": "Bavaria",
+      "composition": "100% Trevira CS Base with 4-Pass Acrylic Micro-Foam Blackout Coating",
+      "width_cm": 300,
+      "is_double_width": true,
+      "weight_gsm": 380,
+      "light_blockage_pct": 100,
+      "blackout_classification": "True 100% Complete Total Blackout (0 Lux Transmission)",
+      "acoustic_absorption_nrc": 0.7,
+      "acoustic_class": "Class C Sound Absorber",
+      "sound_transmission_loss_db": 14,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 96,
+          "status": "Corporate Standard",
+          "note": "Provides seamless 100% darkness along ceiling tracks with zero needle-hole pinpricks."
+        },
+        "triple_pinch": {
+          "score": 92,
+          "status": "Recommended",
+          "note": "Classic hotel luxury."
+        },
+        "box_pleat": {
+          "score": 88,
+          "status": "Recommended",
+          "note": "Sharp tailoring."
+        },
+        "roman_shade": {
+          "score": 96,
+          "status": "Master Match",
+          "note": "Cassette system with side channels guarantees pitch-black darkness."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Supple, soft-touch matte drapery with 100% opaque core, zero rubbery scent, and high dimensional stability.",
+      "price_tier": "Tier 1: Architectural Commercial B2B",
+      "price_per_meter_kzt": 24000,
+      "price_per_meter_eur": 51,
+      "b2b_volume_price_kzt": 19500,
+      "fire_rating": "KM1 (123-FZ) • DIN 4102-B1 • NF P 92-507 M1",
+      "martindale_rubs": 60000,
+      "colorways": [
+        {
+          "name": "Hotel Cashmere Cream",
+          "hex": "#EDE8DE",
+          "pantone_ref": "12-0605 TCX",
+          "finish": "Warm residential front face"
+        },
+        {
+          "name": "Mineral Slate Greige",
+          "hex": "#9E978D",
+          "pantone_ref": "16-1105 TCX",
+          "finish": "Modern neutral hotel tone"
+        },
+        {
+          "name": "Deep Midnight Carbon",
+          "hex": "#202020",
+          "pantone_ref": "19-4005 TCX",
+          "finish": "Absolute dark front face"
+        }
+      ],
+      "ideal_applications": [
+        "International business hotels where jet-lagged guests require pitch-black daylight sleeping",
+        "Executive multimedia boardrooms with 4K laser projection",
+        "Medical clinic VIP rest suites and diplomatic residences"
+      ],
+      "care_maintenance": "Delicate machine wash at 40°C or dry cleaning. Do not scrub backing foam. Steam with Laurastar from textile face side.",
+      "curator_notes": "Unlike cheap commercial blackouts that use smelly PVC coatings that crack and release toxic fumes under heat, Sanctuary uses German 4-pass water-based acrylic foam bonded to Trevira CS. Certified odorless, toxicologically safe, and 100% light-impenetrable."
+    },
+    {
+      "id": "deu-trevira-faux-linen-hotel",
+      "sku": "MP-DEU-04-TRV",
+      "name_en": "Trevira CS 'Lino Faux Contract' Textured Drapery KM1",
+      "name_ru": "Негорючий фактурный лён Trevira CS «Lino Faux Contract» (КМ1, 305 см)",
+      "category": "german_trevira_cs_b2b",
+      "mill": "Création Baumann & Trevira Partners",
+      "origin_country": "Germany / Switzerland",
+      "origin_region": "Langenthal / Bobingen",
+      "composition": "100% Trevira CS (Slub-Spun Flame-Retardant Yarn)",
+      "width_cm": 305,
+      "is_double_width": true,
+      "weight_gsm": 310,
+      "light_blockage_pct": 82,
+      "blackout_classification": "Dimout Drapery (82% Light Block)",
+      "acoustic_absorption_nrc": 0.65,
+      "acoustic_class": "Class C Sound Absorber",
+      "sound_transmission_loss_db": 11,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 98,
+          "status": "Corporate Standard",
+          "note": "Imitates the organic beauty of Italian linen while satisfying strict fire marshals."
+        },
+        "triple_pinch": {
+          "score": 94,
+          "status": "Recommended",
+          "note": "Tailored executive look."
+        },
+        "box_pleat": {
+          "score": 90,
+          "status": "Recommended",
+          "note": "Architectural lines."
+        },
+        "roman_shade": {
+          "score": 93,
+          "status": "Recommended",
+          "note": "Clean, washable Roman shades for upscale hospitality."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Natural slub-linen appearance with organic yarn thicks and thins, combined with indestructible contract durability.",
+      "price_tier": "Tier 1: Architectural Commercial B2B",
+      "price_per_meter_kzt": 22500,
+      "price_per_meter_eur": 48,
+      "b2b_volume_price_kzt": 18000,
+      "fire_rating": "KM1 (123-FZ) • DIN 4102-B1 • NF P 92-507 M1",
+      "martindale_rubs": 75000,
+      "colorways": [
+        {
+          "name": "Lino Bianco Naturale",
+          "hex": "#F4F0E6",
+          "pantone_ref": "11-0602 TCX",
+          "finish": "Warm unbleached faux-flax"
+        },
+        {
+          "name": "Sabbia di Sabbia",
+          "hex": "#D4CBB9",
+          "pantone_ref": "14-1110 TCX",
+          "finish": "Sand dune heather"
+        },
+        {
+          "name": "Grigio Architetto",
+          "hex": "#928D85",
+          "pantone_ref": "16-1305 TCX",
+          "finish": "Architectural concrete slub"
+        }
+      ],
+      "ideal_applications": [
+        "Boutique hotels and luxury serviced apartments",
+        "Upscale restaurants and private dining club rooms (HoReCa)",
+        "Commercial meeting rooms requiring residential warmth with commercial fire codes"
+      ],
+      "care_maintenance": "Fully washable at 60°C. Resists wrinkles, zero shrinkage (<0.5%), quick-dry.",
+      "curator_notes": "Interior designers often lament that fire-retardant contract fabrics look cold and clinical. Lino Faux Contract solves this dilemma: it mimics the warm slubby texture of Italian linen so convincingly that guests cannot tell the difference, yet it withstands commercial laundering and strict fire inspections."
+    },
+    {
+      "id": "deu-trevira-sheer-voile-flam",
+      "sku": "MP-DEU-05-TRV",
+      "name_en": "Trevira CS 'Aura Voile' Architectural Fireproof Sheer KM1",
+      "name_ru": "Негорючая архитектурная вуаль Trevira CS «Aura Voile» (КМ1, 320 см)",
+      "category": "german_trevira_cs_b2b",
+      "mill": "Contract Textile Works Germany",
+      "origin_country": "Germany",
+      "origin_region": "Saxony",
+      "composition": "100% Trevira CS Microfiber",
+      "width_cm": 320,
+      "is_double_width": true,
+      "weight_gsm": 120,
+      "light_blockage_pct": 25,
+      "blackout_classification": "Fireproof Contract Sheer (25% Block)",
+      "acoustic_absorption_nrc": 0.25,
+      "acoustic_class": "Class E Light Diffuser",
+      "sound_transmission_loss_db": 4,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 99,
+          "status": "Corporate Standard",
+          "note": "Continuous fluid waves along double-track motorized hospital / hotel tracks."
+        },
+        "triple_pinch": {
+          "score": 90,
+          "status": "Recommended",
+          "note": "Neat tailored heading."
+        },
+        "box_pleat": {
+          "score": 85,
+          "status": "Compatible",
+          "note": "Clean minimalism."
+        },
+        "roman_shade": {
+          "score": 86,
+          "status": "Compatible",
+          "note": "Daytime commercial privacy shade."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Airy, soft, matte transparency; drapes with fluid grace and maintains dimensional stability in high-humidity zones.",
+      "price_tier": "Tier 1: Architectural Commercial B2B",
+      "price_per_meter_kzt": 18500,
+      "price_per_meter_eur": 39,
+      "b2b_volume_price_kzt": 14800,
+      "fire_rating": "KM1 (123-FZ) • DIN 4102-B1 • NF P 92-507 M1",
+      "martindale_rubs": 40000,
+      "colorways": [
+        {
+          "name": "Pure Architectural White",
+          "hex": "#FCFBF8",
+          "pantone_ref": "11-0601 TCX",
+          "finish": "Clean crisp daylight diffuse"
+        },
+        {
+          "name": "Soft Vanilla Cream",
+          "hex": "#F4EFE2",
+          "pantone_ref": "11-0105 TCX",
+          "finish": "Warm welcoming hotel sheer"
+        },
+        {
+          "name": "Smoke Grey Voile",
+          "hex": "#CCC8C0",
+          "pantone_ref": "14-4102 TCX",
+          "finish": "Modern cool grey filter"
+        }
+      ],
+      "ideal_applications": [
+        "Contract hospitality window suites (5-star hotels)",
+        "Corporate headquarters and conference atrium facades",
+        "Embassies and consular reception halls"
+      ],
+      "care_maintenance": "Industrial washable at 60°C. Iron-free drip dry. Retains fireproof performance indefinitely.",
+      "curator_notes": "A high-performance commercial sheer that delivers soft residential elegance while fulfilling all commercial fire codes. It features a built-in lead weighting band along the bottom edge for immediate, perfect vertical hang."
+    },
+    {
+      "id": "ita-cashmere-loropiana-zelander",
+      "sku": "MP-ITA-09-LP",
+      "name_en": "Loro Piana Interiors 'Zelander Drap' Cashmere-Wool Blend",
+      "name_ru": "Кашемир и мериносовая шерсть Loro Piana Interiors «Zelander Drap»",
+      "category": "couture_heritage_blends",
+      "mill": "Loro Piana Interiors",
+      "origin_country": "Italy",
+      "origin_region": "Quarona / Biella, Piedmont",
+      "composition": "70% Extra-Fine New Zealand Merino Wool, 30% Mongolian Cashmere",
+      "width_cm": 150,
+      "is_double_width": false,
+      "weight_gsm": 490,
+      "light_blockage_pct": 88,
+      "blackout_classification": "Substantial Thermal Dimout (88% Block)",
+      "acoustic_absorption_nrc": 0.72,
+      "acoustic_class": "Class B Sound Absorber",
+      "sound_transmission_loss_db": 12,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 99,
+          "status": "Master Match",
+          "note": "Unsurpassed luxury; soft cashmere flutes puddling in deep folds on oak parquet."
+        },
+        "ripplefold": {
+          "score": 90,
+          "status": "Recommended",
+          "note": "Generous soft waves."
+        },
+        "box_pleat": {
+          "score": 92,
+          "status": "Recommended",
+          "note": "Gentlemen's tailoring style."
+        },
+        "roman_shade": {
+          "score": 78,
+          "status": "Not recommended",
+          "note": "Too noble and voluminous for compact folding."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Unrivaled soft warmth, cashmere caress, heavy fluid drape with quiet noble dignity and natural insulating thermal buffer.",
+      "price_tier": "Tier 4: Ultra Exclusive Bespoke",
+      "price_per_meter_kzt": 58000,
+      "price_per_meter_eur": 123,
+      "b2b_volume_price_kzt": 51000,
+      "fire_rating": "Inherent Wool Flame Resistance (Self-Extinguishing)",
+      "martindale_rubs": 45000,
+      "colorways": [
+        {
+          "name": "Cashmere Vicuña Sable",
+          "hex": "#B59473",
+          "pantone_ref": "16-1325 TCX",
+          "finish": "Iconic Loro Piana warm camel tone"
+        },
+        {
+          "name": "Panna di Biella",
+          "hex": "#F7F3EA",
+          "pantone_ref": "11-0602 TCX",
+          "finish": "Pure combed white cashmere"
+        },
+        {
+          "name": "Ardesia Alpina",
+          "hex": "#595B5B",
+          "pantone_ref": "18-3905 TCX",
+          "finish": "Alpine deep slate flannel"
+        }
+      ],
+      "ideal_applications": [
+        "Presidential private master bedrooms and luxury dressing chambers",
+        "VIP penthouse lounges in Astana's most exclusive residences",
+        "Winter chalets and private family estates"
+      ],
+      "care_maintenance": "Specialist luxury dry clean only. Steam with Laurastar at gentle cashmere temperature without direct contact.",
+      "curator_notes": "The ultimate textile indulgence. Woven from the finest New Zealand merino and Mongolian cashmere fibers. It creates a thermal envelope that protects the interior against -40°C winter winds while imparting the unmistakable quiet luxury of Loro Piana."
+    },
+    {
+      "id": "ita-damask-rubelli-gritti",
+      "sku": "MP-ITA-10-RBL",
+      "name_en": "Rubelli Venezia 'Palazzo Gritti' Silk Jacquard Damask",
+      "name_ru": "Венецианский шелковый дамаск Rubelli «Palazzo Gritti»",
+      "category": "couture_heritage_blends",
+      "mill": "Rubelli Venezia",
+      "origin_country": "Italy",
+      "origin_region": "Venice, Veneto",
+      "composition": "65% Mulberry Silk, 35% Combed Mercerized Cotton",
+      "width_cm": 140,
+      "is_double_width": false,
+      "weight_gsm": 380,
+      "light_blockage_pct": 85,
+      "blackout_classification": "Jacquard Dimout (85% Block)",
+      "acoustic_absorption_nrc": 0.58,
+      "acoustic_class": "Class C Sound Absorber",
+      "sound_transmission_loss_db": 10,
+      "drape_fold_compatibility": {
+        "triple_pinch": {
+          "score": 99,
+          "status": "Venetian Masterpiece",
+          "note": "Classic French triple pleats reveal the shifting relief of the historical damask pattern."
+        },
+        "ripplefold": {
+          "score": 85,
+          "status": "Compatible",
+          "note": "Wave may fragment pattern repeat."
+        },
+        "box_pleat": {
+          "score": 94,
+          "status": "Recommended",
+          "note": "Neoclassical formal symmetry."
+        },
+        "roman_shade": {
+          "score": 92,
+          "status": "Master Match",
+          "note": "Flat panel acts as a Renaissance textile painting."
+        }
+      },
+      "recommended_pleat": "triple_pinch",
+      "drape_character": "Opulent, chiseled relief jacquard with shimmering silk grounds, crisp sculptural body, and historical majesty.",
+      "price_tier": "Tier 4: Ultra Exclusive Bespoke",
+      "price_per_meter_kzt": 64000,
+      "price_per_meter_eur": 136,
+      "b2b_volume_price_kzt": 56000,
+      "fire_rating": "Venetian Historical Standard / Italian Class 1",
+      "martindale_rubs": 35000,
+      "colorways": [
+        {
+          "name": "Oro di San Marco",
+          "hex": "#D1B677",
+          "pantone_ref": "15-0942 TCX",
+          "finish": "Venetian gilded silk damask"
+        },
+        {
+          "name": "Rosso Doge",
+          "hex": "#7A1C28",
+          "pantone_ref": "19-1726 TCX",
+          "finish": "Imperial Venetian velvet-red"
+        },
+        {
+          "name": "Blu Laguna",
+          "hex": "#1E384D",
+          "pantone_ref": "19-4033 TCX",
+          "finish": "Adriatic deep lagoon teal"
+        }
+      ],
+      "ideal_applications": [
+        "Diplomatic ambassador residences and state banqueting rooms",
+        "Heritage neoclassical villas and classical architectural residences",
+        "Executive private study rooms with bespoke wood boiserie"
+      ],
+      "care_maintenance": "Conservation dry clean only. Handle with white cotton curator gloves.",
+      "curator_notes": "Rubelli has produced silks for Venice's Doge Palace, La Scala in Milan, and royal houses since 1889. 'Palazzo Gritti' captures Renaissance pomegranate motifs with modern tension, turning window treatments into timeless works of art."
+    },
+    {
+      "id": "tur-blackout-softtouch-satin",
+      "sku": "MP-TUR-01-BLK",
+      "name_en": "Triple-Weave Soft Touch 100% Blackout Satin",
+      "name_ru": "Премиальный сатиновый блэкаут «Soft Touch 100%»",
+      "category": "couture_heritage_blends",
+      "mill": "Bursa High-Density Weaving Mills",
+      "origin_country": "Turkey / European Technology",
+      "origin_region": "Bursa",
+      "composition": "100% High-Density Micro-Polyester with Integrated Black Core Yarn",
+      "width_cm": 300,
+      "is_double_width": true,
+      "weight_gsm": 360,
+      "light_blockage_pct": 100,
+      "blackout_classification": "True 100% Total Blackout",
+      "acoustic_absorption_nrc": 0.62,
+      "acoustic_class": "Class C Sound Absorber",
+      "sound_transmission_loss_db": 11,
+      "drape_fold_compatibility": {
+        "ripplefold": {
+          "score": 97,
+          "status": "Master Match",
+          "note": "Soft pliable drape without rubbery stiffness."
+        },
+        "triple_pinch": {
+          "score": 95,
+          "status": "Recommended",
+          "note": "Dense gathers block light at top."
+        },
+        "box_pleat": {
+          "score": 90,
+          "status": "Recommended",
+          "note": "Clean lines."
+        },
+        "roman_shade": {
+          "score": 96,
+          "status": "Recommended",
+          "note": "Crisp blackout roman shades."
+        }
+      },
+      "recommended_pleat": "ripplefold",
+      "drape_character": "Supple, fluid satin finish with dense draping weight, zero rubber backing, and complete opacity.",
+      "price_tier": "Tier 1: Architectural Commercial B2B",
+      "price_per_meter_kzt": 16500,
+      "price_per_meter_eur": 35,
+      "b2b_volume_price_kzt": 13900,
+      "fire_rating": "OEKO-TEX Certified Residential Blackout",
+      "martindale_rubs": 50000,
+      "colorways": [
+        {
+          "name": "Satin Pearl Cream",
+          "hex": "#F1EBE1",
+          "pantone_ref": "12-0404 TCX",
+          "finish": "Matte pearlescent satin"
+        },
+        {
+          "name": "Greige Neutre",
+          "hex": "#AFA89D",
+          "pantone_ref": "15-1308 TCX",
+          "finish": "Neutral warm grey"
+        },
+        {
+          "name": "Anthracite Nuit",
+          "hex": "#272727",
+          "pantone_ref": "19-4004 TCX",
+          "finish": "Deep night charcoal"
+        }
+      ],
+      "ideal_applications": [
+        "Children's bedrooms for uninterrupted sleep during Astana's 04:30 AM summer dawns",
+        "Secondary bedrooms and guest apartment suites",
+        "Under-drape blackout lining behind fine Italian linen or French organza"
+      ],
+      "care_maintenance": "Machine washable at 30°C delicate cycle. Iron at synthetic temperature.",
+      "curator_notes": "Our baseline blackout solution. Using high-density woven black core threads rather than chemical foam backing, it offers pliable drape without any crinkling sound or rubbery odor."
+    }
+  ],
+  "calculator_mapping": {
+    "chenille": {
+      "swatch_id": "bel-chenille-wind-acoustic",
+      "display_name_ru": "Бельгия: Шенилл Wind",
+      "display_name_en": "Belgium: Wind Heavy Chenille",
+      "price_per_meter": 24500,
+      "fullness_multiplier_k": 1.35,
+      "origin": "Бельгия",
+      "density": "580 г/м²",
+      "acoustic_nrc": 0.82,
+      "blackout_pct": 92,
+      "recommended_pleat": "french",
+      "tier": "Tier 2: Premium European"
+    },
+    "velvet": {
+      "swatch_id": "ita-velvet-dedar-adamo",
+      "display_name_ru": "Италия: Бархат Dedar Soft",
+      "display_name_en": "Italy: Dedar Cotton-Silk Velvet",
+      "price_per_meter": 28000,
+      "fullness_multiplier_k": 1.55,
+      "origin": "Италия",
+      "density": "520 г/м²",
+      "acoustic_nrc": 0.76,
+      "blackout_pct": 94,
+      "recommended_pleat": "french",
+      "tier": "Tier 3: Haute Couture"
+    },
+    "linen": {
+      "swatch_id": "ita-linen-casamance-natura",
+      "display_name_ru": "Европейский Лён Casamance",
+      "display_name_en": "France/Italy: Casamance Organic Linen",
+      "price_per_meter": 19800,
+      "fullness_multiplier_k": 1.15,
+      "origin": "Франция / Италия",
+      "density": "280 г/м² (300 см)",
+      "acoustic_nrc": 0.42,
+      "blackout_pct": 60,
+      "recommended_pleat": "wave",
+      "tier": "Tier 2: Premium European"
+    },
+    "blackout": {
+      "swatch_id": "tur-blackout-softtouch-satin",
+      "display_name_ru": "100% Blackout Soft Touch",
+      "display_name_en": "Europe/Turkey: 100% Blackout Soft Touch",
+      "price_per_meter": 16500,
+      "fullness_multiplier_k": 1,
+      "origin": "Турция / ЕС",
+      "density": "360 г/м² (300 см)",
+      "acoustic_nrc": 0.62,
+      "blackout_pct": 100,
+      "recommended_pleat": "wave",
+      "tier": "Tier 1: Architectural Base"
+    },
+    "trevira": {
+      "swatch_id": "deu-trevira-acoustic-forte-km1",
+      "display_name_ru": "Германия: Trevira CS (КМ1) Контрактный",
+      "display_name_en": "Germany: Trevira CS KM1 Acoustic Dimout",
+      "price_per_meter": 28000,
+      "fullness_multiplier_k": 1.4,
+      "origin": "Германия",
+      "density": "420 г/м² (310 см)",
+      "acoustic_nrc": 0.82,
+      "blackout_pct": 99,
+      "fire_class": "КМ1 (123-ФЗ) / B1",
+      "recommended_pleat": "wave",
+      "tier": "Tier 1: Contract B2B"
+    },
+    "silk": {
+      "swatch_id": "ita-silk-dedar-splendido",
+      "display_name_ru": "Италия: Дикий шёлк Dedar",
+      "display_name_en": "Italy: Dedar Milano Wild Silk Dupioni",
+      "price_per_meter": 34000,
+      "fullness_multiplier_k": 1.65,
+      "origin": "Италия",
+      "density": "210 г/м²",
+      "acoustic_nrc": 0.42,
+      "blackout_pct": 78,
+      "recommended_pleat": "french",
+      "tier": "Tier 3: Haute Couture"
+    },
+    "organza": {
+      "swatch_id": "fra-organza-pierrefrey-lyon",
+      "display_name_ru": "Франция: Лионская органза Pierre Frey",
+      "display_name_en": "France: Pierre Frey Lyon Silk Organza",
+      "price_per_meter": 31500,
+      "fullness_multiplier_k": 1.25,
+      "origin": "Франция",
+      "density": "45 г/м²",
+      "acoustic_nrc": 0.18,
+      "blackout_pct": 20,
+      "recommended_pleat": "french",
+      "tier": "Tier 3: Haute Couture"
+    },
+    "cashmere": {
+      "swatch_id": "ita-cashmere-loropiana-zelander",
+      "display_name_ru": "Италия: Кашемир Loro Piana Interiors",
+      "display_name_en": "Italy: Loro Piana Interiors Cashmere-Wool",
+      "price_per_meter": 58000,
+      "fullness_multiplier_k": 1.85,
+      "origin": "Италия",
+      "density": "490 г/м²",
+      "acoustic_nrc": 0.72,
+      "blackout_pct": 88,
+      "recommended_pleat": "french",
+      "tier": "Tier 4: Ultra Exclusive"
+    }
+  }
+}

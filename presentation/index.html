@@ -1,0 +1,3054 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MARÉ Decorative Studio | Executive Interactive Deck</title>
+  <meta name="description" content="Интерактивная презентация концепции Цифрового Флагмана MARÉ Decorative Studio (Астана): архитектура света, инженерные драпировки, симулятор сценариев, VIP КП и Voice AI.">
+
+  <!-- Google Fonts: Cormorant Garamond, Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C5A880'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z'/></svg>">
+
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & RESET (Dark Luxury Liquid Glass 2026)
+       ========================================================================== */
+    :root {
+      --bg-dark: #0B0C0E;
+      --bg-surface: #121418;
+      --bg-card: rgba(18, 20, 24, 0.72);
+      --bg-card-hover: rgba(28, 32, 40, 0.85);
+      --cream: #F5EFEB;
+      --cream-muted: #B8B2AC;
+      --gold: #C5A880;
+      --gold-light: #E2D3B8;
+      --gold-dark: #9E8259;
+      --gold-glow: rgba(197, 168, 128, 0.22);
+      --gold-gradient: linear-gradient(135deg, #C5A880 0%, #E2D3B8 50%, #A8895E 100%);
+      --line: rgba(197, 168, 128, 0.16);
+      --line-subtle: rgba(255, 255, 255, 0.08);
+      --line-active: rgba(197, 168, 128, 0.45);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 32px;
+      --shadow-luxury: 0 24px 64px -12px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(197, 168, 128, 0.15);
+      --shadow-glow: 0 0 32px -4px rgba(197, 168, 128, 0.25);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-dark);
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    /* Ambient noise & subtle glow backdrop */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      left: 20%;
+      width: 60vw;
+      height: 60vh;
+      background: radial-gradient(circle, rgba(197, 168, 128, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+      min-height: 40px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    input, select, textarea {
+      font-family: inherit;
+      color: inherit;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+    }
+
+    /* ==========================================================================
+       2. TOP PROGRESS BAR & HEADER HUD
+       ========================================================================== */
+    .top-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.06);
+      z-index: 100;
+    }
+    .top-progress-fill {
+      height: 100%;
+      width: 12.5%;
+      background: var(--gold-gradient);
+      box-shadow: 0 0 12px var(--gold);
+      transition: width 0.35s ease;
+    }
+
+    .deck-header {
+      position: fixed;
+      top: 3px;
+      left: 0;
+      right: 0;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(11, 12, 14, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line-subtle);
+      z-index: 90;
+    }
+
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .brand-fish-emblem {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #2A241C, #131518);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      box-shadow: 0 0 16px rgba(197, 168, 128, 0.3);
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-sub {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      color: var(--cream-muted);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .brand-sub::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    .deck-nav-center {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--cream-muted);
+      background: rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav-pill:hover {
+      color: var(--cream);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--line);
+    }
+    .nav-pill.active {
+      color: var(--bg-dark);
+      background: var(--gold-gradient);
+      font-weight: 700;
+      border-color: var(--gold);
+      box-shadow: 0 0 14px rgba(197, 168, 128, 0.4);
+    }
+
+    .deck-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-icon {
+      width: 36px;
+      height: 36px;
+      min-height: 36px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cream-muted);
+      transition: all 0.2s ease;
+    }
+    .btn-icon:hover {
+      color: var(--cream);
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.12);
+      transform: translateY(-1px);
+    }
+    .btn-icon.active {
+      color: var(--gold);
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.2);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--cream-muted);
+      padding: 0 8px;
+    }
+    .slide-counter strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       3. SLIDE VIEWPORT & TRANSITIONS
+       ========================================================================== */
+    .viewport {
+      position: absolute;
+      top: 65px;
+      bottom: 54px;
+      left: 0;
+      right: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 24px 32px;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .slide-stage {
+      width: min(1360px, 100%);
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .slide-item {
+      display: none;
+      opacity: 0;
+      transform: translateY(14px) scale(0.995);
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+      height: 100%;
+    }
+    .slide-item.active {
+      display: flex;
+      flex-direction: column;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Standard Slide Header */
+    .slide-intro {
+      margin-bottom: 20px;
+    }
+    .slide-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .slide-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(197, 168, 128, 0.12);
+      border: 1px solid var(--line);
+      color: var(--gold);
+    }
+    .slide-context {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--cream-muted);
+      letter-spacing: 0.08em;
+    }
+    .slide-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.4vw, 46px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .slide-lead {
+      font-size: 15px;
+      color: var(--cream-muted);
+      max-width: 880px;
+      line-height: 1.45;
+    }
+
+    /* Card Panels */
+    .card-luxury {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-luxury::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(197, 168, 128, 0.35), transparent);
+    }
+
+    /* Common Buttons */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: var(--gold-gradient);
+      color: #0B0C0E;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      box-shadow: 0 10px 24px -4px rgba(197, 168, 128, 0.4);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-gold:hover {
+      box-shadow: 0 14px 32px -4px rgba(197, 168, 128, 0.6);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.12);
+      color: var(--gold-light);
+    }
+
+    /* ==========================================================================
+       4. SLIDE 1: DIGITAL FLAGSHIP VS OLD SALON
+       ========================================================================== */
+    .s1-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .s1-hero-media {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 480px;
+      background: #000;
+    }
+    .s1-video-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.65;
+      filter: contrast(1.08) brightness(0.9);
+    }
+    .s1-media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11, 12, 14, 0.3) 0%, rgba(11, 12, 14, 0.85) 85%);
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .s1-badge-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.16);
+      border: 1px solid var(--gold);
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      width: fit-content;
+      backdrop-filter: blur(8px);
+    }
+    .s1-overlay-h {
+      font-family: var(--font-display);
+      font-size: 34px;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .s1-overlay-p {
+      color: var(--cream-muted);
+      font-size: 14px;
+      line-height: 1.45;
+      max-width: 480px;
+    }
+
+    .s1-compare-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s1-toggle-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      margin-bottom: 20px;
+    }
+    .s1-toggle-btn {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+      transition: all 0.25s ease;
+      color: var(--cream-muted);
+    }
+    .s1-toggle-btn.active {
+      background: var(--gold-gradient);
+      color: #0B0C0E;
+      box-shadow: 0 4px 16px rgba(197, 168, 128, 0.35);
+    }
+
+    .s1-metrics-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+    }
+    .s1-metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line-subtle);
+      transition: all 0.2s ease;
+    }
+    .s1-metric-label {
+      font-size: 12px;
+      color: var(--cream-muted);
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      letter-spacing: 0.08em;
+    }
+    .s1-metric-val {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: right;
+      color: var(--gold-light);
+    }
+    .s1-metric-sub {
+      font-size: 11px;
+      color: var(--cream-muted);
+      margin-top: 2px;
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       5. SLIDE 2: DRAPERY GEOMETRY CONFIGURATOR
+       ========================================================================== */
+    .s2-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .s2-control-group {
+      margin-bottom: 18px;
+    }
+    .s2-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+      margin-bottom: 8px;
+    }
+    .s2-pleat-selector {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .s2-pleat-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .s2-pleat-card:hover {
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.08);
+    }
+    .s2-pleat-card.active {
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.16);
+      box-shadow: 0 0 16px rgba(197, 168, 128, 0.2);
+    }
+    .s2-pleat-title {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .s2-pleat-ratio {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold);
+    }
+
+    .s2-slider-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+    }
+    .s2-slider-val {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    .s2-slider-val span {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .s2-range-input {
+      width: 100%;
+      height: 6px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      outline: none;
+    }
+    .s2-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      border: 2px solid #0B0C0E;
+      box-shadow: 0 0 12px var(--gold);
+      transition: transform 0.15s ease;
+    }
+    .s2-range-input::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    .s2-checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(197, 168, 128, 0.06);
+      border: 1px solid var(--line);
+      cursor: pointer;
+    }
+    .s2-checkbox-row input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    /* Wave visualizer card */
+    .s2-visualizer {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: radial-gradient(circle at 50% 20%, rgba(197, 168, 128, 0.1) 0%, #0B0C0E 80%);
+      border: 1px solid var(--line);
+    }
+    .s2-wave-container {
+      height: 190px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+    }
+    #waveSvg {
+      width: 100%;
+      height: 160px;
+    }
+
+    .s2-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .s2-stat-item {
+      text-align: center;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-subtle);
+    }
+    .s2-stat-num {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .s2-stat-txt {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      color: var(--cream-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .s2-quote-banner {
+      margin-top: 16px;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(197, 168, 128, 0.15) 0%, rgba(18, 20, 24, 0.8) 100%);
+      border: 1px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .s2-quote-h {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+    }
+    .s2-quote-sum {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(197, 168, 128, 0.4);
+    }
+
+    /* ==========================================================================
+       6. SLIDE 3: LIGHTING SCENARIOS SIMULATOR
+       ========================================================================== */
+    .s3-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .s3-stage-box {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 480px;
+      background: #000;
+    }
+    .s3-img-layer {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s ease;
+      transform: scale(1.02);
+    }
+    .s3-img-layer.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .s3-telemetry-hud {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(11, 12, 14, 0.75);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      color: var(--cream-muted);
+      z-index: 5;
+    }
+    .s3-telemetry-hud span strong {
+      color: var(--gold-light);
+    }
+
+    .s3-scenario-bar {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(11, 12, 14, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      z-index: 5;
+    }
+    .s3-sc-btn {
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--cream-muted);
+      transition: all 0.25s ease;
+    }
+    .s3-sc-btn:hover {
+      color: var(--cream);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .s3-sc-btn.active {
+      background: var(--gold-gradient);
+      color: #0B0C0E;
+      box-shadow: 0 4px 16px rgba(197, 168, 128, 0.4);
+    }
+
+    .s3-intel-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s3-proof-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 4px 10px;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 12px;
+    }
+    .s3-multiplier {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .s3-points-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .s3-point {
+      padding: 12px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line-subtle);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .s3-point strong {
+      color: var(--cream);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 13px;
+    }
+
+    /* ==========================================================================
+       7. SLIDE 4: DIGITAL VIP DOSSIER (KP)
+       ========================================================================== */
+    .s4-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .s4-search-box {
+      margin-bottom: 18px;
+    }
+    .s4-input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .s4-input {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--line);
+      color: var(--gold-light);
+      padding: 10px 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .s4-input:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 14px rgba(197, 168, 128, 0.3);
+    }
+    .s4-quick-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .s4-chip {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line-subtle);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .s4-chip:hover, .s4-chip.active {
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.15);
+      color: var(--gold-light);
+    }
+
+    /* Secret KP Dossier Card */
+    .s4-dossier-card {
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(160deg, rgba(24, 26, 32, 0.95) 0%, rgba(11, 12, 14, 0.98) 100%);
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 24px rgba(197, 168, 128, 0.15);
+      position: relative;
+    }
+    .s4-dossier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+    .s4-security-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: #F59E0B;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .s4-prop-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: #fff;
+    }
+    .s4-prop-client {
+      font-size: 13px;
+      color: var(--cream-muted);
+    }
+    .s4-rooms-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 18px;
+    }
+    .s4-rooms-table th {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--cream-muted);
+      text-align: left;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-subtle);
+    }
+    .s4-rooms-table td {
+      font-size: 12px;
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--cream);
+    }
+    .s4-rooms-table td:last-child {
+      text-align: right;
+      font-family: var(--font-mono);
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .s4-dossier-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .s4-total-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+    }
+    .s4-total-val {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    /* ==========================================================================
+       8. SLIDE 5: TWO DOORS (B2C & B2B)
+       ========================================================================== */
+    .s5-door-switcher {
+      display: inline-flex;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px;
+      margin-bottom: 20px;
+    }
+    .s5-door-btn {
+      padding: 10px 24px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--cream-muted);
+      transition: all 0.25s ease;
+    }
+    .s5-door-btn.active {
+      background: var(--gold-gradient);
+      color: #0B0C0E;
+      box-shadow: 0 4px 16px rgba(197, 168, 128, 0.4);
+    }
+
+    .s5-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .s5-card {
+      background: rgba(18, 20, 24, 0.7);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+    }
+    .s5-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+    .s5-card-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .s5-card-h {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .s5-card-p {
+      font-size: 13px;
+      color: var(--cream-muted);
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .s5-card-spec {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 8px 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-subtle);
+      color: var(--gold-light);
+    }
+
+    /* ==========================================================================
+       9. SLIDE 6: VOICE AI CONCIERGE & PWA
+       ========================================================================== */
+    .s6-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .s6-mic-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+    .s6-mic-ring-wrap {
+      position: relative;
+      width: 110px;
+      height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .s6-ring {
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      opacity: 0.3;
+      animation: pulseGlow 2.4s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .s6-ring:nth-child(2) {
+      inset: -24px;
+      animation-delay: 0.6s;
+      opacity: 0.15;
+    }
+    @keyframes pulseGlow {
+      0% { transform: scale(0.9); opacity: 0.4; }
+      50% { transform: scale(1.15); opacity: 0.1; }
+      100% { transform: scale(0.9); opacity: 0.4; }
+    }
+    .s6-btn-mic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      color: #0B0C0E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(197, 168, 128, 0.6);
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+    .s6-btn-mic svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    #voiceWaveCanvas {
+      width: 100%;
+      height: 60px;
+      margin: 12px 0;
+      border-radius: var(--radius-sm);
+    }
+
+    .s6-transcript-box {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      margin-top: 10px;
+      font-size: 13px;
+      min-height: 52px;
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s6-chips-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+      margin-top: 14px;
+    }
+    .s6-demo-chip {
+      text-align: left;
+      font-size: 12px;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line-subtle);
+      color: var(--cream-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .s6-demo-chip:hover {
+      border-color: var(--gold);
+      color: var(--cream);
+      background: rgba(197, 168, 128, 0.1);
+    }
+
+    .s6-parsed-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s6-parsed-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .s6-parsed-item {
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--line-subtle);
+    }
+    .s6-parsed-k {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--cream-muted);
+    }
+    .s6-parsed-v {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--gold-light);
+      margin-top: 2px;
+    }
+
+    .s6-pwa-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(197, 168, 128, 0.08);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      margin-top: 14px;
+    }
+    .s6-pwa-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #0B0C0E;
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    /* ==========================================================================
+       10. SLIDE 7: LABOR & HOURS DECOMPOSITION
+       ========================================================================== */
+    .s7-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+    .s7-stages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .s7-stage-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: rgba(18, 20, 24, 0.6);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    .s7-stage-item.open {
+      border-color: var(--gold);
+      background: rgba(18, 20, 24, 0.95);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .s7-stage-header {
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+    .s7-stage-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .s7-stage-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold);
+      background: rgba(197, 168, 128, 0.12);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .s7-stage-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+    }
+    .s7-stage-hours {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+    .s7-stage-body {
+      display: none;
+      padding: 0 18px 16px 18px;
+      font-size: 12px;
+      color: var(--cream-muted);
+      line-height: 1.5;
+      border-top: 1px solid var(--line-subtle);
+    }
+    .s7-stage-item.open .s7-stage-body {
+      display: block;
+      padding-top: 12px;
+    }
+    .s7-deliverables {
+      margin-top: 8px;
+      padding-left: 18px;
+    }
+    .s7-deliverables li {
+      margin-bottom: 4px;
+    }
+
+    .s7-summary-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(160deg, rgba(28, 30, 36, 0.8) 0%, rgba(11, 12, 14, 0.95) 100%);
+    }
+    .s7-total-hours-display {
+      text-align: center;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .s7-total-num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 0.9;
+    }
+    .s7-total-sub {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--cream-muted);
+      margin-top: 6px;
+    }
+
+    /* ==========================================================================
+       11. SLIDE 8: INVESTMENT MODEL, ROI & CONTRACTOR SELECTION
+       ========================================================================== */
+    .s8-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+    .s8-roi-box {
+      background: rgba(18, 20, 24, 0.8);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s8-slider-group {
+      margin: 16px 0;
+    }
+    .s8-slider-val {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .s8-metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .s8-metric-box {
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--line-subtle);
+    }
+    .s8-metric-num {
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      color: #10B981;
+    }
+
+    /* Comparison 3 cards */
+    .s8-compare-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .s8-comp-card {
+      border: 1px solid var(--line-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      background: rgba(18, 20, 24, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .s8-comp-card.optimum {
+      border-color: var(--gold);
+      background: rgba(197, 168, 128, 0.08);
+      box-shadow: 0 0 24px rgba(197, 168, 128, 0.15);
+      position: relative;
+    }
+    .s8-opt-badge {
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: var(--gold-gradient);
+      color: #0B0C0E;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .s8-comp-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    .s8-comp-price {
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+    .s8-comp-list {
+      font-size: 12px;
+      color: var(--cream-muted);
+      line-height: 1.45;
+      list-style: none;
+    }
+    .s8-comp-list li {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    /* Final CTA Bar */
+    .s8-cta-bar {
+      margin-top: 20px;
+      padding: 20px 28px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, rgba(28, 30, 36, 0.9) 0%, rgba(11, 12, 14, 0.98) 100%);
+      border: 1px solid var(--gold);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(197, 168, 128, 0.2);
+    }
+    .s8-cta-h {
+      font-family: var(--font-display);
+      font-size: 26px;
+      color: #fff;
+    }
+    .s8-cta-p {
+      font-size: 13px;
+      color: var(--cream-muted);
+    }
+
+    /* ==========================================================================
+       12. BOTTOM PRESENTER DOCK
+       ========================================================================== */
+    .deck-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(11, 12, 14, 0.9);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--line-subtle);
+      z-index: 90;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .hotkey-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--cream-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .kbd {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line-subtle);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 9px;
+      color: var(--gold-light);
+    }
+
+    .footer-center {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Help Modal / Hotkeys guide */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open {
+      display: flex;
+    }
+    .modal-content {
+      background: #121418;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+    }
+    .modal-h {
+      font-family: var(--font-display);
+      font-size: 26px;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .modal-keys-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .modal-key-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line-subtle);
+    }
+
+    /* ==========================================================================
+       13. RESPONSIVE QUERIES
+       ========================================================================== */
+    @media (max-width: 1080px) {
+      .deck-nav-center { display: none; }
+      .s1-grid, .s2-grid, .s3-grid, .s4-grid, .s6-grid, .s7-grid, .s8-grid {
+        grid-template-columns: 1fr;
+      }
+      .s5-cards-grid, .s8-compare-row {
+        grid-template-columns: 1fr;
+      }
+      .s8-cta-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 14px;
+      }
+      .s1-hero-media, .s3-stage-box {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .viewport { padding: 16px 14px; }
+      .deck-header, .deck-footer { padding: 0 14px; }
+      .brand-sub { display: none; }
+      .hotkey-tag { display: none; }
+      .slide-title { font-size: 28px; }
+      .s2-pleat-selector { grid-template-columns: 1fr; }
+      .s4-rooms-table { font-size: 11px; }
+      .s4-rooms-table th, .s4-rooms-table td { padding: 6px 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="top-progress">
+    <div class="top-progress-fill" id="topProgressFill"></div>
+  </div>
+
+  <!-- Deck Header HUD -->
+  <header class="deck-header">
+    <div class="brand-cluster">
+      <div class="brand-fish-emblem" title="MARÉ Haute Couture Textile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">MARÉ</div>
+        <div class="brand-sub">Decorative Studio · Astana</div>
+      </div>
+    </div>
+
+    <!-- Center Slide Selector Pills -->
+    <nav class="deck-nav-center" id="navPillsContainer">
+      <button class="nav-pill active" data-slide="0">01 <span>Флагман</span></button>
+      <button class="nav-pill" data-slide="1">02 <span>Драпировки</span></button>
+      <button class="nav-pill" data-slide="2">03 <span>Свет 3D</span></button>
+      <button class="nav-pill" data-slide="3">04 <span>VIP КП</span></button>
+      <button class="nav-pill" data-slide="4">05 <span>Две Двери</span></button>
+      <button class="nav-pill" data-slide="5">06 <span>Voice AI</span></button>
+      <button class="nav-pill" data-slide="6">07 <span>Смета ч.</span></button>
+      <button class="nav-pill" data-slide="7">08 <span>Инвестиции</span></button>
+    </nav>
+
+    <!-- Header Controls -->
+    <div class="deck-controls">
+      <div class="slide-counter" id="slideCounterHUD">
+        <strong>01</strong> / 08
+      </div>
+      <button class="btn-icon" id="btnAutoplay" title="Автовоспроизведение (Space)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" id="playIconSvg">
+          <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>
+      </button>
+      <button class="btn-icon" id="btnFullscreen" title="Полноэкранный режим (F)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+        </svg>
+      </button>
+      <a href="mobile.html" class="nav-pill" style="border-color: var(--gold); color: var(--gold-light); text-decoration: none; padding: 4px 10px; font-weight: 600;" title="Открыть мобильную версию для WhatsApp">📱 Для телефона</a>
+      <button class="btn-icon" id="btnHelp" title="Горячие клавиши (?)">?</button>
+    </div>
+  </header>
+
+  <!-- Slide Viewport -->
+  <main class="viewport">
+    <div class="slide-stage">
+
+      <!-- ==========================================================================
+           SLIDE 1: DIGITAL FLAGSHIP VS CURTAIN SALON
+           ========================================================================== -->
+      <section class="slide-item active" id="slide-1">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">Executive Strategy · 01</span>
+            <span class="slide-context">Maison Poisson (MARÉ) · Astana</span>
+          </div>
+          <h1 class="slide-title">Цифровой Флагман vs Обычный Салон Штор</h1>
+          <p class="slide-lead">Трансформация позиционирования студии: от кустарного пошива «на метры» к архитектуре пространственного света и среднему чеку 5–15 млн ₸.</p>
+        </div>
+
+        <div class="s1-grid">
+          <!-- Left: Hero Media Container -->
+          <div class="s1-hero-media">
+            <video class="s1-video-bg" autoplay muted loop playsinline poster="../assets/atelier-poster.jpg">
+              <source src="../assets/hero-curtains.mp4" type="video/mp4">
+            </video>
+            <div class="s1-media-overlay">
+              <div class="s1-badge-gold">
+                <span>✦ Международный статус Top-50</span>
+              </div>
+              <h2 class="s1-overlay-h">Свет как Архитектурный Материал</h2>
+              <p class="s1-overlay-p">Мы не шьем занавески под обои. Мы создаем акустический и световой комфорт для резиденций в BI Village, пос. Саранда и Talan Towers.</p>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Comparison Box -->
+          <div class="card-luxury s1-compare-card">
+            <div>
+              <div class="s2-label">Интерактивное сравнение парадигм:</div>
+              <div class="s1-toggle-bar">
+                <button class="s1-toggle-btn" id="s1BtnOld">Старый салон (Tilda)</button>
+                <button class="s1-toggle-btn active" id="s1BtnFlagship">Цифровой Флагман MARÉ</button>
+              </div>
+
+              <div class="s1-metrics-list" id="s1MetricsContainer">
+                <!-- Dynamically populated via JS -->
+              </div>
+            </div>
+
+            <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line-subtle); display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--cream-muted);">ЦЕЛЕВОЙ РЕЗУЛЬТАТ</span>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--gold-light); font-weight: 700;">+340% РОСТ ДОБАВЛЕННОЙ СТОИМОСТИ</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SLIDE 2: DRAPERY GEOMETRY CONFIGURATOR
+           ========================================================================== -->
+      <section class="slide-item" id="slide-2">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">Engineering Drapery · 02</span>
+            <span class="slide-context">Формулы потайного кутюрного шва и коэффициенты драпировок</span>
+          </div>
+          <h1 class="slide-title">Инженерный Конфигуратор & Геометрия Складок</h1>
+          <p class="slide-lead">Математический расчет расхода ткани европейских мануфактур с точностью до 1 см. Клиент мгновенно видит физику складок и финансовую прозрачность.</p>
+        </div>
+
+        <div class="s2-grid">
+          <!-- Controls Panel -->
+          <div class="card-luxury">
+            <!-- Pleat Style -->
+            <div class="s2-control-group">
+              <label class="s2-label">1. Тип драпировки и коэффициент ткани (K):</label>
+              <div class="s2-pleat-selector">
+                <div class="s2-pleat-card active" data-pleat="wave" data-ratio="2.0">
+                  <div class="s2-pleat-title">Волна (Wave)</div>
+                  <div class="s2-pleat-ratio">K = 1:2.0</div>
+                </div>
+                <div class="s2-pleat-card" data-pleat="french" data-ratio="2.5">
+                  <div class="s2-pleat-title">Французская</div>
+                  <div class="s2-pleat-ratio">K = 1:2.5 (3 лепестка)</div>
+                </div>
+                <div class="s2-pleat-card" data-pleat="box" data-ratio="2.8">
+                  <div class="s2-pleat-title">Бантовая</div>
+                  <div class="s2-pleat-ratio">K = 1:2.8 (Объем)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slider Width -->
+            <div class="s2-control-group">
+              <label class="s2-label">2. Длина карниза (метры):</label>
+              <div class="s2-slider-box">
+                <div class="s2-slider-val">
+                  <span id="s2WidthNum">4.2 м</span>
+                  <span style="font-size: 12px; color: var(--cream-muted); font-family: var(--font-mono);">Высота потолка: 3.20 м</span>
+                </div>
+                <input type="range" class="s2-range-input" id="s2WidthSlider" min="2.5" max="8.0" step="0.1" value="4.2" aria-label="Длина карниза в метрах">
+              </div>
+            </div>
+
+            <!-- Somfy Motorization Toggle -->
+            <div class="s2-control-group">
+              <label class="s2-label">3. Инженерия моторизации:</label>
+              <label class="s2-checkbox-row">
+                <input type="checkbox" id="s2SomfyCheck" checked>
+                <div>
+                  <div style="font-weight: 600; font-size: 13px; color: #fff;">Электрокарниз Somfy Glydea Ultra (Франция)</div>
+                  <div style="font-size: 11px; color: var(--cream-muted);">Бесшумный ход &lt;38 дБ, интеграция в Умный Дом (KNX / Aqara / Tuya)</div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Live Visualizer & Output Panel -->
+          <div class="card-luxury s2-visualizer">
+            <div>
+              <div class="s2-label">Живая визуализация волнового ритма складок:</div>
+              <div class="s2-wave-container">
+                <svg id="waveSvg" viewBox="0 0 500 140" preserveAspectRatio="none">
+                  <!-- Dynamic Wave Path generated by JS -->
+                  <defs>
+                    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="#C5A880" stop-opacity="0.8"/>
+                      <stop offset="50%" stop-color="#E2D3B8" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#0B0C0E" stop-opacity="0.9"/>
+                    </linearGradient>
+                  </defs>
+                  <path id="wavePathFill" fill="url(#waveGrad)" d=""/>
+                  <path id="wavePathStroke" fill="none" stroke="#C5A880" stroke-width="2.5" d=""/>
+                </svg>
+              </div>
+
+              <!-- Output Stats Grid -->
+              <div class="s2-stats-row">
+                <div class="s2-stat-item">
+                  <div class="s2-stat-num" id="s2FabricMeters">9.7 м</div>
+                  <div class="s2-stat-txt">Расход ткани</div>
+                </div>
+                <div class="s2-stat-item">
+                  <div class="s2-stat-num" id="s2PleatsCount">26</div>
+                  <div class="s2-stat-txt">Глубоких волн</div>
+                </div>
+                <div class="s2-stat-item">
+                  <div class="s2-stat-num" id="s2AtelierDays">7 дн.</div>
+                  <div class="s2-stat-txt">Пошив в цехе</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Quote Preview Banner -->
+            <div class="s2-quote-banner">
+              <div>
+                <div class="s2-quote-h">Расчетная стоимость комплектации:</div>
+                <div style="font-size: 11px; color: var(--gold-light);">Шенилл Wind (Бельгия) + Лента Bandex + Монтаж</div>
+              </div>
+              <div class="s2-quote-sum" id="s2TotalCost">1 485 000 ₸</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SLIDE 3: LIGHTING SCENARIOS SIMULATOR
+           ========================================================================== -->
+      <section class="slide-item" id="slide-3">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">Lighting Simulator · 03</span>
+            <span class="slide-context">3D-примерка текстиля на стадии бетонных стен</span>
+          </div>
+          <h1 class="slide-title">Живой Симулятор Сценариев Освещения</h1>
+          <p class="slide-lead">Естественный солнечный свет Астаны меняется от слепящего ультрафиолета до глубоких сумерек. Симулятор показывает поведение ткани в 3 ключевых фазах суток.</p>
+        </div>
+
+        <div class="s3-grid">
+          <!-- Left: Visual Stage with Cross-fade layers -->
+          <div class="s3-stage-box">
+            <!-- Telemetry HUD Overlay -->
+            <div class="s3-telemetry-hud" id="s3Telemetry">
+              <span>ЦВЕТОВАЯ ТЕМПЕРАТУРА: <strong id="hudTemp">5500 K</strong></span>
+              <span>ИНСОЛЯЦИЯ: <strong id="hudLux">1 200 Lux</strong></span>
+              <span>АКУСТИКА: <strong id="hudAcoustic">NRC 0.85 (-16 dB)</strong></span>
+            </div>
+
+            <!-- Layer 1: Day -->
+            <img src="../screenshot-ba-living.png" class="s3-img-layer active" id="layerDay" alt="Сценарий День">
+            <!-- Layer 2: Evening -->
+            <img src="../screenshot-kp-evening.png" class="s3-img-layer" id="layerEvening" alt="Сценарий Вечер">
+            <!-- Layer 3: Night -->
+            <img src="../screenshot-kp-night.png" class="s3-img-layer" id="layerNight" alt="Сценарий Ночь">
+
+            <!-- Switcher Buttons on bottom of the picture -->
+            <div class="s3-scenario-bar">
+              <button class="s3-sc-btn active" data-light="day">
+                <span>☀️</span> День: Мягкий свет
+              </button>
+              <button class="s3-sc-btn" data-light="evening">
+                <span>🌅</span> Вечер: Теплый акцент
+              </button>
+              <button class="s3-sc-btn" data-light="night">
+                <span>🌙</span> Ночь: 100% Blackout
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Conversion Intelligence -->
+          <div class="card-luxury s3-intel-card">
+            <div>
+              <div class="s3-proof-badge">✓ Конверсионный триггер A+</div>
+              <div class="s3-multiplier">3.8x</div>
+              <div style="font-family: var(--font-display); font-size: 20px; color: #fff; margin-bottom: 6px;">Рост конверсии дизайнеров интерьера</div>
+              <p style="font-size: 13px; color: var(--cream-muted); line-height: 1.45;">
+                Главный барьер в премиальном чеке — страх ошибки. Заказчик боится вложить 5–10 млн ₸ в ткань, не понимая, как она будет выглядеть ночью при включенных люстрах.
+              </p>
+
+              <div class="s3-points-list">
+                <div class="s3-point">
+                  <strong>Снятие неопределенности</strong>
+                  Клиент видит прозрачность и светопроницаемость тюля днем и полную темноту для глубокого сна ночью.
+                </div>
+                <div class="s3-point">
+                  <strong>Защита авторского проекта архитектора</strong>
+                  Дизайнер согласует концепт с заказчиком за 1 встречу без бесконечных поездок с образцами.
+                </div>
+              </div>
+            </div>
+
+            <div style="padding: 12px; background: rgba(197, 168, 128, 0.08); border-radius: var(--radius-sm); border: 1px solid var(--line);">
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-light);">Статус технологии: PBR-шейдеры + реальные фотопробы тканей в интерьерах Астаны.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SLIDE 4: DIGITAL CLIENT DOSSIER (VIP KP)
+           ========================================================================== -->
+      <section class="slide-item" id="slide-4">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">High-Ticket Sales Tool · 04</span>
+            <span class="slide-context">Персональное защищенное интерактивное досье проекта</span>
+          </div>
+          <h1 class="slide-title">Интерактивное «Цифровое КП»</h1>
+          <p class="slide-lead">Вместо безликих PDF-таблиц клиент получает именную ссылку с 3D-визуализацией, спецификацией европейских тканей и прямой кнопкой акцепта в WhatsApp.</p>
+        </div>
+
+        <div class="s4-grid">
+          <!-- Left: Input & Selection -->
+          <div class="card-luxury" style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div class="s2-label">Введите персональный код доступа к смете:</div>
+              <div class="s4-search-box">
+                <div class="s4-input-row">
+                  <input type="text" class="s4-input" id="kpCodeInput" value="VILLA" placeholder="НАПРИМЕР: VILLA, 70, 140" aria-label="Персональный код доступа к досье проекта">
+                  <button class="btn-gold" id="btnLoadKp" style="padding: 10px 18px;">Открыть</button>
+                </div>
+                <div class="s4-quick-chips">
+                  <span style="font-size: 11px; color: var(--cream-muted); align-self: center; margin-right: 4px;">Примеры:</span>
+                  <button class="s4-chip active" data-code="VILLA">VILLA (BI Village)</button>
+                  <button class="s4-chip" data-code="70">70 (пос. Саранда)</button>
+                  <button class="s4-chip" data-code="140">140 (Talan Towers)</button>
+                </div>
+              </div>
+
+              <div style="font-size: 13px; color: var(--cream-muted); line-height: 1.5; margin-top: 20px;">
+                <p><strong>Как это работает в продажах:</strong></p>
+                <p style="margin-top: 6px;">Декоратор отправляет VIP-клиенту в WhatsApp короткую ссылку: <code style="color: var(--gold-light); font-family: var(--font-mono);">mare.kz/kp/VILLA</code>. Клиент открывает досье на iPhone и видит свой дом, согласованные ткани и кнопку быстрого запуска.</p>
+              </div>
+            </div>
+
+            <!-- WhatsApp Direct Action Trigger -->
+            <div style="margin-top: 20px;">
+              <a href="#" class="btn-gold" id="btnApproveWhatsApp" target="_blank" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+                </svg>
+                Утвердить смету в WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Live Dossier Card -->
+          <div class="s4-dossier-card" id="dossierCard">
+            <div class="s4-dossier-header">
+              <div>
+                <span class="s4-security-badge">● CONFIDENTIAL DOSSIER</span>
+                <div class="s4-prop-title" id="dossierProp">Вилла в BI Village Deluxe</div>
+                <div class="s4-prop-client" id="dossierClient">Заказчик: Семья Нурлановых · Площадь: 720 м²</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-light);" id="dossierCode">PROJECT-VILLA</div>
+                <div style="font-size: 11px; color: var(--cream-muted);">Астана, Казахстан</div>
+              </div>
+            </div>
+
+            <!-- Table of rooms -->
+            <table class="s4-rooms-table">
+              <thead>
+                <tr>
+                  <th>Помещение</th>
+                  <th>Текстиль & Бренд</th>
+                  <th>Складка</th>
+                  <th style="text-align: right;">Сумма</th>
+                </tr>
+              </thead>
+              <tbody id="dossierRoomsBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-size: 12px; color: var(--cream-muted);">
+              <div>Статус: <strong style="color: #10B981;" id="dossierStatus">Пошив в цехе (85%)</strong></div>
+              <div>Срок сдачи: <strong style="color: #fff;" id="dossierDelivery">22 октября 2026</strong></div>
+            </div>
+
+            <div class="s4-dossier-footer">
+              <div>
+                <div class="s4-total-label">Итоговая смета с монтажом:</div>
+                <div style="font-size: 11px; color: var(--cream-muted);">Включая электроприводы Somfy Glydea</div>
+              </div>
+              <div class="s4-total-val" id="dossierTotal">6 850 000 ₸</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SLIDE 5: TWO DOORS (B2C & B2B)
+           ========================================================================== -->
+      <section class="slide-item" id="slide-5">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">Commercial Architecture · 05</span>
+            <span class="slide-context">Двойной конверсионный шлюз студии в Астане</span>
+          </div>
+          <h1 class="slide-title">Архитектура «Две Двери»: B2C & B2B</h1>
+          <p class="slide-lead">Единый премиальный бренд обслуживает две принципиально разные аудитории: эмоциональный кутюр для частных вилл и строгие стандарты МЧС/НДС для госкорпораций.</p>
+        </div>
+
+        <!-- Door Switcher -->
+        <div class="s5-door-switcher">
+          <button class="s5-door-btn active" id="btnDoorB2C">B2C: Частные Резиденции & Пентхаусы</button>
+          <button class="s5-door-btn" id="btnDoorB2B">B2B: Посольства, Банки & Корпорации</button>
+        </div>
+
+        <!-- Dynamic 3 Cards -->
+        <div class="s5-cards-grid" id="doorCardsGrid">
+          <!-- Populated by JS based on door state -->
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SLIDE 6: VOICE AI CONCIERGE & PWA
+           ========================================================================== -->
+      <section class="slide-item" id="slide-6">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">AI Innovation & Mobile · 06</span>
+            <span class="slide-context">Ликвидация барьера мобильного ввода для VIP-клиентов</span>
+          </div>
+          <h1 class="slide-title">Voice AI Консьерж & PWA Мобильность</h1>
+          <p class="slide-lead">Владельцы загородных домов и занятые дизайнеры не заполняют длинные формы. Голосовой консьерж мгновенно трансформирует живую речь в готовую спецификацию.</p>
+        </div>
+
+        <div class="s6-grid">
+          <!-- Left: Voice Interactive Mic & Waveform -->
+          <div class="card-luxury s6-mic-stage">
+            <div class="s6-mic-ring-wrap">
+              <div class="s6-ring"></div>
+              <div class="s6-ring"></div>
+              <button class="s6-btn-mic" id="btnVoiceRecord" title="Нажмите для демонстрации">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                  <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                </svg>
+              </button>
+            </div>
+
+            <div style="font-family: var(--font-display); font-size: 20px; color: #fff;" id="voiceStatusText">Нажмите микрофон или выберите фразу</div>
+            <canvas id="voiceWaveCanvas" width="400" height="60"></canvas>
+
+            <div class="s6-transcript-box" id="voiceTranscriptBox">
+              «Гостиная, карниз 5 метров, шенилл Бельгия, электропривод Somfy»
+            </div>
+
+            <!-- Quick sample phrases -->
+            <div class="s6-chips-container">
+              <button class="s6-demo-chip" data-phrase="Гостиная, карниз 5 метров, шенилл Бельгия, электропривод Somfy">
+                🗣 «Гостиная, карниз 5 метров, шенилл Бельгия, электропривод Somfy»
+              </button>
+              <button class="s6-demo-chip" data-phrase="Детская ткань sheeneel, производство Бельгия, окно 3 на 2.80">
+                🗣 «Детская ткань sheeneel, производство Бельгия, окно 3 на 2.80»
+              </button>
+              <button class="s6-demo-chip" data-phrase="Кабинет руководителя, негорючая ткань Trevira CS, моторизация KNX">
+                🗣 «Кабинет руководителя, негорючая ткань Trevira CS, моторизация KNX»
+              </button>
+            </div>
+          </div>
+
+          <!-- Right: Real-Time Structured Output & PWA Badge -->
+          <div class="card-luxury s6-parsed-card">
+            <div>
+              <div class="s2-label">Результат мгновенного семантического парсинга:</div>
+              <div class="s6-parsed-grid" id="parsedEntitiesGrid">
+                <div class="s6-parsed-item">
+                  <div class="s6-parsed-k">Помещение</div>
+                  <div class="s6-parsed-v" id="parseRoom">Парадная гостиная</div>
+                </div>
+                <div class="s6-parsed-item">
+                  <div class="s6-parsed-k">Ширина карниза</div>
+                  <div class="s6-parsed-v" id="parseWidth">5.0 м (W = 1:2.0)</div>
+                </div>
+                <div class="s6-parsed-item">
+                  <div class="s6-parsed-k">Текстиль</div>
+                  <div class="s6-parsed-v" id="parseFabric">Шенилл Wind (Бельгия)</div>
+                </div>
+                <div class="s6-parsed-item">
+                  <div class="s6-parsed-k">Моторизация</div>
+                  <div class="s6-parsed-v" id="parseMotor">Somfy Glydea Ultra RTS</div>
+                </div>
+              </div>
+
+              <div style="padding: 16px; background: rgba(0, 0, 0, 0.4); border-radius: var(--radius-md); border: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 10px; color: var(--cream-muted);">АВТОМАТИЧЕСКАЯ СМЕТА:</div>
+                  <div style="font-size: 11px; color: var(--gold-light);">11.5 м ткани + лента + привод</div>
+                </div>
+                <div style="font-family: var(--font-display); font-size: 26px; font-weight: 700; color: #fff;" id="parseTotalCost">1 760 000 ₸</div>
+              </div>
+            </div>
+
+            <!-- PWA Native Capability Badge -->
+            <div class="s6-pwa-badge">
+              <div class="s6-pwa-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                  <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                </svg>
+              </div>
+              <div style="flex: 1;">
+                <div style="font-weight: 700; font-size: 13px; color: #fff;">PWA: Автономное приложение без AppStore</div>
+                <div style="font-size: 11px; color: var(--cream-muted);">Мгновенная установка на экран iPhone/Android за 1 клик. Работает даже в цокольных этажах без связи.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SLIDE 7: TRANSPARENT LABOR DECOMPOSITION (155-225h)
+           ========================================================================== -->
+      <section class="slide-item" id="slide-7">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">Engineering Economics · 07</span>
+            <span class="slide-context">Прозрачная оценка трудозатрат и этапов разработки</span>
+          </div>
+          <h1 class="slide-title">Декомпозиция Трудоемкости (155–225 часов)</h1>
+          <p class="slide-lead">Каждый час инвестиций обоснован оцифрованным артефактом. Никакой «воды» — только прецизионная разработка, дизайн Liquid Glass и математика.</p>
+        </div>
+
+        <div class="s7-grid">
+          <!-- Accordion of stages -->
+          <div class="s7-stages-list" id="stagesAccordion">
+            <!-- Stage 1 -->
+            <div class="s7-stage-item open">
+              <div class="s7-stage-header">
+                <div class="s7-stage-title-wrap">
+                  <span class="s7-stage-num">01</span>
+                  <span class="s7-stage-name">UX/UI Дизайн, Арт-дирекшн & Liquid Glass</span>
+                </div>
+                <span class="s7-stage-hours">35–50 ч</span>
+              </div>
+              <div class="s7-stage-body">
+                Индивидуальная темная палитра Dark Luxury (обсидиан + шелковый крем + латунь), адаптивная сетка под Retina-экраны, дизайн интерактивного каталога тканей и мобильных сценариев.
+                <ul class="s7-deliverables">
+                  <li>Figma дизайн-система & UI Kit токенов</li>
+                  <li>Дизайн 8 ключевых экранов + мобильная версия</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="s7-stage-item">
+              <div class="s7-stage-header">
+                <div class="s7-stage-title-wrap">
+                  <span class="s7-stage-num">02</span>
+                  <span class="s7-stage-name">Frontend SPA/PWA & Математика Драпировок</span>
+                </div>
+                <span class="s7-stage-hours">60–85 ч</span>
+              </div>
+              <div class="s7-stage-body">
+                Высокопроизводительный движок на чистом JavaScript без тяжелых фреймворков. Математические формулы расхода тканей по типам складок (Волна, Французская, Бантовая).
+                <ul class="s7-deliverables">
+                  <li>Service Worker оффлайн-кэширование</li>
+                  <li>Canvas/SVG визуализатор волнового шага складок</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="s7-stage-item">
+              <div class="s7-stage-header">
+                <div class="s7-stage-title-wrap">
+                  <span class="s7-stage-num">03</span>
+                  <span class="s7-stage-name">Интерактивные Модули (Свет, КП, Voice AI)</span>
+                </div>
+                <span class="s7-stage-hours">30–45 ч</span>
+              </div>
+              <div class="s7-stage-body">
+                Световой симулятор (День / Вечер / Ночь) с бесшовным cross-fade, динамический генератор секретных КП с защитой ссылок, голосовой NLP-парсер сущностей на базе Web Speech API.
+                <ul class="s7-deliverables">
+                  <li>Световой модуль 3D-симуляции</li>
+                  <li>Voice AI консьерж с анимацией звуковой волны</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="s7-stage-item">
+              <div class="s7-stage-header">
+                <div class="s7-stage-title-wrap">
+                  <span class="s7-stage-num">04</span>
+                  <span class="s7-stage-name">Интеграции, CRM & WhatsApp Deep-linking</span>
+                </div>
+                <span class="s7-stage-hours">15–25 ч</span>
+              </div>
+              <div class="s7-stage-body">
+                Умный диспетчер лидов: генерация предзаполненных сообщений в WhatsApp с контекстом комнаты, ткани и сметы. Вебхуки в CRM (Bitrix24 / AmoCRM).
+                <ul class="s7-deliverables">
+                  <li>Генератор персонализированных КП в PDF / Web</li>
+                  <li>WhatsApp воронка без спам-ботов</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Stage 5 -->
+            <div class="s7-stage-item">
+              <div class="s7-stage-header">
+                <div class="s7-stage-title-wrap">
+                  <span class="s7-stage-num">05</span>
+                  <span class="s7-stage-name">QA, Мобильная Оптимизация & PWA Hardening</span>
+                </div>
+                <span class="s7-stage-hours">15–20 ч</span>
+              </div>
+              <div class="s7-stage-body">
+                Тестирование на реальных iPhone 13-16 Pro, iPad Pro и Android. 60fps плавность анимаций, аудит Core Web Vitals (LCP &lt; 1.2s, нулевой CLS).
+                <ul class="s7-deliverables">
+                  <li>Manifest & иконки под iOS / Android</li>
+                  <li>Гарантийная поддержка 12 месяцев</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Summary Hours Card -->
+          <div class="card-luxury s7-summary-card">
+            <div>
+              <div class="s2-label">Итоговая оценка инженерных трудозатрат:</div>
+              <div class="s7-total-hours-display">
+                <div class="s7-total-num">185 ч</div>
+                <div class="s7-total-sub">Медианный срок: 4.5–6 недель</div>
+              </div>
+
+              <div style="margin: 20px 0; font-size: 13px; line-height: 1.5; color: var(--cream-muted);">
+                <p><strong>Формат работы:</strong></p>
+                <p style="margin-top: 4px;">Спринты по 1 неделе с демонстрацией рабочих интерактивных билдов. Доступ к Figma и staging-серверу с первого дня.</p>
+              </div>
+            </div>
+
+            <div style="padding: 14px; background: rgba(197, 168, 128, 0.08); border-radius: var(--radius-sm); border: 1px solid var(--line);">
+              <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-light);">ФИКСАЦИЯ СТОИМОСТИ: Твердый договор, оплата по 3 этапам (40% / 30% / 30%).</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           SLIDE 8: INVESTMENT MODEL, ROI & CONTRACTOR SELECTION
+           ========================================================================== -->
+      <section class="slide-item" id="slide-8">
+        <div class="slide-intro">
+          <div class="slide-meta">
+            <span class="slide-tag">Investment & Selection · 08</span>
+            <span class="slide-context">Финансовая модель окупаемости и закрытие сделки</span>
+          </div>
+          <h1 class="slide-title">Инвестиционная Модель, ROI & Выбор Подрядчика</h1>
+          <p class="slide-lead">Проект окупается уже с 1-й или 2-й закрытой виллы. Интерактивный калькулятор показывает чистую прибыль при росте конверсии в Астане.</p>
+        </div>
+
+        <div class="s8-grid">
+          <!-- Left: ROI Live Calculator -->
+          <div class="s8-roi-box">
+            <div>
+              <div class="s2-label">Интерактивный ROI-калькулятор окупаемости:</div>
+              <div class="s8-slider-group">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                  <span style="font-size: 13px; color: var(--cream-muted);">Закрытых вилл / пентхаусов в месяц:</span>
+                  <span class="s8-slider-val" id="roiVillasCount">2 виллы</span>
+                </div>
+                <input type="range" class="s2-range-input" id="roiSlider" min="1" max="8" step="1" value="2" aria-label="Количество закрытых вилл в месяц">
+              </div>
+
+              <div class="s8-metrics-grid">
+                <div class="s8-metric-box">
+                  <div style="font-family: var(--font-mono); font-size: 10px; color: var(--cream-muted); text-transform: uppercase;">Выручка студии/мес</div>
+                  <div class="s8-metric-num" id="roiGrossRevenue" style="color: var(--gold-light);">12 000 000 ₸</div>
+                </div>
+                <div class="s8-metric-box">
+                  <div style="font-family: var(--font-mono); font-size: 10px; color: var(--cream-muted); text-transform: uppercase;">Чистая прибыль/мес</div>
+                  <div class="s8-metric-num" id="roiNetProfit">4 800 000 ₸</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="padding: 12px 16px; background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.3); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-family: var(--font-mono); font-size: 10px; color: #10B981; text-transform: uppercase;">Срок окупаемости вложений:</div>
+                <div style="font-size: 11px; color: var(--cream-muted);">При стоимости сайта 3.5 млн ₸</div>
+              </div>
+              <div style="font-family: var(--font-display); font-size: 26px; font-weight: 700; color: #10B981;" id="roiPaybackDays">~22 дня!</div>
+            </div>
+          </div>
+
+          <!-- Right: Comparison 3 Cards -->
+          <div class="s8-compare-row" style="grid-template-columns: 1fr 1fr 1fr;">
+            <!-- Freelancer -->
+            <div class="s8-comp-card">
+              <div>
+                <div class="s8-comp-name">Фрилансер</div>
+                <div class="s8-comp-price">400k – 900k ₸</div>
+                <ul class="s8-comp-list">
+                  <li>✗ Шаблон Tilda, «деревенский» вид</li>
+                  <li>✗ Нет математики складок</li>
+                  <li>✗ Срыв сроков, пропадание со связи</li>
+                  <li>✗ Потеря VIP-клиентов на миллионы ₸</li>
+                </ul>
+              </div>
+              <div style="font-size: 10px; color: #EF4444; font-family: var(--font-mono); margin-top: 10px;">ВЫСОКИЙ РИСК</div>
+            </div>
+
+            <!-- Boutique Studio (Optimum) -->
+            <div class="s8-comp-card optimum">
+              <span class="s8-opt-badge">ОПТИМУМ</span>
+              <div>
+                <div class="s8-comp-name" style="color: var(--gold-light);">Бутиковая студия</div>
+                <div class="s8-comp-price" style="color: #fff;">2.8M – 4.2M ₸</div>
+                <ul class="s8-comp-list">
+                  <li>✓ Awwwards уровень Liquid Glass</li>
+                  <li>✓ 3D-симулятор света & Voice AI</li>
+                  <li>✓ Окупаемость с 1-й закрытой виллы</li>
+                  <li>✓ Гарантия 12 месяцев по договору</li>
+                </ul>
+              </div>
+              <div style="font-size: 10px; color: #10B981; font-family: var(--font-mono); margin-top: 10px;">МАКСИМАЛЬНЫЙ ROI</div>
+            </div>
+
+            <!-- Network Agency -->
+            <div class="s8-comp-card">
+              <div>
+                <div class="s8-comp-name">Топ-агентство</div>
+                <div class="s8-comp-price">7.5M – 14M ₸</div>
+                <ul class="s8-comp-list">
+                  <li>✓ Красивый дизайн</li>
+                  <li>✗ 4–6 месяцев согласований</li>
+                  <li>✗ Огромные расходы на офис/штат</li>
+                  <li>✗ Оверпрайс в 3–4 раза</li>
+                </ul>
+              </div>
+              <div style="font-size: 10px; color: #F59E0B; font-family: var(--font-mono); margin-top: 10px;">ИЗБЫТОЧНЫЙ БЮДЖЕТ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Final CTA Action Bar -->
+        <div class="s8-cta-bar">
+          <div>
+            <div class="s8-cta-h">Готовы превратить MARÉ в главный цифровой флагман Казахстана?</div>
+            <div class="s8-cta-p">Забронируйте слот на разработку. Старт работ в течение 3 рабочих дней.</div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="https://wa.me/77010000000?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D1%8B%20%D0%B8%D0%B7%D1%83%D1%87%D0%B8%D0%BB%D0%B8%20%D0%BF%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%A4%D0%BB%D0%B0%D0%B3%D0%BC%D0%B0%D0%BD%D0%B0%20MAR%C3%89%20%D0%B8%20%D0%B3%D0%BE%D1%82%D0%BE%D0%B2%D1%8B%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0!" target="_blank" class="btn-gold" id="btnFinalWhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+              </svg>
+              Запустить проект в WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Presenter Bottom Dock -->
+  <footer class="deck-footer">
+    <div class="footer-left">
+      <span class="hotkey-tag"><span class="kbd">←</span> <span class="kbd">→</span> Навигация</span>
+      <span class="hotkey-tag"><span class="kbd">Space</span> Автоплей</span>
+      <span class="hotkey-tag"><span class="kbd">F</span> Полный экран</span>
+      <span class="hotkey-tag"><span class="kbd">Esc</span> Выход</span>
+    </div>
+
+    <div class="footer-center">
+      <button class="btn-icon" id="btnPrevSlide" title="Предыдущий слайд (←)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="btn-icon" id="btnNextSlide" title="Следующий слайд (→)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <div class="footer-right">
+      <span style="font-family: var(--font-mono); font-size: 11px; color: var(--gold-light);">MARÉ Executive Presentation v2.4</span>
+    </div>
+  </footer>
+
+  <!-- Help & Shortcuts Modal Overlay -->
+  <div class="modal-overlay" id="helpModal">
+    <div class="modal-content">
+      <h3 class="modal-h">Горячие Клавиши Презентатора</h3>
+      <div class="modal-keys-list">
+        <div class="modal-key-row">
+          <span>Следующий слайд</span>
+          <span class="kbd">→ или Пробел</span>
+        </div>
+        <div class="modal-key-row">
+          <span>Предыдущий слайд</span>
+          <span class="kbd">←</span>
+        </div>
+        <div class="modal-key-row">
+          <span>Пауза / Автоплей</span>
+          <span class="kbd">Space</span>
+        </div>
+        <div class="modal-key-row">
+          <span>Полноэкранный режим</span>
+          <span class="kbd">F</span>
+        </div>
+        <div class="modal-key-row">
+          <span>Закрыть окно / Выйти</span>
+          <span class="kbd">Escape</span>
+        </div>
+      </div>
+      <button class="btn-gold" id="btnCloseHelp" style="width: 100%;">Понятно</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: ENGINE & LIVE IN-DECK WIDGETS
+       ========================================================================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ------------------------------------------------------------------------
+      // State & Constants
+      // ------------------------------------------------------------------------
+      const TOTAL_SLIDES = 8;
+      let currentSlide = 0;
+      let autoplayTimer = null;
+      let isAutoplayActive = false;
+
+      // ------------------------------------------------------------------------
+      // DOM Elements
+      // ------------------------------------------------------------------------
+      const $ = id => document.getElementById(id);
+      const topProgressFill = $('topProgressFill');
+      const slideCounterHUD = $('slideCounterHUD');
+      const btnPrevSlide = $('btnPrevSlide');
+      const btnNextSlide = $('btnNextSlide');
+      const btnAutoplay = $('btnAutoplay');
+      const btnFullscreen = $('btnFullscreen');
+      const btnHelp = $('btnHelp');
+      const helpModal = $('helpModal');
+      const btnCloseHelp = $('btnCloseHelp');
+      const navPills = document.querySelectorAll('#navPillsContainer .nav-pill');
+      const slideElements = document.querySelectorAll('.slide-stage .slide-item');
+
+      // ------------------------------------------------------------------------
+      // 1. Navigation & Slide Switching
+      // ------------------------------------------------------------------------
+      function goToSlide(index, updateHash = true) {
+        if (index < 0) index = 0;
+        if (index >= TOTAL_SLIDES) index = TOTAL_SLIDES - 1;
+
+        currentSlide = index;
+
+        // Update slides visibility
+        slideElements.forEach((el, idx) => {
+          if (idx === currentSlide) {
+            el.classList.add('active');
+          } else {
+            el.classList.remove('active');
+          }
+        });
+
+        // Update Nav Pills
+        navPills.forEach((pill, idx) => {
+          if (idx === currentSlide) {
+            pill.classList.add('active');
+          } else {
+            pill.classList.remove('active');
+          }
+        });
+
+        // Update Progress Bar & Counter
+        const pct = ((currentSlide + 1) / TOTAL_SLIDES) * 100;
+        if (topProgressFill) topProgressFill.style.width = pct + '%';
+        if (slideCounterHUD) {
+          const numStr = String(currentSlide + 1).padStart(2, '0');
+          slideCounterHUD.innerHTML = `<strong>${numStr}</strong> / 08`;
+        }
+
+        // Update URL Hash
+        if (updateHash) {
+          history.replaceState(null, null, '#slide-' + (currentSlide + 1));
+        }
+
+        // Trigger slide-specific animations/draws if needed
+        if (currentSlide === 1) {
+          updateDraperyCalculator();
+        } else if (currentSlide === 5) {
+          drawIdleWave();
+        }
+      }
+
+      function nextSlide() {
+        if (currentSlide < TOTAL_SLIDES - 1) {
+          goToSlide(currentSlide + 1);
+        } else {
+          // If on last slide and autoplaying, loop back to slide 0
+          if (isAutoplayActive) goToSlide(0);
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 0) {
+          goToSlide(currentSlide - 1);
+        }
+      }
+
+      // Hash sync on load
+      function initHashRoute() {
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#slide-')) {
+          const num = parseInt(hash.replace('#slide-', ''), 10);
+          if (!isNaN(num) && num >= 1 && num <= TOTAL_SLIDES) {
+            goToSlide(num - 1, false);
+            return;
+          }
+        }
+        goToSlide(0, false);
+      }
+
+      // ------------------------------------------------------------------------
+      // 2. Autoplay & Fullscreen & Keyboard
+      // ------------------------------------------------------------------------
+      function toggleAutoplay() {
+        isAutoplayActive = !isAutoplayActive;
+        if (isAutoplayActive) {
+          btnAutoplay.classList.add('active');
+          $('playIconSvg').innerHTML = '<rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect>';
+          autoplayTimer = setInterval(nextSlide, 7500);
+        } else {
+          btnAutoplay.classList.remove('active');
+          $('playIconSvg').innerHTML = '<polygon points="5 3 19 12 5 21 5 3"></polygon>';
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => {
+            console.warn('Fullscreen request blocked:', err);
+          });
+        } else {
+          if (document.exitFullscreen) document.exitFullscreen();
+        }
+      }
+
+      // Keyboard events
+      window.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+          e.preventDefault();
+          prevSlide();
+        } else if (e.key === ' ') {
+          e.preventDefault();
+          toggleAutoplay();
+        } else if (e.key === 'f' || e.key === 'F') {
+          e.preventDefault();
+          toggleFullscreen();
+        } else if (e.key === 'Escape') {
+          helpModal.classList.remove('open');
+        } else if (e.key === '?') {
+          helpModal.classList.toggle('open');
+        }
+      });
+
+      // Nav listeners
+      btnNextSlide.addEventListener('click', nextSlide);
+      btnPrevSlide.addEventListener('click', prevSlide);
+      btnAutoplay.addEventListener('click', toggleAutoplay);
+      btnFullscreen.addEventListener('click', toggleFullscreen);
+      btnHelp.addEventListener('click', () => helpModal.classList.add('open'));
+      btnCloseHelp.addEventListener('click', () => helpModal.classList.remove('open'));
+      helpModal.addEventListener('click', (e) => {
+        if (e.target === helpModal) helpModal.classList.remove('open');
+      });
+
+      navPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const target = parseInt(pill.dataset.slide, 10);
+          goToSlide(target);
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 3. WIDGET 1: SLIDE 1 (Comparison Old Salon vs Flagship)
+      // ------------------------------------------------------------------------
+      const s1OldData = [
+        { label: 'Средний чек заказа', val: '350 000 – 850 000 ₸', sub: 'Ценовая война с барахолками и Tilda-сайтами' },
+        { label: 'Восприятие клиента', val: '«Обычные швеи»', sub: '«Сделайте скидочку, у соседей дешевле»' },
+        { label: 'Конверсия дизайнеров', val: '3 – 5%', sub: 'Дизайнеры боятся испортить авторский надзор' },
+        { label: 'Срок утверждения', val: '3–4 недели', sub: 'Хаотичные поездки с тяжелыми каталогами' },
+        { label: 'Инструменты продаж', val: 'WhatsApp фото', sub: 'Случайные фото из цеха, недоверие клиентов' }
+      ];
+
+      const s1FlagshipData = [
+        { label: 'Средний чек заказа', val: '5 000 000 – 15 000 000 ₸', sub: 'Комплектация резиденций и пентхаусов под ключ' },
+        { label: 'Восприятие клиента', val: 'Couture Interior House', sub: 'Входим в Top-50 мировых декораторов интерьера' },
+        { label: 'Конверсия дизайнеров', val: '38%', sub: '10% кэшбэк день-в-день + PBR-текстуры для рендеров' },
+        { label: 'Срок утверждения', val: '24–48 часов', sub: 'Интерактивные персональные КП с 3D-светом' },
+        { label: 'Инструменты продаж', val: 'Voice AI & PWA', sub: 'Автономное приложение, White Glove сервис' }
+      ];
+
+      function renderS1Metrics(isFlagship) {
+        const data = isFlagship ? s1FlagshipData : s1OldData;
+        const container = $('s1MetricsContainer');
+        if (!container) return;
+        container.innerHTML = data.map(item => `
+          <div class="s1-metric-row">
+            <div>
+              <div class="s1-metric-label">${item.label}</div>
+              <div style="font-size: 11px; color: ${isFlagship ? 'var(--gold-dark)' : '#EF4444'}; margin-top: 3px;">
+                ${isFlagship ? '✓ Преимущество' : '✗ Убыток студии'}
+              </div>
+            </div>
+            <div>
+              <div class="s1-metric-val" style="color: ${isFlagship ? 'var(--gold-light)' : '#E5E7EB'};">${item.val}</div>
+              <div class="s1-metric-sub">${item.sub}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      $('s1BtnOld')?.addEventListener('click', () => {
+        $('s1BtnOld').classList.add('active');
+        $('s1BtnFlagship').classList.remove('active');
+        renderS1Metrics(false);
+      });
+
+      $('s1BtnFlagship')?.addEventListener('click', () => {
+        $('s1BtnFlagship').classList.add('active');
+        $('s1BtnOld').classList.remove('active');
+        renderS1Metrics(true);
+      });
+
+      renderS1Metrics(true);
+
+      // ------------------------------------------------------------------------
+      // 4. WIDGET 2: SLIDE 2 (Drapery Geometry Configurator)
+      // ------------------------------------------------------------------------
+      let currentPleatRatio = 2.0;
+      let currentPleatType = 'wave';
+
+      const pleatCards = document.querySelectorAll('.s2-pleat-card');
+      const s2WidthSlider = $('s2WidthSlider');
+      const s2SomfyCheck = $('s2SomfyCheck');
+
+      pleatCards.forEach(card => {
+        card.addEventListener('click', () => {
+          pleatCards.forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          currentPleatRatio = parseFloat(card.dataset.ratio);
+          currentPleatType = card.dataset.pleat;
+          updateDraperyCalculator();
+        });
+      });
+
+      s2WidthSlider?.addEventListener('input', () => {
+        $('s2WidthNum').textContent = parseFloat(s2WidthSlider.value).toFixed(1) + ' м';
+        updateDraperyCalculator();
+      });
+
+      s2SomfyCheck?.addEventListener('change', updateDraperyCalculator);
+
+      function updateDraperyCalculator() {
+        const width = parseFloat(s2WidthSlider?.value || 4.2);
+        const k = currentPleatRatio;
+        const hasSomfy = s2SomfyCheck?.checked || false;
+
+        // Fabric meters needed = width * k * 1.15 (side hems allowance)
+        const fabricMeters = (width * k * 1.15).toFixed(1);
+        $('s2FabricMeters').textContent = fabricMeters + ' м';
+
+        // Pleats count
+        const waveStepCm = currentPleatType === 'box' ? 14 : 16;
+        const pleatsCount = Math.round((width * 100) / waveStepCm);
+        $('s2PleatsCount').textContent = pleatsCount;
+
+        // Math: Fabric price (Belgian chenille 26,500 ₸/m) + bandex & tailoring (8,500 ₸/m of track) + Somfy (280,000 ₸)
+        const fabricCost = Math.round(fabricMeters * 26500);
+        const tailoringCost = Math.round(width * 8500);
+        const motorCost = hasSomfy ? 280000 : 0;
+        const total = fabricCost + tailoringCost + motorCost;
+
+        // Format Tenge
+        $('s2TotalCost').textContent = total.toLocaleString('ru-RU') + ' ₸';
+
+        // Draw live SVG wave
+        drawDraperyWave(pleatsCount, currentPleatRatio);
+      }
+
+      function drawDraperyWave(waves, ratio) {
+        const svg = $('waveSvg');
+        if (!svg) return;
+        const width = 500;
+        const height = 140;
+        const midY = 70;
+        const amplitude = Math.min(48, 25 * (ratio / 2.0));
+        const numWaves = Math.min(32, Math.max(8, waves / 2));
+        const step = width / numWaves;
+
+        let pathD = `M 0 ${midY}`;
+        for (let i = 0; i < numWaves; i++) {
+          const cp1x = i * step + step * 0.25;
+          const cp1y = midY - amplitude;
+          const cp2x = i * step + step * 0.75;
+          const cp2y = midY + amplitude;
+          const endX = (i + 1) * step;
+          const endY = midY;
+          pathD += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${endX} ${endY}`;
+        }
+
+        const strokePath = $('wavePathStroke');
+        const fillPath = $('wavePathFill');
+        if (strokePath) strokePath.setAttribute('d', pathD);
+        if (fillPath) {
+          const fillD = pathD + ` L 500 140 L 0 140 Z`;
+          fillPath.setAttribute('d', fillD);
+        }
+      }
+
+      // ------------------------------------------------------------------------
+      // 5. WIDGET 3: SLIDE 3 (Lighting Scenarios Simulator)
+      // ------------------------------------------------------------------------
+      const scButtons = document.querySelectorAll('.s3-sc-btn');
+      const layerDay = $('layerDay');
+      const layerEvening = $('layerEvening');
+      const layerNight = $('layerNight');
+
+      const scenarioData = {
+        day: { temp: '5500 K', lux: '1 200 Lux', acoustic: 'NRC 0.85 (-16 dB)' },
+        evening: { temp: '2700 K', lux: '350 Lux', acoustic: 'NRC 0.85 (-18 dB)' },
+        night: { temp: '1800 K', lux: '15 Lux (100% Blackout)', acoustic: 'NRC 0.90 (-22 dB)' }
+      };
+
+      scButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          scButtons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const mode = btn.dataset.light;
+          [layerDay, layerEvening, layerNight].forEach(l => l?.classList.remove('active'));
+
+          if (mode === 'day') layerDay?.classList.add('active');
+          if (mode === 'evening') layerEvening?.classList.add('active');
+          if (mode === 'night') layerNight?.classList.add('active');
+
+          const data = scenarioData[mode];
+          if (data) {
+            $('hudTemp').textContent = data.temp;
+            $('hudLux').textContent = data.lux;
+            $('hudAcoustic').textContent = data.acoustic;
+          }
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 6. WIDGET 4: SLIDE 4 (Digital Client Dossier / Secret KP)
+      // ------------------------------------------------------------------------
+      const VIP_DOSSIERS = {
+        'VILLA': {
+          code: 'PROJECT-VILLA',
+          prop: 'Вилла в BI Village Deluxe (720 м²)',
+          client: 'Заказчик: Семья Нурлановых · Руководитель проекта: Асель С.',
+          status: 'Пошив в цехе Haute Couture (85%)',
+          delivery: '22 октября 2026 г.',
+          total: '6 850 000 ₸',
+          rooms: [
+            { name: 'Парадный холл и гостиная (h=4.2м)', fabric: 'Бельгийский шенилл Wind Pure #402', pleat: 'Волна (Wave 1:2.0)', sum: '2 850 000 ₸' },
+            { name: 'Мастер-спальня & Будуар', fabric: 'Итальянский бархат Dedar + Blackout 100%', pleat: 'Французская тройная (1:2.5)', sum: '1 980 000 ₸' },
+            { name: 'Столовая & Панорамная галерея', fabric: 'Натуральный шелк D’Este (Италия)', pleat: 'Волна (Wave 1:2.0)', sum: '1 240 000 ₸' },
+            { name: 'Гостевые апартаменты (2 спальни)', fabric: 'Европейский лён Casamance (Франция)', pleat: 'Римские шторы + портьеры', sum: '780 000 ₸' }
+          ]
+        },
+        '70': {
+          code: 'PROJECT-70',
+          prop: 'Резиденция в пос. Саранда (480 м²)',
+          client: 'Заказчик: Айдар и Динара · Дизайнер: Анастасия Белова',
+          status: 'Финишный монтаж Somfy (75%)',
+          delivery: '14 октября 2026 г.',
+          total: '3 480 000 ₸',
+          rooms: [
+            { name: 'Парадная гостиная (3 окна в пол)', fabric: 'Бельгийский шенилл Wind Pure #402', pleat: 'Волна 1:2.0', sum: '1 480 000 ₸' },
+            { name: 'Мастер-спальня', fabric: 'Итальянский бархат Dedar + 100% Blackout', pleat: 'Французская тройная', sum: '1 120 000 ₸' },
+            { name: 'Детская сюита', fabric: 'Натуральный лён Casamance (Франция)', pleat: 'Римские шторы + портьеры', sum: '880 000 ₸' }
+          ]
+        },
+        '140': {
+          code: 'PROJECT-140',
+          prop: 'Пентхаус Talan Towers (310 м²)',
+          client: 'Заказчик: Инвестиционная группа · Руководитель: Кайрат М.',
+          status: 'Спецификация согласована (60%)',
+          delivery: '05 ноября 2026 г.',
+          total: '4 920 000 ₸',
+          rooms: [
+            { name: 'Open Space & Lounge (панорама 180°)', fabric: 'Контрактный Trevira CS КМ1 (Франция)', pleat: 'Моторизованный Wave Somfy', sum: '2 640 000 ₸' },
+            { name: 'VIP Кабинет Первого Лица', fabric: 'Шерстяной твид Loro Piana Interiors', pleat: 'Бантовая складка 1:2.8', sum: '1 380 000 ₸' },
+            { name: 'Переговорная комната Boardroom', fabric: 'Акустический бархат NRC 0.85 + Blackout', pleat: 'Двойная система Somfy RTS', sum: '900 000 ₸' }
+          ]
+        }
+      };
+
+      function loadKpDossier(codeKey) {
+        const cleanKey = (codeKey || '').trim().toUpperCase();
+        const data = VIP_DOSSIERS[cleanKey] || VIP_DOSSIERS['VILLA'];
+
+        $('dossierProp').textContent = data.prop;
+        $('dossierClient').textContent = data.client;
+        $('dossierCode').textContent = data.code;
+        $('dossierStatus').textContent = data.status;
+        $('dossierDelivery').textContent = data.delivery;
+        $('dossierTotal').textContent = data.total;
+
+        const tbody = $('dossierRoomsBody');
+        if (tbody) {
+          tbody.innerHTML = data.rooms.map(r => `
+            <tr>
+              <td><strong>${r.name}</strong></td>
+              <td>${r.fabric}</td>
+              <td>${r.pleat}</td>
+              <td>${r.sum}</td>
+            </tr>
+          `).join('');
+        }
+
+        // WhatsApp direct link update
+        const waBtn = $('btnApproveWhatsApp');
+        if (waBtn) {
+          const msg = `Здравствуйте, Maison Poisson (MARÉ)!
+Мы ознакомились с интерактивным досье проекта ${data.code} (${data.prop}).
+Смета на сумму ${data.total} полностью утверждена!
+Просим выставить счет на предоплату и запустить заказ в пошив.`;
+          waBtn.href = `https://wa.me/77010000000?text=${encodeURIComponent(msg)}`;
+        }
+      }
+
+      $('btnLoadKp')?.addEventListener('click', () => {
+        const val = $('kpCodeInput')?.value;
+        loadKpDossier(val);
+      });
+
+      document.querySelectorAll('.s4-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('.s4-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+          const code = chip.dataset.code;
+          $('kpCodeInput').value = code;
+          loadKpDossier(code);
+        });
+      });
+
+      loadKpDossier('VILLA');
+
+      // ------------------------------------------------------------------------
+      // 7. WIDGET 5: SLIDE 5 (Two Doors: B2C vs B2B)
+      // ------------------------------------------------------------------------
+      const b2cCards = [
+        {
+          tag: 'COLLECTIONS HAUTE COUTURE',
+          h: '1 200+ Эксклюзивных Коллекций',
+          p: 'Прямые поставки от мануфактур Италии, Франции и Бельгии: Loro Piana, Dedar, Rubelli, Wind. Плотный шенилл, натуральный шелк и струящийся лен.',
+          spec: 'Сроки поставки экспресс: 10–14 дней'
+        },
+        {
+          tag: 'CONCIERGE EXPERIENCE',
+          h: 'Сервис «Белых Перчаток»',
+          p: 'Выезд декоратора с 50 кг образцов прямо в резиденцию. Лазерный замер с точностью до миллиметра, чистый монтаж с промышленным пылесосом.',
+          spec: 'Безусловная гарантия на швы: 3 года'
+        },
+        {
+          tag: 'DESIGNER PARTNERSHIP',
+          h: 'Клуб Дизайнеров (10% День-в-День)',
+          p: 'Защита авторского проекта: клиент закрепляется за дизайнером навсегда. Комиссионные 10% выплачиваются в день аванса без задержек. PBR-текстуры для 3ds Max.',
+          spec: '140+ архитекторов в закрытом клубе Астаны'
+        }
+      ];
+
+      const b2bCards = [
+        {
+          tag: 'FIRE & SAFETY STANDARDS',
+          h: 'Негорючий Текстиль Trevira CS',
+          p: 'Сертификация МЧС РК класса пожарной безопасности КМ1 (Г1, В1, Д2, Т2). Официальные поставки для посольств, министерств (Үкімет үйі) и отелей 5★.',
+          spec: 'Сертификат соответствия ТР ТС 043/2017'
+        },
+        {
+          tag: 'ACOUSTIC & BMS MOTORIZATION',
+          h: 'Акустика NRC 0.85 & BMS/KNX',
+          p: 'Звукоизоляция переговорных залов и кабинетов (Rw -18 дБ). Электроприводы Somfy / Forest с централизованным управлением через KNX/BACnet.',
+          spec: 'Бесшумность приводов <38 дБ (Somfy Animeo)'
+        },
+        {
+          tag: 'LEGAL & PRODUCTION POWER',
+          h: 'Собственный Цех 350 м² в Астане',
+          p: 'Работаем с НДС 12%, договор с ТОО на ОУР. Закрывающие акты АВР (Р-1), КС-2/КС-3 и электронные счета-фактуры (ИС ЭСФ) за 24 часа.',
+          spec: 'Немецкие станки Dürkopp Adler в Астане'
+        }
+      ];
+
+      function renderDoorCards(isB2B) {
+        const cards = isB2B ? b2bCards : b2cCards;
+        const grid = $('doorCardsGrid');
+        if (!grid) return;
+        grid.innerHTML = cards.map(c => `
+          <div class="s5-card">
+            <div>
+              <div class="s5-card-tag">${c.tag}</div>
+              <h3 class="s5-card-h">${c.h}</h3>
+              <p class="s5-card-p">${c.p}</p>
+            </div>
+            <div class="s5-card-spec">✓ ${c.spec}</div>
+          </div>
+        `).join('');
+      }
+
+      $('btnDoorB2C')?.addEventListener('click', () => {
+        $('btnDoorB2C').classList.add('active');
+        $('btnDoorB2B').classList.remove('active');
+        renderDoorCards(false);
+      });
+
+      $('btnDoorB2B')?.addEventListener('click', () => {
+        $('btnDoorB2B').classList.add('active');
+        $('btnDoorB2C').classList.remove('active');
+        renderDoorCards(true);
+      });
+
+      renderDoorCards(false);
+
+      // ------------------------------------------------------------------------
+      // 8. WIDGET 6: SLIDE 6 (Voice AI Concierge & Audio Waveform)
+      // ------------------------------------------------------------------------
+      const canvas = $('voiceWaveCanvas');
+      const ctx = canvas ? canvas.getContext('2d') : null;
+      let waveAnimId = null;
+      let isListening = false;
+      let wavePhase = 0;
+
+      function drawIdleWave() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#C5A880';
+
+        ctx.beginPath();
+        const midY = canvas.height / 2;
+        for (let x = 0; x < canvas.width; x++) {
+          const amp = isListening ? 22 * Math.sin(x * 0.05 + wavePhase * 2) * Math.cos(x * 0.02) : 4 * Math.sin(x * 0.03 + wavePhase);
+          const y = midY + amp;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+
+        wavePhase += isListening ? 0.08 : 0.02;
+        waveAnimId = requestAnimationFrame(drawIdleWave);
+      }
+
+      drawIdleWave();
+
+      const voicePhrasesDb = {
+        'гостиная': {
+          room: 'Парадная гостиная',
+          width: '5.0 м (W = 1:2.0)',
+          fabric: 'Шенилл Wind (Бельгия, 24 500 ₸)',
+          motor: 'Somfy Glydea Ultra RTS',
+          cost: '1 760 000 ₸'
+        },
+        'детская': {
+          room: 'Детская сюита',
+          width: '3.0 м × h=2.80 м',
+          fabric: 'Шенилл Wind (Бельгия, гипоаллергенный)',
+          motor: 'Ручной карниз с доводчиком',
+          cost: '890 000 ₸'
+        },
+        'кабинет': {
+          room: 'Кабинет руководителя (B2B)',
+          width: '4.5 м (Контрактный)',
+          fabric: 'Trevira CS КМ1 негорючая (Франция)',
+          motor: 'Somfy Animeo KNX / RS485',
+          cost: '2 340 000 ₸'
+        }
+      };
+
+      function simulateVoiceRecognition(phrase) {
+        isListening = true;
+        $('voiceStatusText').textContent = 'Слушаю речь...';
+        $('voiceTranscriptBox').textContent = '...';
+
+        setTimeout(() => {
+          $('voiceTranscriptBox').textContent = `«${phrase}»`;
+          $('voiceStatusText').textContent = '✓ Распознано и структурировано';
+          isListening = false;
+
+          let matched = voicePhrasesDb['гостиная'];
+          const lower = phrase.toLowerCase();
+          if (lower.includes('детск')) matched = voicePhrasesDb['детская'];
+          else if (lower.includes('кабинет') || lower.includes('trevira')) matched = voicePhrasesDb['кабинет'];
+
+          $('parseRoom').textContent = matched.room;
+          $('parseWidth').textContent = matched.width;
+          $('parseFabric').textContent = matched.fabric;
+          $('parseMotor').textContent = matched.motor;
+          $('parseTotalCost').textContent = matched.cost;
+        }, 1100);
+      }
+
+      $('btnVoiceRecord')?.addEventListener('click', () => {
+        simulateVoiceRecognition('Гостиная, карниз 5 метров, шенилл Бельгия, электропривод Somfy');
+      });
+
+      document.querySelectorAll('.s6-demo-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          const phrase = chip.dataset.phrase;
+          simulateVoiceRecognition(phrase);
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 9. WIDGET 7: SLIDE 7 (Labor Decomposition Accordion)
+      // ------------------------------------------------------------------------
+      const stageItems = document.querySelectorAll('.s7-stage-item');
+      stageItems.forEach(item => {
+        const header = item.querySelector('.s7-stage-header');
+        header?.addEventListener('click', () => {
+          const isOpen = item.classList.contains('open');
+          stageItems.forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
+      });
+
+      // ------------------------------------------------------------------------
+      // 10. WIDGET 8: SLIDE 8 (ROI Live Calculator)
+      // ------------------------------------------------------------------------
+      const roiSlider = $('roiSlider');
+      roiSlider?.addEventListener('input', () => {
+        const count = parseInt(roiSlider.value, 10);
+        $('roiVillasCount').textContent = count + (count === 1 ? ' вилла' : count < 5 ? ' виллы' : ' вилл');
+
+        // Average ticket = 6,000,000 ₸
+        const gross = count * 6000000;
+        // Net profit margin ~40% = 2,400,000 ₸ per villa
+        const net = count * 2400000;
+
+        $('roiGrossRevenue').textContent = gross.toLocaleString('ru-RU') + ' ₸';
+        $('roiNetProfit').textContent = net.toLocaleString('ru-RU') + ' ₸';
+
+        // Payback timeline based on 3.5M investment
+        const days = Math.max(7, Math.round(30 / (net / 3500000)));
+        $('roiPaybackDays').textContent = `~${days} дней!`;
+      });
+
+      // ------------------------------------------------------------------------
+      // Init
+      // ------------------------------------------------------------------------
+      initHashRoute();
+      window.addEventListener('hashchange', initHashRoute);
+
+    })();
+  </script>
+</body>
+</html>

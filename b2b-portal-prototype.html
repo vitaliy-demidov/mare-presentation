@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B2B Проектный отдел солнцезащиты и контрактного текстиля | Корпоративным клиентам</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f6f7f9',
+              100: '#eceff3',
+              500: '#2c4b75',
+              600: '#1e385b',
+              700: '#142740',
+              800: '#0d1a2d',
+              900: '#070f1a',
+              amber: '#c59b27',
+              accent: '#d97706'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.8);
+    }
+    .dark-glass {
+      background: rgba(13, 26, 45, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-brand-600 selection:text-white">
+
+  <!-- TOP BAR: B2B Quick Facts & SLA -->
+  <div class="bg-brand-900 text-slate-300 text-xs py-2 px-4 border-b border-brand-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-6">
+        <span class="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Расчет по проектной ведомости за 2 часа
+        </span>
+        <span class="hidden md:inline-flex items-center gap-1.5 text-slate-300">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-amber"></i>
+          Официальный расчет с НДС 20%
+        </span>
+        <span class="hidden lg:inline-flex items-center gap-1.5 text-slate-300">
+          <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-brand-amber"></i>
+          ЭДО: Диадок / СБИС • Закрывающие КС-2 / КС-3
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-xs">
+        <a href="#samples-box" class="hover:text-white transition flex items-center gap-1">
+          <i data-lucide="briefcase" class="w-3.5 h-3.5 text-brand-amber"></i>
+          Заказать кейс образцов на объект
+        </a>
+        <span class="text-slate-600">|</span>
+        <a href="tel:+78005553535" class="font-semibold text-white hover:text-brand-amber transition">
+          +7 (800) 555-35-35
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER WITH "TWO DOORS" SWITCHER -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-brand-700 flex items-center justify-center text-white font-bold text-lg tracking-wider shadow-sm">
+          M
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-lg text-slate-900 tracking-tight block leading-tight">MASTER SHADE</span>
+          <span class="text-[11px] font-semibold tracking-wider uppercase text-brand-amber block">Architectural Systems</span>
+        </div>
+      </div>
+
+      <!-- THE "TWO DOORS" SEGMENT SWITCHER -->
+      <div class="hidden md:flex items-center p-1 bg-slate-100 rounded-full border border-slate-200">
+        <a href="#" class="px-4 py-1.5 rounded-full text-xs font-medium text-slate-500 hover:text-slate-900 transition">
+          Для частных интерьеров
+        </a>
+        <a href="#" class="px-4 py-1.5 rounded-full text-xs font-semibold bg-brand-700 text-white shadow-sm transition flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-amber"></span>
+          Для бизнеса и юрлиц (B2B)
+        </a>
+      </div>
+
+      <!-- Navigation & Action -->
+      <div class="flex items-center gap-3">
+        <nav class="hidden xl:flex items-center gap-6 text-sm font-medium text-slate-600 mr-2">
+          <a href="#offer" class="hover:text-brand-700 transition">Решения</a>
+          <a href="#products" class="hover:text-brand-700 transition">Продукты</a>
+          <a href="#calculator" class="hover:text-brand-700 transition">Калькулятор B2B</a>
+          <a href="#legal" class="hover:text-brand-700 transition">Юрлицам & НДС</a>
+        </nav>
+        <a href="#express-form" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-brand-700 hover:bg-brand-800 text-white text-sm font-semibold shadow-sm transition">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Запросить КП за 2 часа</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-gradient-to-b from-brand-900 via-brand-800 to-brand-900 text-white pt-16 pb-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-brand-amber border border-white/10 text-xs font-semibold tracking-wide">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            ПРОЕКТНЫЙ ДИВИЗИОН • B2B КОНТРАКТЫ
+          </div>
+
+          <h1 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight text-white">
+            Солнцезащитные системы и контрактный текстиль для <span class="text-brand-amber underline decoration-brand-amber/40 decoration-4">офисов, отелей и девелоперов</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Проектирование, производство и шеф-монтаж под ключ. Моторизация Somfy, интеграция в BMS/KNX, 100% Blackout для переговорных и негорючие ткани Trevira CS с пожарным сертификатом КМ1.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#calculator" class="px-6 py-3.5 rounded-lg bg-brand-amber hover:bg-amber-600 text-slate-950 font-bold text-sm transition shadow-lg inline-flex items-center gap-2">
+              <i data-lucide="calculator" class="w-4 h-4"></i>
+              Рассчитать смету проекта онлайн
+            </a>
+            <a href="#express-form" class="px-6 py-3.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-sm transition inline-flex items-center gap-2">
+              <i data-lucide="file-up" class="w-4 h-4 text-brand-amber"></i>
+              Отправить ведомость проемов (ТЗ)
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-white/10 text-xs">
+            <div class="space-y-1">
+              <div class="text-xl font-bold text-white font-display">2 часа</div>
+              <div class="text-slate-400">Экспресс-КП по чертежам с НДС</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-xl font-bold text-white font-display">КМ1 / ФЗ-123</div>
+              <div class="text-slate-400">Пожарные сертификаты МЧС</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-xl font-bold text-white font-display">ЭДО / КС-2</div>
+              <div class="text-slate-400">Полный пакет закрывающих док-тов</div>
+            </div>
+            <div class="space-y-1">
+              <div class="text-xl font-bold text-white font-display">36 мес.</div>
+              <div class="text-slate-400">Гарантия по контракту подряда</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Quick Spec Card -->
+        <div class="lg:col-span-5">
+          <div class="dark-glass rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/15 relative">
+            <div class="absolute -top-3 right-6 bg-emerald-500 text-slate-950 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              B2B SLA: 120 минут
+            </div>
+            <h3 class="font-display font-bold text-xl text-white mb-2">Экспресс-запрос сметы</h3>
+            <p class="text-xs text-slate-300 mb-6">Прикрепите ведомость отделки или экспликацию помещений — инженер подготовит расчет в Excel/PDF с детализацией по проемам.</p>
+
+            <form id="hero-quick-form" class="space-y-4" onsubmit="event.preventDefault(); simulateQuickSubmit();">
+              <div>
+                <label class="block text-xs font-semibold text-slate-200 mb-1">ИНН организации (для расчета с НДС)</label>
+                <div class="relative">
+                  <input type="text" placeholder="Введите ИНН или название компании" class="w-full bg-white/10 border border-white/20 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-amber" />
+                  <i data-lucide="building-2" class="w-4 h-4 text-slate-400 absolute right-3 top-3"></i>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-200 mb-1">Контактное лицо и телефон</label>
+                <input type="text" placeholder="+7 (___) ___-__-__ (WhatsApp / звонок)" class="w-full bg-white/10 border border-white/20 rounded-lg px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-amber" required />
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-200 mb-1">Загрузить проект / ТЗ / ведомость</label>
+                <div class="border-2 border-dashed border-white/20 hover:border-brand-amber/60 rounded-lg p-4 text-center cursor-pointer transition bg-white/5">
+                  <i data-lucide="upload-cloud" class="w-6 h-6 text-brand-amber mx-auto mb-1"></i>
+                  <p class="text-xs text-slate-300">Перетащите сюда файл спецификации</p>
+                  <p class="text-[10px] text-slate-400">PDF, Excel, DWG, ZIP до 50 МБ</p>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button type="submit" class="w-full py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-sm transition flex items-center justify-center gap-2 shadow-lg">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                  Получить КП с НДС за 2 часа
+                </button>
+              </div>
+
+              <p class="text-[10px] text-slate-400 text-center flex items-center justify-center gap-1">
+                <i data-lucide="lock" class="w-3 h-3"></i> Конфиденциально по NDA. Отправим в WhatsApp / Telegram / Email.
+              </p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. B2B OFFER & AUDIENCE SEGMENTS -->
+  <section id="offer" class="py-20 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-amber font-bold text-xs uppercase tracking-widest block mb-2">Сегментированные решения</span>
+        <h2 class="font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
+          Специализированные решения для каждого типа коммерческого объекта
+        </h2>
+        <p class="mt-4 text-base text-slate-600">
+          Мы понимаем специфику требований: от антибликовых экранов в IT-офисах до норм МЧС в гостиничных комплексах и строгой исполнительной документации для генподрядчиков.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1: Corporate & Open Space -->
+        <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center mb-5">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 block mb-1">Офисы и IT-хабы</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-3">Кабинеты директоров и Open Space</h3>
+            <ul class="text-xs text-slate-600 space-y-2 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>Антибликовые ткани Screen 1-3%:</strong> защита мониторов от солнца без потери панорамного вида.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>100% Blackout для ВКС:</strong> полная темнота для видеоконференций и проекторов в переговорных.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>Интеграция моторов Somfy в BMS и настенные радиопульты.</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#express-form" class="text-xs font-bold text-brand-700 hover:text-brand-900 inline-flex items-center gap-1 group">
+            Спецификация для офиса <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Card 2: Hotels & HoReCa -->
+        <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center mb-5">
+              <i data-lucide="hotel" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 block mb-1">Гостиничный сектор</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-3">Отели 4★–5★ и Апартаменты</h3>
+            <ul class="text-xs text-slate-600 space-y-2 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>Ткани Trevira CS (КМ1):</strong> встроенная негорючесть по 123-ФЗ, допуск госпожнадзора.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>Износостойкость >50 000 циклов:</strong> сохранение геометрии при частых стирках при 60°C.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>Акустические портьеры для звукоизоляции номеров.</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#express-form" class="text-xs font-bold text-brand-700 hover:text-brand-900 inline-flex items-center gap-1 group">
+            Решения для HoReCa <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Card 3: Architects & Designers -->
+        <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center mb-5">
+              <i data-lucide="compass" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-purple-600 block mb-1">Проектирование</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-3">Архитекторы и Бюро</h3>
+            <ul class="text-xs text-slate-600 space-y-2 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>BIM & 3D Модели:</strong> Revit, DWG-узлы примыканий в нишах, расчет нагрузок на перекрытия.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>Технический консалтинг:</strong> подбор кабелей (230V / RS485 / сухие контакты).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>Предоставление фирменных вееров и каталогов в бюро. Защита проекта.</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#express-form" class="text-xs font-bold text-brand-700 hover:text-brand-900 inline-flex items-center gap-1 group">
+            Запросить 3D-библиотеку <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+        <!-- Card 4: Developers & Contractors -->
+        <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center mb-5">
+              <i data-lucide="hard-hat" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-600 block mb-1">Строительство</span>
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-3">Девелоперы и Генподрядчики</h3>
+            <ul class="text-xs text-slate-600 space-y-2 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>Закрытие подряда по КС-2 / КС-3:</strong> полный пакет исполнительной документации.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span><strong>Фиксация сметы в рублях с НДС:</strong> защита от валютных колебаний на срок контракта.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                <span>Штатные монтажные бригады с допусками на высотные работы.</span>
+              </li>
+            </ul>
+          </div>
+          <a href="#express-form" class="text-xs font-bold text-brand-700 hover:text-brand-900 inline-flex items-center gap-1 group">
+            Тендерный отдел <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. B2B PRODUCT MATRIX & TECH SHOWCASE -->
+  <section id="products" class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-brand-amber font-bold text-xs uppercase tracking-widest block mb-2">Продуктовая матрица B2B</span>
+          <h2 class="font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
+            Инженерные системы и контрактный текстиль
+          </h2>
+        </div>
+        <p class="mt-4 md:mt-0 text-sm text-slate-500 max-w-md">
+          Прямые контракты с производителями приводов Somfy (Франция) и негорючего волокна Trevira CS (Германия). Собственный раскроечный и швейный цех.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <!-- Product 1: Motorized Roller Systems -->
+        <div class="border border-slate-200 rounded-2xl p-7 bg-slate-50/50 hover:bg-white hover:border-brand-500 transition shadow-sm hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-[11px] font-bold">МОТОРИЗАЦИЯ SOMFY</span>
+              <span class="text-xs text-slate-500 font-mono">Ширина до 6.0 м</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Моторизованные ролл-шторы Screen</h3>
+            <p class="text-xs text-slate-600 mb-5 leading-relaxed">
+              Архитектурная защита фасадов от перегрева. Полотно Screen отсекает до 95% тепловой энергии солнца, сохраняя естественное освещение и вид из окна без бликов на экранах.
+            </p>
+
+            <div class="space-y-3 bg-white p-4 rounded-xl border border-slate-200 mb-6 text-xs">
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Приводы:</span>
+                <span class="font-semibold text-slate-800">Somfy Sonesse (38 дБ) / Dooya</span>
+              </div>
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Интеграция:</span>
+                <span class="font-semibold text-slate-800">KNX, Modbus, RS-485, Dry Contact</span>
+              </div>
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Коэффициент открытости:</span>
+                <span class="font-semibold text-slate-800">1%, 3%, 5%, 10% (Soltis/Screen)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Вал и фурнитура:</span>
+                <span class="font-semibold text-slate-800">Алюминий усиленный Ø40-110 мм</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+            <div>
+              <span class="text-[10px] text-slate-400 block uppercase">Ориентир цены:</span>
+              <span class="text-base font-bold text-slate-900">от 6 800 ₽/м² с НДС</span>
+            </div>
+            <button onclick="prefillCalculator('screen')" class="px-4 py-2 rounded-lg bg-brand-700 hover:bg-brand-800 text-white text-xs font-semibold transition">
+              В калькулятор
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 2: Architectural Blinds & Blackout -->
+        <div class="border border-slate-200 rounded-2xl p-7 bg-slate-50/50 hover:bg-white hover:border-brand-500 transition shadow-sm hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-800 text-[11px] font-bold">100% BLACKOUT & ДИЗАЙН</span>
+              <span class="text-xs text-slate-500 font-mono">Ламель 50 мм</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Жалюзи 50мм и Кассетный Blackout</h3>
+            <p class="text-xs text-slate-600 mb-5 leading-relaxed">
+              Решения для переговорных комнат, конференц-залов и представительских кабинетов руководства. Полная блокировка света со светоулавливающими U-профилями.
+            </p>
+
+            <div class="space-y-3 bg-white p-4 rounded-xl border border-slate-200 mb-6 text-xs">
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Материалы ламелей:</span>
+                <span class="font-semibold text-slate-800">Канадская липа, Алюминий RAL</span>
+              </div>
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Blackout система:</span>
+                <span class="font-semibold text-slate-800">ZIP-направляющие, 0% бокового света</span>
+              </div>
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Управление:</span>
+                <span class="font-semibold text-slate-800">Мотор Somfy / Шнур с фиксацией</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Покраска профиля:</span>
+                <span class="font-semibold text-slate-800">Порошковая по каталогу RAL/NCS</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+            <div>
+              <span class="text-[10px] text-slate-400 block uppercase">Ориентир цены:</span>
+              <span class="text-base font-bold text-slate-900">от 7 900 ₽/м² с НДС</span>
+            </div>
+            <button onclick="prefillCalculator('blackout')" class="px-4 py-2 rounded-lg bg-brand-700 hover:bg-brand-800 text-white text-xs font-semibold transition">
+              В калькулятор
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3: Contract Fire Retardant Textiles Trevira CS -->
+        <div class="border border-slate-200 rounded-2xl p-7 bg-slate-50/50 hover:bg-white hover:border-brand-500 transition shadow-sm hover:shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-[11px] font-bold">ПОЖАРНЫЙ КЛАСС КМ1</span>
+              <span class="text-xs text-slate-500 font-mono">123-ФЗ МЧС РФ</span>
+            </div>
+            <h3 class="font-display font-bold text-xl text-slate-900 mb-2">Контрактный текстиль Trevira CS</h3>
+            <p class="text-xs text-slate-600 mb-5 leading-relaxed">
+              Негорючие портьерные и блэкаут ткани для отелей, ресторанов и театров. Антипирены внедрены в кристаллическую решетку волокна: свойство не смывается химчистками.
+            </p>
+
+            <div class="space-y-3 bg-white p-4 rounded-xl border border-slate-200 mb-6 text-xs">
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Пожарная группа:</span>
+                <span class="font-semibold text-slate-800">Г1, В1, Д2, Т2 (Класс КМ1/КМ2)</span>
+              </div>
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Износостойкость:</span>
+                <span class="font-semibold text-slate-800">>50 000 циклов (Мартиндейл)</span>
+              </div>
+              <div class="flex justify-between pb-2 border-b border-slate-100">
+                <span class="text-slate-500">Акустический эффект:</span>
+                <span class="font-semibold text-slate-800">Звукопоглощение NRC до 0.85</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Электрокарнизы:</span>
+                <span class="font-semibold text-slate-800">Somfy Glydea Ultra / Dooya DT82</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+            <div>
+              <span class="text-[10px] text-slate-400 block uppercase">Ориентир цены:</span>
+              <span class="text-base font-bold text-slate-900">от 5 400 ₽/м.пог с НДС</span>
+            </div>
+            <button onclick="prefillCalculator('trevira')" class="px-4 py-2 rounded-lg bg-brand-700 hover:bg-brand-800 text-white text-xs font-semibold transition">
+              В калькулятор
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. LEGAL & CORPORATE TRUST SPECIFICS -->
+  <section id="legal" class="py-20 bg-slate-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-amber font-bold text-xs uppercase tracking-widest block mb-2">Юридический и финансовый контур</span>
+        <h2 class="font-display text-3xl font-extrabold sm:text-4xl">
+          Специфика работы с юридическими лицами: безопасность и прозрачность
+        </h2>
+        <p class="mt-4 text-slate-400 text-sm">
+          Мы избавляем снабженцев, бухгалтеров и ГИПов от головной боли. Предоставляем полный пакет исполнительной и финансовой документации в срок.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
+          <div class="w-10 h-10 rounded-lg bg-brand-amber/20 text-brand-amber flex items-center justify-center mb-4">
+            <i data-lucide="calculator" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-bold text-sm mb-1 text-white">НДС 20% в счетах</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Официальное ООО на ОСНО. Входящий НДС к вычету. По запросу формируем сметы по УСН.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
+          <div class="w-10 h-10 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+            <i data-lucide="clock" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-bold text-sm mb-1 text-white">КП за 2 часа</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Оперативная обработка спецификаций, ведомостей отделки и чертежей DWG/PDF.
+          </p>
+        </div>
+
+        <!-- Step 3: Samples -->
+        <div id="samples-box" class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
+          <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4">
+            <i data-lucide="briefcase" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-bold text-sm mb-1 text-white">Кейс на объект</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Выезд инженера с натуральными образцами тканей Trevira CS, профилями и стендом мотора.
+          </p>
+        </div>
+
+        <!-- Step 4: Closing docs -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
+          <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
+            <i data-lucide="file-check" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-bold text-sm mb-1 text-white">КС-2, КС-3, УПД</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Мгновенный документооборот через ЭДО (Диадок / СБИС). Полные строительные акты.
+          </p>
+        </div>
+
+        <!-- Step 5: Cashless & Terms -->
+        <div class="bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/10 transition">
+          <div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+            <i data-lucide="badge-percent" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-bold text-sm mb-1 text-white">Безналичный расчет</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Гибкий график платежей: аванс 50-70% / постоплата по КС-2 для постоянных генподрядчиков.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Compliance & Certification Banner -->
+      <div class="mt-12 bg-white/5 border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-brand-amber shrink-0">
+            <i data-lucide="flame-kindling" class="w-7 h-7"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-lg text-white">Сертификаты пожарной безопасности МЧС РФ (123-ФЗ)</h3>
+            <p class="text-xs text-slate-400 mt-1 max-w-2xl">
+              Все контрактные ткани для общественных зон сопровождаются официальными заверенными сертификатами соответствия классу КМ1/КМ2 и протоколами лабораторных огневых испытаний.
+            </p>
+          </div>
+        </div>
+        <button onclick="alert('Комплект сертификатов КМ1 и образец паспорта изделия отправлен в чат')" class="px-5 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-semibold border border-white/20 shrink-0 transition flex items-center gap-2">
+          <i data-lucide="download" class="w-4 h-4 text-brand-amber"></i>
+          Скачать пакет сертификатов (ZIP, 14 MB)
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4. INTERACTIVE B2B CALCULATOR & EXPRESS SPEC REQUEST -->
+  <section id="calculator" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-amber font-bold text-xs uppercase tracking-widest block mb-2">B2B Экспресс-Оценщик</span>
+        <h2 class="font-display text-3xl font-extrabold text-slate-900 sm:text-4xl">
+          Калькулятор ориентировочного бюджета проекта с НДС 20%
+        </h2>
+        <p class="mt-4 text-sm text-slate-600">
+          Сконфигурируйте параметры объекта, чтобы мгновенно получить ориентировочный диапазон стоимости и сформировать ТЗ для проектного менеджера.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left 7 cols: Interactive Calculator Controls -->
+        <div class="lg:col-span-7 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
+          
+          <!-- Param 1: Object Type -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">1. Тип коммерческого объекта</label>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs" id="obj-type-group">
+              <button type="button" onclick="selectObjType(this, 'office')" class="calc-btn active p-3 rounded-lg border text-left font-medium transition border-brand-700 bg-brand-50 text-brand-700">
+                🏢 Офис / БЦ
+              </button>
+              <button type="button" onclick="selectObjType(this, 'hotel')" class="calc-btn p-3 rounded-lg border text-left font-medium transition border-slate-200 hover:border-slate-300 text-slate-700">
+                🏨 Отель / HoReCa
+              </button>
+              <button type="button" onclick="selectObjType(this, 'exec')" class="calc-btn p-3 rounded-lg border text-left font-medium transition border-slate-200 hover:border-slate-300 text-slate-700">
+                👔 Кабинет CEO
+              </button>
+              <button type="button" onclick="selectObjType(this, 'conf')" class="calc-btn p-3 rounded-lg border text-left font-medium transition border-slate-200 hover:border-slate-300 text-slate-700">
+                🎤 Конференц-зал
+              </button>
+              <button type="button" onclick="selectObjType(this, 'resto')" class="calc-btn p-3 rounded-lg border text-left font-medium transition border-slate-200 hover:border-slate-300 text-slate-700">
+                🍽 Ресторан / Кафе
+              </button>
+              <button type="button" onclick="selectObjType(this, 'dev')" class="calc-btn p-3 rounded-lg border text-left font-medium transition border-slate-200 hover:border-slate-300 text-slate-700">
+                🏗 ЖК / Девелопмент
+              </button>
+            </div>
+          </div>
+
+          <!-- Param 2: System Type -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">2. Тип солнцезащитной системы</label>
+            <div class="space-y-2 text-xs" id="system-type-group">
+              <label class="flex items-center justify-between p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="calc_system" value="screen" checked onchange="updateCalc()" class="w-4 h-4 text-brand-700 focus:ring-brand-500" />
+                  <div>
+                    <span class="font-semibold text-slate-900 block">Рулонные шторы Screen (1-5% открытости)</span>
+                    <span class="text-slate-500 text-[11px]">Защита от солнца и бликов с сохранением вида</span>
+                  </div>
+                </div>
+                <span class="font-mono text-slate-600 font-medium">от 6 800 ₽/м²</span>
+              </label>
+
+              <label class="flex items-center justify-between p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="calc_system" value="blackout" onchange="updateCalc()" class="w-4 h-4 text-brand-700 focus:ring-brand-500" />
+                  <div>
+                    <span class="font-semibold text-slate-900 block">Кассетный Blackout 100% с боковыми профилями</span>
+                    <span class="text-slate-500 text-[11px]">Полная темнота для ВКС и презентаций</span>
+                  </div>
+                </div>
+                <span class="font-mono text-slate-600 font-medium">от 7 900 ₽/м²</span>
+              </label>
+
+              <label class="flex items-center justify-between p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="calc_system" value="blinds" onchange="updateCalc()" class="w-4 h-4 text-brand-700 focus:ring-brand-500" />
+                  <div>
+                    <span class="font-semibold text-slate-900 block">Архитектурные жалюзи 50мм (Алюминий / Дерево)</span>
+                    <span class="text-slate-500 text-[11px]">Статусный вид, регулировка светового потока</span>
+                  </div>
+                </div>
+                <span class="font-mono text-slate-600 font-medium">от 8 200 ₽/м²</span>
+              </label>
+
+              <label class="flex items-center justify-between p-3 rounded-lg border border-slate-200 hover:bg-slate-50 cursor-pointer transition">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="calc_system" value="trevira" onchange="updateCalc()" class="w-4 h-4 text-brand-700 focus:ring-brand-500" />
+                  <div>
+                    <span class="font-semibold text-slate-900 block">Контрактный текстиль Trevira CS (КМ1) на электрокарнизах</span>
+                    <span class="text-slate-500 text-[11px]">Пожарный сертификат для общественных зон и отелей</span>
+                  </div>
+                </div>
+                <span class="font-mono text-slate-600 font-medium">от 9 500 ₽/м²</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Param 3: Volume / Windows Count -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-xs font-bold text-slate-700 uppercase tracking-wider">Количество проемов</label>
+                <span id="windows-val" class="font-mono font-bold text-brand-700 text-sm">12 окон</span>
+              </div>
+              <input type="range" id="windows-range" min="3" max="80" value="12" oninput="updateCalc()" class="w-full accent-brand-700 cursor-pointer" />
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>3 проема</span>
+                <span>40</span>
+                <span>80+ проемов</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-xs font-bold text-slate-700 uppercase tracking-wider">Средняя площадь проема</label>
+                <span id="area-val" class="font-mono font-bold text-brand-700 text-sm">3.5 м²</span>
+              </div>
+              <input type="range" id="area-range" min="1.5" max="10.0" step="0.5" value="3.5" oninput="updateCalc()" class="w-full accent-brand-700 cursor-pointer" />
+              <div class="flex justify-between text-[10px] text-slate-400 mt-1">
+                <span>1.5 м²</span>
+                <span>5.0 м²</span>
+                <span>10+ м² (фасад)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Param 4: Automation & Motors -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">3. Управление и автоматика</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+              <label class="p-3 border rounded-lg flex items-center gap-2 cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="calc_motor" value="somfy_smart" checked onchange="updateCalc()" class="w-4 h-4 text-brand-700" />
+                <span>Somfy + Умный Дом / BMS</span>
+              </label>
+              <label class="p-3 border rounded-lg flex items-center gap-2 cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="calc_motor" value="somfy_remote" onchange="updateCalc()" class="w-4 h-4 text-brand-700" />
+                <span>Радиопульты Somfy</span>
+              </label>
+              <label class="p-3 border rounded-lg flex items-center gap-2 cursor-pointer hover:bg-slate-50">
+                <input type="radio" name="calc_motor" value="manual" onchange="updateCalc()" class="w-4 h-4 text-brand-700" />
+                <span>Ручное (цепочка)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Addons -->
+          <div class="pt-2 border-t border-slate-100 flex flex-wrap gap-4 text-xs">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="calc-montage" checked onchange="updateCalc()" class="w-4 h-4 rounded text-brand-700 focus:ring-brand-500" />
+              <span class="text-slate-700">Включить шеф-монтаж и пусконаладку (акты КС-2)</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="calc-km1" checked onchange="updateCalc()" class="w-4 h-4 rounded text-brand-700 focus:ring-brand-500" />
+              <span class="text-slate-700">Обязательный пожарный сертификат КМ1</span>
+            </label>
+          </div>
+
+        </div>
+
+        <!-- Right 5 cols: Calculation Summary & Express Request Form -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Summary Box -->
+          <div class="bg-gradient-to-br from-brand-800 to-brand-900 text-white rounded-2xl p-6 sm:p-7 shadow-xl border border-brand-700">
+            <div class="flex justify-between items-center text-xs pb-4 border-b border-white/10">
+              <span class="text-slate-300">Расчетная площадь остекления:</span>
+              <span id="summary-sqm" class="font-mono font-bold text-white text-sm">42.0 м²</span>
+            </div>
+
+            <div class="py-5">
+              <span class="text-[11px] text-brand-amber font-semibold uppercase tracking-wider block mb-1">Ориентировочный бюджет проекта</span>
+              <div class="flex items-baseline gap-2">
+                <span id="summary-price" class="font-display text-3xl sm:text-4xl font-extrabold text-white">325 000 — 380 000 ₽</span>
+              </div>
+              <span class="text-[11px] text-slate-400 mt-1 block">Включая НДС 20%, моторы Somfy, ткани и монтаж</span>
+            </div>
+
+            <div class="space-y-2 bg-white/5 rounded-lg p-3 text-xs text-slate-300 border border-white/5 mb-6">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span>Индивидуальная проектная скидка до 25% на объем</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span>Оплата безналом с предоставлением счетов-фактур и КС-2</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span>Бесплатный выезд инженера с чемоданом образцов</span>
+              </div>
+            </div>
+
+            <!-- Instant Fast Actions -->
+            <div class="space-y-2">
+              <button onclick="sendToMessenger('whatsapp')" class="w-full py-3 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                Отправить расчет в WhatsApp (+ ТЗ)
+              </button>
+              <button onclick="sendToMessenger('telegram')" class="w-full py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-bold text-xs transition flex items-center justify-center gap-2 shadow-md">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                Отправить расчет в Telegram инженеру
+              </button>
+            </div>
+          </div>
+
+          <!-- Express Tender / Spec Upload Form -->
+          <div id="express-form" class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+            <h3 class="font-display font-bold text-base text-slate-900 mb-1">Загрузить проектную ведомость на расчет</h3>
+            <p class="text-xs text-slate-500 mb-4">Инженер B2B-отдела проверит высоты, ветровые нагрузки и вышлет КП за 2 часа.</p>
+
+            <form onsubmit="event.preventDefault(); handleSpecSubmit();" class="space-y-3">
+              <div>
+                <input type="text" id="corp-inn" placeholder="ИНН юрлица или наименование" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-brand-700 outline-none" required />
+              </div>
+
+              <div class="grid grid-cols-2 gap-2">
+                <input type="text" id="corp-name" placeholder="ФИО / Должность" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-brand-700 outline-none" required />
+                <input type="tel" id="corp-phone" placeholder="+7 Телефон" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-brand-700 outline-none" required />
+              </div>
+
+              <!-- File Upload Drop Zone -->
+              <div class="border-2 border-dashed border-slate-200 hover:border-brand-500 rounded-lg p-3 text-center cursor-pointer transition bg-slate-50">
+                <input type="file" id="file-spec" class="hidden" onchange="fileChosen(this)" />
+                <label for="file-spec" class="cursor-pointer block">
+                  <i data-lucide="paperclip" class="w-4 h-4 text-brand-700 mx-auto mb-1"></i>
+                  <span id="file-label" class="text-[11px] font-semibold text-slate-700 block">Прикрепить файл (DWG, PDF, Excel, скан)</span>
+                  <span class="text-[9px] text-slate-400">до 50 МБ</span>
+                </label>
+              </div>
+
+              <button type="submit" class="w-full py-2.5 rounded-lg bg-brand-700 hover:bg-brand-800 text-white font-semibold text-xs transition">
+                Запросить коммерческое предложение с НДС
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS MODAL SIMULATION -->
+  <div id="modal-success" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl text-center space-y-4">
+      <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+        <i data-lucide="check" class="w-8 h-8"></i>
+      </div>
+      <h3 class="font-display font-bold text-xl text-slate-900">Запрос на КП успешно принят!</h3>
+      <p class="text-xs text-slate-600 leading-relaxed">
+        Спецификация передана дежурному инженеру проекта. Мы сформируем смету с НДС 20% с разбивкой по каждому помещению и свяжемся с вами в течение <strong>2 часов</strong>.
+      </p>
+      <div class="p-3 bg-slate-50 rounded-lg text-xs font-mono text-slate-700 border border-slate-200">
+        Номер тикета: #B2B-2026-0919<br>
+        Канал связи: WhatsApp / Telegram
+      </div>
+      <button onclick="document.getElementById('modal-success').classList.add('hidden')" class="w-full py-2.5 rounded-lg bg-brand-700 hover:bg-brand-800 text-white text-xs font-bold transition">
+        Закрыть
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-900 text-slate-400 text-xs py-12 border-t border-brand-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-brand-800">
+        <div>
+          <span class="font-display font-bold text-white text-sm block mb-3">MASTER SHADE PRO</span>
+          <p class="text-slate-400 text-xs leading-relaxed mb-4">
+            Проектный отдел солнцезащитных конструкций и негорючего контрактного текстиля для коммерческих объектов.
+          </p>
+          <div class="text-[11px] text-slate-400">
+            ООО «Мастер Шейд Проект»<br>
+            ИНН 7701987654 / КПП 770101001<br>
+            ОГРН 1207700456789
+          </div>
+        </div>
+
+        <div>
+          <span class="font-bold text-white text-xs block mb-3 uppercase tracking-wider">B2B Каталог</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#products" class="hover:text-white transition">Ролл-шторы Screen Somfy</a></li>
+            <li><a href="#products" class="hover:text-white transition">Кассетный Blackout 100%</a></li>
+            <li><a href="#products" class="hover:text-white transition">Жалюзи 50мм (Дерево/Алюминий)</a></li>
+            <li><a href="#products" class="hover:text-white transition">Ткани Trevira CS (КМ1)</a></li>
+            <li><a href="#products" class="hover:text-white transition">Акустический текстиль</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="font-bold text-white text-xs block mb-3 uppercase tracking-wider">Корпоративным клиентам</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#legal" class="hover:text-white transition">Расчет с НДС 20% / ОСНО</a></li>
+            <li><a href="#legal" class="hover:text-white transition">Работа по ЭДО (Диадок/СБИС)</a></li>
+            <li><a href="#legal" class="hover:text-white transition">Формы КС-2 и КС-3 на монтаж</a></li>
+            <li><a href="#legal" class="hover:text-white transition">Пожарные сертификаты МЧС РФ</a></li>
+            <li><a href="#samples-box" class="hover:text-white transition">Заказ чемодана образцов</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <span class="font-bold text-white text-xs block mb-3 uppercase tracking-wider">Прямой контакт B2B-отдела</span>
+          <div class="space-y-2 text-xs">
+            <p class="text-white font-semibold">+7 (800) 555-35-35</p>
+            <p class="text-slate-300">b2b@master-shade.pro</p>
+            <p class="text-slate-400">Пн–Пт: 09:00 — 19:00 (МСК)</p>
+            <div class="pt-2 flex gap-2">
+              <button onclick="sendToMessenger('whatsapp')" class="px-3 py-1.5 rounded bg-emerald-600/30 text-emerald-400 hover:bg-emerald-600/50 border border-emerald-500/30 transition text-[11px]">
+                WhatsApp B2B
+              </button>
+              <button onclick="sendToMessenger('telegram')" class="px-3 py-1.5 rounded bg-sky-600/30 text-sky-400 hover:bg-sky-600/50 border border-sky-500/30 transition text-[11px]">
+                Telegram Инженера
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-400 gap-4">
+        <span>© 2026 MASTER SHADE. Все права защищены. Поставка и монтаж с НДС по РФ.</span>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-slate-300">Политика конфиденциальности</a>
+          <a href="#" class="hover:text-slate-300">Типовой договор поставки и подряда</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CALCULATOR SCRIPT & INTERACTION LOGIC -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    let currentObjType = 'office';
+
+    function selectObjType(btn, type) {
+      document.querySelectorAll('#obj-type-group .calc-btn').forEach(b => {
+        b.classList.remove('active', 'border-brand-700', 'bg-brand-50', 'text-brand-700');
+        b.classList.add('border-slate-200', 'text-slate-700');
+      });
+      btn.classList.add('active', 'border-brand-700', 'bg-brand-50', 'text-brand-700');
+      btn.classList.remove('border-slate-200', 'text-slate-700');
+      currentObjType = type;
+      updateCalc();
+    }
+
+    function prefillCalculator(system) {
+      const radio = document.querySelector(`input[name="calc_system"][value="${system}"]`);
+      if (radio) {
+        radio.checked = true;
+        updateCalc();
+        document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function updateCalc() {
+      const windowsCount = parseInt(document.getElementById('windows-range').value);
+      const avgArea = parseFloat(document.getElementById('area-range').value);
+      const totalSqm = (windowsCount * avgArea).toFixed(1);
+
+      document.getElementById('windows-val').innerText = `${windowsCount} окон`;
+      document.getElementById('area-val').innerText = `${avgArea} м²`;
+      document.getElementById('summary-sqm').innerText = `${totalSqm} м²`;
+
+      // Base rates per sqm based on system
+      const system = document.querySelector('input[name="calc_system"]:checked').value;
+      let baseRate = 6800; // screen
+      if (system === 'blackout') baseRate = 7900;
+      if (system === 'blinds') baseRate = 8200;
+      if (system === 'trevira') baseRate = 9500;
+
+      // Motor add-on per window
+      const motorType = document.querySelector('input[name="calc_motor"]:checked').value;
+      let motorAddon = 0;
+      if (motorType === 'somfy_smart') motorAddon = 14500;
+      if (motorType === 'somfy_remote') motorAddon = 11000;
+      if (motorType === 'manual') motorAddon = 0;
+
+      // Montage
+      const hasMontage = document.getElementById('calc-montage').checked;
+      const montageRatePerSqm = hasMontage ? 1200 : 0;
+
+      // Volume discount
+      let discount = 1.0;
+      if (windowsCount >= 10) discount = 0.92;
+      if (windowsCount >= 25) discount = 0.85;
+      if (windowsCount >= 50) discount = 0.78;
+
+      const fabricAndSystemsCost = totalSqm * (baseRate + montageRatePerSqm);
+      const motorsCost = windowsCount * motorAddon;
+      const totalRaw = (fabricAndSystemsCost + motorsCost) * discount;
+
+      const lowEst = Math.round((totalRaw * 0.95) / 1000) * 1000;
+      const highEst = Math.round((totalRaw * 1.08) / 1000) * 1000;
+
+      document.getElementById('summary-price').innerText = 
+        `${lowEst.toLocaleString('ru-RU')} — ${highEst.toLocaleString('ru-RU')} ₽`;
+    }
+
+    function fileChosen(input) {
+      if (input.files && input.files[0]) {
+        document.getElementById('file-label').innerText = `Выбран файл: ${input.files[0].name} (${(input.files[0].size / 1024 / 1024).toFixed(1)} MB)`;
+      }
+    }
+
+    function simulateQuickSubmit() {
+      showSuccessModal();
+    }
+
+    function handleSpecSubmit() {
+      showSuccessModal();
+    }
+
+    function showSuccessModal() {
+      const modal = document.getElementById('modal-success');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function sendToMessenger(channel) {
+      const windows = document.getElementById('windows-range').value;
+      const sqm = document.getElementById('summary-sqm').innerText;
+      const system = document.querySelector('input[name="calc_system"]:checked').value;
+      const price = document.getElementById('summary-price').innerText;
+
+      const text = encodeURIComponent(
+        `Здравствуйте! Запрос B2B расчета солнцезащиты для юрлица:\n` +
+        `• Объект: ${currentObjType}\n` +
+        `• Проемов: ${windows} (Площадь: ${sqm})\n` +
+        `• Система: ${system}\n` +
+        `• Предварительный бюджет с НДС: ${price}\n` +
+        `Готовы отправить ведомость проемов для точного КП.`
+      );
+
+      if (channel === 'whatsapp') {
+        window.open(`https://wa.me/78005553535?text=${text}`, '_blank');
+      } else {
+        window.open(`https://t.me/share/url?url=&text=${text}`, '_blank');
+      }
+    }
+
+    // Initial calculation on load
+    updateCalc();
+  </script>
+</body>
+</html>
