@@ -21,7 +21,7 @@
  *   2. WhatsApp Deep-Link URL Generator:
  *      - Formats customer inputs: Curtain type, dimensions, fabric, pleat, budget in ₸.
  *      - Exact required greeting matching:
- *        "Здравствуйте, Maison Poisson! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами."
+ *        "Здравствуйте, MUAR A! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами."
  *      - Generates universal links (`https://wa.me/...`), mobile app deep links,
  *        and WhatsApp Web fallbacks with clean UTM tag embedding.
  * 
@@ -38,8 +38,8 @@
  *   - Cloudflare Workers / AWS Lambda / Vercel Serverless Functions
  * 
  * @version 2.0.0
- * @author Maison Poisson Engineering Team
- * @license Proprietary - Maison Poisson Atelier
+ * @author MUAR A Engineering Team
+ * @license Proprietary - MUAR A Atelier
  * ============================================================================
  */
 
@@ -62,12 +62,16 @@
   // ==========================================================================
 
   const CONFIG = {
-    BRAND_NAME: 'Maison Poisson',
+    BRAND_NAME: 'MUAR A',
     STUDIO_CITY: 'Астана',
-    DEFAULT_WA_PHONE: '77010000000', // Default Kazakhstan business line
+    DEFAULT_WA_PHONE: '77710551515', // +7 (771) 055-15-15
+    SECONDARY_WA_PHONE: '77773845517', // +7 (777) 384-55-17
     DEFAULT_CURRENCY: '₸',
     CURRENCY_CODE: 'KZT',
     VAT_RATE: 0.12, // 12% Kazakhstan Corporate VAT
+    LEGAL_NAME: 'ТОО "KazTextileА"',
+    LEGAL_BIN: '140940019744',
+    SALON_ADDRESS: 'г. Астана, ул. Керей, Жәнибек хандар, 50/1, ВП 18',
 
     // Telegram Bot Settings (can be overridden in methods)
     TELEGRAM: {
@@ -471,7 +475,7 @@
   /**
    * Generates the customer greeting text for WhatsApp according to funnel.
    * For standard B2C calculations, produces the EXACT required format:
-   * "Здравствуйте, Maison Poisson! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами."
+   * "Здравствуйте, MUAR A! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами."
    * 
    * @param {Object} lead - Normalized lead object
    * @param {Object} [options]
@@ -492,7 +496,7 @@
       const action = lead.calloutAction || 'Хочу вызвать декоратора с образцами.';
 
       // Exact base greeting required by specification:
-      // "Здравствуйте, Maison Poisson! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами."
+      // "Здравствуйте, MUAR A! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами."
       let text = `Здравствуйте, ${CONFIG.BRAND_NAME}! Я сделал расчет на сайте: ${type} со складкой ${fold}, ${dims}, ${fabric}. Предварительная смета: ${budget}. ${action}`;
 
       // If strict mode is requested, return exact text immediately
@@ -1036,7 +1040,7 @@
         telegramResponse: data
       };
     } catch (err) {
-      console.error('[Maison Poisson Dispatcher] Telegram dispatch error:', err);
+      console.error('[MUAR A Dispatcher] Telegram dispatch error:', err);
       return {
         success: false,
         leadId: lead.leadId,
@@ -1168,7 +1172,7 @@
         STATUS_ID: 'NEW',
         OPENED: 'Y',
         SOURCE_ID: 'WEB',
-        SOURCE_DESCRIPTION: `Maison Poisson Web Calculator (${lead.funnel})`,
+        SOURCE_DESCRIPTION: `MUAR A Web Calculator (${lead.funnel})`,
         COMMENTS: comments,
         PHONE: phone ? [{ VALUE: '+' + sanitizePhone(phone), VALUE_TYPE: 'WORK' }] : [],
         UF_CRM_MAISON_LEAD_ID: lead.leadId,
@@ -1236,7 +1240,7 @@
       const data = await res.json();
       return { success: res.ok, leadId: lead.leadId, response: data };
     } catch (err) {
-      console.error('[Maison Poisson Dispatcher] CRM Sync error:', err);
+      console.error('[MUAR A Dispatcher] CRM Sync error:', err);
       return { success: false, leadId: lead.leadId, error: err.message };
     }
   }
@@ -1316,7 +1320,7 @@
   /**
    * Executes internal assertion tests to verify all requirements:
    * 1. Exact string match for B2C WhatsApp greeting:
-   *    'Здравствуйте, Maison Poisson! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами.'
+   *    'Здравствуйте, MUAR A! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами.'
    * 2. Valid URL generation with correct encoding and phone sanitization.
    * 3. B2B Corporate calculation with 12% VAT.
    * 4. Photo/Visualization attachment handling.
@@ -1353,7 +1357,7 @@
       calloutAction: 'Хочу вызвать декоратора с образцами.'
     });
 
-    const expectedGreeting = 'Здравствуйте, Maison Poisson! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами.';
+    const expectedGreeting = 'Здравствуйте, MUAR A! Я сделал расчет на сайте: Портьеры со складкой Ripplefold, 3.8м x 3.2м, бельгийский шенилл. Предварительная смета: 385 000 ₸. Хочу вызвать декоратора с образцами.';
     const actualGreeting = generateWhatsAppText(testB2C, { strictExactB2C: true });
     assert('Test 1: Exact B2C WhatsApp greeting string match', actualGreeting === expectedGreeting, `Expected: "${expectedGreeting}"\nGot: "${actualGreeting}"`);
 
