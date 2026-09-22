@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
 <title>MUAR A — Салон интерьерного текстиля и солнцезащитных систем · Астана</title>
-<meta name="description" content="Салон интерьерного текстиля MUAR A в Астане с 2014 года. 2 этажа коллекций со всего мира, собственное ателье без надомниц, пошив по ГОСТам. Монтаж карнизов и систем солнцезащиты для резиденций и бизнеса (НДС 12%).">
+<meta name="description" content="Салон интерьерного текстиля MUAR A в Астане с 2014 года. 2 этажа коллекций со всего мира, собственное швейное производство без надомниц, пошив по ГОСТам. Монтаж карнизов и систем солнцезащиты для резиденций и бизнеса (НДС 12%).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -79,6 +79,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   color: var(--brand-plum);
   font-weight: 700;
   margin-bottom: 14px;
+  max-width: 100%;
+  flex-wrap: wrap;
+  word-break: break-word;
 }
 .section.dark .eyebrow { color: var(--gold-soft); }
 .eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: 0.6; }
@@ -178,6 +181,8 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   display: flex;
   align-items: center;
   gap: 14px;
+  min-width: 0;
+  flex-shrink: 0;
 }
 .brand-logo-img {
   height: 34px;
@@ -198,7 +203,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .nav-links {
   display: none;
   align-items: center;
-  gap: 22px;
+  gap: 24px;
   list-style: none;
 }
 @media (min-width: 1040px) {
@@ -217,8 +222,9 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-left: 20px;
+  gap: 12px;
+  margin-left: 16px;
+  flex-shrink: 0;
 }
 .nav-phone {
   font-size: 0.88rem;
@@ -227,10 +233,73 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   white-space: nowrap;
   display: none;
 }
-@media (min-width: 680px) {
+@media (min-width: 880px) {
   .nav-phone { display: inline-block; }
 }
 .nav-phone:hover { color: var(--brand-plum); }
+
+.nav-ig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid var(--border);
+  background: #FFFFFF;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.nav-ig-link:hover {
+  border-color: var(--brand-plum);
+  color: var(--brand-plum);
+  background: var(--brand-plum-light);
+}
+.nav-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  font-size: 0.84rem;
+  border-radius: 999px;
+}
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 16px;
+  }
+  .nav-inner {
+    height: 64px;
+  }
+  .brand-logo-img {
+    height: 28px;
+  }
+  .nav-actions {
+    gap: 8px;
+    margin-left: 8px;
+  }
+  .nav-ig-link {
+    padding: 7px;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .nav-ig-text {
+    display: none;
+  }
+  .nav-wa-text {
+    display: none;
+  }
+  .nav-wa-btn {
+    padding: 7px;
+    width: 36px;
+    height: 36px;
+    justify-content: center;
+    border-radius: 50%;
+  }
+}
 
 /* Burger */
 .burger {
@@ -238,11 +307,12 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 @media (min-width: 1040px) {
   .burger { display: none; }
@@ -260,7 +330,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 /* Mobile Menu */
 .mobile-menu {
   position: fixed;
-  top: 74px;
+  top: 66px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -268,26 +338,58 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   padding: 32px 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  justify-content: space-between;
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
   transition: transform 0.28s ease, opacity 0.25s ease;
   z-index: 99;
   border-bottom: 1px solid var(--border);
+  overflow-y: auto;
 }
 .mobile-menu.open {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
-.mobile-menu a {
-  font-size: 1.25rem;
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-menu-links a {
+  font-size: 1.35rem;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-weight: 500;
   color: var(--text);
-  padding: 8px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
+  transition: color 0.18s ease;
+}
+.mobile-menu-links a:hover {
+  color: var(--brand-plum);
+}
+.mobile-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+}
+.mobile-phone {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  padding: 4px 0;
+}
+.mobile-btn {
+  width: 100%;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 0.94rem;
+  padding: 14px 20px;
 }
 
 /* Hero */
@@ -588,19 +690,455 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  z-index: 5;
-  background: rgba(0, 0, 0, 0.65);
+  z-index: 15;
+  background: rgba(0, 0, 0, 0.72);
   color: #FFFFFF;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 }
 .ba-label.lbl-before { left: 24px; }
 .ba-label.lbl-after { right: 24px; }
+@media (max-width: 640px) {
+  .ba-label {
+    top: 14px;
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+  .ba-label.lbl-before { left: 14px; }
+  .ba-label.lbl-after { right: 14px; }
+  .ba-label .lbl-full { display: none !important; }
+}
+.ba-scene-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 28px;
+  margin-bottom: 24px;
+}
+.ba-scene-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.ba-scene-btn:hover {
+  border-color: var(--brand-plum);
+  color: var(--brand-plum);
+  background: var(--brand-plum-light);
+}
+.ba-scene-btn.active {
+  background: var(--brand-plum);
+  color: #FFFFFF;
+  border-color: var(--brand-plum);
+  box-shadow: 0 4px 14px -4px rgba(90, 39, 56, 0.4);
+}
+.ba-presets {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.ba-preset-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.ba-preset-btn:hover, .ba-preset-btn.active {
+  background: var(--bg-warm);
+  color: var(--text);
+  border-color: rgba(90, 39, 56, 0.25);
+}
+@media (max-width: 640px) {
+  .ba-scene-tabs { gap: 6px; margin-top: 20px; margin-bottom: 16px; }
+  .ba-scene-btn { padding: 8px 14px; font-size: 0.8rem; }
+  .ba-presets { gap: 6px; }
+  .ba-preset-btn { padding: 6px 12px; font-size: 0.75rem; }
+}
 .ba-caption {
   margin-top: 18px;
   text-align: center;
   font-size: 0.88rem;
   color: var(--text-muted);
+}
+
+/* Digital Commercial Proposal (KP) Section */
+.kp-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 40px;
+  min-width: 0;
+  width: 100%;
+}
+.kp-intro {
+  background: var(--bg-dark);
+  color: var(--text-light);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--border-dark);
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+}
+.kp-intro h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 16px;
+}
+.kp-intro p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.kp-feature-list {
+  list-style: none;
+  margin: 24px 0;
+  display: grid;
+  gap: 14px;
+}
+.kp-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+.kp-feature-list li svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold-soft);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.kp-legal-badge {
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(184, 144, 83, 0.3);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  color: var(--gold-soft);
+  line-height: 1.5;
+}
+.kp-demo {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(20px, 3.2vw, 36px);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+.code-row {
+  display: flex;
+  gap: 10px;
+}
+.code-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.94rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.code-row input:focus {
+  outline: none;
+  border-color: var(--brand-plum);
+  box-shadow: 0 0 0 3px rgba(90, 39, 56, 0.12);
+}
+.kp-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.kp-chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.74rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.kp-chip:hover {
+  background: var(--brand-plum-light);
+  border-color: var(--brand-plum);
+  color: var(--brand-plum);
+}
+.kp-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--bg);
+}
+.kp-card .kp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--brand-plum);
+  color: #FFFFFF;
+}
+.kp-card .kp-top .kp-badge {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  font-weight: 700;
+}
+.kp-card .kp-top .kp-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.kp-card .kp-rows {
+  padding: 16px 18px;
+  display: grid;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.kp-card .kp-r {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+.kp-card .kp-r b {
+  color: var(--text);
+  font-weight: 600;
+  text-align: right;
+}
+.kp-light-tabs {
+  margin: 14px 18px 0;
+  padding: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.kp-light-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.kp-light-btns {
+  display: flex;
+  gap: 6px;
+}
+.kp-light-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-align: center;
+}
+.kp-light-btn:hover {
+  border-color: var(--brand-plum);
+}
+.kp-light-btn.active {
+  background: var(--brand-plum);
+  color: #FFFFFF;
+  border-color: var(--brand-plum);
+}
+.kp-preview-box {
+  margin: 10px 18px 14px;
+  padding: 20px;
+  border-radius: var(--radius-sm);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.kp-preview-box.day {
+  background: linear-gradient(135deg, #F8F5EE 0%, #EFECE3 100%);
+  color: var(--text);
+  border: 1px solid rgba(184, 144, 83, 0.3);
+}
+.kp-preview-box.evening {
+  background: linear-gradient(135deg, #3C2B27 0%, #201518 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(212, 178, 125, 0.4);
+}
+.kp-preview-box.night {
+  background: linear-gradient(135deg, #161215 0%, #0A0809 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.kp-telemetry {
+  display: inline-flex;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+.kp-preview-box.day .kp-telemetry {
+  background: rgba(184, 144, 83, 0.15);
+  color: #7A5B2B;
+}
+.kp-preview-box.evening .kp-telemetry {
+  background: rgba(212, 178, 125, 0.2);
+  color: var(--gold-soft);
+}
+.kp-preview-box.night .kp-telemetry {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+.kp-tot {
+  margin: 0 18px 14px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.kp-tot span {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+.kp-tot b {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.85rem;
+  color: var(--brand-plum);
+  font-weight: 700;
+  line-height: 1;
+}
+@media (max-width: 880px) {
+  .kp-shell {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+    min-width: 0;
+    width: 100%;
+  }
+  .kp-intro, .kp-demo {
+    min-width: 0;
+  }
+  .kp-intro {
+    padding: 24px 18px;
+    border-radius: var(--radius-md);
+  }
+  .kp-intro .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    flex-wrap: wrap;
+  }
+  .kp-intro .eyebrow::before {
+    display: none;
+  }
+  .kp-feature-list {
+    margin: 16px 0;
+    gap: 10px;
+  }
+  .kp-demo {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+  .code-row {
+    flex-direction: column;
+  }
+  .code-row input {
+    width: 100%;
+    min-width: 0;
+  }
+  .code-row .btn {
+    width: 100%;
+  }
+  .kp-card .kp-rows {
+    padding: 14px 14px;
+    gap: 8px;
+  }
+  .kp-card .kp-r {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.82rem;
+  }
+  .kp-card .kp-r b {
+    text-align: left;
+  }
+  .kp-light-tabs {
+    margin: 12px 14px 0;
+    padding: 10px;
+  }
+  .kp-light-btn {
+    padding: 6px 8px;
+    font-size: 0.74rem;
+  }
+  .kp-preview-box {
+    margin: 10px 14px 12px;
+    padding: 16px 12px;
+    min-height: 100px;
+  }
+  .kp-preview-box #kpLightText {
+    font-size: 1.15rem !important;
+  }
+  .kp-tot {
+    margin: 0 14px 12px;
+    padding: 12px 14px;
+  }
+  .kp-tot b {
+    font-size: 1.5rem;
+  }
 }
 
 /* B2B Section */
@@ -730,6 +1268,17 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   gap: 20px;
   align-items: center;
 }
+@media (max-width: 480px) {
+  .decorator-card {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+  .decorator-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.35rem;
+  }
+}
 .decorator-avatar {
   width: 74px;
   height: 74px;
@@ -845,6 +1394,7 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   padding: clamp(28px, 5vw, 48px);
   box-shadow: var(--shadow-md);
   margin-top: 40px;
+  min-width: 0;
 }
 .calc-nav {
   display: flex;
@@ -852,8 +1402,10 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   border-bottom: 1px solid var(--border);
   padding-bottom: 20px;
   margin-bottom: 32px;
+  min-width: 0;
 }
 .calc-tab {
+  min-width: 0;
   padding: 10px 22px;
   border-radius: 999px;
   font-size: 0.92rem;
@@ -869,19 +1421,24 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
 
 .calc-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 36px;
+  min-width: 0;
 }
 @media (min-width: 900px) {
   .calc-grid {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
     gap: 48px;
   }
 }
 .calc-form {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+.form-group {
+  min-width: 0;
 }
 .form-group label {
   display: block;
@@ -894,8 +1451,10 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
   gap: 10px;
+  min-width: 0;
 }
 .pill-btn {
+  min-width: 0;
   padding: 12px 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
@@ -905,6 +1464,10 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   font-weight: 500;
   color: var(--text);
   transition: all 0.18s ease;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+  box-sizing: border-box;
 }
 .pill-btn:hover {
   border-color: var(--brand-plum);
@@ -914,6 +1477,46 @@ button { font-family: inherit; cursor: pointer; border: 0; background: none; }
   border-color: var(--brand-plum);
   background: var(--brand-plum);
   color: #FFFFFF;
+}
+
+@media (max-width: 540px) {
+  .calc-box {
+    padding: 22px 16px;
+    min-width: 0;
+  }
+  .calc-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+    min-width: 0;
+  }
+  .calc-tab {
+    min-width: 0;
+    padding: 10px 6px;
+    font-size: 0.82rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .pill-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    min-width: 0;
+  }
+  .pill-btn {
+    min-width: 0;
+    padding: 11px 10px;
+    font-size: 0.81rem;
+    line-height: 1.35;
+  }
+  .pill-grid > button:last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
+  .calc-result {
+    padding: 24px 18px;
+    min-width: 0;
+  }
 }
 
 .slider-group {
@@ -1107,18 +1710,27 @@ footer {
       </a>
 
       <ul class="nav-links">
-        <li><a href="#strengths">7 сил салона</a></li>
-        <li><a href="#before-after">До / После</a></li>
-        <li><a href="#b2b">Для юрлиц (B2B)</a></li>
+        <li><a href="#calculator">Калькулятор</a></li>
         <li><a href="#projects">Проекты</a></li>
-        <li><a href="#calculator">Ориентир сметы</a></li>
+        <li><a href="#kp">Цифровое КП</a></li>
         <li><a href="#contacts">Контакты</a></li>
       </ul>
 
       <div class="nav-actions">
         <a href="tel:+77710551515" class="nav-phone font-mono">+7 (771) 055-15-15</a>
-        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20MUAR%20A!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B0." target="_blank" rel="noopener" class="btn btn-wa">
-          <span>WhatsApp</span>
+        <a href="https://instagram.com/muar.a" target="_blank" rel="noopener" class="nav-ig-link" aria-label="Instagram MUAR A" title="Instagram @muar.a">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span class="nav-ig-text">Instagram</span>
+        </a>
+        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20MUAR%20A!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B0." target="_blank" rel="noopener" class="btn btn-wa nav-wa-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.886-9.887 9.886m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.711 1.456h.005c6.554 0 11.89-5.336 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          <span class="nav-wa-text">WhatsApp</span>
         </a>
         <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -1130,15 +1742,28 @@ footer {
 
 <!-- Mobile Navigation Menu -->
 <nav class="mobile-menu" id="mobileMenu">
-  <a href="#strengths" onclick="toggleMenu(false)">7 сил салона</a>
-  <a href="#before-after" onclick="toggleMenu(false)">До / После</a>
-  <a href="#b2b" onclick="toggleMenu(false)">Для юрлиц (B2B)</a>
-  <a href="#projects" onclick="toggleMenu(false)">Реальные проекты</a>
-  <a href="#calculator" onclick="toggleMenu(false)">Ориентир сметы</a>
-  <a href="#contacts" onclick="toggleMenu(false)">Контакты и салон</a>
-  <div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px;">
-    <a href="tel:+77710551515" class="font-mono" style="font-size: 1.1rem;">+7 (771) 055-15-15</a>
-    <a href="https://wa.me/77710551515" target="_blank" rel="noopener" class="btn btn-wa" style="width: 100%;">Написать в WhatsApp</a>
+  <div class="mobile-menu-links">
+    <a href="#calculator" onclick="toggleMenu(false)">Калькулятор</a>
+    <a href="#projects" onclick="toggleMenu(false)">Проекты</a>
+    <a href="#kp" onclick="toggleMenu(false)">Цифровое КП</a>
+    <a href="#contacts" onclick="toggleMenu(false)">Контакты</a>
+  </div>
+  <div class="mobile-menu-actions">
+    <a href="tel:+77710551515" class="font-mono mobile-phone">+7 (771) 055-15-15</a>
+    <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20MUAR%20A!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B8%D1%82%D1%8C%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%B5%D0%BA%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B0." target="_blank" rel="noopener" class="btn btn-wa mobile-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.886-9.887 9.886m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.711 1.456h.005c6.554 0 11.89-5.336 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      <span>Написать в WhatsApp</span>
+    </a>
+    <a href="https://instagram.com/muar.a" target="_blank" rel="noopener" class="btn btn-outline mobile-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+      </svg>
+      <span>Instagram @muar.a</span>
+    </a>
   </div>
 </nav>
 
@@ -1147,9 +1772,9 @@ footer {
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-content">
-        <div class="eyebrow">Астана · Салон интерьерного текстиля · с 2014 года</div>
+        <div class="eyebrow">САЛОН ИНТЕРЬЕРНОГО ТЕКСТИЛЯ · АСТАНА · С 2014 ГОДА</div>
         <h1 class="hero-title">Текстиль и солнцезащитные системы, которые <em>завершают</em> интерьер</h1>
-        <p class="hero-desc">2 этажа интерьерных коллекций со всего мира, собственное ателье без надомниц, пошив по ГОСТам. Полный цикл для частных резиденций и коммерческих объектов в Астане.</p>
+        <p class="hero-desc">2 этажа интерьерных коллекций со всего мира, собственное швейное производство без надомниц и пошив по ГОСТам. Бережем ваш ремонт и создаем безупречный текстиль для резиденций и бизнеса в Астане.</p>
         
         <div class="hero-doors">
           <a href="#calculator" class="btn btn-plum">Для частных резиденций</a>
@@ -1181,7 +1806,7 @@ footer {
         <div class="hero-visual-badge">
           <div class="badge-dot"></div>
           <div class="badge-text">
-            <strong>Салон открыт для визитов</strong>
+            <strong>Флагманский салон открыт</strong>
             Астана, ул. Керей, Жәнибек хандар, 50/1
           </div>
         </div>
@@ -1205,7 +1830,7 @@ footer {
           <img src="assets/muar/strength-1-floors.webp" alt="2 этажа текстиля" loading="lazy">
         </div>
         <h3>2 этажа интерьерного текстиля</h3>
-        <p>Тысячи коллекций портьерных тканей, шениллов, бархатов, льна и тюлей со всего мира в просторном столичном шоуруме.</p>
+        <p>Флагманский салон в Астане: тысячи коллекций бельгийского шенилла 640 г/м², матового итальянского бархата, 100% блэкаута и льна со всего мира.</p>
       </div>
 
       <!-- 02 -->
@@ -1215,7 +1840,7 @@ footer {
           <img src="assets/muar/strength-2-award.webp" alt="Top-50 декораторов" loading="lazy">
         </div>
         <h3>Top-50 рейтинга СНГ</h3>
-        <p>Наши декораторы входят в Top-50 международного рейтинга и дважды признаны лучшими в Казахстане (2025, 2026).</p>
+        <p>Наши декораторы входят в Top-50 международного рейтинга и дважды признаны лучшими в Казахстане (Golden Textile Award 2025, 2026).</p>
       </div>
 
       <!-- 03 -->
@@ -1225,7 +1850,7 @@ footer {
           <img src="assets/muar/strength-3-vip.webp" alt="Премиальный текстиль для первых лиц" loading="lazy">
         </div>
         <h3>Премиальный текстиль для первых лиц</h3>
-        <p>Изготавливаем текстиль для государственных резиденций и персон из списка Forbes с гарантией строгой конфиденциальности.</p>
+        <p>Изготавливаем текстиль для государственных резиденций и персон из списка Forbes с гарантией строгой конфиденциальности (NDA).</p>
       </div>
 
       <!-- 04 -->
@@ -1234,8 +1859,8 @@ footer {
         <div class="strength-img-wrap">
           <img src="assets/muar/strength-4-atelier.webp" alt="Собственное производство" loading="lazy">
         </div>
-        <h3>Собственное ателье и мастера</h3>
-        <p>Полный контроль геометрии и строчки без надомниц и сторонних подрядчиков. Безупречное совпадение раппорта рисунка.</p>
+        <h3>Собственное производство и мастера</h3>
+        <p>Полный контроль качества без надомниц и сторонних подрядчиков. Безупречное совпадение раппорта и выверенная геометрия каждого шва.</p>
       </div>
 
       <!-- 05 -->
@@ -1255,7 +1880,7 @@ footer {
           <img src="assets/muar/strength-6-school.webp" alt="Собственная школа пошива" loading="lazy">
         </div>
         <h3>Собственная школа пошива</h3>
-        <p>Много лет обучаем мастеров и технологов из других салонов нашему бескомпромиссному эталону качества и обработки швов.</p>
+        <p>Много лет ведем собственную школу пошива, где обучаем мастеров и технологов из других салонов нашему эталону качества и стандарту обработки швов.</p>
       </div>
 
       <!-- 07 -->
@@ -1278,21 +1903,30 @@ footer {
   <div class="wrap">
     <div class="eyebrow">Реализация проекта в Астане</div>
     <h2 class="sec-title">Как текстиль преображает пространство</h2>
-    <p class="sec-desc">Потяните ползунок, чтобы увидеть интерьер до оформления и результат после навешивания портьер с идеальной складкой Wave мастерами MUAR A.</p>
+    <p class="sec-desc">Потяните ползунок или переключайте сцены: посмотрите, как текстильная архитектура MUAR A преображает панорамные окна в резиденциях и офисах Астаны.</p>
 
-    <div class="ba-wrapper" id="baWrapper">
+    <!-- 3 Scene Tabs -->
+    <div class="ba-scene-tabs">
+      <button class="ba-scene-btn active" onclick="switchBaScene('living', this)">🛋️ Парадная гостиная виллы</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('bedroom', this)">🛏️ Мастер-спальня</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('office', this)">💼 Кабинет директора</button>
+    </div>
+
+    <div class="ba-wrapper" id="baWrapper" style="--split: 50%;">
       <div class="ba-container">
         <!-- Before Layer (Left) -->
         <div class="ba-layer before" id="baBeforeLayer">
-          <img src="assets/muar/before-room.webp" alt="Интерьер до текстиля" loading="lazy">
-          <div class="ba-label lbl-before">ДО: Голые стены и жесткий свет</div>
+          <img src="assets/muar/before-real.webp" alt="Интерьер до текстиля: бетон, радиатор, эхо" id="baBeforeImg" loading="lazy">
         </div>
 
         <!-- After Layer (Right) -->
         <div class="ba-layer after">
-          <img src="assets/muar/after-room.webp" alt="Интерьер после кутюрного текстиля MUAR A" loading="lazy">
-          <div class="ba-label lbl-after">ПОСЛЕ: Архитектурный текстиль MUAR A</div>
+          <img src="assets/muar/after-real.webp" alt="Интерьер после: кутюрные шторы, бирюзовый жаккард с дамаском, бархатный кант, тюль" id="baAfterImg" loading="lazy">
         </div>
+
+        <!-- Badges (placed at container level, completely immune to clip-path cutting) -->
+        <div class="ba-label lbl-before" id="baLblBefore">ДО<span class="lbl-full">: бетон, радиатор, эхо</span></div>
+        <div class="ba-label lbl-after" id="baLblAfter">ПОСЛЕ<span class="lbl-full">: бирюзовый жаккард с дамаском, бархатный кант, тюль</span></div>
 
         <!-- Slider Divider & Handle -->
         <div class="ba-handle" id="baHandle">
@@ -1302,64 +1936,229 @@ footer {
         </div>
       </div>
     </div>
-    <p class="ba-caption">← Передвигайте разделитель влево и вправо для сравнения →</p>
+
+    <!-- Quick preset buttons -->
+    <div class="ba-presets">
+      <button class="ba-preset-btn" onclick="setBaSplit(0, this)">🔲 Без штор (Бетон)</button>
+      <button class="ba-preset-btn active" onclick="setBaSplit(50, this)">↔ 50% Сравнение</button>
+      <button class="ba-preset-btn" onclick="setBaSplit(100, this)">✨ Со шторами MUAR A</button>
+    </div>
+
+    <p class="ba-caption" id="baCaption">← Передвигайте разделитель: Парадная гостиная виллы (ЖК Talan Towers / BI Village) →</p>
+  </div>
+</section>
+
+<!-- Digital Commercial Proposal & Light Simulator Section (Based on KP_Muar_A_шаблон.pptx) -->
+<section class="section alt" id="kp">
+  <div class="wrap">
+    <div class="eyebrow">Интерактивное досье проекта</div>
+    <h2 class="sec-title">Цифровое коммерческое предложение и симулятор света</h2>
+    <p class="sec-desc">Мы не отправляем заказчикам статичные PDF-таблицы. Введите персональный номер сметы для интерактивного расчета, проверки спецификации европейских тканей и тестирования световых сценариев интерьера в реальном времени.</p>
+
+    <div class="kp-shell">
+      <!-- Left Column: Intro & Guarantee -->
+      <div class="kp-intro">
+        <div>
+          <span class="eyebrow" style="color: var(--gold-soft); margin-bottom: 8px;">Стандарт MUAR A · с 2014 г.</span>
+          <h3>Премиальный текстиль для первых лиц и резиденций Астаны</h3>
+          <p>Проект ведется по официальному регламенту салона MUAR A: от лазерного замера ниш до чистовой навески с отпариванием.</p>
+          <ul class="kp-feature-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Спецификация по ГОСТам:</strong> точный расчет расхода европейских тканей, подкладки и фурнитуры</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Собственный цех в Астане:</strong> пошив 18–25 дней мастерами высшей квалификации без надомниц</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Симуляция световых сценариев:</strong> тестирование поведения тканей в режимах День, Вечер и 100% Blackout</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Официальный договор:</strong> гарантия 1 год на пошив, до 5 лет на моторизацию Somfy, закрывающие акты</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="kp-legal-badge">
+          <strong>ТОО «KazTextileА»</strong> · БИН 140940019744<br>
+          г. Астана, ул. Керей, Жәнибек хандар, 50/1, ВП 18 · +7 (771) 055-15-15
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Dossier Card & Light Simulator -->
+      <div class="kp-demo">
+        <div>
+          <div style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--brand-plum); margin-bottom: 8px;">
+            Персональный код доступа к смете:
+          </div>
+          <div class="code-row">
+            <input id="kpCode" type="text" value="2026-001" placeholder="Введите код (2026, VILLA, 140, 70)" aria-label="Код проекта">
+            <button class="btn btn-plum" id="kpOpen" onclick="openKpProject()">Открыть КП</button>
+          </div>
+          <div class="kp-chips" style="margin-top: 10px;">
+            <span>Демо-коды:</span>
+            <button class="kp-chip" onclick="setKpCode('2026-001')">2026-001 (Шаблон MUAR A)</button>
+            <button class="kp-chip" onclick="setKpCode('VILLA')">VILLA (BI Village)</button>
+            <button class="kp-chip" onclick="setKpCode('140')">140 (Talan Towers)</button>
+            <button class="kp-chip" onclick="setKpCode('70')">70 (пос. Саранда)</button>
+          </div>
+        </div>
+
+        <div class="kp-card" id="kpCard">
+          <div class="kp-top">
+            <span class="kp-badge">Коммерческое предложение</span>
+            <span class="kp-number">№ <b id="kpNum">2026-001</b></span>
+          </div>
+
+          <div class="kp-rows">
+            <div class="kp-r"><span>Объект:</span><b id="kpProp">Вилла, пос. Саранда (480 м²)</b></div>
+            <div class="kp-r"><span>Гостиная:</span><b id="kpLivingSpec">Италия, жаккард Ardecora 420 г/м² + тюль лён-сетка Германия</b></div>
+            <div class="kp-r"><span>Мастер-спальня:</span><b id="kpBedroomSpec">Испанский велюр Aldeco + 100% Blackout (2 полотна) + 4 подушки</b></div>
+            <div class="kp-r"><span>Кабинет:</span><b id="kpOfficeSpec">Римская штора, бельгийский лён Libeco 380 г/м²</b></div>
+            <div class="kp-r"><span>Статус цеха:</span><b id="kpStatus" style="color: #1F7A55;">Пошив в цехе · Готовность 80%</b></div>
+            <div class="kp-r"><span>Срок сдачи:</span><b id="kpDeadline">14 октября 2026 г.</b></div>
+          </div>
+
+          <!-- Light Simulator -->
+          <div class="kp-light-tabs">
+            <div class="kp-light-title">
+              <span>Световой сценарий интерьера:</span>
+              <span id="kpLightBadge" style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--brand-plum);">5500 K · 1200 Lux</span>
+            </div>
+            <div class="kp-light-btns">
+              <button class="kp-light-btn active" id="kpBtnDay" onclick="setKpLight('day', this)">☀️ День</button>
+              <button class="kp-light-btn" id="kpBtnEvening" onclick="setKpLight('evening', this)">🌆 Вечер</button>
+              <button class="kp-light-btn" id="kpBtnNight" onclick="setKpLight('night', this)">🌙 Ночь (Blackout)</button>
+            </div>
+          </div>
+
+          <div class="kp-preview-box day" id="kpPreviewBox">
+            <div class="kp-telemetry" id="kpTelemetry">5500 K · 1200 Lux · Защита от УФ 99%</div>
+            <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.35rem; font-weight: 700; line-height: 1.25;" id="kpLightText">
+              Парадная гостиная: Мягкий рассеянный дневной свет
+            </div>
+            <div style="font-size: 0.82rem; opacity: 0.85; margin-top: 6px; max-width: 48ch;" id="kpLightSub">
+              Немецкий тюль лён-сетка с утяжелителем рассеивает степное солнце Астаны, защищая мебель и паркет от выгорания.
+            </div>
+          </div>
+
+          <div class="kp-tot">
+            <span>Итоговая смета с монтажом и навеской:</span>
+            <b id="kpPriceVal">2 850 000 ₸</b>
+          </div>
+
+          <div style="padding: 0 18px 18px;">
+            <a class="btn btn-wa btn-block" id="kpAgree" href="#" target="_blank" rel="noopener noreferrer" style="width: 100%;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.886-9.887 9.886m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.711 1.456h.005c6.554 0 11.89-5.336 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              <span>Утвердить проект в WhatsApp</span>
+            </a>
+          </div>
+        </div>
+        <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.4;">
+          * Данные КП сформированы по официальному шаблону MUAR A (ТОО «KazTextileА», БИН 140940019744). Включает пошив, фурнитуру, навеску и чистовое отпаривание на объекте.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- B2B Contract Section (Priority for Corporate / Legal Entities) -->
 <section class="section dark" id="b2b">
   <div class="wrap">
-    <div class="eyebrow">Для юридических лиц и девелоперов</div>
-    <h2 class="sec-title">Монтаж карнизов и системы солнцезащиты</h2>
-    <p class="sec-desc">Специализированный контрактный отдел для офисов, кабинетов первых лиц, отелей, ресторанов и коммерческих зданий в Астане. Официальная работа с НДС 12%.</p>
+    <div class="eyebrow">Для юридических лиц, архитекторов и девелоперов</div>
+    <h2 class="sec-title">Солнцезащитные системы, моторизация и контрактный текстиль</h2>
+    <p class="sec-desc">Проектный дивизион ТОО «KazTextileА» в Астане: офисы класса «А», переговорные, отели, посольства и загородные резиденции. Официальная работа на ОУР с НДС 12% и закрывающими актами за 24 часа.</p>
 
     <div class="b2b-grid">
       <div class="b2b-features">
         <div class="b2b-card">
-          <div class="b2b-icon">⚙</div>
-          <h4>Монтаж всех типов карнизов</h4>
-          <p>Скрытые потолочные профили, усиленные треки для панорамных окон высотой до 6 метров. Чистый монтаж без пыли в готовых чистовых отделках.</p>
-        </div>
-
-        <div class="b2b-card">
-          <div class="b2b-icon">⚡</div>
-          <h4>Моторизация и электрокарнизы</h4>
-          <p>Бесшумные электроприводы Somfy, Tuya, Aqara с плавной интеграцией в общую систему «Умный Дом». Управление со смартфонов, пультов и настенных панелей.</p>
-        </div>
-
-        <div class="b2b-card">
           <div class="b2b-icon">☀</div>
-          <h4>Системы солнцезащиты Screen</h4>
-          <p>Рулонные и кассетные системы с полотнами Screen (1–5% перфорации). Устраняют блики на мониторах, снижают нагрев помещения и сохраняют панорамный обзор.</p>
+          <h4>Солнцезащита Screen 1–5% (Open Space)</h4>
+          <p>Рулонные системы с полотнами Screen (1%, 3%, 5%). Отражают до 95% тепла, устраняют блики на экранах мониторов и сохраняют панорамный вид на Астану.</p>
+        </div>
+
+        <div class="b2b-card">
+          <div class="b2b-icon">🌑</div>
+          <h4>Кассетный Blackout 100% (Переговорные)</h4>
+          <p>Светонепроницаемые ZIP-системы с боковыми U-образными направляющими со щеточными уплотнителями (0% щелей) для залов заседаний, ВКС и проекторов.</p>
+        </div>
+
+        <div class="b2b-card">
+          <div class="b2b-icon">📐</div>
+          <h4>Алюминиевые жалюзи 50 мм по RAL</h4>
+          <p>Усиленная магниево-алюминиевая ламель 0.23 мм с заводской порошковой окраской в любой цвет по каталогу RAL в тон оконных витражей и перегородок.</p>
         </div>
 
         <div class="b2b-card">
           <div class="b2b-icon">🛡</div>
-          <h4>Негорючие ткани Trevira CS</h4>
-          <p>Контрактные негорючие материалы с сертификатами пожарной безопасности (КМ1) для общественных пространств, отелей и переговорных залов.</p>
+          <h4>Негорючий текстиль Trevira CS (КМ1)</h4>
+          <p>Пожизненная молекулярная огнестойкость (класс КМ1: Г1, В1, Д2, Т2) по ТР ТС 043/2017 и СНиП РК. Сертификаты для МЧС РК, путей эвакуации и отелей.</p>
+        </div>
+
+        <div class="b2b-card">
+          <div class="b2b-icon">⚡</div>
+          <h4>Моторизация Somfy & Forest (BMS / KNX)</h4>
+          <p>Бесшумные электроприводы Somfy Sonesse (< 38 дБ) и карнизы Forest Shuttle. Управление с пультов, настенных клавиш и интеграция в протоколы «Умного Здания».</p>
+        </div>
+
+        <div class="b2b-card">
+          <div class="b2b-icon">⚙</div>
+          <h4>Проектный монтаж и высотные работы</h4>
+          <p>Штатные бригады с допусками по электробезопасности и работе на высоте. Чистовой монтаж с промышленным пылеудалением Hilti без пыли в готовых интерьерах.</p>
+        </div>
+
+        <!-- Featured Lift System Card with Video -->
+        <div class="b2b-card" style="grid-column: 1 / -1; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(184, 144, 83, 0.35);">
+          <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1 1 300px;">
+              <div class="b2b-icon" style="color: var(--gold-soft);">🏗</div>
+              <h4 style="color: #FFFFFF; font-size: 1.15rem;">Лифт-системы с электроприводом для окон второго света (6–8 м)</h4>
+              <p style="margin-top: 8px; color: rgba(255, 255, 255, 0.78);">Инженерное решение для двусветных резиденций, вилл и атриумов с высотой проемов 6–8 метров. Вся карнизная балка на стальных тросах бесшумно опускается до уровня груди нажатием кнопки — безопасный клининг и навеска штор за 15 минут без строительных лесов и риска падения.</p>
+              <div style="margin-top: 12px; font-size: 0.85rem; color: var(--gold-soft); font-weight: 600;">✓ Протестировано на загородных резиденциях Астаны (Garden Village, коттеджный городок Акбулак)</div>
+            </div>
+            <div style="flex: 0 1 240px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid rgba(255,255,255,0.2);">
+              <video src="assets/muar/villa-lift-system.mp4" autoplay loop muted playsinline style="width: 100%; display: block;"></video>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="b2b-legal-box">
         <div class="b2b-legal-head">
-          <span class="eyebrow" style="margin-bottom: 8px;">Юридическая надежность</span>
+          <span class="eyebrow" style="margin-bottom: 8px; color: var(--gold-soft);">Юридический и налоговый контур</span>
           <h3>ТОО «KazTextileА»</h3>
-          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">БИН 140940019744 · г. Астана</p>
+          <p style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">БИН 140940019744 · г. Астана, ул. Керей, Жәнибек хандар, 50/1</p>
         </div>
 
         <ul class="b2b-legal-list">
-          <li>Работа на ОСНО с выделением НДС 12%</li>
-          <li>Закрывающие акты КСР-2/3 и ЭСФ в течение 24 часов</li>
-          <li>Выезд инженера на замер с образцами солнцезащиты</li>
-          <li>Гарантия 24 месяца на механизмы, приводы и монтаж</li>
+          <li>Официальный плательщик <strong>НДС 12% на ОУР</strong> — полный налоговый вычет</li>
+          <li>Закрывающие акты <strong>КС-2, КС-3, АВР (Р-1) и ЭСФ</strong> в течение 24 часов</li>
+          <li><strong>1 место Golden Textile Award 2026</strong> за коммерческий текстиль (декоратор Жанель Есимова)</li>
+          <li>Сертификаты пожарной безопасности МЧС РК (класс КМ1: Г1, В1, Д2, Т2)</li>
+          <li>Собственное производство в Астане: раскройные столы, спецоборудование Dürkopp Adler</li>
+          <li>Официальный договор: гарантия 36 месяцев на моторы и 12 месяцев на текстиль</li>
         </ul>
+
+        <div style="background: rgba(184, 144, 83, 0.12); border: 1px solid rgba(184, 144, 83, 0.35); border-radius: var(--radius-sm); padding: 14px 16px; margin: 16px 0; display: flex; align-items: center; gap: 14px;">
+          <img src="assets/muar/award-golden-2026.webp" alt="Golden Textile Award 2026" style="width: 52px; height: 52px; object-fit: contain; border-radius: 8px; flex-shrink: 0; background: rgba(0,0,0,0.35);">
+          <div>
+            <div style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-soft); font-weight: 700;">Golden Textile Award 2026</div>
+            <div style="font-size: 0.88rem; color: #FFFFFF; font-weight: 600; margin-top: 2px;">1 место: Жанель Есимова</div>
+            <div style="font-size: 0.78rem; color: rgba(255,255,255,0.72);">«Текстиль для коммерческих помещений»</div>
+          </div>
+        </div>
 
         <div class="b2b-gallery-strip">
           <img src="assets/muar/b2b-sunscreen-1.webp" alt="Коммерческие навесы и солнцезащита" loading="lazy">
           <img src="assets/muar/b2b-sunscreen-2.webp" alt="Системы затенения" loading="lazy">
         </div>
 
-        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20MUAR%20A!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D0%BA%D0%B0%D1%80%D0%BD%D0%B8%D0%B7%D0%BE%D0%B2%20%D0%B8%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D1%8E%D1%80%D0%BB%D0%B8%D1%86%D0%B0.%20%D0%97%D0%B0%D0%BF%D1%80%D0%B0%D1%88%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%20%D0%9A%D0%9F%20%D1%81%20%D0%9D%D0%94%D0%A1%2012%25." target="_blank" rel="noopener" class="btn btn-wa" style="width: 100%; margin-top: 24px;">
+        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%9E%D0%9E%20%C2%ABKazTextile%D0%90%C2%BB!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B%20%D0%B8%20%D0%BC%D0%BE%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D1%8E%D1%80%D0%BB%D0%B8%D1%86%D0%B0.%20%D0%97%D0%B0%D0%BF%D1%80%D0%B0%D1%88%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%20%D0%9A%D0%9F%20%D1%81%20%D0%9D%D0%94%D0%A1%2012%25%20%D0%B8%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D0%BC%D0%B8%20%D0%9A%D0%A1-2%2F%D0%9A%D0%A1-3." target="_blank" rel="noopener" class="btn btn-wa" style="width: 100%; margin-top: 24px;">
           <span>Запросить КП с НДС 12%</span>
         </a>
       </div>
@@ -1375,55 +2174,103 @@ footer {
     <p class="sec-desc">Каждый объект ведет персональный декоратор салона MUAR A — от подбора тактильных образцов на объекте до глажки и навешивания.</p>
 
     <!-- Decorators -->
-    <div class="team-strip">
+    <div class="team-strip" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <div class="decorator-card">
+        <div class="decorator-avatar">АО</div>
+        <div class="decorator-info">
+          <span class="decorator-badge">12 лет в индустрии · Визионер</span>
+          <h4>Асемгуль Омарова</h4>
+          <p>Основательница салона MUAR A. 1 место Golden Textile Award 2025. Автор концепции синтеза кутюрного текстиля и искусства Казахстана.</p>
+        </div>
+      </div>
+
       <div class="decorator-card">
         <div class="decorator-avatar">ЖЕ</div>
         <div class="decorator-info">
-          <span class="decorator-badge">Golden Textile Award 2026</span>
+          <span class="decorator-badge">1 место Golden Textile Award 2026</span>
           <h4>Жанель Есимова</h4>
-          <p>Ведущий декоратор MUAR A (4+ года в студии). Победительница Golden Textile Award в номинации «Текстиль в коммерческом интерьере». Обучение у А. Пронской и И. Масловой.</p>
+          <p>Ведущий декоратор (4+ года). Победительница премии в номинации «Текстиль в коммерческом интерьере». Обучение у мэтров А. Пронской и И. Масловой.</p>
         </div>
       </div>
 
       <div class="decorator-card">
         <div class="decorator-avatar">АА</div>
         <div class="decorator-info">
-          <span class="decorator-badge">Эксперт колористики и фактур</span>
+          <span class="decorator-badge">ТОП-30 декораторов СНГ</span>
           <h4>Асель Абрахманова</h4>
-          <p>Ведущий декоратор MUAR A (3 года в студии). Мастер сложных цветовых гармоний, многослойных решений и контроля стандартов пошива по ГОСТам. Обучение у А. Пронской и И. Масловой.</p>
+          <p>Ведущий декоратор (3 года). Эксперт колористики, сложных многослойных драпировок и контроля пошива по ГОСТам. Обучение у А. Пронской и И. Масловой.</p>
         </div>
       </div>
     </div>
 
     <!-- Case Studies -->
     <div class="cases-grid">
-      <!-- Case 1 -->
+      <!-- Case 1: Evolution -->
       <article class="case-card">
         <div class="case-img-box">
-          <img src="assets/muar/case-art-gallery.webp" alt="Арт-галерея Астана" loading="lazy">
+          <img src="assets/muar/case-evolution.webp" alt="ЖК Evolution Астана" loading="lazy">
         </div>
         <div class="case-body">
-          <span class="case-tag">Кейс: Арт-галерея</span>
-          <h3>Текстиль для 4-метровых потолков</h3>
-          <p>Узкое высокое пространство, где все стены отведены под картины. Установлена рулонная солнцезащита в комбинации с римской шторой из облачного фатина и жестким бандо с волновой вышивкой.</p>
-          <div class="case-meta">Декораторы MUAR A · Астана</div>
+          <span class="case-tag">Кейс: ЖК Evolution · Астана</span>
+          <h3>Quiet Luxury & Scalloped Edge</h3>
+          <p>Волнообразный фигурный кант портьер (scalloped edge) с тончайшей темно-зеленой окантовкой в спальне. Природная палитра и потайная ручная подгибка.</p>
+          <div class="case-meta">Декораторы MUAR A · Ручная подгибка 10 см</div>
         </div>
       </article>
 
-      <!-- Case 2 -->
+      <!-- Case 2: Garden Village -->
       <article class="case-card">
         <div class="case-img-box">
-          <img src="assets/muar/case-red-birds.webp" alt="Драма красного и белого" loading="lazy">
+          <img src="assets/muar/case-garden-dining.webp" alt="Вилла Garden Village" loading="lazy">
         </div>
         <div class="case-body">
-          <span class="case-tag">Кейс: Драма цвета</span>
-          <h3>Баланс красного и белого</h3>
-          <p>Акцентная красная панель в спальне сбалансирована бархатной подушкой глубокого винного оттенка с тонкой авторской вышивкой белых птиц, создающей ощущение кутюрного уюта.</p>
-          <div class="case-meta">Мастер-спальня · Индивидуальный пошив</div>
+          <span class="case-tag">Кейс: Garden Village · Вилла</span>
+          <h3>Панорамная столовая со складкой Wave</h3>
+          <p>Масштабные окна в пол. Скульптурная драпировка из плотного жаккарда цвета горького шоколада с дамасским переливом. Зазор ровно 10 мм над чистовым полом.</p>
+          <div class="case-meta">Вилла Garden Village · Складка Wave 1:2.0</div>
         </div>
       </article>
 
-      <!-- Case 3 -->
+      <!-- Case 3: Atlant -->
+      <article class="case-card">
+        <div class="case-img-box">
+          <img src="assets/muar/case-atlant-kids.webp" alt="ЖК Атлант Астана" loading="lazy">
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Кейс: ЖК Атлант · Детская</span>
+          <h3>Симметрия и геометрия детской спальни</h3>
+          <p>Два фигурных изголовья из сапфирового велюра и покрывала с меандровым стеганым орнаментом. Износостойкие ткани Easy Clean, устойчивые к детским играм.</p>
+          <div class="case-meta">ЖК Атлант · Пошив по ГОСТам</div>
+        </div>
+      </article>
+
+      <!-- Case 4: Dos -->
+      <article class="case-card">
+        <div class="case-img-box">
+          <img src="assets/muar/case-dos-marquise.webp" alt="ЖК Дос Астана" loading="lazy">
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Кейс: ЖК Дос · Комната девочки</span>
+          <h3>Французские радиальные маркизы в эркере</h3>
+          <p>Будуарная зона с мягким подоконником для чтения. Каскадные фестоны, воланы и буфы сложного радиального кроя на лекалах собственного производства.</p>
+          <div class="case-meta">ЖК Дос · Радиальный крой собственного цеха</div>
+        </div>
+      </article>
+
+      <!-- Case 5: Master Bedroom -->
+      <article class="case-card">
+        <div class="case-img-box">
+          <img src="assets/muar/case-master-bedroom.webp" alt="Мастер-спальня с жалюзи" loading="lazy">
+        </div>
+        <div class="case-body">
+          <span class="case-tag">Кейс: Мастер-спальня с балконом</span>
+          <h3>Симбиоз жалюзи и кутюра</h3>
+          <p>Алюминиевые жалюзи в ритм шоколадному канту на балконе, портьеры со стальным кантом на подкладке Dimout в спальне, покрывало с перламутровым переливом.</p>
+          <div class="case-meta">Декораторы: Асемгуль Омарова, Асель Абрахманова</div>
+        </div>
+      </article>
+
+      <!-- Case 6: Seken -->
       <article class="case-card">
         <div class="case-img-box">
           <img src="assets/muar/case-seken-bedroom.webp" alt="Проект Зарины Секен" loading="lazy">
@@ -1431,10 +2278,37 @@ footer {
         <div class="case-body">
           <span class="case-tag">Кейс: Совместно с дизайнером</span>
           <h3>Проект Зарины Секен & Жанель Есимовой</h3>
-          <p>Изголовье William Morris с винным валиком, кремовые портьеры с небесно-голубым кантом в спальне, и кухня с римской шторой и ручной отделкой басонными элементами.</p>
+          <p>Изголовье William Morris «Strawberry Thief» с винным валиком, портьеры с кантом в спальне и римская штора с ручной отделкой басонными элементами.</p>
           <div class="case-meta">Дизайнер Зарина Секен · Декоратор Жанель Есимова</div>
         </div>
       </article>
+    </div>
+
+    <!-- Workshop Masters Block ("Цех адамдары") -->
+    <div style="margin-top: 60px; padding: clamp(24px, 4vw, 40px); background: var(--bg-warm); border-radius: var(--radius-lg); border: 1px solid var(--border);">
+      <div style="max-width: 720px; margin-bottom: 28px;">
+        <span class="eyebrow">Цех адамдары · Собственное швейное производство в Астане</span>
+        <h3 style="font-size: clamp(1.4rem, 2.5vw, 1.8rem); margin-top: 8px;">Мастера, которые отвечают за каждый миллиметр строчки</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 8px;">Мы принципиально не отдаем заказы надомницам. В нашем швейном цехе в Астане работают штатные мастера высшей квалификации на промышленном оборудовании Jack и Dürkopp Adler. Каждое изделие проходит межоперационную декатировку и строгий контроль ОТК.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+        <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 18px; border: 1px solid var(--border);">
+          <img src="assets/muar/craft-anara.webp" alt="Мастер Анара" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 12px;">
+          <h4 style="font-size: 1.05rem;">Мастер Анара</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">3 года в студии. Специалист лазерного раскроя по металлическим направляющим и сборки узлов по ГОСТам РК.</p>
+        </div>
+        <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 18px; border: 1px solid var(--border);">
+          <img src="assets/muar/craft-zhanar.webp" alt="Мастер Жанар" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 12px;">
+          <h4 style="font-size: 1.05rem;">Мастер Жанар</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Ведущий мастер влажно-тепловой обработки (ВТО). Исключает последующую усадку ткани после первой чистки.</p>
+        </div>
+        <div style="background: #FFFFFF; border-radius: var(--radius-md); padding: 18px; border: 1px solid var(--border);">
+          <img src="assets/muar/craft-maral.webp" alt="Мастер Марал" style="width: 100%; height: 180px; object-fit: cover; border-radius: var(--radius-sm); margin-bottom: 12px;">
+          <h4 style="font-size: 1.05rem;">Мастер Марал</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Виртуоз потайного ручного шва и посадки сложных многослойных драпировок со свинцовым утяжелителем.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1464,14 +2338,14 @@ footer {
             </div>
           </div>
 
-          <!-- Fabric Type (NO SPECIFIC BRANDS, only categories) -->
+          <!-- Fabric Type (NO SPECIFIC BRANDS, only physical properties) -->
           <div class="form-group" id="fabricGroup">
             <label>Категория интерьерной ткани</label>
             <div class="pill-grid" id="fabricGrid">
-              <button class="pill-btn active" data-fabric="chenille" onclick="selectFabric('chenille', this)">Фактурный шенилл</button>
-              <button class="pill-btn" data-fabric="velvet" onclick="selectFabric('velvet', this)">Матовый бархат</button>
+              <button class="pill-btn active" data-fabric="chenille" onclick="selectFabric('chenille', this)">Бельгийский шенилл 640 г/м²</button>
+              <button class="pill-btn" data-fabric="velvet" onclick="selectFabric('velvet', this)">Матовый итальянский бархат</button>
               <button class="pill-btn" data-fabric="linen" onclick="selectFabric('linen', this)">Натуральный лён</button>
-              <button class="pill-btn" data-fabric="blackout" onclick="selectFabric('blackout', this)">100% Blackout</button>
+              <button class="pill-btn" data-fabric="blackout" onclick="selectFabric('blackout', this)">100% блэкаут</button>
             </div>
           </div>
 
@@ -1509,12 +2383,12 @@ footer {
             <div class="calc-res-label">Предварительный ориентир сметы</div>
             <div class="calc-price" id="calcPriceTotal">185 000 ₸</div>
             <div class="calc-breakdown" id="calcBreakdown">
-              Включает расход ткани с коэффициентом драпировки, пошив в собственном ателье по ГОСТам, шторную ленту и фурнитуру.
+              Включает расход ткани с коэффициентом драпировки, пошив на собственном производстве по ГОСТам, шторную ленту и фурнитуру.
             </div>
             <div class="calc-guarantee">
               <span>✓ Пошив без надомниц</span>
               <span>·</span>
-              <span>✓ Выезд с каталогами</span>
+              <span>✓ Выезд декоратора с кейсом образцов</span>
             </div>
           </div>
 
@@ -1532,7 +2406,7 @@ footer {
   <div class="wrap">
     <div class="eyebrow">Салон в Астане</div>
     <h2 class="sec-title">Приглашаем в салон MUAR A</h2>
-    <p class="sec-desc">Посетите нашу двухэтажную экспозицию интерьерного текстиля или вызовите декоратора с каталогами на замер вашего объекта.</p>
+    <p class="sec-desc">Посетите нашу двухэтажную экспозицию интерьерного текстиля на ул. Керей, Жәнибек хандар, 50/1 или согласуйте выезд ведущего декоратора с кейсом образцов на ваш объект.</p>
 
     <div class="contacts-grid">
       <div>
@@ -1644,18 +2518,52 @@ footer {
   window.toggleMenu = toggleMenu;
   burger.addEventListener('click', function() { toggleMenu(); });
 
-  /* Before / After Slider */
+  /* Before / After Slider & Scenes Engine */
   var baWrapper = document.getElementById('baWrapper');
   var baBeforeLayer = document.getElementById('baBeforeLayer');
   var baHandle = document.getElementById('baHandle');
   var isDragging = false;
 
+  var BA_SCENES = {
+    living: {
+      title: 'Парадная гостиная',
+      caption: '← Передвигайте разделитель: Парадная гостиная виллы (ЖК Talan Towers / BI Village) →',
+      beforeImg: 'assets/muar/IMG_5296.JPG',
+      afterImg: 'assets/muar/IMG_5295.PNG',
+      beforeAlt: 'Интерьер до текстиля: бетон, радиатор, эхо',
+      afterAlt: 'Интерьер после: кутюрные шторы, бирюзовый жаккард с дамаском, бархатный кант, тюль',
+      beforeFull: ': бетон, радиатор, эхо',
+      afterFull: ': бирюзовый жаккард с дамаском, бархатный кант, тюль'
+    },
+    bedroom: {
+      title: 'Мастер-спальня',
+      caption: '← Передвигайте разделитель: Мастер-спальня (Highvill Park / пос. Саранда) →',
+      beforeImg: 'assets/muar/before-room.webp',
+      afterImg: 'assets/muar/case-master-bedroom.webp',
+      beforeAlt: 'Интерьер до текстиля: слепящая засветка и эхо',
+      afterAlt: 'Интерьер после: 100% Blackout + вуаль, велюр Aldeco',
+      beforeFull: ': слепящая засветка и эхо',
+      afterFull: ': 100% Blackout + вуаль'
+    },
+    office: {
+      title: 'Кабинет директора',
+      caption: '← Передвигайте разделитель: Кабинет директора (БЦ Q-Media / VIP-Boardroom) →',
+      beforeImg: 'assets/muar/before-real.webp',
+      afterImg: 'assets/muar/b2b-sunscreen-1.webp',
+      beforeAlt: 'Офис до: солнечные блики на мониторах и эхо',
+      afterAlt: 'Офис после: моторизованная солнцезащита Somfy Screen 3%',
+      beforeFull: ': блики на мониторах и перегрев',
+      afterFull: ': моторизация Somfy Screen 3%'
+    }
+  };
+
   function updateSplit(pct) {
     var clamped = Math.max(0, Math.min(100, pct));
-    baWrapper.style.setProperty('--split', clamped + '%');
+    if (baWrapper) baWrapper.style.setProperty('--split', clamped + '%');
   }
 
   function getPctFromClientX(clientX) {
+    if (!baWrapper) return 50;
     var rect = baWrapper.getBoundingClientRect();
     var x = clientX - rect.left;
     return (x / rect.width) * 100;
@@ -1678,12 +2586,208 @@ footer {
     try { baWrapper.releasePointerCapture(e.pointerId); } catch(err) {}
   }
 
-  if (window.PointerEvent) {
+  if (baWrapper && window.PointerEvent) {
     baWrapper.addEventListener('pointerdown', onPointerDown);
     baWrapper.addEventListener('pointermove', onPointerMove);
     baWrapper.addEventListener('pointerup', onPointerUp);
     baWrapper.addEventListener('pointercancel', onPointerUp);
   }
+
+  window.switchBaScene = function(sceneKey, btn) {
+    if (!BA_SCENES[sceneKey]) return;
+    var data = BA_SCENES[sceneKey];
+    var bImg = document.getElementById('baBeforeImg');
+    var aImg = document.getElementById('baAfterImg');
+    var bLbl = document.getElementById('baLblBefore');
+    var aLbl = document.getElementById('baLblAfter');
+    var cap = document.getElementById('baCaption');
+
+    if (bImg) { bImg.src = data.beforeImg; bImg.alt = data.beforeAlt; }
+    if (aImg) { aImg.src = data.afterImg; aImg.alt = data.afterAlt; }
+    if (bLbl) { bLbl.innerHTML = 'ДО<span class="lbl-full">' + data.beforeFull + '</span>'; }
+    if (aLbl) { aLbl.innerHTML = 'ПОСЛЕ<span class="lbl-full">' + data.afterFull + '</span>'; }
+    if (cap) { cap.textContent = data.caption; }
+
+    document.querySelectorAll('.ba-scene-btn').forEach(function(b) { b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+
+    window.setBaSplit(50);
+  };
+
+  window.setBaSplit = function(pct, btn) {
+    updateSplit(pct);
+    var pButtons = document.querySelectorAll('.ba-preset-btn');
+    pButtons.forEach(function(b) { b.classList.remove('active'); });
+    if (btn) {
+      btn.classList.add('active');
+    } else {
+      pButtons.forEach(function(b) {
+        if ((pct === 0 && b.textContent.indexOf('Без') !== -1) ||
+            (pct === 50 && b.textContent.indexOf('50%') !== -1) ||
+            (pct === 100 && b.textContent.indexOf('Со шторами') !== -1)) {
+          b.classList.add('active');
+        }
+      });
+    }
+  };
+
+  /* Digital Commercial Proposal (KP) Engine (Template: KP_Muar_A_шаблон.pptx) */
+  var KP_PROJECTS = {
+    '2026-001': {
+      num: '2026-001',
+      prop: 'Резиденция в пос. Саранда (480 м²)',
+      living: 'Италия, фактурный жаккард Ardecora 420 г/м² (3,2 × 2,9 м) + тюль лён-сетка Германия',
+      bedroom: 'Испанский бархатный велюр Aldeco + 100% Blackout (2 полотна) + 4 подушки',
+      office: 'Римская штора на цепочном механизме, бельгийский лён Libeco 380 г/м²',
+      status: 'Пошив в цехе · Готовность 80%',
+      deadline: '14 октября 2026 г.',
+      price: '2 850 000 ₸',
+      totalRaw: 2850000
+    },
+    '2026': {
+      num: '2026-001',
+      prop: 'Резиденция в пос. Саранда (480 м²)',
+      living: 'Италия, фактурный жаккард Ardecora 420 г/м² (3,2 × 2,9 м) + тюль лён-сетка Германия',
+      bedroom: 'Испанский бархатный велюр Aldeco + 100% Blackout (2 полотна) + 4 подушки',
+      office: 'Римская штора на цепочном механизме, бельгийский лён Libeco 380 г/м²',
+      status: 'Пошив в цехе · Готовность 80%',
+      deadline: '14 октября 2026 г.',
+      price: '2 850 000 ₸',
+      totalRaw: 2850000
+    },
+    'VILLA': {
+      num: 'VILLA-ASTANA',
+      prop: 'Вилла в BI Village Deluxe (720 м²)',
+      living: 'Бирюзовый жаккард с дамаском, бархатный кант, тюль (высота 6,2 м)',
+      bedroom: 'Двойная система Blackout 100% + моторизация Somfy Glydea',
+      office: 'Кассетная солнцезащита Somfy Screen 3% со щеточными уплотнителями',
+      status: 'Раскрой и пошив в собственном цехе (Готовность 65%)',
+      deadline: '22 октября 2026 г.',
+      price: '4 620 000 ₸',
+      totalRaw: 4620000
+    },
+    '140': {
+      num: 'PROJECT-140',
+      prop: 'Пентхаус в ЖК Talan Towers (320 м²)',
+      living: 'Кутюрный бельгийский шенилл 640 г/м² + французская складка 1:2.5 на электротреке',
+      bedroom: 'Мастер-спальня: 100% светоизоляция Blackout + акустическая вуаль',
+      office: 'Моторизованный Screen 1% для панорамного остекления',
+      status: 'Чистовой навес и отпаривание на объекте (Готовность 90%)',
+      deadline: '8 октября 2026 г.',
+      price: '3 380 000 ₸',
+      totalRaw: 3380000
+    },
+    '70': {
+      num: 'PROJECT-70',
+      prop: 'Коттедж в пос. Караоткель (360 м²)',
+      living: 'Фактурный жаккард 420 г/м² + тюль Германия с утяжелителем',
+      bedroom: 'Матовый итальянский бархат + кассетный Blackout для циркадного сна',
+      office: 'Римские шторы из натурального бельгийского льна 380 г/м²',
+      status: 'Пошив в цехе MUAR A (Готовность 75%)',
+      deadline: '18 октября 2026 г.',
+      price: '2 450 000 ₸',
+      totalRaw: 2450000
+    }
+  };
+
+  var curKpProject = KP_PROJECTS['2026-001'];
+  var curKpLightMode = 'day';
+
+  var KP_LIGHT_DATA = {
+    day: {
+      badge: '5500 K · 1200 Lux',
+      telemetry: '5500 K · 1200 Lux · Защита от УФ 99%',
+      title: 'Парадная гостиная: Мягкий рассеянный дневной свет',
+      sub: 'Немецкий тюль лён-сетка с утяжелителем рассеивает степное солнце Астаны, защищая мебель и паркет от выгорания.'
+    },
+    evening: {
+      badge: '2700 K · 350 Lux',
+      telemetry: '2700 K · 350 Lux · Теплый акцентный свет',
+      title: 'Вечерний сценарий: Теплый акцент и фактура складок Wave',
+      sub: 'Двусторонний итальянский жаккард Ardecora и бархатный кант раскрывают глубину драпировки и потайных швов при свете люстры.'
+    },
+    night: {
+      badge: '1800 K · 0 Lux · 100% Blackout',
+      telemetry: '1800 K · 0 Lux · 100% Blackout · NRC 0.85',
+      title: 'Ночной сценарий: 100% светоизоляция и акустическая тишина',
+      sub: 'Испанский велюр Aldeco с подкладкой Blackout 100% полностью блокирует свет фар проспекта и гасит комнатное эхо для глубокого сна.'
+    }
+  };
+
+  window.setKpLight = function(mode, btn) {
+    if (!KP_LIGHT_DATA[mode]) return;
+    curKpLightMode = mode;
+    var d = KP_LIGHT_DATA[mode];
+
+    document.querySelectorAll('.kp-light-btn').forEach(function(b) { b.classList.remove('active'); });
+    if (btn) btn.classList.add('active');
+
+    var pBox = document.getElementById('kpPreviewBox');
+    var pBadge = document.getElementById('kpLightBadge');
+    var pTelem = document.getElementById('kpTelemetry');
+    var pText = document.getElementById('kpLightText');
+    var pSub = document.getElementById('kpLightSub');
+
+    if (pBox) pBox.className = 'kp-preview-box ' + mode;
+    if (pBadge) pBadge.textContent = d.badge;
+    if (pTelem) pTelem.textContent = d.telemetry;
+    if (pText) pText.textContent = d.title;
+    if (pSub) pSub.textContent = d.sub;
+  };
+
+  function updateKpCardUI() {
+    var p = curKpProject;
+    var numEl = document.getElementById('kpNum');
+    var propEl = document.getElementById('kpProp');
+    var livingEl = document.getElementById('kpLivingSpec');
+    var bedEl = document.getElementById('kpBedroomSpec');
+    var offEl = document.getElementById('kpOfficeSpec');
+    var statusEl = document.getElementById('kpStatus');
+    var deadEl = document.getElementById('kpDeadline');
+    var priceEl = document.getElementById('kpPriceVal');
+    var agreeEl = document.getElementById('kpAgree');
+
+    if (numEl) numEl.textContent = p.num;
+    if (propEl) propEl.textContent = p.prop;
+    if (livingEl) livingEl.textContent = p.living;
+    if (bedEl) bedEl.textContent = p.bedroom;
+    if (offEl) offEl.textContent = p.office;
+    if (statusEl) statusEl.textContent = p.status;
+    if (deadEl) deadEl.textContent = p.deadline;
+    if (priceEl) priceEl.textContent = p.price;
+
+    var waMsg = 'Здравствуйте, MUAR A! Я ознакомился с персональным КП №' + p.num +
+      ' («' + p.prop + '», сумма ' + p.price + '). ' +
+      'Хочу согласовать дату выезда декоратора с образцами и навески.';
+    if (agreeEl) {
+      agreeEl.href = 'https://wa.me/77710551515?text=' + encodeURIComponent(waMsg);
+    }
+  }
+
+  window.openKpProject = function() {
+    var codeInput = document.getElementById('kpCode');
+    if (!codeInput) return;
+    var raw = codeInput.value.trim().toUpperCase();
+    var match = KP_PROJECTS[raw] || KP_PROJECTS[raw.replace('#', '')] || KP_PROJECTS['2026-001'];
+    curKpProject = match;
+    updateKpCardUI();
+  };
+
+  window.setKpCode = function(code) {
+    var codeInput = document.getElementById('kpCode');
+    if (codeInput) codeInput.value = code;
+    window.openKpProject();
+  };
+
+  var kpCodeInput = document.getElementById('kpCode');
+  if (kpCodeInput) {
+    kpCodeInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') window.openKpProject();
+    });
+  }
+
+  // Initial КП card setup
+  updateKpCardUI();
 
   /* Calculator Engine */
   var calcState = {
@@ -1712,9 +2816,12 @@ footer {
     curtain: 'Портьеры в пол',
     roman: 'Римская штора',
     bedspread: 'Покрывало & текстиль',
-    screen: 'Рулонные шторы Screen',
-    blackout_b2b: 'Кассетный Blackout',
-    motor: 'Электрокарниз с мотором'
+    screen: 'Рулонные шторы Screen 1–5%',
+    blackout_b2b: 'Кассетный Blackout 100%',
+    blinds_ral: 'Алюминиевые жалюзи 50 мм RAL',
+    trevira_km1: 'Негорючие шторы Trevira CS (КМ1)',
+    lift_system: 'Лифт-система карниза (до 8м)',
+    motor: 'Электрокарниз Somfy'
   };
 
   function computeTotal() {
@@ -1742,8 +2849,14 @@ footer {
         total = w * h * 24000 + (w * 12000); // рулонные шторы Screen с монтажом
       } else if (calcState.product === 'blackout_b2b') {
         total = w * h * 28000 + (w * 15000); // кассета 100% блэкаут
+      } else if (calcState.product === 'blinds_ral') {
+        total = w * h * 22000 + (w * 10000); // жалюзи алюминиевые 50 мм по RAL
+      } else if (calcState.product === 'trevira_km1') {
+        total = w * 2.2 * 32000 + (w * 14000); // негорючий текстиль Trevira CS (КМ1) со складкой
+      } else if (calcState.product === 'lift_system') {
+        total = 380000 + (w * 45000); // лифт-система карниза на тросах с мотором
       } else {
-        total = w * 32000 + 45000; // моторизованный профиль Somfy/Tuya с приводом
+        total = w * 32000 + 45000; // моторизованный профиль Somfy/Forest с приводом
       }
     }
 
@@ -1755,14 +2868,24 @@ footer {
 
     // Update WhatsApp link text
     var prodTitle = PRODUCT_NAMES[calcState.product] || 'Шторы';
-    var fabTitle = calcState.mode === 'b2c' ? FABRIC_RATES[calcState.fabric].name : 'Контрактное полотно';
+    var fabTitle = calcState.mode === 'b2c' ? FABRIC_RATES[calcState.fabric].name : 'Контрактное решение';
     var foldTitle = calcState.mode === 'b2c' && calcState.product === 'curtain' ? ('со складкой «' + FOLD_K[calcState.fold].name + '»') : '';
 
-    var waMsg = 'Здравствуйте, MUAR A! Я сделал предварительный расчет на сайте: ' +
-      prodTitle + ' ' + foldTitle + ', ' +
-      w + 'м x ' + h + 'м, ' + fabTitle + '. ' +
-      'Ориентировочная сумма: ' + rounded.toLocaleString('ru-RU') + ' ₸. ' +
-      'Хочу проконсультироваться с декоратором.';
+    var waMsg = '';
+    if (calcState.mode === 'b2b') {
+      var vatVal = Math.round(rounded * 0.12 / 1.12);
+      waMsg = 'Здравствуйте, ТОО «KazTextileА»! Я сделал предварительный B2B-расчет на сайте: ' +
+        prodTitle + ', ' +
+        w + 'м x ' + h + 'м. ' +
+        'Ориентировочная сумма: ' + rounded.toLocaleString('ru-RU') + ' ₸ (в т.ч. НДС 12%: ' + vatVal.toLocaleString('ru-RU') + ' ₸). ' +
+        'Прошу подготовить официальное КП и форму закрытия КС-2/КС-3.';
+    } else {
+      waMsg = 'Здравствуйте, MUAR A! Я сделал предварительный расчет на сайте: ' +
+        prodTitle + ' ' + foldTitle + ', ' +
+        w + 'м x ' + h + 'м, ' + fabTitle + '. ' +
+        'Ориентировочная сумма: ' + rounded.toLocaleString('ru-RU') + ' ₸. ' +
+        'Хочу проконсультироваться с декоратором.';
+    }
 
     var waBtn = document.getElementById('calcWaBtn');
     if (waBtn) {
@@ -1788,16 +2911,19 @@ footer {
       calcState.product = 'curtain';
       fabricGroup.style.display = 'block';
       foldGroup.style.display = 'block';
-      breakdownEl.textContent = 'Включает расход ткани с коэффициентом драпировки, пошив в собственном ателье по ГОСТам, шторную ленту и фурнитуру.';
+      breakdownEl.textContent = 'Включает расход ткани с коэффициентом драпировки, пошив на собственном производстве по ГОСТам, шторную ленту и фурнитуру.';
     } else {
       productGrid.innerHTML =
-        '<button class="pill-btn active" data-product="screen" onclick="selectProduct(\'screen\', this)">Рулонные шторы Screen</button>' +
-        '<button class="pill-btn" data-product="blackout_b2b" onclick="selectProduct(\'blackout_b2b\', this)">Кассетный Blackout</button>' +
-        '<button class="pill-btn" data-product="motor" onclick="selectProduct(\'motor\', this)">Электрокарниз с мотором</button>';
+        '<button class="pill-btn active" data-product="screen" onclick="selectProduct(\'screen\', this)">Screen 1–5%</button>' +
+        '<button class="pill-btn" data-product="blackout_b2b" onclick="selectProduct(\'blackout_b2b\', this)">Blackout 100%</button>' +
+        '<button class="pill-btn" data-product="blinds_ral" onclick="selectProduct(\'blinds_ral\', this)">Жалюзи 50мм RAL</button>' +
+        '<button class="pill-btn" data-product="trevira_km1" onclick="selectProduct(\'trevira_km1\', this)">Trevira CS (КМ1)</button>' +
+        '<button class="pill-btn" data-product="lift_system" onclick="selectProduct(\'lift_system\', this)">Лифт-система (до 8м)</button>' +
+        '<button class="pill-btn" data-product="motor" onclick="selectProduct(\'motor\', this)">Мотор Somfy</button>';
       calcState.product = 'screen';
       fabricGroup.style.display = 'none';
       foldGroup.style.display = 'none';
-      breakdownEl.textContent = 'Включает изготовление солнцезащитных систем, комплектующие, профессиональный беспылевой монтаж и закрывающие акты с НДС 12%.';
+      breakdownEl.textContent = 'Включает изготовление систем, комплектующие, чистовой монтаж с пылеудалением Hilti в Астане и закрывающие акты с НДС 12%.';
     }
     computeTotal();
   };
