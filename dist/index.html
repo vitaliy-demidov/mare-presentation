@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="theme-color" content="#1F3A3D">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -67,6 +70,7 @@ h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
 h3 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
 p { margin: 0; }
 .font-mono { font-family: 'JetBrains Mono', monospace; }
+.muar-a, .brand-nowrap { white-space: nowrap !important; display: inline; }
 
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 .section { padding: clamp(72px, 9vw, 130px) 0; position: relative; }
@@ -1080,9 +1084,12 @@ p { margin: 0; }
   position: relative;
 }
 .price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.8rem, 5.2vw, 4.2rem);
-  font-weight: 600;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   line-height: 1.05;
   margin: 14px 0 6px;
   position: relative;
@@ -1245,185 +1252,6 @@ p { margin: 0; }
   stroke-width: 1.5;
   z-index: 2;
   opacity: 0.95;
-}
-
-/* ACT: DIGITAL KP TERMINAL */
-#kp { background: var(--ivory); }
-.kp-shell { display: grid; grid-template-columns: 1.05fr 1fr; gap: 28px; align-items: stretch; }
-.kp-intro {
-  background: var(--petrol);
-  color: #fff;
-  border-radius: calc(var(--r) + 6px);
-  padding: clamp(32px, 3.6vw, 48px);
-  position: relative;
-  overflow: hidden;
-}
-.kp-intro h2 { color: #fff; font-size: clamp(2rem, 3.5vw, 2.8rem); }
-.kp-intro p { color: rgba(255, 255, 255, 0.76); margin-top: 16px; font-size: 0.98rem; line-height: 1.6; }
-.kp-intro ul { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
-.kp-intro li { display: flex; gap: 12px; font-size: 0.94rem; color: rgba(255, 255, 255, 0.9); }
-.kp-intro li svg { width: 18px; height: 18px; stroke: var(--gold-soft); flex: none; margin-top: 4px; }
-
-.kp-demo {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: calc(var(--r) + 6px);
-  padding: clamp(26px, 3vw, 40px);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-.code-row { display: flex; gap: 10px; flex-wrap: wrap; }
-.code-row input {
-  flex: 1;
-  min-width: 180px;
-  padding: 15px 18px;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: var(--ivory);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.code-row input:focus {
-  outline: none;
-  border-color: var(--gold);
-  box-shadow: 0 0 0 4px rgba(185, 138, 75, 0.15);
-}
-.kp-card {
-  display: none;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  overflow: hidden;
-  background: var(--ivory);
-}
-.kp-card.show { display: block; animation: fadeUp 0.6s both; }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; }
-}
-.kp-card .top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 20px;
-  background: var(--petrol);
-  color: #fff;
-  font-size: 0.85rem;
-}
-.kp-card .top .lb {
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold-soft);
-  font-weight: 700;
-}
-.kp-card .rows { padding: 18px 20px; display: grid; gap: 12px; }
-.kp-card .r { display: flex; justify-content: space-between; gap: 12px; font-size: 0.9rem; color: var(--muted); }
-.kp-card .r b { color: var(--ink); font-weight: 600; text-align: right; }
-
-/* Light Simulation Tabs inside KP */
-.kp-light-tabs {
-  margin: 0 20px 14px;
-  padding: 12px 14px;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-}
-.kp-light-title {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-.kp-light-btns { display: flex; gap: 6px; }
-.kp-light-btn {
-  flex: 1;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  border: 1px solid var(--line);
-  background: var(--ivory);
-  transition: 0.3s;
-}
-.kp-light-btn.active {
-  background: var(--petrol);
-  color: #fff;
-  border-color: var(--petrol);
-}
-.kp-preview-box {
-  position: relative;
-  margin: 0 20px 14px;
-  aspect-ratio: 16/9;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.4);
-  background: #181A1F;
-}
-.kp-preview-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.kp-preview-scrim {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  z-index: 2;
-  transition: background 0.6s ease;
-}
-.kp-preview-box.day .kp-preview-img {
-  filter: brightness(1.1) contrast(1.02) saturate(1.08);
-}
-.kp-preview-box.day .kp-preview-scrim {
-  background: linear-gradient(180deg, rgba(247, 244, 239, 0.25) 0%, rgba(20, 32, 34, 0.78) 100%);
-  color: #fff;
-}
-.kp-preview-box.evening .kp-preview-img {
-  filter: brightness(0.85) contrast(1.15) sepia(0.35) saturate(1.2);
-}
-.kp-preview-box.evening .kp-preview-scrim {
-  background: linear-gradient(180deg, rgba(185, 138, 75, 0.3) 0%, rgba(35, 22, 14, 0.85) 100%);
-  color: #fff;
-}
-.kp-preview-box.night .kp-preview-img {
-  filter: brightness(0.46) contrast(1.25) saturate(0.6) hue-rotate(185deg);
-}
-.kp-preview-box.night .kp-preview-scrim {
-  background: linear-gradient(180deg, rgba(10, 18, 20, 0.6) 0%, rgba(5, 10, 12, 0.92) 100%);
-  color: #fff;
-}
-
-.kp-card .tot {
-  margin: 0 20px 18px;
-  padding: 16px 18px;
-  border-radius: 14px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.kp-card .tot b {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.9rem;
-  color: var(--petrol);
-  font-weight: 700;
 }
 
 /* CONTACTS */
@@ -1643,7 +1471,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .header-cta .btn-insta, .header-cta .btn-wa { display: none; }
   .burger { display: flex; }
   .calc-body { grid-template-columns: 1fr; }
-  .kp-shell { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .powers-grid { grid-template-columns: 1fr; }
   .col-12, .col-8, .col-7, .col-6, .col-5, .col-4 { grid-column: span 1; }
@@ -1672,9 +1499,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .ba-scene-btn { font-size: 0.8rem; padding: 7px 14px; }
   .ba-presets { gap: 8px; }
   .ba-preset-btn { font-size: 0.78rem; padding: 6px 12px; }
-  .section { padding: clamp(48px, 8vw, 84px) 0; }
-  .motion-video-wrapper, .silk-physics-stage { height: 360px; }
-  .silk-physics-hud { padding: 14px 16px; bottom: 12px; left: 12px; right: 12px; }
+  .motion-video-wrapper { height: 360px; }
   .chips { gap: 8px; }
   .chip { padding: 8px 14px; font-size: 0.82rem; }
   .trust { gap: 10px 18px; margin-top: 28px; padding-top: 20px; }
@@ -1686,8 +1511,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .section-head h2 { font-size: 1.85rem; }
   .calc-card { padding: 20px 16px; }
   .voice-box { padding: 16px 14px; }
-  .kp-card { padding: 20px 14px; }
-  .kp-preview-box { margin: 0 10px 12px; aspect-ratio: 4/3; }
   .wrap { padding: 0 16px; }
 }
 /* ============================================================ */
@@ -1867,79 +1690,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   padding: 6px 16px;
   border-radius: 999px;
   backdrop-filter: blur(6px);
-}
-
-/* INTERACTIVE SILK STAGE */
-.silk-physics-stage {
-  position: relative;
-  width: 100%;
-  height: 540px;
-  background: radial-gradient(circle at 50% 30%, #254447 0%, #122123 70%, #0c1618 100%);
-  overflow: hidden;
-}
-#interactiveSilkCanvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  cursor: grab;
-}
-#interactiveSilkCanvas:active {
-  cursor: grabbing;
-}
-.silk-physics-hud {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  padding: 18px 24px;
-  border-radius: 18px;
-  background: rgba(14, 25, 27, 0.85);
-  border: 1px solid rgba(217, 188, 139, 0.3);
-  backdrop-filter: blur(14px);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  z-index: 2;
-}
-.hud-header b {
-  display: block;
-  font-size: 1.05rem;
-  color: var(--gold-soft);
-}
-.hud-header p {
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 2px;
-}
-.hud-controls {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.hud-controls label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.84rem;
-  color: rgba(255, 255, 255, 0.85);
-}
-.hud-controls select, .hud-controls input[type="range"] {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  font-family: inherit;
-  outline: none;
-}
-.hud-controls select option {
-  background: #14282A;
-  color: #fff;
 }
 
 /* ============================================================ */
@@ -2124,7 +1874,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .motion-tab {
     padding: 12px 16px;
   }
-  .motion-video-wrapper, .silk-physics-stage {
+  .motion-video-wrapper {
     height: 420px;
   }
 }
@@ -2497,9 +2247,12 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   margin-bottom: 6px;
 }
 .b2b-hud-price {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 3rem;
-  font-weight: 700;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   line-height: 1;
   color: var(--white);
 }
@@ -2708,13 +2461,14 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <path d="M21 29.5C29 35.5 40 34.5 48 27.5"/>
         <circle cx="16.5" cy="20.2" r="1.5" fill="currentColor" stroke="none"/>
       </svg>
-      <span class="logo-word"><b>MUAR A</b><i>салон интерьерного текстиля · астана</i></span>
+      <span class="logo-word"><b><span class="muar-a">MUAR&nbsp;A</span></b><i>салон интерьерного текстиля · астана</i></span>
     </a>
 
     <nav class="nav" aria-label="Основная навигация">
       <a href="#calculator">Калькулятор</a>
       <a href="#projects">Проекты</a>
-      <a href="#kp">Цифровое КП</a>
+      <a href="#cinematics">Видео цеха</a>
+      <a href="#b2b">B2B отдел</a>
       <a href="#contacts">Контакты</a>
     </nav>
 
@@ -2739,10 +2493,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <div class="mobile-menu" id="mobileMenu">
   <a href="#calculator">Калькулятор & Voice AI</a>
   <a href="#projects">Реализованные проекты</a>
-  <a href="#kp">Цифровое КП</a>
-  <a href="#contacts">Контакты и шоурум</a>
   <a href="#beforeAfter">Портфолио (До и После)</a>
-  <a href="#cinematics">Собственный цех</a>
+  <a href="#cinematics">Собственный цех в движении</a>
+  <a href="#b2b">Корпоративным клиентам (B2B)</a>
+  <a href="#contacts">Контакты и шоурум</a>
   <div style="display:flex; gap:10px; margin-top:20px;">
     <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" class="btn btn-insta" style="flex:1; justify-content:center;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -3094,8 +2848,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <div>
           <div class="b2b-hud-head">
             <div class="b2b-hud-title">Ориентировочный бюджет проекта под ключ</div>
-            <div class="b2b-hud-price" id="hudTotal">0 ₸</div>
-            <div class="b2b-hud-vat-note" id="hudVatLine">Включая официальный НДС 12%: 0 ₸</div>
+            <div class="b2b-hud-price" id="hudTotal">6 741 773 ₸</div>
+            <div class="b2b-hud-vat-note" id="hudVatLine">Включая официальный НДС 12%: 722 333 ₸</div>
           </div>
 
           <!-- Telemetry Parameters -->
@@ -3110,7 +2864,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </div>
             <div class="b2b-telemetry-cell">
               <span class="t-lbl">Акустический индекс</span>
-              <span class="t-val" id="hudNrc">NRC 0.82 (Класс А)</span>
+              <span class="t-val" id="hudNrc">NRC 0.35 (Фасад)</span>
             </div>
             <div class="b2b-telemetry-cell">
               <span class="t-lbl">Пожарный класс МЧС</span>
@@ -3122,23 +2876,23 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <div class="b2b-breakdown-list">
             <div class="b2b-breakdown-row">
               <span>Материал и раскрой полотна:</span>
-              <b id="hudRowFabric">0 ₸</b>
+              <b id="hudRowFabric">4 776 755 ₸</b>
             </div>
             <div class="b2b-breakdown-row">
               <span>Моторизация и профили:</span>
-              <b id="hudRowMotors">0 ₸</b>
+              <b id="hudRowMotors">1 332 800 ₸</b>
             </div>
             <div class="b2b-breakdown-row">
               <span>Монтаж и пусконаладка (Астана):</span>
-              <b id="hudRowInstall">0 ₸</b>
+              <b id="hudRowInstall">632 218 ₸</b>
             </div>
             <div class="b2b-breakdown-row">
               <span>Входящий НДС 12% к вычету:</span>
-              <b id="hudRowVat" style="color: var(--gold-soft);">0 ₸</b>
+              <b id="hudRowVat" style="color: var(--gold-soft);">722 333 ₸</b>
             </div>
             <div class="b2b-breakdown-row">
               <span>Итого по смете:</span>
-              <b id="hudRowSum">0 ₸</b>
+              <b id="hudRowSum">6 741 773 ₸</b>
             </div>
           </div>
         </div>
@@ -3293,7 +3047,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <span class="eyebrow c">Наглядное преображение</span>
       <h2>От голого бетона новостройки — <span class="serif-accent">до тихой роскоши</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Потяните ползунок или переключайте сцены: посмотрите, как текстильная архитектура MUAR A преображает панорамные окна в резиденциях Астаны.
+        Потяните ползунок или переключайте сцены: посмотрите, как текстильная архитектура <span class="muar-a">MUAR&nbsp;A</span> преображает панорамные окна в резиденциях Астаны.
       </p>
     </div>
 
@@ -3314,7 +3068,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <!-- AFTER Layer -->
         <div class="ba-layer ba-after" id="splitAfterLayer">
           <img src="assets/muar/after_real_aligned.webp" alt="После: кутюрные шторы MUAR A" id="baImgAfter" loading="lazy">
-          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Кутюрные портьеры MUAR A · Волна 2.2x</span>
+          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Кутюрные портьеры <span class="muar-a">MUAR&nbsp;A</span> · Волна 2.2x</span>
         </div>
 
         <!-- Divider Handle -->
@@ -3329,7 +3083,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <div class="ba-presets">
         <button class="ba-preset-btn" onclick="setSplitPos(0, this)">🔲 Без штор (Бетон)</button>
         <button class="ba-preset-btn active" onclick="setSplitPos(50, this)">↔ 50% Сравнение</button>
-        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">✨ Со шторами MUAR A</button>
+        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">✨ Со шторами <span class="muar-a">MUAR&nbsp;A</span></button>
       </div>
     </div>
   </div>
@@ -3342,9 +3096,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   <div class="wrap">
     <div class="section-head center">
       <span class="eyebrow c">Безупречное качество и факты</span>
-      <h2>7 сил <span class="serif-accent">интерьерного текстиля MUAR A</span></h2>
+      <h2>7 сил <span class="serif-accent">интерьерного текстиля <span class="muar-a">MUAR&nbsp;A</span></span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Факты и стандарты, благодаря которым владельцы премиальной недвижимости в Астане и ведущие архитекторы выбирают MUAR A с 2014 года.
+        Факты и стандарты, благодаря которым владельцы премиальной недвижимости в Астане и ведущие архитекторы выбирают <span class="muar-a">MUAR&nbsp;A</span> с 2014 года.
       </p>
     </div>
 
@@ -3441,7 +3195,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           </p>
         </div>
         <div class="power-meta">
-          <span>✓ Школа пошива MUAR A</span>
+          <span>✓ Школа пошива <span class="muar-a">MUAR&nbsp;A</span></span>
           <span>✓ Обучение мастеров со всего Казахстана</span>
         </div>
       </article>
@@ -3453,7 +3207,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <span class="p-badge" style="background: var(--gold); color: #fff;">ГОСТы Республики Казахстан</span>
           <h3>Пошив по ГОСТам РК и официальная маркировка продукции</h3>
           <p>
-            Шьем строго по государственным стандартам и маркируем каждое изделие. Команда MUAR A лично принимала участие в разработке стандартов текстильной отрасли Республики Казахстан.
+            Шьем строго по государственным стандартам и маркируем каждое изделие. Команда <span class="muar-a">MUAR&nbsp;A</span> лично принимала участие в разработке стандартов текстильной отрасли Республики Казахстан.
           </p>
         </div>
         <div class="power-meta" style="justify-content: space-between; align-items: center;">
@@ -3471,7 +3225,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <section class="section section-motion" id="cinematics">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:16px;height:16px"><polygon points="5 3 19 12 5 21 5 3"/></svg> MUAR A в движении</span>
+      <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:16px;height:16px"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span class="muar-a">MUAR&nbsp;A</span> в движении</span>
       <h2>Текстиль <span class="serif-accent">в кинематике и свет</span></h2>
       <p class="lead">Шторы — это живая архитектура пространства. Почувствуйте пластику драпировок, инженерную моторизацию высоких проёмов 5–8 м и стандарты собственного пошивочного цеха в Астане.</p>
     </div>
@@ -3495,15 +3249,15 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <button class="motion-tab" onclick="switchMotionVideo('powers', this)">
           <span class="motion-tab-icon">👑</span>
           <div class="motion-tab-text">
-            <b>7 сил студии MUAR A</b>
+            <b>7 сил студии <span class="muar-a">MUAR&nbsp;A</span></b>
             <small>Видеопрезентация масштаба</small>
           </div>
         </button>
-        <button class="motion-tab" onclick="switchMotionVideo('physics', this)">
-          <span class="motion-tab-icon">✨</span>
+        <button class="motion-tab" onclick="switchMotionVideo('journey', this)">
+          <span class="motion-tab-icon">🎬</span>
           <div class="motion-tab-text">
-            <b>Физика цифрового шёлка</b>
-            <small>Интерактивная волна в реальном времени</small>
+            <b>Путь заказа под ключ</b>
+            <small>От замера до навески в резиденции</small>
           </div>
         </button>
       </div>
@@ -3517,7 +3271,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </video>
             <div class="motion-overlay">
               <div class="motion-badge">
-                <span class="live-dot"></span> Собственный цех MUAR A в Астане · Мастер Марал
+                <span class="live-dot"></span> Собственный цех <span class="muar-a">MUAR&nbsp;A</span> в Астане · Мастер Марал
               </div>
               <div class="motion-controls" onclick="event.stopPropagation()">
                 <button class="motion-ctrl-btn" onclick="togglePlayPause('videoAtelier', this)" id="btnPlayAtelier" title="Пауза / Старт">
@@ -3540,7 +3294,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </video>
             <div class="motion-overlay">
               <div class="motion-badge">
-                <span class="live-dot"></span> Реальный объект MUAR A · Лифт-система Somfy
+                <span class="live-dot"></span> Реальный объект <span class="muar-a">MUAR&nbsp;A</span> · Лифт-система Somfy
               </div>
               <div class="motion-controls" onclick="event.stopPropagation()">
                 <button class="motion-ctrl-btn" onclick="togglePlayPause('videoVilla', this)" id="btnPlayVilla" title="Пауза / Старт">
@@ -3563,7 +3317,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </video>
             <div class="motion-overlay">
               <div class="motion-badge">
-                <span class="live-dot"></span> Презентация бренда · 7 Сил MUAR A
+                <span class="live-dot"></span> Презентация бренда · 7 Сил <span class="muar-a">MUAR&nbsp;A</span>
               </div>
               <div class="motion-controls" onclick="event.stopPropagation()">
                 <button class="motion-ctrl-btn" onclick="togglePlayPause('videoPowers', this)" id="btnPlayPowers" title="Пауза / Старт">
@@ -3578,29 +3332,24 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           </div>
         </div>
 
-        <!-- Interactive 4: Interactive Silk Physics Canvas -->
-        <div class="motion-player-view" id="motionViewPhysics">
-          <div class="silk-physics-stage">
-            <canvas id="interactiveSilkCanvas"></canvas>
-            <div class="silk-physics-hud">
-              <div class="hud-header">
-                <b>Интерактивная волна шёлка MUAR A</b>
-                <p>Проведите пальцем или курсором по холсту, чтобы передать кинетический импульс ткани</p>
+        <!-- Video 4: Order Journey (Real Studio Process) -->
+        <div class="motion-player-view" id="motionViewJourney">
+          <div class="motion-video-wrapper" onclick="togglePlayPause('videoJourney')">
+            <video id="videoJourney" muted loop playsinline poster="assets/muar/order-journey-poster.jpg">
+              <source src="assets/muar/order-journey.mp4" type="video/mp4">
+            </video>
+            <div class="motion-overlay">
+              <div class="motion-badge">
+                <span class="live-dot"></span> Студия <span class="muar-a">MUAR&nbsp;A</span> · Реальный путь одного заказа
               </div>
-              <div class="hud-controls">
-                <label>
-                  <span>Плотность ткани:</span>
-                  <select id="silkFabricType" onchange="updateSilkPhysics(this.value)">
-                    <option value="chiffon">Шифон / Вуаль (Ультралегкая)</option>
-                    <option value="silk" selected>Итальянский шёлк Dedar</option>
-                    <option value="velvet">Тяжёлый бархат Pierre Frey</option>
-                  </select>
-                </label>
-                <label>
-                  <span>Скорость ветра:</span>
-                  <input type="range" id="silkWindSpeed" min="1" max="10" value="4" oninput="changeSilkWind(this.value)">
-                </label>
-                <button class="btn btn-sm btn-gold-ghost" onclick="triggerSilkPulse()" style="border: 1px solid var(--gold); color: var(--gold-soft); padding: 6px 14px; border-radius: 8px;">Импульс бриза</button>
+              <div class="motion-controls" onclick="event.stopPropagation()">
+                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoJourney', this)" id="btnPlayJourney" title="Пауза / Старт">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+                <button class="motion-ctrl-btn" onclick="toggleSound('videoJourney', this)" id="btnSoundJourney" title="Звук">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+                <div class="motion-tagline">От выезда дизайнера с образцами до финального отпаривания и кутюрной навески</div>
               </div>
             </div>
           </div>
@@ -3771,7 +3520,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </div>
 
             <div style="background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px;">
-              <span style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; display: block; margin-bottom: 6px;">Юридический пакет MUAR A для бизнеса:</span>
+              <span style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; display: block; margin-bottom: 6px;">Юридический пакет <span class="muar-a">MUAR&nbsp;A</span> для бизнеса:</span>
               <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
                 Работаем по официальному договору на ОСНО с НДС 12%. Предоставляем сертификаты МЧС (Класс КМ1), протоколы испытаний и закрывающие строительные акты КС-2 / КС-3 через ЭДО за 24 часа.
               </p>
@@ -3783,10 +3532,18 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <!-- RIGHT: RESULTS & VOICE AI -->
         <aside class="calc-result">
           <span class="r-lbl" id="resTitleLabel">Предварительная смета под ключ</span>
-          <div class="price" id="priceOut" data-v="0">0 ₸</div>
+          <div class="price" id="priceOut" data-v="508800">508 800 ₸</div>
           <p class="r-note" id="modeNote">Режим: для дома (B2C)</p>
 
-          <div class="r-break" id="breakdown"></div>
+          <div class="r-break" id="breakdown">
+            <div class="r-line"><span>Изделие</span><span class="dots"></span><b>Портьеры в пол</b></div>
+            <div class="r-line"><span>Ткань</span><span class="dots"></span><b>Бельгия: Шенилл Wind</b></div>
+            <div class="r-line"><span>Складка</span><span class="dots"></span><b>Волна (Wave) (расход 1:2.0)</b></div>
+            <div class="r-line"><span>Расход полотна</span><span class="dots"></span><b>12,8 пог. м</b></div>
+            <div class="r-line"><span>Габариты</span><span class="dots"></span><b>3,2 × 2,8 м · 2 шт.</b></div>
+            <div class="r-line"><span>Цеховой пошив & навес</span><span class="dots"></span><b>73 600 ₸</b></div>
+            <div class="r-line"><span>Французская вуаль</span><span class="dots"></span><b>121 600 ₸</b></div>
+          </div>
 
           <div class="r-actions">
             <button class="btn btn-wa btn-block" id="calcWa">
@@ -3837,7 +3594,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <span class="eyebrow c">Реализованные проекты</span>
       <h2>Проекты, <span class="serif-accent">которые говорят сами</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Премиальные жилые комплексы и корпоративные резиденции в Астане — оформленные тканями и потайными швами MUAR A.
+        Премиальные жилые комплексы и корпоративные резиденции в Астане — оформленные тканями и потайными швами <span class="muar-a">MUAR&nbsp;A</span>.
       </p>
     </div>
 
@@ -3963,91 +3720,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </section>
 
 <!-- ============================================================ -->
-<!-- ACT 9: ЦИФРОВОЕ КП ПО КОДУ СО СВЕТОВЫМИ СЦЕНАРИЯМИ          -->
-<!-- ============================================================ -->
-<section class="section" id="kp">
-  <div class="wrap">
-    <div class="kp-shell">
-      <div class="kp-intro reveal">
-        <span class="eyebrow" style="color:var(--gold-soft)">VIP-Консьерж по коду</span>
-        <h2>Персональное коммерческое предложение</h2>
-        <p>
-          Мы не отправляем заказчикам устаревшие PDF-файлы. Введите персональный код вашего объекта, чтобы открыть интерактивное досье: ткани, размеры, световые сценарии интерьера и согласование в один клик.
-        </p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Точный расчет и состав текстильного проекта</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Выбранные мануфактуры, ткани и геометрия складок</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Симуляция световых сценариев: День / Вечер / Blackout</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>Прямое утверждение проекта в WhatsApp</li>
-        </ul>
-      </div>
-
-      <div class="kp-demo reveal">
-        <div>
-          <span class="f-label" style="color:var(--gold)">Открыть закрытое досье проекта</span>
-          <div class="code-row">
-            <input id="kpCode" type="text" placeholder="Введите код (напр. 70 или VILLA-ASTANA)" aria-label="Код проекта">
-            <button class="btn btn-petrol" id="kpOpen">Открыть КП</button>
-          </div>
-        </div>
-
-        <div class="kp-card" id="kpCard">
-          <div class="top">
-            <span class="lb">Коммерческое предложение</span>
-            <span>№ <b id="kpNum">70</b></span>
-          </div>
-          
-          <div class="rows">
-            <div class="r"><span>Объект</span><b id="kpName">Резиденция, пос. Саранда (480 м²)</b></div>
-            <div class="r"><span>Мануфактура</span><b>Sheenel, производство Бельгия</b></div>
-            <div class="r"><span>Складка</span><b>«Волна» 1:2.0 на электрокарнизе Somfy</b></div>
-            <div class="r"><span>Параметры</span><b>3,2 × 2,8 м · 2 окна</b></div>
-            <div class="r"><span>Статус цеха</span><b style="color:#1F7A55;">Готовность 75% · Пошив в цехе</b></div>
-          </div>
-
-          <!-- Light simulation -->
-          <div class="kp-light-tabs">
-            <div class="kp-light-title">Световой сценарий интерьера:</div>
-            <div class="kp-light-btns">
-              <button class="kp-light-btn active" onclick="setKpLight('day', this)">☀️ День</button>
-              <button class="kp-light-btn" onclick="setKpLight('evening', this)">🌆 Вечер</button>
-              <button class="kp-light-btn" onclick="setKpLight('night', this)">🌙 Ночь (Blackout)</button>
-            </div>
-          </div>
-
-          <div class="kp-preview-box day" id="kpPreviewBox">
-            <img src="assets/muar/hero-interior.webp" alt="Превью интерьера MUAR A" class="kp-preview-img" id="kpPreviewImg">
-            <div class="kp-preview-scrim">
-              <div style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:700;" id="kpLightText">
-                Парадная гостиная: Рассеянный дневной свет
-              </div>
-              <div style="font-size:0.8rem; opacity:0.8; margin-top:3px;" id="kpLightSub">
-                Бельгийский шенилл с вуалью фильтрует яркое степное солнце
-              </div>
-            </div>
-          </div>
-
-          <div class="tot">
-            <span>Итоговая смета с монтажом:</span>
-            <b id="kpPriceVal">348 000 ₸</b>
-          </div>
-
-          <div style="padding: 0 20px 20px;">
-            <a class="btn btn-wa btn-block" id="kpAgree" href="#" target="_blank" rel="noopener noreferrer">
-              Утвердить проект в WhatsApp
-            </a>
-          </div>
-        </div>
-
-        <p style="font-size: 0.76rem; color: var(--muted); line-height: 1.4;">
-          Демонстрационный терминал. Введите любой номер (например: <strong>70</strong>, <strong>140</strong> или <strong>VILLA</strong>) для проверки работы.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
 <!-- ACT 10: ЗАЯВКА И КОНТАКТЫ                                    -->
 <!-- ============================================================ -->
 <section class="section" id="contacts">
@@ -4087,7 +3759,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         </div>
         <p class="form-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-          Заявка мгновенно транслируется дежурному текстильному декоратору MUAR A.
+          Заявка мгновенно транслируется дежурному текстильному декоратору <span class="muar-a">MUAR&nbsp;A</span>.
         </p>
       </form>
 
@@ -4134,7 +3806,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             <path d="M21 29.5C29 35.5 40 34.5 48 27.5"/>
             <circle cx="16.5" cy="20.2" r="1.5" fill="currentColor" stroke="none"/>
           </svg>
-          <span class="logo-word"><b>MUAR A</b><i>салон интерьерного текстиля · астана</i></span>
+          <span class="logo-word"><b><span class="muar-a">MUAR&nbsp;A</span></b><i>салон интерьерного текстиля · астана</i></span>
         </a>
         <p class="f-desc">
           Топ-50 мировых декораторов. 12 лет безупречного текстильного оформления резиденций и контрактных объектов в Астане. Собственный цех по ГОСТам РК, прямые поставки мануфактур Европы, 3D-моделирование и 10% кэшбэк дизайнерам.
@@ -4151,7 +3823,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <ul>
           <li><a href="#flows">Форматы (Частным лицам & B2B)</a></li>
           <li><a href="#beforeAfter">До и После</a></li>
-          <li><a href="#powers">7 сил MUAR A</a></li>
+          <li><a href="#powers">7 сил <span class="muar-a">MUAR&nbsp;A</span></a></li>
           <li><a href="#cinematics">Собственный цех</a></li>
           <li><a href="#calculator">Калькулятор и Voice AI</a></li>
         </ul>
@@ -4161,7 +3833,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <h5>Сервисы</h5>
         <ul>
           <li><a href="javascript:void(0)" onclick="openSamplerModal()">Чемодан 50 кг образцов</a></li>
-          <li><a href="#kp">Цифровое VIP-досье</a></li>
+          <li><a href="#cinematics">Видео-портфолио цеха</a></li>
           <li><a href="javascript:void(0)" onclick="openWhatsAppForRole('designer')">Дизайнерский Клуб (10%)</a></li>
           <li><a href="#calculator" onclick="setMode('b2b')">B2B отдел с НДС 12%</a></li>
           <li><a href="#projects">Галерея проектов</a></li>
@@ -4181,7 +3853,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
 
     <div class="f-bot">
-      <span>© 2014–2026 MUAR A (ТОО «KazTextileА»). Все права защищены.</span>
+      <span>© 2014–2026 <span class="muar-a">MUAR&nbsp;A</span> (ТОО «KazTextileА»). Все права защищены.</span>
       <span>Сделано с вниманием к текстильному мастерству.</span>
     </div>
   </div>
@@ -4248,7 +3920,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         МС
       </div>
       <div>
-        <div style="font-weight:700; font-size:1rem; color:var(--ink);">MUAR A Консьерж · Астана</div>
+        <div style="font-weight:700; font-size:1rem; color:var(--ink);"><span class="muar-a">MUAR&nbsp;A</span> Консьерж · Астана</div>
         <div style="font-size:0.8rem; color:#1F7A55; display:flex; align-items:center; gap:6px;">
           <span class="pulse-dot"></span> Сейчас онлайн
         </div>
@@ -4288,7 +3960,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <!-- ============================================================ -->
 <!-- SCRIPTS                                                      -->
 <!-- ============================================================ -->
-<script src="crm-lead-dispatcher.js">
+<script src="crm-lead-dispatcher.js"></script>
+<script>
   // ============================================================
   // B2B ARCHITECTURAL QUOTE CARD & RFP ENGINE
   // ============================================================
@@ -4503,7 +4176,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     if(sStage) sStage.value = 'rough';
   };
 
-  // Init on DOM ready
+  // Init immediate and on DOM ready
+  try { if(typeof window.recalcB2B === 'function') window.recalcB2B(); } catch(e){}
   document.addEventListener('DOMContentLoaded', function() {
     if(typeof window.recalcB2B === 'function') {
       window.recalcB2B();
@@ -5240,56 +4914,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   });
 
   /* ------------------------------------------------------------- */
-  /* DIGITAL KP TERMINAL                                           */
-  /* ------------------------------------------------------------- */
-  var kpDossiers = [
-    { title:'Резиденция, пос. Саранда (480 м²)', price:'348 000 ₸', fabric:'Sheenel (Бельгия)', pleat:'«Волна» 1:2.0 на Somfy', dims:'3,2 × 2,8 м · 2 окна' },
-    { title:'Пентхаус, ЖК Talan Towers (320 м²)', price:'580 000 ₸', fabric:'Дикий шелк Dedar (Италия)', pleat:'Французская тройная', dims:'4,0 × 3,2 м · 3 окна' },
-    { title:'Апартаменты, ЖК Highvill Prime (210 м²)', price:'295 000 ₸', fabric:'Бархат Rubelli (Италия)', pleat:'«Волна» 1:2.0', dims:'2,8 × 2,8 м · 2 окна' },
-    { title:'Штаб-квартира, БЦ «Есиль» (B2B Контракт)', price:'840 000 ₸', fabric:'Somfy Screen 5% + Trevira CS (КМ1)', pleat:'Кассетные системы', dims:'12 проемов · с НДС 12%' }
-  ];
-
-  $('#kpOpen').addEventListener('click', function(){
-    var code = ($('#kpCode').value || '').trim();
-    if(!code){
-      $('#kpCode').focus();
-      $('#kpCode').style.borderColor = 'var(--gold)';
-      return;
-    }
-    $('#kpNum').textContent = code.toUpperCase().replace(/[^0-9A-ZА-Я-]/g, '').slice(0, 10) || '70';
-    var hash = Math.abs(code.split('').reduce(function(a,c){ return a + c.charCodeAt(0); }, 0));
-    var item = kpDossiers[hash % kpDossiers.length];
-
-    $('#kpName').textContent = item.title;
-    $('#kpPriceVal').textContent = item.price;
-    $('#kpCard').classList.add('show');
-
-    var msg = 'Здравствуйте! Я ознакомился с персональным КП №' + $('#kpNum').textContent + ' («' + item.title + '», ' + item.price + '). Хочу согласовать дату выезда/монтажа.';
-    $('#kpAgree').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
-  });
-  $('#kpCode').addEventListener('keydown', function(e){ if(e.key === 'Enter') $('#kpOpen').click(); });
-
-  window.setKpLight = function(mode, btn){
-    $$('.kp-light-btn').forEach(function(b){ b.classList.remove('active'); });
-    if(btn) btn.classList.add('active');
-    var pBox = $('#kpPreviewBox');
-    var pText = $('#kpLightText');
-    var pSub = $('#kpLightSub');
-    pBox.className = 'kp-preview-box ' + mode;
-    if(mode === 'day'){
-      pText.textContent = 'Парадная гостиная: Рассеянный дневной свет';
-      if(pSub) pSub.textContent = 'Бельгийский шенилл с вуалью мягко рассеивает яркое степное солнце Астаны';
-    } else if(mode === 'evening'){
-      pText.textContent = 'Теплый вечерний сценарий: Драпировка потайного шва';
-      if(pSub) pSub.textContent = 'Мягкий золотистый свет подчеркивает рельеф складок и глубину итальянского бархата';
-    } else {
-      pText.textContent = 'Ночной сценарий: 100% Blackout и акустическая тишина';
-      if(pSub) pSub.textContent = 'Полное затемнение от уличных огней проспекта Мәңгілік Ел и поглощение эха';
-    }
-    haptic();
-  };
-
-  /* ------------------------------------------------------------- */
   /* LEAD FORM SUBMISSION                                          */
   /* ------------------------------------------------------------- */
   $('#leadForm').addEventListener('submit', function(e){
@@ -5319,10 +4943,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   window.closeSamplerModal = function(){ $('#samplerModal').classList.remove('open'); };
   window.openWhatsAppModal = function(){ $('#whatsAppModal').classList.add('open'); };
   window.closeWhatsAppModal = function(){ $('#whatsAppModal').classList.remove('open'); };
-  window.openKPModal = function(){
-    scrollToId('kp');
-    $('#kpCode').focus();
-  };
 
   window.handleSamplerSubmit = function(e){
     e.preventDefault();
@@ -5384,14 +5004,15 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var vAtelier = document.getElementById('motionViewAtelier');
     var vVilla = document.getElementById('motionViewVilla');
     var vPowers = document.getElementById('motionViewPowers');
-    var vPhysics = document.getElementById('motionViewPhysics');
+    var vJourney = document.getElementById('motionViewJourney');
 
     var vidAtelier = document.getElementById('videoAtelier');
     var vidVilla = document.getElementById('videoVilla');
     var vidPowers = document.getElementById('videoPowers');
+    var vidJourney = document.getElementById('videoJourney');
 
-    var allViews = [vAtelier, vVilla, vPowers, vPhysics];
-    var allVideos = [vidAtelier, vidVilla, vidPowers];
+    var allViews = [vAtelier, vVilla, vPowers, vJourney];
+    var allVideos = [vidAtelier, vidVilla, vidPowers, vidJourney];
 
     allViews.forEach(function(v){ if(v) v.classList.remove('active'); });
     allVideos.forEach(function(vd){ if(vd) vd.pause(); });
@@ -5402,10 +5023,12 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var bAtelier = document.getElementById('btnPlayAtelier');
     var bVilla = document.getElementById('btnPlayVilla');
     var bPowers = document.getElementById('btnPlayPowers');
+    var bJourney = document.getElementById('btnPlayJourney');
 
     if(bAtelier) bAtelier.innerHTML = pSvg;
     if(bVilla) bVilla.innerHTML = pSvg;
     if(bPowers) bPowers.innerHTML = pSvg;
+    if(bJourney) bJourney.innerHTML = pSvg;
 
     if(tab === 'atelier' && vAtelier){
       vAtelier.classList.add('active');
@@ -5428,9 +5051,13 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           if(bPowers) bPowers.innerHTML = pauseSvg;
         }).catch(function(){});
       }
-    } else if(tab === 'physics' && vPhysics){
-      vPhysics.classList.add('active');
-      initInteractiveSilk();
+    } else if(tab === 'journey' && vJourney){
+      vJourney.classList.add('active');
+      if(vidJourney) {
+        vidJourney.play().then(function(){
+          if(bJourney) bJourney.innerHTML = pauseSvg;
+        }).catch(function(){});
+      }
     }
     haptic();
   };
@@ -5442,6 +5069,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       if(id === 'videoAtelier') btn = document.getElementById('btnPlayAtelier');
       else if(id === 'videoVilla') btn = document.getElementById('btnPlayVilla');
       else if(id === 'videoPowers') btn = document.getElementById('btnPlayPowers');
+      else if(id === 'videoJourney') btn = document.getElementById('btnPlayJourney');
     }
     if(vid.paused){
       vid.play().then(function(){
@@ -5465,150 +5093,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     }
     haptic();
   };
-
-  /* ------------------------------------------------------------- */
-  /* INTERACTIVE SILK PHYSICS ENGINE                                */
-  /* ------------------------------------------------------------- */
-  var silkCtx = null;
-  var silkCanvas = null;
-  var silkAnimId = null;
-  var silkTime = 0;
-  var silkWind = 4;
-  var silkDensity = 'silk';
-  var silkWidth = 0;
-  var silkHeight = 0;
-  var impulsePoints = [];
-
-  function initInteractiveSilk(){
-    silkCanvas = document.getElementById('interactiveSilkCanvas');
-    if(!silkCanvas) return;
-    silkCtx = silkCanvas.getContext('2d');
-    resizeSilkCanvas();
-
-    function resizeSilkCanvas(){
-      if(!silkCanvas) return;
-      var rect = silkCanvas.getBoundingClientRect();
-      silkWidth = rect.width || 800;
-      silkHeight = rect.height || 540;
-      silkCanvas.width = silkWidth * window.devicePixelRatio;
-      silkCanvas.height = silkHeight * window.devicePixelRatio;
-      silkCtx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    }
-    window.addEventListener('resize', resizeSilkCanvas);
-
-    function handlePointer(e){
-      var rect = silkCanvas.getBoundingClientRect();
-      var clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      var clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      var x = clientX - rect.left;
-      var y = clientY - rect.top;
-      impulsePoints.push({ x: x, y: y, strength: 35, life: 1.0 });
-      if(impulsePoints.length > 20) impulsePoints.shift();
-    }
-    silkCanvas.onmousemove = handlePointer;
-    silkCanvas.ontouchmove = function(e){ handlePointer(e); e.preventDefault(); };
-
-    if(!silkAnimId){
-      renderSilkLoop();
-    }
-  }
-
-  window.updateSilkPhysics = function(val){
-    silkDensity = val;
-  };
-
-  window.changeSilkWind = function(val){
-    silkWind = parseFloat(val) || 4;
-  };
-
-  window.triggerSilkPulse = function(){
-    for(var i = 0; i < 5; i++){
-      impulsePoints.push({
-        x: Math.random() * silkWidth,
-        y: Math.random() * silkHeight,
-        strength: 55,
-        life: 1.2
-      });
-    }
-    haptic();
-  };
-
-  function renderSilkLoop(){
-    if(!silkCtx || !silkCanvas) return;
-
-    var speedMultiplier = (silkWind / 4) * 0.025;
-    if(silkDensity === 'chiffon') speedMultiplier *= 1.4;
-    if(silkDensity === 'velvet') speedMultiplier *= 0.6;
-    silkTime += speedMultiplier;
-
-    silkCtx.clearRect(0, 0, silkWidth, silkHeight);
-
-    // Update impulses
-    for(var p = 0; p < impulsePoints.length; p++){
-      impulsePoints[p].life -= 0.02;
-    }
-    impulsePoints = impulsePoints.filter(function(pt){ return pt.life > 0; });
-
-    // Draw luxury silk pleats / vertical folds
-    var folds = silkDensity === 'chiffon' ? 42 : (silkDensity === 'velvet' ? 24 : 32);
-    var colWidth = silkWidth / folds;
-
-    for(var i = 0; i < folds; i++){
-      var xBase = i * colWidth;
-      silkCtx.beginPath();
-      silkCtx.moveTo(xBase, 0);
-
-      var steps = 18;
-      for(var j = 0; j <= steps; j++){
-        var y = (j / steps) * silkHeight;
-        var progressY = j / steps;
-
-        // Wave formula
-        var freq = silkDensity === 'velvet' ? 2.5 : 4.0;
-        var wave1 = Math.sin(progressY * freq + silkTime + i * 0.28) * (18 * (progressY + 0.3));
-        var wave2 = Math.cos(progressY * (freq * 0.6) - silkTime * 0.8) * (10 * progressY);
-
-        // Impulse offset
-        var impOffset = 0;
-        for(var k = 0; k < impulsePoints.length; k++){
-          var ipt = impulsePoints[k];
-          var dist = Math.hypot(ipt.x - xBase, ipt.y - y);
-          if(dist < 180){
-            impOffset += Math.sin(dist * 0.05 - ipt.life * 4) * ipt.strength * ipt.life * (1 - dist / 180);
-          }
-        }
-
-        var totalX = xBase + wave1 + wave2 + impOffset;
-        if(j === 0) silkCtx.moveTo(totalX, y);
-        else silkCtx.lineTo(totalX, y);
-      }
-
-      silkCtx.lineTo(xBase + colWidth * 1.2, silkHeight);
-      silkCtx.lineTo(xBase + colWidth * 1.2, 0);
-      silkCtx.closePath();
-
-      // Shading based on fold depth
-      var shade = Math.sin(i * 0.45 + silkTime);
-      var alpha = 0.12 + (shade + 1) * 0.14;
-      if(silkDensity === 'velvet') alpha *= 1.3;
-
-      var grad = silkCtx.createLinearGradient(xBase, 0, xBase + colWidth, silkHeight);
-      if(i % 2 === 0){
-        grad.addColorStop(0, 'rgba(217, 188, 139, ' + (alpha * 0.7) + ')');
-        grad.addColorStop(0.5, 'rgba(185, 138, 75, ' + (alpha * 0.9) + ')');
-        grad.addColorStop(1, 'rgba(31, 58, 61, ' + (alpha * 1.1) + ')');
-      } else {
-        grad.addColorStop(0, 'rgba(44, 78, 82, ' + (alpha * 0.6) + ')');
-        grad.addColorStop(0.5, 'rgba(20, 40, 42, ' + (alpha * 0.85) + ')');
-        grad.addColorStop(1, 'rgba(12, 22, 24, ' + (alpha * 1.2) + ')');
-      }
-
-      silkCtx.fillStyle = grad;
-      silkCtx.fill();
-    }
-
-    silkAnimId = requestAnimationFrame(renderSilkLoop);
-  }
 
   /* ------------------------------------------------------------- */
   /* SCROLL REVEAL & 3D CARD TILT                                   */
@@ -5717,7 +5201,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   <div class="pwa-banner-content">
     <img src="icon-192.png" alt="MUAR A App" class="pwa-app-icon">
     <div>
-      <div class="pwa-app-title">Приложение MUAR A Астана</div>
+      <div class="pwa-app-title">Приложение <span class="muar-a">MUAR&nbsp;A</span> Астана</div>
       <div class="pwa-app-desc">Быстрый расчет штор, каталог тканей и вызов замерщика offline</div>
     </div>
   </div>
