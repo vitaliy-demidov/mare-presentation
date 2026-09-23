@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mare-cache-v1.0';
+const CACHE_NAME = 'muar-a-v2.0';
 const PRECACHE_URLS = [
   './',
   './index.html',
@@ -6,9 +6,10 @@ const PRECACHE_URLS = [
   './icon-192.png',
   './icon-512.png',
   './apple-touch-icon.png',
-  './assets/hero-poster.jpg',
-  './assets/atelier-poster.jpg',
-  './assets/curtain-motion-poster.jpg'
+  './assets/muar/logo-muar-plum.png',
+  './assets/muar/strength-1-floors.webp',
+  './assets/muar/before-room.webp',
+  './assets/muar/after-room.webp'
 ];
 
 self.addEventListener('install', (event) => {
