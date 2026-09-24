@@ -671,7 +671,8 @@ p { margin: 0; }
   z-index: 1;
 }
 .ba-before img {
-  filter: grayscale(0.75) contrast(1.18) brightness(0.82);
+  filter: none;
+  transition: opacity 0.35s ease, filter 0.35s ease;
 }
 .ba-after {
   z-index: 2;
@@ -721,30 +722,41 @@ p { margin: 0; }
 .ba-pill {
   position: absolute;
   bottom: 20px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 0.76rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  line-height: 1.35;
   font-weight: 700;
   z-index: 5;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  max-width: 44%;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   pointer-events: none;
   transition: opacity 0.3s;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
 }
 .ba-pill.before-pill {
   right: 20px;
-  background: rgba(18, 16, 14, 0.82);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(18, 16, 14, 0.88);
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: right;
 }
 .ba-pill.after-pill {
   left: 20px;
-  background: rgba(185, 138, 75, 0.92);
+  background: rgba(185, 138, 75, 0.94);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 15px rgba(185, 138, 75, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+@media (max-width: 640px) {
+  .ba-pill {
+    bottom: 10px;
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    max-width: 46%;
+  }
+  .ba-pill.before-pill { right: 10px; }
+  .ba-pill.after-pill { left: 10px; }
 }
 
 .ba-presets {
@@ -778,6 +790,205 @@ p { margin: 0; }
   background: var(--gold-light);
   border-color: var(--gold);
   color: var(--ink);
+}
+
+/* BA Detail Card & Commercial Specs */
+.ba-detail-card {
+  margin-top: 24px;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 24px 28px;
+  box-shadow: 0 8px 30px rgba(28, 25, 23, 0.05);
+}
+.ba-meta-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.ba-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #FAF8F5;
+  border: 1px solid rgba(28, 25, 23, 0.08);
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+.ba-meta-badge svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.ba-meta-badge b {
+  color: var(--ink-light);
+  font-weight: 600;
+}
+.ba-meta-badge.accent {
+  background: rgba(185, 138, 75, 0.1);
+  border-color: rgba(185, 138, 75, 0.3);
+  color: #7A531C;
+}
+.ba-meta-badge.accent b {
+  color: #7A531C;
+}
+
+.ba-desc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 768px) {
+  .ba-desc-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .ba-detail-card {
+    padding: 18px 16px;
+  }
+}
+.ba-desc-box {
+  border-radius: 12px;
+  padding: 18px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ba-desc-before {
+  background: #F7F5F2;
+  border-left: 4px solid #948E85;
+}
+.ba-desc-after {
+  background: rgba(185, 138, 75, 0.07);
+  border-left: 4px solid var(--gold);
+}
+.ba-desc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ba-desc-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.tag-before {
+  background: rgba(28, 25, 23, 0.1);
+  color: #4A453E;
+}
+.tag-after {
+  background: var(--gold);
+  color: #FFFFFF;
+}
+.ba-desc-metric {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-light);
+}
+.ba-desc-box p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* Canopy Real Photography Gallery */
+.ba-canopy-gallery {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px dashed var(--line);
+}
+.ba-gallery-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-light);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ba-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+@media (max-width: 640px) {
+  .ba-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.ba-gallery-item {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  position: relative;
+  text-decoration: none;
+  background: #1C1917;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ba-gallery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.ba-gallery-item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.ba-gallery-cap {
+  display: block;
+  padding: 6px 8px;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: #38342F;
+  background: #FFF;
+  border-top: 1px solid var(--line);
+  font-weight: 600;
+}
+
+/* B2B Call to Action in BA card */
+.ba-detail-cta {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.ba-cta-text {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ba-cta-text strong {
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.ba-cta-text span {
+  font-size: 0.84rem;
+  color: var(--ink-light);
+  line-height: 1.45;
+}
+.ba-cta-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* ACT: 7 POWERS (EDITORIAL BENTO GRID) */
@@ -1183,23 +1394,34 @@ p { margin: 0; }
 }
 .tab:hover { color: var(--ink); border-color: var(--gold); }
 .tab.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-.gal { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.gal {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: dense;
+  gap: 18px;
+}
+@media (max-width: 1024px) {
+  .gal {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
 .gal-item {
   position: relative;
   border-radius: var(--r);
   overflow: hidden;
   background: var(--petrol);
+  aspect-ratio: 1 / 1;
   transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.55s;
 }
-.gal-item:nth-child(1), .gal-item:nth-child(6) { grid-row: span 2; }
 .gal-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  aspect-ratio: 1/1;
+  aspect-ratio: 1 / 1;
+  display: block;
   transition: transform 1.3s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
-.gal-item:nth-child(1) img, .gal-item:nth-child(6) img { aspect-ratio: auto; height: 100%; }
 .gal-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-l); }
 .gal-item:hover img { transform: scale(1.07); }
 .gal-cap {
@@ -1213,11 +1435,16 @@ p { margin: 0; }
   opacity: 0;
   transform: translateY(10px);
   transition: 0.45s;
+  pointer-events: none;
 }
-.gal-item:hover .gal-cap { opacity: 1; transform: translateY(0); }
+.gal-item:hover .gal-cap,
+.gal-item:focus-within .gal-cap {
+  opacity: 1;
+  transform: translateY(0);
+}
 .gal-cap span { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-soft); font-weight: 700; }
-.gal-cap h4 { font-size: 1.45rem; font-weight: 600; margin-top: 4px; }
-.gal-cap p { font-size: 0.8rem; color: rgba(255, 255, 255, 0.8); margin-top: 4px; }
+.gal-cap h4 { font-size: 1.35rem; font-weight: 600; margin-top: 4px; line-height: 1.25; }
+.gal-cap p { font-size: 0.8rem; color: rgba(255, 255, 255, 0.8); margin-top: 4px; line-height: 1.4; }
 .gal-item.hide { display: none; }
 
 /* ACT: INSTAGRAM REELS STRIP */
@@ -1475,9 +1702,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .powers-grid { grid-template-columns: 1fr; }
   .col-12, .col-8, .col-7, .col-6, .col-5, .col-4 { grid-column: span 1; }
   .steps { grid-template-columns: repeat(2, 1fr); }
-  .gal { grid-template-columns: repeat(2, 1fr); }
-  .gal-item:nth-child(1), .gal-item:nth-child(6) { grid-row: span 1; }
-  .gal-item img { aspect-ratio: 4/3; }
+  .gal { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .gal-item, .gal-item img { aspect-ratio: 4/3; }
 }
 @media (max-width: 760px) {
   body { font-size: 15px; padding-bottom: 74px; }
@@ -1491,7 +1717,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .hero { min-height: auto; padding: 90px 0 46px; }
   .mode-btn { min-width: 0; }
   .steps { grid-template-columns: 1fr; }
-  .gal { grid-template-columns: 1fr; }
+  .gal { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .gal-cap { opacity: 1; transform: translateY(0); padding: 14px; background: linear-gradient(0deg, rgba(16, 30, 32, 0.94) 0%, rgba(16, 30, 32, 0.45) 75%, transparent 100%); }
+  .gal-cap h4 { font-size: 1.05rem; }
+  .gal-cap p { font-size: 0.72rem; }
   .float-triggers { display: none !important; }
   .modal-backdrop { padding: 12px; }
   .modal-card { max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 24px 18px; margin: auto; }
@@ -1504,6 +1733,11 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .chip { padding: 8px 14px; font-size: 0.82rem; }
   .trust { gap: 10px 18px; margin-top: 28px; padding-top: 20px; }
   .trust span { font-size: 0.78rem; }
+}
+@media (max-width: 520px) {
+  .gal { grid-template-columns: 1fr; gap: 14px; }
+  .gal-item, .gal-item img { aspect-ratio: 4/3; }
+  .gal-cap { padding: 16px; }
 }
 @media (max-width: 460px) {
   .hero h1 { font-size: 2.15rem; line-height: 1.12; }
@@ -2716,19 +2950,19 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <div class="b2b-chips-grid two-col" id="b2bSegmentChips">
             <button class="b2b-chip-btn active" data-segment="office" onclick="setB2bSegment(this, 'office')">
               <span class="name">🏢 БЦ Класса «А» / Офис</span>
-              <span class="sub">Talan Towers, Abu Dhabi Plaza, Open Space</span>
+              <span class="sub">Talan Towers, Abu Dhabi Plaza (14 окон · 1.00x)</span>
             </button>
             <button class="b2b-chip-btn" data-segment="embassy" onclick="setB2bSegment(this, 'embassy')">
               <span class="name">🏛 Посольство / МИД</span>
-              <span class="sub">Дипгородок Акбулак, звукоизоляция, протокол</span>
+              <span class="sub">Дипгородок Акбулак, протокол КМ1 (18 окон · 1.28x)</span>
             </button>
             <button class="b2b-chip-btn" data-segment="bank" onclick="setB2bSegment(this, 'bank')">
               <span class="name">🏦 Банки / МФЦА (AIFC)</span>
-              <span class="sub">ForteBank HQ, трейдинг-румы, антиблик</span>
+              <span class="sub">ForteBank HQ, трейдинг-румы (24 окна · 1.18x)</span>
             </button>
             <button class="b2b-chip-btn" data-segment="boardroom" onclick="setB2bSegment(this, 'boardroom')">
               <span class="name">🎙 Залы заседаний / VIP</span>
-              <span class="sub">Совет директоров, ВКС, 100% Blackout</span>
+              <span class="sub">Совет директоров, VIP Blackout (8 окон · 1.45x)</span>
             </button>
           </div>
         </div>
@@ -2824,19 +3058,19 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <div class="b2b-check-grid">
             <label class="b2b-check-pill">
               <input type="checkbox" id="checkKm1" checked onchange="recalcB2B()">
-              <span>Пожарный сертификат МЧС РК (КМ1)</span>
+              <span>Пожарный сертификат МЧС РК (КМ1) <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+45 000 ₸)</small></span>
             </label>
             <label class="b2b-check-pill">
               <input type="checkbox" id="checkAcoustic" checked onchange="recalcB2B()">
-              <span>Протокол акустики ISO 354 (NRC 0.85)</span>
+              <span>Протокол акустики ISO 354 (NRC 0.85) <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+35 000 ₸)</small></span>
             </label>
             <label class="b2b-check-pill">
               <input type="checkbox" id="checkEsf" checked onchange="recalcB2B()">
-              <span>Выписка ЭСФ через ИС ЭСФ РК</span>
+              <span>Выписка ЭСФ через ИС ЭСФ РК <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+25 000 ₸)</small></span>
             </label>
             <label class="b2b-check-pill">
               <input type="checkbox" id="checkKs" checked onchange="recalcB2B()">
-              <span>Формы АВР (Р-1) и КС-2 / КС-3</span>
+              <span>Формы АВР (Р-1) и КС-2 / КС-3 <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+50 000 ₸)</small></span>
             </label>
           </div>
         </div>
@@ -2848,8 +3082,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <div>
           <div class="b2b-hud-head">
             <div class="b2b-hud-title">Ориентировочный бюджет проекта под ключ</div>
-            <div class="b2b-hud-price" id="hudTotal">6 741 773 ₸</div>
-            <div class="b2b-hud-vat-note" id="hudVatLine">Включая официальный НДС 12%: 722 333 ₸</div>
+            <div class="b2b-hud-price" id="hudTotal">6 915 373 ₸</div>
+            <div class="b2b-hud-vat-note" id="hudVatLine">Включая официальный НДС 12%: 740 933 ₸</div>
           </div>
 
           <!-- Telemetry Parameters -->
@@ -2886,13 +3120,17 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
               <span>Монтаж и пусконаладка (Астана):</span>
               <b id="hudRowInstall">632 218 ₸</b>
             </div>
+            <div class="b2b-breakdown-row" id="hudRowComplianceWrap">
+              <span>Сертификация и надзор (МЧС / КС):</span>
+              <b id="hudRowCompliance">173 600 ₸</b>
+            </div>
             <div class="b2b-breakdown-row">
               <span>Входящий НДС 12% к вычету:</span>
-              <b id="hudRowVat" style="color: var(--gold-soft);">722 333 ₸</b>
+              <b id="hudRowVat" style="color: var(--gold-soft);">740 933 ₸</b>
             </div>
             <div class="b2b-breakdown-row">
               <span>Итого по смете:</span>
-              <b id="hudRowSum">6 741 773 ₸</b>
+              <b id="hudRowSum">6 915 373 ₸</b>
             </div>
           </div>
         </div>
@@ -3001,6 +3239,16 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <td style="padding: 10px 12px; text-align:right;">—</td>
           <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableInstallCost">0 ₸</td>
         </tr>
+        <tr id="rfpTableComplianceRow" style="border-bottom: 1px solid #E2E8F0;">
+          <td style="padding: 10px 12px;">4</td>
+          <td style="padding: 10px 12px;">
+            <b>Инженерно-сертификационный пакет и технадзор РК</b><br>
+            <span style="font-size: 0.72rem; color: #64748B;" id="rfpTableComplianceDesc">Сертификация КМ1 МЧС РК, протокол ISO 354, формы КС-2/КС-3, ИС ЭСФ</span>
+          </td>
+          <td style="padding: 10px 12px; text-align:center;" id="rfpTableComplianceQty">1 компл.</td>
+          <td style="padding: 10px 12px; text-align:right;">—</td>
+          <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableComplianceCost">0 ₸</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr style="background: #F8FAFC; font-weight: bold;">
@@ -3044,31 +3292,32 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <section class="section" id="beforeAfter">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow c">Наглядное преображение</span>
-      <h2>От голого бетона новостройки — <span class="serif-accent">до тихой роскоши</span></h2>
+      <span class="eyebrow c">Реальные объекты в Астане · До и После</span>
+      <h2>Преображение пространств: <span class="serif-accent">B2B проекты и резиденции</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Потяните ползунок или переключайте сцены: посмотрите, как текстильная архитектура <span class="muar-a">MUAR&nbsp;A</span> преображает панорамные окна в резиденциях Астаны.
+        Потяните интерактивный ползунок влево-вправо: посмотрите, как солнцезащита и текстильная архитектура <span class="muar-a">MUAR&nbsp;A</span> решают задачи перегрева (+38°C), защиты от бликов, акустики и тихой роскоши в Астане.
       </p>
     </div>
 
-    <div class="ba-scene-tabs">
-      <button class="ba-scene-btn active" onclick="switchBaScene('living', this)">🛋️ Гостиная с эркером (Астана)</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('room2', this)">🪟 Гостиная с люстрой (Астана)</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('b2b', this)">🏢 B2B Солнцезащита & Навесы</button>
+    <div class="ba-scene-tabs" role="tablist" aria-label="Сцены До и После">
+      <button class="ba-scene-btn active" onclick="switchBaScene('b2b', this)">🏢 B2B Офис: Screen 3% Somfy</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('b2b_canopy', this)">🏛️ B2B Ресторан: Навесы & Паруса</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('living', this)">🛋️ Резиденция: Гостиная с эркером</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('room2', this)">🪟 Резиденция: Гостиная с люстрой</button>
     </div>
 
     <div class="ba-wrapper reveal">
       <div class="ba-container" id="splitSliderBox">
         <!-- BEFORE Layer -->
         <div class="ba-layer ba-before">
-          <img src="assets/muar/before_real_aligned.webp" alt="До: черновой ремонт без штор" id="baImgBefore" loading="lazy">
-          <span class="ba-pill before-pill" id="baLblBefore">БЫЛО: Черновой ремонт без штор</span>
+          <img src="assets/muar/b2b-office-before.webp" alt="До: Открытое панорамное остекление без защиты" id="baImgBefore" loading="lazy">
+          <span class="ba-pill before-pill" id="baLblBefore">БЫЛО: Открытое остекление (+38°C, блики)</span>
         </div>
 
         <!-- AFTER Layer -->
         <div class="ba-layer ba-after" id="splitAfterLayer">
-          <img src="assets/muar/after_real_aligned.webp" alt="После: кутюрные шторы MUAR A" id="baImgAfter" loading="lazy">
-          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Кутюрные портьеры <span class="muar-a">MUAR&nbsp;A</span> · Волна 2.2x</span>
+          <img src="assets/muar/b2b-office-after.webp" alt="После: Контрактная солнцезащита Screen 3% Somfy" id="baImgAfter" loading="lazy">
+          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Контрактная система Screen 3% Somfy (КМ1)</span>
         </div>
 
         <!-- Divider Handle -->
@@ -3081,9 +3330,72 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
       <!-- Presets -->
       <div class="ba-presets">
-        <button class="ba-preset-btn" onclick="setSplitPos(0, this)">🔲 Без штор (Бетон)</button>
+        <button class="ba-preset-btn" onclick="setSplitPos(0, this)">🔲 Без солнцезащиты (До)</button>
         <button class="ba-preset-btn active" onclick="setSplitPos(50, this)">↔ 50% Сравнение</button>
-        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">✨ Со шторами <span class="muar-a">MUAR&nbsp;A</span></button>
+        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">✨ С решением <span class="muar-a">MUAR&nbsp;A</span></button>
+      </div>
+
+      <!-- B2B & Architectural Specifications Card -->
+      <div class="ba-detail-card" id="baDetailCard">
+        <div class="ba-meta-strip" id="baMetaStrip">
+          <span class="ba-meta-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M9 21V11h6v10M9 7V3h6v4"/></svg> <b>Объект:</b> <span id="baObjVal">Бизнес-центр / Панорамный офис (Астана)</span></span>
+          <span class="ba-meta-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> <b>Система:</b> <span id="baSysVal">Контрактные рулонные шторы Somfy Screen 3% RTS</span></span>
+          <span class="ba-meta-badge accent"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <b>Сертификация:</b> <span id="baCertVal">КМ1 (негорючая ткань), защита от ультрафиолета 99%</span></span>
+        </div>
+
+        <div class="ba-desc-grid">
+          <div class="ba-desc-box ba-desc-before">
+            <div class="ba-desc-header">
+              <span class="ba-desc-tag tag-before">Было (до установки)</span>
+              <span class="ba-desc-metric" id="baMetricBefore">Жара до +38°C · Блики</span>
+            </div>
+            <p id="baDescBefore">Открытое панорамное остекление без защиты от перегрева (жара до +38°C, выгорание интерьера, блики на рабочих мониторах, повышенная нагрузка на систему кондиционирования).</p>
+          </div>
+
+          <div class="ba-desc-box ba-desc-after">
+            <div class="ba-desc-header">
+              <span class="ba-desc-tag tag-after">Стало (решение MUAR A)</span>
+              <span class="ba-desc-metric" id="baMetricAfter">Отражение 95% тепла · КМ1</span>
+            </div>
+            <p id="baDescAfter">Контрактная система солнцезащиты Screen 3% с электроприводом Somfy (отражение 95% солнечного тепла, пожарный класс КМ1, комфортный рассеянный свет, сохранение панорамного обзора города).</p>
+          </div>
+        </div>
+
+        <!-- Canopy Gallery (shown for canopy scene) -->
+        <div class="ba-canopy-gallery" id="baCanopyGallery" style="display: none;">
+          <div class="ba-gallery-title">
+            <span>📷 Фотофиксация коммерческого монтажа (Астана): паруса-навесы, скрытый крепеж Somfy, негорючая ткань КМ1 Dickson Франция</span>
+          </div>
+          <div class="ba-gallery-grid">
+            <a href="assets/muar/b2b-canopy-hall-1.webp" target="_blank" class="ba-gallery-item" title="Общий вид зала с парусами-навесами и контурной подсветкой">
+              <img src="assets/muar/b2b-canopy-hall-1.webp" alt="Монтаж парусов в ресторанном зале" loading="lazy">
+              <span class="ba-gallery-cap">Зал: паруса + контурная подсветка</span>
+            </a>
+            <a href="assets/muar/b2b-canopy-hall-2.webp" target="_blank" class="ba-gallery-item" title="Перспектива ресторанного зала и солнцезащитные драпировки">
+              <img src="assets/muar/b2b-canopy-hall-2.webp" alt="Перспектива зала ресторана" loading="lazy">
+              <span class="ba-gallery-cap">Акустическое зонирование</span>
+            </a>
+            <a href="assets/muar/b2b-canopy-night.webp" target="_blank" class="ba-gallery-item" title="Вечерняя атмосфера с рассеянным мягким светом">
+              <img src="assets/muar/b2b-canopy-night.webp" alt="Вечерняя атмосфера с навесами" loading="lazy">
+              <span class="ba-gallery-cap">Вечерний сценарий света</span>
+            </a>
+            <a href="assets/muar/b2b-canopy-detail.webp" target="_blank" class="ba-gallery-item" title="Узел натяжения и пожаробезопасный профиль">
+              <img src="assets/muar/b2b-canopy-detail.webp" alt="Детали узлов натяжения парусов" loading="lazy">
+              <span class="ba-gallery-cap">Контрактный узел натяжения</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="ba-detail-cta">
+          <div class="ba-cta-text">
+            <strong>Нужен расчет солнцезащиты или контрактного текстиля для коммерческого объекта?</strong>
+            <span>Выезжаем на замеры в Астане с чемоданом негорючих образцов Screen & Trevira CS. Расчет сметы с НДС 12% за 24 часа.</span>
+          </div>
+          <div class="ba-cta-btns">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20B2B%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BD%D0%B0%D0%B2%D0%B5%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Запросить B2B расчет в WhatsApp</a>
+            <a href="#b2b-commercial" class="btn btn-secondary btn-sm">B2B калькулятор проектов ↓</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -3289,7 +3601,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <!-- Video 2: Villa High-Ceiling Lift System -->
         <div class="motion-player-view" id="motionViewVilla">
           <div class="motion-video-wrapper" onclick="togglePlayPause('videoVilla')">
-            <video id="videoVilla" muted loop playsinline poster="assets/muar/villa-lift-poster.jpg">
+            <video id="videoVilla" muted loop playsinline poster="assets/muar/poster-villa-lift.jpg">
               <source src="assets/muar/villa-lift-system.mp4" type="video/mp4">
             </video>
             <div class="motion-overlay">
@@ -3677,12 +3989,52 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       </a>
 
       <!-- Item 8 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="assets/muar/villa-living.webp" alt="Загородная резиденция, Астана" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Вилла · BI Village</span>
+          <h4>Загородная резиденция, Астана</h4>
+          <p>Панорамная спальня: портьеры с геометрическим кантом, покрывало и подушки.</p>
+        </div>
+      </a>
+
+      <!-- Item 9 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="assets/muar/b2b-sunscreen-2.webp" alt="Банкетный зал & Ресторан" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>B2B Контракт · HoReCa</span>
+          <h4>Банкетный зал & Ресторан</h4>
+          <p>Архитектурная драпировка потолков негорючей вуалью Trevira CS (КМ1) с подсветкой.</p>
+        </div>
+      </a>
+
+      <!-- Item 10 -->
       <a class="gal-item reveal" data-cat="flat" href="#contacts">
         <img src="assets/muar/case-seken-bedroom.webp" alt="ЖК Seken, Астана" loading="lazy" decoding="async">
         <div class="gal-cap">
           <span>Мастер-спальня</span>
           <h4>ЖК Seken, Астана</h4>
           <p>Текстиль Уильям Моррис: портьеры с кантом, изголовье кровати и подушки.</p>
+        </div>
+      </a>
+
+      <!-- Item 11 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="assets/muar/case-master-bedroom.webp" alt="Вилла в пос. Караоткель" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Коттедж · Мастер-спальня</span>
+          <h4>Вилла в пос. Караоткель</h4>
+          <p>Фактурный тюль высокой плотности, дизайнерские шторы и покрывало терракот.</p>
+        </div>
+      </a>
+
+      <!-- Item 12 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="assets/muar/case-garden-detail.webp" alt="Конференц-холл & Отель" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>B2B Контракт · Отель</span>
+          <h4>Конференц-холл, Астана</h4>
+          <p>Портьеры высокой плотности с защитой от выгорания, шторы со складкой волна 2.2x.</p>
         </div>
       </a>
     </div>
@@ -3965,6 +4317,76 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   // ============================================================
   // B2B ARCHITECTURAL QUOTE CARD & RFP ENGINE
   // ============================================================
+  window.B2B_SEGMENTS = {
+    office: {
+      name: 'БЦ Класса «А» / Офис',
+      shortDesc: 'Бизнес-центры класса «А» и Open Space',
+      rfpName: 'БЦ «Talan Towers» / Класс «А» (Офис)',
+      qty: 14,
+      width: 2.8,
+      height: 3.2,
+      multiplier: 1.00,
+      protocol: 'Базовый контрактный пакет'
+    },
+    embassy: {
+      name: 'Посольство / МИД',
+      shortDesc: 'Дипломатические миссии и посольства в Астане',
+      rfpName: 'Дипломатическая миссия (Дипгородок Акбулак)',
+      qty: 18,
+      width: 3.0,
+      height: 3.5,
+      multiplier: 1.28,
+      protocol: 'Дипломатический протокол, усиленная пожаробезопасность КМ1, двойной контроль'
+    },
+    bank: {
+      name: 'Банки / МФЦА AIFC',
+      shortDesc: 'Банковские штаб-квартиры и МФЦА (AIFC)',
+      rfpName: 'Головной офис Банка / МФЦА (AIFC)',
+      qty: 24,
+      width: 2.5,
+      height: 3.0,
+      multiplier: 1.18,
+      protocol: 'Антиблик трейдинг-рум, ISO 354 акустика, усиленные направляющие'
+    },
+    boardroom: {
+      name: 'Залы заседаний / VIP',
+      shortDesc: 'Залы заседаний Совета директоров и VIP',
+      rfpName: 'Зал заседаний Совета Директоров (VIP)',
+      qty: 8,
+      width: 4.0,
+      height: 3.8,
+      multiplier: 1.45,
+      protocol: '100% Blackout с U-профилями, бесшумные Somfy Ultra, подавление эха'
+    }
+  };
+
+  window.B2B_COMPLIANCE = {
+    checkKm1: {
+      id: 'checkKm1',
+      name: 'Пожарный сертификат МЧС РК (КМ1)',
+      fee: 45000,
+      desc: 'Сертификат негорючести МЧС РК (КМ1: Г1, В1, Д2, Т2)'
+    },
+    checkAcoustic: {
+      id: 'checkAcoustic',
+      name: 'Протокол акустики ISO 354 (NRC 0.85)',
+      fee: 35000,
+      desc: 'Лабораторный акустический протокол испытаний ISO 354'
+    },
+    checkEsf: {
+      id: 'checkEsf',
+      name: 'Выписка ЭСФ через ИС ЭСФ РК',
+      fee: 25000,
+      desc: 'Электронные счета-фактуры ИС ЭСФ, СНТ, номенклатурное сопровождение'
+    },
+    checkKs: {
+      id: 'checkKs',
+      name: 'Формы АВР (Р-1) и КС-2 / КС-3',
+      fee: 50000,
+      desc: 'Акты выполненных работ АВР (Р-1), сметные формы КС-2 / КС-3, технадзор'
+    }
+  };
+
   window.B2B_STATE = {
     segment: 'office',
     system: 'screen',
@@ -3994,27 +4416,50 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     vatRate: 0.12 // 12% VAT in Kazakhstan
   };
 
-  window.setB2bSegment = function(el, seg) {
+  window.setB2bSegment = function(el, segKey) {
+    if(typeof el === 'string' && !segKey) {
+      segKey = el;
+      el = null;
+    }
+    var seg = window.B2B_SEGMENTS[segKey] || window.B2B_SEGMENTS.office;
+    window.B2B_STATE.segment = segKey;
+
     var chips = document.querySelectorAll('#b2bSegmentChips .b2b-chip-btn');
-    for(var i=0; i<chips.length; i++) chips[i].classList.remove('active');
-    if(el) el.classList.add('active');
-    window.B2B_STATE.segment = seg;
-    var names = {
-      office: 'Бизнес-центры класса «А» и Open Space',
-      embassy: 'Дипломатические миссии и посольства в Астане',
-      bank: 'Банковские штаб-квартиры и МФЦА (AIFC)',
-      boardroom: 'Залы заседаний Совета директоров и VIP'
-    };
+    for(var i=0; i<chips.length; i++) {
+      if(chips[i].getAttribute('data-segment') === segKey || chips[i] === el) {
+        chips[i].classList.add('active');
+      } else {
+        chips[i].classList.remove('active');
+      }
+    }
+
     var sDesc = document.getElementById('segmentDesc');
-    if(sDesc) sDesc.textContent = names[seg] || '';
+    if(sDesc) sDesc.textContent = seg.name + ' · Коэфф. ' + seg.multiplier.toFixed(2) + 'x';
+
+    var inQty = document.getElementById('inputQty');
+    var inW = document.getElementById('inputWidth');
+    var inH = document.getElementById('inputHeight');
+    if(inQty) inQty.value = seg.qty;
+    if(inW) inW.value = seg.width;
+    if(inH) inH.value = seg.height;
+
     window.recalcB2B();
   };
 
-  window.setB2bSystem = function(el, sys) {
+  window.setB2bSystem = function(el, sysKey) {
+    if(typeof el === 'string' && !sysKey) {
+      sysKey = el;
+      el = null;
+    }
+    window.B2B_STATE.system = sysKey;
     var chips = document.querySelectorAll('#b2bSystemChips .b2b-chip-btn');
-    for(var i=0; i<chips.length; i++) chips[i].classList.remove('active');
-    if(el) el.classList.add('active');
-    window.B2B_STATE.system = sys;
+    for(var i=0; i<chips.length; i++) {
+      if(chips[i].getAttribute('data-system') === sysKey || chips[i] === el) {
+        chips[i].classList.add('active');
+      } else {
+        chips[i].classList.remove('active');
+      }
+    }
     window.recalcB2B();
   };
 
@@ -4028,12 +4473,26 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var inH = document.getElementById('inputHeight');
     if(!inQty || !inW || !inH) return;
 
-    window.B2B_STATE.qty = parseInt(inQty.value, 10);
-    window.B2B_STATE.width = parseFloat(inW.value);
-    window.B2B_STATE.height = parseFloat(inH.value);
+    var segKey = window.B2B_STATE.segment || 'office';
+    var seg = window.B2B_SEGMENTS[segKey] || window.B2B_SEGMENTS.office;
+    var segMultiplier = (seg && typeof seg.multiplier === 'number') ? seg.multiplier : 1.0;
+
+    window.B2B_STATE.qty = parseInt(inQty.value, 10) || seg.qty;
+    window.B2B_STATE.width = parseFloat(inW.value) || seg.width;
+    window.B2B_STATE.height = parseFloat(inH.value) || seg.height;
 
     var motorRadio = document.querySelector('input[name="b2b_motor"]:checked');
     if(motorRadio) window.B2B_STATE.motor = motorRadio.value;
+
+    var cKm1 = document.getElementById('checkKm1');
+    var cAcoustic = document.getElementById('checkAcoustic');
+    var cEsf = document.getElementById('checkEsf');
+    var cKs = document.getElementById('checkKs');
+
+    window.B2B_STATE.km1 = cKm1 ? cKm1.checked : false;
+    window.B2B_STATE.acoustic = cAcoustic ? cAcoustic.checked : false;
+    window.B2B_STATE.esf = cEsf ? cEsf.checked : false;
+    window.B2B_STATE.ks = cKs ? cKs.checked : false;
 
     var vQty = document.getElementById('valQty');
     var vW = document.getElementById('valWidth');
@@ -4047,7 +4506,13 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var hArea = document.getElementById('hudArea');
     var hMotors = document.getElementById('hudMotors');
     if(hArea) hArea.textContent = totalArea.toFixed(1) + ' м²';
-    if(hMotors) hMotors.textContent = window.B2B_STATE.qty + ' моторов';
+    if(hMotors) {
+      if(window.B2B_STATE.motor === 'manual') {
+        hMotors.textContent = 'Мех. привод';
+      } else {
+        hMotors.textContent = window.B2B_STATE.qty + ' моторов';
+      }
+    }
 
     var curSys = window.B2B_RATES.systems[window.B2B_STATE.system] || window.B2B_RATES.systems.screen;
     var curMotor = window.B2B_RATES.motors[window.B2B_STATE.motor] || window.B2B_RATES.motors.somfy;
@@ -4057,11 +4522,32 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     if(hNrc) hNrc.textContent = curSys.nrc;
     if(hFire) hFire.textContent = curSys.fire;
 
-    var fabricCostNet = totalArea * curSys.baseRate;
-    var motorCostNet = window.B2B_STATE.qty * curMotor.costPerUnit;
-    var installCostNet = totalArea * window.B2B_RATES.installRatePerSqm;
+    // Apply Segment Multiplier to base engineering rates
+    var fabricCostNet = totalArea * curSys.baseRate * segMultiplier;
+    var motorCostNet = window.B2B_STATE.qty * curMotor.costPerUnit * segMultiplier;
+    var installCostNet = totalArea * window.B2B_RATES.installRatePerSqm * segMultiplier;
 
-    var subtotalNet = fabricCostNet + motorCostNet + installCostNet;
+    // Calculate Compliance and Certification Fees
+    var complianceCostNet = 0;
+    var complianceItems = [];
+    if(window.B2B_STATE.km1) {
+      complianceCostNet += window.B2B_COMPLIANCE.checkKm1.fee;
+      complianceItems.push('КМ1 МЧС РК');
+    }
+    if(window.B2B_STATE.acoustic) {
+      complianceCostNet += window.B2B_COMPLIANCE.checkAcoustic.fee;
+      complianceItems.push('ISO 354');
+    }
+    if(window.B2B_STATE.esf) {
+      complianceCostNet += window.B2B_COMPLIANCE.checkEsf.fee;
+      complianceItems.push('ИС ЭСФ');
+    }
+    if(window.B2B_STATE.ks) {
+      complianceCostNet += window.B2B_COMPLIANCE.checkKs.fee;
+      complianceItems.push('КС-2/3');
+    }
+
+    var subtotalNet = fabricCostNet + motorCostNet + installCostNet + complianceCostNet;
     var vatAmount = subtotalNet * window.B2B_RATES.vatRate;
     var totalGross = subtotalNet + vatAmount;
 
@@ -4073,20 +4559,27 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var rFabric = document.getElementById('hudRowFabric');
     var rMotors = document.getElementById('hudRowMotors');
     var rInstall = document.getElementById('hudRowInstall');
+    var rCompliance = document.getElementById('hudRowCompliance');
     var rVat = document.getElementById('hudRowVat');
     var rSum = document.getElementById('hudRowSum');
 
     if(rFabric) rFabric.textContent = window.formatB2BKZT(fabricCostNet * 1.12);
     if(rMotors) rMotors.textContent = window.formatB2BKZT(motorCostNet * 1.12);
     if(rInstall) rInstall.textContent = window.formatB2BKZT(installCostNet * 1.12);
+    if(rCompliance) rCompliance.textContent = window.formatB2BKZT(complianceCostNet * 1.12);
     if(rVat) rVat.textContent = window.formatB2BKZT(vatAmount);
     if(rSum) rSum.textContent = window.formatB2BKZT(totalGross);
 
     window.lastB2BCalc = {
+      segKey: segKey,
+      segMultiplier: segMultiplier,
+      segName: seg.name,
       totalArea: totalArea,
       fabricCostNet: fabricCostNet,
       motorCostNet: motorCostNet,
       installCostNet: installCostNet,
+      complianceCostNet: complianceCostNet,
+      complianceListText: complianceItems.length ? complianceItems.join(', ') : 'Базовый пакет',
       subtotalNet: subtotalNet,
       vatAmount: vatAmount,
       totalGross: totalGross,
@@ -4098,15 +4591,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   window.openPrintableRfp = function() {
     window.recalcB2B();
     var c = window.lastB2BCalc;
-    var segNames = {
-      office: 'БЦ «Talan Towers» / Класс «А»',
-      embassy: 'Дипломатическая миссия (Акбулак)',
-      bank: 'Головной офис Банка / МФЦА (AIFC)',
-      boardroom: 'Зал заседаний Совета Директоров'
-    };
+    var seg = window.B2B_SEGMENTS[window.B2B_STATE.segment] || window.B2B_SEGMENTS.office;
 
     var objName = document.getElementById('rfpObjectName');
-    if(objName) objName.textContent = segNames[window.B2B_STATE.segment] || 'Корпоративный объект';
+    if(objName) objName.textContent = seg.rfpName || 'Корпоративный объект';
     
     var tSys = document.getElementById('rfpTableSystem');
     var tMotor = document.getElementById('rfpTableMotor');
@@ -4123,12 +4611,18 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var tFabric = document.getElementById('rfpTableFabricCost');
     var tMotors = document.getElementById('rfpTableMotorsCost');
     var tInstall = document.getElementById('rfpTableInstallCost');
+    var tCompCost = document.getElementById('rfpTableComplianceCost');
+    var tCompRow = document.getElementById('rfpTableComplianceRow');
+    var tCompDesc = document.getElementById('rfpTableComplianceDesc');
     var tVat = document.getElementById('rfpTableVat');
     var tTotal = document.getElementById('rfpTableTotal');
 
     if(tFabric) tFabric.textContent = window.formatB2BKZT(c.fabricCostNet * 1.12);
     if(tMotors) tMotors.textContent = window.formatB2BKZT(c.motorCostNet * 1.12);
     if(tInstall) tInstall.textContent = window.formatB2BKZT(c.installCostNet * 1.12);
+    if(tCompCost) tCompCost.textContent = window.formatB2BKZT(c.complianceCostNet * 1.12);
+    if(tCompRow) tCompRow.style.display = (c.complianceCostNet > 0) ? '' : 'none';
+    if(tCompDesc) tCompDesc.textContent = 'Пакет согласования: ' + (c.complianceListText || 'Базовый пакет');
     if(tVat) tVat.textContent = window.formatB2BKZT(c.vatAmount);
     if(tTotal) tTotal.textContent = window.formatB2BKZT(c.totalGross);
 
@@ -4150,18 +4644,19 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   window.sendB2BWhatsApp = function() {
     window.recalcB2B();
     var c = window.lastB2BCalc;
-    var sDesc = document.getElementById('segmentDesc');
-    var segText = sDesc ? sDesc.textContent : 'Корпоративный клиент';
+    var seg = window.B2B_SEGMENTS[window.B2B_STATE.segment] || window.B2B_SEGMENTS.office;
     var text = 
       'Здравствуйте, MUAR A B2B! 🏢\n\n' +
       'Прошу предоставить официальное коммерческое предложение с НДС 12%:\n' +
-      '• Профиль: ' + segText + '\n' +
+      '• Профиль заказчика: ' + seg.name + ' (коэфф. ' + seg.multiplier.toFixed(2) + 'x)\n' +
+      '• Спецификация: ' + seg.protocol + '\n' +
       '• Система: ' + c.sysName + '\n' +
       '• Автоматика: ' + c.motorName + '\n' +
       '• Количество проемов: ' + window.B2B_STATE.qty + ' окон\n' +
       '• Габариты: ' + window.B2B_STATE.width + 'м × ' + window.B2B_STATE.height + 'м (' + c.totalArea.toFixed(1) + ' м²)\n' +
-      '• Расчетный бюджет: ' + window.formatB2BKZT(c.totalGross) + ' (в т.ч. НДС 12%)\n' +
-      '• Требования: Пожарный сертификат МЧС РК (КМ1), акты АВР (Р-1) / КС-2 и КС-3.\n\n' +
+      '• Расчетный бюджет с НДС 12%: ' + window.formatB2BKZT(c.totalGross) + '\n' +
+      '• Входящий НДС 12%: ' + window.formatB2BKZT(c.vatAmount) + '\n' +
+      '• Сертификация & акты: ' + (c.complianceListText || 'Базовый пакет') + '\n\n' +
       'Готовы отправить ведомость проемов в DWG/Excel на экспресс-расчет (SLA 60 мин).';
     
     var url = 'https://wa.me/77710551515?text=' + encodeURIComponent(text);
@@ -4361,26 +4856,69 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   /* BEFORE & AFTER SPLIT SLIDER & MULTI-SCENE ENGINE              */
   /* ------------------------------------------------------------- */
   var BA_SCENES = {
+    b2b: {
+      name: '🏢 B2B Офис: Screen 3% Somfy',
+      beforeImg: 'assets/muar/b2b-office-before.webp',
+      afterImg: 'assets/muar/b2b-office-after.webp',
+      beforeLabel: 'БЫЛО: Открытое остекление (+38°C, блики)',
+      afterLabel: 'СТАЛО: Контрактная система Screen 3% Somfy (КМ1)',
+      beforeDesc: 'Открытое панорамное остекление без защиты от перегрева (жара до +38°C, выгорание интерьера, блики на рабочих мониторах, повышенная нагрузка на систему кондиционирования).',
+      afterDesc: 'Контрактная система солнцезащиты Screen 3% с электроприводом Somfy (отражение 95% солнечного тепла, пожарный класс КМ1, комфортный рассеянный свет, сохранение панорамного обзора города).',
+      metricBefore: 'Жара до +38°C · Блики',
+      metricAfter: 'Отражение 95% тепла · КМ1',
+      badgeObject: 'Бизнес-центр / Панорамный офис (Астана)',
+      badgeSystem: 'Контрактные рулонные шторы Somfy Screen 3% RTS',
+      badgeCert: 'КМ1 (негорючая ткань), защита от ультрафиолета 99%',
+      beforeFilter: 'none',
+      showGallery: false
+    },
+    b2b_canopy: {
+      name: '🏛️ B2B Ресторан: Навесы & Паруса',
+      beforeImg: 'assets/muar/b2b-canopy-before.webp',
+      afterImg: 'assets/muar/b2b-canopy-after.webp',
+      beforeLabel: 'БЫЛО: Черный черновой потолок и перегрев',
+      afterLabel: 'СТАЛО: Паруса-навесы & Портьеры КМ1 Somfy',
+      beforeDesc: 'Открытый ресторанный зал с открытыми черными коммуникациями, жестким эхо и перегревом через панорамные окна в пиковые солнечные часы.',
+      afterDesc: 'Архитектурные текстильные паруса-навесы и светозащитные контрактные драпировки (акустический комфорт, термоизоляция, эстетика премиум-уровня).',
+      metricBefore: 'Шум · Эхо · Перегрев',
+      metricAfter: 'Акустика -40% · Dickson КМ1',
+      badgeObject: 'Ресторан / Панорамная терраса (Астана)',
+      badgeSystem: 'Маркизы и контрактные навесы Somfy с датчиками ветра Eolis 3D',
+      badgeCert: 'КМ1, негорючая ткань Dickson (Франция)',
+      beforeFilter: 'none',
+      showGallery: true
+    },
     living: {
-      name: 'Гостиная с эркером (Астана)',
+      name: '🛋️ Резиденция: Гостиная с эркером',
       beforeImg: 'assets/muar/before_real_aligned.webp',
       afterImg: 'assets/muar/after_real_aligned.webp',
       beforeLabel: 'БЫЛО: Черновой ремонт без штор',
-      afterLabel: 'СТАЛО: Кутюрные портьеры MUAR A · Волна 2.2x'
+      afterLabel: 'СТАЛО: Кутюрные портьеры MUAR A · Волна 2.2x',
+      beforeDesc: 'Голый эркер после строительных работ: холодное эхо, отсутствие приватности от соседних фасадов и слепящий утренний свет.',
+      afterDesc: 'Многослойный ансамбль: струящийся итальянский тюль и портьеры высокой плотности на бесшумных скрытых электрокарнизах Somfy.',
+      metricBefore: 'Голый бетон · Эхо',
+      metricAfter: 'Волна 2.2x · Тихая роскошь',
+      badgeObject: 'Элитный ЖК / Пентхаус (Астана)',
+      badgeSystem: 'Моторизованный двухрядный карниз Somfy Movelite WireFree',
+      badgeCert: 'Премиальный европейский текстиль, ручная закрепка складок',
+      beforeFilter: 'grayscale(0.75) contrast(1.18) brightness(0.82)',
+      showGallery: false
     },
     room2: {
-      name: 'Гостиная с люстрой (Астана)',
+      name: '🪟 Резиденция: Гостиная с люстрой',
       beforeImg: 'assets/muar/ba-scene2-before.webp',
       afterImg: 'assets/muar/ba-scene2-after.webp',
       beforeLabel: 'БЫЛО: Голое окно и эхо',
-      afterLabel: 'СТАЛО: Дамаск с бахромой и шелковым кантом'
-    },
-    b2b: {
-      name: 'B2B Солнцезащита & Навесы',
-      beforeImg: 'assets/muar/b2b-sunscreen-1.webp',
-      afterImg: 'assets/muar/commercial-canopy.webp',
-      beforeLabel: 'БЫЛО: Открытый проем и прямое солнце',
-      afterLabel: 'СТАЛО: Архитектурные солнцезащитные навесы'
+      afterLabel: 'СТАЛО: Дамаск с бахромой и кантом',
+      beforeDesc: 'Окно без текстильного оформления: резкие контрастные тени, дисбаланс классического интерьера с хрусталем, акустический дискомфорт.',
+      afterDesc: 'Классические портьеры из фактурного жаккарда-дамаска с шелковым кантом и витой бахромой ручной сборки мастеров MUAR A.',
+      metricBefore: 'Дисбаланс · Резкие тени',
+      metricAfter: 'Дамаск · Шелковый кант',
+      badgeObject: 'Частная резиденция (Астана)',
+      badgeSystem: 'Усиленный профильный багетный карниз с бесшумным ходом',
+      badgeCert: 'Дамаск с шелком и вискозой, авторский дизайн MUAR A',
+      beforeFilter: 'grayscale(0.75) contrast(1.18) brightness(0.82)',
+      showGallery: false
     }
   };
 
@@ -4433,7 +4971,12 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       if(!sc) return;
 
       document.querySelectorAll('.ba-scene-btn').forEach(function(b){ b.classList.remove('active'); });
-      if(btn) btn.classList.add('active');
+      if(btn) {
+        btn.classList.add('active');
+      } else {
+        var autoBtn = document.querySelector('.ba-scene-btn[onclick*="\'' + key + '\'"]');
+        if(autoBtn) autoBtn.classList.add('active');
+      }
 
       var imgBefore = document.getElementById('baImgBefore');
       var imgAfter = document.getElementById('baImgAfter');
@@ -4441,8 +4984,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       var lblAfter = document.getElementById('baLblAfter');
 
       if(imgBefore) {
-        imgBefore.style.opacity = '0.4';
+        imgBefore.style.opacity = '0.3';
         imgBefore.src = sc.beforeImg;
+        imgBefore.style.filter = sc.beforeFilter || 'none';
         if(imgBefore.complete) {
           imgBefore.style.opacity = '1';
         } else {
@@ -4451,7 +4995,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         }
       }
       if(imgAfter) {
-        imgAfter.style.opacity = '0.4';
+        imgAfter.style.opacity = '0.3';
         imgAfter.src = sc.afterImg;
         if(imgAfter.complete) {
           imgAfter.style.opacity = '1';
@@ -4461,9 +5005,27 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         }
       }
       if(lblBefore) lblBefore.textContent = sc.beforeLabel;
-      if(lblAfter) lblAfter.textContent = sc.afterLabel;
+      if(lblAfter) lblAfter.innerHTML = sc.afterLabel;
 
-      haptic();
+      var objVal = document.getElementById('baObjVal');
+      var sysVal = document.getElementById('baSysVal');
+      var certVal = document.getElementById('baCertVal');
+      var descB = document.getElementById('baDescBefore');
+      var descA = document.getElementById('baDescAfter');
+      var metB = document.getElementById('baMetricBefore');
+      var metA = document.getElementById('baMetricAfter');
+      var canopyGal = document.getElementById('baCanopyGallery');
+
+      if(objVal) objVal.textContent = sc.badgeObject;
+      if(sysVal) sysVal.textContent = sc.badgeSystem;
+      if(certVal) certVal.textContent = sc.badgeCert;
+      if(descB) descB.textContent = sc.beforeDesc;
+      if(descA) descA.textContent = sc.afterDesc;
+      if(metB) metB.textContent = sc.metricBefore;
+      if(metA) metA.textContent = sc.metricAfter;
+      if(canopyGal) canopyGal.style.display = sc.showGallery ? 'block' : 'none';
+
+      if(typeof haptic === 'function') haptic();
     };
 
     function getPercentFromEvent(e){
@@ -5085,11 +5647,19 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   window.toggleSound = function(id, btn){
     var vid = document.getElementById(id);
     if(!vid) return;
+    if(!btn) {
+      if(id === 'videoAtelier') btn = document.getElementById('btnSoundAtelier');
+      else if(id === 'videoVilla') btn = document.getElementById('btnSoundVilla');
+      else if(id === 'videoPowers') btn = document.getElementById('btnSoundPowers');
+      else if(id === 'videoJourney') btn = document.getElementById('btnSoundJourney');
+    }
     vid.muted = !vid.muted;
-    if(vid.muted){
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
-    } else {
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"/></svg>';
+    if(btn) {
+      if(vid.muted){
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>';
+      } else {
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.08"/></svg>';
+      }
     }
     haptic();
   };

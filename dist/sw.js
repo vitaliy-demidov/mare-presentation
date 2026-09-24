@@ -1,4 +1,4 @@
-const CACHE_NAME = 'muar-a-v2.0';
+const CACHE_NAME = 'muar-a-v2.3';
 const PRECACHE_URLS = [
   './',
   './index.html',

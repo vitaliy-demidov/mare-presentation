@@ -545,19 +545,19 @@
         <div class="b2b-chips-grid two-col" id="b2bSegmentChips">
           <button class="b2b-chip-btn active" data-segment="office" onclick="setB2bSegment(this, 'office')">
             <span class="name">🏢 БЦ Класса «А» / Офис</span>
-            <span class="sub">Talan Towers, Abu Dhabi Plaza, Open Space</span>
+            <span class="sub">Talan Towers, Abu Dhabi Plaza (14 окон · 1.00x)</span>
           </button>
           <button class="b2b-chip-btn" data-segment="embassy" onclick="setB2bSegment(this, 'embassy')">
             <span class="name">🏛 Посольство / МИД</span>
-            <span class="sub">Дипгородок Акбулак, звукоизоляция, протокол</span>
+            <span class="sub">Дипгородок Акбулак, протокол КМ1 (18 окон · 1.28x)</span>
           </button>
           <button class="b2b-chip-btn" data-segment="bank" onclick="setB2bSegment(this, 'bank')">
             <span class="name">🏦 Банки / МФЦА (AIFC)</span>
-            <span class="sub">ForteBank HQ, трейдинг-румы, защита от бликов</span>
+            <span class="sub">ForteBank HQ, трейдинг-румы (24 окна · 1.18x)</span>
           </button>
           <button class="b2b-chip-btn" data-segment="boardroom" onclick="setB2bSegment(this, 'boardroom')">
             <span class="name">🎙 Залы заседаний / VIP</span>
-            <span class="sub">Совет директоров, ВКС, 100% Blackout</span>
+            <span class="sub">Совет директоров, VIP Blackout (8 окон · 1.45x)</span>
           </button>
         </div>
       </div>
@@ -653,19 +653,19 @@
         <div class="b2b-check-grid">
           <label class="b2b-check-pill">
             <input type="checkbox" id="checkKm1" checked onchange="recalcB2B()">
-            <span>Пожарный сертификат МЧС РК (КМ1)</span>
+            <span>Пожарный сертификат МЧС РК (КМ1) <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+45 000 ₸)</small></span>
           </label>
           <label class="b2b-check-pill">
             <input type="checkbox" id="checkAcoustic" checked onchange="recalcB2B()">
-            <span>Протокол акустики ISO 354 (NRC 0.85)</span>
+            <span>Протокол акустики ISO 354 (NRC 0.85) <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+35 000 ₸)</small></span>
           </label>
           <label class="b2b-check-pill">
             <input type="checkbox" id="checkEsf" checked onchange="recalcB2B()">
-            <span>Выписка ЭСФ через ИС ЭСФ РК</span>
+            <span>Выписка ЭСФ через ИС ЭСФ РК <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+25 000 ₸)</small></span>
           </label>
           <label class="b2b-check-pill">
             <input type="checkbox" id="checkKs" checked onchange="recalcB2B()">
-            <span>Формы АВР (Р-1) и КС-2 / КС-3</span>
+            <span>Формы АВР (Р-1) и КС-2 / КС-3 <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+50 000 ₸)</small></span>
           </label>
         </div>
       </div>
@@ -677,8 +677,8 @@
       <div>
         <div class="b2b-hud-head">
           <div class="b2b-hud-title">Ориентировочный бюджет проекта под ключ</div>
-          <div class="b2b-hud-price" id="hudTotal">0 ₸</div>
-          <div class="b2b-hud-vat-note" id="hudVatLine">Включая официальный НДС 12%: 0 ₸</div>
+          <div class="b2b-hud-price" id="hudTotal">6 915 373 ₸</div>
+          <div class="b2b-hud-vat-note" id="hudVatLine">Включая официальный НДС 12%: 740 933 ₸</div>
         </div>
 
         <!-- Telemetry Parameters -->
@@ -693,7 +693,7 @@
           </div>
           <div class="b2b-telemetry-cell">
             <span class="t-lbl">Акустический индекс</span>
-            <span class="t-val" id="hudNrc">NRC 0.82 (Класс А)</span>
+            <span class="t-val" id="hudNrc">NRC 0.35 (Фасад)</span>
           </div>
           <div class="b2b-telemetry-cell">
             <span class="t-lbl">Пожарный класс МЧС</span>
@@ -705,23 +705,27 @@
         <div class="b2b-breakdown-list">
           <div class="b2b-breakdown-row">
             <span>Материал и раскрой полотна:</span>
-            <b id="hudRowFabric">0 ₸</b>
+            <b id="hudRowFabric">4 776 755 ₸</b>
           </div>
           <div class="b2b-breakdown-row">
             <span>Моторизация и профили:</span>
-            <b id="hudRowMotors">0 ₸</b>
+            <b id="hudRowMotors">1 332 800 ₸</b>
           </div>
           <div class="b2b-breakdown-row">
             <span>Монтаж и пусконаладка (Астана):</span>
-            <b id="hudRowInstall">0 ₸</b>
+            <b id="hudRowInstall">632 218 ₸</b>
+          </div>
+          <div class="b2b-breakdown-row" id="hudRowComplianceWrap">
+            <span>Сертификация и надзор (МЧС / КС):</span>
+            <b id="hudRowCompliance">173 600 ₸</b>
           </div>
           <div class="b2b-breakdown-row">
             <span>Входящий НДС 12% к вычету:</span>
-            <b id="hudRowVat" style="color: var(--gold-soft);">0 ₸</b>
+            <b id="hudRowVat" style="color: var(--gold-soft);">740 933 ₸</b>
           </div>
           <div class="b2b-breakdown-row">
             <span>Итого по смете:</span>
-            <b id="hudRowSum">0 ₸</b>
+            <b id="hudRowSum">6 915 373 ₸</b>
           </div>
         </div>
       </div>
@@ -829,6 +833,16 @@
           <td style="padding: 10px 12px; text-align:right;">—</td>
           <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableInstallCost">0 ₸</td>
         </tr>
+        <tr id="rfpTableComplianceRow" style="border-bottom: 1px solid #E2E8F0;">
+          <td style="padding: 10px 12px;">4</td>
+          <td style="padding: 10px 12px;">
+            <b>Инженерно-сертификационный пакет и технадзор РК</b><br>
+            <span style="font-size: 0.72rem; color: #64748B;" id="rfpTableComplianceDesc">Сертификация КМ1 МЧС РК, протокол ISO 354, формы КС-2/КС-3, ИС ЭСФ</span>
+          </td>
+          <td style="padding: 10px 12px; text-align:center;" id="rfpTableComplianceQty">1 компл.</td>
+          <td style="padding: 10px 12px; text-align:right;">—</td>
+          <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableComplianceCost">0 ₸</td>
+        </tr>
       </tbody>
       <tfoot>
         <tr style="background: #F8FAFC; font-weight: bold;">
@@ -866,7 +880,79 @@
 </div>
 
 <script>
-  // State Machine for B2B Quote Card
+  // ============================================================
+  // B2B ARCHITECTURAL QUOTE CARD & RFP ENGINE
+  // ============================================================
+  const B2B_SEGMENTS = {
+    office: {
+      name: 'БЦ Класса «А» / Офис',
+      shortDesc: 'Бизнес-центры класса «А» и Open Space',
+      rfpName: 'БЦ «Talan Towers» / Класс «А» (Офис)',
+      qty: 14,
+      width: 2.8,
+      height: 3.2,
+      multiplier: 1.00,
+      protocol: 'Базовый контрактный пакет'
+    },
+    embassy: {
+      name: 'Посольство / МИД',
+      shortDesc: 'Дипломатические миссии и посольства в Астане',
+      rfpName: 'Дипломатическая миссия (Дипгородок Акбулак)',
+      qty: 18,
+      width: 3.0,
+      height: 3.5,
+      multiplier: 1.28,
+      protocol: 'Дипломатический протокол, усиленная пожаробезопасность КМ1, двойной контроль'
+    },
+    bank: {
+      name: 'Банки / МФЦА AIFC',
+      shortDesc: 'Банковские штаб-квартиры и МФЦА (AIFC)',
+      rfpName: 'Головной офис Банка / МФЦА (AIFC)',
+      qty: 24,
+      width: 2.5,
+      height: 3.0,
+      multiplier: 1.18,
+      protocol: 'Антиблик трейдинг-рум, ISO 354 акустика, усиленные направляющие'
+    },
+    boardroom: {
+      name: 'Залы заседаний / VIP',
+      shortDesc: 'Залы заседаний Совета директоров и VIP',
+      rfpName: 'Зал заседаний Совета Директоров (VIP)',
+      qty: 8,
+      width: 4.0,
+      height: 3.8,
+      multiplier: 1.45,
+      protocol: '100% Blackout с U-профилями, бесшумные Somfy Ultra, подавление эха'
+    }
+  };
+
+  const B2B_COMPLIANCE = {
+    checkKm1: {
+      id: 'checkKm1',
+      name: 'Пожарный сертификат МЧС РК (КМ1)',
+      fee: 45000,
+      desc: 'Сертификат негорючести МЧС РК (КМ1: Г1, В1, Д2, Т2)'
+    },
+    checkAcoustic: {
+      id: 'checkAcoustic',
+      name: 'Протокол акустики ISO 354 (NRC 0.85)',
+      fee: 35000,
+      desc: 'Лабораторный акустический протокол испытаний ISO 354'
+    },
+    checkEsf: {
+      id: 'checkEsf',
+      name: 'Выписка ЭСФ через ИС ЭСФ РК',
+      fee: 25000,
+      desc: 'Электронные счета-фактуры ИС ЭСФ, СНТ, номенклатурное сопровождение'
+    },
+    checkKs: {
+      id: 'checkKs',
+      name: 'Формы АВР (Р-1) и КС-2 / КС-3',
+      fee: 50000,
+      desc: 'Акты выполненных работ АВР (Р-1), сметные формы КС-2 / КС-3, технадзор'
+    }
+  };
+
   const B2B_STATE = {
     segment: 'office',
     system: 'screen',
@@ -896,80 +982,173 @@
     vatRate: 0.12 // 12% VAT in Kazakhstan
   };
 
-  function setB2bSegment(el, seg) {
-    document.querySelectorAll('#b2bSegmentChips .b2b-chip-btn').forEach(b => b.classList.remove('active'));
-    el.classList.add('active');
-    B2B_STATE.segment = seg;
-    const names = {
-      office: 'Бизнес-центры класса «А» и Open Space',
-      embassy: 'Дипломатические миссии и посольства в Астане',
-      bank: 'Банковские штаб-квартиры и МФЦА (AIFC)',
-      boardroom: 'Залы заседаний Совета директоров и VIP'
-    };
-    document.getElementById('segmentDesc').textContent = names[seg] || '';
+  function setB2bSegment(el, segKey) {
+    if(typeof el === 'string' && !segKey) {
+      segKey = el;
+      el = null;
+    }
+    const seg = B2B_SEGMENTS[segKey] || B2B_SEGMENTS.office;
+    B2B_STATE.segment = segKey;
+
+    document.querySelectorAll('#b2bSegmentChips .b2b-chip-btn').forEach(b => {
+      if(b.getAttribute('data-segment') === segKey || b === el) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    const sDesc = document.getElementById('segmentDesc');
+    if(sDesc) sDesc.textContent = seg.name + ' · Коэфф. ' + seg.multiplier.toFixed(2) + 'x';
+
+    const inQty = document.getElementById('inputQty');
+    const inW = document.getElementById('inputWidth');
+    const inH = document.getElementById('inputHeight');
+    if(inQty) inQty.value = seg.qty;
+    if(inW) inW.value = seg.width;
+    if(inH) inH.value = seg.height;
+
     recalcB2B();
   }
 
-  function setB2bSystem(el, sys) {
-    document.querySelectorAll('#b2bSystemChips .b2b-chip-btn').forEach(b => b.classList.remove('active'));
-    el.classList.add('active');
-    B2B_STATE.system = sys;
+  function setB2bSystem(el, sysKey) {
+    if(typeof el === 'string' && !sysKey) {
+      sysKey = el;
+      el = null;
+    }
+    B2B_STATE.system = sysKey;
+    document.querySelectorAll('#b2bSystemChips .b2b-chip-btn').forEach(b => {
+      if(b.getAttribute('data-system') === sysKey || b === el) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
     recalcB2B();
   }
 
   function formatKZT(num) {
     return Math.round(num).toLocaleString('ru-RU') + ' ₸';
   }
+  window.formatB2BKZT = formatKZT;
+  window.setB2bSegment = setB2bSegment;
+  window.setB2bSystem = setB2bSystem;
+  window.recalcB2B = recalcB2B;
 
   function recalcB2B() {
-    B2B_STATE.qty = parseInt(document.getElementById('inputQty').value, 10);
-    B2B_STATE.width = parseFloat(document.getElementById('inputWidth').value);
-    B2B_STATE.height = parseFloat(document.getElementById('inputHeight').value);
-    
+    const inQty = document.getElementById('inputQty');
+    const inW = document.getElementById('inputWidth');
+    const inH = document.getElementById('inputHeight');
+    if(!inQty || !inW || !inH) return;
+
+    const segKey = B2B_STATE.segment || 'office';
+    const seg = B2B_SEGMENTS[segKey] || B2B_SEGMENTS.office;
+    const segMultiplier = (seg && typeof seg.multiplier === 'number') ? seg.multiplier : 1.0;
+
+    B2B_STATE.qty = parseInt(inQty.value, 10) || seg.qty;
+    B2B_STATE.width = parseFloat(inW.value) || seg.width;
+    B2B_STATE.height = parseFloat(inH.value) || seg.height;
+
     const motorRadio = document.querySelector('input[name="b2b_motor"]:checked');
-    if (motorRadio) B2B_STATE.motor = motorRadio.value;
+    if(motorRadio) B2B_STATE.motor = motorRadio.value;
 
-    document.getElementById('valQty').textContent = B2B_STATE.qty + ' шт';
-    document.getElementById('valWidth').textContent = B2B_STATE.width.toFixed(1) + ' м';
-    document.getElementById('valHeight').textContent = B2B_STATE.height.toFixed(1) + ' м';
+    const cKm1 = document.getElementById('checkKm1');
+    const cAcoustic = document.getElementById('checkAcoustic');
+    const cEsf = document.getElementById('checkEsf');
+    const cKs = document.getElementById('checkKs');
 
-    // Area calculation
+    B2B_STATE.km1 = cKm1 ? cKm1.checked : false;
+    B2B_STATE.acoustic = cAcoustic ? cAcoustic.checked : false;
+    B2B_STATE.esf = cEsf ? cEsf.checked : false;
+    B2B_STATE.ks = cKs ? cKs.checked : false;
+
+    const vQty = document.getElementById('valQty');
+    const vW = document.getElementById('valWidth');
+    const vH = document.getElementById('valHeight');
+    if(vQty) vQty.textContent = B2B_STATE.qty + ' шт';
+    if(vW) vW.textContent = B2B_STATE.width.toFixed(1) + ' м';
+    if(vH) vH.textContent = B2B_STATE.height.toFixed(1) + ' м';
+
     const singleArea = B2B_STATE.width * B2B_STATE.height;
     const totalArea = singleArea * B2B_STATE.qty;
-    document.getElementById('hudArea').textContent = totalArea.toFixed(1) + ' м²';
-    document.getElementById('hudMotors').textContent = B2B_STATE.qty + ' моторов';
+    const hArea = document.getElementById('hudArea');
+    const hMotors = document.getElementById('hudMotors');
+    if(hArea) hArea.textContent = totalArea.toFixed(1) + ' м²';
+    if(hMotors) {
+      if(B2B_STATE.motor === 'manual') {
+        hMotors.textContent = 'Мех. привод';
+      } else {
+        hMotors.textContent = B2B_STATE.qty + ' моторов';
+      }
+    }
 
-    const curSys = B2B_RATES.systems[B2B_STATE.system];
-    const curMotor = B2B_RATES.motors[B2B_STATE.motor];
+    const curSys = B2B_RATES.systems[B2B_STATE.system] || B2B_RATES.systems.screen;
+    const curMotor = B2B_RATES.motors[B2B_STATE.motor] || B2B_RATES.motors.somfy;
 
-    document.getElementById('hudNrc').textContent = curSys.nrc;
-    document.getElementById('hudFire').textContent = curSys.fire;
+    const hNrc = document.getElementById('hudNrc');
+    const hFire = document.getElementById('hudFire');
+    if(hNrc) hNrc.textContent = curSys.nrc;
+    if(hFire) hFire.textContent = curSys.fire;
 
-    // Financial Calculation (net of VAT)
-    const fabricCostNet = totalArea * curSys.baseRate;
-    const motorCostNet = B2B_STATE.qty * curMotor.costPerUnit;
-    const installCostNet = totalArea * B2B_RATES.installRatePerSqm;
+    // Apply Segment Multiplier to base engineering rates
+    const fabricCostNet = totalArea * curSys.baseRate * segMultiplier;
+    const motorCostNet = B2B_STATE.qty * curMotor.costPerUnit * segMultiplier;
+    const installCostNet = totalArea * B2B_RATES.installRatePerSqm * segMultiplier;
 
-    const subtotalNet = fabricCostNet + motorCostNet + installCostNet;
+    // Calculate Compliance and Certification Fees
+    let complianceCostNet = 0;
+    const complianceItems = [];
+    if(B2B_STATE.km1) {
+      complianceCostNet += B2B_COMPLIANCE.checkKm1.fee;
+      complianceItems.push('КМ1 МЧС РК');
+    }
+    if(B2B_STATE.acoustic) {
+      complianceCostNet += B2B_COMPLIANCE.checkAcoustic.fee;
+      complianceItems.push('ISO 354');
+    }
+    if(B2B_STATE.esf) {
+      complianceCostNet += B2B_COMPLIANCE.checkEsf.fee;
+      complianceItems.push('ИС ЭСФ');
+    }
+    if(B2B_STATE.ks) {
+      complianceCostNet += B2B_COMPLIANCE.checkKs.fee;
+      complianceItems.push('КС-2/3');
+    }
+
+    const subtotalNet = fabricCostNet + motorCostNet + installCostNet + complianceCostNet;
     const vatAmount = subtotalNet * B2B_RATES.vatRate;
     const totalGross = subtotalNet + vatAmount;
 
     // Update HUD
-    document.getElementById('hudTotal').textContent = formatKZT(totalGross);
-    document.getElementById('hudVatLine').textContent = 'Включая официальный НДС 12%: ' + formatKZT(vatAmount);
+    const hTotal = document.getElementById('hudTotal');
+    const hVatLine = document.getElementById('hudVatLine');
+    if(hTotal) hTotal.textContent = formatKZT(totalGross);
+    if(hVatLine) hVatLine.textContent = 'Включая официальный НДС 12%: ' + formatKZT(vatAmount);
 
-    document.getElementById('hudRowFabric').textContent = formatKZT(fabricCostNet * 1.12);
-    document.getElementById('hudRowMotors').textContent = formatKZT(motorCostNet * 1.12);
-    document.getElementById('hudRowInstall').textContent = formatKZT(installCostNet * 1.12);
-    document.getElementById('hudRowVat').textContent = formatKZT(vatAmount);
-    document.getElementById('hudRowSum').textContent = formatKZT(totalGross);
+    const rFabric = document.getElementById('hudRowFabric');
+    const rMotors = document.getElementById('hudRowMotors');
+    const rInstall = document.getElementById('hudRowInstall');
+    const rCompliance = document.getElementById('hudRowCompliance');
+    const rVat = document.getElementById('hudRowVat');
+    const rSum = document.getElementById('hudRowSum');
 
-    // Save for RFP modal
+    if(rFabric) rFabric.textContent = formatKZT(fabricCostNet * 1.12);
+    if(rMotors) rMotors.textContent = formatKZT(motorCostNet * 1.12);
+    if(rInstall) rInstall.textContent = formatKZT(installCostNet * 1.12);
+    if(rCompliance) rCompliance.textContent = formatKZT(complianceCostNet * 1.12);
+    if(rVat) rVat.textContent = formatKZT(vatAmount);
+    if(rSum) rSum.textContent = formatKZT(totalGross);
+
     window.lastB2BCalc = {
+      segKey,
+      segMultiplier,
+      segName: seg.name,
       totalArea,
       fabricCostNet,
       motorCostNet,
       installCostNet,
+      complianceCostNet,
+      complianceListText: complianceItems.length ? complianceItems.join(', ') : 'Базовый пакет',
       subtotalNet,
       vatAmount,
       totalGross,
@@ -981,53 +1160,75 @@
   function openPrintableRfp() {
     recalcB2B();
     const c = window.lastB2BCalc;
-    const segNames = {
-      office: 'БЦ «Talan Towers» / Класс «А»',
-      embassy: 'Дипломатическая миссия (Акбулак)',
-      bank: 'Головной офис Банка / МФЦА (AIFC)',
-      boardroom: 'Зал заседаний Совета Директоров'
-    };
+    const seg = B2B_SEGMENTS[B2B_STATE.segment] || B2B_SEGMENTS.office;
 
-    document.getElementById('rfpObjectName').textContent = segNames[B2B_STATE.segment] || 'Корпоративный объект';
-    document.getElementById('rfpTableSystem').textContent = c.sysName;
-    document.getElementById('rfpTableMotor').textContent = 'Привод: ' + c.motorName;
-    document.getElementById('rfpTableQty').textContent = B2B_STATE.qty + ' шт';
-    document.getElementById('rfpTableQty2').textContent = B2B_STATE.qty + ' компл.';
-    document.getElementById('rfpTableArea').textContent = c.totalArea.toFixed(1) + ' м²';
+    const objName = document.getElementById('rfpObjectName');
+    if(objName) objName.textContent = seg.rfpName || 'Корпоративный объект';
+    
+    const tSys = document.getElementById('rfpTableSystem');
+    const tMotor = document.getElementById('rfpTableMotor');
+    const tQty = document.getElementById('rfpTableQty');
+    const tQty2 = document.getElementById('rfpTableQty2');
+    const tArea = document.getElementById('rfpTableArea');
 
-    document.getElementById('rfpTableFabricCost').textContent = formatKZT(c.fabricCostNet * 1.12);
-    document.getElementById('rfpTableMotorsCost').textContent = formatKZT(c.motorCostNet * 1.12);
-    document.getElementById('rfpTableInstallCost').textContent = formatKZT(c.installCostNet * 1.12);
-    document.getElementById('rfpTableVat').textContent = formatKZT(c.vatAmount);
-    document.getElementById('rfpTableTotal').textContent = formatKZT(c.totalGross);
+    if(tSys) tSys.textContent = c.sysName;
+    if(tMotor) tMotor.textContent = 'Привод: ' + c.motorName;
+    if(tQty) tQty.textContent = B2B_STATE.qty + ' шт';
+    if(tQty2) tQty2.textContent = B2B_STATE.qty + ' компл.';
+    if(tArea) tArea.textContent = c.totalArea.toFixed(1) + ' м²';
 
-    document.getElementById('rfpNum').textContent = Math.floor(100 + Math.random() * 900);
+    const tFabric = document.getElementById('rfpTableFabricCost');
+    const tMotors = document.getElementById('rfpTableMotorsCost');
+    const tInstall = document.getElementById('rfpTableInstallCost');
+    const tCompCost = document.getElementById('rfpTableComplianceCost');
+    const tCompRow = document.getElementById('rfpTableComplianceRow');
+    const tCompDesc = document.getElementById('rfpTableComplianceDesc');
+    const tVat = document.getElementById('rfpTableVat');
+    const tTotal = document.getElementById('rfpTableTotal');
+
+    if(tFabric) tFabric.textContent = formatKZT(c.fabricCostNet * 1.12);
+    if(tMotors) tMotors.textContent = formatKZT(c.motorCostNet * 1.12);
+    if(tInstall) tInstall.textContent = formatKZT(c.installCostNet * 1.12);
+    if(tCompCost) tCompCost.textContent = formatKZT(c.complianceCostNet * 1.12);
+    if(tCompRow) tCompRow.style.display = (c.complianceCostNet > 0) ? '' : 'none';
+    if(tCompDesc) tCompDesc.textContent = 'Пакет согласования: ' + (c.complianceListText || 'Базовый пакет');
+    if(tVat) tVat.textContent = formatKZT(c.vatAmount);
+    if(tTotal) tTotal.textContent = formatKZT(c.totalGross);
+
+    const rfpNum = document.getElementById('rfpNum');
+    if(rfpNum) rfpNum.textContent = Math.floor(100 + Math.random() * 900);
     const d = new Date();
-    document.getElementById('rfpDate').textContent = 'Дата: ' + d.toLocaleDateString('ru-RU');
+    const rfpDate = document.getElementById('rfpDate');
+    if(rfpDate) rfpDate.textContent = 'Дата: ' + d.toLocaleDateString('ru-RU');
 
-    document.getElementById('rfpModal').classList.add('active');
+    const m = document.getElementById('rfpModal');
+    if(m) m.classList.add('active');
   }
 
   function closeRfpModal() {
-    document.getElementById('rfpModal').classList.remove('active');
+    const m = document.getElementById('rfpModal');
+    if(m) m.classList.remove('active');
   }
 
   function sendB2BWhatsApp() {
     recalcB2B();
     const c = window.lastB2BCalc;
+    const seg = B2B_SEGMENTS[B2B_STATE.segment] || B2B_SEGMENTS.office;
     const text = 
       `Здравствуйте, Maison Poisson B2B! 🏢\n\n` +
       `Прошу предоставить официальное коммерческое предложение с НДС 12%:\n` +
-      `• Профиль: ${document.getElementById('segmentDesc').textContent}\n` +
+      `• Профиль заказчика: ${seg.name} (коэфф. ${seg.multiplier.toFixed(2)}x)\n` +
+      `• Спецификация: ${seg.protocol}\n` +
       `• Система: ${c.sysName}\n` +
       `• Автоматика: ${c.motorName}\n` +
       `• Количество проемов: ${B2B_STATE.qty} окон\n` +
       `• Габариты: ${B2B_STATE.width}м × ${B2B_STATE.height}м (${c.totalArea.toFixed(1)} м²)\n` +
-      `• Расчетный бюджет: ${formatKZT(c.totalGross)} (в т.ч. НДС 12%)\n` +
-      `• Требования: Пожарный сертификат МЧС РК (КМ1), акты АВР (Р-1) / КС-2 и КС-3.\n\n` +
+      `• Расчетный бюджет с НДС 12%: ${formatKZT(c.totalGross)}\n` +
+      `• Входящий НДС 12%: ${formatKZT(c.vatAmount)}\n` +
+      `• Сертификация & акты: ${c.complianceListText || 'Базовый пакет'}\n\n` +
       `Готовы отправить ведомость проемов в DWG/Excel на экспресс-расчет (SLA 60 мин).`;
     
-    const url = 'https://wa.me/77017770000?text=' + encodeURIComponent(text);
+    const url = 'https://wa.me/77710551515?text=' + encodeURIComponent(text);
     window.open(url, '_blank');
   }
 
