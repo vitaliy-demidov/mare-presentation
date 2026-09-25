@@ -2,3 +2,5 @@
 .DS_Store
 *.log
 index-mare-archive.html
+qa-test-suite.js
+qa-results.json
