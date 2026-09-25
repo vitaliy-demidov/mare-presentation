@@ -406,7 +406,7 @@
   border: 1.5px solid var(--gold);
   border-radius: 14px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
 }
 .btn-voice-record:hover {
@@ -471,31 +471,173 @@
 }
 .voice-timer { font-size: 0.8rem; font-weight: 700; color: #E03131; font-family: monospace; }
 .voice-rec-hint { font-size: 0.78rem; color: var(--muted); margin-left: auto; }
-.voice-transcript-card {
-  margin-top: 14px;
-  padding: 14px 16px;
-  background: #fff;
-  border: 1px solid var(--gold);
-  border-radius: 12px;
+
+/* Quick Voice Prompt Chips */
+.voice-chips-row {
+  margin-top: 12px;
+  margin-bottom: 4px;
 }
-.transcript-header {
+.voice-chips-hint {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.voice-chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.v-chip {
+  padding: 6px 11px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.v-chip:hover {
+  background: var(--gold-light);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* Structured AI Result Card */
+.voice-structured-card {
+  margin-top: 14px;
+  padding: 16px;
+  background: #fff;
+  border: 1.5px solid var(--gold);
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(35, 18, 43, 0.06);
+}
+.v-struct-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--gold);
-  margin-bottom: 6px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(200, 169, 126, 0.25);
 }
+.v-struct-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.v-ai-sparkle { font-size: 1.05rem; }
 .btn-transcript-reset {
   background: none;
   border: none;
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   cursor: pointer;
   text-decoration: underline;
+  padding: 2px 6px;
 }
-.transcript-text { font-size: 0.9rem; color: var(--ink); line-height: 1.45; font-style: italic; margin: 0; }
+.btn-transcript-reset:hover { color: var(--gold-dark); }
+.v-struct-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+@media (max-width: 480px) {
+  .v-struct-grid { grid-template-columns: 1fr; }
+}
+.v-struct-item {
+  background: rgba(35, 18, 43, 0.03);
+  padding: 8px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.v-struct-lbl {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.v-struct-val {
+  font-size: 0.86rem;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.v-struct-val.gold {
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+.v-struct-task-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--ink);
+  padding: 8px 12px;
+  background: rgba(200, 169, 126, 0.12);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.v-struct-task-text { font-weight: 600; }
+.v-audio-player-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+.v-raw-quote-row {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.transcript-text { font-size: 0.88rem; color: var(--ink); line-height: 1.45; font-style: italic; margin: 4px 0 0 0; }
+
+/* Calculator Voice Action Button */
+.btn-calc-voice {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px dashed var(--gold);
+  border-radius: 12px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+.btn-calc-voice:hover {
+  background: rgba(200, 169, 126, 0.18);
+  border-color: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.calc-voice-mic-ic {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.calc-voice-mic-ic svg { width: 17px; height: 17px; }
+.calc-voice-text-col { display: flex; flex-direction: column; gap: 2px; }
+.calc-voice-text-col b { font-size: 0.84rem; color: #fff; line-height: 1.25; }
+.calc-voice-text-col span { font-size: 0.72rem; color: rgba(255, 255, 255, 0.7); }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 section[id], div[id] { scroll-margin-top: 84px; }
@@ -606,7 +748,7 @@ p { margin: 0; }
 .btn-wa { background: #1F7A55; color: #fff; }
 .btn-wa:hover { background: #176544; transform: translateY(-3px); }
 .btn-sm { padding: 10px 20px; font-size: 0.84rem; }
-.btn-block { width: 100%; }
+.btn-block { width: 100%; white-space: normal; text-align: center; }
 
 /* TOP STATUS BAR */
 .top-bar {
@@ -4042,6 +4184,17 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
               <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
               Зафиксировать расчет в WhatsApp
             </button>
+
+            <button type="button" class="btn-calc-voice" onclick="activateVoiceForCalculator()">
+              <span class="calc-voice-mic-ic">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+              </span>
+              <span class="calc-voice-text-col">
+                <b>🎙 Не хотите звонить? Надиктуйте голосом</b>
+                <span>Распознаем параметры и пришлем расчет в WhatsApp</span>
+              </span>
+            </button>
+
             <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); line-height: 1.4; margin-top: 10px; text-align: center;">
               Предварительный расчет носит ознакомительный характер. Точную смету с учетом высоты потолков утвердит декоратор.
             </p>
@@ -4240,7 +4393,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <!-- Voice Input Box -->
         <div class="voice-box-lead">
           <div class="voice-box-head">
-            <span class="voice-badge">⚡️ Экспресс-заявка</span>
+            <span class="voice-badge">⚡️ Экспресс-заявка голосом</span>
             <span class="voice-sub">Без долгих анкет</span>
           </div>
 
@@ -4250,7 +4403,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </div>
             <div class="voice-label-col">
               <b id="voiceBtnTitle">Не тратьте время на печать — надиктуйте голосом</b>
-              <span id="voiceBtnSub">Нажмите и расскажите про окна, ткань или желаемый стиль</span>
+              <span id="voiceBtnSub">Нажмите и назовите окна, ткань или желаемый бюджет</span>
             </div>
           </button>
 
@@ -4263,13 +4416,62 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             <span class="voice-rec-hint">Слушаем вас... Говорите</span>
           </div>
 
-          <!-- Transcript Result -->
-          <div class="voice-transcript-card" id="voiceTranscriptCard" style="display: none;">
-            <div class="transcript-header">
-              <span>Ваше голосовое пожелание:</span>
+          <!-- Quick Prompts / Fallback Chips -->
+          <div class="voice-chips-row" id="voiceChipsRow">
+            <span class="voice-chips-hint">Или выберите готовый сценарий в 1 клик:</span>
+            <div class="voice-chips-list">
+              <button type="button" class="v-chip" onclick="applyVoiceChip('В спальню блэкаут, окно 3 метра, высокие потолки, бюджет ~250 000 ₸')">🌙 Спальня · Blackout</button>
+              <button type="button" class="v-chip" onclick="applyVoiceChip('В гостиную натуральный шелк волна, 4м, потолки 3.2м, бюджет ~450 000 ₸')">👑 Гостиная · Шелк</button>
+              <button type="button" class="v-chip" onclick="applyVoiceChip('Детская ткань шенилл Бельгия, окно 3 на 2.80')">🧸 Детская · Шенилл</button>
+              <button type="button" class="v-chip" onclick="applyVoiceChip('В офис моторизованные рулонные шторы Somfy, 5 окон, нужен договор с НДС 12%')">🏢 Офис · B2B (НДС)</button>
+            </div>
+          </div>
+
+          <!-- Structured AI Result Card -->
+          <div class="voice-structured-card" id="voiceStructuredCard" style="display: none;">
+            <div class="v-struct-header">
+              <div class="v-struct-title">
+                <span class="v-ai-sparkle">✨</span>
+                <span>Заявка структурирована:</span>
+              </div>
               <button type="button" class="btn-transcript-reset" onclick="resetVoiceRecording()">Очистить</button>
             </div>
-            <p class="transcript-text" id="voiceTranscriptText"></p>
+
+            <div class="v-struct-grid">
+              <div class="v-struct-item">
+                <span class="v-struct-lbl">📍 Помещение</span>
+                <b class="v-struct-val" id="vStructRoom">—</b>
+              </div>
+              <div class="v-struct-item">
+                <span class="v-struct-lbl">📐 Окна</span>
+                <b class="v-struct-val" id="vStructDims">—</b>
+              </div>
+              <div class="v-struct-item">
+                <span class="v-struct-lbl">🎨 Текстиль</span>
+                <b class="v-struct-val" id="vStructFabric">—</b>
+              </div>
+              <div class="v-struct-item">
+                <span class="v-struct-lbl">💰 Оценка бюджета</span>
+                <b class="v-struct-val gold" id="vStructBudget">—</b>
+              </div>
+            </div>
+
+            <div class="v-struct-task-row">
+              <span class="v-struct-lbl">🎯 Задача:</span>
+              <span class="v-struct-task-text" id="vStructTask">—</span>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="v-audio-player-row" id="vAudioPlayerRow" style="display: none;">
+              <span class="v-struct-lbl">🎧 Ваша голосовая запись:</span>
+              <audio id="vAudioPlayer" controls style="width: 100%; height: 36px; margin-top: 6px;"></audio>
+            </div>
+
+            <!-- Raw speech text -->
+            <div class="v-raw-quote-row" id="vRawQuoteRow" style="display: none;">
+              <span class="v-struct-lbl">🗣 Надиктованный текст:</span>
+              <p class="transcript-text" id="voiceTranscriptText"></p>
+            </div>
           </div>
         </div>
 
@@ -4283,7 +4485,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
         <button class="btn btn-wa btn-block" id="leadBtn" type="submit" style="margin-top: 16px;">
           <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
-          Отправить заявку в WhatsApp
+          Отправить структурированную заявку в WhatsApp
         </button>
 
         <p class="form-note">
@@ -5564,15 +5766,192 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   window.recalc = recalc;
 
   /* ------------------------------------------------------------- */
-  /* VOICE INPUT LEAD MODULE (WEB SPEECH API & AUDIO)              */
+  /* VOICE AI & SMART TEXTILE STRUCTURING MODULE                   */
+  /* Native Web Audio (MediaRecorder), Web Speech API & Cloud Dispatch */
   /* ------------------------------------------------------------- */
   var voiceState = {
     isRecording: false,
     transcript: '',
+    structured: null,
     recognition: null,
+    mediaRecorder: null,
+    audioChunks: [],
+    audioBlob: null,
+    audioUrl: null,
     timerInterval: null,
     seconds: 0
   };
+
+  function parseVoiceEntities(text){
+    if(!text) text = '';
+    var lower = text.toLowerCase();
+
+    // 1. ROOM / OBJECT
+    var room = 'Жилое пространство';
+    if(/спальн|кроват|мастер/i.test(lower)) room = 'Мастер-спальня';
+    else if(/гостин|зал|хол|парадн/i.test(lower)) room = 'Парадная гостиная';
+    else if(/детск|ребен|малыш/i.test(lower)) room = 'Детская комната';
+    else if(/кухн|столов/i.test(lower)) room = 'Кухня-столовая';
+    else if(/кабинет|офис|переговорн|б2б|b2b/i.test(lower)) room = 'Кабинет / B2B офис';
+    else if(/коттедж|вилл|дом|saranda|bi village/i.test(lower)) room = 'Загородный дом / Коттедж';
+    else if(/пентхаус|апартамент/i.test(lower)) room = 'Пентхаус / Апартаменты';
+
+    // 2. FABRIC & STYLE
+    var fabric = 'Портьерный текстиль (подбор образцов)';
+    if(/блэкаут|blackout|блек аут|светоизоляц|затемнен|темн/i.test(lower)) fabric = 'Dimout / Blackout 100% (Турция)';
+    else if(/бархат|велюр|velvet/i.test(lower)) fabric = 'Бархат Velvet Touch (Италия)';
+    else if(/лен|лён|рогожк|linen/i.test(lower)) fabric = 'Фактурный лён & Рогожка (Франция)';
+    else if(/шенилл|шенил|шениль|sheeneel|sheenel|chenille|wind/i.test(lower)) fabric = 'Шенилл Wind (Бельгия)';
+    else if(/жаккард|кутюр/i.test(lower)) fabric = 'Кутюрный жаккард (Италия)';
+    else if(/сатин|soft touch/i.test(lower)) fabric = 'Сатин Soft-Touch (Турция)';
+    else if(/шелк|шёлк|silk/i.test(lower)) fabric = 'Натуральный шёлк (Италия)';
+    else if(/жалюзи|дерев/i.test(lower)) fabric = 'Деревянные жалюзи Basswood 50мм';
+    else if(/рулонн|ролл|screen|скрин/i.test(lower)) fabric = 'Рулонные системы Somfy Screen';
+    else if(/тюль|вуаль|сетк/i.test(lower)) fabric = 'Французский тюль-вуаль';
+
+    // 3. DIMENSIONS
+    var dims = 'Стандартное окно';
+    var dimMatch = lower.match(/(\d+(?:[.,]\d+)?)\s*(?:на|x|х|по)\s*(\d+(?:[.,]\d+)?)/);
+    if(dimMatch){
+      dims = dimMatch[1].replace(',', '.') + 'м × ' + dimMatch[2].replace(',', '.') + 'м';
+    } else {
+      var widthMatch = lower.match(/(\d+(?:[.,]\d+)?)\s*(?:метра|метров|метровый|м|погонных|п\.м)/);
+      if(widthMatch){
+        dims = '~' + widthMatch[1].replace(',', '.') + ' м';
+      } else if(/три\s+метра/i.test(lower)){
+        dims = '~3.0 м';
+      } else if(/четыре\s+метра/i.test(lower)){
+        dims = '~4.0 м';
+      } else if(/два\s+метра|два\s+с\s+половиной/i.test(lower)){
+        dims = '~2.5 м';
+      } else if(/(\d+)\s*(?:окон|окна)/i.test(lower)){
+        var winCount = lower.match(/(\d+)\s*(?:окон|окна)/)[1];
+        dims = winCount + ' окон (проект)';
+      }
+    }
+
+    // 4. BUDGET
+    var budget = 'Расчет по смете ателье';
+    var numBudget = 0;
+    var budgetMatch = lower.match(/(\d+[\s\d]*)\s*(?:тысяч|тыс|к|тг|тенге|kzt|₸)/i);
+    if(budgetMatch){
+      var rawNum = parseInt(budgetMatch[1].replace(/\s+/g, ''), 10);
+      if(rawNum < 1000) rawNum = rawNum * 1000;
+      numBudget = rawNum;
+      budget = rawNum.toLocaleString('ru-RU') + ' ₸';
+    } else if(/двести\s+тысяч|200к/i.test(lower)){
+      budget = '200 000 ₸';
+      numBudget = 200000;
+    } else if(/триста\s+тысяч|300к/i.test(lower)){
+      budget = '300 000 ₸';
+      numBudget = 300000;
+    } else if(/четыреста\s+тысяч|400к/i.test(lower)){
+      budget = '400 000 ₸';
+      numBudget = 400000;
+    } else if(/пятьсот\s+тысяч|500к/i.test(lower)){
+      budget = '500 000 ₸';
+      numBudget = 500000;
+    } else {
+      var estWidth = 3.0;
+      if(dims.indexOf('4') !== -1) estWidth = 4.0;
+      else if(dims.indexOf('2') !== -1) estWidth = 2.5;
+
+      var pricePerM = 22000;
+      if(fabric.indexOf('Шенилл') !== -1 || fabric.indexOf('жаккард') !== -1) pricePerM = 32000;
+      else if(fabric.indexOf('Blackout') !== -1) pricePerM = 24000;
+      else if(fabric.indexOf('Сатин') !== -1) pricePerM = 18000;
+
+      var estTotal = Math.round(estWidth * 2.0 * pricePerM + estWidth * 16000 + 45000);
+      budget = '~' + estTotal.toLocaleString('ru-RU') + ' ₸ (под ключ)';
+      numBudget = estTotal;
+    }
+
+    // 5. GOAL / TASK
+    var task = 'Консультация и выезд декоратора с каталогами';
+    if(/б2б|b2b|юрлиц|договор|ндс|кс-2|акт/i.test(lower)) task = 'B2B контракт с НДС 12% и закрывающими актами';
+    else if(/электро|пульт|умный дом|somfy|мотор/i.test(lower)) task = 'Моторизованные шторы Somfy под Умный Дом';
+    else if(/солнц|затемнен|свет|утр/i.test(lower)) task = 'Защита от утреннего солнца и затемнение';
+    else if(/выезд|образц|замер|каталог|пощупать/i.test(lower)) task = 'Выезд декоратора с каталогами образцов в Астане';
+    else if(/высокие потолки|второй свет|витраж/i.test(lower)) task = 'Оформление нестандартных высоких витражных окон';
+
+    return {
+      room: room,
+      fabric: fabric,
+      dimensions: dims,
+      budget: budget,
+      numBudget: numBudget,
+      task: task,
+      rawText: text
+    };
+  }
+
+  function triggerHaptic(type){
+    try {
+      if(window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback){
+        window.Telegram.WebApp.HapticFeedback.impactOccurred(type || 'medium');
+      } else if(navigator.vibrate){
+        navigator.vibrate(type === 'heavy' ? [40, 50, 40] : [25]);
+      }
+    } catch(e){}
+  }
+
+  function updateStructuredCard(parsed){
+    voiceState.structured = parsed;
+
+    var card = document.getElementById('voiceStructuredCard');
+    var elRoom = document.getElementById('vStructRoom');
+    var elDims = document.getElementById('vStructDims');
+    var elFabric = document.getElementById('vStructFabric');
+    var elBudget = document.getElementById('vStructBudget');
+    var elTask = document.getElementById('vStructTask');
+    var rawText = document.getElementById('voiceTranscriptText');
+    var rawRow = document.getElementById('vRawQuoteRow');
+
+    if(elRoom) elRoom.textContent = parsed.room;
+    if(elDims) elDims.textContent = parsed.dimensions;
+    if(elFabric) elFabric.textContent = parsed.fabric;
+    if(elBudget) elBudget.textContent = parsed.budget;
+    if(elTask) elTask.textContent = parsed.task;
+
+    if(rawText && parsed.rawText){
+      rawText.textContent = '«' + parsed.rawText + '»';
+      if(rawRow) rawRow.style.display = 'block';
+    } else if(rawRow){
+      rawRow.style.display = 'none';
+    }
+
+    if(card) card.style.display = 'block';
+
+    var title = document.getElementById('voiceBtnTitle');
+    var sub = document.getElementById('voiceBtnSub');
+    if(title) title.textContent = '✓ Заявка готова и структурирована!';
+    if(sub) sub.textContent = 'Нажмите «Отправить структурированную заявку в WhatsApp»';
+  }
+
+  function applyVoiceChip(sampleText){
+    triggerHaptic('light');
+    voiceState.transcript = sampleText;
+    var parsed = parseVoiceEntities(sampleText);
+    updateStructuredCard(parsed);
+
+    var phoneInput = document.getElementById('fPhone');
+    if(phoneInput && !phoneInput.value.trim()){
+      phoneInput.focus();
+    }
+  }
+  window.applyVoiceChip = applyVoiceChip;
+
+  function activateVoiceForCalculator(){
+    triggerHaptic('medium');
+    var r = compute();
+    var calcPrompt = 'В ' + (calcState.mode === 'b2b' ? 'офис' : 'гостиную') + ' ' + (r.product || 'портьеры') + ', ткань ' + (r.fabric || 'сатин') + ', ширина ' + (r.width || 3.2) + 'м, бюджет ' + fmt(r.total);
+
+    scrollToId('contacts');
+    setTimeout(function(){
+      applyVoiceChip(calcPrompt);
+    }, 450);
+  }
+  window.activateVoiceForCalculator = activateVoiceForCalculator;
 
   function initVoiceRecognition(){
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -5587,23 +5966,20 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         for(var i = event.resultIndex; i < event.results.length; i++){
           current += event.results[i][0].transcript;
         }
-        voiceState.transcript = current;
-        var tEl = document.getElementById('voiceTranscriptText');
-        var card = document.getElementById('voiceTranscriptCard');
-        if(tEl && card){
-          tEl.textContent = '«' + current + '»';
-          card.style.display = 'block';
+        if(current.trim()){
+          voiceState.transcript = current.trim();
+          var parsed = parseVoiceEntities(voiceState.transcript);
+          updateStructuredCard(parsed);
         }
       };
 
       voiceState.recognition.onerror = function(err){
-        console.warn('Speech recognition error:', err);
-        stopVoiceRecording();
+        console.warn('Speech recognition notice:', err);
       };
 
       voiceState.recognition.onend = function(){
         if(voiceState.isRecording){
-          stopVoiceRecording();
+          try { voiceState.recognition.start(); } catch(e){}
         }
       };
     }
@@ -5618,12 +5994,56 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   }
 
   function startVoiceRecording(){
+    triggerHaptic('heavy');
     var btn = document.getElementById('btnVoiceRecord');
     var circle = document.getElementById('voiceMicCircle');
     var title = document.getElementById('voiceBtnTitle');
     var sub = document.getElementById('voiceBtnSub');
     var waveWrap = document.getElementById('voiceWaveWrap');
     var timer = document.getElementById('voiceTimer');
+
+    voiceState.audioChunks = [];
+    voiceState.transcript = '';
+
+    // Initialize MediaRecorder for universal audio recording
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+      navigator.mediaDevices.getUserMedia({ audio: true }).then(function(stream){
+        try {
+          var mime = 'audio/webm';
+          if(typeof MediaRecorder !== 'undefined'){
+            if(MediaRecorder.isTypeSupported('audio/webm')) mime = 'audio/webm';
+            else if(MediaRecorder.isTypeSupported('audio/mp4')) mime = 'audio/mp4';
+            else if(MediaRecorder.isTypeSupported('audio/ogg')) mime = 'audio/ogg';
+
+            voiceState.mediaRecorder = new MediaRecorder(stream, { mimeType: mime });
+            voiceState.mediaRecorder.ondataavailable = function(e){
+              if(e.data && e.data.size > 0) voiceState.audioChunks.push(e.data);
+            };
+            voiceState.mediaRecorder.onstop = function(){
+              if(voiceState.audioChunks.length > 0){
+                voiceState.audioBlob = new Blob(voiceState.audioChunks, { type: mime });
+                if(voiceState.audioUrl) URL.revokeObjectURL(voiceState.audioUrl);
+                voiceState.audioUrl = URL.createObjectURL(voiceState.audioBlob);
+
+                var audioEl = document.getElementById('vAudioPlayer');
+                var audioRow = document.getElementById('vAudioPlayerRow');
+                if(audioEl && audioRow){
+                  audioEl.src = voiceState.audioUrl;
+                  audioRow.style.display = 'block';
+                }
+              }
+              // Stop stream tracks
+              stream.getTracks().forEach(function(track){ track.stop(); });
+            };
+            voiceState.mediaRecorder.start(250);
+          }
+        } catch(recErr){
+          console.warn('MediaRecorder error:', recErr);
+        }
+      }).catch(function(err){
+        console.warn('Microphone permission / access info:', err);
+      });
+    }
 
     if(!voiceState.recognition){
       initVoiceRecognition();
@@ -5632,9 +6052,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     if(voiceState.recognition){
       try {
         voiceState.recognition.start();
-      } catch(e) {
-        console.log('Recognition already started or error', e);
-      }
+      } catch(e){}
     }
 
     voiceState.isRecording = true;
@@ -5642,7 +6060,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     if(btn) btn.classList.add('recording');
     if(circle) circle.classList.add('pulse');
     if(title) title.textContent = 'Идёт запись... Нажмите для завершения';
-    if(sub) sub.textContent = 'Говорите про окна, размеры или стиль интерьера';
+    if(sub) sub.textContent = 'Говорите про окна, размеры, ткань или бюджет';
     if(waveWrap) waveWrap.style.display = 'flex';
 
     if(voiceState.timerInterval) clearInterval(voiceState.timerInterval);
@@ -5658,41 +6076,50 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   }
 
   function stopVoiceRecording(){
+    triggerHaptic('medium');
     voiceState.isRecording = false;
     if(voiceState.timerInterval) clearInterval(voiceState.timerInterval);
+
     if(voiceState.recognition){
       try { voiceState.recognition.stop(); } catch(e){}
+    }
+    if(voiceState.mediaRecorder && voiceState.mediaRecorder.state !== 'inactive'){
+      try { voiceState.mediaRecorder.stop(); } catch(e){}
     }
 
     var btn = document.getElementById('btnVoiceRecord');
     var circle = document.getElementById('voiceMicCircle');
-    var title = document.getElementById('voiceBtnTitle');
-    var sub = document.getElementById('voiceBtnSub');
     var waveWrap = document.getElementById('voiceWaveWrap');
 
     if(btn) btn.classList.remove('recording');
     if(circle) circle.classList.remove('pulse');
     if(waveWrap) waveWrap.style.display = 'none';
 
-    if(voiceState.transcript){
-      if(title) title.textContent = '✓ Сообщение записано!';
-      if(sub) sub.textContent = 'Нажмите «Отправить заявку в WhatsApp»';
-    } else {
-      if(title) title.textContent = 'Не тратьте время на печать — надиктуйте голосом';
-      if(sub) sub.textContent = 'Нажмите и расскажите про окна, ткань или желаемый стиль';
-    }
+    // Parse entity structure
+    var text = voiceState.transcript || 'Заявка на индивидуальный расчет текстиля';
+    var parsed = parseVoiceEntities(text);
+    updateStructuredCard(parsed);
   }
 
   function resetVoiceRecording(){
+    triggerHaptic('light');
     voiceState.transcript = '';
-    var card = document.getElementById('voiceTranscriptCard');
-    var text = document.getElementById('voiceTranscriptText');
+    voiceState.structured = null;
+    voiceState.audioBlob = null;
+    if(voiceState.audioUrl){
+      URL.revokeObjectURL(voiceState.audioUrl);
+      voiceState.audioUrl = null;
+    }
+
+    var card = document.getElementById('voiceStructuredCard');
+    var audioRow = document.getElementById('vAudioPlayerRow');
     if(card) card.style.display = 'none';
-    if(text) text.textContent = '';
+    if(audioRow) audioRow.style.display = 'none';
+
     var title = document.getElementById('voiceBtnTitle');
     var sub = document.getElementById('voiceBtnSub');
     if(title) title.textContent = 'Не тратьте время на печать — надиктуйте голосом';
-    if(sub) sub.textContent = 'Нажмите и расскажите про окна, ткань или желаемый стиль';
+    if(sub) sub.textContent = 'Нажмите и назовите окна, ткань или желаемый бюджет';
   }
 
   window.toggleVoiceRecording = toggleVoiceRecording;
@@ -5700,21 +6127,74 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
   function handleLeadSubmit(e){
     if(e) e.preventDefault();
+    triggerHaptic('heavy');
+
     var phoneInput = document.getElementById('fPhone');
     var phone = phoneInput ? phoneInput.value.trim() : '';
     if(!phone){
-      alert('Пожалуйста, введите ваш номер телефона');
+      alert('Пожалуйста, укажите ваш номер телефона для связи в WhatsApp');
       if(phoneInput) phoneInput.focus();
       return;
     }
 
-    var msg = 'Здравствуйте, MUAR A! Заявка с сайта:\nТелефон: ' + phone;
+    var s = voiceState.structured || parseVoiceEntities(voiceState.transcript || 'Текстильное оформление');
+
+    // Build Luxury WhatsApp Message (so client looks like a pro!)
+    var msg = 
+      'Здравствуйте, MUAR A! Заявка на расчет текстиля с сайта:\n\n' +
+      '👤 Клиент: ' + phone + '\n' +
+      '📍 Помещение: ' + s.room + '\n' +
+      '📐 Окна: ' + s.dimensions + '\n' +
+      '🎨 Ткань: ' + s.fabric + '\n' +
+      '💰 Ориентир по бюджету: ' + s.budget + '\n' +
+      '🎯 Задача: ' + s.task + '\n';
+
     if(voiceState.transcript){
-      msg += '\nГолосовое пожелание: ' + voiceState.transcript;
+      msg += '🗣 Пожелание голосом: «' + voiceState.transcript + '»\n';
     }
 
-    var url = 'https://wa.me/77710551515?text=' + encodeURIComponent(msg);
-    window.open(url, '_blank');
+    msg += '\n(Заявка надиктована и структурирована через веб-сервис MUAR A)';
+
+    // Asynchronously dispatch to server / Telegram Bot webhook
+    try {
+      var endpoint = '/api/voice-lead';
+      if(voiceState.audioBlob){
+        var fd = new FormData();
+        fd.append('phone', phone);
+        fd.append('transcript', voiceState.transcript);
+        fd.append('structured', JSON.stringify(s));
+        fd.append('funnel', calcState.mode || 'b2c');
+        var ext = voiceState.audioBlob.type.indexOf('mp4') !== -1 ? 'mp4' : 'webm';
+        fd.append('audio', voiceState.audioBlob, 'voice_' + Date.now() + '.' + ext);
+
+        fetch(endpoint, { method: 'POST', body: fd }).catch(function(){});
+      } else {
+        fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            phone: phone,
+            transcript: voiceState.transcript,
+            structured: s,
+            funnel: calcState.mode || 'b2c'
+          })
+        }).catch(function(){});
+      }
+    } catch(postErr){}
+
+    // Open WhatsApp
+    var waUrl = 'https://wa.me/77710551515?text=' + encodeURIComponent(msg);
+    window.open(waUrl, '_blank');
+
+    var submitBtn = document.getElementById('leadBtn');
+    if(submitBtn){
+      submitBtn.innerHTML = '✓ Заявка отправлена в WhatsApp!';
+      submitBtn.style.background = '#2b8a3e';
+      setTimeout(function(){
+        submitBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg> Отправить структурированную заявку в WhatsApp';
+        submitBtn.style.background = '';
+      }, 5000);
+    }
   }
   window.handleLeadSubmit = handleLeadSubmit;
 
