@@ -140,61 +140,109 @@
   --maxw: 1260px;
 }
 
-/* NEW LUXURY FABRIC SWATCH GRID */
+/* COMPACT LUXURY FABRIC SELECTOR CARDS */
 .fabric-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-@media (max-width: 900px) {
-  .fabric-grid { grid-template-columns: repeat(2, 1fr); }
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 @media (max-width: 540px) {
-  .fabric-grid { grid-template-columns: 1fr; }
+  .fabric-grid { grid-template-columns: 1fr; gap: 8px; }
 }
 .fabric-card {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
+  gap: 10px;
+  min-height: 64px;
+  padding: 8px 12px;
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 12px;
   text-align: left;
   cursor: pointer;
   position: relative;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: border-color 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.22s cubic-bezier(0.2, 0.8, 0.2, 1),
+              transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-sizing: border-box;
 }
 .fabric-card:hover {
   border-color: var(--gold);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(35, 18, 43, 0.08);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(35, 18, 43, 0.06);
 }
 .fabric-card.active {
   background: #FFF;
   border-color: var(--gold);
-  box-shadow: 0 0 0 2px var(--gold), 0 8px 20px rgba(200, 169, 126, 0.2);
+  box-shadow: 0 0 0 1.5px var(--gold), 0 6px 16px rgba(200, 169, 126, 0.16);
 }
 .fabric-thumb {
-  width: 52px;
-  height: 52px;
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
   object-fit: cover;
   flex: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
-.fabric-details { flex: 1; min-width: 0; }
-.fabric-name { font-size: 0.86rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 2px; }
-.fabric-meta { font-size: 0.76rem; font-weight: 600; color: var(--gold); }
-.fabric-desc { font-size: 0.72rem; color: var(--muted); margin-top: 2px; line-height: 1.2; }
+.fabric-details {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.fabric-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.01em;
+}
+.fabric-meta {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1.2;
+  white-space: nowrap;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.fabric-example-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.69rem;
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1.1;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+  margin-top: 1px;
+}
+.fabric-example-link svg {
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+.fabric-example-link:hover {
+  color: var(--petrol);
+  transform: translateX(1px);
+}
 .fabric-check {
   display: none;
-  width: 20px;
-  height: 20px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--gold);
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 800;
   align-items: center;
   justify-content: center;
@@ -324,6 +372,8 @@
 }
 .b2b-legal-content h4 { font-size: 1.3rem; margin-bottom: 8px; color: #fff; }
 .b2b-legal-content p { font-size: 0.86rem; color: rgba(255, 255, 255, 0.75); line-height: 1.55; margin: 0; }
+.b2b-legal-action { max-width: 100%; }
+.b2b-legal-action .btn { max-width: 100%; white-space: normal; text-align: center; }
 
 /* VOICE INPUT LEAD MODULE */
 .voice-box-lead {
@@ -447,7 +497,7 @@
 }
 .transcript-text { font-size: 0.9rem; color: var(--ink); line-height: 1.45; font-style: italic; margin: 0; }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   margin: 0;
   background: var(--ivory);
@@ -677,25 +727,7 @@ p { margin: 0; }
   pointer-events: none;
 }
 
-/* FABRIC CARDS ACTION LINK & MODAL */
-.fabric-example-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--gold);
-  margin-top: 4px;
-  padding: 2px 0;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  cursor: pointer;
-  transition: color 0.25s, transform 0.25s;
-}
-.fabric-example-link:hover {
-  color: var(--petrol);
-  transform: translateX(2px);
-}
+/* FABRIC FULLSCREEN MODAL */
 .modal-card.modal-card-lg {
   max-width: 900px !important;
   width: 94% !important;
@@ -706,6 +738,9 @@ p { margin: 0; }
   grid-template-columns: 1.15fr 1fr;
   gap: 28px;
   align-items: start;
+}
+.fabric-modal-grid > * {
+  min-width: 0;
 }
 @media (max-width: 768px) {
   .fabric-modal-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -783,6 +818,12 @@ p { margin: 0; }
 .fm-actions {
   display: grid;
   gap: 10px;
+}
+.fm-actions .btn {
+  white-space: normal;
+  text-align: center;
+  line-height: 1.35;
+  padding: 12px 18px;
 }
 
 .logo {
@@ -1932,7 +1973,7 @@ p { margin: 0; }
 .v-chip:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
 
 /* ACT: PORTFOLIO */
-#projects { background: var(--ivory); }
+#projects { background: var(--ivory); padding-bottom: 24px; }
 .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 34px; justify-content: center; }
 .tab {
   padding: 11px 24px;
@@ -2000,7 +2041,7 @@ p { margin: 0; }
 .gal-item.hide { display: none; }
 
 /* ACT: INSTAGRAM REELS STRIP */
-#instagram { background: var(--white); padding-bottom: clamp(60px, 7vw, 96px); }
+#instagram { background: var(--white); padding-top: 24px; padding-bottom: clamp(36px, 5vw, 64px); overflow-x: clip; }
 .ig-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 30px; flex-wrap: wrap; }
 .ig-strip { display: flex; gap: 16px; overflow-x: auto; padding: 4px 24px 24px; scroll-snap-type: x mandatory; }
 .ig-strip::-webkit-scrollbar { height: 6px; }
@@ -3864,70 +3905,88 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             <span class="f-label">2. Коллекция ткани (6 универсальных фактур)</span>
             <div class="fabric-grid" id="fabricGrid">
               
+              <!-- 1. Satin -->
               <button type="button" class="fabric-card active" data-v="satin" onclick="setFabric('satin')">
-                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="400" height="400" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Матовый сатин Soft-Touch</div>
-                  <div class="fabric-meta">Турция · 18 000 ₸/м</div>
-                  <div class="fabric-desc">Гладкая шелковистая фактура, благородный матовый отлив</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('satin', event)">Примеры на окнах ↗</span>
+                  <div class="fabric-meta">18&nbsp;000&nbsp;₸/м &middot; Турция</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('satin', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры на окнах ↗
+                  </span>
                 </div>
-                <span class="fabric-check">✓</span>
+                <span class="fabric-check" aria-hidden="true">✓</span>
               </button>
 
+              <!-- 2. Linen -->
               <button type="button" class="fabric-card" data-v="linen" onclick="setFabric('linen')">
-                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="400" height="400" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
                 <div class="fabric-details">
-                  <div class="fabric-name">Фактурный лён & Рогожка</div>
-                  <div class="fabric-meta">Турция · 24 000 ₸/м</div>
-                  <div class="fabric-desc">Натуральная текстура, благородное рельефное плетение</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('linen', event)">Примеры на окнах ↗</span>
+                  <div class="fabric-name">Фактурный лён &amp; Рогожка</div>
+                  <div class="fabric-meta">24&nbsp;000&nbsp;₸/м &middot; Турция</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('linen', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры на окнах ↗
+                  </span>
                 </div>
-                <span class="fabric-check">✓</span>
+                <span class="fabric-check" aria-hidden="true">✓</span>
               </button>
 
+              <!-- 3. Dimout -->
               <button type="button" class="fabric-card" data-v="dimout" onclick="setFabric('dimout')">
-                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="400" height="400" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Шелковистый Dimout / Blackout</div>
-                  <div class="fabric-meta">Европа · 32 000 ₸/м</div>
-                  <div class="fabric-desc">100% затемнение, термозащита и звукопоглощение</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('dimout', event)">Примеры на окнах ↗</span>
+                  <div class="fabric-meta">32&nbsp;000&nbsp;₸/м &middot; Европа</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('dimout', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры на окнах ↗
+                  </span>
                 </div>
-                <span class="fabric-check">✓</span>
+                <span class="fabric-check" aria-hidden="true">✓</span>
               </button>
 
+              <!-- 4. Velvet -->
               <button type="button" class="fabric-card" data-v="velvet" onclick="setFabric('velvet')">
-                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="400" height="400" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
                 <div class="fabric-details">
-                  <div class="fabric-name">Премиальный бархат Velvet Touch</div>
-                  <div class="fabric-meta">Италия · 38 000 ₸/м</div>
-                  <div class="fabric-desc">Глубокий густой ворс, кутюрная пластичная драпировка</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('velvet', event)">Примеры на окнах ↗</span>
+                  <div class="fabric-name">Премиальный бархат Velvet</div>
+                  <div class="fabric-meta">38&nbsp;000&nbsp;₸/м &middot; Италия</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('velvet', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры на окнах ↗
+                  </span>
                 </div>
-                <span class="fabric-check">✓</span>
+                <span class="fabric-check" aria-hidden="true">✓</span>
               </button>
 
+              <!-- 5. Jacquard -->
               <button type="button" class="fabric-card" data-v="jacquard" onclick="setFabric('jacquard')">
-                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="400" height="400" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Кутюрный жаккард с кантом</div>
-                  <div class="fabric-meta">Бельгия · 48 000 ₸/м</div>
-                  <div class="fabric-desc">Сложный жаккардовый орнамент, высокая плотность</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('jacquard', event)">Примеры на окнах ↗</span>
+                  <div class="fabric-meta">48&nbsp;000&nbsp;₸/м &middot; Бельгия</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('jacquard', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры на окнах ↗
+                  </span>
                 </div>
-                <span class="fabric-check">✓</span>
+                <span class="fabric-check" aria-hidden="true">✓</span>
               </button>
 
+              <!-- 6. Royal Luxe -->
               <button type="button" class="fabric-card" data-v="royal" onclick="setFabric('royal')">
-                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="400" height="400" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
                 <div class="fabric-details">
-                  <div class="fabric-name">Королевский бархат Royal Luxe</div>
-                  <div class="fabric-meta">Италия · 58 000 ₸/м</div>
-                  <div class="fabric-desc">Шелковый бархат высшей пробы уровня резиденций Forbes</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('royal', event)">Примеры на окнах ↗</span>
+                  <div class="fabric-name">Королевский бархат Royal</div>
+                  <div class="fabric-meta">58&nbsp;000&nbsp;₸/м &middot; Италия</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('royal', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры на окнах ↗
+                  </span>
                 </div>
-                <span class="fabric-check">✓</span>
+                <span class="fabric-check" aria-hidden="true">✓</span>
               </button>
 
             </div>
@@ -4131,13 +4190,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <h4>Конференц-холл, Астана</h4>
           <p>Портьеры высокой плотности с защитой от выгорания, шторы со складкой волна 2.2x.</p>
         </div>
-      </a>
-    </div>
-
-    <div style="display: flex; justify-content: center; margin-top: 44px;">
-      <a class="btn btn-ghost" href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer">
-        Смотреть больше кейсов в Instagram @muar.a
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
       </a>
     </div>
   </div>
