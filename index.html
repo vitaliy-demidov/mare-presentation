@@ -6,11 +6,10 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="theme-color" content="#1F3A3D">
+<meta name="theme-color" content="#160B1C">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="MUAR A">
-<link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
@@ -21,27 +20,333 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ivory: #F7F4EF;
-  --ivory-warm: #EFECE4;
+  --ivory: #F8F5F0;
+  --ivory-warm: #EFE9E0;
   --white: #FFFFFF;
-  --ink: #1C1917;
-  --ink-soft: #2B2623;
-  --petrol: #1F3A3D;
-  --petrol-light: #2C4E52;
-  --petrol-dark: #14282A;
-  --gold: #B98A4B;
-  --gold-soft: #D9BC8B;
-  --gold-light: #F4ECE1;
-  --muted: #827A71;
-  --line: rgba(28, 25, 23, 0.10);
-  --line-gold: rgba(185, 138, 75, 0.28);
+  --ink: #1C1322;
+  --ink-soft: #2E2235;
+  --plum: #23122B;
+  --plum-light: #372041;
+  --plum-dark: #160B1C;
+  --petrol: #23122B;
+  --petrol-light: #372041;
+  --petrol-dark: #160B1C;
+  --gold: #C8A97E;
+  --gold-soft: #E2CCA9;
+  --gold-light: #F7EFE4;
+  --muted: #85748B;
+  --line: rgba(35, 18, 43, 0.09);
+  --line-gold: rgba(200, 169, 126, 0.32);
   --line-light: rgba(255, 255, 255, 0.16);
-  --shadow-s: 0 2px 10px rgba(28, 25, 23, 0.05);
-  --shadow-m: 0 18px 45px -22px rgba(28, 25, 23, 0.25);
-  --shadow-l: 0 40px 80px -40px rgba(28, 25, 23, 0.40);
+  --shadow-s: 0 2px 10px rgba(22, 11, 28, 0.05);
+  --shadow-m: 0 18px 45px -22px rgba(22, 11, 28, 0.25);
+  --shadow-l: 0 40px 80px -40px rgba(22, 11, 28, 0.40);
   --r: 22px;
   --maxw: 1260px;
 }
+
+/* NEW LUXURY FABRIC SWATCH GRID */
+.fabric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 900px) {
+  .fabric-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .fabric-grid { grid-template-columns: 1fr; }
+}
+.fabric-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.fabric-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(35, 18, 43, 0.08);
+}
+.fabric-card.active {
+  background: #FFF;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px var(--gold), 0 8px 20px rgba(200, 169, 126, 0.2);
+}
+.fabric-thumb {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+.fabric-details { flex: 1; min-width: 0; }
+.fabric-name { font-size: 0.86rem; font-weight: 700; color: var(--ink); line-height: 1.25; margin-bottom: 2px; }
+.fabric-meta { font-size: 0.76rem; font-weight: 600; color: var(--gold); }
+.fabric-desc { font-size: 0.72rem; color: var(--muted); margin-top: 2px; line-height: 1.2; }
+.fabric-check {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.fabric-card.active .fabric-check { display: flex; }
+
+/* B2B 3 DIRECTIONS GRID */
+.b2b-trio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 960px) {
+  .b2b-trio-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+.b2b-trio-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-s);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.b2b-trio-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-m);
+}
+.b2b-trio-gallery {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--plum);
+}
+.b2b-trio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+.b2b-trio-card:hover .b2b-trio-img { transform: scale(1.05); }
+.b2b-trio-thumbs {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+}
+.b2b-thumb-btn {
+  flex: 1;
+  padding: 6px 10px;
+  background: rgba(22, 11, 28, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-align: center;
+}
+.b2b-thumb-btn.active, .b2b-thumb-btn:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+.b2b-trio-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.b2b-trio-tag {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.b2b-trio-content h3 { font-size: 1.35rem; margin-bottom: 10px; color: var(--ink); }
+.b2b-trio-content p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; margin-bottom: 16px; }
+.b2b-trio-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.b2b-trio-footer { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+
+.b2b-legal-banner {
+  background: var(--plum);
+  color: #fff;
+  border-radius: var(--r);
+  padding: 30px clamp(24px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.b2b-legal-content { max-width: 680px; }
+.b2b-legal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold-soft);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.b2b-legal-content h4 { font-size: 1.3rem; margin-bottom: 8px; color: #fff; }
+.b2b-legal-content p { font-size: 0.86rem; color: rgba(255, 255, 255, 0.75); line-height: 1.55; margin: 0; }
+
+/* VOICE INPUT LEAD MODULE */
+.voice-box-lead {
+  background: rgba(35, 18, 43, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 18px;
+}
+.voice-box-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.voice-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--gold);
+}
+.voice-sub { font-size: 0.76rem; color: var(--muted); }
+.btn-voice-record {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--white);
+  border: 1.5px solid var(--gold);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+}
+.btn-voice-record:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(200, 169, 126, 0.18);
+}
+.btn-voice-record.recording {
+  background: #FFF1F0;
+  border-color: #E03131;
+}
+.voice-mic-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  transition: all 0.3s;
+}
+.btn-voice-record.recording .voice-mic-circle {
+  background: #E03131;
+  animation: pulseRecording 1.4s infinite;
+}
+.mic-icon { width: 22px; height: 22px; }
+.voice-label-col { display: flex; flex-direction: column; gap: 2px; }
+.voice-label-col b { font-size: 0.92rem; color: var(--ink); line-height: 1.25; }
+.voice-label-col span { font-size: 0.78rem; color: var(--muted); }
+.voice-waveform-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 10px 16px;
+  background: rgba(224, 49, 49, 0.08);
+  border-radius: 10px;
+}
+.voice-wave-bars {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 20px;
+}
+.w-bar {
+  width: 3px;
+  height: 14px;
+  background: #E03131;
+  border-radius: 2px;
+  animation: waveBar 1s ease-in-out infinite;
+}
+.w-bar:nth-child(2) { animation-delay: 0.15s; height: 20px; }
+.w-bar:nth-child(3) { animation-delay: 0.3s; height: 10px; }
+.w-bar:nth-child(4) { animation-delay: 0.45s; height: 18px; }
+.w-bar:nth-child(5) { animation-delay: 0.6s; height: 12px; }
+.w-bar:nth-child(6) { animation-delay: 0.75s; height: 16px; }
+@keyframes waveBar {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+.voice-timer { font-size: 0.8rem; font-weight: 700; color: #E03131; font-family: monospace; }
+.voice-rec-hint { font-size: 0.78rem; color: var(--muted); margin-left: auto; }
+.voice-transcript-card {
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+}
+.transcript-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.btn-transcript-reset {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.transcript-text { font-size: 0.9rem; color: var(--ink); line-height: 1.45; font-style: italic; margin: 0; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -433,7 +738,7 @@ p { margin: 0; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(16, 32, 34, 0.68) 0%, rgba(16, 32, 34, 0.35) 40%, rgba(16, 32, 34, 0.72) 75%, rgba(14, 26, 28, 0.96) 100%);
+  background: linear-gradient(180deg, rgba(22, 11, 28, 0.78) 0%, rgba(35, 18, 43, 0.45) 40%, rgba(22, 11, 28, 0.82) 75%, rgba(22, 11, 28, 0.98) 100%);
 }
 #silkBackgroundCanvas {
   position: absolute;
@@ -1926,147 +2231,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   backdrop-filter: blur(6px);
 }
 
-/* ============================================================ */
-/* MOBILE PWA BOTTOM ACTION BAR (Native iOS/Android App bar)   */
-/* ============================================================ */
-.mobile-pwa-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background: rgba(28, 25, 23, 0.94);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-top: 1px solid rgba(217, 188, 139, 0.22);
-  padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 8px));
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.35);
-  justify-content: space-around;
-  align-items: center;
-}
-.pwa-action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  color: rgba(247, 244, 239, 0.75);
-  font-size: 0.72rem;
-  font-weight: 500;
-  padding: 6px 10px;
-  border-radius: 12px;
-  transition: all 0.25s ease;
-  min-width: 58px;
-  text-align: center;
-}
-.pwa-action svg {
-  width: 20px;
-  height: 20px;
-  stroke: currentColor;
-  transition: transform 0.25s ease;
-}
-.pwa-action:hover, .pwa-action:active {
-  color: var(--gold-soft);
-  transform: translateY(-1px);
-}
-.pwa-action:hover svg {
-  stroke: var(--gold-soft);
-  transform: scale(1.1);
-}
-.pwa-voice-btn {
-  position: relative;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%);
-  color: var(--ink) !important;
-  border-radius: 50% !important;
-  width: 50px;
-  height: 50px;
-  padding: 0 !important;
-  margin-top: -14px;
-  box-shadow: 0 8px 20px rgba(185, 138, 75, 0.45);
-  border: 2px solid #fff !important;
-}
-.pwa-voice-btn span {
-  display: none;
-}
-.pwa-voice-btn svg {
-  width: 22px;
-  height: 22px;
-  stroke: var(--ink);
-}
-.pwa-voice-ring {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 2px solid rgba(185, 138, 75, 0.4);
-  animation: pulseVoiceRing 2s infinite cubic-bezier(0.2, 0.8, 0.4, 1);
-  pointer-events: none;
-}
-@keyframes pulseVoiceRing {
-  0% { transform: scale(0.9); opacity: 0.8; }
-  100% { transform: scale(1.35); opacity: 0; }
-}
 
-/* PWA INSTALL BANNER */
-.pwa-install-banner {
-  position: fixed;
-  bottom: calc(74px + env(safe-area-inset-bottom, 8px));
-  left: 16px;
-  right: 16px;
-  max-width: 480px;
-  margin: 0 auto;
-  z-index: 1001;
-  background: rgba(31, 58, 61, 0.96);
-  border: 1px solid var(--gold);
-  border-radius: 18px;
-  padding: 14px 18px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(16px);
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  color: #fff;
-  animation: slideUpBanner 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-@keyframes slideUpBanner {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-.pwa-banner-content {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.pwa-app-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  border: 1px solid rgba(217, 188, 139, 0.4);
-  flex-shrink: 0;
-}
-.pwa-app-title {
-  font-weight: 700;
-  font-size: 0.92rem;
-  color: var(--gold-soft);
-}
-.pwa-app-desc {
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.3;
-}
-.pwa-banner-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-.pwa-close-btn {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.6);
-  padding: 4px 8px;
-  line-height: 1;
-}
 
 /* MICRO-ANIMATIONS & SHIMMER ENHANCEMENTS */
 .reveal-init {
@@ -2099,7 +2264,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   opacity: 1;
 }
 
-/* RESPONSIVE FOR MOTION & MOBILE PWA */
+/* RESPONSIVE FOR MOTION & MOBILE */
 @media (max-width: 900px) {
   .motion-tabs {
     grid-template-columns: 1fr;
@@ -2112,17 +2277,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     height: 420px;
   }
 }
-@media (max-width: 768px) {
-  .mobile-pwa-bar {
-    display: flex;
-  }
-  body {
-    padding-bottom: 74px; /* compensate for fixed bar */
-  }
-  .float-sampler-btn {
-    bottom: 84px !important;
-  }
-}
+
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
@@ -2701,8 +2856,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <nav class="nav" aria-label="Основная навигация">
       <a href="#calculator">Калькулятор</a>
       <a href="#projects">Проекты</a>
-      <a href="#cinematics">Видео цеха</a>
-      <a href="#b2b">B2B отдел</a>
+      <a href="#powers">Топ-7</a>
       <a href="#contacts">Контакты</a>
     </nav>
 
@@ -2725,12 +2879,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#calculator">Калькулятор & Voice AI</a>
-  <a href="#projects">Реализованные проекты</a>
-  <a href="#beforeAfter">Портфолио (До и После)</a>
-  <a href="#cinematics">Собственный цех в движении</a>
-  <a href="#b2b">Корпоративным клиентам (B2B)</a>
-  <a href="#contacts">Контакты и шоурум</a>
+  <a href="#calculator" onclick="toggleMenu(false)">Калькулятор стоимости</a>
+  <a href="#projects" onclick="toggleMenu(false)">Проекты & До/После</a>
+  <a href="#powers" onclick="toggleMenu(false)">Топ-7 преимуществ</a>
+  <a href="#contacts" onclick="toggleMenu(false)">Контакты & Шоурум</a>
   <div style="display:flex; gap:10px; margin-top:20px;">
     <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" class="btn btn-insta" style="flex:1; justify-content:center;">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -2753,10 +2905,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
          alt="Интерьер со шторами MUAR A в Астане" width="1920" height="1280" fetchpriority="high" decoding="async">
   </div>
   <div class="hero-inner">
-    <span class="eyebrow" style="color:var(--gold-soft)">Ателье интерьерного текстиля · Астана</span>
+    <span class="eyebrow" style="color:var(--gold-soft)">Ателье интерьерного текстиля · Астана · Доставка по Казахстану</span>
     <h1>Шторы и&nbsp;текстиль, которые делают интерьер завершённым</h1>
     <p class="hero-sub">
-      <b>Входим в Топ-50 декораторов СНГ (премия Golden O 2025, 2026).</b> 12 лет в Астане, 2 этажа коллекций со всего мира, собственное швейное производство по ГОСТам РК без надомниц. Текстильная архитектура для резиденций Talan Towers, Highvill, Акбулак, вилл и коммерческих пространств.
+      <b>Входим в Топ-50 декораторов СНГ (премия Golden O 2025, 2026).</b> 12 лет в Астане, 2 этажа коллекций со всего мира, собственное швейное производство по ГОСТам РК без надомниц. Онлайн-подбор и доставка по всему Казахстану (Шымкент, Караганда, Алматы).
     </p>
 
     <div class="doors">
@@ -2862,429 +3014,140 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <!-- ============================================================ -->
 <!-- ACT 2.5: B2B КОММЕРЧЕСКИЙ ДИВИЗИОН & ИНТЕРАКТИВНАЯ QUOTE CARD -->
 <!-- ============================================================ -->
-<section class="section" id="b2b-commercial" style="background: #FAF8F5; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+<section class="section" id="b2b" style="background: var(--ivory); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="wrap">
     
     <div class="section-head center">
-      <span class="eyebrow c">Корпоративный дивизион · Астана</span>
-      <h2>Солнцезащитные системы, моторизация и <span class="serif-accent">контрактный текстиль</span></h2>
+      <span class="eyebrow c">Корпоративный отдел · Астана</span>
+      <h2>Текстильные решения <span class="serif-accent">для бизнеса и первых лиц</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Комплексное оснащение штаб-квартир, посольств, министерств и залов заседаний. Моторы Somfy и Forest, интеграция KNX/Lutron, негорючие ткани Trevira CS (КМ1) и официальный учет с НДС 12%.
+        Официальный договор с НДС 12%, сертификаты негорючести КМ1 и закрывающие акты КС-2 / КС-3 через ЭДО за 24 часа. Три проверенных направления для представительских офисов и коммерческих пространств.
       </p>
     </div>
 
-    <!-- 4 Pillars Grid -->
-    <div class="b2b-pillars-grid">
+    <!-- 3 B2B Directions Grid -->
+    <div class="b2b-trio-grid">
       
-      <div class="b2b-pillar-card">
-        <div class="b2b-pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <!-- Direction 1: Жалюзи -->
+      <div class="b2b-trio-card reveal">
+        <div class="b2b-trio-gallery">
+          <img src="assets/muar/b2b-blinds-wood.webp" alt="Деревянные жалюзи 50мм" class="b2b-trio-img active" id="b2bImgBlinds">
+          <div class="b2b-trio-thumbs">
+            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgBlinds', 'assets/muar/b2b-blinds-wood.webp', this)">
+              <span>Фото 1 · Дерево 50мм</span>
+            </button>
+            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgBlinds', 'assets/muar/b2b-blinds-alum.webp', this)">
+              <span>Фото 2 · Алюминий</span>
+            </button>
+          </div>
         </div>
-        <h4>Моторизация Somfy & Forest</h4>
-        <p>Бесшумные приводы Somfy Sonesse Ultra (&lt;38 дБ) и карнизы Forest Shuttle (до 70 кг). Интеграция в BMS здания по KNX, Lutron, DALI, Modbus и сухим контактам.</p>
-        <span class="b2b-pillar-badge">Гарантия на моторы 5 лет</span>
+        <div class="b2b-trio-content">
+          <span class="b2b-trio-tag">Солнцезащита & Контроль света</span>
+          <h3>Жалюзи для бизнеса</h3>
+          <p>
+            Презентабельные деревянные жалюзи 50мм из массива канадской липы Basswood для переговорных и базовые офисные алюминиевые жалюзи с порошковой покраской по каталогу RAL.
+          </p>
+          <ul class="b2b-trio-features">
+            <li>✓ Канадская липа и анодированный алюминий</li>
+            <li>✓ Стойкость к UV-лучам и выгоранию</li>
+            <li>✓ Ручное или моторизованное управление</li>
+          </ul>
+          <div class="b2b-trio-footer">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B6%D0%B0%D0%BB%D1%8E%D0%B7%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%84%D0%B8%D1%81%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+              Запросить КП в WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="b2b-pillar-card">
-        <div class="b2b-pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+      <!-- Direction 2: Кабинет первого лица -->
+      <div class="b2b-trio-card reveal">
+        <div class="b2b-trio-gallery">
+          <img src="assets/muar/b2b-office-ceo.webp" alt="Кабинет первого лица" class="b2b-trio-img active" id="b2bImgCeo">
+          <div class="b2b-trio-thumbs">
+            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-office-ceo.webp', this)">
+              <span>Фото 1 · Бархат & Сатин</span>
+            </button>
+            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-office-lounge.webp', this)">
+              <span>Фото 2 · VIP Лаундж</span>
+            </button>
+          </div>
         </div>
-        <h4>Негорючий текстиль Trevira CS</h4>
-        <p>Пожарный класс КМ1 (Г1, В1, Д2, Т2) по ТР ТС 043/2017 и СНиП РК 2.02-05-2009. Молекулярный антипирен, не вымываемый при стирке. Разрешено для путей эвакуации.</p>
-        <span class="b2b-pillar-badge">Сертификат МЧС РК</span>
+        <div class="b2b-trio-content">
+          <span class="b2b-trio-tag">Представительский статус</span>
+          <h3>Кабинет первого лица</h3>
+          <p>
+            Статусный текстиль высшей категории: итальянский сатин, матовый бархат высокой плотности, глубокая складка «волна». Создает атмосферу престижа и обеспечивает акустический комфорт.
+          </p>
+          <ul class="b2b-trio-features">
+            <li>✓ Премиальные ткани: сатин, шерсть, бархат</li>
+            <li>✓ Акустическая конфиденциальность переговоров</li>
+            <li>✓ Защита от выгорания на солнце (подкладка)</li>
+          </ul>
+          <div class="b2b-trio-footer">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82%D0%B0%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8F" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+              Запросить КП в WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
 
-      <div class="b2b-pillar-card">
-        <div class="b2b-pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5v14M22 8v8M7 5v14M2 8v8"/></svg>
+      <!-- Direction 3: Контрактные ролл-шторы -->
+      <div class="b2b-trio-card reveal">
+        <div class="b2b-trio-gallery">
+          <img src="assets/muar/b2b-roll-screen.webp" alt="Ролл-шторы Screen 3%" class="b2b-trio-img active" id="b2bImgRoll">
+          <div class="b2b-trio-thumbs">
+            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgRoll', 'assets/muar/b2b-roll-screen.webp', this)">
+              <span>Фото 1 · Screen 3%</span>
+            </button>
+            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgRoll', 'assets/muar/b2b-roll-blackout.webp', this)">
+              <span>Фото 2 · Blackout 100%</span>
+            </button>
+          </div>
         </div>
-        <h4>Акустический текстиль (NRC 0.85)</h4>
-        <p>Подавление реверберации и гулкого эха в помещениях с панорамным остеклением. Звукопоглощение Класса А по ISO 354, акустическая конфиденциальность переговорных.</p>
-        <span class="b2b-pillar-badge">Протокол ISO 354 / 11654</span>
-      </div>
-
-      <div class="b2b-pillar-card">
-        <div class="b2b-pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <div class="b2b-trio-content">
+          <span class="b2b-trio-tag">Архитектурные системы</span>
+          <h3>Контрактные ролл-шторы</h3>
+          <p>
+            Два ключевых стандарта: солнцезащитные Somfy Screen 3% (отсекают 95% тепла и бликов без потери вида на Астану) и кассетный Blackout 100% для видеоконференц-связи и проекторов.
+          </p>
+          <ul class="b2b-trio-features">
+            <li>✓ Негорючий текстиль Trevira CS (Класс КМ1)</li>
+            <li>✓ Французская автоматика Somfy Sonesse Ultra</li>
+            <li>✓ Защита мониторов от бликов в Open Space</li>
+          </ul>
+          <div class="b2b-trio-footer">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%80%D0%BE%D0%BB%D0%BB-%D1%88%D1%82%D0%BE%D1%80%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%84%D0%B8%D1%81%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+              Запросить КП в WhatsApp
+            </a>
+          </div>
         </div>
-        <h4>Официальный НДС 12% & ЭСФ</h4>
-        <p>ТОО на ОУР. Мгновенная выписка электронных счетов-фактур в ИС ЭСФ, закрывающие акты АВР (Р-1) и КС-2 / КС-3. Экспресс-расчет ведомостей проемов за 60 минут.</p>
-        <span class="b2b-pillar-badge">60-мин RFP SLA</span>
       </div>
 
     </div>
 
-    <!-- B2B QUOTE CARD COMPONENT -->
-    <article class="b2b-quote-card" id="b2bQuoteCard">
-      
-      <!-- Top Bar: SLA & Trust Badges -->
-      <div class="b2b-top-bar">
-        <div class="b2b-top-badges">
-          <span class="b2b-badge-pulse">
-            <span class="b2b-pulse-dot"></span>
-            60-минутный Express RFP SLA
-          </span>
-          <span class="b2b-badge-legal">
-            ✓ ТОО «KazTextileА» на ОУР · НДС 12% (РК)
-          </span>
-          <span style="color: rgba(255,255,255,0.7); font-size:0.75rem;">
-            Сертификат МЧС РК (Класс КМ1) • ЭСФ / АВР Р-1 / КС-2, КС-3
-          </span>
+    <!-- B2B Legal Trust Banner -->
+    <div class="b2b-legal-banner reveal" style="margin-top: 36px;">
+      <div class="b2b-legal-content">
+        <div class="b2b-legal-badge">
+          <span class="pulse-dot"></span>
+          <span>Официальный юридический пакет MUAR A</span>
         </div>
-        <div style="font-size:0.75rem; color:var(--gold-soft); font-weight:600;">
-          Астана: Talan Towers • Abu Dhabi Plaza • Акбулак
-        </div>
+        <h4>Работаем по договору с НДС 12% · Закрывающие акты за 24 часа</h4>
+        <p>
+          ТОО «KazTextileА» на ОУР. Мгновенная выписка электронных счетов-фактур в ИС ЭСФ, закрывающие акты АВР (Р-1) и строительные формы КС-2 / КС-3. Сертификаты негорючести МЧС РК (Класс КМ1).
+        </p>
       </div>
-
-      <!-- Left Column: Configurator Controls -->
-      <div class="b2b-config-panel">
-        <span class="b2b-section-tag">Архитектурный дивизион</span>
-        <h3 class="b2b-title">B2B Конфигуратор и Расчет Сметы</h3>
-
-        <!-- 1. Corporate Segment -->
-        <div class="b2b-group">
-          <div class="b2b-label">
-            <span>1. Профиль корпоративного заказчика</span>
-            <span class="note" id="segmentDesc">Бизнес-центры класса «А»</span>
-          </div>
-          <div class="b2b-chips-grid two-col" id="b2bSegmentChips">
-            <button class="b2b-chip-btn active" data-segment="office" onclick="setB2bSegment(this, 'office')">
-              <span class="name">🏢 БЦ Класса «А» / Офис</span>
-              <span class="sub">Talan Towers, Abu Dhabi Plaza (14 окон · 1.00x)</span>
-            </button>
-            <button class="b2b-chip-btn" data-segment="embassy" onclick="setB2bSegment(this, 'embassy')">
-              <span class="name">🏛 Посольство / МИД</span>
-              <span class="sub">Дипгородок Акбулак, протокол КМ1 (18 окон · 1.28x)</span>
-            </button>
-            <button class="b2b-chip-btn" data-segment="bank" onclick="setB2bSegment(this, 'bank')">
-              <span class="name">🏦 Банки / МФЦА (AIFC)</span>
-              <span class="sub">ForteBank HQ, трейдинг-румы (24 окна · 1.18x)</span>
-            </button>
-            <button class="b2b-chip-btn" data-segment="boardroom" onclick="setB2bSegment(this, 'boardroom')">
-              <span class="name">🎙 Залы заседаний / VIP</span>
-              <span class="sub">Совет директоров, VIP Blackout (8 окон · 1.45x)</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 2. System Selection -->
-        <div class="b2b-group">
-          <div class="b2b-label">
-            <span>2. Солнцезащитная и акустическая система</span>
-            <span class="note">Прямые контракты Somfy / Forest / Trevira</span>
-          </div>
-          <div class="b2b-chips-grid two-col" id="b2bSystemChips">
-            <button class="b2b-chip-btn active" data-system="screen" onclick="setB2bSystem(this, 'screen')">
-              <span class="name">🪟 Screen 3% (Антиблик)</span>
-              <span class="sub">Somfy мотор, фильтр 95% тепла, без бликов на экранах</span>
-            </button>
-            <button class="b2b-chip-btn" data-system="blackout" onclick="setB2bSystem(this, 'blackout')">
-              <span class="name">🌑 Кассетный Blackout 100%</span>
-              <span class="sub">Боковые U-профили, 0% засвета для проекторов</span>
-            </button>
-            <button class="b2b-chip-btn" data-system="acoustic" onclick="setB2bSystem(this, 'acoustic')">
-              <span class="name">🎭 Акустические Trevira CS</span>
-              <span class="sub">Подавление эха NRC 0.85, негорючие нормы КМ1</span>
-            </button>
-            <button class="b2b-chip-btn" data-system="blinds" onclick="setB2bSystem(this, 'blinds')">
-              <span class="name">🪵 Деревянные жалюзи 50мм</span>
-              <span class="sub">Канадская липа Basswood / Алюминий RAL</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 3. Apertures & Dimensions -->
-        <div class="b2b-group">
-          <div class="b2b-label">
-            <span>3. Габариты и объем остекления</span>
-            <span class="note">Пересчет площади в реальном времени</span>
-          </div>
-          <div class="b2b-slider-row">
-            <div class="b2b-slider-item">
-              <label>Проемов: <b id="valQty">14 шт</b></label>
-              <input type="range" id="inputQty" min="1" max="100" value="14" oninput="recalcB2B()">
-            </div>
-            <div class="b2b-slider-item">
-              <label>Ширина: <b id="valWidth">2.8 м</b></label>
-              <input type="range" id="inputWidth" min="1.0" max="10.0" step="0.1" value="2.8" oninput="recalcB2B()">
-            </div>
-            <div class="b2b-slider-item">
-              <label>Высота: <b id="valHeight">3.2 м</b></label>
-              <input type="range" id="inputHeight" min="1.5" max="7.0" step="0.1" value="3.2" oninput="recalcB2B()">
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Automation & Protocol -->
-        <div class="b2b-group">
-          <div class="b2b-label">
-            <span>4. Автоматизация и управление</span>
-            <span class="note">Интеграция в BMS здания</span>
-          </div>
-          <div class="b2b-radio-list">
-            <label class="b2b-radio-label">
-              <input type="radio" name="b2b_motor" value="somfy" checked onchange="recalcB2B()">
-              <div>
-                <div class="b2b-radio-title">Somfy Sonesse 40/50 Ultra (Франция)</div>
-                <div style="font-size: 0.72rem; color: var(--muted);">Бесшумный привод (&lt;38 дБ) с радиопультом RTS и сухими контактами</div>
-              </div>
-              <span class="b2b-radio-desc">+ 85 000 ₸/узел</span>
-            </label>
-            <label class="b2b-radio-label">
-              <input type="radio" name="b2b_motor" value="knx" onchange="recalcB2B()">
-              <div>
-                <div class="b2b-radio-title">KNX / Lutron HomeWorks / Crestron Gateway</div>
-                <div style="font-size: 0.72rem; color: var(--muted);">Полная цифровая интеграция в диспетчеризацию Умного Здания (BMS)</div>
-              </div>
-              <span class="b2b-radio-desc">+ 125 000 ₸/узел</span>
-            </label>
-            <label class="b2b-radio-label">
-              <input type="radio" name="b2b_motor" value="manual" onchange="recalcB2B()">
-              <div>
-                <div class="b2b-radio-title">Механический редуктор / Цепочка</div>
-                <div style="font-size: 0.72rem; color: var(--muted);">Для подсобных помещений и вспомогательных зон</div>
-              </div>
-              <span class="b2b-radio-desc">Базовый</span>
-            </label>
-          </div>
-        </div>
-
-        <!-- 5. Kazakhstani Compliance Toggles -->
-        <div class="b2b-group" style="margin-bottom: 0;">
-          <div class="b2b-label">
-            <span>5. Сертификационный и бухгалтерский пакет</span>
-            <span class="note">Законодательство Республики Казахстан</span>
-          </div>
-          <div class="b2b-check-grid">
-            <label class="b2b-check-pill">
-              <input type="checkbox" id="checkKm1" checked onchange="recalcB2B()">
-              <span>Пожарный сертификат МЧС РК (КМ1) <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+45 000 ₸)</small></span>
-            </label>
-            <label class="b2b-check-pill">
-              <input type="checkbox" id="checkAcoustic" checked onchange="recalcB2B()">
-              <span>Протокол акустики ISO 354 (NRC 0.85) <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+35 000 ₸)</small></span>
-            </label>
-            <label class="b2b-check-pill">
-              <input type="checkbox" id="checkEsf" checked onchange="recalcB2B()">
-              <span>Выписка ЭСФ через ИС ЭСФ РК <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+25 000 ₸)</small></span>
-            </label>
-            <label class="b2b-check-pill">
-              <input type="checkbox" id="checkKs" checked onchange="recalcB2B()">
-              <span>Формы АВР (Р-1) и КС-2 / КС-3 <small style="color:var(--gold); font-size:0.72rem; font-weight:700;">(+50 000 ₸)</small></span>
-            </label>
-          </div>
-        </div>
-
+      <div class="b2b-legal-action">
+        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D0%9D%D0%94%D0%A1%2012%25%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+          Запросить КП в WhatsApp (60 мин)
+        </a>
       </div>
-
-      <!-- Right Column: Dynamic Quote HUD -->
-      <div class="b2b-quote-hud">
-        <div>
-          <div class="b2b-hud-head">
-            <div class="b2b-hud-title">Ориентировочный бюджет проекта под ключ</div>
-            <div class="b2b-hud-price" id="hudTotal">6 915 373 ₸</div>
-            <div class="b2b-hud-vat-note" id="hudVatLine">Включая официальный НДС 12%: 740 933 ₸</div>
-          </div>
-
-          <!-- Telemetry Parameters -->
-          <div class="b2b-telemetry-grid">
-            <div class="b2b-telemetry-cell">
-              <span class="t-lbl">Суммарная площадь</span>
-              <span class="t-val" id="hudArea">125.4 м²</span>
-            </div>
-            <div class="b2b-telemetry-cell">
-              <span class="t-lbl">Количество приводов</span>
-              <span class="t-val" id="hudMotors">14 моторов</span>
-            </div>
-            <div class="b2b-telemetry-cell">
-              <span class="t-lbl">Акустический индекс</span>
-              <span class="t-val" id="hudNrc">NRC 0.35 (Фасад)</span>
-            </div>
-            <div class="b2b-telemetry-cell">
-              <span class="t-lbl">Пожарный класс МЧС</span>
-              <span class="t-val" id="hudFire">КМ1 (Г1, В1, Д2, Т2)</span>
-            </div>
-          </div>
-
-          <!-- Breakdown List -->
-          <div class="b2b-breakdown-list">
-            <div class="b2b-breakdown-row">
-              <span>Материал и раскрой полотна:</span>
-              <b id="hudRowFabric">4 776 755 ₸</b>
-            </div>
-            <div class="b2b-breakdown-row">
-              <span>Моторизация и профили:</span>
-              <b id="hudRowMotors">1 332 800 ₸</b>
-            </div>
-            <div class="b2b-breakdown-row">
-              <span>Монтаж и пусконаладка (Астана):</span>
-              <b id="hudRowInstall">632 218 ₸</b>
-            </div>
-            <div class="b2b-breakdown-row" id="hudRowComplianceWrap">
-              <span>Сертификация и надзор (МЧС / КС):</span>
-              <b id="hudRowCompliance">173 600 ₸</b>
-            </div>
-            <div class="b2b-breakdown-row">
-              <span>Входящий НДС 12% к вычету:</span>
-              <b id="hudRowVat" style="color: var(--gold-soft);">740 933 ₸</b>
-            </div>
-            <div class="b2b-breakdown-row">
-              <span>Итого по смете:</span>
-              <b id="hudRowSum">6 915 373 ₸</b>
-            </div>
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div>
-          <div class="b2b-action-stack">
-            <button class="b2b-btn b2b-btn-primary" onclick="openPrintableRfp()">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-              Сгенерировать B2B КП (RFP PDF)
-            </button>
-            
-            <button class="b2b-btn b2b-btn-whatsapp" onclick="sendB2BWhatsApp()">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
-              Отправить ТЗ инженеру в WhatsApp
-            </button>
-
-            <button class="b2b-btn b2b-btn-outline" onclick="requestMobileShowroom()">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              Заказать выезд инженера с кейсом на объект
-            </button>
-          </div>
-
-          <p class="b2b-sla-note">
-            ⏱ <b>Гарантия SLA:</b> Обработка проектной ведомости за 60 минут. Собственный цех в Астане по ГОСТам РК. Безусловная гарантия 36 месяцев по договору.
-          </p>
-        </div>
-
-      </div>
-
-    </article>
+    </div>
 
   </div>
 </section>
-
-<!-- PRINTABLE B2B COMMERCIAL PROPOSAL (RFP) MODAL -->
-<div class="b2b-modal" id="rfpModal">
-  <div class="b2b-modal-paper">
-    <button class="b2b-close-btn" onclick="closeRfpModal()">✕</button>
-    
-    <!-- Letterhead -->
-    <div style="display: flex; justify-content: space-between; border-bottom: 2px solid var(--petrol); padding-bottom: 20px; margin-bottom: 24px;">
-      <div>
-        <div style="font-family:'Cormorant Garamond', Georgia, serif; font-size: 1.8rem; font-weight: 700; color: var(--petrol-dark);">MAISON POISSON</div>
-        <div style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 800;">Ателье интерьерного и контрактного текстиля · Астана</div>
-        <div style="font-size: 0.75rem; color: var(--muted); margin-top: 4px;">ТОО «KazTextileА» · БИН: 140940019744 · г. Астана, ул. Керей, Жәнибек хандар, 50/1, ВП 18</div>
-      </div>
-      <div style="text-align: right;">
-        <div style="font-family:'JetBrains Mono', monospace; font-size: 0.85rem; font-weight: 700; color: var(--petrol);">RFP № MP-2026/B2B-<span id="rfpNum">408</span></div>
-        <div style="font-size: 0.75rem; color: var(--muted);" id="rfpDate">Дата: 19.09.2026</div>
-        <div style="display: inline-block; background: #ECFDF5; color: #065F46; padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; margin-top: 6px;">
-          ✓ Действительно 30 дней
-        </div>
-      </div>
-    </div>
-
-    <!-- Client Field -->
-    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; margin-bottom: 20px; font-size: 0.82rem;">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-        <div><b>Заказчик:</b> <span id="rfpClientName">Корпоративный клиент (Астана)</span></div>
-        <div><b>Объект:</b> <span id="rfpObjectName">Бизнес-центр Класса «А»</span></div>
-        <div><b>Налоговый режим:</b> ОУР с выделением НДС 12% (Казахстан)</div>
-        <div><b>Форма закрытия:</b> ИС ЭСФ, Акт АВР (Р-1) / КС-2 и КС-3</div>
-      </div>
-    </div>
-
-    <!-- Itemized Table -->
-    <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-bottom: 20px;">
-      <thead>
-        <tr style="background: var(--petrol); color: #FFF; text-align: left;">
-          <th style="padding: 10px 12px;">№</th>
-          <th style="padding: 10px 12px;">Наименование изделия и характеристики</th>
-          <th style="padding: 10px 12px; text-align:center;">Кол-во</th>
-          <th style="padding: 10px 12px; text-align:right;">Площадь</th>
-          <th style="padding: 10px 12px; text-align:right;">Сумма с НДС 12%</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="border-bottom: 1px solid #E2E8F0;">
-          <td style="padding: 10px 12px;">1</td>
-          <td style="padding: 10px 12px;">
-            <b id="rfpTableSystem">Моторизованные ролл-шторы Screen 3%</b><br>
-            <span style="font-size: 0.72rem; color: #64748B;" id="rfpTableMotor">Привод: Somfy Sonesse 40 Ultra (Франция)</span>
-          </td>
-          <td style="padding: 10px 12px; text-align:center;" id="rfpTableQty">14 шт</td>
-          <td style="padding: 10px 12px; text-align:right;" id="rfpTableArea">125.4 м²</td>
-          <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableFabricCost">0 ₸</td>
-        </tr>
-        <tr style="border-bottom: 1px solid #E2E8F0;">
-          <td style="padding: 10px 12px;">2</td>
-          <td style="padding: 10px 12px;">
-            <b>Комплектация автоматики, валы Ø65 мм и кронштейны</b><br>
-            <span style="font-size: 0.72rem; color: #64748B;">Усиленный алюминиевый профиль, многоканальные пульты управления</span>
-          </td>
-          <td style="padding: 10px 12px; text-align:center;" id="rfpTableQty2">14 компл.</td>
-          <td style="padding: 10px 12px; text-align:right;">—</td>
-          <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableMotorsCost">0 ₸</td>
-        </tr>
-        <tr style="border-bottom: 1px solid #E2E8F0;">
-          <td style="padding: 10px 12px;">3</td>
-          <td style="padding: 10px 12px;">
-            <b>Монтаж, пусконаладка и юстировка концевых положений в г. Астана</b><br>
-            <span style="font-size: 0.72rem; color: #64748B;">Монтажная бригада с высотными допусками, промышленное пылеудаление</span>
-          </td>
-          <td style="padding: 10px 12px; text-align:center;">1 услуга</td>
-          <td style="padding: 10px 12px; text-align:right;">—</td>
-          <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableInstallCost">0 ₸</td>
-        </tr>
-        <tr id="rfpTableComplianceRow" style="border-bottom: 1px solid #E2E8F0;">
-          <td style="padding: 10px 12px;">4</td>
-          <td style="padding: 10px 12px;">
-            <b>Инженерно-сертификационный пакет и технадзор РК</b><br>
-            <span style="font-size: 0.72rem; color: #64748B;" id="rfpTableComplianceDesc">Сертификация КМ1 МЧС РК, протокол ISO 354, формы КС-2/КС-3, ИС ЭСФ</span>
-          </td>
-          <td style="padding: 10px 12px; text-align:center;" id="rfpTableComplianceQty">1 компл.</td>
-          <td style="padding: 10px 12px; text-align:right;">—</td>
-          <td style="padding: 10px 12px; text-align:right; font-family:'JetBrains Mono',monospace;" id="rfpTableComplianceCost">0 ₸</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr style="background: #F8FAFC; font-weight: bold;">
-          <td colspan="4" style="padding: 10px 12px; text-align: right;">В том числе НДС 12%:</td>
-          <td style="padding: 10px 12px; text-align: right; font-family:'JetBrains Mono',monospace; color: var(--petrol);" id="rfpTableVat">0 ₸</td>
-        </tr>
-        <tr style="background: #F1F5F9; font-weight: bold; font-size: 0.95rem;">
-          <td colspan="4" style="padding: 12px; text-align: right;">ИТОГО к оплате с НДС 12%:</td>
-          <td style="padding: 12px; text-align: right; font-family:'JetBrains Mono',monospace; color: var(--petrol-dark);" id="rfpTableTotal">0 ₸</td>
-        </tr>
-      </tfoot>
-    </table>
-
-    <!-- Guarantee & Stamps -->
-    <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; font-size: 0.75rem; color: #475569; margin-top: 15px;">
-      <div>
-        <p>• <b>Сертификация:</b> Материалы соответствуют классу пожарной опасности КМ1 (Г1, В1, Д2, Т2) по ТР ТС 043/2017 и СНиП РК 2.02-05-2009.</p>
-        <p style="margin-top:4px;">• <b>Гарантийные обязательства:</b> 36 месяцев на приводы Somfy/Forest и несущие профили.</p>
-        <p style="margin-top:4px;">• <b>Производство:</b> г. Астана, специализированный цех в Астане по ГОСТам РК.</p>
-      </div>
-      <div style="text-align: right; border-left: 1px solid #E2E8F0; padding-left: 16px;">
-        <div><b>Главный инженер B2B проектов:</b></div>
-        <div style="font-family:'Cormorant Garamond', Georgia, serif; font-size: 1.2rem; font-style: italic; color: var(--petrol); margin: 6px 0;">А. Б. Смирнов</div>
-        <div style="font-size: 0.7rem; color: #94A3B8;">М.П. ТОО «KazTextileА»</div>
-      </div>
-    </div>
-
-    <!-- Print Action Bar -->
-    <div class="b2b-print-action-bar" style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #E2E8F0; display: flex; justify-content: flex-end; gap: 12px;">
-      <button onclick="closeRfpModal()" style="padding: 10px 20px; border-radius: 8px; border: 1px solid #CBD5E1; background: #FFF; cursor: pointer; font-size: 0.85rem; font-weight:600;">Закрыть</button>
-      <button onclick="window.print()" style="padding: 10px 24px; border-radius: 8px; border: none; background: var(--petrol); color: #FFF; cursor: pointer; font-size: 0.85rem; font-weight:700;">Распечатать / Сохранить в PDF</button>
-    </div>
-
-  </div>
-</div>
-
 
 <!-- ============================================================ -->
 <!-- ACT 3: ИНТЕРАКТИВНЫЙ СПЛИТ-СЛАЙДЕР «БЫЛО / СТАЛО»           -->
@@ -3689,8 +3552,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       </div>
       <div class="step reveal">
         <span class="dot"></span><span class="sn">Шаг 02</span>
-        <h3>Чемодан образцов</h3>
-        <p>Бесплатный выезд дизайнера с чемоданом 50 кг каталогов и лазерным замером оконных ниш.</p>
+        <h3>Онлайн-подбор от топ-декораторов</h3>
+        <p>Дистанционный подбор текстиля по фото и видео вашего интерьера по всему Казахстану (Шымкент, Караганда, Алматы). По Астане: выезд с образцами тканей — 7 000 ₸ (аванс, засчитывается в смету договора).</p>
       </div>
       <div class="step reveal">
         <span class="dot"></span><span class="sn">Шаг 03</span>
@@ -3717,181 +3580,149 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <section class="section" id="calculator">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow c">Онлайн-конфигуратор</span>
+      <span class="eyebrow c">Экспресс-калькулятор</span>
       <h2>Предварительный расчет <span class="serif-accent">за 60 секунд</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Выберите геометрию складок, ткань и габариты — стоимость и расход полотна пересчитываются мгновенно в реальном времени.
+        Выберите изделие, ткань из 6 универсальных коллекций и укажите ширину — коэффициент драпировки 1:2 и расход ткани рассчитываются автоматически.
       </p>
     </div>
 
     <div class="calc-shell reveal">
-      <!-- Mode tabs: B2C vs B2B -->
-      <div class="calc-modes" role="tablist" aria-label="Режим расчёта">
-        <button class="mode-btn active" data-mode="b2c" role="tab" aria-selected="true" onclick="setMode('b2c')">
-          🏡 Для дома · Частные резиденции (B2C)
-        </button>
-        <button class="mode-btn" data-mode="b2b" role="tab" aria-selected="false" onclick="setMode('b2b')">
-          🏢 Для бизнеса · Юридические лица (с НДС 12%)
-        </button>
-      </div>
-
       <div class="calc-body">
         <div class="calc-fields">
           
-          <!-- B2C GROUP -->
-          <div class="field-group show" id="group-b2c">
-            <!-- Product -->
-            <div>
-              <span class="f-label">1. Изделие</span>
-              <div class="chips" data-group="product">
-                <button class="chip active" data-v="roman">Римская штора</button>
-                <button class="chip" data-v="curtain">Портьеры в пол</button>
-                <button class="chip" data-v="bedspread">Покрывало & текстиль</button>
-              </div>
-            </div>
-
-            <!-- Fold / Pleat Type with SVG visualizer -->
-            <div>
-              <span class="f-label">2. Геометрия складки драпировки</span>
-              <div class="chips" data-group="fold">
-                <button class="chip active" data-v="wave">Волна (Wave) <small>Коэфф. 1:2.0</small></button>
-                <button class="chip" data-v="french">Французская тройная <small>Коэфф. 1:2.5</small></button>
-                <button class="chip" data-v="box">Бантовая (Box) <small>Коэфф. 1:2.2</small></button>
-                <button class="chip" data-v="straight">Прямая <small>Коэфф. 1:1.5</small></button>
-              </div>
-              
-              <!-- Real-time SVG Profile -->
-              <div class="pleat-visualizer">
-                <div class="pleat-visualizer-head">
-                  <span>Профиль драпировки на карнизе:</span>
-                  <span id="pleatNameDisplay" style="color: var(--petrol); font-weight:800;">Волна (Wave)</span>
-                </div>
-                <svg class="pleat-svg" id="pleatSvg" viewBox="0 0 500 40">
-                  <path d="M 0 20 Q 25 0, 50 20 T 100 20 T 150 20 T 200 20 T 250 20 T 300 20 T 350 20 T 400 20 T 450 20 T 500 20" fill="none" stroke="#B98A4B" stroke-width="2.5" stroke-linecap="round"/>
-                </svg>
-                <div class="pleat-desc" id="pleatDesc">Идеальный цилиндрический ритм с шагом 16 см. Безупречно для панорамных окон и высоких потолков.</div>
-              </div>
-            </div>
-
-            <!-- Dimensions -->
-            <div>
-              <span class="f-label">3. Габариты окна и количество</span>
-              <div class="inputs">
-                <div class="inp"><label for="b2c-w">Ширина карниза</label><div class="unit"><input id="b2c-w" type="number" min="0.5" max="25" step="0.1" value="3.2"><span class="suf">м</span></div></div>
-                <div class="inp"><label for="b2c-h">Высота потолка</label><div class="unit"><input id="b2c-h" type="number" min="1.0" max="12" step="0.1" value="2.8"><span class="suf">м</span></div></div>
-                <div class="inp"><label for="b2c-q">Количество окон</label><div class="unit"><input id="b2c-q" type="number" min="1" max="50" step="1" value="2"><span class="suf">шт</span></div></div>
-              </div>
-            </div>
-
-            <!-- Fabric Category -->
-            <div>
-              <span class="f-label">4. Категория и происхождение ткани</span>
-              <div class="chips" data-group="fabric">
-                <button class="chip active" data-v="chenille">Бельгия: Шенилл Wind <small>24 500 ₸/м</small></button>
-                <button class="chip" data-v="velvet">Италия: Бархат Dedar <small>28 000 ₸/м</small></button>
-                <button class="chip" data-v="linen">Франция: Лён Casamance <small>19 800 ₸/м</small></button>
-                <button class="chip" data-v="blackout">Турция: 100% Blackout <small>16 500 ₸/м</small></button>
-              </div>
-            </div>
-
-            <!-- Options -->
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <span class="f-label">5. Дополнительные опции</span>
-              <label class="toggle-row" style="cursor: pointer;">
-                <input type="checkbox" id="checkTulle" checked style="width: 20px; height: 20px; accent-color: var(--petrol);" onchange="recalc(false)">
-                <p><b>Французская вуаль в пол (тюль)</b>Легкая полупрозрачная вуаль для мягкого рассеивания дневного света.</p>
-              </label>
-              <label class="toggle-row" style="cursor: pointer;">
-                <input type="checkbox" id="checkSomfy" style="width: 20px; height: 20px; accent-color: var(--petrol);" onchange="recalc(false)">
-                <p><b>Бесшумный электрокарниз Somfy Glydea Ultra (Франция)</b>Интеграция с Apple HomeKit, Алисой и системой «Умный Дом».</p>
-              </label>
+          <!-- 1. Product Selection (3 Tops) -->
+          <div>
+            <span class="f-label">1. Изделие</span>
+            <div class="chips" data-group="product">
+              <button type="button" class="chip active" data-v="curtain" onclick="setProduct('curtain', this)">Портьеры в пол + тюль</button>
+              <button type="button" class="chip" data-v="roman" onclick="setProduct('roman', this)">Римская штора (без складок)</button>
+              <button type="button" class="chip" data-v="bedspread" onclick="setProduct('bedspread', this)">Покрывало & текстиль</button>
             </div>
           </div>
 
-          <!-- B2B GROUP -->
-          <div class="field-group" id="group-b2b">
-            <div>
-              <span class="f-label">1. Специализированная B2B система</span>
-              <div class="chips" data-group="b2b-product">
-                <button class="chip active" data-v="screen">Somfy Screen 5% <small>Open Space / Без бликов</small></button>
-                <button class="chip" data-v="blackout">Кассетный Blackout 100% <small>Переговорные ВКС</small></button>
-                <button class="chip" data-v="wood">Деревянные жалюзи 50мм <small>Кабинет CEO</small></button>
-                <button class="chip" data-v="trevira">Контрактные Trevira CS <small>Отели / КМ1 негорючие</small></button>
+          <!-- 2. Universal Fabrics (6 Collections with Macro Photos) -->
+          <div>
+            <span class="f-label">2. Коллекция ткани (6 универсальных фактур)</span>
+            <div class="fabric-grid" id="fabricGrid">
+              
+              <button type="button" class="fabric-card active" data-v="satin" onclick="setFabric('satin')">
+                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" loading="lazy">
+                <div class="fabric-details">
+                  <div class="fabric-name">Матовый сатин Soft-Touch</div>
+                  <div class="fabric-meta">Турция · 18 000 ₸/м</div>
+                  <div class="fabric-desc">Гладкая шелковистая фактура, благородный матовый отлив</div>
+                </div>
+                <span class="fabric-check">✓</span>
+              </button>
+
+              <button type="button" class="fabric-card" data-v="linen" onclick="setFabric('linen')">
+                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" loading="lazy">
+                <div class="fabric-details">
+                  <div class="fabric-name">Фактурный лён & Рогожка</div>
+                  <div class="fabric-meta">Турция · 24 000 ₸/м</div>
+                  <div class="fabric-desc">Натуральная текстура, благородное рельефное плетение</div>
+                </div>
+                <span class="fabric-check">✓</span>
+              </button>
+
+              <button type="button" class="fabric-card" data-v="dimout" onclick="setFabric('dimout')">
+                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" loading="lazy">
+                <div class="fabric-details">
+                  <div class="fabric-name">Шелковистый Dimout / Blackout</div>
+                  <div class="fabric-meta">Европа · 32 000 ₸/м</div>
+                  <div class="fabric-desc">100% затемнение, термозащита и звукопоглощение</div>
+                </div>
+                <span class="fabric-check">✓</span>
+              </button>
+
+              <button type="button" class="fabric-card" data-v="velvet" onclick="setFabric('velvet')">
+                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" loading="lazy">
+                <div class="fabric-details">
+                  <div class="fabric-name">Премиальный бархат Velvet Touch</div>
+                  <div class="fabric-meta">Италия · 38 000 ₸/м</div>
+                  <div class="fabric-desc">Глубокий густой ворс, кутюрная пластичная драпировка</div>
+                </div>
+                <span class="fabric-check">✓</span>
+              </button>
+
+              <button type="button" class="fabric-card" data-v="jacquard" onclick="setFabric('jacquard')">
+                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" loading="lazy">
+                <div class="fabric-details">
+                  <div class="fabric-name">Кутюрный жаккард с кантом</div>
+                  <div class="fabric-meta">Бельгия · 48 000 ₸/м</div>
+                  <div class="fabric-desc">Сложный жаккардовый орнамент, высокая плотность</div>
+                </div>
+                <span class="fabric-check">✓</span>
+              </button>
+
+              <button type="button" class="fabric-card" data-v="royal" onclick="setFabric('royal')">
+                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" loading="lazy">
+                <div class="fabric-details">
+                  <div class="fabric-name">Королевский бархат Royal Luxe</div>
+                  <div class="fabric-meta">Италия · 58 000 ₸/м</div>
+                  <div class="fabric-desc">Шелковый бархат высшей пробы уровня резиденций Forbes</div>
+                </div>
+                <span class="fabric-check">✓</span>
+              </button>
+
+            </div>
+          </div>
+
+          <!-- 3. Dimensions Input (Width Only, 1 Window) -->
+          <div id="widthGroup">
+            <span class="f-label">3. Габариты окна</span>
+            <div class="inputs" style="grid-template-columns: 1fr;">
+              <div class="inp">
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;">
+                  <label for="b2c-w">Ширина оконного карниза / проема</label>
+                  <span style="font-size:0.75rem; color:var(--gold); font-weight:700;">Коэффициент 1:2 закладывается на автомате</span>
+                </div>
+                <div class="unit">
+                  <input id="b2c-w" type="number" min="0.8" max="15" step="0.1" value="3.2" oninput="recalc(false)">
+                  <span class="suf">м</span>
+                </div>
+                <span style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Расчёт дается на 1 окно без перегрузки параметрами. При ширине 3.2 м система закладывает 6.4 м ткани.</span>
               </div>
             </div>
+          </div>
 
-            <div class="inputs">
-              <div class="inp"><label for="b2b-w">Ширина проема</label><div class="unit"><input id="b2b-w" type="number" min="0.5" max="30" step="0.1" value="2.4"><span class="suf">м</span></div></div>
-              <div class="inp"><label for="b2b-h">Высота проема</label><div class="unit"><input id="b2b-h" type="number" min="0.5" max="15" step="0.1" value="2.8"><span class="suf">м</span></div></div>
-              <div class="inp"><label for="b2b-q">Количество оконных проемов</label><div class="unit"><input id="b2b-q" type="number" min="1" max="500" step="1" value="12"><span class="suf">окон</span></div></div>
-            </div>
-
-            <div class="toggle-row">
-              <div class="switch" id="sunSwitch" role="switch" aria-checked="false" tabindex="0" aria-label="Автоматика Somfy RTS / KNX"></div>
-              <p><b>Электропривод с интеграцией в BMS / KNX / DALI</b>Французские моторы Somfy Sonesse (уровень шума менее 38 дБ) — ×1.35 к смете.</p>
-            </div>
-
-            <div style="background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px 20px;">
-              <span style="font-size: 0.76rem; font-weight: 700; text-transform: uppercase; color: var(--gold); letter-spacing: 0.1em; display: block; margin-bottom: 6px;">Юридический пакет <span class="muar-a">MUAR&nbsp;A</span> для бизнеса:</span>
-              <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">
-                Работаем по официальному договору на ОСНО с НДС 12%. Предоставляем сертификаты МЧС (Класс КМ1), протоколы испытаний и закрывающие строительные акты КС-2 / КС-3 через ЭДО за 24 часа.
-              </p>
-            </div>
+          <!-- 4. Optional Addons for Curtains -->
+          <div id="curtainOptions" style="display: flex; flex-direction: column; gap: 10px;">
+            <span class="f-label">4. Дополнительные опции</span>
+            <label class="toggle-row" style="cursor: pointer;">
+              <input type="checkbox" id="checkTulle" checked style="width: 20px; height: 20px; accent-color: var(--plum);" onchange="recalc(false)">
+              <p><b>Французская вуаль в пол (тюль 1:2)</b>Легкая струящаяся вуаль для мягкого рассеивания дневного света.</p>
+            </label>
+            <label class="toggle-row" style="cursor: pointer;">
+              <input type="checkbox" id="checkSomfy" style="width: 20px; height: 20px; accent-color: var(--plum);" onchange="recalc(false)">
+              <p><b>Бесшумный электрокарниз Somfy Glydea Ultra (Франция)</b>Интеграция с Алисой, Apple HomeKit и Умным Домом.</p>
+            </label>
           </div>
 
         </div>
 
-        <!-- RIGHT: RESULTS & VOICE AI -->
+        <!-- RIGHT: RESULTS BREAKDOWN & WHATSAPP ACTION -->
         <aside class="calc-result">
-          <span class="r-lbl" id="resTitleLabel">Предварительная смета под ключ</span>
-          <div class="price" id="priceOut" data-v="508800">508 800 ₸</div>
-          <p class="r-note" id="modeNote">Режим: для дома (B2C)</p>
+          <span class="r-lbl" id="resTitleLabel">Смета под ключ (1 окно)</span>
+          <div class="price" id="priceOut" data-v="263600">263 600 ₸</div>
+          <p class="r-note" id="modeNote">Включает ткань, цеховой пошив по ГОСТам и профильный карниз</p>
 
           <div class="r-break" id="breakdown">
-            <div class="r-line"><span>Изделие</span><span class="dots"></span><b>Портьеры в пол</b></div>
-            <div class="r-line"><span>Ткань</span><span class="dots"></span><b>Бельгия: Шенилл Wind</b></div>
-            <div class="r-line"><span>Складка</span><span class="dots"></span><b>Волна (Wave) (расход 1:2.0)</b></div>
-            <div class="r-line"><span>Расход полотна</span><span class="dots"></span><b>12,8 пог. м</b></div>
-            <div class="r-line"><span>Габариты</span><span class="dots"></span><b>3,2 × 2,8 м · 2 шт.</b></div>
-            <div class="r-line"><span>Цеховой пошив & навес</span><span class="dots"></span><b>73 600 ₸</b></div>
-            <div class="r-line"><span>Французская вуаль</span><span class="dots"></span><b>121 600 ₸</b></div>
+            <!-- populated dynamically -->
           </div>
 
           <div class="r-actions">
-            <button class="btn btn-wa btn-block" id="calcWa">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+            <button class="btn btn-wa btn-block" id="calcWa" onclick="sendCalcToWhatsApp()">
+              <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
               Зафиксировать расчет в WhatsApp
             </button>
-
-            <!-- VOICE AI BOX -->
-            <div class="voice-box">
-              <div class="voice-row">
-                <button class="mic" id="micBtn" aria-label="Сказать голосом" title="Нажмите и скажите параметры">
-                  <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
-                </button>
-                <div style="display:flex; flex-direction:column; gap:2px;">
-                  <span style="font-size:0.75rem; font-weight:700; color:var(--gold-soft); text-transform:uppercase; letter-spacing:0.1em;">Voice AI Консьерж</span>
-                  <span class="mic-hint" id="micHint">Нажмите на микрофон или выберите готовый образец фразы:</span>
-                </div>
-              </div>
-              <div class="voice-chips">
-                <button class="v-chip" onclick="applySampleVoice('Детская ткань sheeneel, производство Бельгия, окно 3 на 2.80')">🧸 «Детская ткань sheeneel, Бельгия, 3 на 2.80»</button>
-                <button class="v-chip" onclick="applySampleVoice('Гостиная, шенилл Бельгия, волна, 3.2 на 2.8, 2 окна')">✨ «Гостиная, шенилл Бельгия, волна, 3.2 на 2.8»</button>
-                <button class="v-chip" onclick="applySampleVoice('Спальня, бархат Италия, тройная, 2.5 на 3.0, 1 окно')">👑 «Спальня, бархат Италия, 2.5 на 3.0»</button>
-                <button class="v-chip" onclick="applySampleVoice('Кабинет, Trevira CS Франция, 2.4 на 2.8, 5 окон')">💼 «Кабинет, Trevira CS Франция, 2.4 на 2.8»</button>
-              </div>
-              <div style="margin-top: 8px;">
-                <a href="voice-assistant.html" class="v-chip" style="display:inline-flex; align-items:center; gap:6px; color:var(--gold-soft); text-decoration:none; border-color:var(--gold-soft); font-weight:700;">
-                  🎙️ Открыть полноэкранный Voice AI консьерж →
-                </a>
-              </div>
-            </div>
-
-            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.5); line-height: 1.4;">
-              Предварительный расчет включает пошив в собственном цехе в Астане по ГОСТам РК и безусловную гарантию 3 года. Точную смету утвердит дизайнер на бесплатном замере.
+            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); line-height: 1.4; margin-top: 10px; text-align: center;">
+              Предварительный расчет носит ознакомительный характер. Точную смету с учетом высоты потолков утвердит декоратор.
             </p>
           </div>
         </aside>
+
       </div>
     </div>
   </div>
@@ -4080,38 +3911,66 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <span class="eyebrow c">Заявка на проект</span>
       <h2>Оставьте заявку — <span class="serif-accent">мы свяжемся за 10 минут</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Дизайнер оперативно ответит вам в WhatsApp или по телефону и согласует удобное время выезда с чемоданом образцов.
+        Не тратьте время на печать — надиктуйте голосом или просто укажите номер телефона. Дизайнер свяжется с вами в WhatsApp.
       </p>
     </div>
 
     <div class="contact-grid">
-      <!-- Form -->
-      <form class="form-card reveal" id="leadForm" novalidate>
-        <div class="form-grid">
-          <div class="f2">
-            <div class="fg"><label for="fName">Имя</label><input id="fName" type="text" placeholder="Как к вам обращаться" required></div>
-            <div class="fg"><label for="fPhone">Телефон</label><input id="fPhone" type="tel" placeholder="+7 (___) ___-__-__" required></div>
+      <!-- Form with Voice Input -->
+      <form class="form-card reveal" id="leadForm" onsubmit="handleLeadSubmit(event)" novalidate>
+        
+        <!-- Voice Input Box -->
+        <div class="voice-box-lead">
+          <div class="voice-box-head">
+            <span class="voice-badge">⚡️ Экспресс-заявка</span>
+            <span class="voice-sub">Без долгих анкет</span>
           </div>
-          <div class="fg">
-            <label for="fWho">Сегмент и задача</label>
-            <select id="fWho">
-              <option value="b2c">Частное лицо (Квартира, пентхаус, дом)</option>
-              <option value="b2b">Юридическое лицо (Офис, отель, контракт с НДС 12%)</option>
-              <option value="designer">Архитектор / Дизайнер (Партнерский клуб 10%)</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label for="fMsg">Комментарий или ЖК в Астане</label>
-            <textarea id="fMsg" placeholder="Например: ЖК Talan Towers, 3 комнаты, черновой ремонт, нужен выезд с чемоданом образцов"></textarea>
-          </div>
-          <button class="btn btn-wa btn-block" id="leadBtn" type="submit">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
-            Отправить заявку в WhatsApp
+
+          <button type="button" class="btn-voice-record" id="btnVoiceRecord" onclick="toggleVoiceRecording()">
+            <div class="voice-mic-circle" id="voiceMicCircle">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="mic-icon"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+            </div>
+            <div class="voice-label-col">
+              <b id="voiceBtnTitle">Не тратьте время на печать — надиктуйте голосом</b>
+              <span id="voiceBtnSub">Нажмите и расскажите про окна, ткань или желаемый стиль</span>
+            </div>
           </button>
+
+          <!-- Waveform / Recording state -->
+          <div class="voice-waveform-wrap" id="voiceWaveWrap" style="display: none;">
+            <div class="voice-wave-bars">
+              <span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span><span class="w-bar"></span>
+            </div>
+            <span class="voice-timer" id="voiceTimer">0:00 / 1:00</span>
+            <span class="voice-rec-hint">Слушаем вас... Говорите</span>
+          </div>
+
+          <!-- Transcript Result -->
+          <div class="voice-transcript-card" id="voiceTranscriptCard" style="display: none;">
+            <div class="transcript-header">
+              <span>Ваше голосовое пожелание:</span>
+              <button type="button" class="btn-transcript-reset" onclick="resetVoiceRecording()">Очистить</button>
+            </div>
+            <p class="transcript-text" id="voiceTranscriptText"></p>
+          </div>
         </div>
+
+        <!-- Phone input field -->
+        <div class="form-phone-row" style="margin-top: 18px;">
+          <div class="fg">
+            <label for="fPhone">Ваш номер телефона</label>
+            <input id="fPhone" type="tel" placeholder="+7 (___) ___-__-__" required>
+          </div>
+        </div>
+
+        <button class="btn btn-wa btn-block" id="leadBtn" type="submit" style="margin-top: 16px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+          Отправить заявку в WhatsApp
+        </button>
+
         <p class="form-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-          Заявка мгновенно транслируется дежурному текстильному декоратору <span class="muar-a">MUAR&nbsp;A</span>.
+          Заявка мгновенно транслируется дежурному текстильному декоратору <span class="muar-a">MUAR&nbsp;A</span> в Астане.
         </p>
       </form>
 
@@ -4126,8 +3985,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <span class="txt"><b>Прямой звонок</b><span>+7 (771) 055-15-15</span></span>
         </a>
         <a class="info" href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer">
-          <span class="ic"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l5 2 2 6 3-4 5 3z"/></svg></span>
-          <span class="txt"><b>Telegram канал & бот</b><span>@muar.a</span></span>
+          <span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></span>
+          <span class="txt"><b>Instagram студии</b><span>@muar.a</span></span>
         </a>
         <div class="info">
           <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
@@ -4166,29 +4025,27 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <div class="f-social">
           <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
           <a href="https://wa.me/77710551515" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/><path d="M8.5 9c1 2.5 3 4.5 5.5 5.5"/></svg></a>
-          <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21 4L3 11l5 2 2 6 3-4 5 3z"/></svg></a>
+          
         </div>
       </div>
 
       <div>
         <h5>Навигация</h5>
         <ul>
-          <li><a href="#flows">Форматы (Частным лицам & B2B)</a></li>
-          <li><a href="#beforeAfter">До и После</a></li>
-          <li><a href="#powers">7 сил <span class="muar-a">MUAR&nbsp;A</span></a></li>
-          <li><a href="#cinematics">Собственный цех</a></li>
-          <li><a href="#calculator">Калькулятор и Voice AI</a></li>
+          <li><a href="#calculator">Калькулятор стоимости</a></li>
+          <li><a href="#projects">Проекты & До/После</a></li>
+          <li><a href="#powers">Топ-7 преимуществ</a></li>
+          <li><a href="#contacts">Контакты & Шоурум</a></li>
         </ul>
       </div>
 
       <div>
         <h5>Сервисы</h5>
         <ul>
-          <li><a href="javascript:void(0)" onclick="openSamplerModal()">Чемодан 50 кг образцов</a></li>
+          <li><a href="javascript:void(0)" onclick="openSamplerModal()">Онлайн-подбор текстиля</a></li>
+          <li><a href="#b2b">Корпоративный отдел (НДС 12%)</a></li>
           <li><a href="#cinematics">Видео-портфолио цеха</a></li>
           <li><a href="javascript:void(0)" onclick="openWhatsAppForRole('designer')">Дизайнерский Клуб (10%)</a></li>
-          <li><a href="#calculator" onclick="setMode('b2b')">B2B отдел с НДС 12%</a></li>
-          <li><a href="#projects">Галерея проектов</a></li>
         </ul>
       </div>
 
@@ -4197,7 +4054,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <ul>
           <li><a href="https://wa.me/77710551515" target="_blank" rel="noopener noreferrer">WhatsApp консьерж</a></li>
           <li><a href="tel:+77710551515">+7 (771) 055-15-15</a></li>
-          <li><a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer">Telegram: @muar.a</a></li>
+          <li><a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer">Instagram: @muar.a</a></li>
           <li><a href="#contacts">г. Астана, ул. Керей, Жәнибек хандар, 50/1, ВП 18</a></li>
         </ul>
       </div>
@@ -4215,10 +4072,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <!-- ПЛАВАЮЩИЕ КНОПКИ                                             -->
 <!-- ============================================================ -->
 <div class="float-triggers">
-  <button class="float-sampler-btn" onclick="openSamplerModal()">
-    <span>🧳</span>
-    <span>Чемодан 50 кг образцов</span>
-  </button>
   <a class="float-wa" href="javascript:void(0)" onclick="openWhatsAppModal()" aria-label="Связаться в WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
   </a>
@@ -4230,10 +4083,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <div class="modal-backdrop" id="samplerModal">
   <div class="modal-card">
     <button class="modal-close" onclick="closeSamplerModal()">&times;</button>
-    <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:var(--gold); letter-spacing:0.18em; display:block; margin-bottom:8px;">White Glove Service</span>
-    <h3 style="font-size:1.8rem; margin-bottom:8px;">Выезд декоратора с чемоданом образцов</h3>
+    <span style="font-size:0.7rem; font-weight:700; text-transform:uppercase; color:var(--gold); letter-spacing:0.18em; display:block; margin-bottom:8px;">Дистанционный сервис & Астана</span>
+    <h3 style="font-size:1.8rem; margin-bottom:8px;">Онлайн-подбор от топ-декораторов</h3>
     <p style="font-size:0.88rem; color:var(--muted); line-height:1.5; margin-bottom:20px;">
-      Привезем до 50 кг каталогов с 2 этажей нашего салона прямо на ваш объект в Астане. Проведем лазерный замер скрытых оконных ниш и подберем ткань под ваш свет.
+      Подберем текстиль по фото и видео вашего интерьера для любого города Казахстана (Шымкент, Караганда, Алматы). Для Астаны: выезд декоратора с образцами — 7 000 ₸ (аванс, засчитывается в смету договора).
     </p>
 
     <form onsubmit="handleSamplerSubmit(event)" style="display:grid; gap:14px;">
@@ -5075,97 +4928,156 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   })();
 
   /* ------------------------------------------------------------- */
-  /* CALCULATOR ENGINE                                             */
+  /* CALCULATOR ENGINE (SIMPLIFIED 1:2 FIXED RATIO & 6 FABRICS)   */
   /* ------------------------------------------------------------- */
-  var B2C_PRODUCT = {
-    roman: { name:'Римская штора', base: 22000 },
-    curtain: { name:'Портьеры в пол', base: 18000 },
-    bedspread: { name:'Покрывало & текстиль', base: 14000 }
-  };
-  var FABRIC = {
-    chenille: { name:'Бельгия: Шенилл Wind', price: 24500, k: 1.35 },
-    velvet: { name:'Италия: Бархат Dedar', price: 28000, k: 1.55 },
-    linen: { name:'Франция: Лён Casamance', price: 19800, k: 1.15 },
-    blackout: { name:'Турция: 100% Blackout', price: 16500, k: 1.0 }
-  };
-  var FOLD = {
-    wave: { name:'Волна (Wave)', k: 2.0, desc:'Идеальный цилиндрический ритм с шагом 16 см. Безупречно для панорамных окон и высоких потолков.', svg:'M 0 20 Q 25 0, 50 20 T 100 20 T 150 20 T 200 20 T 250 20 T 300 20 T 350 20 T 400 20 T 450 20 T 500 20' },
-    french: { name:'Французская тройная', k: 2.5, desc:'Классическая ручная защипка в три лепестка. Роскошная пышность для неоклассики и вилл.', svg:'M 0 25 L 30 25 L 35 8 L 40 25 L 45 8 L 50 25 L 55 8 L 60 25 L 120 25 L 125 8 L 130 25 L 135 8 L 140 25 L 145 8 L 150 25 L 210 25 L 215 8 L 220 25 L 225 8 L 230 25 L 235 8 L 240 25 L 300 25' },
-    box: { name:'Бантовая (Box)', k: 2.2, desc:'Симметричная бантовая складка. Строгая архитектурная геометрия для парадных залов.', svg:'M 0 25 L 20 25 L 20 10 L 60 10 L 60 25 L 90 25 L 90 10 L 130 10 L 130 25 L 160 25 L 160 10 L 200 10 L 200 25 L 230 25' },
-    straight: { name:'Прямая', k: 1.5, desc:'Лаконичное прямое полотно с легкой волной. Минимализм и умеренный расход ткани.', svg:'M 0 20 C 50 14, 100 26, 150 20 C 200 14, 250 26, 300 20 C 350 14, 400 26, 450 20' }
-  };
-
-  var B2B_PRODUCT = {
-    screen: { name:'Somfy Screen 5% (Open Space)', base: 26000 },
-    blackout: { name:'Кассетный Blackout 100% (ВКС)', base: 24000 },
-    wood: { name:'Деревянные жалюзи 50мм (CEO)', base: 32000 },
-    trevira: { name:'Контрактные Trevira CS (КМ1)', base: 28000 }
+  var FABRICS_6 = {
+    satin: { name: 'Матовый сатин Soft-Touch (Турция)', price: 18000, desc: 'Гладкая шелковистая фактура' },
+    linen: { name: 'Фактурный лён & Рогожка (Турция)', price: 24000, desc: 'Натуральная текстура' },
+    dimout: { name: 'Шелковистый Dimout / Blackout (Европа)', price: 32000, desc: '100% затемнение' },
+    velvet: { name: 'Премиальный бархат Velvet Touch (Италия)', price: 38000, desc: 'Глубокий ворс' },
+    jacquard: { name: 'Кутюрный жаккард с кантом (Бельгия)', price: 48000, desc: 'Рельефный орнамент' },
+    royal: { name: 'Королевский бархат Royal Luxe (Италия)', price: 58000, desc: 'Шелковый бархат Forbes' }
   };
 
   var calcState = {
-    mode: 'b2c',
-    b2c: { product:'curtain', fold:'wave', fabric:'chenille', w:3.2, h:2.8, q:2 },
-    b2b: { product:'screen', sun:false, w:2.4, h:2.8, q:12 }
+    product: 'curtain',
+    fabric: 'satin',
+    w: 3.2
   };
 
-  function compute(){
-    if(calcState.mode === 'b2c'){
-      var s = calcState.b2c;
-      var prod = B2C_PRODUCT[s.product] || B2C_PRODUCT.curtain;
-      var fold = FOLD[s.fold] || FOLD.wave;
-      var fab = FABRIC[s.fabric] || FABRIC.chenille;
-      var w = Math.max(s.w, 0.5), h = Math.max(s.h, 1.0), q = Math.max(s.q, 1);
+  function setProduct(prod, btn){
+    calcState.product = prod;
+    var group = btn.closest('.chips');
+    if(group){
+      $$('.chip', group).forEach(function(c){ c.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+    var curtainOpts = document.getElementById('curtainOptions');
+    if(curtainOpts){
+      curtainOpts.style.display = (prod === 'curtain') ? 'flex' : 'none';
+    }
+    recalc(false);
+  }
+  window.setProduct = setProduct;
 
-      var fabricMeters = w * fold.k * q;
-      var fabricCost = fabricMeters * fab.price;
-      var tailoring = (fabricMeters * 4500) + (q * 8000); // Пошив в цехе + монтажные узлы
-      var baseTotal = fabricCost + tailoring;
+  function setFabric(fabKey){
+    calcState.fabric = fabKey;
+    $$('.fabric-card').forEach(function(card){
+      card.classList.toggle('active', card.dataset.v === fabKey);
+    });
+    recalc(false);
+  }
+  window.setFabric = setFabric;
+
+  function switchB2bImg(imgId, src, btn){
+    var img = document.getElementById(imgId);
+    if(img){
+      img.src = src;
+    }
+    var parent = btn.closest('.b2b-trio-thumbs');
+    if(parent){
+      $$('.b2b-thumb-btn', parent).forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+  }
+  window.switchB2bImg = switchB2bImg;
+
+  function compute(){
+    var w = Math.max(parseFloat($('#b2c-w').value) || 3.2, 0.8);
+    var fab = FABRICS_6[calcState.fabric] || FABRICS_6.satin;
+    var prodKey = calcState.product || 'curtain';
+
+    var fabricMeters = 0;
+    var fabricCost = 0;
+    var tailoringCost = 0;
+    var hardwareCost = 0;
+    var tulleCost = 0;
+    var somfyCost = 0;
+    var lines = [];
+
+    if(prodKey === 'curtain'){
+      // Strict 1:2 ratio automated!
+      fabricMeters = w * 2.0;
+      fabricCost = fabricMeters * fab.price;
+      tailoringCost = fabricMeters * 4500;
+      hardwareCost = w * 9500;
 
       var hasTulle = $('#checkTulle') && $('#checkTulle').checked;
       var hasSomfy = $('#checkSomfy') && $('#checkSomfy').checked;
 
-      var tulleCost = hasTulle ? (w * 2.0 * 9500 * q) : 0;
-      var somfyCost = hasSomfy ? (q * 85000) : 0;
-      var total = baseTotal + tulleCost + somfyCost;
+      if(hasTulle){
+        var tulleMeters = w * 2.0;
+        tulleCost = tulleMeters * 9500;
+      }
+      if(hasSomfy){
+        somfyCost = 85000;
+      }
 
-      var lines = [
-        ['Изделие', prod.name],
+      var total = fabricCost + tailoringCost + hardwareCost + tulleCost + somfyCost;
+
+      lines = [
+        ['Изделие', 'Портьеры в пол (комплект)'],
         ['Ткань', fab.name],
-        ['Складка', fold.name + ' (расход 1:' + fold.k.toFixed(1) + ')'],
-        ['Расход полотна', num(fabricMeters, 1) + ' пог. м'],
-        ['Габариты', num(w, 1) + ' × ' + num(h, 1) + ' м · ' + q + ' шт.'],
-        ['Цеховой пошив & навес', fmt(tailoring)]
+        ['Расход ткани (1:2)', fabricMeters.toFixed(1) + ' пог. м (на ' + w.toFixed(1) + ' м карниза)'],
+        ['Стоимость ткани', fmt(fabricCost)],
+        ['Пошив в цехе по ГОСТам', fmt(tailoringCost)],
+        ['Карнизный профиль & навес', fmt(hardwareCost)]
       ];
-      if(hasTulle) lines.push(['Французская вуаль', fmt(tulleCost)]);
-      if(hasSomfy) lines.push(['Электрокарниз Somfy', fmt(somfyCost)]);
+      if(hasTulle) lines.push(['Французская вуаль (тюль 1:2)', fmt(tulleCost)]);
+      if(hasSomfy) lines.push(['Электрокарниз Somfy Ultra', fmt(somfyCost)]);
 
-      return { total: total, lines: lines, meters: fabricMeters };
-    } else {
-      var b = calcState.b2b;
-      var bprod = B2B_PRODUCT[b.product] || B2B_PRODUCT.screen;
-      var bw = Math.max(b.w, 0.5), bh = Math.max(b.h, 0.5), bq = Math.max(b.q, 1);
-      var area = bw * bh * bq;
-      var motorMult = b.sun ? 1.35 : 1.0;
-      var totalWithoutVat = bprod.base * area * motorMult;
-      var vat = totalWithoutVat * 0.12;
-      var totalB2B = totalWithoutVat + vat;
+      return { total: total, lines: lines, product: 'Портьеры в пол', meters: fabricMeters, fabric: fab.name, width: w };
+    }
+    else if(prodKey === 'roman'){
+      // Flat panel without folds: width * 1.0 + 0.2m margins
+      fabricMeters = w * 1.0 + 0.2;
+      fabricCost = fabricMeters * fab.price;
+      tailoringCost = 16000;
+      hardwareCost = w * 18000;
 
-      var blines = [
-        ['B2B Система', bprod.name],
-        ['Общий метраж', num(area, 1) + ' м² (' + bq + ' проемов)'],
-        ['Базовая смета без НДС', fmt(totalWithoutVat)],
-        ['НДС 12% (официально)', fmt(vat)]
+      var hasSomfyRoman = $('#checkSomfy') && $('#checkSomfy').checked;
+      if(hasSomfyRoman){
+        somfyCost = 75000;
+      }
+
+      var totalRoman = fabricCost + tailoringCost + hardwareCost + somfyCost;
+      lines = [
+        ['Изделие', 'Римская штора (плоское полотно)'],
+        ['Ткань', fab.name],
+        ['Расход ткани (без складок)', fabricMeters.toFixed(1) + ' пог. м'],
+        ['Стоимость ткани', fmt(fabricCost)],
+        ['Пошив со спицами и утяжелителем', fmt(tailoringCost)],
+        ['Подъемный механизм с цепочкой', fmt(hardwareCost)]
       ];
-      if(b.sun) blines.push(['Somfy автоматика BMS', 'Включена (×1.35)']);
-      blines.push(['Закрывающие акты', 'КС-2 / КС-3 через ЭДО']);
+      if(hasSomfyRoman) lines.push(['Электропривод Somfy', fmt(somfyCost)]);
 
-      return { total: totalB2B, lines: blines, vat: vat };
+      return { total: totalRoman, lines: lines, product: 'Римская штора', meters: fabricMeters, fabric: fab.name, width: w };
+    }
+    else {
+      // Bedspread & textiles
+      fabricMeters = 5.5;
+      fabricCost = fabricMeters * fab.price;
+      tailoringCost = 35000;
+      hardwareCost = 12000;
+
+      var totalBed = fabricCost + tailoringCost + hardwareCost;
+      lines = [
+        ['Изделие', 'Покрывало & декоративный текстиль'],
+        ['Ткань', fab.name],
+        ['Расход полотна', '5.5 пог. м (под кровать 1.8–2.0м)'],
+        ['Стоимость ткани', fmt(fabricCost)],
+        ['Фигурная стежка & пошив в цехе', fmt(tailoringCost)],
+        ['Подкладка & кант ручной работы', fmt(hardwareCost)]
+      ];
+
+      return { total: totalBed, lines: lines, product: 'Покрывало & текстиль', meters: fabricMeters, fabric: fab.name, width: w };
     }
   }
 
   var animId = null;
   function animatePrice(to){
     var priceOut = $('#priceOut');
+    if(!priceOut) return;
     if(animId) cancelAnimationFrame(animId);
     var from = parseFloat(priceOut.dataset.v || 0) || 0;
     var dur = 400, t0 = null;
@@ -5186,6 +5098,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
   function renderBreakdown(lines){
     var breakdown = $('#breakdown');
+    if(!breakdown) return;
     breakdown.innerHTML = '';
     lines.forEach(function(l){
       var row = document.createElement('div');
@@ -5202,264 +5115,196 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var r = compute();
     renderBreakdown(r.lines);
     var priceOut = $('#priceOut');
-    if(instant){ priceOut.textContent = fmt(r.total); priceOut.dataset.v = r.total; }
-    else { animatePrice(r.total); }
+    if(priceOut){
+      if(instant){ priceOut.textContent = fmt(r.total); priceOut.dataset.v = r.total; }
+      else { animatePrice(r.total); }
+    }
   }
   window.recalc = recalc;
 
-  function updatePleatVisual(foldKey){
-    var fold = FOLD[foldKey] || FOLD.wave;
-    var nameEl = $('#pleatNameDisplay');
-    var descEl = $('#pleatDesc');
-    var svgPath = $('#pleatSvg path');
-    if(nameEl) nameEl.textContent = fold.name;
-    if(descEl) descEl.textContent = fold.desc;
-    if(svgPath) svgPath.setAttribute('d', fold.svg);
-  }
+  /* ------------------------------------------------------------- */
+  /* VOICE INPUT LEAD MODULE (WEB SPEECH API & AUDIO)              */
+  /* ------------------------------------------------------------- */
+  var voiceState = {
+    isRecording: false,
+    transcript: '',
+    recognition: null,
+    timerInterval: null,
+    seconds: 0
+  };
 
-  function setMode(mode){
-    calcState.mode = mode;
-    $$('.mode-btn').forEach(function(b){
-      var on = b.dataset.mode === mode;
-      b.classList.toggle('active', on);
-      b.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
+  function initVoiceRecognition(){
+    var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if(SpeechRecognition){
+      voiceState.recognition = new SpeechRecognition();
+      voiceState.recognition.continuous = true;
+      voiceState.recognition.interimResults = true;
+      voiceState.recognition.lang = 'ru-RU';
 
-    var pB2c = $('#pill-b2c'), pB2b = $('#pill-b2b');
-    if(pB2c) pB2c.classList.toggle('active', mode === 'b2c');
-    if(pB2b) pB2b.classList.toggle('active', mode === 'b2b');
-
-    $('#group-b2c').classList.toggle('show', mode === 'b2c');
-    $('#group-b2b').classList.toggle('show', mode === 'b2b');
-
-    $('#modeNote').textContent = mode === 'b2c' ? 'Режим: для дома (B2C)' : 'Режим: для бизнеса с НДС 12% (B2B)';
-    $('#resTitleLabel').textContent = mode === 'b2c' ? 'Предварительная смета под ключ' : 'Ориентировочная B2B смета с НДС 12%';
-
-    recalc(true);
-  }
-  window.setMode = setMode;
-
-  /* Chips click handling */
-  $$('.chips').forEach(function(group){
-    var gname = group.dataset.group;
-    group.addEventListener('click', function(e){
-      var chip = e.target.closest('.chip');
-      if(!chip || !group.contains(chip)) return;
-      $$('.chip', group).forEach(function(c){ c.classList.remove('active'); });
-      chip.classList.add('active');
-
-      if(calcState.mode === 'b2c'){
-        if(gname === 'product') calcState.b2c.product = chip.dataset.v;
-        if(gname === 'fold'){
-          calcState.b2c.fold = chip.dataset.v;
-          updatePleatVisual(chip.dataset.v);
+      voiceState.recognition.onresult = function(event){
+        var current = '';
+        for(var i = event.resultIndex; i < event.results.length; i++){
+          current += event.results[i][0].transcript;
         }
-        if(gname === 'fabric') calcState.b2c.fabric = chip.dataset.v;
-      } else {
-        if(gname === 'b2b-product') calcState.b2b.product = chip.dataset.v;
+        voiceState.transcript = current;
+        var tEl = document.getElementById('voiceTranscriptText');
+        var card = document.getElementById('voiceTranscriptCard');
+        if(tEl && card){
+          tEl.textContent = '«' + current + '»';
+          card.style.display = 'block';
+        }
+      };
+
+      voiceState.recognition.onerror = function(err){
+        console.warn('Speech recognition error:', err);
+        stopVoiceRecording();
+      };
+
+      voiceState.recognition.onend = function(){
+        if(voiceState.isRecording){
+          stopVoiceRecording();
+        }
+      };
+    }
+  }
+
+  function toggleVoiceRecording(){
+    if(!voiceState.isRecording){
+      startVoiceRecording();
+    } else {
+      stopVoiceRecording();
+    }
+  }
+
+  function startVoiceRecording(){
+    var btn = document.getElementById('btnVoiceRecord');
+    var circle = document.getElementById('voiceMicCircle');
+    var title = document.getElementById('voiceBtnTitle');
+    var sub = document.getElementById('voiceBtnSub');
+    var waveWrap = document.getElementById('voiceWaveWrap');
+    var timer = document.getElementById('voiceTimer');
+
+    if(!voiceState.recognition){
+      initVoiceRecognition();
+    }
+
+    if(voiceState.recognition){
+      try {
+        voiceState.recognition.start();
+      } catch(e) {
+        console.log('Recognition already started or error', e);
       }
-      recalc(false);
-    });
-  });
+    }
 
-  /* Inputs sync */
-  [['b2c-w','b2c','w'],['b2c-h','b2c','h'],['b2c-q','b2c','q'],
-   ['b2b-w','b2b','w'],['b2b-h','b2b','h'],['b2b-q','b2b','q']].forEach(function(t){
-    var el = document.getElementById(t[0]);
-    if(!el) return;
-    el.addEventListener('input', function(){
-      var v = parseFloat(el.value);
-      if(isNaN(v) || v <= 0) v = 0.1;
-      calcState[t[1]][t[2]] = v;
-      recalc(false);
-    });
-  });
+    voiceState.isRecording = true;
+    voiceState.seconds = 0;
+    if(btn) btn.classList.add('recording');
+    if(circle) circle.classList.add('pulse');
+    if(title) title.textContent = 'Идёт запись... Нажмите для завершения';
+    if(sub) sub.textContent = 'Говорите про окна, размеры или стиль интерьера';
+    if(waveWrap) waveWrap.style.display = 'flex';
 
-  /* Sun / Motor Switch */
-  var sun = $('#sunSwitch');
-  function toggleSun(){
-    calcState.b2b.sun = !calcState.b2b.sun;
-    sun.classList.toggle('on', calcState.b2b.sun);
-    sun.setAttribute('aria-checked', calcState.b2b.sun ? 'true' : 'false');
-    recalc(false);
-  }
-  if(sun){
-    sun.addEventListener('click', toggleSun);
-    sun.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleSun(); } });
+    if(voiceState.timerInterval) clearInterval(voiceState.timerInterval);
+    voiceState.timerInterval = setInterval(function(){
+      voiceState.seconds++;
+      var m = Math.floor(voiceState.seconds / 60);
+      var s = voiceState.seconds % 60;
+      if(timer) timer.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s + ' / 1:00';
+      if(voiceState.seconds >= 60){
+        stopVoiceRecording();
+      }
+    }, 1000);
   }
 
-  /* WhatsApp direct calculation dispatch with MaisonPoissonDispatcher */
-  $('#calcWa').addEventListener('click', function(){
+  function stopVoiceRecording(){
+    voiceState.isRecording = false;
+    if(voiceState.timerInterval) clearInterval(voiceState.timerInterval);
+    if(voiceState.recognition){
+      try { voiceState.recognition.stop(); } catch(e){}
+    }
+
+    var btn = document.getElementById('btnVoiceRecord');
+    var circle = document.getElementById('voiceMicCircle');
+    var title = document.getElementById('voiceBtnTitle');
+    var sub = document.getElementById('voiceBtnSub');
+    var waveWrap = document.getElementById('voiceWaveWrap');
+
+    if(btn) btn.classList.remove('recording');
+    if(circle) circle.classList.remove('pulse');
+    if(waveWrap) waveWrap.style.display = 'none';
+
+    if(voiceState.transcript){
+      if(title) title.textContent = '✓ Сообщение записано!';
+      if(sub) sub.textContent = 'Нажмите «Отправить заявку в WhatsApp»';
+    } else {
+      if(title) title.textContent = 'Не тратьте время на печать — надиктуйте голосом';
+      if(sub) sub.textContent = 'Нажмите и расскажите про окна, ткань или желаемый стиль';
+    }
+  }
+
+  function resetVoiceRecording(){
+    voiceState.transcript = '';
+    var card = document.getElementById('voiceTranscriptCard');
+    var text = document.getElementById('voiceTranscriptText');
+    if(card) card.style.display = 'none';
+    if(text) text.textContent = '';
+    var title = document.getElementById('voiceBtnTitle');
+    var sub = document.getElementById('voiceBtnSub');
+    if(title) title.textContent = 'Не тратьте время на печать — надиктуйте голосом';
+    if(sub) sub.textContent = 'Нажмите и расскажите про окна, ткань или желаемый стиль';
+  }
+
+  window.toggleVoiceRecording = toggleVoiceRecording;
+  window.resetVoiceRecording = resetVoiceRecording;
+
+  function handleLeadSubmit(e){
+    if(e) e.preventDefault();
+    var phoneInput = document.getElementById('fPhone');
+    var phone = phoneInput ? phoneInput.value.trim() : '';
+    if(!phone){
+      alert('Пожалуйста, введите ваш номер телефона');
+      if(phoneInput) phoneInput.focus();
+      return;
+    }
+
+    var msg = 'Здравствуйте, MUAR A! Заявка с сайта:\nТелефон: ' + phone;
+    if(voiceState.transcript){
+      msg += '\nГолосовое пожелание: ' + voiceState.transcript;
+    }
+
+    var url = 'https://wa.me/77710551515?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank');
+  }
+  window.handleLeadSubmit = handleLeadSubmit;
+
+
+  function sendCalcToWhatsApp(){
     var r = compute();
+    var linesStr = r.lines.map(function(l){ return "• " + l[0] + ": " + l[1]; }).join("\n");
+    var msg = "Здравствуйте, MUAR A! Предварительный расчет с сайта:\n\n" +
+      linesStr + "\n\n" +
+      "Предварительная стоимость: " + fmt(r.total) + "\n" +
+      "(Собственный цех в Астане по ГОСТам РК, гарантия 3 года)\n\n" +
+      "Хотелось бы зафиксировать этот расчет и проконсультироваться с дизайнером.";
 
     if (window.MaisonPoissonDispatcher) {
-      if (calcState.mode === 'b2c') {
-        var s = calcState.b2c;
-        var prod = B2C_PRODUCT[s.product] || B2C_PRODUCT.curtain;
-        var fold = FOLD[s.fold] || FOLD.wave;
-        var fab = FABRIC[s.fabric] || FABRIC.chenille;
-        
-        var pleatName = s.fold === 'wave' ? 'Ripplefold' : fold.name;
-        var fabricName = fab.name.toLowerCase().includes('шенилл') ? 'бельгийский шенилл' : fab.name;
-
+      try {
         var leadData = {
           funnel: 'b2c',
-          curtainType: prod.name.includes('Портьер') ? 'Портьеры' : prod.name,
-          width: s.w,
-          height: s.h,
-          fabric: fabricName,
-          pleatFold: pleatName,
+          curtainType: r.product,
+          width: r.width,
+          fabric: r.fabric,
           estimatedBudget: r.total,
-          calloutAction: 'Хочу вызвать декоратора с образцами.',
-          options: {
-            includeTulle: Boolean($('#checkTulle') && $('#checkTulle').checked),
-            includeSomfy: Boolean($('#checkSomfy') && $('#checkSomfy').checked)
-          }
+          calloutAction: 'Хочу зафиксировать расчет и проконсультироваться с дизайнером.'
         };
-
-        var waUrl = MaisonPoissonDispatcher.generateWhatsAppUrl(leadData, { strictExactB2C: true, phone: WA });
-        window.open(waUrl, '_blank', 'noopener');
-
-        // Non-blocking background dispatch
-        MaisonPoissonDispatcher.dispatchLead(leadData, { phone: WA, dispatchTelegram: true });
-        return;
-      } else {
-        var b2bState = calcState.b2b;
-        var b2bProd = B2B_PRODUCT[b2bState.product] || B2B_PRODUCT.screen;
-        var b2bLead = {
-          funnel: 'b2b',
-          openingsCount: b2bState.q,
-          systemType: b2bProd.name,
-          estimatedBudget: r.total,
-          fireSafetyRequired: b2bState.product === 'trevira'
-        };
-        var b2bWaUrl = MaisonPoissonDispatcher.generateWhatsAppUrl(b2bLead, { phone: WA });
-        window.open(b2bWaUrl, '_blank', 'noopener');
-        MaisonPoissonDispatcher.dispatchLead(b2bLead, { phone: WA, dispatchTelegram: true });
-        return;
-      }
+        MaisonPoissonDispatcher.dispatchLead(leadData, { phone: WA, dispatchWhatsapp: false });
+      } catch(e){}
     }
 
-    var lines = r.lines.map(function(l){ return '• ' + l[0] + ': ' + l[1]; }).join('\n');
-    var txt = 'Здравствуйте! Хочу заказать текстильное оформление в MUAR A.\n' +
-              'Режим: ' + (calcState.mode === 'b2c' ? 'Для дома (B2C)' : 'Для бизнеса с НДС 12% (B2B)') + '\n\n' +
-              lines + '\n\nПредварительная стоимость: ' + fmt(r.total) + '\n(Собственный цех в Астане по ГОСТам РК, гарантия 3 года)';
-    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
-  });
-
-  /* ------------------------------------------------------------- */
-  /* VOICE AI ASSISTANT                                            */
-  /* ------------------------------------------------------------- */
-  var micBtn = $('#micBtn'), micHint = $('#micHint');
-
-  function applySampleVoice(t){
-    var low = t.toLowerCase();
-    var nums = (low.match(/\d+[.,]?\d*/g) || []).map(function(x){ return parseFloat(x.replace(',', '.')); });
-
-    if(/офис|бизнес|b2b|кабинет|переговорн/.test(low) && (/проем|trevira|тревира|негорюч|ролл|скрин|жалюзи/.test(low) || /b2b/.test(low))){
-      setMode('b2b');
-      if(/ролл|скрин/.test(low)) setChip('b2b-product', 'screen');
-      else if(/блэкаут|blackout/.test(low)) setChip('b2b-product', 'blackout');
-      else if(/дерев|жалюзи/.test(low)) setChip('b2b-product', 'wood');
-      else if(/trevira|тревира|негорюч|франц/.test(low)) setChip('b2b-product', 'trevira');
-
-      if(nums.length){
-        calcState.b2b.w = nums[0];
-        if(nums[1]) calcState.b2b.h = nums[1];
-        if(nums[2]) calcState.b2b.q = Math.round(nums[2]);
-        $('#b2b-w').value = calcState.b2b.w;
-        $('#b2b-h').value = calcState.b2b.h;
-        $('#b2b-q').value = calcState.b2b.q;
-      }
-    } else {
-      setMode('b2c');
-      if(/римск/.test(low)) setChip('product', 'roman');
-      else if(/портьер|штор|детск|гостин|спальн/.test(low)) setChip('product', 'curtain');
-      else if(/покрывал/.test(low)) setChip('product', 'bedspread');
-
-      // Enhanced fabric aliases including Asima's phonetic "sheeneel" / "sheenel"
-      if(/шенилл|шенил|sheeneel|sheenel|chenille|бельг/.test(low)) setChip('fabric', 'chenille');
-      else if(/бархат|велюр|итал|dedar/.test(low)) setChip('fabric', 'velvet');
-      else if(/шёлк|шелк|silk/.test(low)) setChip('fabric', 'velvet');
-      else if(/лён|лен|casamance|франц/.test(low)) setChip('fabric', 'linen');
-      else if(/блэкаут|blackout/.test(low)) setChip('fabric', 'blackout');
-
-      if(/тройн|француз|pinch/.test(low)) setChip('fold', 'french');
-      else if(/бант|box/.test(low)) setChip('fold', 'box');
-      else if(/волн|wave/.test(low)) setChip('fold', 'wave');
-
-      if(nums.length){
-        calcState.b2c.w = nums[0];
-        if(nums[1]) calcState.b2c.h = nums[1];
-        if(nums[2]) calcState.b2c.q = Math.round(nums[2]);
-        $('#b2c-w').value = calcState.b2c.w;
-        $('#b2c-h').value = calcState.b2c.h;
-        $('#b2c-q').value = calcState.b2c.q;
-      }
-    }
-
-    recalc(false);
-    micHint.textContent = 'Распознано: «' + t + '»';
+    var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+    window.open(url, '_blank', 'noopener');
   }
-  window.applySampleVoice = applySampleVoice;
-
-  function setChip(group, val){
-    var scope = document.querySelector(calcState.mode === 'b2c' ? '#group-b2c' : '#group-b2b');
-    if(!scope) return;
-    var g = scope.querySelector('.chips[data-group="'+group+'"]');
-    if(!g) return;
-    var chip = g.querySelector('.chip[data-v="'+val+'"]');
-    if(chip) chip.click();
-  }
-
-  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if(SR){
-    var rec = new SR();
-    rec.lang = 'ru-RU';
-    rec.interimResults = false;
-    var listening = false;
-
-    function triggerMic(){
-      if(listening){ rec.stop(); return; }
-      try { rec.start(); } catch(err){}
-    }
-
-    micBtn.addEventListener('click', triggerMic);
-
-    rec.onstart = function(){
-      listening = true;
-      micBtn.classList.add('rec');
-      micHint.textContent = 'Слушаю… Назовите комнату, ткань и размеры (напр.: «Детская, sheeneel Бельгия, 3 на 2.8»)';
-    };
-    rec.onend = function(){
-      listening = false;
-      micBtn.classList.remove('rec');
-    };
-    rec.onerror = function(e){
-      listening = false;
-      micBtn.classList.remove('rec');
-      micHint.textContent = 'Ошибка распознавания. Выберите готовый образец фразы ниже.';
-    };
-    rec.onresult = function(ev){
-      var t = ev.results[0][0].transcript;
-      applySampleVoice(t);
-    };
-
-    window.startVoiceInput = function(){
-      var calcEl = document.getElementById('calculator');
-      if(calcEl) calcEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      triggerMic();
-    };
-  } else {
-    micBtn.addEventListener('click', function(){
-      micHint.textContent = 'Голосовой ввод не поддерживается в этом браузере. Выберите готовый образец фразы:';
-    });
-    window.startVoiceInput = function(){
-      var calcEl = document.getElementById('calculator');
-      if(calcEl) calcEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    };
-  }
-
+  window.sendCalcToWhatsApp = sendCalcToWhatsApp;
   /* ------------------------------------------------------------- */
   /* PORTFOLIO TABS                                                */
   /* ------------------------------------------------------------- */
@@ -5531,7 +5376,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       }
       var waUrl = MaisonPoissonDispatcher.generateWhatsAppUrl(lead, { phone: WA });
       window.open(waUrl, '_blank', 'noopener');
-      MaisonPoissonDispatcher.dispatchLead(lead, { phone: WA, dispatchTelegram: true });
+      MaisonPoissonDispatcher.dispatchLead(lead, { phone: WA, dispatchWhatsapp: true });
       closeWhatsAppModal();
       return;
     }
@@ -5694,92 +5539,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     });
   });
 
-  /* ------------------------------------------------------------- */
-  /* PWA SERVICE WORKER & INSTALL PROMPT                           */
-  /* ------------------------------------------------------------- */
-  if('serviceWorker' in navigator){
-    window.addEventListener('load', function(){
-      navigator.serviceWorker.register('./sw.js').then(function(reg){
-        console.log('MUAR A PWA Service Worker Registered', reg.scope);
-      }).catch(function(err){
-        console.warn('MUAR A Service Worker registration skipped', err);
-      });
-    });
-  }
-
-  var deferredInstallPrompt = null;
-  window.addEventListener('beforeinstallprompt', function(e){
-    e.preventDefault();
-    deferredInstallPrompt = e;
-    var banner = document.getElementById('pwaInstallBanner');
-    if(banner && !sessionStorage.getItem('pwaDismissed')){
-      banner.style.display = 'flex';
-    }
-  });
-
-  var installBtn = document.getElementById('btnInstallPwa');
-  if(installBtn){
-    installBtn.addEventListener('click', function(){
-      if(deferredInstallPrompt){
-        deferredInstallPrompt.prompt();
-        deferredInstallPrompt.userChoice.then(function(choiceResult){
-          deferredInstallPrompt = null;
-          dismissPwaBanner();
-        });
-      }
-    });
-  }
-
-  window.dismissPwaBanner = function(){
-    var banner = document.getElementById('pwaInstallBanner');
-    if(banner) banner.style.display = 'none';
-    sessionStorage.setItem('pwaDismissed', 'true');
-  };
-
-})();
+  })();
 </script>
-
-<!-- ============================================================ -->
-<!-- MOBILE PWA BOTTOM ACTION BAR (Native App Feel)                -->
-<!-- ============================================================ -->
-<aside class="mobile-pwa-bar" id="mobilePwaBar" aria-label="Быстрые действия">
-  <a href="tel:+77710551515" class="pwa-action" aria-label="Позвонить в ателье" onclick="haptic()">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    <span>Звонок</span>
-  </a>
-  <a href="#calculator" class="pwa-action" aria-label="Открыть онлайн калькулятор" onclick="haptic()">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
-    <span>Расчёт</span>
-  </a>
-  <button class="pwa-action pwa-voice-btn" onclick="startVoiceInput(); haptic();" aria-label="Голосовой помощник MUAR A">
-    <div class="pwa-voice-ring"></div>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-    <span>Голос</span>
-  </button>
-  <button class="pwa-action" onclick="openWhatsAppForRole('client'); haptic();" aria-label="Написать в WhatsApp">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-    <span>WhatsApp</span>
-  </button>
-  <a href="#cinematics" class="pwa-action" aria-label="Видео ателье" onclick="haptic()">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-    <span>Видео</span>
-  </a>
-</aside>
-
-<!-- PWA Install Prompt Banner -->
-<div class="pwa-install-banner" id="pwaInstallBanner">
-  <div class="pwa-banner-content">
-    <img src="icon-192.png" alt="MUAR A App" class="pwa-app-icon">
-    <div>
-      <div class="pwa-app-title">Приложение <span class="muar-a">MUAR&nbsp;A</span> Астана</div>
-      <div class="pwa-app-desc">Быстрый расчет штор, каталог тканей и вызов замерщика offline</div>
-    </div>
-  </div>
-  <div class="pwa-banner-actions">
-    <button class="btn btn-sm btn-gold" id="btnInstallPwa" style="padding: 6px 14px; border-radius: 8px; font-size: 0.84rem; background: var(--gold); color: #fff; border: 0;">Установить</button>
-    <button class="pwa-close-btn" onclick="dismissPwaBanner()">&times;</button>
-  </div>
-</div>
 
 </body>
 </html>

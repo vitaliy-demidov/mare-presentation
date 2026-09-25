@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>MUAR A | Стратегия Национального Лидерства 2026–2027</title>
+  <meta name="description" content="Краткая исполнительная презентация стратегии развития и масштабирования Текстильного Дома MUAR A (ТОО KazTextileА) по всему Казахстану.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-petrol-deep: #0D1718;
+      --bg-petrol-dark: #122123;
+      --bg-petrol-card: rgba(22, 40, 43, 0.75);
+      --bg-petrol-border: rgba(197, 168, 128, 0.22);
+      --gold-primary: #C5A880;
+      --gold-light: #E5D5BC;
+      --gold-dark: #9A7B50;
+      --gold-glow: rgba(197, 168, 128, 0.18);
+      --ivory: #F7F4EF;
+      --ivory-muted: #B8B5AE;
+      --ivory-subtle: #7E8685;
+      --danger-soft: #D96A6A;
+      --success-gold: #5AB389;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 32px;
+
+      --transition-smooth: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--bg-petrol-deep);
+      color: var(--ivory);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.45;
+      user-select: none;
+    }
+
+    /* Ambient luxury background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at 15% 15%, rgba(197, 168, 128, 0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 85% 85%, rgba(31, 58, 61, 0.5) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Top HUD / Header */
+    .deck-hud {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(13, 23, 24, 0.65);
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-fish-icon {
+      width: 28px;
+      height: 28px;
+      fill: var(--gold-primary);
+      filter: drop-shadow(0 0 8px var(--gold-glow));
+    }
+
+    .brand-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ivory);
+    }
+
+    .brand-title span {
+      color: var(--gold-primary);
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: rgba(197, 168, 128, 0.12);
+      color: var(--gold-light);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+    }
+
+    .hud-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-hud {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 14px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(197, 168, 128, 0.2);
+      color: var(--ivory-muted);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-hud:hover {
+      background: rgba(197, 168, 128, 0.15);
+      color: var(--ivory);
+      border-color: var(--gold-primary);
+    }
+
+    .btn-hud.active {
+      background: var(--gold-primary);
+      color: var(--bg-petrol-deep);
+      border-color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    /* Deck Slides Container */
+    .deck-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      padding: 84px 48px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.96) translateY(20px);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1) translateY(0);
+    }
+
+    .slide-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Slide Header */
+    .slide-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-primary);
+      margin-bottom: 8px;
+    }
+
+    .slide-tag::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      box-shadow: 0 0 8px var(--gold-primary);
+    }
+
+    .slide-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.2vw, 46px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--ivory);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .slide-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .slide-subtitle {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: var(--ivory-muted);
+      max-width: 860px;
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+
+    /* Grids & Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .glass-card {
+      background: var(--bg-petrol-card);
+      border: 1px solid var(--bg-petrol-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(197, 168, 128, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-accent-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-primary), transparent);
+    }
+
+    /* Specific Components */
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: clamp(28px, 3.2vw, 38px);
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1.1;
+      margin-bottom: 6px;
+      font-feature-settings: "tnum" 1;
+    }
+
+    .metric-label {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ivory-muted);
+    }
+
+    .metric-sub {
+      font-size: 13px;
+      color: var(--ivory-subtle);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* Comparison Table / Split */
+    .compare-box {
+      border-radius: var(--radius-md);
+      padding: 22px;
+      position: relative;
+    }
+
+    .compare-bad {
+      background: rgba(45, 18, 18, 0.6);
+      border: 1px solid rgba(217, 106, 106, 0.3);
+    }
+
+    .compare-good {
+      background: rgba(18, 42, 38, 0.7);
+      border: 1px solid rgba(197, 168, 128, 0.4);
+      box-shadow: 0 0 30px rgba(197, 168, 128, 0.08);
+    }
+
+    .compare-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .compare-badge.bad {
+      background: rgba(217, 106, 106, 0.2);
+      color: #FFA5A5;
+      border: 1px solid rgba(217, 106, 106, 0.4);
+    }
+
+    .compare-badge.good {
+      background: rgba(197, 168, 128, 0.2);
+      color: var(--gold-light);
+      border: 1px solid var(--gold-primary);
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--ivory-muted);
+      line-height: 1.4;
+    }
+
+    .check-list li strong {
+      color: var(--ivory);
+    }
+
+    .check-icon-good {
+      color: var(--gold-primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-weight: bold;
+    }
+
+    .check-icon-bad {
+      color: var(--danger-soft);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-weight: bold;
+    }
+
+    /* Pricing Tier Cards */
+    .tier-card {
+      background: var(--bg-petrol-card);
+      border: 1px solid var(--bg-petrol-border);
+      border-radius: var(--radius-md);
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+
+    .tier-card.featured {
+      border-color: var(--gold-primary);
+      background: rgba(26, 48, 52, 0.85);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(197, 168, 128, 0.2);
+      transform: scale(1.02);
+    }
+
+    .tier-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--gold-primary);
+      color: var(--bg-petrol-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+    }
+
+    .tier-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--ivory);
+      margin-bottom: 6px;
+    }
+
+    .tier-price {
+      font-family: var(--font-mono);
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+      font-feature-settings: "tnum" 1;
+    }
+
+    .tier-pay-plan {
+      font-size: 12px;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+    }
+
+    .tier-roi {
+      background: rgba(197, 168, 128, 0.1);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* Speaker Notes HUD (Popup) */
+    .speaker-notes-panel {
+      position: fixed;
+      bottom: 74px;
+      right: 32px;
+      width: 440px;
+      max-height: 280px;
+      background: rgba(11, 19, 20, 0.94);
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      z-index: 120;
+      display: none;
+      overflow-y: auto;
+    }
+
+    .speaker-notes-panel.active {
+      display: block;
+      animation: noteFadeIn 0.3s ease;
+    }
+
+    @keyframes noteFadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .notes-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+    }
+
+    .notes-title {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-primary);
+    }
+
+    .notes-body {
+      font-size: 13px;
+      color: var(--ivory);
+      line-height: 1.5;
+    }
+
+    .notes-body p {
+      margin-bottom: 8px;
+    }
+
+    .notes-body strong {
+      color: var(--gold-light);
+    }
+
+    /* Bottom Navigation Bar */
+    .deck-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+      border-top: 1px solid rgba(197, 168, 128, 0.12);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(13, 23, 24, 0.75);
+    }
+
+    .nav-progress-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 40px;
+      background: rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .dot.active {
+      width: 28px;
+      background: var(--gold-primary);
+      box-shadow: 0 0 10px var(--gold-glow);
+    }
+
+    .slide-counter {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ivory-muted);
+    }
+
+    .nav-arrows {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-nav {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+      color: var(--ivory);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      font-size: 16px;
+    }
+
+    .btn-nav:hover {
+      background: var(--gold-primary);
+      color: var(--bg-petrol-deep);
+      border-color: var(--gold-primary);
+    }
+
+    /* Media Queries for Mobile/iPad */
+    @media (max-width: 960px) {
+      .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .slide {
+        padding: 76px 20px 80px;
+      }
+      .slide-title {
+        font-size: 26px;
+      }
+      .tier-card.featured {
+        transform: scale(1);
+      }
+      .speaker-notes-panel {
+        width: calc(100vw - 40px);
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header / HUD -->
+  <header class="deck-hud">
+    <div class="brand-mark">
+      <svg class="brand-fish-icon" viewBox="0 0 24 24">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+      </svg>
+      <div class="brand-title">MUAR&nbsp;<span>A</span></div>
+      <div class="brand-badge">Executive Deck 2026</div>
+    </div>
+    <div class="hud-controls">
+      <button class="btn-hud" id="notesToggleBtn" title="Шпаргалка спикера (N)">
+        📝 Шпаргалка (N)
+      </button>
+      <button class="btn-hud" id="fsToggleBtn" title="Полный экран (F)">
+        ⛶ Экран (F)
+      </button>
+    </div>
+  </header>
+
+  <!-- Deck Slides Wrapper -->
+  <main class="deck-container" id="deckContainer">
+
+    <!-- SLIDE 1: COVER -->
+    <section class="slide active" data-slide="1" data-notes="Асима, добрый день! Прежде всего — уважение к тому, что вы сделали за 12 лет. Ваш переход на символ Рыб — гениален, потому что пластика рыбы в воде и драпировка тяжелого шелка подчиняются одним законам физики. Наша цель сегодня — показать, как сделать MUAR A Текстильным Домом №1 в Казахстане и продавать по всем 17 регионам.">
+      <div class="slide-inner">
+        <div class="slide-tag">Манифест Лидерства • 2026–2027</div>
+        <h1 class="slide-title">Текстильный Дом <em>MUAR&nbsp;A</em>:<br>Стратегия Национального Доминирования</h1>
+        <p class="slide-subtitle">Как трансформировать салон в Астане в институционального лидера интерьерного и контрактного текстиля по всему Казахстану и ликвидировать кассовый разрыв за 14 дней.</p>
+
+        <div class="grid-4" style="margin-top: 32px;">
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div class="metric-value">12 лет</div>
+            <div class="metric-label">Безупречный опыт</div>
+            <div class="metric-sub">Топ-50 мировых декораторов интерьера</div>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div class="metric-value">350 м²</div>
+            <div class="metric-label">Собственный цех</div>
+            <div class="metric-sub">Немецкие автоматы Dürkopp Adler в Астане</div>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div class="metric-value">1 МЕСТО</div>
+            <div class="metric-label">Golden Textile 2026</div>
+            <div class="metric-sub">Главный приз Ж. Есимовой в коммерции</div>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div class="metric-value">1 200+</div>
+            <div class="metric-label">Каталогов Европы</div>
+            <div class="metric-sub">Loro Piana, Dedar, Rubelli напрямую</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: DIAGNOSIS & PAIN -->
+    <section class="slide" data-slide="2" data-notes="Давайте начистоту: 3 года без рекламы и сайта загнали бизнес в зависимость от сарафана. Дизайнеры прячут контакты заказчиков, Excel-база потерялась, возник кассовый разрыв. При этом простой цеха 350 м² сжигает деньги каждый день! Мы пришли не учить вас шить шторы — вы шьете идеально. Мы пришли открыть цифровой кран клиентов.">
+      <div class="slide-inner">
+        <div class="slide-tag">Точка Перелома • Диагностика Бизнеса</div>
+        <h2 class="slide-title">Почему возник кассовый разрыв и <em>где скрыты деньги</em></h2>
+        <p class="slide-subtitle">Проблема салона — не в качестве продукта. Ваш продукт безупречен. Проблема в том, что входящий кран платежеспособных клиентов был банально закрыт 3 года.</p>
+
+        <div class="grid-2">
+          <div class="compare-box compare-bad">
+            <span class="compare-badge bad">Текущая ситуация (Ловушка сарафана)</span>
+            <ul class="check-list">
+              <li><span class="check-icon-bad">✕</span> <strong>3 года без рекламы и сайта:</strong> Полная зависимость от случайных рекомендаций.</li>
+              <li><span class="check-icon-bad">✕</span> <strong>Дизайнеры прячут заказчиков:</strong> 10% кэшбэка уходит, а собственная база клиентов не накапливается.</li>
+              <li><span class="check-icon-bad">✕</span> <strong>Устаревшее КП:</strong> Премиальный клиент в пентхаусе не видит разницы между кутюром и барахолкой.</li>
+              <li><span class="check-icon-bad">✕</span> <strong>Ежедневный убыток от простоя:</strong> Цех 350 м² и станки Adler простаивают без ритмичной загрузки.</li>
+            </ul>
+          </div>
+
+          <div class="compare-box compare-good">
+            <span class="compare-badge good">Решение: Цифровая Экосистема MUAR A</span>
+            <ul class="check-list">
+              <li><span class="check-icon-good">✓</span> <strong>Прямой поток B2C новоселов:</strong> Таргет Meta на элитные ЖК Астаны (Highvill, Sensata, Talan).</li>
+              <li><span class="check-icon-good">✓</span> <strong>Контрактный B2B дивизион:</strong> НДС 12%, сертификаты Trevira CS КМ1 для офисов и посольств.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Дизайнерский Клуб 2.0:</strong> 180 дней защиты объекта + кэшбэк день-в-день прямо с аванса.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Продажи по всему РК:</strong> «Текстильный Box» в руки клиентам Атырау, Актау, Шымкента.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: COMPETITOR DISSECTION -->
+    <section class="slide" data-slide="3" data-notes="Асима, вы смотрели на Yurta Interiors как на эстетический эталон. Но наш технический аудит показал: их сайт — это дорогая ошибка! Он грузится 10.2 секунды, весит 22 МБ, летающие ковры сбивают с толку, а в B2B у них абсолютный ноль. 8 из 10 клиентов закрывают его, не дождавшись. Мы берем их красоту, но делаем скорость iPhone: 0.68 сек и сразу WhatsApp!">
+      <div class="slide-inner">
+        <div class="slide-tag">Конкурентная Разведка • Анализ Рынков</div>
+        <h2 class="slide-title">Уроки <em>Yurta Interiors</em>: Почему красивый сайт сливает клиентов</h2>
+        <p class="slide-subtitle">Эстетический нарциссизм без коммерческой архитектуры разоряет компанию. Сравнение в цифрах:</p>
+
+        <div class="grid-2">
+          <div class="glass-card" style="border-color: rgba(217,106,106,0.3);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="color: #FFA5A5; font-size: 18px;">Yurta Interiors (Алматы)</h3>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: #FFA5A5;">Слив бюджета</span>
+            </div>
+            <ul class="check-list">
+              <li><span class="check-icon-bad">✕</span> <strong>Скорость загрузки: 10.2 секунды!</strong> (22.4 МБ несжатого видео. 82% клиентов уходят с белого экрана).</li>
+              <li><span class="check-icon-bad">✕</span> <strong>«Про шторы или про океан?»:</strong> Летающие ковры в пустыне сбивают с толку, суть продукта не ясна.</li>
+              <li><span class="check-icon-bad">✕</span> <strong>Полный ноль в B2B:</strong> Нет НДС 12%, нет Trevira CS, закрывающих документов для бизнеса нет.</li>
+              <li><span class="check-icon-bad">✕</span> <strong>Нет конверсии:</strong> Цен нет, калькулятора нет, единственный путь — писать в Direct.</li>
+            </ul>
+          </div>
+
+          <div class="glass-card" style="border-color: var(--gold-primary); background: rgba(26, 48, 52, 0.8);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="color: var(--gold-light); font-size: 18px;">Цифровой Флагман MUAR A</h3>
+              <span style="font-family: var(--font-mono); font-size: 12px; color: var(--gold-primary);">Золотой Стандарт</span>
+            </div>
+            <ul class="check-list">
+              <li><span class="check-icon-good">✓</span> <strong>Загрузка за 0.68 сек (в 15 раз быстрее!):</strong> Чистый код, адаптивные видео, моментальный отклик на iPhone.</li>
+              <li><span class="check-icon-good">✓</span> <strong>7 Сил бьют в лоб:</strong> Статус Top-50, свой цех 350 м², победа 2026 года и европейские бренды с первых секунд.</li>
+              <li><span class="check-icon-good">✓</span> <strong>«Две Двери» B2C / B2B:</strong> Отдельный вход для пентхаусов и корпоративных гигантов столицы.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Voice AI & WhatsApp:</strong> Расчет за 60 секунд надиктовыванием голоса — готовая смета падает в чат.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: THE 7 FORCES -->
+    <section class="slide" data-slide="4" data-notes="Вы сказали: преимущества надо фигачить в лоб! Мы так и сделали. Богатый заказчик не верит словам про уют. Он верит фактам: 350 м² в Астане, станки Dürkopp Adler, 1 место Жанель на Golden Textile Award 2026, лифты Somfy до 8 метров без строительных лесов и выезд за 24 часа.">
+      <div class="slide-inner">
+        <div class="slide-tag">Позиционирование «В Лоб» • Доказательства</div>
+        <h2 class="slide-title">7 Сил Студии <em>MUAR&nbsp;A</em>: Факты вместо шаблонного «уютного» шума</h2>
+        <p class="slide-subtitle">Каждая сила закрывает ключевой страх состоятельного заказчика или главного инженера объекта:</p>
+
+        <div class="grid-3">
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">01 // Цех Haute Couture 350 м²</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">Немецкие швейные автоматы Dürkopp Adler. Потайной шов, подгиб 10–12 см со свинцовым утяжелителем по ГОСТ РК.</p>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">02 // Золото Golden Textile 2026</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">1 место декоратора Жанель Есимовой в номинации «Коммерческий текстиль». Официальное признание в СНГ.</p>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">03 // Прямые поставки Европы</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">1 200+ каталогов: Loro Piana Interiors, Dedar, Rubelli, Pierre Frey. Прямой импорт без наценок и риска реплик.</p>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">04 // B2B с НДС 12% и Trevira CS</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">ТОО «KazTextileА». Огнестойкие ткани КМ1 для МЧС РК, закрывающие акты КС-2/КС-3 и ЭСФ за 24 часа.</p>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">05 // Лифты Somfy на 5–8 метров</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">Окна второго света в виллах: моторизованный спуск карниза для чистки за 1 клик без строительных лесов.</p>
+          </div>
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">06 // White Glove & Чемодан 50 кг</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">Выезд декоратора с 300 веерами за 24ч. Лазерный замер, беспылевой монтаж Hilti, парогенераторы Laurastar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: TWO DOORS ARCHITECTURE -->
+    <section class="slide" data-slide="5" data-notes="Помните ваш пример с iPhone? Внутри процессор сложнее ракеты, но на экране — две понятные кнопки! Дверь 1: для частных домов — всего 3 продукта (портьеры, римские, покрывала) + надиктовывание голосом. Дверь 2: для бизнеса — НДС 12%, огнестойкость КМ1 и акты за 24 часа. Никакой путаницы, конверсия максимальна.">
+      <div class="slide-inner">
+        <div class="slide-tag">Принцип iPhone • Удобство без усложнений</div>
+        <h2 class="slide-title">Архитектура <em>«Две Двери»</em>: Простота снаружи, мощь внутри</h2>
+        <p class="slide-subtitle">Мы разделили потоки клиентов, чтобы не пугать частников сложными сметами, а корпорациям дать язык бухгалтерии:</p>
+
+        <div class="grid-2">
+          <div class="glass-card" style="border-color: rgba(197, 168, 128, 0.35);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+              <span style="font-size: 22px;">🏡</span>
+              <h3 style="color: var(--gold-light); font-size: 20px;">Дверь 1: Частные Резиденции (B2C)</h3>
+            </div>
+            <ul class="check-list">
+              <li><span class="check-icon-good">✓</span> <strong>Всего 3 понятных топ-продукта:</strong> портьеры в пол, римские шторы, авторские покрывала со стежкой.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Voice AI Консьерж:</strong> клиент нажимает микрофон: <em>«Гостиная, шенилл, Бельгия»</em> — система сама считает смету.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Симулятор света 2700–6000K:</strong> наглядно показывает защиту от утреннего степного солнца Астаны.</li>
+              <li><span class="check-icon-good">✓</span> <strong>WhatsApp-роутинг:</strong> расчет за 1 клик отправляется в чат ведущего декоратора.</li>
+            </ul>
+          </div>
+
+          <div class="glass-card" style="border-color: rgba(197, 168, 128, 0.35);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+              <span style="font-size: 22px;">🏢</span>
+              <h3 style="color: var(--gold-light); font-size: 20px;">Дверь 2: Корпоративный Дивизион (B2B)</h3>
+            </div>
+            <ul class="check-list">
+              <li><span class="check-icon-good">✓</span> <strong>ТОО «KazTextileА» с НДС 12%:</strong> экономия на налогах для девелоперов, банков и посольств столицы.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Негорючие ткани Trevira CS:</strong> официальные сертификаты КМ1 для беспрепятственной сдачи МЧС РК.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Моторизация Somfy & KNX:</strong> ролл-шторы Screen 1–3% для open-space офисов высоток Talan Towers.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Акты КС-2/КС-3 и ЭСФ за 24 часа:</strong> безупречный документооборот для бухгалтерии.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: 14-DAY CASH GAP SPRINT -->
+    <section class="slide" data-slide="6" data-notes="Асима, кассовый разрыв мы закрываем в первые 14 дней! Шаг 1: сегодня вечером берем вашу старую базу за 12 лет и запускаем в WhatsApp спецпредложение. Оттуда мы вытащим 2-3 заказа уже на этой неделе! Шаг 2: включаем таргет Meta на Highvill, Sensata, Talan Towers с оффером «Тест-драйв 50 кг тканей у вас дома». 1 закрытый договор окупает всю рекламу в 3 раза!">
+      <div class="slide-inner">
+        <div class="slide-tag">Антикризис • Первые 14 Дней</div>
+        <h2 class="slide-title">Экспресс-воронка: <em>Ликвидация кассового разрыва</em></h2>
+        <p class="slide-subtitle">Перформанс-спринт, который приносит живые авансы в кассу салона уже на первой неделе работы:</p>
+
+        <div class="grid-3">
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Шаг 1 • Дни 1–3</div>
+            <h4 style="color: var(--ivory); font-size: 17px; margin: 6px 0 10px;">Реактивация базы за 12 лет</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted); line-height: 1.45;">Поднимаем старые Excel-файлы и чаты. Рассылка закрытого VIP-предложения постоянным клиентам. <strong>Ожидаемый результат: 2–3 заказа на 3–5 млн ₸ уже на этой неделе.</strong></p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Шаг 2 • Дни 3–7</div>
+            <h4 style="color: var(--ivory); font-size: 17px; margin: 6px 0 10px;">Таргет Meta: 50 кг тканей</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted); line-height: 1.45;">Гиперлокальный таргетинг по новостройкам Астаны (Highvill, Sensata, BI Village). Оффер: <em>«Бесплатный тест-драйв 50 кг европейских тканей у вас в квартире за 24 часа»</em>.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div style="font-size: 13px; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Шаг 3 • Дни 7–14</div>
+            <h4 style="color: var(--ivory); font-size: 17px; margin: 6px 0 10px;">Click-to-WhatsApp квалификация</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted); line-height: 1.45;">Клиент в 1 клик попадает в диалог с предзаполненным ЖК и стадией ремонта. Декоратор выезжает на живой замер. <strong>Конверсия из живого замера в договор — 45%.</strong></p>
+          </div>
+        </div>
+
+        <div class="glass-card" style="margin-top: 20px; background: rgba(197, 168, 128, 0.08); border-color: var(--gold-primary); display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;">
+          <div>
+            <span style="font-weight: 700; color: var(--gold-light);">Математика железной окупаемости:</span>
+            <span style="font-size: 14px; color: var(--ivory-muted); margin-left: 8px;">Бюджет спринта — 350 000 ₸. Средний чек квартиры — 2 500 000 ₸ (маржа ~1 200 000 ₸).</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-weight: 800; color: var(--gold-light); font-size: 16px;">
+            1 СДЕЛКА = ПРИБЫЛЬ 850 000 ₸ ЧИСТЫМИ
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: NATIONWIDE EXPANSION -->
+    <section class="slide" data-slide="7" data-notes="Вы хотите продавать по всему Казахстану — в Атырау, Актау, Шымкент. Арендовать салоны не нужно! Мы отправляем курьером за 24 часа фирменный «Текстильный Box» с 8 большими тканями и лазерной рулеткой под залог 25 000 тенге в Kaspi. Видео-замер в 4 точках исключает ошибки благодаря крючкам Microflex. А на объекты от 3-5 млн тенге прилетает ваша столичная бригада!">
+      <div class="slide-inner">
+        <div class="slide-tag">Масштабирование • Экспансия в 17 Регионов</div>
+        <h2 class="slide-title">Продажи по всему Казахстану <em>без аренды салонов</em></h2>
+        <p class="slide-subtitle">В нефтяных столицах (Атырау, Актау) и на юге (Шымкент) строят особняки по 1000 м², но там нет кутюрных ателье. Как забрать эти чеки из Астаны:</p>
+
+        <div class="grid-3">
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div style="font-size: 24px; margin-bottom: 8px;">🧰</div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">Сервис «Текстильный Box»</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">Фирменный черный кейс с золотом: 8 больших отрезов 40×60 см, образцы складок «Волна», рулетка. Доставка за 24ч. Залог 25 000 ₸ через Kaspi Pay. <strong>Конверсия в договор — 72%.</strong></p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div style="font-size: 24px; margin-bottom: 8px;">📐</div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">Видео-замер в 4 точках</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">Инженерная сессия по WhatsApp HD. Регулируемые крючки <strong>Microflex (±4–5 см)</strong> гарантируют идеальный отступ от пола, даже если клиент ошибся на 1 см при замере.</p>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <div style="font-size: 24px; margin-bottom: 8px;">✈️</div>
+            <h4 style="color: var(--gold-light); margin-bottom: 6px;">«Столичный десант» монтажа</h4>
+            <p style="font-size: 13px; color: var(--ivory-muted);">Объекты до 3 млн ₸ монтирует сертифицированный партнер в городе заказчика. На объекты от 3 до 15 млн ₸ вылетает бригада MUAR A из Астаны с парогенераторами Laurastar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: PR, SEO & DESIGNER CLUB -->
+    <section class="slide" data-slide="8" data-notes="Чтобы клиенты никогда не торговались, мы делаем вас неприкасаемым брендом. Статьи в Forbes Kazakhstan и Elle Decoration про победу Жанель Есимовой и цех 350 м². Топ-1 в Google и 2GIS. А главное — Дизайнерский Клуб 2.0: защита объекта на 180 дней и выплата 50% кэшбэка сразу в день получения аванса. Дизайнеры снова будут в очереди!">
+      <div class="slide-inner">
+        <div class="slide-tag">Авторитет и Органика • Неприкасаемый Статус</div>
+        <h2 class="slide-title">PR в Forbes, SEO-монополия и <em>Дизайнерский Клуб 2.0</em></h2>
+        <p class="slide-subtitle">Создаем актив, который приносит клиентов годами без зависимости от платного таргета:</p>
+
+        <div class="grid-3">
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 8px;">Медиа-план & PR в Прессе</h4>
+            <ul class="check-list" style="margin-top: 6px;">
+              <li><span class="check-icon-good">✓</span> <strong>Forbes Kazakhstan:</strong> Бизнес-кейс фабрики 350 м² и триумф на Golden Textile Award 2026.</li>
+              <li><span class="check-icon-good">✓</span> <strong>ELLE Decoration & Bazaar:</strong> Экспертные колонки Асемгуль Омаровой по интерьерному кутюру.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Эффект:</strong> Клиенты перестают просить скидки — статус бренда снимает возражения.</li>
+            </ul>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 8px;">SEO & Карты (2GIS / Google)</h4>
+            <ul class="check-list" style="margin-top: 6px;">
+              <li><span class="check-icon-good">✓</span> <strong>Google.kz ТОП-1:</strong> Высокочековые запросы («шторы в пентхаус», «электрокарнизы somfy»).</li>
+              <li><span class="check-icon-good">✓</span> <strong>2GIS Доминирование:</strong> Рейтинг 5.0, витрина 25 позиций и прямые звонки в салон.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Гео-хабы:</strong> Страницы под Атырау, Актау, Шымкент для регионального спроса.</li>
+            </ul>
+          </div>
+
+          <div class="glass-card">
+            <div class="card-accent-bar"></div>
+            <h4 style="color: var(--gold-light); margin-bottom: 8px;">Дизайнерский Клуб 2.0 (B2D)</h4>
+            <ul class="check-list" style="margin-top: 6px;">
+              <li><span class="check-icon-good">✓</span> <strong>Защита объекта на 180 дней:</strong> Если клиент пришел сам — 10% жестко выплачиваются дизайнеру.</li>
+              <li><span class="check-icon-good">✓</span> <strong>Сплит 50/50 день-в-день:</strong> Половина вознаграждения сразу в день аванса клиента!</li>
+              <li><span class="check-icon-good">✓</span> <strong>3D-модели для Corona:</strong> Дизайнеры сами закладывают ткани MUAR A в рендеры.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: COMMERCIAL PACKAGES & CLOSE -->
+    <section class="slide" data-slide="9" data-notes="Асима, перед вами 3 понятных пути. Пакет 1 — быстро закрыть кассовую дыру за 1 450 000 ₸. Пакет 2 — построить национальный масштаб с B2B и продажами по Казахстану за 3 500 000 ₸ (окупается с 1 виллы!). Оплата разбита на спринты, первый взнос от 550 тыс. Если мы жмем руки сегодня — модуль «Текстильный Box» за 500 000 ₸ я дарю бесплатно, и уже вечером передаю скрипт реанимации базы. Давайте откроем Kaspi Pay!">
+      <div class="slide-inner">
+        <div class="slide-tag">Инвестиции и Окупаемость • Закрытие Сделки</div>
+        <h2 class="slide-title">3 Пакета Развития: <em>Окупаемость с 1–2 закрытых объектов</em></h2>
+        <p class="slide-subtitle">Оплата разбита на понятные спринты. Второй платеж вы вносите уже из прибыли, заработанной на первом этапе:</p>
+
+        <div class="grid-3" style="align-items: stretch;">
+          <!-- TIER 1 -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-title">Пакет 1: Быстрый Выход</div>
+              <div class="tier-price">1 450 000 ₸</div>
+              <div class="tier-pay-plan">Старт: 550 тыс. ₸ ➔ 500 тыс. ₸ через 14 дней ➔ 400 тыс. ₸</div>
+              <ul class="check-list">
+                <li><span class="check-icon-good">✓</span> Реанимация базы 12 лет в WhatsApp</li>
+                <li><span class="check-icon-good">✓</span> Быстрый B2C-сайт на чистом коде</li>
+                <li><span class="check-icon-good">✓</span> Таргет Meta на элитные ЖК Астаны</li>
+                <li><span class="check-icon-good">✓</span> Калькулятор 3-х хитов + WhatsApp</li>
+              </ul>
+            </div>
+            <div class="tier-roi">Окупаемость: 1 КВАРТИРА</div>
+          </div>
+
+          <!-- TIER 2 FEATURED -->
+          <div class="tier-card featured">
+            <div class="tier-badge">РЕКОМЕНДУЕМЫЙ ВЫБОР</div>
+            <div>
+              <div class="tier-title">Пакет 2: Национальный Масштаб</div>
+              <div class="tier-price">3 500 000 ₸</div>
+              <div class="tier-pay-plan">Аванс: 1.2 млн ₸ ➔ 1.3 млн ₸ (сдача) ➔ 1.0 млн ₸ (запуск)</div>
+              <ul class="check-list">
+                <li><span class="check-icon-good">✓</span> <strong>Всё из Пакета 1 под ключ</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>Платформа «Две Двери» (B2C + B2B)</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>Voice AI и симулятор света 2700-6000K</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>Дизайнерский Клуб (140 архитекторов)</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>Google Ads + SEO Астана/Алматы</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>Регламент продаж «Текстильный Box»</strong></li>
+              </ul>
+            </div>
+            <div class="tier-roi" style="background: var(--gold-primary); color: var(--bg-petrol-deep);">ОКУПАЕМОСТЬ: 1 КОТТЕДЖ ИЛИ B2B ОБЪЕКТ</div>
+          </div>
+
+          <!-- TIER 3 -->
+          <div class="tier-card">
+            <div>
+              <div class="tier-title">Пакет 3: Лидер Казахстана</div>
+              <div class="tier-price">6 900 000 ₸</div>
+              <div class="tier-pay-plan">4 спринта: 2.0 млн ➔ 1.8 млн ➔ 1.6 млн ➔ 1.5 млн ₸</div>
+              <ul class="check-list">
+                <li><span class="check-icon-good">✓</span> <strong>Всё из Пакетов 1 и 2</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>Контент-завод на 11 каналов</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>PR в Forbes KZ и ELLE Decoration</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>3D/AI примерка по фото окна</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>Сеть монтажа в 5 городах РК</strong></li>
+                <li><span class="check-icon-good">✓</span> <strong>3 месяца сквозного трекинга выручки</strong></li>
+              </ul>
+            </div>
+            <div class="tier-roi">Окупаемость: 2 ОБЪЕКТА В РК</div>
+          </div>
+        </div>
+
+        <!-- DEADLINE BONUS CALLOUT -->
+        <div style="margin-top: 24px; padding: 16px 24px; border-radius: var(--radius-md); background: rgba(197, 168, 128, 0.12); border: 1px dashed var(--gold-primary); display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <span style="font-size: 24px;">🎁</span>
+            <div>
+              <strong style="color: var(--gold-light);">Бонус за решение сегодня:</strong>
+              <div style="font-size: 13px; color: var(--ivory-muted);">Бесплатный регламент региональных продаж «Текстильный Box» (экономия 500 000 ₸) + скрипт реанимации старой базы сегодня до 20:00!</div>
+            </div>
+          </div>
+          <button class="btn-hud active" onclick="alert('Открытие счета в Kaspi Pay. Выставляем первый транш: 550 000 ₸ (Пакет 1) или 1 200 000 ₸ (Пакет 2)');" style="padding: 10px 20px; font-size: 14px;">
+            Оформить в Kaspi Pay →
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Speaker Notes Popover (N key) -->
+  <aside class="speaker-notes-panel" id="speakerNotesPanel">
+    <div class="notes-header">
+      <div class="notes-title">Шпаргалка спикера (Слайд <span id="notesSlideNum">1</span>)</div>
+      <button style="color: var(--ivory-muted); font-size: 16px; cursor: pointer;" onclick="toggleNotes();">✕</button>
+    </div>
+    <div class="notes-body" id="notesContent">
+      <!-- Injected dynamically via JS -->
+    </div>
+  </aside>
+
+  <!-- Bottom Navigation HUD -->
+  <footer class="deck-nav">
+    <div class="nav-progress-dots" id="dotsContainer">
+      <!-- Dots generated dynamically via JS -->
+    </div>
+
+    <div class="slide-counter" id="slideCounter">01 / 09</div>
+
+    <div class="nav-arrows">
+      <button class="btn-nav" id="prevBtn" title="Назад (←)">←</button>
+      <button class="btn-nav" id="nextBtn" title="Вперед (→ или Пробел)">→</button>
+    </div>
+  </footer>
+
+  <!-- Interactive Deck Engine -->
+  <script>
+    (function() {
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      const totalSlides = slides.length;
+      let currentSlide = 1;
+
+      const dotsContainer = document.getElementById('dotsContainer');
+      const slideCounter = document.getElementById('slideCounter');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const notesToggleBtn = document.getElementById('notesToggleBtn');
+      const notesPanel = document.getElementById('speakerNotesPanel');
+      const notesContent = document.getElementById('notesContent');
+      const notesSlideNum = document.getElementById('notesSlideNum');
+      const fsToggleBtn = document.getElementById('fsToggleBtn');
+
+      // 1. Build Navigation Dots
+      slides.forEach((slide, idx) => {
+        const dot = document.createElement('div');
+        dot.className = `dot ${idx === 0 ? 'active' : ''}`;
+        dot.title = `Слайд ${idx + 1}`;
+        dot.addEventListener('click', () => goToSlide(idx + 1));
+        dotsContainer.appendChild(dot);
+      });
+
+      const dots = Array.from(dotsContainer.querySelectorAll('.dot'));
+
+      // 2. Go to slide
+      function goToSlide(n) {
+        if (n < 1) n = 1;
+        if (n > totalSlides) n = totalSlides;
+
+        slides.forEach((s, idx) => {
+          s.classList.toggle('active', idx + 1 === n);
+        });
+
+        dots.forEach((d, idx) => {
+          d.classList.toggle('active', idx + 1 === n);
+        });
+
+        currentSlide = n;
+        slideCounter.textContent = `${String(n).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+
+        // Update speaker notes
+        const activeSlide = slides[n - 1];
+        const notes = activeSlide.getAttribute('data-notes') || 'Нет комментариев к этому слайду.';
+        notesContent.innerHTML = `<p>${notes.replace(/\n/g, '</p><p>')}</p>`;
+        notesSlideNum.textContent = n;
+
+        // Reset scroll position on active slide
+        activeSlide.scrollTop = 0;
+      }
+
+      function nextSlide() {
+        if (currentSlide < totalSlides) {
+          goToSlide(currentSlide + 1);
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 1) {
+          goToSlide(currentSlide - 1);
+        }
+      }
+
+      // 3. Speaker notes toggle
+      window.toggleNotes = function() {
+        notesPanel.classList.toggle('active');
+        notesToggleBtn.classList.toggle('active');
+      };
+
+      notesToggleBtn.addEventListener('click', window.toggleNotes);
+
+      // 4. Fullscreen toggle
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(err => {
+            console.log("Fullscreen not permitted or cancelled");
+          });
+          fsToggleBtn.classList.add('active');
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+          fsToggleBtn.classList.remove('active');
+        }
+      }
+
+      fsToggleBtn.addEventListener('click', toggleFullscreen);
+
+      // 5. Button listeners
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      // 6. Keyboard navigation
+      window.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        switch(e.key) {
+          case 'ArrowRight':
+          case ' ':
+          case 'Enter':
+            e.preventDefault();
+            nextSlide();
+            break;
+          case 'ArrowLeft':
+          case 'Backspace':
+            e.preventDefault();
+            prevSlide();
+            break;
+          case 'Home':
+            e.preventDefault();
+            goToSlide(1);
+            break;
+          case 'End':
+            e.preventDefault();
+            goToSlide(totalSlides);
+            break;
+          case 'f':
+          case 'F':
+            e.preventDefault();
+            toggleFullscreen();
+            break;
+          case 'n':
+          case 'N':
+            e.preventDefault();
+            window.toggleNotes();
+            break;
+          default:
+            // 1-9 direct slide jump
+            if (e.key >= '1' && e.key <= '9') {
+              const slideNum = parseInt(e.key, 10);
+              if (slideNum <= totalSlides) {
+                goToSlide(slideNum);
+              }
+            }
+            break;
+        }
+      });
+
+      // 7. Touch Swipes (for iPad / iPhone presentations)
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      window.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      window.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const threshold = 50;
+        if (touchEndX < touchStartX - threshold) {
+          nextSlide();
+        } else if (touchEndX > touchStartX + threshold) {
+          prevSlide();
+        }
+      }
+
+      // Initialise first slide notes
+      goToSlide(1);
+    })();
+  </script>
+</body>
+</html>
