@@ -2678,8 +2678,47 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   box-shadow: 0 12px 30px -10px rgba(185, 138, 75, 0.35);
 }
 .motion-tab-icon {
-  font-size: 1.8rem;
-  line-height: 1;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(217, 188, 139, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-soft);
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.motion-tab-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+.motion-tab:hover .motion-tab-icon {
+  background: rgba(217, 188, 139, 0.14);
+  border-color: rgba(217, 188, 139, 0.5);
+  color: #fff;
+  transform: scale(1.04);
+}
+.motion-tab.active .motion-tab-icon {
+  background: linear-gradient(135deg, rgba(217, 188, 139, 0.25), rgba(185, 138, 75, 0.18));
+  border-color: var(--gold);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(185, 138, 75, 0.28);
+}
+.wa-role-icon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 11px;
+  background: rgba(217, 188, 139, 0.08);
+  border: 1px solid rgba(217, 188, 139, 0.24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
   flex-shrink: 0;
 }
 .motion-tab-text b {
@@ -3397,8 +3436,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     <!-- Segmented Two Doors Selector -->
     <div class="door-pills">
-      <button type="button" class="door-pill active" id="pill-b2c" onclick="setMode('b2c');scrollToId('calculator')">🏡 Частным клиентам</button>
-      <button type="button" class="door-pill" id="pill-b2b" onclick="setMode('b2b');scrollToId('b2b-commercial')">🏢 Юрлицам (НДС 12%)</button>
+      <button type="button" class="door-pill active" id="pill-b2c" onclick="setMode('b2c');scrollToId('calculator')"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:6px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Частным клиентам</button>
+      <button type="button" class="door-pill" id="pill-b2b" onclick="setMode('b2b');scrollToId('b2b-commercial')"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:6px;"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 9h6M9 13h6M9 17h6"/></svg>Юрлицам (НДС 12%)</button>
     </div>
 
     <nav class="nav" aria-label="Основная навигация">
@@ -3428,8 +3467,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
 <div class="mobile-menu" id="mobileMenu">
   <div style="display:flex; gap:8px; margin-bottom:14px;">
-    <button type="button" class="door-pill active" id="mob-pill-b2c" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2c');scrollToId('calculator');toggleMenu(false);">🏡 Частным</button>
-    <button type="button" class="door-pill" id="mob-pill-b2b" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2b');scrollToId('b2b-commercial');toggleMenu(false);">🏢 Юрлицам</button>
+    <button type="button" class="door-pill active" id="mob-pill-b2c" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2c');scrollToId('calculator');toggleMenu(false);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:4px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Частным</button>
+    <button type="button" class="door-pill" id="mob-pill-b2b" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2b');scrollToId('b2b-commercial');toggleMenu(false);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:4px;"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 9h6M9 13h6M9 17h6"/></svg>Юрлицам</button>
   </div>
   <a href="#powers" onclick="toggleMenu(false)">Семь сил студии</a>
   <a href="#projects" onclick="toggleMenu(false)">Проекты & Кейсы</a>
@@ -3687,10 +3726,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
 
     <div class="ba-scene-tabs" role="tablist" aria-label="Сцены До и После">
-      <button class="ba-scene-btn active" onclick="switchBaScene('real_apt', this)">🛋️ Резиденция в Астане: До и После</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('b2b_canopy', this)">🏛️ B2B Ресторан: Навесы & Паруса</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('villa_lift', this)">🏰 Загородная вилла: Высота 8 м</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('dining_garden', this)">🛋️ ЖК Garden: Панорамная столовая</button>
+      <button class="ba-scene-btn active" onclick="switchBaScene('real_apt', this)">Резиденция в Астане: До и После</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('b2b_canopy', this)">B2B Ресторан: Навесы &amp; Паруса</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('villa_lift', this)">Загородная вилла: Высота 8 м</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('dining_garden', this)">ЖК Garden: Панорамная столовая</button>
     </div>
 
     <div class="ba-wrapper reveal">
@@ -3717,9 +3756,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
       <!-- Presets -->
       <div class="ba-presets">
-        <button class="ba-preset-btn" onclick="setSplitPos(0, this)">🔲 Без солнцезащиты (До)</button>
+        <button class="ba-preset-btn" onclick="setSplitPos(0, this)">Без солнцезащиты (До)</button>
         <button class="ba-preset-btn active" onclick="setSplitPos(50, this)">↔ 50% Сравнение</button>
-        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">✨ С решением <span class="muar-a">MUAR&nbsp;A</span></button>
+        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">С решением <span class="muar-a">MUAR&nbsp;A</span></button>
       </div>
 
       <!-- B2B & Architectural Specifications Card -->
@@ -3751,7 +3790,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <!-- Canopy Gallery (shown for canopy scene) -->
         <div class="ba-canopy-gallery" id="baCanopyGallery" style="display: none;">
           <div class="ba-gallery-title">
-            <span>📷 Фотофиксация коммерческого монтажа (Астана): паруса-навесы, скрытый крепеж Somfy, негорючая ткань КМ1 Dickson Франция</span>
+            <span>Фотофиксация коммерческого монтажа (Астана): паруса-навесы, скрытый крепеж Somfy, негорючая ткань КМ1 Dickson Франция</span>
           </div>
           <div class="ba-gallery-grid">
             <a href="assets/muar/b2b-canopy-hall-1.webp" target="_blank" class="ba-gallery-item" title="Общий вид зала с парусами-навесами и контурной подсветкой">
@@ -4111,7 +4150,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
               </span>
               <span class="calc-voice-text-col">
-                <b>🎙 Не хотите звонить? Надиктуйте голосом</b>
+                <b>Не хотите звонить? Надиктуйте голосом</b>
                 <span>Распознаем параметры и пришлем расчет в WhatsApp</span>
               </span>
             </button>
@@ -4335,28 +4374,55 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <div class="motion-container">
       <div class="motion-tabs">
         <button class="motion-tab active" onclick="switchMotionVideo('atelier', this)">
-          <span class="motion-tab-icon">🪡</span>
+          <span class="motion-tab-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="6" cy="6" r="3"/>
+              <circle cx="6" cy="18" r="3"/>
+              <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+              <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+              <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+            </svg>
+          </span>
           <div class="motion-tab-text">
             <b>Цех: Мастер Марал</b>
             <small>Пошив по ГОСТам РК, точность 1 мм</small>
           </div>
         </button>
         <button class="motion-tab" onclick="switchMotionVideo('villa', this)">
-          <span class="motion-tab-icon">🏰</span>
+          <span class="motion-tab-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 21V9a8 8 0 0 1 16 0v12"/>
+              <path d="M12 4v17"/>
+              <path d="M8 11l4-4 4 4"/>
+              <line x1="4" y1="21" x2="20" y2="21"/>
+            </svg>
+          </span>
           <div class="motion-tab-text">
             <b>Вилла: Лифт 5–8 м</b>
             <small>Лифтовые электрокарнизы Somfy</small>
           </div>
         </button>
         <button class="motion-tab" onclick="switchMotionVideo('powers', this)">
-          <span class="motion-tab-icon">👑</span>
+          <span class="motion-tab-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 3h12l4 6-10 12L2 9z"/>
+              <path d="M11 3L8 9l4 12 4-12-3-6"/>
+              <path d="M2 9h20"/>
+            </svg>
+          </span>
           <div class="motion-tab-text">
             <b>7 сил студии <span class="muar-a">MUAR&nbsp;A</span></b>
             <small>Видеопрезентация масштаба</small>
           </div>
         </button>
         <button class="motion-tab" onclick="switchMotionVideo('journey', this)">
-          <span class="motion-tab-icon">🎬</span>
+          <span class="motion-tab-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="18" rx="3"/>
+              <path d="M7 3v18M17 3v18M2 8h5M2 13h5M2 17h5M17 8h5M17 13h5M17 17h5"/>
+              <polygon points="10 9 14 12 10 15 10 9" fill="currentColor"/>
+            </svg>
+          </span>
           <div class="motion-tab-text">
             <b>Путь заказа под ключ</b>
             <small>От замера до навески в резиденции</small>
@@ -4504,7 +4570,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <!-- Voice Input Box -->
         <div class="voice-box-lead">
           <div class="voice-box-head">
-            <span class="voice-badge">⚡️ Экспресс-заявка голосом</span>
+            <span class="voice-badge"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="vertical-align:-1px;margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Экспресс-заявка голосом</span>
             <span class="voice-sub">Без долгих анкет</span>
           </div>
 
@@ -4531,17 +4597,17 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <div class="voice-structured-card" id="voiceStructuredCard" style="display: none;">
             <div class="v-struct-header">
               <div class="v-struct-title">
-                <span class="v-ai-sparkle">✨</span>
+                <span class="v-ai-sparkle"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></span>
                 <span>Параметры заявки:</span>
               </div>
               <button type="button" class="btn-transcript-reset" onclick="resetVoiceRecording()">Очистить</button>
             </div>
 
             <div class="v-struct-chips-summary" id="vStructChipsSummary">
-              <span class="v-struct-pill" id="vPillRoom">📍 Помещение</span>
-              <span class="v-struct-pill" id="vPillDims">📐 Окна</span>
-              <span class="v-struct-pill" id="vPillFabric">🎨 Текстиль</span>
-              <span class="v-struct-pill gold" id="vPillBudget">💰 Бюджет</span>
+              <span class="v-struct-pill" id="vPillRoom">Помещение</span>
+              <span class="v-struct-pill" id="vPillDims">Окна</span>
+              <span class="v-struct-pill" id="vPillFabric">Текстиль</span>
+              <span class="v-struct-pill gold" id="vPillBudget">Бюджет</span>
             </div>
 
             <!-- Raw speech text -->
@@ -4768,21 +4834,27 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     <div style="display:grid; gap:10px;">
       <a class="info" href="#" onclick="openWhatsAppForRole('b2c')" style="padding:14px 16px; border-radius:14px;">
-        <span style="font-size:1.4rem;">🏡</span>
+        <span class="wa-role-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
         <div class="txt">
           <b>Для частных резиденций</b>
           <span>Шторы в дом, подбор текстиля, замер и смета</span>
         </div>
       </a>
       <a class="info" href="#" onclick="openWhatsAppForRole('designer')" style="padding:14px 16px; border-radius:14px; border-color:var(--line-gold);">
-        <span style="font-size:1.4rem;">📐</span>
+        <span class="wa-role-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 22h20"/><path d="M12 2l8 16H4z"/><path d="M12 12v6"/></svg>
+        </span>
         <div class="txt">
           <b>Дизайнерам и архитекторам</b>
           <span>Клуб 10% кэшбэк, 3D-текстуры, защита авторского надзора</span>
         </div>
       </a>
       <a class="info" href="#" onclick="openWhatsAppForRole('b2b')" style="padding:14px 16px; border-radius:14px;">
-        <span style="font-size:1.4rem;">🏢</span>
+        <span class="wa-role-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 9h6M9 13h6M9 17h6"/></svg>
+        </span>
         <div class="txt">
           <b>Корпоративным клиентам (B2B)</b>
           <span>КП с НДС 12%, Somfy Screen, Trevira CS (КМ1)</span>
@@ -5129,7 +5201,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var c = window.lastB2BCalc;
     var seg = window.B2B_SEGMENTS[window.B2B_STATE.segment] || window.B2B_SEGMENTS.office;
     var text = 
-      'Здравствуйте, MUAR A B2B! 🏢\n\n' +
+      'Здравствуйте, MUAR A B2B!\n\n' +
       'Прошу предоставить официальное коммерческое предложение с НДС 12%:\n' +
       '• Профиль заказчика: ' + seg.name + ' (коэфф. ' + seg.multiplier.toFixed(2) + 'x)\n' +
       '• Спецификация: ' + seg.protocol + '\n' +
@@ -5272,7 +5344,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   /* ------------------------------------------------------------- */
   var BA_SCENES = {
     real_apt: {
-      name: '🛋️ Резиденция в Астане: До и После',
+      name: 'Резиденция в Астане: До и После',
       beforeImg: 'assets/muar/before_real_aligned.webp',
       afterImg: 'assets/muar/after_real_aligned.webp',
       beforeLabel: 'БЫЛО: Черновая отделка без штор (эхо, свет)',
@@ -5288,7 +5360,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       showGallery: false
     },
     b2b_canopy: {
-      name: '🏛️ B2B Ресторан: Навесы & Паруса',
+      name: 'B2B Ресторан: Навесы & Паруса',
       beforeImg: 'assets/muar/b2b-canopy-before.webp',
       afterImg: 'assets/muar/b2b-canopy-after.webp',
       beforeLabel: 'БЫЛО: Черный черновой потолок и перегрев',
@@ -5304,7 +5376,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       showGallery: true
     },
     villa_lift: {
-      name: '🏰 Загородная вилла: Высота 8 м',
+      name: 'Загородная вилла: Высота 8 м',
       beforeImg: 'assets/muar/villa-hall.webp',
       afterImg: 'assets/muar/villa-hall.webp',
       beforeLabel: 'БЫЛО: Двухсветный проем 8м без защиты',
@@ -5320,7 +5392,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       showGallery: false
     },
     dining_garden: {
-      name: '🛋️ ЖК Garden: Панорамная столовая',
+      name: 'ЖК Garden: Панорамная столовая',
       beforeImg: 'assets/muar/case-garden-dining.webp',
       afterImg: 'assets/muar/case-garden-dining.webp',
       beforeLabel: 'БЫЛО: Слепящий свет и отсутствие уюта',
@@ -5990,10 +6062,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var rawText = document.getElementById('voiceTranscriptText');
     var rawRow = document.getElementById('vRawQuoteRow');
 
-    if(pRoom) pRoom.textContent = '📍 ' + (parsed.room && parsed.room !== 'Не указано' ? parsed.room : 'Интерьер');
-    if(pDims) pDims.textContent = '📐 ' + (parsed.dimensions && parsed.dimensions !== 'Стандартные' ? parsed.dimensions : '1 окно');
-    if(pFabric) pFabric.textContent = '🎨 ' + (parsed.fabric && parsed.fabric !== 'На подбор декоратора' ? parsed.fabric : 'Ткань под ключ');
-    if(pBudget) pBudget.textContent = '💰 ' + (parsed.budget && parsed.budget !== 'По смете' ? parsed.budget : 'Смета в WhatsApp');
+    if(pRoom) pRoom.textContent = (parsed.room && parsed.room !== 'Не указано' ? parsed.room : 'Интерьер');
+    if(pDims) pDims.textContent = (parsed.dimensions && parsed.dimensions !== 'Стандартные' ? parsed.dimensions : '1 окно');
+    if(pFabric) pFabric.textContent = (parsed.fabric && parsed.fabric !== 'На подбор декоратора' ? parsed.fabric : 'Ткань под ключ');
+    if(pBudget) pBudget.textContent = (parsed.budget && parsed.budget !== 'По смете' ? parsed.budget : 'Смета в WhatsApp');
 
     if(rawText && parsed.rawText){
       rawText.textContent = '«' + parsed.rawText + '»';
@@ -6224,15 +6296,15 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     // Build Luxury WhatsApp Message (so client looks like a pro!)
     var msg = 
       'Здравствуйте, MUAR A! Заявка на расчет текстиля с сайта:\n\n' +
-      '👤 Клиент: ' + phone + '\n' +
-      '📍 Помещение: ' + s.room + '\n' +
-      '📐 Окна: ' + s.dimensions + '\n' +
-      '🎨 Ткань: ' + s.fabric + '\n' +
-      '💰 Ориентир по бюджету: ' + s.budget + '\n' +
-      '🎯 Задача: ' + s.task + '\n';
+      '• Клиент: ' + phone + '\n' +
+      '• Помещение: ' + s.room + '\n' +
+      '• Окна: ' + s.dimensions + '\n' +
+      '• Ткань: ' + s.fabric + '\n' +
+      '• Ориентир по бюджету: ' + s.budget + '\n' +
+      '• Задача: ' + s.task + '\n';
 
     if(voiceState.transcript){
-      msg += '🗣 Пожелание голосом: «' + voiceState.transcript + '»\n';
+      msg += '• Пожелание голосом: «' + voiceState.transcript + '»\n';
     }
 
     msg += '\n(Заявка надиктована и структурирована через веб-сервис MUAR A)';
