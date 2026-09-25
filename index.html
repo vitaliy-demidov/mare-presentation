@@ -498,6 +498,7 @@
 .transcript-text { font-size: 0.9rem; color: var(--ink); line-height: 1.45; font-style: italic; margin: 0; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+section[id], div[id] { scroll-margin-top: 84px; }
 body {
   margin: 0;
   background: var(--ivory);
@@ -3167,9 +3168,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
 
     <nav class="nav" aria-label="Основная навигация">
-      <a href="#calculator">Калькулятор</a>
       <a href="#projects">Проекты</a>
-      <a href="#powers">Топ-7</a>
+      <a href="#calculator">Калькулятор</a>
+      <a href="#b2b" onclick="setMode('b2b')">B2B отдел</a>
+      <a href="#powers">О салоне</a>
       <a href="#contacts">Контакты</a>
     </nav>
 
@@ -3196,10 +3198,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <button type="button" class="door-pill active" id="mob-pill-b2c" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2c');scrollToId('calculator');toggleMenu(false);">🏡 Частным</button>
     <button type="button" class="door-pill" id="mob-pill-b2b" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2b');scrollToId('b2b-commercial');toggleMenu(false);">🏢 Юрлицам</button>
   </div>
+  <a href="#projects" onclick="toggleMenu(false)">Проекты & Кейсы</a>
   <a href="#calculator" onclick="toggleMenu(false)">Калькулятор стоимости</a>
   <a href="#b2b" onclick="setMode('b2b');toggleMenu(false)">B2B решения & НДС 12%</a>
-  <a href="#projects" onclick="toggleMenu(false)">Проекты & До/После</a>
-  <a href="#powers" onclick="toggleMenu(false)">Топ-7 преимуществ</a>
+  <a href="#powers" onclick="toggleMenu(false)">О салоне & Топ-7</a>
   <a href="#contacts" onclick="toggleMenu(false)">Контакты & Шоурум</a>
   <div style="display:flex; gap:10px; margin-top:20px;">
     <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" class="btn btn-insta" style="flex:1; justify-content:center;">
@@ -4343,9 +4345,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <div>
         <h5>Навигация</h5>
         <ul>
+          <li><a href="#projects">Проекты & Кейсы</a></li>
           <li><a href="#calculator">Калькулятор стоимости</a></li>
-          <li><a href="#projects">Проекты & До/После</a></li>
-          <li><a href="#powers">Топ-7 преимуществ</a></li>
+          <li><a href="#b2b">B2B решения & НДС 12%</a></li>
+          <li><a href="#powers">О салоне & Топ-7</a></li>
           <li><a href="#contacts">Контакты & Шоурум</a></li>
         </ul>
       </div>
@@ -5978,7 +5981,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   });
 
   /* ============================================================ */
-  /* JAPANESE KOI FISH HERO CANVAS ANIMATION                      */
+  /* JAPANESE KOI FISH HERO CANVAS ANIMATION (HYDRODYNAMIC S-WAVE) */
   /* ============================================================ */
   function initKoiCanvas() {
     var canvas = document.getElementById('heroKoiCanvas');
@@ -5995,6 +5998,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var width = 0, height = 0;
+    var numSlices = 30;
 
     function resize() {
       if (!heroSec) return;
@@ -6045,54 +6049,35 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       }
     }, { passive: true });
 
-    var fishCount = window.innerWidth < 768 ? 3 : 4;
+    var isMobile = window.innerWidth < 768;
+    var fishCount = isMobile ? 3 : 4;
     var fishes = [];
 
     for (var i = 0; i < fishCount; i++) {
-      var baseScale = (window.innerWidth < 768 ? 0.30 : 0.40) + (Math.random() * 0.1 - 0.05);
+      var baseScale = (isMobile ? 0.38 : 0.48) + (Math.random() * 0.1 - 0.05);
       fishes.push({
         x: Math.random() * (width || 800),
         y: Math.random() * (height || 600),
-        speed: 0.55 + Math.random() * 0.4,
+        speed: 0.95 + Math.random() * 0.4,
         angle: Math.random() * Math.PI * 2,
-        turnSpeed: 0.01 + Math.random() * 0.012,
+        turnSpeed: 0.016 + Math.random() * 0.01,
         targetAngle: Math.random() * Math.PI * 2,
         scale: baseScale,
-        opacity: 0.38 + Math.random() * 0.12,
-        wigglePhase: Math.random() * Math.PI * 2,
-        wiggleSpeed: 0.04 + Math.random() * 0.02,
-        changeTargetTimer: Math.floor(Math.random() * 120) + 60
+        opacity: 0.40 + Math.random() * 0.10,
+        phase: Math.random() * Math.PI * 2,
+        wiggleFreq: 0.10 + Math.random() * 0.03,
+        timer: Math.floor(Math.random() * 140) + 60
       });
     }
 
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function drawFish(fish) {
-      if (!koiImg.complete || !koiImg.naturalWidth) return;
-
-      var imgW = koiImg.naturalWidth;
-      var imgH = koiImg.naturalHeight;
-      var drawW = imgW * fish.scale;
-      var drawH = imgH * fish.scale;
-
-      ctx.save();
-      ctx.translate(fish.x, fish.y);
-      var wiggle = Math.sin(fish.wigglePhase) * 0.06;
-      ctx.rotate(fish.angle - Math.PI / 2 + wiggle);
-
-      ctx.globalAlpha = fish.opacity;
-      ctx.shadowColor = 'rgba(217, 188, 139, 0.3)';
-      ctx.shadowBlur = 10;
-
-      ctx.drawImage(koiImg, -drawW / 2, -drawH / 2, drawW, drawH);
-      ctx.restore();
-    }
-
     function updateFish(fish) {
-      fish.changeTargetTimer--;
-      if (fish.changeTargetTimer <= 0) {
-        fish.targetAngle = fish.angle + (Math.random() - 0.5) * 1.5;
-        fish.changeTargetTimer = Math.floor(Math.random() * 180) + 120;
+      fish.phase += fish.wiggleFreq;
+      fish.timer--;
+      if (fish.timer <= 0) {
+        fish.targetAngle = fish.angle + (Math.random() - 0.5) * 1.6;
+        fish.timer = Math.floor(Math.random() * 160) + 90;
       }
 
       var diff = fish.targetAngle - fish.angle;
@@ -6102,13 +6087,73 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
       fish.x += Math.cos(fish.angle) * fish.speed;
       fish.y += Math.sin(fish.angle) * fish.speed;
-      fish.wigglePhase += fish.wiggleSpeed;
 
-      var margin = 140;
+      var margin = 180;
       if (fish.x < -margin) fish.x = width + margin;
       else if (fish.x > width + margin) fish.x = -margin;
       if (fish.y < -margin) fish.y = height + margin;
       else if (fish.y > height + margin) fish.y = -margin;
+    }
+
+    function drawFish(fish) {
+      if (!koiImg.complete || !koiImg.naturalWidth) return;
+
+      var srcW = koiImg.naturalWidth;
+      var srcH = koiImg.naturalHeight;
+      var sliceH = srcH / numSlices;
+      var totalLen = srcH * fish.scale;
+      var segDist = totalLen / (numSlices - 1);
+
+      // Spine wave calculation
+      var spine = [];
+      var backAngle = fish.angle + Math.PI; // heading towards tail
+      var normAngle = fish.angle + Math.PI / 2; // lateral axis
+
+      for (var i = 0; i < numSlices; i++) {
+        var frac = i / (numSlices - 1); // 0 = head, 1 = tail
+        var wave = Math.sin(fish.phase - frac * 5.4) * (26 * fish.scale * Math.pow(frac, 1.35));
+
+        var bx = fish.x + Math.cos(backAngle) * (i * segDist);
+        var by = fish.y + Math.sin(backAngle) * (i * segDist);
+
+        spine.push({
+          x: bx + Math.cos(normAngle) * wave,
+          y: by + Math.sin(normAngle) * wave
+        });
+      }
+
+      // Spine tangents
+      var angles = [];
+      for (var j = 0; j < numSlices; j++) {
+        var a;
+        if (j === 0) a = Math.atan2(spine[1].y - spine[0].y, spine[1].x - spine[0].x);
+        else if (j === numSlices - 1) a = Math.atan2(spine[j].y - spine[j - 1].y, spine[j].x - spine[j - 1].x);
+        else a = Math.atan2(spine[j + 1].y - spine[j - 1].y, spine[j + 1].x - spine[j - 1].x);
+        angles.push(a);
+      }
+
+      // Draw slices tail-to-head
+      var dw = srcW * fish.scale;
+      for (var k = numSlices - 1; k >= 0; k--) {
+        var pt = spine[k];
+        var headDir = angles[k] + Math.PI;
+
+        var sy = (numSlices - 1 - k) * sliceH;
+        var sh = sliceH + 1.0;
+        if (sy + sh > srcH) sh = srcH - sy;
+        if (sy < 0) sy = 0;
+
+        var dh = sh * fish.scale;
+
+        ctx.save();
+        ctx.translate(pt.x, pt.y);
+        ctx.rotate(headDir - Math.PI / 2);
+        ctx.globalAlpha = fish.opacity;
+        ctx.shadowColor = 'rgba(217, 188, 139, 0.35)';
+        ctx.shadowBlur = 8;
+        ctx.drawImage(koiImg, 0, sy, srcW, sh, -dw / 2, -dh / 2, dw, dh);
+        ctx.restore();
+      }
     }
 
     function loop() {
@@ -6141,6 +6186,36 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
   // Initialize koi canvas
   initKoiCanvas();
+
+  /* ============================================================ */
+  /* NAVIGATION SCROLLSPY                                         */
+  /* ============================================================ */
+  function initNavScrollspy() {
+    var navLinks = document.querySelectorAll('.nav a[href^="#"]');
+    if (!navLinks.length || !('IntersectionObserver' in window)) return;
+
+    var sections = [];
+    navLinks.forEach(function(link) {
+      var id = link.getAttribute('href').slice(1);
+      var sec = document.getElementById(id);
+      if (sec) sections.push({ id: id, el: sec, link: link });
+    });
+
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function(l) { l.classList.remove('active'); });
+          var match = sections.find(function(s) { return s.el === entry.target; });
+          if (match && match.link) {
+            match.link.classList.add('active');
+          }
+        }
+      });
+    }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+
+    sections.forEach(function(s) { obs.observe(s.el); });
+  }
+  initNavScrollspy();
 
   })();
 </script>
