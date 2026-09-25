@@ -472,134 +472,85 @@
 .voice-timer { font-size: 0.8rem; font-weight: 700; color: #E03131; font-family: monospace; }
 .voice-rec-hint { font-size: 0.78rem; color: var(--muted); margin-left: auto; }
 
-/* Quick Voice Prompt Chips */
-.voice-chips-row {
-  margin-top: 12px;
-  margin-bottom: 4px;
-}
-.voice-chips-hint {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-.voice-chips-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.v-chip {
-  padding: 6px 11px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  color: var(--ink);
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.v-chip:hover {
-  background: var(--gold-light);
-  border-color: var(--gold);
-  transform: translateY(-1px);
-}
+/* Quick Voice Prompt Chips (Removed for compact look) */
+.voice-chips-row { display: none !important; }
 
-/* Structured AI Result Card */
+/* Structured AI Result Card: Compact Unified Style */
 .voice-structured-card {
-  margin-top: 14px;
-  padding: 16px;
+  margin-top: 12px;
+  padding: 12px 14px;
   background: #fff;
   border: 1.5px solid var(--gold);
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(35, 18, 43, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(35, 18, 43, 0.05);
 }
 .v-struct-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(200, 169, 126, 0.25);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(200, 169, 126, 0.22);
 }
 .v-struct-title {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--ink);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
-.v-ai-sparkle { font-size: 1.05rem; }
+.v-ai-sparkle { font-size: 1rem; }
 .btn-transcript-reset {
   background: none;
   border: none;
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   cursor: pointer;
   text-decoration: underline;
-  padding: 2px 6px;
+  padding: 2px 4px;
 }
 .btn-transcript-reset:hover { color: var(--gold-dark); }
-.v-struct-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-bottom: 12px;
-}
-@media (max-width: 480px) {
-  .v-struct-grid { grid-template-columns: 1fr; }
-}
-.v-struct-item {
-  background: rgba(35, 18, 43, 0.03);
-  padding: 8px 12px;
-  border-radius: 8px;
+.v-struct-chips-summary {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
 }
-.v-struct-lbl {
-  font-size: 0.68rem;
+.v-struct-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  background: rgba(35, 18, 43, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.v-struct-val {
-  font-size: 0.86rem;
   color: var(--ink);
   line-height: 1.25;
 }
-.v-struct-val.gold {
+.v-struct-pill.gold {
+  background: rgba(200, 169, 126, 0.15);
+  border-color: var(--gold);
   color: var(--gold-dark);
-  font-weight: 700;
-}
-.v-struct-task-row {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  font-size: 0.82rem;
-  color: var(--ink);
-  padding: 8px 12px;
-  background: rgba(200, 169, 126, 0.12);
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-.v-struct-task-text { font-weight: 600; }
-.v-audio-player-row {
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--line);
 }
 .v-raw-quote-row {
-  margin-top: 8px;
-  font-size: 0.78rem;
-  color: var(--muted);
+  margin-top: 6px;
 }
-.transcript-text { font-size: 0.88rem; color: var(--ink); line-height: 1.45; font-style: italic; margin: 4px 0 0 0; }
+.transcript-text {
+  font-size: 0.82rem;
+  color: var(--ink);
+  line-height: 1.35;
+  font-style: italic;
+  margin: 0;
+}
+.v-audio-player-row {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--line);
+}
 
 /* Calculator Voice Action Button */
 .btn-calc-voice {
@@ -3310,10 +3261,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
 
     <nav class="nav" aria-label="Основная навигация">
+      <a href="#powers">Семь сил</a>
       <a href="#projects">Проекты</a>
       <a href="#calculator">Калькулятор</a>
       <a href="#b2b" onclick="setMode('b2b')">B2B отдел</a>
-      <a href="#powers">О салоне</a>
       <a href="#contacts">Контакты</a>
     </nav>
 
@@ -3340,10 +3291,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <button type="button" class="door-pill active" id="mob-pill-b2c" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2c');scrollToId('calculator');toggleMenu(false);">🏡 Частным</button>
     <button type="button" class="door-pill" id="mob-pill-b2b" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2b');scrollToId('b2b-commercial');toggleMenu(false);">🏢 Юрлицам</button>
   </div>
+  <a href="#powers" onclick="toggleMenu(false)">Семь сил студии</a>
   <a href="#projects" onclick="toggleMenu(false)">Проекты & Кейсы</a>
   <a href="#calculator" onclick="toggleMenu(false)">Калькулятор стоимости</a>
-  <a href="#b2b" onclick="setMode('b2b');toggleMenu(false)">B2B решения & НДС 12%</a>
-  <a href="#powers" onclick="toggleMenu(false)">О салоне & Топ-7</a>
+  <a href="#b2b" onclick="setMode('b2b');toggleMenu(false)">B2B отдел & НДС 12%</a>
   <a href="#contacts" onclick="toggleMenu(false)">Контакты & Шоурум</a>
   <div style="display:flex; gap:10px; margin-top:20px;">
     <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" class="btn btn-insta" style="flex:1; justify-content:center;">
@@ -3474,260 +3425,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </section>
 
 <!-- ============================================================ -->
-<!-- ACT 2.5: B2B КОММЕРЧЕСКИЙ ДИВИЗИОН & ИНТЕРАКТИВНАЯ QUOTE CARD -->
-<!-- ============================================================ -->
-<div id="b2b-commercial"></div>
-<section class="section" id="b2b" style="background: var(--ivory); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-  <div class="wrap">
-    
-    <div class="section-head center">
-      <span class="eyebrow c">Корпоративный отдел · Астана</span>
-      <h2>Текстильные решения <span class="serif-accent">для бизнеса и первых лиц</span></h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">
-        Официальный договор с НДС 12%, сертификаты негорючести КМ1 и закрывающие акты КС-2 / КС-3 через ЭДО за 24 часа. Три проверенных направления для представительских офисов и коммерческих пространств.
-      </p>
-    </div>
-
-    <!-- 3 B2B Directions Grid -->
-    <div class="b2b-trio-grid">
-      
-      <!-- Direction 1: Жалюзи -->
-      <div class="b2b-trio-card reveal">
-        <div class="b2b-trio-gallery">
-          <img src="assets/muar/b2b-blinds-wood.webp" alt="Деревянные жалюзи 50мм" class="b2b-trio-img active" id="b2bImgBlinds" width="1200" height="800" loading="lazy" decoding="async">
-          <div class="b2b-trio-thumbs">
-            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgBlinds', 'assets/muar/b2b-blinds-wood.webp', this)">
-              <span>Фото 1 · Дерево 50мм</span>
-            </button>
-            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgBlinds', 'assets/muar/b2b-blinds-alum.webp', this)">
-              <span>Фото 2 · Алюминий</span>
-            </button>
-          </div>
-        </div>
-        <div class="b2b-trio-content">
-          <span class="b2b-trio-tag">Солнцезащита & Контроль света</span>
-          <h3>Жалюзи для бизнеса</h3>
-          <p>
-            Презентабельные деревянные жалюзи 50мм из массива канадской липы Basswood для переговорных и базовые офисные алюминиевые жалюзи с порошковой покраской по каталогу RAL.
-          </p>
-          <ul class="b2b-trio-features">
-            <li>✓ Канадская липа и анодированный алюминий</li>
-            <li>✓ Стойкость к UV-лучам и выгоранию</li>
-            <li>✓ Ручное или моторизованное управление</li>
-          </ul>
-          <div class="b2b-trio-footer">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B6%D0%B0%D0%BB%D1%8E%D0%B7%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%84%D0%B8%D1%81%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
-              Запросить КП в WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Direction 2: Кабинет первого лица -->
-      <div class="b2b-trio-card reveal">
-        <div class="b2b-trio-gallery">
-          <img src="assets/muar/b2b-office-ceo.webp" alt="Кабинет первого лица" class="b2b-trio-img active" id="b2bImgCeo" width="1200" height="800" loading="lazy" decoding="async">
-          <div class="b2b-trio-thumbs">
-            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-office-ceo.webp', this)">
-              <span>Фото 1 · Бархат & Сатин</span>
-            </button>
-            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-office-lounge.webp', this)">
-              <span>Фото 2 · VIP Лаундж</span>
-            </button>
-          </div>
-        </div>
-        <div class="b2b-trio-content">
-          <span class="b2b-trio-tag">Представительский статус</span>
-          <h3>Кабинет первого лица</h3>
-          <p>
-            Статусный текстиль высшей категории: итальянский сатин, матовый бархат высокой плотности, глубокая складка «волна». Создает атмосферу престижа и обеспечивает акустический комфорт.
-          </p>
-          <ul class="b2b-trio-features">
-            <li>✓ Премиальные ткани: сатин, шерсть, бархат</li>
-            <li>✓ Акустическая конфиденциальность переговоров</li>
-            <li>✓ Защита от выгорания на солнце (подкладка)</li>
-          </ul>
-          <div class="b2b-trio-footer">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82%D0%B0%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8F" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
-              Запросить КП в WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Direction 3: Контрактные ролл-шторы -->
-      <div class="b2b-trio-card reveal">
-        <div class="b2b-trio-gallery">
-          <img src="assets/muar/b2b-roll-screen.webp" alt="Ролл-шторы Screen 3%" class="b2b-trio-img active" id="b2bImgRoll" width="1200" height="800" loading="lazy" decoding="async">
-          <div class="b2b-trio-thumbs">
-            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgRoll', 'assets/muar/b2b-roll-screen.webp', this)">
-              <span>Фото 1 · Screen 3%</span>
-            </button>
-            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgRoll', 'assets/muar/b2b-roll-blackout.webp', this)">
-              <span>Фото 2 · Blackout 100%</span>
-            </button>
-          </div>
-        </div>
-        <div class="b2b-trio-content">
-          <span class="b2b-trio-tag">Архитектурные системы</span>
-          <h3>Контрактные ролл-шторы</h3>
-          <p>
-            Два ключевых стандарта: солнцезащитные Somfy Screen 3% (отсекают 95% тепла и бликов без потери вида на Астану) и кассетный Blackout 100% для видеоконференц-связи и проекторов.
-          </p>
-          <ul class="b2b-trio-features">
-            <li>✓ Негорючий текстиль Trevira CS (Класс КМ1)</li>
-            <li>✓ Французская автоматика Somfy Sonesse Ultra</li>
-            <li>✓ Защита мониторов от бликов в Open Space</li>
-          </ul>
-          <div class="b2b-trio-footer">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%80%D0%BE%D0%BB%D0%BB-%D1%88%D1%82%D0%BE%D1%80%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%84%D0%B8%D1%81%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
-              Запросить КП в WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- B2B Legal Trust Banner -->
-    <div class="b2b-legal-banner reveal" style="margin-top: 36px;">
-      <div class="b2b-legal-content">
-        <div class="b2b-legal-badge">
-          <span class="pulse-dot"></span>
-          <span>Официальный юридический пакет MUAR A</span>
-        </div>
-        <h4>Работаем по договору с НДС 12% · Закрывающие акты за 24 часа</h4>
-        <p>
-          ТОО «KazTextileА» на ОУР. Мгновенная выписка электронных счетов-фактур в ИС ЭСФ, закрывающие акты АВР (Р-1) и строительные формы КС-2 / КС-3. Сертификаты негорючести МЧС РК (Класс КМ1).
-        </p>
-      </div>
-      <div class="b2b-legal-action">
-        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D0%9D%D0%94%D0%A1%2012%25%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
-          Запросить КП в WhatsApp (60 мин)
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- ACT 3: ИНТЕРАКТИВНЫЙ СПЛИТ-СЛАЙДЕР «БЫЛО / СТАЛО»           -->
-<!-- ============================================================ -->
-<section class="section" id="beforeAfter">
-  <div class="wrap">
-    <div class="section-head center">
-      <span class="eyebrow c">Реальные объекты в Астане · До и После</span>
-      <h2>Преображение пространств: <span class="serif-accent">B2B проекты и резиденции</span></h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">
-        Потяните интерактивный ползунок влево-вправо: посмотрите, как солнцезащита и текстильная архитектура <span class="muar-a">MUAR&nbsp;A</span> решают задачи перегрева (+38°C), защиты от бликов, акустики и тихой роскоши в Астане.
-      </p>
-    </div>
-
-    <div class="ba-scene-tabs" role="tablist" aria-label="Сцены До и После">
-      <button class="ba-scene-btn active" onclick="switchBaScene('b2b', this)">🏢 B2B Офис: Screen 3% Somfy</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('b2b_canopy', this)">🏛️ B2B Ресторан: Навесы & Паруса</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('living', this)">🛋️ Резиденция: Гостиная с эркером</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('room2', this)">🪟 Резиденция: Гостиная с люстрой</button>
-    </div>
-
-    <div class="ba-wrapper reveal">
-      <div class="ba-container" id="splitSliderBox">
-        <!-- BEFORE Layer -->
-        <div class="ba-layer ba-before">
-          <img src="assets/muar/b2b-office-before.webp" alt="До: Открытое панорамное остекление без защиты" id="baImgBefore" width="1376" height="768" loading="lazy" decoding="async">
-          <span class="ba-pill before-pill" id="baLblBefore">БЫЛО: Открытое остекление (+38°C, блики)</span>
-        </div>
-
-        <!-- AFTER Layer -->
-        <div class="ba-layer ba-after" id="splitAfterLayer">
-          <img src="assets/muar/b2b-office-after.webp" alt="После: Контрактная солнцезащита Screen 3% Somfy" id="baImgAfter" width="1376" height="768" loading="lazy" decoding="async">
-          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Контрактная система Screen 3% Somfy (КМ1)</span>
-        </div>
-
-        <!-- Divider Handle -->
-        <div class="ba-handle" id="splitHandle">
-          <div class="ba-handle-btn">
-            <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Presets -->
-      <div class="ba-presets">
-        <button class="ba-preset-btn" onclick="setSplitPos(0, this)">🔲 Без солнцезащиты (До)</button>
-        <button class="ba-preset-btn active" onclick="setSplitPos(50, this)">↔ 50% Сравнение</button>
-        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">✨ С решением <span class="muar-a">MUAR&nbsp;A</span></button>
-      </div>
-
-      <!-- B2B & Architectural Specifications Card -->
-      <div class="ba-detail-card" id="baDetailCard">
-        <div class="ba-meta-strip" id="baMetaStrip">
-          <span class="ba-meta-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M9 21V11h6v10M9 7V3h6v4"/></svg> <b>Объект:</b> <span id="baObjVal">Бизнес-центр / Панорамный офис (Астана)</span></span>
-          <span class="ba-meta-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> <b>Система:</b> <span id="baSysVal">Контрактные рулонные шторы Somfy Screen 3% RTS</span></span>
-          <span class="ba-meta-badge accent"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <b>Сертификация:</b> <span id="baCertVal">КМ1 (негорючая ткань), защита от ультрафиолета 99%</span></span>
-        </div>
-
-        <div class="ba-desc-grid">
-          <div class="ba-desc-box ba-desc-before">
-            <div class="ba-desc-header">
-              <span class="ba-desc-tag tag-before">Было (до установки)</span>
-              <span class="ba-desc-metric" id="baMetricBefore">Жара до +38°C · Блики</span>
-            </div>
-            <p id="baDescBefore">Открытое панорамное остекление без защиты от перегрева (жара до +38°C, выгорание интерьера, блики на рабочих мониторах, повышенная нагрузка на систему кондиционирования).</p>
-          </div>
-
-          <div class="ba-desc-box ba-desc-after">
-            <div class="ba-desc-header">
-              <span class="ba-desc-tag tag-after">Стало (решение MUAR A)</span>
-              <span class="ba-desc-metric" id="baMetricAfter">Отражение 95% тепла · КМ1</span>
-            </div>
-            <p id="baDescAfter">Контрактная система солнцезащиты Screen 3% с электроприводом Somfy (отражение 95% солнечного тепла, пожарный класс КМ1, комфортный рассеянный свет, сохранение панорамного обзора города).</p>
-          </div>
-        </div>
-
-        <!-- Canopy Gallery (shown for canopy scene) -->
-        <div class="ba-canopy-gallery" id="baCanopyGallery" style="display: none;">
-          <div class="ba-gallery-title">
-            <span>📷 Фотофиксация коммерческого монтажа (Астана): паруса-навесы, скрытый крепеж Somfy, негорючая ткань КМ1 Dickson Франция</span>
-          </div>
-          <div class="ba-gallery-grid">
-            <a href="assets/muar/b2b-canopy-hall-1.webp" target="_blank" class="ba-gallery-item" title="Общий вид зала с парусами-навесами и контурной подсветкой">
-              <img src="assets/muar/b2b-canopy-hall-1.webp" alt="Монтаж парусов в ресторанном зале" width="1080" height="1920" loading="lazy" decoding="async">
-              <span class="ba-gallery-cap">Зал: паруса + контурная подсветка</span>
-            </a>
-            <a href="assets/muar/b2b-canopy-hall-2.webp" target="_blank" class="ba-gallery-item" title="Перспектива ресторанного зала и солнцезащитные драпировки">
-              <img src="assets/muar/b2b-canopy-hall-2.webp" alt="Перспектива зала ресторана" width="1080" height="1920" loading="lazy" decoding="async">
-              <span class="ba-gallery-cap">Акустическое зонирование</span>
-            </a>
-            <a href="assets/muar/b2b-canopy-night.webp" target="_blank" class="ba-gallery-item" title="Вечерняя атмосфера с рассеянным мягким светом">
-              <img src="assets/muar/b2b-canopy-night.webp" alt="Вечерняя атмосфера с навесами" width="1080" height="1920" loading="lazy" decoding="async">
-              <span class="ba-gallery-cap">Вечерний сценарий света</span>
-            </a>
-            <a href="assets/muar/b2b-canopy-detail.webp" target="_blank" class="ba-gallery-item" title="Узел натяжения и пожаробезопасный профиль">
-              <img src="assets/muar/b2b-canopy-detail.webp" alt="Детали узлов натяжения парусов" width="1080" height="1920" loading="lazy" decoding="async">
-              <span class="ba-gallery-cap">Контрактный узел натяжения</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="ba-detail-cta">
-          <div class="ba-cta-text">
-            <strong>Нужен расчет солнцезащиты или контрактного текстиля для коммерческого объекта?</strong>
-            <span>Выезжаем на замеры в Астане с каталогами негорючих образцов Screen & Trevira CS. Расчет сметы с НДС 12% за 24 часа.</span>
-          </div>
-          <div class="ba-cta-btns">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20B2B%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BD%D0%B0%D0%B2%D0%B5%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Запросить B2B расчет в WhatsApp</a>
-            <a href="#b2b-commercial" class="btn btn-secondary btn-sm">B2B калькулятор проектов ↓</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
 <!-- ACT 4: «7 СИЛ СТУДИИ MUAR A» (EDITORIAL BENTO GRID)            -->
 <!-- ============================================================ -->
 <section class="section" id="powers">
@@ -3838,138 +3535,113 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </section>
 
 <!-- ============================================================ -->
-<!-- MUAR A В КИНЕМАТИКЕ: ВИДЕО-АТЕЛЬЕ И ТЕКСТИЛЬ В ДВИЖЕНИИ         -->
+<!-- ACT 3: ИНТЕРАКТИВНЫЙ СПЛИТ-СЛАЙДЕР «БЫЛО / СТАЛО»           -->
 <!-- ============================================================ -->
-<section class="section section-motion" id="cinematics">
+<section class="section" id="beforeAfter">
   <div class="wrap">
     <div class="section-head center">
-      <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:16px;height:16px"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span class="muar-a">MUAR&nbsp;A</span> в движении</span>
-      <h2>Текстиль <span class="serif-accent">в кинематике и свет</span></h2>
-      <p class="lead">Шторы — это живая архитектура пространства. Почувствуйте пластику драпировок, инженерную моторизацию высоких проёмов 5–8 м и стандарты собственного пошивочного цеха в Астане.</p>
+      <span class="eyebrow c">Реальные объекты в Астане · До и После</span>
+      <h2>Преображение пространств: <span class="serif-accent">B2B проекты и резиденции</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        Потяните интерактивный ползунок влево-вправо: посмотрите, как солнцезащита и текстильная архитектура <span class="muar-a">MUAR&nbsp;A</span> решают задачи перегрева (+38°C), защиты от бликов, акустики и тихой роскоши в Астане.
+      </p>
     </div>
 
-    <div class="motion-container">
-      <div class="motion-tabs">
-        <button class="motion-tab active" onclick="switchMotionVideo('atelier', this)">
-          <span class="motion-tab-icon">🪡</span>
-          <div class="motion-tab-text">
-            <b>Цех: Мастер Марал</b>
-            <small>Пошив по ГОСТам РК, точность 1 мм</small>
+    <div class="ba-scene-tabs" role="tablist" aria-label="Сцены До и После">
+      <button class="ba-scene-btn active" onclick="switchBaScene('real_apt', this)">🛋️ Резиденция в Астане: До и После</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('b2b_canopy', this)">🏛️ B2B Ресторан: Навесы & Паруса</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('villa_lift', this)">🏰 Загородная вилла: Высота 8 м</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('dining_garden', this)">🛋️ ЖК Garden: Панорамная столовая</button>
+    </div>
+
+    <div class="ba-wrapper reveal">
+      <div class="ba-container" id="splitSliderBox">
+        <!-- BEFORE Layer -->
+        <div class="ba-layer ba-before">
+          <img src="assets/muar/b2b-office-before.webp" alt="До: Открытое панорамное остекление без защиты" id="baImgBefore" width="1376" height="768" loading="lazy" decoding="async">
+          <span class="ba-pill before-pill" id="baLblBefore">БЫЛО: Открытое остекление (+38°C, блики)</span>
+        </div>
+
+        <!-- AFTER Layer -->
+        <div class="ba-layer ba-after" id="splitAfterLayer">
+          <img src="assets/muar/b2b-office-after.webp" alt="После: Контрактная солнцезащита Screen 3% Somfy" id="baImgAfter" width="1376" height="768" loading="lazy" decoding="async">
+          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Контрактная система Screen 3% Somfy (КМ1)</span>
+        </div>
+
+        <!-- Divider Handle -->
+        <div class="ba-handle" id="splitHandle">
+          <div class="ba-handle-btn">
+            <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
           </div>
-        </button>
-        <button class="motion-tab" onclick="switchMotionVideo('villa', this)">
-          <span class="motion-tab-icon">🏰</span>
-          <div class="motion-tab-text">
-            <b>Вилла: Лифт 5–8 м</b>
-            <small>Лифтовые электрокарнизы Somfy</small>
-          </div>
-        </button>
-        <button class="motion-tab" onclick="switchMotionVideo('powers', this)">
-          <span class="motion-tab-icon">👑</span>
-          <div class="motion-tab-text">
-            <b>7 сил студии <span class="muar-a">MUAR&nbsp;A</span></b>
-            <small>Видеопрезентация масштаба</small>
-          </div>
-        </button>
-        <button class="motion-tab" onclick="switchMotionVideo('journey', this)">
-          <span class="motion-tab-icon">🎬</span>
-          <div class="motion-tab-text">
-            <b>Путь заказа под ключ</b>
-            <small>От замера до навески в резиденции</small>
-          </div>
-        </button>
+        </div>
       </div>
 
-      <div class="motion-stage-card">
-        <!-- Video 1: Atelier Craft (Master Maral) -->
-        <div class="motion-player-view active" id="motionViewAtelier">
-          <div class="motion-video-wrapper" onclick="togglePlayPause('videoAtelier')">
-            <video id="videoAtelier" autoplay muted loop playsinline poster="assets/muar/craft-maral-poster.jpg">
-              <source src="assets/muar/craft-maral.mp4" type="video/mp4">
-            </video>
-            <div class="motion-overlay">
-              <div class="motion-badge">
-                <span class="live-dot"></span> Собственный цех <span class="muar-a">MUAR&nbsp;A</span> в Астане · Мастер Марал
-              </div>
-              <div class="motion-controls" onclick="event.stopPropagation()">
-                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoAtelier', this)" id="btnPlayAtelier" title="Пауза / Старт">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                </button>
-                <button class="motion-ctrl-btn" onclick="toggleSound('videoAtelier', this)" id="btnSoundAtelier" title="Звук">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                </button>
-                <div class="motion-tagline">Пошив по ГОСТ РК · Немецкие нити Gütermann · Двойной нижний подгиб 10 см</div>
-              </div>
+      <!-- Presets -->
+      <div class="ba-presets">
+        <button class="ba-preset-btn" onclick="setSplitPos(0, this)">🔲 Без солнцезащиты (До)</button>
+        <button class="ba-preset-btn active" onclick="setSplitPos(50, this)">↔ 50% Сравнение</button>
+        <button class="ba-preset-btn" onclick="setSplitPos(100, this)">✨ С решением <span class="muar-a">MUAR&nbsp;A</span></button>
+      </div>
+
+      <!-- B2B & Architectural Specifications Card -->
+      <div class="ba-detail-card" id="baDetailCard">
+        <div class="ba-meta-strip" id="baMetaStrip">
+          <span class="ba-meta-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M9 21V11h6v10M9 7V3h6v4"/></svg> <b>Объект:</b> <span id="baObjVal">Элитный ЖК в Астане · Реальный объект</span></span>
+          <span class="ba-meta-badge"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> <b>Система:</b> <span id="baSysVal">Кутюрный пошив, складка «волна» 2.2x, скрытый монтаж</span></span>
+          <span class="ba-meta-badge accent"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> <b>Сертификация:</b> <span id="baCertVal">Европейский текстиль, ручная закрепка складок</span></span>
+        </div>
+
+        <div class="ba-desc-grid">
+          <div class="ba-desc-box ba-desc-before">
+            <div class="ba-desc-header">
+              <span class="ba-desc-tag tag-before">Было (до установки)</span>
+              <span class="ba-desc-metric" id="baMetricBefore">Голый бетон · Эхо</span>
             </div>
+            <p id="baDescBefore">Реальный объект в Астане: квартира после ремонта с голыми окнами, резкими тенями и слепящим солнцем.</p>
+          </div>
+
+          <div class="ba-desc-box ba-desc-after">
+            <div class="ba-desc-header">
+              <span class="ba-desc-tag tag-after">Стало (решение MUAR A)</span>
+              <span class="ba-desc-metric" id="baMetricAfter">Волна 2.2x · Тихая роскошь</span>
+            </div>
+            <p id="baDescAfter">Многослойный текстильный ансамбль MUAR A: струящийся премиальный тюль и плотные портьеры со складкой «волна» 2.2x.</p>
           </div>
         </div>
 
-        <!-- Video 2: Villa High-Ceiling Lift System -->
-        <div class="motion-player-view" id="motionViewVilla">
-          <div class="motion-video-wrapper" onclick="togglePlayPause('videoVilla')">
-            <video id="videoVilla" muted loop playsinline poster="assets/muar/poster-villa-lift.jpg">
-              <source src="assets/muar/villa-lift-system.mp4" type="video/mp4">
-            </video>
-            <div class="motion-overlay">
-              <div class="motion-badge">
-                <span class="live-dot"></span> Реальный объект <span class="muar-a">MUAR&nbsp;A</span> · Лифт-система Somfy
-              </div>
-              <div class="motion-controls" onclick="event.stopPropagation()">
-                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoVilla', this)" id="btnPlayVilla" title="Пауза / Старт">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </button>
-                <button class="motion-ctrl-btn" onclick="toggleSound('videoVilla', this)" id="btnSoundVilla" title="Звук">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                </button>
-                <div class="motion-tagline">Виллы и второй свет до 8 м · Электроподъём для легкого ухода · Интеграция в Умный Дом</div>
-              </div>
-            </div>
+        <!-- Canopy Gallery (shown for canopy scene) -->
+        <div class="ba-canopy-gallery" id="baCanopyGallery" style="display: none;">
+          <div class="ba-gallery-title">
+            <span>📷 Фотофиксация коммерческого монтажа (Астана): паруса-навесы, скрытый крепеж Somfy, негорючая ткань КМ1 Dickson Франция</span>
+          </div>
+          <div class="ba-gallery-grid">
+            <a href="assets/muar/b2b-canopy-hall-1.webp" target="_blank" class="ba-gallery-item" title="Общий вид зала с парусами-навесами и контурной подсветкой">
+              <img src="assets/muar/b2b-canopy-hall-1.webp" alt="Монтаж парусов в ресторанном зале" width="1080" height="1920" loading="lazy" decoding="async">
+              <span class="ba-gallery-cap">Зал: паруса + контурная подсветка</span>
+            </a>
+            <a href="assets/muar/b2b-canopy-hall-2.webp" target="_blank" class="ba-gallery-item" title="Перспектива ресторанного зала и солнцезащитные драпировки">
+              <img src="assets/muar/b2b-canopy-hall-2.webp" alt="Перспектива зала ресторана" width="1080" height="1920" loading="lazy" decoding="async">
+              <span class="ba-gallery-cap">Акустическое зонирование</span>
+            </a>
+            <a href="assets/muar/b2b-canopy-night.webp" target="_blank" class="ba-gallery-item" title="Вечерняя атмосфера с рассеянным мягким светом">
+              <img src="assets/muar/b2b-canopy-night.webp" alt="Вечерняя атмосфера с навесами" width="1080" height="1920" loading="lazy" decoding="async">
+              <span class="ba-gallery-cap">Вечерний сценарий света</span>
+            </a>
+            <a href="assets/muar/b2b-canopy-detail.webp" target="_blank" class="ba-gallery-item" title="Узел натяжения и пожаробезопасный профиль">
+              <img src="assets/muar/b2b-canopy-detail.webp" alt="Детали узлов натяжения парусов" width="1080" height="1920" loading="lazy" decoding="async">
+              <span class="ba-gallery-cap">Контрактный узел натяжения</span>
+            </a>
           </div>
         </div>
 
-        <!-- Video 3: 7 Powers Brand Video -->
-        <div class="motion-player-view" id="motionViewPowers">
-          <div class="motion-video-wrapper" onclick="togglePlayPause('videoPowers')">
-            <video id="videoPowers" muted loop playsinline poster="assets/muar/brand-powers-poster.jpg">
-              <source src="assets/muar/brand-7powers.mp4" type="video/mp4">
-            </video>
-            <div class="motion-overlay">
-              <div class="motion-badge">
-                <span class="live-dot"></span> Презентация бренда · 7 Сил <span class="muar-a">MUAR&nbsp;A</span>
-              </div>
-              <div class="motion-controls" onclick="event.stopPropagation()">
-                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoPowers', this)" id="btnPlayPowers" title="Пауза / Старт">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </button>
-                <button class="motion-ctrl-btn" onclick="toggleSound('videoPowers', this)" id="btnSoundPowers" title="Звук">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                </button>
-                <div class="motion-tagline">2 этажа коллекций со всего мира · 7 000+ образцов · Соавторы стандартов РК</div>
-              </div>
-            </div>
+        <div class="ba-detail-cta">
+          <div class="ba-cta-text">
+            <strong>Нужен расчет солнцезащиты или контрактного текстиля для коммерческого объекта?</strong>
+            <span>Выезжаем на замеры в Астане с каталогами негорючих образцов Screen & Trevira CS. Расчет сметы с НДС 12% за 24 часа.</span>
           </div>
-        </div>
-
-        <!-- Video 4: Order Journey (Real Studio Process) -->
-        <div class="motion-player-view" id="motionViewJourney">
-          <div class="motion-video-wrapper" onclick="togglePlayPause('videoJourney')">
-            <video id="videoJourney" muted loop playsinline poster="assets/muar/order-journey-poster.jpg">
-              <source src="assets/muar/order-journey.mp4" type="video/mp4">
-            </video>
-            <div class="motion-overlay">
-              <div class="motion-badge">
-                <span class="live-dot"></span> Студия <span class="muar-a">MUAR&nbsp;A</span> · Реальный путь одного заказа
-              </div>
-              <div class="motion-controls" onclick="event.stopPropagation()">
-                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoJourney', this)" id="btnPlayJourney" title="Пауза / Старт">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                </button>
-                <button class="motion-ctrl-btn" onclick="toggleSound('videoJourney', this)" id="btnSoundJourney" title="Звук">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-                </button>
-                <div class="motion-tagline">От выезда дизайнера с образцами до финального отпаривания и кутюрной навески</div>
-              </div>
-            </div>
+          <div class="ba-cta-btns">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20B2B%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BD%D0%B0%D0%B2%D0%B5%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Запросить B2B расчет в WhatsApp</a>
+            <a href="#b2b-commercial" class="btn btn-secondary btn-sm">B2B калькулятор проектов ↓</a>
           </div>
         </div>
       </div>
@@ -3978,41 +3650,145 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </section>
 
 <!-- ============================================================ -->
-<!-- ACT 5: ПЯТЬ ШАГОВ ДО ГОТОВОГО ИНТЕРЬЕРА                     -->
+<!-- ACT 7: ПОРТФОЛИО И ОБЪЕКТЫ В АСТАНЕ                          -->
 <!-- ============================================================ -->
-<section class="section" id="process">
+<section class="section" id="projects">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Прозрачный регламент</span>
-      <h2>Пять шагов <span class="serif-accent">до готового интерьера</span></h2>
-      <p class="lead">От первой заявки до идеальной кутюрной навески с гарантией 3 года.</p>
+    <div class="section-head center">
+      <span class="eyebrow c">Реализованные проекты</span>
+      <h2>Проекты, <span class="serif-accent">которые говорят сами</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        Премиальные жилые комплексы и корпоративные резиденции в Астане — оформленные тканями и потайными швами <span class="muar-a">MUAR&nbsp;A</span>.
+      </p>
     </div>
-    <div class="steps">
-      <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 01</span>
-        <h3>Заявка</h3>
-        <p>WhatsApp, звонок или форма на сайте — менеджер связывается в течение 10 минут.</p>
-      </div>
-      <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 02</span>
-        <h3>Онлайн-подбор от топ-декораторов</h3>
-        <p>Дистанционный подбор текстиля по фото и видео вашего интерьера по всему Казахстану (Шымкент, Караганда, Алматы). По Астане: выезд с образцами тканей — 7 000 ₸ (аванс, засчитывается в смету договора).</p>
-      </div>
-      <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 03</span>
-        <h3>3D-визуализация</h3>
-        <p>Моделируем геометрию складок и поведение драпировки с учетом света вашей комнаты.</p>
-      </div>
-      <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 04</span>
-        <h3>Цифровое КП</h3>
-        <p>Персональная онлайн-смета с детализацией полотен, фурнитуры и сроков сдачи.</p>
-      </div>
-      <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 05</span>
-        <h3>Цех & Навес</h3>
-        <p>Пошив в собственном цехе в Астане по ГОСТам РК, чистый монтаж с пылесосом, отпаривание и гарантия 3 года.</p>
-      </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-filter="all">Все объекты</button>
+      <button class="tab" data-filter="flat">Квартиры и пентхаусы</button>
+      <button class="tab" data-filter="home">Загородные виллы</button>
+      <button class="tab" data-filter="office">Офисы и отели (B2B)</button>
+    </div>
+
+    <div class="gal" id="gal">
+      <!-- Item 1 -->
+      <a class="gal-item reveal" data-cat="flat" href="#contacts">
+        <img src="assets/muar/case-garden-dining.webp" alt="ЖК Garden, Астана" width="1400" height="2100" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Апартаменты · Столовая</span>
+          <h4>ЖК Garden, Астана</h4>
+          <p>Портьеры со складкой «волна» 2.2x, бельгийский батист и премиальный текстиль.</p>
+        </div>
+      </a>
+
+      <!-- Item 2 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="assets/muar/villa-hall.webp" alt="Загородная вилла в Астане" width="1200" height="1600" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Вилла · Высота потолков 8 м</span>
+          <h4>Загородная вилла, Астана</h4>
+          <p>Моторизованная лифт-система штор высотой 8 метров на приводах Somfy/Dooya.</p>
+        </div>
+      </a>
+
+      <!-- Item 3 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="assets/muar/commercial-canopy.webp" alt="Лаундж-пространство и ресторан" width="900" height="1600" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>B2B Контракт · HoReCa</span>
+          <h4>Лаундж-пространство & ресторан</h4>
+          <p>Потолочные тканевые навесы, негорючий текстиль Trevira CS (КМ1) и портьеры.</p>
+        </div>
+      </a>
+
+      <!-- Item 4 -->
+      <a class="gal-item reveal" data-cat="flat" href="#contacts">
+        <img src="assets/muar/case-atlant-kids.webp" alt="ЖК Атлант, Астана" width="1400" height="933" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Детская комната</span>
+          <h4>ЖК Атлант, Астана</h4>
+          <p>Текстильное оформление двухъярусной зоны: шторы blackout, покрывала и подушки.</p>
+        </div>
+      </a>
+
+      <!-- Item 5 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="assets/muar/case-emerald-master.webp" alt="Спальня зеленая Эмпаер" width="1600" height="1067" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Мастер-спальня · Вилла</span>
+          <h4>Спальня зеленая Эмпаер</h4>
+          <p>Изумрудный бархат с серебряным кантом ручной работы, блэкаут и подушки.</p>
+        </div>
+      </a>
+
+      <!-- Item 6 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="assets/muar/b2b-office-after.webp" alt="БЦ Talan Towers / Офис МФЦА" width="1376" height="768" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>B2B Архитектура · Офисы</span>
+          <h4>БЦ Talan Towers / Офис МФЦА</h4>
+          <p>Контрактные рулонные шторы Somfy Screen 3%: солнцезащита, антиблик и климат-контроль.</p>
+        </div>
+      </a>
+
+      <!-- Item 7 -->
+      <a class="gal-item reveal" data-cat="flat" href="#contacts">
+        <img src="assets/muar/case-dos-marquise.webp" alt="ЖК Дос, Астана" width="1400" height="2100" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Комната девочки</span>
+          <h4>ЖК Дос, Астана</h4>
+          <p>Кутюрная французская маркиза, фигурный ламбрекен и нежная вуаль.</p>
+        </div>
+      </a>
+
+      <!-- Item 8 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="assets/muar/villa-living.webp" alt="Загородная резиденция, Астана" width="1200" height="1600" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Вилла · BI Village</span>
+          <h4>Загородная резиденция, Астана</h4>
+          <p>Панорамная спальня: портьеры с геометрическим кантом, покрывало и подушки.</p>
+        </div>
+      </a>
+
+      <!-- Item 9 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="assets/muar/case-vip-lounge.webp" alt="Представительский лаундж & Отель" width="1400" height="1400" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>B2B Контракт · VIP Lounge</span>
+          <h4>Представительский лаундж & Отель</h4>
+          <p>Индивидуальный пошив портьер и текстильное оформление VIP-пространств в коллаборации с Muar Art.</p>
+        </div>
+      </a>
+
+      <!-- Item 10 -->
+      <a class="gal-item reveal" data-cat="flat" href="#contacts">
+        <img src="assets/muar/case-seken-bedroom.webp" alt="ЖК Seken, Астана" width="1066" height="1600" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Мастер-спальня</span>
+          <h4>ЖК Seken, Астана</h4>
+          <p>Текстиль Уильям Моррис: портьеры с кантом, изголовье кровати и подушки.</p>
+        </div>
+      </a>
+
+      <!-- Item 11 -->
+      <a class="gal-item reveal" data-cat="home" href="#contacts">
+        <img src="assets/muar/case-master-bedroom.webp" alt="Вилла в пос. Караоткель" width="1400" height="2100" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>Коттедж · Мастер-спальня</span>
+          <h4>Вилла в пос. Караоткель</h4>
+          <p>Фактурный тюль высокой плотности, дизайнерские шторы и покрывало терракот.</p>
+        </div>
+      </a>
+
+      <!-- Item 12 -->
+      <a class="gal-item reveal" data-cat="office" href="#contacts">
+        <img src="assets/muar/case-garden-detail.webp" alt="Конференц-холл & Отель" width="1400" height="2100" loading="lazy" decoding="async">
+        <div class="gal-cap">
+          <span>B2B Контракт · Отель</span>
+          <h4>Конференц-холл, Астана</h4>
+          <p>Портьеры высокой плотности с защитой от выгорания, шторы со складкой волна 2.2x.</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
@@ -4207,145 +3983,320 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </section>
 
 <!-- ============================================================ -->
-<!-- ACT 7: ПОРТФОЛИО И ОБЪЕКТЫ В АСТАНЕ                          -->
+<!-- ACT 2.5: B2B КОММЕРЧЕСКИЙ ДИВИЗИОН & ИНТЕРАКТИВНАЯ QUOTE CARD -->
 <!-- ============================================================ -->
-<section class="section" id="projects">
+<div id="b2b-commercial"></div>
+<section class="section" id="b2b" style="background: var(--ivory); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
   <div class="wrap">
+    
     <div class="section-head center">
-      <span class="eyebrow c">Реализованные проекты</span>
-      <h2>Проекты, <span class="serif-accent">которые говорят сами</span></h2>
+      <span class="eyebrow c">Корпоративный отдел · Астана</span>
+      <h2>Текстильные решения <span class="serif-accent">для бизнеса и первых лиц</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Премиальные жилые комплексы и корпоративные резиденции в Астане — оформленные тканями и потайными швами <span class="muar-a">MUAR&nbsp;A</span>.
+        Официальный договор с НДС 12%, сертификаты негорючести КМ1 и закрывающие акты КС-2 / КС-3 через ЭДО за 24 часа. Три проверенных направления для представительских офисов и коммерческих пространств.
       </p>
     </div>
 
-    <div class="tabs" id="tabs">
-      <button class="tab active" data-filter="all">Все объекты</button>
-      <button class="tab" data-filter="flat">Квартиры и пентхаусы</button>
-      <button class="tab" data-filter="home">Загородные виллы</button>
-      <button class="tab" data-filter="office">Офисы и отели (B2B)</button>
+    <!-- 3 B2B Directions Grid -->
+    <div class="b2b-trio-grid">
+      
+      <!-- Direction 1: Жалюзи -->
+      <div class="b2b-trio-card reveal">
+        <div class="b2b-trio-gallery">
+          <img src="assets/muar/b2b-blinds-wood.webp" alt="Деревянные жалюзи 50мм" class="b2b-trio-img active" id="b2bImgBlinds" width="1200" height="800" loading="lazy" decoding="async">
+          <div class="b2b-trio-thumbs">
+            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgBlinds', 'assets/muar/b2b-blinds-wood.webp', this)">
+              <span>Фото 1 · Дерево 50мм</span>
+            </button>
+            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgBlinds', 'assets/muar/b2b-blinds-alum.webp', this)">
+              <span>Фото 2 · Алюминий</span>
+            </button>
+          </div>
+        </div>
+        <div class="b2b-trio-content">
+          <span class="b2b-trio-tag">Солнцезащита & Контроль света</span>
+          <h3>Жалюзи для бизнеса</h3>
+          <p>
+            Презентабельные деревянные жалюзи 50мм из массива канадской липы Basswood для переговорных и базовые офисные алюминиевые жалюзи с порошковой покраской по каталогу RAL.
+          </p>
+          <ul class="b2b-trio-features">
+            <li>✓ Канадская липа и анодированный алюминий</li>
+            <li>✓ Стойкость к UV-лучам и выгоранию</li>
+            <li>✓ Ручное или моторизованное управление</li>
+          </ul>
+          <div class="b2b-trio-footer">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D0%B6%D0%B0%D0%BB%D1%8E%D0%B7%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%84%D0%B8%D1%81%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+              Запросить КП в WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direction 2: Кабинет первого лица -->
+      <div class="b2b-trio-card reveal">
+        <div class="b2b-trio-gallery">
+          <img src="assets/muar/b2b-office-ceo.webp" alt="Кабинет первого лица" class="b2b-trio-img active" id="b2bImgCeo" width="1200" height="800" loading="lazy" decoding="async">
+          <div class="b2b-trio-thumbs">
+            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-office-ceo.webp', this)">
+              <span>Фото 1 · Бархат & Сатин</span>
+            </button>
+            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-office-lounge.webp', this)">
+              <span>Фото 2 · VIP Лаундж</span>
+            </button>
+          </div>
+        </div>
+        <div class="b2b-trio-content">
+          <span class="b2b-trio-tag">Представительский статус</span>
+          <h3>Кабинет первого лица</h3>
+          <p>
+            Статусный текстиль высшей категории: итальянский сатин, матовый бархат высокой плотности, глубокая складка «волна». Создает атмосферу престижа и обеспечивает акустический комфорт.
+          </p>
+          <ul class="b2b-trio-features">
+            <li>✓ Премиальные ткани: сатин, шерсть, бархат</li>
+            <li>✓ Акустическая конфиденциальность переговоров</li>
+            <li>✓ Защита от выгорания на солнце (подкладка)</li>
+          </ul>
+          <div class="b2b-trio-footer">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BE%D1%84%D0%BE%D1%80%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82%D0%B0%20%D1%80%D1%83%D0%BA%D0%BE%D0%B2%D0%BE%D0%B4%D0%B8%D1%82%D0%B5%D0%BB%D1%8F" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+              Запросить КП в WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Direction 3: Контрактные ролл-шторы -->
+      <div class="b2b-trio-card reveal">
+        <div class="b2b-trio-gallery">
+          <img src="assets/muar/b2b-roll-screen.webp" alt="Ролл-шторы Screen 3%" class="b2b-trio-img active" id="b2bImgRoll" width="1200" height="800" loading="lazy" decoding="async">
+          <div class="b2b-trio-thumbs">
+            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgRoll', 'assets/muar/b2b-roll-screen.webp', this)">
+              <span>Фото 1 · Screen 3%</span>
+            </button>
+            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgRoll', 'assets/muar/b2b-roll-blackout.webp', this)">
+              <span>Фото 2 · Blackout 100%</span>
+            </button>
+          </div>
+        </div>
+        <div class="b2b-trio-content">
+          <span class="b2b-trio-tag">Архитектурные системы</span>
+          <h3>Контрактные ролл-шторы</h3>
+          <p>
+            Два ключевых стандарта: солнцезащитные Somfy Screen 3% (отсекают 95% тепла и бликов без потери вида на Астану) и кассетный Blackout 100% для видеоконференц-связи и проекторов.
+          </p>
+          <ul class="b2b-trio-features">
+            <li>✓ Негорючий текстиль Trevira CS (Класс КМ1)</li>
+            <li>✓ Французская автоматика Somfy Sonesse Ultra</li>
+            <li>✓ Защита мониторов от бликов в Open Space</li>
+          </ul>
+          <div class="b2b-trio-footer">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%80%D0%BE%D0%BB%D0%BB-%D1%88%D1%82%D0%BE%D1%80%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%84%D0%B8%D1%81%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+              Запросить КП в WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <div class="gal" id="gal">
-      <!-- Item 1 -->
-      <a class="gal-item reveal" data-cat="flat" href="#contacts">
-        <img src="assets/muar/case-garden-dining.webp" alt="ЖК Garden, Астана" width="1400" height="2100" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Апартаменты · Столовая</span>
-          <h4>ЖК Garden, Астана</h4>
-          <p>Портьеры со складкой «волна» 2.2x, бельгийский батист и премиальный текстиль.</p>
+    <!-- B2B Legal Trust Banner -->
+    <div class="b2b-legal-banner reveal" style="margin-top: 36px;">
+      <div class="b2b-legal-content">
+        <div class="b2b-legal-badge">
+          <span class="pulse-dot"></span>
+          <span>Официальный юридический пакет MUAR A</span>
         </div>
-      </a>
+        <h4>Работаем по договору с НДС 12% · Закрывающие акты за 24 часа</h4>
+        <p>
+          ТОО «KazTextileА» на ОУР. Мгновенная выписка электронных счетов-фактур в ИС ЭСФ, закрывающие акты АВР (Р-1) и строительные формы КС-2 / КС-3. Сертификаты негорючести МЧС РК (Класс КМ1).
+        </p>
+      </div>
+      <div class="b2b-legal-action">
+        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D0%9D%D0%94%D0%A1%2012%25%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
+          Запросить КП в WhatsApp (60 мин)
+        </a>
+      </div>
+    </div>
 
-      <!-- Item 2 -->
-      <a class="gal-item reveal" data-cat="home" href="#contacts">
-        <img src="assets/muar/villa-hall.webp" alt="Загородная вилла в Астане" width="1200" height="1600" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Вилла · Высота потолков 8 м</span>
-          <h4>Загородная вилла, Астана</h4>
-          <p>Моторизованная лифт-система штор высотой 8 метров на приводах Somfy/Dooya.</p>
-        </div>
-      </a>
+  </div>
+</section>
 
-      <!-- Item 3 -->
-      <a class="gal-item reveal" data-cat="office" href="#contacts">
-        <img src="assets/muar/commercial-canopy.webp" alt="Лаундж-пространство и ресторан" width="900" height="1600" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>B2B Контракт · HoReCa</span>
-          <h4>Лаундж-пространство & ресторан</h4>
-          <p>Потолочные тканевые навесы, негорючий текстиль Trevira CS (КМ1) и портьеры.</p>
-        </div>
-      </a>
+<!-- ============================================================ -->
+<!-- ACT 5: ПЯТЬ ШАГОВ ДО ГОТОВОГО ИНТЕРЬЕРА                     -->
+<!-- ============================================================ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Прозрачный регламент</span>
+      <h2>Пять шагов <span class="serif-accent">до готового интерьера</span></h2>
+      <p class="lead">От первой заявки до идеальной кутюрной навески с гарантией 3 года.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 01</span>
+        <h3>Заявка</h3>
+        <p>WhatsApp, звонок или форма на сайте — менеджер связывается в течение 10 минут.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 02</span>
+        <h3>Онлайн-подбор от топ-декораторов</h3>
+        <p>Дистанционный подбор текстиля по фото и видео вашего интерьера по всему Казахстану (Шымкент, Караганда, Алматы). По Астане: выезд с образцами тканей — 7 000 ₸ (аванс, засчитывается в смету договора).</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 03</span>
+        <h3>3D-визуализация</h3>
+        <p>Моделируем геометрию складок и поведение драпировки с учетом света вашей комнаты.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 04</span>
+        <h3>Цифровое КП</h3>
+        <p>Персональная онлайн-смета с детализацией полотен, фурнитуры и сроков сдачи.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot"></span><span class="sn">Шаг 05</span>
+        <h3>Цех & Навес</h3>
+        <p>Пошив в собственном цехе в Астане по ГОСТам РК, чистый монтаж с пылесосом, отпаривание и гарантия 3 года.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Item 4 -->
-      <a class="gal-item reveal" data-cat="flat" href="#contacts">
-        <img src="assets/muar/case-atlant-kids.webp" alt="ЖК Атлант, Астана" width="1400" height="933" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Детская комната</span>
-          <h4>ЖК Атлант, Астана</h4>
-          <p>Текстильное оформление двухъярусной зоны: шторы blackout, покрывала и подушки.</p>
-        </div>
-      </a>
+<!-- ============================================================ -->
+<!-- MUAR A В КИНЕМАТИКЕ: ВИДЕО-АТЕЛЬЕ И ТЕКСТИЛЬ В ДВИЖЕНИИ         -->
+<!-- ============================================================ -->
+<section class="section section-motion" id="cinematics">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="width:16px;height:16px"><polygon points="5 3 19 12 5 21 5 3"/></svg> <span class="muar-a">MUAR&nbsp;A</span> в движении</span>
+      <h2>Текстиль <span class="serif-accent">в кинематике и свет</span></h2>
+      <p class="lead">Шторы — это живая архитектура пространства. Почувствуйте пластику драпировок, инженерную моторизацию высоких проёмов 5–8 м и стандарты собственного пошивочного цеха в Астане.</p>
+    </div>
 
-      <!-- Item 5 -->
-      <a class="gal-item reveal" data-cat="home" href="#contacts">
-        <img src="assets/muar/case-emerald-master.webp" alt="Спальня зеленая Эмпаер" width="1600" height="1067" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Мастер-спальня · Вилла</span>
-          <h4>Спальня зеленая Эмпаер</h4>
-          <p>Изумрудный бархат с серебряным кантом ручной работы, блэкаут и подушки.</p>
-        </div>
-      </a>
+    <div class="motion-container">
+      <div class="motion-tabs">
+        <button class="motion-tab active" onclick="switchMotionVideo('atelier', this)">
+          <span class="motion-tab-icon">🪡</span>
+          <div class="motion-tab-text">
+            <b>Цех: Мастер Марал</b>
+            <small>Пошив по ГОСТам РК, точность 1 мм</small>
+          </div>
+        </button>
+        <button class="motion-tab" onclick="switchMotionVideo('villa', this)">
+          <span class="motion-tab-icon">🏰</span>
+          <div class="motion-tab-text">
+            <b>Вилла: Лифт 5–8 м</b>
+            <small>Лифтовые электрокарнизы Somfy</small>
+          </div>
+        </button>
+        <button class="motion-tab" onclick="switchMotionVideo('powers', this)">
+          <span class="motion-tab-icon">👑</span>
+          <div class="motion-tab-text">
+            <b>7 сил студии <span class="muar-a">MUAR&nbsp;A</span></b>
+            <small>Видеопрезентация масштаба</small>
+          </div>
+        </button>
+        <button class="motion-tab" onclick="switchMotionVideo('journey', this)">
+          <span class="motion-tab-icon">🎬</span>
+          <div class="motion-tab-text">
+            <b>Путь заказа под ключ</b>
+            <small>От замера до навески в резиденции</small>
+          </div>
+        </button>
+      </div>
 
-      <!-- Item 6 -->
-      <a class="gal-item reveal" data-cat="office" href="#contacts">
-        <img src="assets/muar/b2b-office-after.webp" alt="БЦ Talan Towers / Офис МФЦА" width="1376" height="768" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>B2B Архитектура · Офисы</span>
-          <h4>БЦ Talan Towers / Офис МФЦА</h4>
-          <p>Контрактные рулонные шторы Somfy Screen 3%: солнцезащита, антиблик и климат-контроль.</p>
+      <div class="motion-stage-card">
+        <!-- Video 1: Atelier Craft (Master Maral) -->
+        <div class="motion-player-view active" id="motionViewAtelier">
+          <div class="motion-video-wrapper" onclick="togglePlayPause('videoAtelier')">
+            <video id="videoAtelier" autoplay muted loop playsinline poster="assets/muar/craft-maral-poster.jpg">
+              <source src="assets/muar/craft-maral.mp4" type="video/mp4">
+            </video>
+            <div class="motion-overlay">
+              <div class="motion-badge">
+                <span class="live-dot"></span> Собственный цех <span class="muar-a">MUAR&nbsp;A</span> в Астане · Мастер Марал
+              </div>
+              <div class="motion-controls" onclick="event.stopPropagation()">
+                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoAtelier', this)" id="btnPlayAtelier" title="Пауза / Старт">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+                <button class="motion-ctrl-btn" onclick="toggleSound('videoAtelier', this)" id="btnSoundAtelier" title="Звук">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+                <div class="motion-tagline">Пошив по ГОСТ РК · Немецкие нити Gütermann · Двойной нижний подгиб 10 см</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
 
-      <!-- Item 7 -->
-      <a class="gal-item reveal" data-cat="flat" href="#contacts">
-        <img src="assets/muar/case-dos-marquise.webp" alt="ЖК Дос, Астана" width="1400" height="2100" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Комната девочки</span>
-          <h4>ЖК Дос, Астана</h4>
-          <p>Кутюрная французская маркиза, фигурный ламбрекен и нежная вуаль.</p>
+        <!-- Video 2: Villa High-Ceiling Lift System -->
+        <div class="motion-player-view" id="motionViewVilla">
+          <div class="motion-video-wrapper" onclick="togglePlayPause('videoVilla')">
+            <video id="videoVilla" muted loop playsinline poster="assets/muar/poster-villa-lift.jpg">
+              <source src="assets/muar/villa-lift-system.mp4" type="video/mp4">
+            </video>
+            <div class="motion-overlay">
+              <div class="motion-badge">
+                <span class="live-dot"></span> Реальный объект <span class="muar-a">MUAR&nbsp;A</span> · Лифт-система Somfy
+              </div>
+              <div class="motion-controls" onclick="event.stopPropagation()">
+                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoVilla', this)" id="btnPlayVilla" title="Пауза / Старт">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+                <button class="motion-ctrl-btn" onclick="toggleSound('videoVilla', this)" id="btnSoundVilla" title="Звук">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+                <div class="motion-tagline">Виллы и второй свет до 8 м · Электроподъём для легкого ухода · Интеграция в Умный Дом</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
 
-      <!-- Item 8 -->
-      <a class="gal-item reveal" data-cat="home" href="#contacts">
-        <img src="assets/muar/villa-living.webp" alt="Загородная резиденция, Астана" width="1200" height="1600" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Вилла · BI Village</span>
-          <h4>Загородная резиденция, Астана</h4>
-          <p>Панорамная спальня: портьеры с геометрическим кантом, покрывало и подушки.</p>
+        <!-- Video 3: 7 Powers Brand Video -->
+        <div class="motion-player-view" id="motionViewPowers">
+          <div class="motion-video-wrapper" onclick="togglePlayPause('videoPowers')">
+            <video id="videoPowers" muted loop playsinline poster="assets/muar/brand-powers-poster.jpg">
+              <source src="assets/muar/brand-7powers.mp4" type="video/mp4">
+            </video>
+            <div class="motion-overlay">
+              <div class="motion-badge">
+                <span class="live-dot"></span> Презентация бренда · 7 Сил <span class="muar-a">MUAR&nbsp;A</span>
+              </div>
+              <div class="motion-controls" onclick="event.stopPropagation()">
+                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoPowers', this)" id="btnPlayPowers" title="Пауза / Старт">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+                <button class="motion-ctrl-btn" onclick="toggleSound('videoPowers', this)" id="btnSoundPowers" title="Звук">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+                <div class="motion-tagline">2 этажа коллекций со всего мира · 7 000+ образцов · Соавторы стандартов РК</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
 
-      <!-- Item 9 -->
-      <a class="gal-item reveal" data-cat="office" href="#contacts">
-        <img src="assets/muar/case-vip-lounge.webp" alt="Представительский лаундж & Отель" width="1400" height="1400" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>B2B Контракт · VIP Lounge</span>
-          <h4>Представительский лаундж & Отель</h4>
-          <p>Индивидуальный пошив портьер и текстильное оформление VIP-пространств в коллаборации с Muar Art.</p>
+        <!-- Video 4: Order Journey (Real Studio Process) -->
+        <div class="motion-player-view" id="motionViewJourney">
+          <div class="motion-video-wrapper" onclick="togglePlayPause('videoJourney')">
+            <video id="videoJourney" muted loop playsinline poster="assets/muar/order-journey-poster.jpg">
+              <source src="assets/muar/order-journey.mp4" type="video/mp4">
+            </video>
+            <div class="motion-overlay">
+              <div class="motion-badge">
+                <span class="live-dot"></span> Студия <span class="muar-a">MUAR&nbsp;A</span> · Реальный путь одного заказа
+              </div>
+              <div class="motion-controls" onclick="event.stopPropagation()">
+                <button class="motion-ctrl-btn" onclick="togglePlayPause('videoJourney', this)" id="btnPlayJourney" title="Пауза / Старт">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </button>
+                <button class="motion-ctrl-btn" onclick="toggleSound('videoJourney', this)" id="btnSoundJourney" title="Звук">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+                <div class="motion-tagline">От выезда дизайнера с образцами до финального отпаривания и кутюрной навески</div>
+              </div>
+            </div>
+          </div>
         </div>
-      </a>
-
-      <!-- Item 10 -->
-      <a class="gal-item reveal" data-cat="flat" href="#contacts">
-        <img src="assets/muar/case-seken-bedroom.webp" alt="ЖК Seken, Астана" width="1066" height="1600" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Мастер-спальня</span>
-          <h4>ЖК Seken, Астана</h4>
-          <p>Текстиль Уильям Моррис: портьеры с кантом, изголовье кровати и подушки.</p>
-        </div>
-      </a>
-
-      <!-- Item 11 -->
-      <a class="gal-item reveal" data-cat="home" href="#contacts">
-        <img src="assets/muar/case-master-bedroom.webp" alt="Вилла в пос. Караоткель" width="1400" height="2100" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>Коттедж · Мастер-спальня</span>
-          <h4>Вилла в пос. Караоткель</h4>
-          <p>Фактурный тюль высокой плотности, дизайнерские шторы и покрывало терракот.</p>
-        </div>
-      </a>
-
-      <!-- Item 12 -->
-      <a class="gal-item reveal" data-cat="office" href="#contacts">
-        <img src="assets/muar/case-garden-detail.webp" alt="Конференц-холл & Отель" width="1400" height="2100" loading="lazy" decoding="async">
-        <div class="gal-cap">
-          <span>B2B Контракт · Отель</span>
-          <h4>Конференц-холл, Астана</h4>
-          <p>Портьеры высокой плотности с защитой от выгорания, шторы со складкой волна 2.2x.</p>
-        </div>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -4416,61 +4367,31 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             <span class="voice-rec-hint">Слушаем вас... Говорите</span>
           </div>
 
-          <!-- Quick Prompts / Fallback Chips -->
-          <div class="voice-chips-row" id="voiceChipsRow">
-            <span class="voice-chips-hint">Или выберите готовый сценарий в 1 клик:</span>
-            <div class="voice-chips-list">
-              <button type="button" class="v-chip" onclick="applyVoiceChip('В спальню блэкаут, окно 3 метра, высокие потолки, бюджет ~250 000 ₸')">🌙 Спальня · Blackout</button>
-              <button type="button" class="v-chip" onclick="applyVoiceChip('В гостиную натуральный шелк волна, 4м, потолки 3.2м, бюджет ~450 000 ₸')">👑 Гостиная · Шелк</button>
-              <button type="button" class="v-chip" onclick="applyVoiceChip('Детская ткань шенилл Бельгия, окно 3 на 2.80')">🧸 Детская · Шенилл</button>
-              <button type="button" class="v-chip" onclick="applyVoiceChip('В офис моторизованные рулонные шторы Somfy, 5 окон, нужен договор с НДС 12%')">🏢 Офис · B2B (НДС)</button>
-            </div>
-          </div>
-
-          <!-- Structured AI Result Card -->
+          <!-- Structured AI Result Card: Compact Unified Style -->
           <div class="voice-structured-card" id="voiceStructuredCard" style="display: none;">
             <div class="v-struct-header">
               <div class="v-struct-title">
                 <span class="v-ai-sparkle">✨</span>
-                <span>Заявка структурирована:</span>
+                <span>Параметры заявки:</span>
               </div>
               <button type="button" class="btn-transcript-reset" onclick="resetVoiceRecording()">Очистить</button>
             </div>
 
-            <div class="v-struct-grid">
-              <div class="v-struct-item">
-                <span class="v-struct-lbl">📍 Помещение</span>
-                <b class="v-struct-val" id="vStructRoom">—</b>
-              </div>
-              <div class="v-struct-item">
-                <span class="v-struct-lbl">📐 Окна</span>
-                <b class="v-struct-val" id="vStructDims">—</b>
-              </div>
-              <div class="v-struct-item">
-                <span class="v-struct-lbl">🎨 Текстиль</span>
-                <b class="v-struct-val" id="vStructFabric">—</b>
-              </div>
-              <div class="v-struct-item">
-                <span class="v-struct-lbl">💰 Оценка бюджета</span>
-                <b class="v-struct-val gold" id="vStructBudget">—</b>
-              </div>
-            </div>
-
-            <div class="v-struct-task-row">
-              <span class="v-struct-lbl">🎯 Задача:</span>
-              <span class="v-struct-task-text" id="vStructTask">—</span>
-            </div>
-
-            <!-- Audio Player -->
-            <div class="v-audio-player-row" id="vAudioPlayerRow" style="display: none;">
-              <span class="v-struct-lbl">🎧 Ваша голосовая запись:</span>
-              <audio id="vAudioPlayer" controls style="width: 100%; height: 36px; margin-top: 6px;"></audio>
+            <div class="v-struct-chips-summary" id="vStructChipsSummary">
+              <span class="v-struct-pill" id="vPillRoom">📍 Помещение</span>
+              <span class="v-struct-pill" id="vPillDims">📐 Окна</span>
+              <span class="v-struct-pill" id="vPillFabric">🎨 Текстиль</span>
+              <span class="v-struct-pill gold" id="vPillBudget">💰 Бюджет</span>
             </div>
 
             <!-- Raw speech text -->
             <div class="v-raw-quote-row" id="vRawQuoteRow" style="display: none;">
-              <span class="v-struct-lbl">🗣 Надиктованный текст:</span>
               <p class="transcript-text" id="voiceTranscriptText"></p>
+            </div>
+
+            <!-- Audio Player -->
+            <div class="v-audio-player-row" id="vAudioPlayerRow" style="display: none;">
+              <audio id="vAudioPlayer" controls style="width: 100%; height: 32px; margin-top: 4px;"></audio>
             </div>
           </div>
         </div>
@@ -4547,10 +4468,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <div>
         <h5>Навигация</h5>
         <ul>
+          <li><a href="#powers">Семь сил студии</a></li>
           <li><a href="#projects">Проекты & Кейсы</a></li>
           <li><a href="#calculator">Калькулятор стоимости</a></li>
-          <li><a href="#b2b">B2B решения & НДС 12%</a></li>
-          <li><a href="#powers">О салоне & Топ-7</a></li>
+          <li><a href="#b2b">B2B отдел & НДС 12%</a></li>
           <li><a href="#contacts">Контакты & Шоурум</a></li>
         </ul>
       </div>
@@ -5191,19 +5112,19 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   /* BEFORE & AFTER SPLIT SLIDER & MULTI-SCENE ENGINE              */
   /* ------------------------------------------------------------- */
   var BA_SCENES = {
-    b2b: {
-      name: '🏢 B2B Офис: Screen 3% Somfy',
-      beforeImg: 'assets/muar/b2b-office-before.webp',
-      afterImg: 'assets/muar/b2b-office-after.webp',
-      beforeLabel: 'БЫЛО: Открытое остекление (+38°C, блики)',
-      afterLabel: 'СТАЛО: Контрактная система Screen 3% Somfy (КМ1)',
-      beforeDesc: 'Открытое панорамное остекление без защиты от перегрева (жара до +38°C, выгорание интерьера, блики на рабочих мониторах, повышенная нагрузка на систему кондиционирования).',
-      afterDesc: 'Контрактная система солнцезащиты Screen 3% с электроприводом Somfy (отражение 95% солнечного тепла, пожарный класс КМ1, комфортный рассеянный свет, сохранение панорамного обзора города).',
-      metricBefore: 'Жара до +38°C · Блики',
-      metricAfter: 'Отражение 95% тепла · КМ1',
-      badgeObject: 'Бизнес-центр / Панорамный офис (Астана)',
-      badgeSystem: 'Контрактные рулонные шторы Somfy Screen 3% RTS',
-      badgeCert: 'КМ1 (негорючая ткань), защита от ультрафиолета 99%',
+    real_apt: {
+      name: '🛋️ Резиденция в Астане: До и После',
+      beforeImg: 'assets/muar/before_real_aligned.webp',
+      afterImg: 'assets/muar/after_real_aligned.webp',
+      beforeLabel: 'БЫЛО: Черновая отделка без штор (эхо, свет)',
+      afterLabel: 'СТАЛО: Кутюрные портьеры MUAR A · Волна 2.2x',
+      beforeDesc: 'Реальный объект в Астане: квартира после ремонта с голыми окнами, резкими тенями и слепящим солнцем.',
+      afterDesc: 'Многослойный текстильный ансамбль MUAR A: струящийся премиальный тюль и плотные портьеры со складкой «волна» 2.2x.',
+      metricBefore: 'Голый бетон · Эхо',
+      metricAfter: 'Волна 2.2x · Тихая роскошь',
+      badgeObject: 'Элитный ЖК в Астане · Реальный объект',
+      badgeSystem: 'Кутюрный пошив, складка «волна» 2.2x, скрытый монтаж',
+      badgeCert: 'Европейский текстиль, ручная закрепка складок',
       beforeFilter: 'none',
       showGallery: false
     },
@@ -5223,39 +5144,43 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       beforeFilter: 'none',
       showGallery: true
     },
-    living: {
-      name: '🛋️ Резиденция: Гостиная с эркером',
-      beforeImg: 'assets/muar/before_real_aligned.webp',
-      afterImg: 'assets/muar/after_real_aligned.webp',
-      beforeLabel: 'БЫЛО: Черновой ремонт без штор',
-      afterLabel: 'СТАЛО: Кутюрные портьеры MUAR A · Волна 2.2x',
-      beforeDesc: 'Голый эркер после строительных работ: холодное эхо, отсутствие приватности от соседних фасадов и слепящий утренний свет.',
-      afterDesc: 'Многослойный ансамбль: струящийся итальянский тюль и портьеры высокой плотности на бесшумных скрытых электрокарнизах Somfy.',
-      metricBefore: 'Голый бетон · Эхо',
-      metricAfter: 'Волна 2.2x · Тихая роскошь',
-      badgeObject: 'Элитный ЖК / Пентхаус (Астана)',
-      badgeSystem: 'Моторизованный двухрядный карниз Somfy Movelite WireFree',
-      badgeCert: 'Премиальный европейский текстиль, ручная закрепка складок',
-      beforeFilter: 'grayscale(0.75) contrast(1.18) brightness(0.82)',
+    villa_lift: {
+      name: '🏰 Загородная вилла: Высота 8 м',
+      beforeImg: 'assets/muar/villa-hall.webp',
+      afterImg: 'assets/muar/villa-hall.webp',
+      beforeLabel: 'БЫЛО: Двухсветный проем 8м без защиты',
+      afterLabel: 'СТАЛО: Моторизованная лифт-система Somfy 8 м',
+      beforeDesc: 'Загородная резиденция в Астане с высотой потолков 8 метров: сложность ручного управления, перегрев помещения и гулкое эхо в двухсветном зале.',
+      afterDesc: 'Индивидуально спроектированная лифт-система штор с электроприводом Somfy (Франция): плавный спуск для обслуживания и сценарии Умного Дома.',
+      metricBefore: 'Высота 8м · Эхо',
+      metricAfter: 'Электропривод Somfy · Лифт 8м',
+      badgeObject: 'Загородная резиденция (Астана)',
+      badgeSystem: 'Моторизованная лифт-система штор высотой 8м Somfy RTS',
+      badgeCert: 'Бесшумный электропривод Somfy (Франция), гарантия 5 лет',
+      beforeFilter: 'grayscale(0.8) contrast(1.15) brightness(0.82)',
       showGallery: false
     },
-    room2: {
-      name: '🪟 Резиденция: Гостиная с люстрой',
-      beforeImg: 'assets/muar/ba-scene2-before.webp',
-      afterImg: 'assets/muar/ba-scene2-after.webp',
-      beforeLabel: 'БЫЛО: Голое окно и эхо',
-      afterLabel: 'СТАЛО: Дамаск с бахромой и кантом',
-      beforeDesc: 'Окно без текстильного оформления: резкие контрастные тени, дисбаланс классического интерьера с хрусталем, акустический дискомфорт.',
-      afterDesc: 'Классические портьеры из фактурного жаккарда-дамаска с шелковым кантом и витой бахромой ручной сборки мастеров MUAR A.',
-      metricBefore: 'Дисбаланс · Резкие тени',
-      metricAfter: 'Дамаск · Шелковый кант',
-      badgeObject: 'Частная резиденция (Астана)',
-      badgeSystem: 'Усиленный профильный багетный карниз с бесшумным ходом',
-      badgeCert: 'Дамаск с шелком и вискозой, авторский дизайн MUAR A',
-      beforeFilter: 'grayscale(0.75) contrast(1.18) brightness(0.82)',
+    dining_garden: {
+      name: '🛋️ ЖК Garden: Панорамная столовая',
+      beforeImg: 'assets/muar/case-garden-dining.webp',
+      afterImg: 'assets/muar/case-garden-dining.webp',
+      beforeLabel: 'БЫЛО: Слепящий свет и отсутствие уюта',
+      afterLabel: 'СТАЛО: Складка «волна» 2.2x & Батист',
+      beforeDesc: 'Панорамная столовая зона в ЖК Garden: слепящее солнце во время семейных обедов, жесткие тени и отсутствие приватности от соседних домов.',
+      afterDesc: 'Светопрозрачный бельгийский батист и мягкие струящиеся портьеры soft-touch с коэффициентом 2.2x: идеальное рассеивание света и тихий уют.',
+      metricBefore: 'Слепящий свет · Перегрев',
+      metricAfter: 'Батист 2.2x · Мягкий свет',
+      badgeObject: 'ЖК Garden (Астана)',
+      badgeSystem: 'Скрытый потолочный профиль с ручным скольжением',
+      badgeCert: 'Бельгийский батист, идеальная геометрия складок',
+      beforeFilter: 'grayscale(0.8) contrast(1.15) brightness(0.82)',
       showGallery: false
     }
   };
+  // Backward compatibility aliases
+  BA_SCENES.b2b = BA_SCENES.real_apt;
+  BA_SCENES.living = BA_SCENES.villa_lift;
+  BA_SCENES.room2 = BA_SCENES.dining_garden;
 
   (function initSplitSlider(){
     var box = document.getElementById('splitSliderBox');
@@ -5899,19 +5824,17 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     voiceState.structured = parsed;
 
     var card = document.getElementById('voiceStructuredCard');
-    var elRoom = document.getElementById('vStructRoom');
-    var elDims = document.getElementById('vStructDims');
-    var elFabric = document.getElementById('vStructFabric');
-    var elBudget = document.getElementById('vStructBudget');
-    var elTask = document.getElementById('vStructTask');
+    var pRoom = document.getElementById('vPillRoom');
+    var pDims = document.getElementById('vPillDims');
+    var pFabric = document.getElementById('vPillFabric');
+    var pBudget = document.getElementById('vPillBudget');
     var rawText = document.getElementById('voiceTranscriptText');
     var rawRow = document.getElementById('vRawQuoteRow');
 
-    if(elRoom) elRoom.textContent = parsed.room;
-    if(elDims) elDims.textContent = parsed.dimensions;
-    if(elFabric) elFabric.textContent = parsed.fabric;
-    if(elBudget) elBudget.textContent = parsed.budget;
-    if(elTask) elTask.textContent = parsed.task;
+    if(pRoom) pRoom.textContent = '📍 ' + (parsed.room && parsed.room !== 'Не указано' ? parsed.room : 'Интерьер');
+    if(pDims) pDims.textContent = '📐 ' + (parsed.dimensions && parsed.dimensions !== 'Стандартные' ? parsed.dimensions : '1 окно');
+    if(pFabric) pFabric.textContent = '🎨 ' + (parsed.fabric && parsed.fabric !== 'На подбор декоратора' ? parsed.fabric : 'Ткань под ключ');
+    if(pBudget) pBudget.textContent = '💰 ' + (parsed.budget && parsed.budget !== 'По смете' ? parsed.budget : 'Смета в WhatsApp');
 
     if(rawText && parsed.rawText){
       rawText.textContent = '«' + parsed.rawText + '»';
@@ -5924,8 +5847,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     var title = document.getElementById('voiceBtnTitle');
     var sub = document.getElementById('voiceBtnSub');
-    if(title) title.textContent = '✓ Заявка готова и структурирована!';
-    if(sub) sub.textContent = 'Нажмите «Отправить структурированную заявку в WhatsApp»';
+    if(title) title.textContent = '✓ Заявка структурирована!';
+    if(sub) sub.textContent = 'Укажите номер телефона ниже и отправьте в WhatsApp';
   }
 
   function applyVoiceChip(sampleText){
@@ -6533,30 +6456,39 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var fishCount = isMobile ? 3 : 4;
     var fishes = [];
 
+    // Distribute koi evenly across canvas quadrants so they start separated
+    var cols = isMobile ? 3 : 2;
+    var rows = isMobile ? 1 : 2;
     for (var i = 0; i < fishCount; i++) {
-      var baseScale = (isMobile ? 0.38 : 0.48) + (Math.random() * 0.1 - 0.05);
+      var col = i % cols;
+      var row = Math.floor(i / cols);
+      var cellW = (width || 800) / cols;
+      var cellH = (height || 600) / rows;
+      var startX = col * cellW + cellW * 0.2 + Math.random() * (cellW * 0.6);
+      var startY = row * cellH + cellH * 0.2 + Math.random() * (cellH * 0.6);
+      var baseScale = (isMobile ? 0.38 : 0.48) + (Math.random() * 0.08 - 0.04);
       fishes.push({
-        x: Math.random() * (width || 800),
-        y: Math.random() * (height || 600),
-        speed: 0.95 + Math.random() * 0.4,
+        x: startX,
+        y: startY,
+        speed: 0.92 + Math.random() * 0.36,
         angle: Math.random() * Math.PI * 2,
-        turnSpeed: 0.016 + Math.random() * 0.01,
+        turnSpeed: 0.016 + Math.random() * 0.008,
         targetAngle: Math.random() * Math.PI * 2,
         scale: baseScale,
-        opacity: 0.40 + Math.random() * 0.10,
+        opacity: 0.42 + Math.random() * 0.08,
         phase: Math.random() * Math.PI * 2,
-        wiggleFreq: 0.10 + Math.random() * 0.03,
+        wiggleFreq: 0.10 + Math.random() * 0.02,
         timer: Math.floor(Math.random() * 140) + 60
       });
     }
 
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    function updateFish(fish) {
+    function updateFish(fish, index, allFishes) {
       fish.phase += fish.wiggleFreq;
       fish.timer--;
       if (fish.timer <= 0) {
-        fish.targetAngle = fish.angle + (Math.random() - 0.5) * 1.6;
+        fish.targetAngle = fish.angle + (Math.random() - 0.5) * 1.5;
         fish.timer = Math.floor(Math.random() * 160) + 90;
       }
 
@@ -6565,14 +6497,47 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       while (diff > Math.PI) diff -= Math.PI * 2;
       fish.angle += diff * fish.turnSpeed;
 
+      // Gentle boids separation / repulsion: prevent koi from crossing or clumping
+      var repelX = 0;
+      var repelY = 0;
+      var minDist = isMobile ? 160 : 250;
+      if (allFishes && allFishes.length > 1) {
+        for (var j = 0; j < allFishes.length; j++) {
+          if (j === index) continue;
+          var other = allFishes[j];
+          var dx = fish.x - other.x;
+          var dy = fish.y - other.y;
+          var dist = Math.hypot(dx, dy);
+          if (dist > 0 && dist < minDist) {
+            var push = (minDist - dist) / minDist;
+            repelX += (dx / dist) * push;
+            repelY += (dy / dist) * push;
+          }
+        }
+        if (repelX !== 0 || repelY !== 0) {
+          var avoidAngle = Math.atan2(repelY, repelX);
+          var aDiff = avoidAngle - fish.angle;
+          while (aDiff < -Math.PI) aDiff += Math.PI * 2;
+          while (aDiff > Math.PI) aDiff -= Math.PI * 2;
+          fish.angle += aDiff * 0.035;
+        }
+      }
+
+      // Soft margin steering to stay gracefully within the visible hero pond
+      var edgePad = isMobile ? 40 : 80;
+      if (fish.x < edgePad) fish.angle += 0.025;
+      else if (fish.x > (width || 800) - edgePad) fish.angle += 0.025;
+      if (fish.y < edgePad) fish.angle += 0.025;
+      else if (fish.y > (height || 600) - edgePad) fish.angle += 0.025;
+
       fish.x += Math.cos(fish.angle) * fish.speed;
       fish.y += Math.sin(fish.angle) * fish.speed;
 
-      var margin = 180;
-      if (fish.x < -margin) fish.x = width + margin;
-      else if (fish.x > width + margin) fish.x = -margin;
-      if (fish.y < -margin) fish.y = height + margin;
-      else if (fish.y > height + margin) fish.y = -margin;
+      var margin = 160;
+      if (fish.x < -margin) fish.x = (width || 800) + margin;
+      else if (fish.x > (width || 800) + margin) fish.x = -margin;
+      if (fish.y < -margin) fish.y = (height || 600) + margin;
+      else if (fish.y > (height || 600) + margin) fish.y = -margin;
     }
 
     function drawFish(fish) {
@@ -6647,7 +6612,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       for (var i = 0; i < fishes.length; i++) {
         var f = fishes[i];
         if (!prefersReduced) {
-          updateFish(f);
+          updateFish(f, i, fishes);
         }
         drawFish(f);
       }
