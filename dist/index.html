@@ -2,6 +2,18 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(regs) {
+      for (var r of regs) r.unregister();
+    });
+  }
+  if ('caches' in window) {
+    caches.keys().then(function(names) {
+      for (var n of names) caches.delete(n);
+    });
+  }
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -534,6 +546,17 @@ p { margin: 0; }
   justify-content: space-between;
   gap: 20px;
 }
+.logo-brand-img {
+  height: 38px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 768px) {
+  .logo-brand-img { height: 32px; max-width: 120px; }
+}
+
 .logo {
   display: inline-flex;
   align-items: center;
@@ -1869,7 +1892,18 @@ footer {
   padding-bottom: 48px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
-footer .logo { color: #fff; }
+footer .logo-brand-img {
+  height: 38px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  display: block;
+}
+@media (max-width: 768px) {
+  .logo-brand-img { height: 32px; max-width: 120px; }
+}
+
+.logo { color: #fff; }
 footer .logo-word b { color: #fff; }
 footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 .f-top h5 {
@@ -2828,7 +2862,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <span>•</span>
       <button onclick="openSamplerModal()">
         <span>🧳</span>
-        <span>Чемодан 50 кг образцов</span>
+        <span>Каталог 3 000+ премиальных тканей</span>
       </button>
       <span>•</span>
       <a href="tel:+77710551515">+7 (771) 055-15-15</a>
@@ -2842,15 +2876,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <header class="header" id="header">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="MUAR A — на главную">
-      <svg viewBox="0 0 72 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M4 22C18 6 46 6 60 22 46 38 18 38 4 22Z"/>
-        <path d="M60 22C63.5 14.5 68 10.5 71.5 8.5"/>
-        <path d="M60 22C63.5 29.5 68 33.5 71.5 35.5"/>
-        <path d="M23 14.5C31 8.5 42 9.5 50 16.5"/>
-        <path d="M21 29.5C29 35.5 40 34.5 48 27.5"/>
-        <circle cx="16.5" cy="20.2" r="1.5" fill="currentColor" stroke="none"/>
-      </svg>
-      <span class="logo-word"><b><span class="muar-a">MUAR&nbsp;A</span></b><i>салон интерьерного текстиля · астана</i></span>
+      <img src="assets/muar/logo-muar-plum.png" alt="MUAR A" class="logo-brand-img" width="130" height="38">
+      <span class="logo-word"><i>салон интерьерного текстиля · астана</i></span>
     </a>
 
     <nav class="nav" aria-label="Основная навигация">
@@ -2913,7 +2940,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     <div class="doors">
       <a class="door" href="#flows" onclick="setMode('b2c')">
-        <img src="assets/muar/case-garden-dining.webp" alt="Частные резиденции MUAR A" loading="lazy" decoding="async">
+        <img src="assets/muar/bedroom-green-empire.webp" alt="Частные резиденции MUAR A" loading="lazy" decoding="async">
         <div class="door-top">
           <div>
             <h3>Частным клиентам</h3>
@@ -2923,7 +2950,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         </div>
       </a>
       <a class="door" href="#flows" onclick="setMode('b2b')">
-        <img src="assets/muar/commercial-canopy.webp" alt="Юридическим лицам MUAR A" loading="lazy" decoding="async">
+        <img src="assets/muar/b2b-canopy-night.webp" alt="Юридическим лицам MUAR A" loading="lazy" decoding="async">
         <div class="door-top">
           <div>
             <h3>Юридическим лицам</h3>
@@ -2939,7 +2966,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>12 лет на рынке Астаны</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>Собственный цех по ГОСТам РК</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v4H4zM4 14h16v4H4z"/></svg>2 этажа коллекций со всего мира</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Чемодан 50&nbsp;кг образцов на&nbsp;выезд</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg>Выезд декоратора с&nbsp;образцами в&nbsp;Астане</span>
     </div>
   </div>
 </section>
@@ -2971,7 +2998,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             <li>Пентхаусы, апартаменты и загородные виллы в Астане</li>
             <li>Бельгийский шенилл Wind, итальянский бархат Dedar, дикий шелк</li>
             <li>Складки «Волна» и «Французская тройная» с шагом ±1 мм</li>
-            <li>Бесплатный выезд дизайнера с чемоданом 50 кг образцов</li>
+            <li>Выезд декоратора с каталогами (7 000 ₸ в счет договора в Астане) или точный онлайн-подбор</li>
             <li>AI & 3D-примерка текстиля на стадии бетонных стен новостройки</li>
             <li>Монтажники в бахилах сверлят с пылесосом + вертикальное отпаривание</li>
           </ul>
@@ -2986,7 +3013,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <!-- Card B2B -->
       <article class="flow-card reveal" id="business">
         <div class="flow-media">
-          <img src="assets/muar/commercial-canopy.webp" alt="Контрактный проект MUAR A" loading="lazy" decoding="async" width="900" height="563">
+          <img src="assets/muar/b2b-canopy-hall-1.webp" alt="Контрактный проект MUAR A" loading="lazy" decoding="async" width="900" height="563">
           <span class="flow-tag g">Для бизнеса · B2B</span>
         </div>
         <div class="flow-body">
@@ -3252,7 +3279,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <div class="ba-detail-cta">
           <div class="ba-cta-text">
             <strong>Нужен расчет солнцезащиты или контрактного текстиля для коммерческого объекта?</strong>
-            <span>Выезжаем на замеры в Астане с чемоданом негорючих образцов Screen & Trevira CS. Расчет сметы с НДС 12% за 24 часа.</span>
+            <span>Выезжаем на замеры в Астане с каталогами негорючих образцов Screen & Trevira CS. Расчет сметы с НДС 12% за 24 часа.</span>
           </div>
           <div class="ba-cta-btns">
             <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20B2B%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BD%D0%B0%D0%B2%D0%B5%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Запросить B2B расчет в WhatsApp</a>
@@ -3291,7 +3318,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <div class="power-meta">
           <span>✓ 2 этажа коллекций</span>
           <span>✓ С 2014 года в Астане</span>
-          <span>✓ Выезд с чемоданом 50 кг образцов</span>
+          <span>✓ Выезд декоратора с каталогами тканей</span>
         </div>
       </article>
 
@@ -4008,16 +4035,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   <div class="wrap">
     <div class="f-top">
       <div>
-        <a href="#top" class="logo">
-          <svg viewBox="0 0 72 44" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M4 22C18 6 46 6 60 22 46 38 18 38 4 22Z"/>
-            <path d="M60 22C63.5 14.5 68 10.5 71.5 8.5"/>
-            <path d="M60 22C63.5 29.5 68 33.5 71.5 35.5"/>
-            <path d="M23 14.5C31 8.5 42 9.5 50 16.5"/>
-            <path d="M21 29.5C29 35.5 40 34.5 48 27.5"/>
-            <circle cx="16.5" cy="20.2" r="1.5" fill="currentColor" stroke="none"/>
-          </svg>
-          <span class="logo-word"><b><span class="muar-a">MUAR&nbsp;A</span></b><i>салон интерьерного текстиля · астана</i></span>
+        <a href="#top" class="logo" aria-label="MUAR A — на главную">
+          <img src="assets/muar/logo-muar-white.png" alt="MUAR A" class="logo-brand-img" width="130" height="38">
+          <span class="logo-word"><i style="color:rgba(255,255,255,0.6);">салон интерьерного текстиля · астана</i></span>
         </a>
         <p class="f-desc">
           Топ-50 мировых декораторов. 12 лет безупречного текстильного оформления резиденций и контрактных объектов в Астане. Собственный цех по ГОСТам РК, прямые поставки мануфактур Европы, 3D-моделирование и 10% кэшбэк дизайнерам.
@@ -4078,7 +4098,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </div>
 
 <!-- ============================================================ -->
-<!-- МОДАЛЬНОЕ ОКНО: ВЫЕЗД С ЧЕМОДАНОМ 50 КГ ОБРАЗЦОВ             -->
+<!-- МОДАЛЬНОЕ ОКНО: ОНЛАЙН-ПОДБОР И ВЫЕЗД ДЕКОРАТОРА             -->
 <!-- ============================================================ -->
 <div class="modal-backdrop" id="samplerModal">
   <div class="modal-card">
@@ -4141,7 +4161,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <span style="font-size:1.4rem;">🏡</span>
         <div class="txt">
           <b>Для частных резиденций</b>
-          <span>Шторы в дом, 50 кг образцов, замер и 3D-примерка</span>
+          <span>Шторы в дом, подбор текстиля, замер и смета</span>
         </div>
       </a>
       <a class="info" href="#" onclick="openWhatsAppForRole('designer')" style="padding:14px 16px; border-radius:14px; border-color:var(--line-gold);">
@@ -4519,7 +4539,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   window.requestMobileShowroom = function() {
     window.openSamplerModal();
     var sObj = document.getElementById('samplerObj');
-    if(sObj && !sObj.value) sObj.value = 'Корпоративный объект (B2B выезд с чемоданом образцов)';
+    if(sObj && !sObj.value) sObj.value = 'Корпоративный объект (B2B выезд декоратора с образцами)';
     var sStage = document.getElementById('samplerStage');
     if(sStage) sStage.value = 'rough';
   };
@@ -5356,7 +5376,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var phone = $('#samplerPhone').value.trim();
     var obj = $('#samplerObj').value.trim();
     var stage = $('#samplerStage').value;
-    var txt = 'Заявка на выезд с чемоданом 50 кг образцов (MUAR A):\n' +
+    var txt = 'Заявка на подбор текстиля и выезд декоратора (MUAR A):\n' +
               'Телефон: ' + phone + '\n' +
               'Объект: ' + obj + '\n' +
               'Стадия: ' + stage;
@@ -5387,7 +5407,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     } else if(role === 'b2b'){
       txt = 'Здравствуйте! Интересует корпоративное текстильное оформление с НДС 12% (Somfy Screen, огнестойкий Trevira CS КМ1, закрывающие акты КС-2/КС-3).';
     } else {
-      txt = 'Здравствуйте! Хочу заказать текстильное оформление для дома в MUAR A и пригласить декоратора с чемоданом 50 кг образцов.';
+      txt = 'Здравствуйте! Хочу заказать текстильное оформление для дома в MUAR A и пригласить декоратора с каталогами тканей.';
     }
     window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
     closeWhatsAppModal();
