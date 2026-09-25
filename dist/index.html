@@ -115,7 +115,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  /* HAUTE COUTURE LUXURY PALETTE (MUAR A 2026 · V1.7) */
+  /* HAUTE COUTURE LUXURY PALETTE (MUAR A 2026 · V1.8) */
   --ivory: #F8F5F8;              /* Cashmere Silk Alabaster with neutral mauve mist */
   --ivory-warm: #F2ECF3;         /* Muted Amethyst Silk Mist for alternating sections */
   --white: #FFFFFF;              /* Pure Milk Alabaster for crisp cards & surfaces */
@@ -128,11 +128,12 @@
   --petrol: #23122D;             /* Unified to Brand Velvet Plum */
   --petrol-light: #392247;
   --petrol-dark: #15091D;
-  --gold: #C5A069;               /* Venetian Champagne Gold (noble, matte, non-yellow) */
+  --gold: #C5A069;               /* Venetian Champagne Gold (noble, matte) */
+  --gold-dark: #967035;          /* Burnished Antique Bronze for high-contrast kickers & labels */
   --gold-soft: #DFCAAB;          /* Muted Champagne Silk */
   --gold-light: rgba(197, 160, 105, 0.12); /* Warm Gold Tint */
   --gold-hover: #D4B07B;         /* Bright Champagne Hover */
-  --muted: #7E6C87;              /* Smoky Mauve Slate */
+  --muted: #73617D;              /* Smoky Mauve Slate (deepened for optimal readability) */
   --line: rgba(35, 18, 45, 0.08); /* Delicate Plum Hairline */
   --line-gold: rgba(197, 160, 105, 0.28);
   --line-light: rgba(255, 255, 255, 0.16);
@@ -633,12 +634,12 @@ p { margin: 0; }
   font-size: 0.72rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-dark);
   font-weight: 700;
   margin-bottom: 18px;
 }
-.eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--gold); opacity: 0.7; }
-.eyebrow.c::after { content: ""; width: 32px; height: 1px; background: var(--gold); opacity: 0.7; }
+.eyebrow::before { content: ""; width: 32px; height: 1.5px; background: var(--gold-dark); opacity: 0.85; }
+.eyebrow.c::after { content: ""; width: 32px; height: 1.5px; background: var(--gold-dark); opacity: 0.85; }
 .lead { color: var(--muted); font-size: 1.02rem; max-width: 62ch; margin-top: 16px; line-height: 1.65; }
 .section-head { max-width: 760px; margin-bottom: clamp(20px, 2.8vw, 30px); }
 .section-head.center { margin-left: auto; margin-right: auto; }
@@ -671,11 +672,18 @@ p { margin: 0; }
   box-shadow: 0 20px 40px -18px rgba(31, 58, 61, 0.9);
 }
 .btn-gold {
-  background: var(--gold);
-  color: #fff;
-  box-shadow: 0 14px 30px -18px rgba(185, 138, 75, 0.95);
+  background: linear-gradient(135deg, #CFAC74 0%, #BA9255 100%);
+  color: #1A0D23;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 28px -10px rgba(185, 138, 75, 0.65);
 }
-.btn-gold:hover { background: #9E743A; transform: translateY(-3px); }
+.btn-gold:hover {
+  background: linear-gradient(135deg, #DCBB85 0%, #C79E60 100%);
+  color: #12071A;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 36px -12px rgba(185, 138, 75, 0.8);
+}
 .btn-ghost {
   background: transparent;
   border-color: rgba(28, 25, 23, 0.22);
@@ -1760,37 +1768,95 @@ p { margin: 0; }
 .col-5 { grid-column: span 5; }
 .col-4 { grid-column: span 4; }
 
-/* ACT: PROCESS */
-#process { background: var(--petrol); color: #fff; }
-#process .eyebrow { color: var(--gold-soft); }
-#process .eyebrow::before { background: var(--gold-soft); }
-#process .lead { color: rgba(255, 255, 255, 0.7); }
-#process h2 { color: #fff; }
+/* ACT: PROCESS (HAUTE COUTURE EDITORIAL 5-STEP PROTOCOL) */
+#process {
+  background: var(--ivory-warm);
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+#process .eyebrow {
+  color: var(--gold-dark);
+}
+#process .eyebrow::before, #process .eyebrow::after {
+  background: var(--gold-dark);
+}
+#process h2 {
+  color: var(--ink);
+}
+#process h2 .serif-accent {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+}
+#process .lead {
+  color: var(--muted);
+  max-width: 680px;
+  margin-top: 14px;
+}
 .steps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  gap: 16px;
+  margin-top: 40px;
 }
 .step {
   position: relative;
-  padding-top: 36px;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  transition: 0.5s;
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-s);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
 }
-.step:hover { border-color: var(--gold); }
-.step .sn { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--gold-soft); letter-spacing: 0.12em; }
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-m);
+  border-color: var(--line-gold);
+}
+.step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(35, 18, 45, 0.06);
+}
+.step .sn {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
 .step .dot {
-  position: absolute;
-  top: -5px;
-  left: 0;
+  position: static;
   width: 9px;
   height: 9px;
   border-radius: 50%;
   background: var(--gold);
-  box-shadow: 0 0 0 5px rgba(185, 138, 75, 0.2);
+  box-shadow: 0 0 0 4px rgba(197, 160, 105, 0.2);
+  flex-shrink: 0;
 }
-.step h3 { font-size: 1.3rem; margin: 14px 0 8px; color: #fff; }
-.step p { font-size: 0.88rem; color: rgba(255, 255, 255, 0.65); line-height: 1.5; }
+.step h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.step p {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0.9;
+}
 
 /* ACT: CALCULATOR + VOICE AI */
 #calculator { background: var(--white); }
@@ -2430,7 +2496,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .f2 { grid-template-columns: 1fr; }
   .hero { min-height: auto; padding: 90px 0 46px; }
   .mode-btn { min-width: 0; }
-  .steps { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; gap: 12px; }
+  .step { padding: 20px 18px; border-radius: 16px; }
   .gal { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .gal-cap { opacity: 1; transform: translateY(0); padding: 14px; background: linear-gradient(0deg, rgba(16, 30, 32, 0.94) 0%, rgba(16, 30, 32, 0.45) 75%, transparent 100%); }
   .gal-cap h4 { font-size: 1.05rem; }
@@ -3536,14 +3603,14 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <div class="ba-container" id="splitSliderBox">
         <!-- BEFORE Layer -->
         <div class="ba-layer ba-before">
-          <img src="assets/muar/b2b-office-before.webp" alt="До: Открытое панорамное остекление без защиты" id="baImgBefore" width="1376" height="768" loading="lazy" decoding="async">
-          <span class="ba-pill before-pill" id="baLblBefore">БЫЛО: Открытое остекление (+38°C, блики)</span>
+          <img src="assets/muar/before_real_aligned.webp" alt="До: Черновая отделка без штор (эхо, свет)" id="baImgBefore" width="1376" height="768" loading="lazy" decoding="async">
+          <span class="ba-pill before-pill" id="baLblBefore">БЫЛО: Черновая отделка без штор (эхо, свет)</span>
         </div>
 
         <!-- AFTER Layer -->
         <div class="ba-layer ba-after" id="splitAfterLayer">
-          <img src="assets/muar/b2b-office-after.webp" alt="После: Контрактная солнцезащита Screen 3% Somfy" id="baImgAfter" width="1376" height="768" loading="lazy" decoding="async">
-          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Контрактная система Screen 3% Somfy (КМ1)</span>
+          <img src="assets/muar/after_real_aligned.webp" alt="После: Кутюрные портьеры MUAR A · Волна 2.2x" id="baImgAfter" width="1376" height="768" loading="lazy" decoding="async">
+          <span class="ba-pill after-pill" id="baLblAfter">СТАЛО: Кутюрные портьеры MUAR A · Волна 2.2x</span>
         </div>
 
         <!-- Divider Handle -->
@@ -4102,7 +4169,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <!-- ============================================================ -->
 <!-- ACT 5: ПЯТЬ ШАГОВ ДО ГОТОВОГО ИНТЕРЬЕРА                     -->
 <!-- ============================================================ -->
-<section class="section" id="process" style="background: var(--ivory-warm);">
+<section class="section" id="process">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Прозрачный регламент</span>
@@ -4111,27 +4178,42 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
     <div class="steps">
       <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 01</span>
+        <div class="step-head">
+          <span class="sn">Шаг 01</span>
+          <span class="dot"></span>
+        </div>
         <h3>Заявка</h3>
         <p>WhatsApp, звонок или форма на сайте — менеджер связывается в течение 10 минут.</p>
       </div>
       <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 02</span>
+        <div class="step-head">
+          <span class="sn">Шаг 02</span>
+          <span class="dot"></span>
+        </div>
         <h3>Онлайн-подбор от топ-декораторов</h3>
         <p>Дистанционный подбор текстиля по фото и видео вашего интерьера по всему Казахстану (Шымкент, Караганда, Алматы). По Астане: выезд с образцами тканей — 7 000 ₸ (аванс, засчитывается в смету договора).</p>
       </div>
       <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 03</span>
+        <div class="step-head">
+          <span class="sn">Шаг 03</span>
+          <span class="dot"></span>
+        </div>
         <h3>3D-визуализация</h3>
         <p>Моделируем геометрию складок и поведение драпировки с учетом света вашей комнаты.</p>
       </div>
       <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 04</span>
+        <div class="step-head">
+          <span class="sn">Шаг 04</span>
+          <span class="dot"></span>
+        </div>
         <h3>Цифровое КП</h3>
         <p>Персональная онлайн-смета с детализацией полотен, фурнитуры и сроков сдачи.</p>
       </div>
       <div class="step reveal">
-        <span class="dot"></span><span class="sn">Шаг 05</span>
+        <div class="step-head">
+          <span class="sn">Шаг 05</span>
+          <span class="dot"></span>
+        </div>
         <h3>Цех & Навес</h3>
         <p>Пошив в собственном цехе в Астане по ГОСТам РК, чистый монтаж с пылесосом, отпаривание и гарантия 3 года.</p>
       </div>
