@@ -144,21 +144,21 @@
   --maxw: 1260px;
 }
 
-/* COMPACT LUXURY FABRIC SELECTOR CARDS */
+/* COMPACT LUXURY FABRIC SELECTOR CARDS (3-COLUMN SINGLE ROW) */
 .fabric-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-@media (max-width: 540px) {
+@media (max-width: 680px) {
   .fabric-grid { grid-template-columns: 1fr; gap: 8px; }
 }
 .fabric-card {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 64px;
-  padding: 8px 12px;
+  gap: 9px;
+  min-height: 58px;
+  padding: 8px 10px;
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -181,8 +181,8 @@
   box-shadow: 0 0 0 1.5px var(--gold), 0 6px 16px rgba(200, 169, 126, 0.16);
 }
 .fabric-thumb {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
   object-fit: cover;
   flex: none;
@@ -194,10 +194,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 2px;
+  gap: 1.5px;
 }
 .fabric-name {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.2;
@@ -207,7 +207,7 @@
   letter-spacing: -0.01em;
 }
 .fabric-meta {
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: var(--gold);
   line-height: 1.2;
@@ -219,7 +219,7 @@
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  font-size: 0.69rem;
+  font-size: 0.67rem;
   font-weight: 600;
   color: var(--muted);
   line-height: 1.1;
@@ -236,23 +236,117 @@
   color: var(--petrol);
   transform: translateX(1px);
 }
+.fabric-catalog-link {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--gold-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.fabric-catalog-link:hover {
+  color: var(--ink);
+  text-decoration: underline;
+}
 .fabric-check {
   display: none;
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 16px;
-  height: 16px;
+  top: 6px;
+  right: 6px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: var(--gold);
   color: #fff;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 800;
   align-items: center;
   justify-content: center;
   flex: none;
 }
 .fabric-card.active .fabric-check { display: flex; }
+
+/* COMPACT PRODUCT CHIPS (1-ROW 3-OPTIONS) */
+.chips.calc-product-chips {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+.chips.calc-product-chips .chip {
+  text-align: center !important;
+  justify-content: center !important;
+  padding: 10px 6px !important;
+  white-space: nowrap !important;
+  font-size: 0.84rem !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 480px) {
+  .chips.calc-product-chips .chip {
+    font-size: 0.74rem !important;
+    padding: 9px 4px !important;
+    letter-spacing: -0.02em !important;
+  }
+}
+
+/* COMPACT ADDONS (2 COLUMNS SIDE-BY-SIDE) */
+.addon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+@media (max-width: 540px) {
+  .addon-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+.addon-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+  user-select: none;
+}
+.addon-card:hover {
+  border-color: var(--gold);
+}
+.addon-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--petrol);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.addon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.addon-title {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.addon-price {
+  font-size: 0.73rem;
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
 
 /* B2B 3 DIRECTIONS GRID */
 .b2b-trio-grid {
@@ -3847,7 +3941,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <span class="eyebrow c">Экспресс-калькулятор</span>
       <h2>Предварительный расчет <span class="serif-accent">за 60 секунд</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Выберите изделие, ткань из 6 универсальных коллекций и укажите ширину — коэффициент драпировки 1:2 и расход ткани рассчитываются автоматически.
+        Выберите изделие, ткань и ширину карниза — драпировка 1:2 и точный расход рассчитываются автоматически.
       </p>
     </div>
 
@@ -3855,30 +3949,33 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <div class="calc-body">
         <div class="calc-fields">
           
-          <!-- 1. Product Selection (3 Tops) -->
+          <!-- 1. Product Selection (3 Options in 1 Line) -->
           <div>
             <span class="f-label">1. Изделие</span>
-            <div class="chips" data-group="product">
-              <button type="button" class="chip active" data-v="curtain" onclick="setProduct('curtain', this)">Портьеры в пол + тюль</button>
-              <button type="button" class="chip" data-v="roman" onclick="setProduct('roman', this)">Римская штора (без складок)</button>
-              <button type="button" class="chip" data-v="bedspread" onclick="setProduct('bedspread', this)">Покрывало & текстиль</button>
+            <div class="chips calc-product-chips" data-group="product">
+              <button type="button" class="chip active" data-v="curtain" onclick="setProduct('curtain', this)">Портьеры в пол</button>
+              <button type="button" class="chip" data-v="roman" onclick="setProduct('roman', this)">Римские шторы</button>
+              <button type="button" class="chip" data-v="bedspread" onclick="setProduct('bedspread', this)">Покрывала</button>
             </div>
           </div>
 
-          <!-- 2. Universal Fabrics (6 Collections with Macro Photos) -->
+          <!-- 2. Universal Fabrics (3 Key Fabrics in 1 Line) -->
           <div>
-            <span class="f-label">2. Коллекция ткани (6 универсальных фактур)</span>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
+              <span class="f-label" style="margin-bottom: 0;">2. Ткань (3 ключевые фактуры)</span>
+              <a href="javascript:void(0)" onclick="openFabricModal('satin', event)" class="fabric-catalog-link" title="Посмотреть все ткани в интерьере">Все 6 коллекций ↗</a>
+            </div>
             <div class="fabric-grid" id="fabricGrid">
               
               <!-- 1. Satin -->
               <button type="button" class="fabric-card active" data-v="satin" onclick="setFabric('satin')">
-                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
                 <div class="fabric-details">
-                  <div class="fabric-name">Матовый сатин Soft-Touch</div>
+                  <div class="fabric-name">Матовый сатин</div>
                   <div class="fabric-meta">18&nbsp;000&nbsp;₸/м &middot; Турция</div>
                   <span class="fabric-example-link" onclick="openFabricModal('satin', event)" title="Посмотреть фото в интерьере">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры на окнах ↗
+                    Примеры ↗
                   </span>
                 </div>
                 <span class="fabric-check" aria-hidden="true">✓</span>
@@ -3886,13 +3983,13 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
               <!-- 2. Linen -->
               <button type="button" class="fabric-card" data-v="linen" onclick="setFabric('linen')">
-                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
                 <div class="fabric-details">
-                  <div class="fabric-name">Фактурный лён &amp; Рогожка</div>
+                  <div class="fabric-name">Фактурный лён</div>
                   <div class="fabric-meta">24&nbsp;000&nbsp;₸/м &middot; Турция</div>
                   <span class="fabric-example-link" onclick="openFabricModal('linen', event)" title="Посмотреть фото в интерьере">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры на окнах ↗
+                    Примеры ↗
                   </span>
                 </div>
                 <span class="fabric-check" aria-hidden="true">✓</span>
@@ -3900,55 +3997,13 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
               <!-- 3. Dimout -->
               <button type="button" class="fabric-card" data-v="dimout" onclick="setFabric('dimout')">
-                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
                 <div class="fabric-details">
-                  <div class="fabric-name">Шелковистый Dimout / Blackout</div>
+                  <div class="fabric-name">Dimout / Блэкаут</div>
                   <div class="fabric-meta">32&nbsp;000&nbsp;₸/м &middot; Европа</div>
                   <span class="fabric-example-link" onclick="openFabricModal('dimout', event)" title="Посмотреть фото в интерьере">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры на окнах ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 4. Velvet -->
-              <button type="button" class="fabric-card" data-v="velvet" onclick="setFabric('velvet')">
-                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Премиальный бархат Velvet</div>
-                  <div class="fabric-meta">38&nbsp;000&nbsp;₸/м &middot; Италия</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('velvet', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры на окнах ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 5. Jacquard -->
-              <button type="button" class="fabric-card" data-v="jacquard" onclick="setFabric('jacquard')">
-                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Кутюрный жаккард с кантом</div>
-                  <div class="fabric-meta">48&nbsp;000&nbsp;₸/м &middot; Бельгия</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('jacquard', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры на окнах ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 6. Royal Luxe -->
-              <button type="button" class="fabric-card" data-v="royal" onclick="setFabric('royal')">
-                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="44" height="44" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Королевский бархат Royal</div>
-                  <div class="fabric-meta">58&nbsp;000&nbsp;₸/м &middot; Италия</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('royal', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры на окнах ↗
+                    Примеры ↗
                   </span>
                 </div>
                 <span class="fabric-check" aria-hidden="true">✓</span>
@@ -3959,33 +4014,39 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
           <!-- 3. Dimensions Input (Width Only, 1 Window) -->
           <div id="widthGroup">
-            <span class="f-label">3. Габариты окна</span>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+              <span class="f-label" style="margin-bottom: 0;">3. Габариты окна</span>
+              <span style="font-size: 0.74rem; color: var(--gold-dark); font-weight: 700;">Складка 1:2 на автомате</span>
+            </div>
             <div class="inputs" style="grid-template-columns: 1fr;">
               <div class="inp">
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:4px;">
-                  <label for="b2c-w">Ширина оконного карниза / проема</label>
-                  <span style="font-size:0.75rem; color:var(--gold); font-weight:700;">Коэффициент 1:2 закладывается на автомате</span>
-                </div>
                 <div class="unit">
                   <input id="b2c-w" type="number" min="0.8" max="15" step="0.1" value="3.2" oninput="recalc(false)">
                   <span class="suf">м</span>
                 </div>
-                <span style="font-size:0.75rem; color:var(--muted); margin-top:4px;">Расчёт дается на 1 окно без перегрузки параметрами. При ширине 3.2 м система закладывает 6.4 м ткани.</span>
               </div>
             </div>
           </div>
 
-          <!-- 4. Optional Addons for Curtains -->
-          <div id="curtainOptions" style="display: flex; flex-direction: column; gap: 10px;">
-            <span class="f-label">4. Дополнительные опции</span>
-            <label class="toggle-row" style="cursor: pointer;">
-              <input type="checkbox" id="checkTulle" checked style="width: 20px; height: 20px; accent-color: var(--plum);" onchange="recalc(false)">
-              <p><b>Французская вуаль в пол (тюль 1:2)</b>Легкая струящаяся вуаль для мягкого рассеивания дневного света.</p>
-            </label>
-            <label class="toggle-row" style="cursor: pointer;">
-              <input type="checkbox" id="checkSomfy" style="width: 20px; height: 20px; accent-color: var(--plum);" onchange="recalc(false)">
-              <p><b>Бесшумный электрокарниз Somfy Glydea Ultra (Франция)</b>Интеграция с Алисой, Apple HomeKit и Умным Домом.</p>
-            </label>
+          <!-- 4. Optional Addons for Curtains (Compact 2 Columns) -->
+          <div id="curtainOptions" style="display: flex; flex-direction: column; gap: 8px;">
+            <span class="f-label" style="margin-bottom: 2px;">4. Дополнительные опции</span>
+            <div class="addon-grid">
+              <label class="addon-card">
+                <input type="checkbox" id="checkTulle" checked onchange="recalc(false)">
+                <div class="addon-info">
+                  <span class="addon-title">Французская вуаль</span>
+                  <span class="addon-price">+9&nbsp;500&nbsp;₸/м · тюль 1:2</span>
+                </div>
+              </label>
+              <label class="addon-card">
+                <input type="checkbox" id="checkSomfy" onchange="recalc(false)">
+                <div class="addon-info">
+                  <span class="addon-title">Электрокарниз Somfy</span>
+                  <span class="addon-price">+85&nbsp;000&nbsp;₸ · Франция</span>
+                </div>
+              </label>
+            </div>
           </div>
 
         </div>
