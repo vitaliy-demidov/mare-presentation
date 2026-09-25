@@ -26,7 +26,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
 <title>MUAR A — Салон интерьерного текстиля и солнцезащитных систем · Астана</title>
-<meta name="description" content="MUAR A — салон интерьерного текстиля в Астане с 2014 года. 2 этажа коллекций со всего мира, собственное швейное производство без надомниц, пошив по ГОСТам РК. Топ-50 декораторов СНГ (Golden O). Моторизованные карнизы Somfy/Dooya до 8м, B2B контрактный отдел с НДС 12%.">
+<meta name="description" content="MUAR A — салон интерьерного текстиля в Астане с 2014 года. 2 этажа коллекций со всего мира, собственное швейное производство без надомниц, пошив по ГОСТам РК. Топ-30 декораторов СНГ (Golden O). Моторизованные карнизы Somfy/Dooya до 8м, B2B контрактный отдел с НДС 12%.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -763,15 +763,7 @@ p { margin: 0; }
   inset: 0;
   background: linear-gradient(180deg, rgba(22, 11, 28, 0.78) 0%, rgba(35, 18, 43, 0.45) 40%, rgba(22, 11, 28, 0.82) 75%, rgba(22, 11, 28, 0.98) 100%);
 }
-#silkBackgroundCanvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.85;
-}
+#silkBackgroundCanvas { display: none !important; }
 .hero-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 .hero h1 { max-width: 17ch; text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4); }
 .hero-sub {
@@ -2852,7 +2844,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   <div class="wrap">
     <div class="top-bar-left">
       <span class="pulse-dot"></span>
-      <span>Собственное производство в Астане по ГОСТам · 2 этажа коллекций со всего мира · Топ-50 декораторов СНГ</span>
+      <span>Собственное производство в Астане по ГОСТам · 2 этажа коллекций со всего мира · Топ-30 декораторов СНГ</span>
     </div>
     <div class="top-bar-links">
       <button onclick="openKPModal()">
@@ -2923,8 +2915,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <!-- HERO С ШЕЛКОВЫМ CANVAS И ВХОДНЫМИ ДВЕРЯМИ                    -->
 <!-- ============================================================ -->
 <section class="hero" id="top">
-  <canvas id="silkBackgroundCanvas"></canvas>
-  <div class="hero-bg">
+    <div class="hero-bg">
     <video class="hero-video" autoplay muted loop playsinline poster="assets/muar/hero-interior.webp">
       <source src="assets/muar/villa-lift-system.mp4" type="video/mp4">
     </video>
@@ -2935,7 +2926,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <span class="eyebrow" style="color:var(--gold-soft)">Ателье интерьерного текстиля · Астана · Доставка по Казахстану</span>
     <h1>Шторы и&nbsp;текстиль, которые делают интерьер завершённым</h1>
     <p class="hero-sub">
-      <b>Входим в Топ-50 декораторов СНГ (премия Golden O 2025, 2026).</b> 12 лет в Астане, 2 этажа коллекций со всего мира, собственное швейное производство по ГОСТам РК без надомниц. Онлайн-подбор и доставка по всему Казахстану (Шымкент, Караганда, Алматы).
+      <b>Входим в Топ-30 декораторов СНГ (премия Golden O 2025, 2026).</b> 12 лет в Астане, 2 этажа коллекций со всего мира, собственное швейное производство по ГОСТам РК без надомниц. Онлайн-подбор и доставка по всему Казахстану (Шымкент, Караганда, Алматы).
     </p>
 
     <div class="doors">
@@ -2962,7 +2953,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
 
     <div class="trust">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.6L21 9.4l-4.5 4.3 1.1 6.3L12 17l-5.6 3 1.1-6.3L3 9.4l6.4-.8L12 3Z"/></svg>Топ-50 декораторов СНГ (Golden O)</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l2.6 5.6L21 9.4l-4.5 4.3 1.1 6.3L12 17l-5.6 3 1.1-6.3L3 9.4l6.4-.8L12 3Z"/></svg>Топ-30 декораторов СНГ (Golden O)</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>12 лет на рынке Астаны</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>Собственный цех по ГОСТам РК</span>
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16v4H4zM4 14h16v4H4z"/></svg>2 этажа коллекций со всего мира</span>
@@ -3305,7 +3296,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
 
     <div class="powers-grid">
-      <!-- Power 1: Top 50 -->
+      <!-- Power 1: Top 30 -->
       <article class="power-card col-7 reveal">
         <span class="p-num">01</span>
         <div>
@@ -3315,27 +3306,20 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             Крупнейший выбор интерьерных тканей в Астане по адресу ул. Керей, Жәнибек хандар, 50/1. Натуральный лён, шелк, жаккарды, блэкаут и тюль. Все фактуры доступны для тактильной примерки вживую.
           </p>
         </div>
-        <div class="power-meta">
-          <span>✓ 2 этажа коллекций</span>
-          <span>✓ С 2014 года в Астане</span>
-          <span>✓ Выезд декоратора с каталогами тканей</span>
-        </div>
+
       </article>
 
-      <!-- Power 2: Top 50 CIS & Golden O -->
+      <!-- Power 2: Top 30 CIS & Golden O -->
       <article class="power-card col-5 dark reveal">
         <span class="p-num">02</span>
         <div>
           <span class="p-badge">Признание индустрии</span>
-          <h3>Топ-50 декораторов СНГ и дважды лучшие в Казахстане</h3>
+          <h3>Топ-30 декораторов СНГ и дважды лучшие в Казахстане</h3>
           <p>
-            Наши ведущие декораторы входят в Top-50 рейтинга СНГ и дважды признаны лучшими в Казахстане (премия Golden O 2025 и 2026, Национальный Союз Дизайнеров Казахстана).
+            Наши ведущие декораторы входят в Top-30 рейтинга СНГ и дважды признаны лучшими в Казахстане (премия Golden O 2025 и 2026, Национальный Союз Дизайнеров Казахстана).
           </p>
         </div>
-        <div class="power-meta">
-          <span>✓ Премия Golden O 2025, 2026</span>
-          <span>✓ Союз Дизайнеров РК</span>
-        </div>
+
       </article>
 
       <!-- Power 3: Forbes & First Persons -->
@@ -3348,10 +3332,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             Изготавливаем премиальный текстиль для первых лиц Казахстана и людей из списка Forbes. Полная гарантия конфиденциальности объекта, защита авторского надзора.
           </p>
         </div>
-        <div class="power-meta">
-          <span>✓ Гарантия конфиденциальности</span>
-          <span>✓ Объекты первых лиц</span>
-        </div>
+
       </article>
 
       <!-- Power 4: In-House Production -->
@@ -3364,10 +3345,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             Полный контроль качества без надомниц и сторонних подрядчиков. Штатная команда мастеров ателье (Жанар, Марал, Анара) обеспечивает безупречные потайные швы и точную геометрию.
           </p>
         </div>
-        <div class="power-meta">
-          <span>✓ Мастера: Жанар, Марал, Анара</span>
-          <span>✓ Пошив без надомниц</span>
-        </div>
+
       </article>
 
       <!-- Power 5: Art Unity -->
@@ -3380,10 +3358,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             Создаем целостный стиль: объединяем текстильный дизайн с предметами искусства от ведущих художников Казахстана (проект muarart.kz). Живопись, скульптура и ткани в единой гармонии.
           </p>
         </div>
-        <div class="power-meta">
-          <span>✓ Коллаборации muarart.kz</span>
-          <span>✓ Целостный стиль интерьера</span>
-        </div>
+
       </article>
 
       <!-- Power 6: Sewing School -->
@@ -3396,10 +3371,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             Много лет ведем собственную школу профессионального текстильного пошива в Астане, где передаем опыт и обучаем мастеров и технологов из других студий нашему эталонному уровню качества.
           </p>
         </div>
-        <div class="power-meta">
-          <span>✓ Школа пошива <span class="muar-a">MUAR&nbsp;A</span></span>
-          <span>✓ Обучение мастеров со всего Казахстана</span>
-        </div>
+
       </article>
 
       <!-- Power 7: GOST Standards -->
@@ -3412,9 +3384,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             Шьем строго по государственным стандартам и маркируем каждое изделие. Команда <span class="muar-a">MUAR&nbsp;A</span> лично принимала участие в разработке стандартов текстильной отрасли Республики Казахстан.
           </p>
         </div>
-        <div class="power-meta" style="justify-content: space-between; align-items: center;">
-          <span style="font-weight: 700; color: var(--gold);">✓ Официальные стандарты текстильной отрасли РК</span>
-          <button onclick="openWhatsAppForRole('designer')" style="color: var(--ink); text-decoration: underline; font-weight: 700;">Сотрудничать &rarr;</button>
+        <div style="margin-top: 14px;">
+          <button type="button" onclick="openWhatsAppForRole('designer')" class="btn btn-gold btn-sm">Сотрудничать &rarr;</button>
         </div>
       </article>
     </div>
@@ -4040,7 +4011,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <span class="logo-word"><i style="color:rgba(255,255,255,0.6);">салон интерьерного текстиля · астана</i></span>
         </a>
         <p class="f-desc">
-          Топ-50 мировых декораторов. 12 лет безупречного текстильного оформления резиденций и контрактных объектов в Астане. Собственный цех по ГОСТам РК, прямые поставки мануфактур Европы, 3D-моделирование и 10% кэшбэк дизайнерам.
+          Топ-30 мировых декораторов. 12 лет безупречного текстильного оформления резиденций и контрактных объектов в Астане. Собственный цех по ГОСТам РК, прямые поставки мануфактур Европы, 3D-моделирование и 10% кэшбэк дизайнерам.
         </p>
         <div class="f-social">
           <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></a>
@@ -4628,6 +4599,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   /* PROCEDURAL SILK & KOI CANVAS (LIGHTWEIGHT BACKGROUND)         */
   /* ------------------------------------------------------------- */
   (function initSilkCanvas(){
+    return; // Canvas stripes removed as requested
     var canvas = document.getElementById('silkBackgroundCanvas');
     if(!canvas) return;
     var ctx = canvas.getContext('2d');
