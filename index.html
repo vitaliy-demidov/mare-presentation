@@ -390,7 +390,7 @@ p { margin: 0; }
 .muar-a, .brand-nowrap { white-space: nowrap !important; display: inline; }
 
 .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-.section { padding: clamp(72px, 9vw, 130px) 0; position: relative; }
+.section { padding: clamp(38px, 4.5vw, 64px) 0; position: relative; }
 .center { text-align: center; }
 .eyebrow {
   display: inline-flex;
@@ -406,7 +406,7 @@ p { margin: 0; }
 .eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--gold); opacity: 0.7; }
 .eyebrow.c::after { content: ""; width: 32px; height: 1px; background: var(--gold); opacity: 0.7; }
 .lead { color: var(--muted); font-size: 1.02rem; max-width: 62ch; margin-top: 16px; line-height: 1.65; }
-.section-head { max-width: 760px; margin-bottom: clamp(38px, 5vw, 64px); }
+.section-head { max-width: 760px; margin-bottom: clamp(20px, 2.8vw, 30px); }
 .section-head.center { margin-left: auto; margin-right: auto; }
 .serif-accent { font-style: italic; color: var(--gold); font-weight: 400; }
 
@@ -555,6 +555,138 @@ p { margin: 0; }
 }
 @media (max-width: 768px) {
   .logo-brand-img { height: 32px; max-width: 120px; }
+}
+
+
+/* BRAND LOGO LOCKUP MATCHING BRAND IDENTITY */
+.logo-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+.logo-since {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* AUTHENTIC JAPANESE KOI CANVAS IN HERO */
+#heroKoiCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* FABRIC CARDS ACTION LINK & MODAL */
+.fabric-example-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-top: 4px;
+  padding: 2px 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color 0.25s, transform 0.25s;
+}
+.fabric-example-link:hover {
+  color: var(--petrol);
+  transform: translateX(2px);
+}
+.modal-card.modal-card-lg {
+  max-width: 900px !important;
+  width: 94% !important;
+  padding: 32px;
+}
+.fabric-modal-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .fabric-modal-grid { grid-template-columns: 1fr; gap: 16px; }
+  .modal-card.modal-card-lg { padding: 22px 18px; max-height: 90vh; overflow-y: auto; }
+}
+.fm-room-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+  .fm-room-img { height: 240px; }
+}
+.fm-badge {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-top: 8px;
+  font-weight: 600;
+}
+.fm-thumb-img {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  flex: none;
+}
+.fm-meta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+}
+.fm-title {
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin: 2px 0 0;
+  font-weight: 700;
+}
+.fm-desc {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  margin: 12px 0;
+}
+.fm-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px;
+  display: grid;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.fm-features li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.fm-features li::before {
+  content: •;
+  color: var(--gold);
+  font-weight: 700;
+}
+.fm-actions {
+  display: grid;
+  gap: 10px;
 }
 
 .logo {
@@ -728,10 +860,10 @@ p { margin: 0; }
 /* HERO SECTION */
 .hero {
   position: relative;
-  min-height: calc(100vh - 120px);
+  min-height: 80vh;
   display: flex;
   align-items: flex-end;
-  padding: 120px 0 64px;
+  padding: clamp(48px, 5vw, 72px) 0 28px;
   color: #fff;
   overflow: hidden;
 }
@@ -2082,10 +2214,12 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 /* SECTION MOTION & CINEMATICS                                 */
 /* ============================================================ */
 .section-motion {
-  background: linear-gradient(180deg, var(--ivory) 0%, #152527 18%, #101E20 85%, var(--ivory) 100%);
+  background: #180D1D;
   color: #fff;
   position: relative;
   overflow: hidden;
+  padding-top: 36px;
+  padding-bottom: 40px;
 }
 .section-motion .eyebrow { color: var(--gold-soft); }
 .section-motion h2 { color: #fff; }
@@ -2868,8 +3002,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <header class="header" id="header">
   <div class="wrap">
     <a href="#top" class="logo" aria-label="MUAR A — на главную">
-      <img src="assets/muar/logo-muar-plum.png" alt="MUAR A" class="logo-brand-img" width="130" height="38">
-      <span class="logo-word"><i>салон интерьерного текстиля · астана</i></span>
+      <div class="logo-lockup">
+        <img src="assets/muar/logo-muar-plum.png" alt="MUAR A" class="logo-brand-img" width="125" height="36">
+        <span class="logo-since">SINCE 2014 · АСТАНА</span>
+      </div>
     </a>
 
     <nav class="nav" aria-label="Основная навигация">
@@ -2922,6 +3058,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <img src="assets/muar/hero-interior.webp"
          alt="Интерьер со шторами MUAR A в Астане" width="1920" height="1280" fetchpriority="high" decoding="async">
   </div>
+  <canvas id="heroKoiCanvas"></canvas>
   <div class="hero-inner">
     <span class="eyebrow" style="color:var(--gold-soft)">Ателье интерьерного текстиля · Астана · Доставка по Казахстану</span>
     <h1>Шторы и&nbsp;текстиль, которые делают интерьер завершённым</h1>
@@ -3610,6 +3747,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                   <div class="fabric-name">Матовый сатин Soft-Touch</div>
                   <div class="fabric-meta">Турция · 18 000 ₸/м</div>
                   <div class="fabric-desc">Гладкая шелковистая фактура, благородный матовый отлив</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('satin', event)">Примеры на окнах ↗</span>
                 </div>
                 <span class="fabric-check">✓</span>
               </button>
@@ -3620,6 +3758,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                   <div class="fabric-name">Фактурный лён & Рогожка</div>
                   <div class="fabric-meta">Турция · 24 000 ₸/м</div>
                   <div class="fabric-desc">Натуральная текстура, благородное рельефное плетение</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('linen', event)">Примеры на окнах ↗</span>
                 </div>
                 <span class="fabric-check">✓</span>
               </button>
@@ -3630,6 +3769,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                   <div class="fabric-name">Шелковистый Dimout / Blackout</div>
                   <div class="fabric-meta">Европа · 32 000 ₸/м</div>
                   <div class="fabric-desc">100% затемнение, термозащита и звукопоглощение</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('dimout', event)">Примеры на окнах ↗</span>
                 </div>
                 <span class="fabric-check">✓</span>
               </button>
@@ -3640,6 +3780,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                   <div class="fabric-name">Премиальный бархат Velvet Touch</div>
                   <div class="fabric-meta">Италия · 38 000 ₸/м</div>
                   <div class="fabric-desc">Глубокий густой ворс, кутюрная пластичная драпировка</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('velvet', event)">Примеры на окнах ↗</span>
                 </div>
                 <span class="fabric-check">✓</span>
               </button>
@@ -3650,6 +3791,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                   <div class="fabric-name">Кутюрный жаккард с кантом</div>
                   <div class="fabric-meta">Бельгия · 48 000 ₸/м</div>
                   <div class="fabric-desc">Сложный жаккардовый орнамент, высокая плотность</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('jacquard', event)">Примеры на окнах ↗</span>
                 </div>
                 <span class="fabric-check">✓</span>
               </button>
@@ -3660,6 +3802,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                   <div class="fabric-name">Королевский бархат Royal Luxe</div>
                   <div class="fabric-meta">Италия · 58 000 ₸/м</div>
                   <div class="fabric-desc">Шелковый бархат высшей пробы уровня резиденций Forbes</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('royal', event)">Примеры на окнах ↗</span>
                 </div>
                 <span class="fabric-check">✓</span>
               </button>
@@ -4007,8 +4150,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <div class="f-top">
       <div>
         <a href="#top" class="logo" aria-label="MUAR A — на главную">
-          <img src="assets/muar/logo-muar-white.png" alt="MUAR A" class="logo-brand-img" width="130" height="38">
-          <span class="logo-word"><i style="color:rgba(255,255,255,0.6);">салон интерьерного текстиля · астана</i></span>
+          <div class="logo-lockup">
+            <img src="assets/muar/logo-muar-white.png" alt="MUAR A" class="logo-brand-img" width="125" height="36">
+            <span class="logo-since" style="color:rgba(255,255,255,0.55);">SINCE 2014 · АСТАНА</span>
+          </div>
         </a>
         <p class="f-desc">
           Топ-30 мировых декораторов. 12 лет безупречного текстильного оформления резиденций и контрактных объектов в Астане. Собственный цех по ГОСТам РК, прямые поставки мануфактур Европы, 3D-моделирование и 10% кэшбэк дизайнерам.
@@ -4066,6 +4211,41 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   <a class="float-wa" href="javascript:void(0)" onclick="openWhatsAppModal()" aria-label="Связаться в WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
   </a>
+</div>
+
+<!-- ============================================================ -->
+<!-- МОДАЛЬНОЕ ОКНО: ПРИМЕРЫ ТКАНИ В ИНТЕРЬЕРАХ (6 ФАКТУР)        -->
+<!-- ============================================================ -->
+<div class="modal-backdrop" id="fabricModal" onclick="if(event.target===this)closeFabricModal()" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="fmTitle">
+  <div class="modal-card modal-card-lg">
+    <button class="modal-close" onclick="closeFabricModal()" aria-label="Закрыть окно">&times;</button>
+    <div class="fabric-modal-grid">
+      <div>
+        <img id="fmRoomImg" src="" alt="Шторы в интерьере" class="fm-room-img" loading="eager">
+        <span id="fmBadge" class="fm-badge"></span>
+      </div>
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+          <img id="fmThumbImg" src="" alt="Фактура ткани" class="fm-thumb-img">
+          <div>
+            <span id="fmMeta" class="fm-meta"></span>
+            <h3 id="fmTitle" class="fm-title"></h3>
+          </div>
+        </div>
+        <p id="fmDesc" class="fm-desc"></p>
+        <ul id="fmFeatures" class="fm-features"></ul>
+        <div class="fm-actions">
+          <button type="button" class="btn btn-petrol btn-block" id="fmSelectBtn" onclick="selectFabricFromModal()">
+            Выбрать эту ткань для расчёта
+          </button>
+          <button type="button" class="btn btn-wa btn-block" id="fmWaBtn" onclick="sendFabricToWhatsApp()">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Z"/><path d="M8.5 9c1 2.5 3 4.5 5.5 5.5"/></svg>
+            Запросить живой веер ткани в WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ============================================================ -->
@@ -4961,6 +5141,165 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   }
   window.setFabric = setFabric;
 
+  /* ============================================================ */
+  /* FABRIC EXAMPLES MODAL DATA & CONTROLLER                      */
+  /* ============================================================ */
+  var FABRIC_EXAMPLES = {
+    satin: {
+      name: 'Матовый сатин Soft-Touch',
+      meta: 'Турция · 18 000 ₸/м',
+      desc: 'Премиальный турецкий матовый сатин с эффектом soft-touch. Идеальная шелковистая драпировка без зеркального синтетического блеска. Прекрасно держит складку «Волна» в просторных гостиных и спальнях.',
+      roomImg: 'assets/muar/case-seken-curtains.webp',
+      roomBadge: 'Реализованный объект: ЖК Seken, Астана · Портьеры из сатина Soft-Touch в пол',
+      thumbImg: 'assets/muar/fabric-satin.webp',
+      features: [
+        'Плотность: 290 г/м², ширина рулона 300 см',
+        'Европейский UV-фильтр: 0% выгорания на солнце',
+        'Идеальная складка «Волна» с равномерным шагом 16 см',
+        'Вшитый фабричный утяжелитель по ГОСТу РК'
+      ]
+    },
+    linen: {
+      name: 'Фактурный лён & Рогожка',
+      meta: 'Турция · 24 000 ₸/м',
+      desc: 'Экологичный интерьерный текстиль со сложным узелковым переплетением нитей. Сохраняет живое природное очарование льна, но благодаря 30% премиум-полиэфира не мнется и сохраняет стабильный размер после деликатной стирки.',
+      roomImg: 'assets/muar/case-garden-dining.webp',
+      roomBadge: 'Реализованный объект: ЖК Garden, Астана · Фактурный лен в обеденной зоне',
+      thumbImg: 'assets/muar/fabric-linen.webp',
+      features: [
+        'Плотность: 340 г/м², выразительный тактильный рельеф',
+        'Дышащая структура: мягко рассеивает полуденные лучи',
+        'Предварительная декатировка паром: нулевая усадка',
+        'Идеально подходит для стилей сканди, джапанди и экоминимализма'
+      ]
+    },
+    dimout: {
+      name: 'Шелковистый Dimout / Blackout',
+      meta: 'Европа · 32 000 ₸/м',
+      desc: 'Инновационное трехслойное полотно с черной светопоглощающей сердцевиной (Tri-weave). Обеспечивает 95-100% блокировку света в яркие солнечные дни в Астане, эффективно защищает от нагрева и глушит эхо.',
+      roomImg: 'assets/muar/case-atlant-kids.webp',
+      roomBadge: 'Реализованный объект: ЖК Атлант, Астана · 100% затемнение в детской и спальне',
+      thumbImg: 'assets/muar/fabric-dimout.webp',
+      features: [
+        'Светонепроницаемость: 95–100% (сертифицировано)',
+        'Термощит: сохраняет прохладу летом и тепло зимой',
+        'Акустический барьер: поглощает до 30% уличного шума',
+        'Гипоаллергенный безопасный состав для спален и детских'
+      ]
+    },
+    velvet: {
+      name: 'Премиальный бархат Velvet Touch',
+      meta: 'Италия · 38 000 ₸/м',
+      desc: 'Итальянский матовый интерьерный бархат с коротким, плотным шелковистым ворсом. Создает благородную светотеневую игру, не заламывается и драпируется в монументальные, ровные фалды.',
+      roomImg: 'assets/muar/case-emerald-master.webp',
+      roomBadge: 'Реализованный объект: Вилла Караоткель, Астана · Итальянский бархат в мастер-спальне',
+      thumbImg: 'assets/muar/fabric-velvet.webp',
+      features: [
+        'Плотность: 420 г/м² — глубокий монументальный вес',
+        'Антистатическая обработка: ворс отталкивает пыль',
+        'Высокая износостойкость: свыше 60 000 циклов Martindale',
+        'Потайной кутюрный шов без единой строчки на лицевой стороне'
+      ]
+    },
+    jacquard: {
+      name: 'Кутюрный жаккард с кантом',
+      meta: 'Бельгия · 48 000 ₸/м',
+      desc: 'Бельгийское крупноузорчатое плетение на высокоточных ткацких станках. Объемный филигранный узор с матовой шелковой нитью. В готовом изделии дополняется контрастным или нюансным дизайнерским кантом.',
+      roomImg: 'assets/muar/case-dos-marquise.webp',
+      roomBadge: 'Реализованный объект: ЖК Дос, Астана · Жаккардовые портьеры с кантом',
+      thumbImg: 'assets/muar/fabric-jacquard.webp',
+      features: [
+        'Рельефный двойной жаккардовый орнамент высокой плотности',
+        'Прочная нить двойной крутки с защитой от выцветания',
+        'Контрастный кант ручной работы 5–8 см на выбор',
+        'Эксклюзивная подборка европейских коллекций'
+      ]
+    },
+    royal: {
+      name: 'Королевский бархат Royal Luxe',
+      meta: 'Италия · 58 000 ₸/м',
+      desc: 'Эксклюзивный шелковый бархат старейших мануфактур Венеции. Непревзойденная мягкость, переливающийся драгоценный отлив и статусная монументальность для парадных залов и резиденций.',
+      roomImg: 'assets/muar/villa-living.webp',
+      roomBadge: 'Реализованный объект: Загородная резиденция, Астана · Royal Luxe бархат высотой 4.5м',
+      thumbImg: 'assets/muar/fabric-royal.webp',
+      features: [
+        'Плотность: 480 г/м² с добавлением натурального шелка',
+        'Безупречная геометрия складки на высоту до 5.5 метров',
+        'Сертификат подлинности мануфактуры с серийным номером',
+        'Пожизненная гарантия на целостность ворса и геометрию швов'
+      ]
+    }
+  };
+
+  window._currentModalFabric = 'satin';
+
+  window.openFabricModal = function(fabricKey, event) {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    var data = FABRIC_EXAMPLES[fabricKey];
+    if (!data) return;
+
+    window._currentModalFabric = fabricKey;
+
+    var m = document.getElementById('fabricModal');
+    var img = document.getElementById('fmRoomImg');
+    var badge = document.getElementById('fmBadge');
+    var thumb = document.getElementById('fmThumbImg');
+    var meta = document.getElementById('fmMeta');
+    var title = document.getElementById('fmTitle');
+    var desc = document.getElementById('fmDesc');
+    var features = document.getElementById('fmFeatures');
+
+    if (img) { img.src = data.roomImg; img.alt = data.name + ' в интерьере'; }
+    if (badge) badge.textContent = data.roomBadge;
+    if (thumb) { thumb.src = data.thumbImg; thumb.alt = data.name; }
+    if (meta) meta.textContent = data.meta;
+    if (title) title.textContent = data.name;
+    if (desc) desc.textContent = data.desc;
+
+    if (features) {
+      features.innerHTML = data.features.map(function(f){ return '<li>' + f + '</li>'; }).join('');
+    }
+
+    if (m) {
+      m.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  window.closeFabricModal = function() {
+    var m = document.getElementById('fabricModal');
+    if (m) m.style.display = 'none';
+    document.body.style.overflow = '';
+  };
+
+  window.selectFabricFromModal = function() {
+    if (window._currentModalFabric && typeof window.setFabric === 'function') {
+      window.setFabric(window._currentModalFabric);
+    }
+    window.closeFabricModal();
+    var calc = document.getElementById('calculator');
+    if (calc) {
+      var y = calc.getBoundingClientRect().top + window.pageYOffset - 70;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
+  window.sendFabricToWhatsApp = function() {
+    var data = FABRIC_EXAMPLES[window._currentModalFabric || 'satin'];
+    var name = data ? data.name : 'ткань';
+    var text = encodeURIComponent('Здравствуйте, MUAR A! Хочу посмотреть живые образцы ткани «' + name + '» и примерить на окна в Астане.');
+    window.open('https://wa.me/' + WA + '?text=' + text, '_blank');
+  };
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      window.closeFabricModal();
+    }
+  });
+
   function switchB2bImg(imgId, src, btn){
     var img = document.getElementById(imgId);
     if(img){
@@ -5530,6 +5869,146 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       card.style.setProperty('--mouse-y', y + 'px');
     });
   });
+
+  /* ============================================================ */
+  /* JAPANESE KOI FISH HERO CANVAS ANIMATION                      */
+  /* ============================================================ */
+  function initKoiCanvas() {
+    var canvas = document.getElementById('heroKoiCanvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var heroSec = document.getElementById('top');
+    var isHeroVisible = true;
+    var animFrameId = null;
+
+    var koiImg = new Image();
+    koiImg.src = 'assets/muar/koi_brand_sprite.png';
+
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var width = 0, height = 0;
+
+    function resize() {
+      if (!heroSec) return;
+      var rect = heroSec.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+    }
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    if ('IntersectionObserver' in window && heroSec) {
+      var heroObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          isHeroVisible = entry.isIntersecting;
+          if (isHeroVisible && !animFrameId) {
+            animFrameId = requestAnimationFrame(loop);
+          }
+        });
+      }, { threshold: 0.05 });
+      heroObs.observe(heroSec);
+    }
+
+    var fishCount = window.innerWidth < 768 ? 3 : 4;
+    var fishes = [];
+
+    for (var i = 0; i < fishCount; i++) {
+      var baseScale = (window.innerWidth < 768 ? 0.30 : 0.40) + (Math.random() * 0.1 - 0.05);
+      fishes.push({
+        x: Math.random() * (width || 800),
+        y: Math.random() * (height || 600),
+        speed: 0.55 + Math.random() * 0.4,
+        angle: Math.random() * Math.PI * 2,
+        turnSpeed: 0.01 + Math.random() * 0.012,
+        targetAngle: Math.random() * Math.PI * 2,
+        scale: baseScale,
+        opacity: 0.38 + Math.random() * 0.12,
+        wigglePhase: Math.random() * Math.PI * 2,
+        wiggleSpeed: 0.04 + Math.random() * 0.02,
+        changeTargetTimer: Math.floor(Math.random() * 120) + 60
+      });
+    }
+
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function drawFish(fish) {
+      if (!koiImg.complete || !koiImg.naturalWidth) return;
+
+      var imgW = koiImg.naturalWidth;
+      var imgH = koiImg.naturalHeight;
+      var drawW = imgW * fish.scale;
+      var drawH = imgH * fish.scale;
+
+      ctx.save();
+      ctx.translate(fish.x, fish.y);
+      var wiggle = Math.sin(fish.wigglePhase) * 0.06;
+      ctx.rotate(fish.angle - Math.PI / 2 + wiggle);
+
+      ctx.globalAlpha = fish.opacity;
+      ctx.shadowColor = 'rgba(217, 188, 139, 0.3)';
+      ctx.shadowBlur = 10;
+
+      ctx.drawImage(koiImg, -drawW / 2, -drawH / 2, drawW, drawH);
+      ctx.restore();
+    }
+
+    function updateFish(fish) {
+      fish.changeTargetTimer--;
+      if (fish.changeTargetTimer <= 0) {
+        fish.targetAngle = fish.angle + (Math.random() - 0.5) * 1.5;
+        fish.changeTargetTimer = Math.floor(Math.random() * 180) + 120;
+      }
+
+      var diff = fish.targetAngle - fish.angle;
+      while (diff < -Math.PI) diff += Math.PI * 2;
+      while (diff > Math.PI) diff -= Math.PI * 2;
+      fish.angle += diff * fish.turnSpeed;
+
+      fish.x += Math.cos(fish.angle) * fish.speed;
+      fish.y += Math.sin(fish.angle) * fish.speed;
+      fish.wigglePhase += fish.wiggleSpeed;
+
+      var margin = 140;
+      if (fish.x < -margin) fish.x = width + margin;
+      else if (fish.x > width + margin) fish.x = -margin;
+      if (fish.y < -margin) fish.y = height + margin;
+      else if (fish.y > height + margin) fish.y = -margin;
+    }
+
+    function loop() {
+      if (!isHeroVisible) {
+        animFrameId = null;
+        return;
+      }
+
+      ctx.clearRect(0, 0, width, height);
+
+      for (var i = 0; i < fishes.length; i++) {
+        var f = fishes[i];
+        if (!prefersReduced) {
+          updateFish(f);
+        }
+        drawFish(f);
+      }
+
+      animFrameId = requestAnimationFrame(loop);
+    }
+
+    if (koiImg.complete) {
+      loop();
+    } else {
+      koiImg.onload = function() { loop(); };
+    }
+  }
+
+  // Initialize koi canvas
+  initKoiCanvas();
 
   })();
 </script>
