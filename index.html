@@ -3941,7 +3941,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <span class="eyebrow c">Экспресс-калькулятор</span>
       <h2>Предварительный расчет <span class="serif-accent">за 60 секунд</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
-        Выберите изделие, ткань и ширину карниза — драпировка 1:2 и точный расход рассчитываются автоматически.
+        Выберите изделие, ткань из 6 универсальных коллекций и ширину карниза — драпировка 1:2 и точный расход рассчитываются автоматически.
       </p>
     </div>
 
@@ -3959,12 +3959,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </div>
           </div>
 
-          <!-- 2. Universal Fabrics (3 Key Fabrics in 1 Line) -->
+          <!-- 2. Universal Fabrics (All 6 Collections in 3 Columns) -->
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;">
-              <span class="f-label" style="margin-bottom: 0;">2. Ткань (3 ключевые фактуры)</span>
-              <a href="javascript:void(0)" onclick="openFabricModal('satin', event)" class="fabric-catalog-link" title="Посмотреть все ткани в интерьере">Все 6 коллекций ↗</a>
-            </div>
+            <span class="f-label">2. Коллекция ткани (6 универсальных фактур)</span>
             <div class="fabric-grid" id="fabricGrid">
               
               <!-- 1. Satin -->
@@ -4002,6 +3999,48 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
                   <div class="fabric-name">Dimout / Блэкаут</div>
                   <div class="fabric-meta">32&nbsp;000&nbsp;₸/м &middot; Европа</div>
                   <span class="fabric-example-link" onclick="openFabricModal('dimout', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры ↗
+                  </span>
+                </div>
+                <span class="fabric-check" aria-hidden="true">✓</span>
+              </button>
+
+              <!-- 4. Velvet -->
+              <button type="button" class="fabric-card" data-v="velvet" onclick="setFabric('velvet')">
+                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <div class="fabric-details">
+                  <div class="fabric-name">Бархат Velvet</div>
+                  <div class="fabric-meta">38&nbsp;000&nbsp;₸/м &middot; Италия</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('velvet', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры ↗
+                  </span>
+                </div>
+                <span class="fabric-check" aria-hidden="true">✓</span>
+              </button>
+
+              <!-- 5. Jacquard -->
+              <button type="button" class="fabric-card" data-v="jacquard" onclick="setFabric('jacquard')">
+                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <div class="fabric-details">
+                  <div class="fabric-name">Кутюрный жаккард</div>
+                  <div class="fabric-meta">48&nbsp;000&nbsp;₸/м &middot; Бельгия</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('jacquard', event)" title="Посмотреть фото в интерьере">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                    Примеры ↗
+                  </span>
+                </div>
+                <span class="fabric-check" aria-hidden="true">✓</span>
+              </button>
+
+              <!-- 6. Royal Luxe -->
+              <button type="button" class="fabric-card" data-v="royal" onclick="setFabric('royal')">
+                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <div class="fabric-details">
+                  <div class="fabric-name">Королевский бархат</div>
+                  <div class="fabric-meta">58&nbsp;000&nbsp;₸/м &middot; Италия</div>
+                  <span class="fabric-example-link" onclick="openFabricModal('royal', event)" title="Посмотреть фото в интерьере">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
                     Примеры ↗
                   </span>
