@@ -3727,10 +3727,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     <div class="ba-scene-tabs" role="tablist" aria-label="Сцены До и После">
       <button class="ba-scene-btn active" onclick="switchBaScene('b2b_canopy', this)">B2B Ресторан: Навесы &amp; Паруса</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('b2b_office', this)">B2B Офис: Somfy Screen 3%</button>
       <button class="ba-scene-btn" onclick="switchBaScene('living_luxe', this)">Гостиная: Складка 1:2</button>
       <button class="ba-scene-btn" onclick="switchBaScene('master_bed', this)">Мастер-спальня: Blackout 100%</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('real_apt', this)">Резиденция: Гостиная с эркером</button>
     </div>
 
     <div class="ba-wrapper reveal">
@@ -3813,16 +3811,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           </div>
         </div>
 
-        <div class="ba-detail-cta">
-          <div class="ba-cta-text">
-            <strong>Нужен расчет солнцезащиты или контрактного текстиля для коммерческого объекта?</strong>
-            <span>Выезжаем на замеры в Астане с каталогами негорючих образцов Screen & Trevira CS. Расчет сметы с НДС 12% за 24 часа.</span>
-          </div>
-          <div class="ba-cta-btns">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20B2B%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0%20%D0%B8%D0%BB%D0%B8%20%D0%BD%D0%B0%D0%B2%D0%B5%D1%81%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Запросить B2B расчет в WhatsApp</a>
-            <a href="#b2b-commercial" class="btn btn-secondary btn-sm">B2B калькулятор проектов ↓</a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -5346,22 +5334,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       beforeFilter: 'none',
       showGallery: true
     },
-    b2b_office: {
-      name: 'B2B Офис: Somfy Screen 3%',
-      beforeImg: 'assets/muar/b2b-office-before.webp',
-      afterImg: 'assets/muar/b2b-office-after.webp',
-      beforeLabel: 'БЫЛО: Слепящее солнце, блики экранов (+35°C)',
-      afterLabel: 'СТАЛО: Somfy Screen 3% · Панорама без бликов',
-      beforeDesc: 'Представительская переговорная на высоком этаже с панорамным остеклением на Байтерек: жесткий контровой свет, перегрев помещения и блики на мониторах участников встреч.',
-      afterDesc: 'Моторизованные ролл-шторы Screen 3% с французской автоматикой Somfy: мягкий естественный свет без бликов, термобарьер -5°C и сохранение панорамного вида на Астану.',
-      metricBefore: 'Блики · Перегрев +35°C',
-      metricAfter: 'Screen 3% · Защита 95% тепла',
-      badgeObject: 'Представительский офис (Астана)',
-      badgeSystem: 'Моторизованные системы Somfy Sonesse Ultra 40 с пультом Telis',
-      badgeCert: 'Негорючий текстиль Trevira CS (Класс КМ1, МЧС РК)',
-      beforeFilter: 'none',
-      showGallery: false
-    },
     living_luxe: {
       name: 'Гостиная: Складка 1:2',
       beforeImg: 'assets/muar/living-luxe-before.webp',
@@ -5391,22 +5363,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       badgeObject: 'Мастер-спальня в жилом комплексе (Астана)',
       badgeSystem: 'Светоизоляционная система Blackout с плотным прилеганием к нише',
       badgeCert: 'Итальянский бархат Velvet Touch, сертифицированный гипоаллергенный состав',
-      beforeFilter: 'none',
-      showGallery: false
-    },
-    real_apt: {
-      name: 'Резиденция: Гостиная с эркером',
-      beforeImg: 'assets/muar/before_real_aligned.webp',
-      afterImg: 'assets/muar/after_real_aligned.webp',
-      beforeLabel: 'БЫЛО: Черновая отделка без штор (эхо, свет)',
-      afterLabel: 'СТАЛО: Кутюрные портьеры MUAR A · Складка 1:2',
-      beforeDesc: 'Реальный объект в Астане: квартира после ремонта с голыми окнами, резкими тенями и слепящим солнцем.',
-      afterDesc: 'Многослойный текстильный ансамбль MUAR A: струящийся премиальный тюль и плотные портьеры со стандартной складкой 1:2.',
-      metricBefore: 'Голый бетон · Эхо',
-      metricAfter: 'Складка 1:2 · Тихая роскошь',
-      badgeObject: 'Элитный ЖК в Астане · Реальный объект',
-      badgeSystem: 'Кутюрный пошив, складка 1:2, скрытый монтаж',
-      badgeCert: 'Европейский текстиль, ручная закрепка складок',
       beforeFilter: 'none',
       showGallery: false
     }
