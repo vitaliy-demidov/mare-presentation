@@ -3,16 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(function(regs) {
-      for (var r of regs) r.unregister();
-    });
-  }
-  if ('caches' in window) {
-    caches.keys().then(function(names) {
-      for (var n of names) caches.delete(n);
-    });
-  }
+  try {
+    if (location.protocol.startsWith('http') && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(regs) {
+        for (var r of regs) r.unregister();
+      }).catch(function(){});
+    }
+    if (location.protocol.startsWith('http') && 'caches' in window) {
+      caches.keys().then(function(names) {
+        for (var n of names) caches.delete(n);
+      }).catch(function(){});
+    }
+  } catch (e) {}
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -917,7 +919,7 @@ p { margin: 0; }
   .logo-since { font-size: 0.52rem; letter-spacing: 0.16em; }
 }
 
-/* AUTHENTIC JAPANESE KOI CANVAS IN HERO */
+/* AUTHENTIC JAPANESE KOI CANVAS IN HERO (GPU-ACCELERATED) */
 #heroKoiCanvas {
   position: absolute;
   inset: 0;
@@ -925,6 +927,9 @@ p { margin: 0; }
   height: 100%;
   z-index: 0;
   pointer-events: none;
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.55)) hue-rotate(240deg) saturate(1.35);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* FABRIC FULLSCREEN MODAL */
@@ -1198,10 +1203,10 @@ p { margin: 0; }
 }
 .mobile-menu .btn { margin-top: 20px; font-family: 'Manrope', sans-serif; }
 
-/* HERO PINNED SHOWCASE TRACK & STICKY HERO (350vh FILM REEL) */
+/* HERO PINNED SHOWCASE TRACK & STICKY HERO (200vh 3-FRAME FILM REEL) */
 .hero-pin-track {
   position: relative;
-  height: 350vh;
+  height: 200vh;
   background: #0E0E10;
 }
 
@@ -1488,6 +1493,39 @@ p { margin: 0; }
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.65);
 }
 .hero-sub b { font-weight: 600; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.7); }
+
+/* ELEGANT HAUTE COUTURE HERO ACTIONS (REPLACES BULKY COMMERCIAL DOORS) */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 36px;
+  position: relative;
+  z-index: 2;
+}
+.hero-actions .btn {
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1), box-shadow 0.3s, background 0.3s, border-color 0.3s;
+}
+.hero-actions .btn:hover {
+  transform: translateY(-2px);
+}
+@media (max-width: 600px) {
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.88rem;
+  }
+}
 
 .doors {
   display: grid;
@@ -3476,12 +3514,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       </div>
     </a>
 
-    <!-- Segmented Two Doors Selector -->
-    <div class="door-pills">
-      <button type="button" class="door-pill active" id="pill-b2c" onclick="setMode('b2c');scrollToId('calculator')"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:6px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Частным клиентам</button>
-      <button type="button" class="door-pill" id="pill-b2b" onclick="setMode('b2b');scrollToId('b2b-commercial')"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:6px;"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 9h6M9 13h6M9 17h6"/></svg>Юрлицам (НДС 12%)</button>
-    </div>
-
     <nav class="nav" aria-label="Основная навигация">
       <a href="#powers">Семь сил</a>
       <a href="#projects">Проекты</a>
@@ -3508,10 +3540,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <div style="display:flex; gap:8px; margin-bottom:14px;">
-    <button type="button" class="door-pill active" id="mob-pill-b2c" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2c');scrollToId('calculator');toggleMenu(false);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:4px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Частным</button>
-    <button type="button" class="door-pill" id="mob-pill-b2b" style="flex:1; justify-content:center; text-align:center; padding:10px 14px; font-size:0.85rem;" onclick="setMode('b2b');scrollToId('b2b-commercial');toggleMenu(false);"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" style="vertical-align:-2px;margin-right:4px;"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 9h6M9 13h6M9 17h6"/></svg>Юрлицам</button>
-  </div>
   <a href="#powers" onclick="toggleMenu(false)">Семь сил студии</a>
   <a href="#projects" onclick="toggleMenu(false)">Проекты & Кейсы</a>
   <a href="#calculator" onclick="toggleMenu(false)">Калькулятор стоимости</a>
@@ -3543,17 +3571,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       <div class="hero-slide" data-title="Мастер-спальня с авторским кутюром">
         <img src="assets/muar/residence-bed-couture.webp" alt="Мастер-спальня с авторским кутюром" width="1920" height="1280" decoding="async">
       </div>
-      <!-- Slide 4 -->
-      <div class="hero-slide" data-title="Парадный двусветный холл · Резиденция">
-        <img src="assets/muar/residence-living-chandelier.webp" alt="Парадный двусветный холл · Резиденция" width="1920" height="1280" decoding="async">
-      </div>
-      <!-- Slide 5 -->
-      <div class="hero-slide" data-title="Ресторан «Невеста» · Паруса Somfy КМ1">
-        <img src="assets/muar/b2b-canopy-night.webp" alt="Ресторан Невеста · Паруса Somfy КМ1" width="1920" height="1280" decoding="async">
-      </div>
-      <video class="hero-ambient-video" autoplay muted loop playsinline poster="assets/muar/hero-interior.webp">
-        <source src="assets/muar/villa-lift-system.mp4" type="video/mp4">
-      </video>
     </div>
     <canvas id="heroKoiCanvas"></canvas>
     <div class="hero-project-badge" id="heroProjectBadge" aria-live="polite">
@@ -3561,12 +3578,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <button type="button" class="film-frame active" data-frame="0" aria-label="Кадр 01: Панорамная гостиная в резиденции"><span class="film-bracket">[</span><span class="film-num">01</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
         <button type="button" class="film-frame" data-frame="1" aria-label="Кадр 02: Загородная вилла"><span class="film-bracket">[</span><span class="film-num">02</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
         <button type="button" class="film-frame" data-frame="2" aria-label="Кадр 03: Мастер-спальня с авторским кутюром"><span class="film-bracket">[</span><span class="film-num">03</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
-        <button type="button" class="film-frame" data-frame="3" aria-label="Кадр 04: Парадный двусветный холл"><span class="film-bracket">[</span><span class="film-num">04</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
-        <button type="button" class="film-frame" data-frame="4" aria-label="Кадр 05: Ресторан «Невеста»"><span class="film-bracket">[</span><span class="film-num">05</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
       </div>
       <span class="hpb-divider" aria-hidden="true"></span>
       <span class="hpb-title" id="hpbTitle">Панорамная гостиная в резиденции · Астана</span>
-      <span class="hpb-counter" id="hpbCounter" style="display:none;" aria-hidden="true">1 / 5</span>
+      <span class="hpb-counter" id="hpbCounter" style="display:none;" aria-hidden="true">1 / 3</span>
     </div>
     <div class="hero-scroll-hint" id="heroScrollHint" role="button" aria-label="Листайте вниз для обзора лучших объектов">
       <span class="hsh-text">Листайте вниз для обзора лучших объектов</span>
@@ -3579,27 +3594,15 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <b>Входим в Топ-30 декораторов СНГ (премия Golden O 2025, 2026).</b> 12 лет в Астане, 2 этажа коллекций со всего мира, собственное швейное производство по ГОСТам РК без надомниц. Онлайн-подбор и доставка по всему Казахстану (Шымкент, Караганда, Алматы).
       </p>
 
-      <div class="doors">
-        <a class="door" href="#flows" onclick="setMode('b2c')">
-          <img src="assets/muar/bedroom-green-empire.webp" alt="Частные резиденции MUAR A" width="900" height="1600" loading="lazy" decoding="async">
-          <div class="door-top">
-            <div>
-              <h3>Частным клиентам</h3>
-              <p>Пентхаусы, виллы и&nbsp;квартиры. Портьеры в&nbsp;пол, идеальная складка «Волна», римские шторы и&nbsp;покрывала. Защита от&nbsp;палящего солнца летом и&nbsp;морозных сквозняков зимой.</p>
-            </div>
-            <span class="door-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
+      <div class="hero-actions">
+        <a href="#calculator" class="btn btn-gold" style="padding:15px 32px; font-size:0.95rem; font-weight:600; box-shadow:0 8px 24px rgba(217,188,139,0.35);">
+          <span>Рассчитать стоимость пошива</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a class="door" href="#flows" onclick="setMode('b2b')">
-          <img src="assets/muar/b2b-canopy-night.webp" alt="Юридическим лицам MUAR A" width="1080" height="1920" loading="lazy" decoding="async">
-          <div class="door-top">
-            <div>
-              <h3>Юридическим лицам</h3>
-              <p>Штаб-квартиры, залы заседаний, лаунджи и отели. Потолочные навесы, Trevira CS (КМ1), моторизация и договор с НДС 12%.</p>
-            </div>
-            <span class="door-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </div>
-        </a>
+        <button type="button" class="btn btn-ghost" onclick="openSamplerModal()" style="padding:15px 26px; font-size:0.95rem; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.32); backdrop-filter:blur(10px); color:#fff;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-right:8px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <span>Выезд декоратора с образцами</span>
+        </button>
       </div>
 
       <div class="trust">
@@ -3612,73 +3615,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
   </section>
 </div>
-
-<!-- ============================================================ -->
-<!-- ACT 2: ДВЕ ДВЕРИ — ДВА ПРОИЗВОДСТВЕННЫХ ПОТОКА              -->
-<!-- ============================================================ -->
-<section class="section" id="flows">
-  <div class="wrap">
-    <div class="section-head center">
-      <span class="eyebrow c">Форматы сотрудничества</span>
-      <h2>Частные резиденции & B2B — <span class="serif-accent">два формата безупречного сервиса</span></h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">
-        Мы разделили производственные потоки, чтобы частные заказчики получали кутюрный уют и ручной потайной шов, а девелоперы и корпоративные клиенты — жесткие SLA, сертификаты МЧС и закрывающие акты КС-2/КС-3 с НДС.
-      </p>
-    </div>
-
-    <div class="flow-grid">
-      <!-- Card B2C -->
-      <article class="flow-card reveal" id="private">
-        <div class="flow-media">
-          <img src="assets/muar/case-emerald-master.webp" alt="Спальня со шторами MUAR A" loading="lazy" decoding="async" width="900" height="563">
-          <span class="flow-tag">Для дома · B2C</span>
-        </div>
-        <div class="flow-body">
-          <span class="kicker">Физическим лицам</span>
-          <h3>Дом, который хочется показывать</h3>
-          <ul class="flow-list">
-            <li>Пентхаусы, апартаменты и загородные виллы в Астане</li>
-            <li>Бельгийский шенилл Wind, итальянский бархат Dedar, дикий шелк</li>
-            <li>Складки «Волна» и «Французская тройная» с шагом ±1 мм</li>
-            <li>Выезд декоратора с каталогами (7 000 ₸ в счет договора в Астане) или точный онлайн-подбор</li>
-            <li>AI & 3D-примерка текстиля на стадии бетонных стен новостройки</li>
-            <li>Монтажники в бахилах сверлят с пылесосом + вертикальное отпаривание</li>
-          </ul>
-          <div class="flow-actions">
-            <button class="btn btn-petrol" onclick="setMode('b2c');scrollToId('calculator')">Рассчитать для дома
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="btn btn-ghost" onclick="openSamplerModal()">Заказать выезд с образцами</button>
-          </div>
-        </div>
-      </article>
-
-      <!-- Card B2B -->
-      <article class="flow-card reveal" id="business">
-        <div class="flow-media">
-          <img src="assets/muar/b2b-canopy-hall-1.webp" alt="Контрактный проект MUAR A" loading="lazy" decoding="async" width="900" height="563">
-          <span class="flow-tag g">Для бизнеса · B2B</span>
-        </div>
-        <div class="flow-body">
-          <span class="kicker">Юридическим лицам</span>
-          <h3>Контрактные решения для офисов и отелей</h3>
-          <ul class="flow-list">
-            <li>Бизнес-центры, банки, посольства, кабинеты первых лиц</li>
-            <li>Моторизованные системы Somfy Screen (Франция) — подавление 95% бликов</li>
-            <li>Кассетный блэкаут для переговорных комнат и видеоконференций</li>
-            <li>Огнестойкий текстиль Trevira CS (Класс пожарной безопасности КМ1)</li>
-            <li>Официальная работа на ОСНО с выделением НДС 12%</li>
-            <li>Бухгалтерский ЭДО: закрывающие акты КС-2 / КС-3 за 24 часа</li>
-          </ul>
-          <div class="flow-actions">
-            <button class="btn btn-gold" onclick="setMode('b2b');scrollToId('b2b-commercial')">B2B Экспресс-смета (НДС)
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="btn btn-ghost" onclick="openWhatsAppForRole('b2b')">Запросить КП с НДС 12%</button>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================================ -->
 <!-- ACT 4: «7 СИЛ СТУДИИ MUAR A» (EDITORIAL BENTO GRID)            -->
@@ -4171,145 +4107,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </section>
 
 <!-- ============================================================ -->
-<!-- ACT 2.5: B2B КОММЕРЧЕСКИЙ ДИВИЗИОН & ИНТЕРАКТИВНАЯ QUOTE CARD -->
-<!-- ============================================================ -->
-<div id="b2b-commercial"></div>
-<section class="section" id="b2b" style="background: var(--ivory); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-  <div class="wrap">
-    
-    <div class="section-head center">
-      <span class="eyebrow c">Корпоративный отдел · Астана</span>
-      <h2>Текстильные решения <span class="serif-accent">для бизнеса и коммерческих объектов</span></h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">
-        Официальный договор с НДС 12%, сертификаты негорючести КМ1 и закрывающие акты КС-2 / КС-3 через ЭДО за 24 часа. Три проверенных направления для ресторанов, отелей, офисов и представительских пространств.
-      </p>
-    </div>
-
-    <!-- 3 B2B Directions Grid -->
-    <div class="b2b-trio-grid">
-      
-      <!-- Direction 1: Рестораны и лаундж-зоны -->
-      <div class="b2b-trio-card reveal">
-        <div class="b2b-trio-gallery">
-          <img src="assets/muar/b2b-restaurant-canopy.webp" alt="Шторы и паруса для ресторанов" class="b2b-trio-img active" id="b2bImgCanopy" width="1200" height="800" loading="lazy" decoding="async">
-          <div class="b2b-trio-thumbs">
-            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgCanopy', 'assets/muar/b2b-restaurant-canopy.webp', this)">
-              <span>Фото 1 · Навесы & Паруса</span>
-            </button>
-            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgCanopy', 'assets/muar/b2b-restaurant-night.webp', this)">
-              <span>Фото 2 · Зал & Подсветка</span>
-            </button>
-          </div>
-        </div>
-        <div class="b2b-trio-content">
-          <span class="b2b-trio-tag">Рестораны & Лаундж-зоны</span>
-          <h3>Шторы и паруса для ресторанов</h3>
-          <p>
-            Парящие текстильные паруса, зонирующие шторы и драпировки для ресторанов, банкетных залов и террас. Негорючие ткани, создающие уникальную атмосферу гостеприимства и акустический комфорт.
-          </p>
-          <ul class="b2b-trio-features">
-            <li>✓ Негорючий текстиль с сертификатом КМ1 (МЧС РК)</li>
-            <li>✓ Проектирование сложных подвесных и парусных систем</li>
-            <li>✓ Акустический комфорт и зонирование столиков</li>
-          </ul>
-          <div class="b2b-trio-footer">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%88%D1%82%D0%BE%D1%80%D1%8B%20%D0%B8%20%D0%BF%D0%B0%D1%80%D1%83%D1%81%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
-              Запросить КП в WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Direction 2: Кабинеты и переговорные -->
-      <div class="b2b-trio-card reveal">
-        <div class="b2b-trio-gallery">
-          <img src="assets/muar/b2b-executive-curtains.webp" alt="Шторы для представительских кабинетов" class="b2b-trio-img active" id="b2bImgCeo" width="1200" height="800" loading="lazy" decoding="async">
-          <div class="b2b-trio-thumbs">
-            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-executive-curtains.webp', this)">
-              <span>Фото 1 · Шторы & Волна</span>
-            </button>
-            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgCeo', 'assets/muar/b2b-office-lounge.webp', this)">
-              <span>Фото 2 · VIP Лаундж</span>
-            </button>
-          </div>
-        </div>
-        <div class="b2b-trio-content">
-          <span class="b2b-trio-tag">Кабинеты & VIP-зоны</span>
-          <h3>Шторы для кабинетов и переговорных</h3>
-          <p>
-            Статусные портьеры высшей категории: матовый сатин, шерсть и бархат со складкой «волна». Подчеркивают деловой престиж компании и обеспечивают акустическую конфиденциальность переговоров.
-          </p>
-          <ul class="b2b-trio-features">
-            <li>✓ Премиальные ткани: сатин, шерсть, бархат</li>
-            <li>✓ Акустическая конфиденциальность переговоров</li>
-            <li>✓ Защита от выгорания на солнце (подкладка)</li>
-          </ul>
-          <div class="b2b-trio-footer">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D1%8E%D1%82%20%D1%88%D1%82%D0%BE%D1%80%D1%8B%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82%D0%B0%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D0%BD%D0%BE%D0%B9" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
-              Запросить КП в WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Direction 3: Отели и VIP-пространства -->
-      <div class="b2b-trio-card reveal">
-        <div class="b2b-trio-gallery">
-          <img src="assets/muar/case-vip-lounge.webp" alt="Текстиль для отелей и VIP-пространств MUAR A" class="b2b-trio-img active" id="b2bImgHotel" width="1400" height="1400" loading="lazy" decoding="async">
-          <div class="b2b-trio-thumbs">
-            <button type="button" class="b2b-thumb-btn active" onclick="switchB2bImg('b2bImgHotel', 'assets/muar/case-vip-lounge.webp', this)">
-              <span>Фото 1 · VIP Lounge</span>
-            </button>
-            <button type="button" class="b2b-thumb-btn" onclick="switchB2bImg('b2bImgHotel', 'assets/muar/case-garden-detail.webp', this)">
-              <span>Фото 2 · Отель &amp; Зал</span>
-            </button>
-          </div>
-        </div>
-        <div class="b2b-trio-content">
-          <span class="b2b-trio-tag">Отели &amp; Представительские пространства</span>
-          <h3>Текстиль для отелей и VIP-пространств</h3>
-          <p>
-            Комплексное текстильное оформление отелей, VIP-лаунджей и конференц-залов: негорючие шторы высокой плотности с защитой от выгорания, безупречная геометрия складки 1:2 и кутюрная отделка.
-          </p>
-          <ul class="b2b-trio-features">
-            <li>✓ Негорючий текстиль Trevira CS (Класс КМ1)</li>
-            <li>✓ Акустический комфорт и зонирование залов</li>
-            <li>✓ Собственный цех: пошив по ГОСТам РК без посредников</li>
-          </ul>
-          <div class="b2b-trio-footer">
-            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%82%D0%B5%D0%BA%D1%81%D1%82%D0%B8%D0%BB%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%82%D0%B5%D0%BB%D1%8F%20%D0%B8%D0%BB%D0%B8%20VIP-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D1%81%D1%82%D0%B2%D0%B0" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
-              Запросить КП в WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- B2B Legal Trust Banner -->
-    <div class="b2b-legal-banner reveal" style="margin-top: 36px;">
-      <div class="b2b-legal-content">
-        <div class="b2b-legal-badge">
-          <span class="pulse-dot"></span>
-          <span>Официальный юридический пакет MUAR A</span>
-        </div>
-        <h4>Работаем по договору с НДС 12% · Закрывающие акты за 24 часа</h4>
-        <p>
-          ТОО «KazTextileА» на ОУР. Мгновенная выписка электронных счетов-фактур в ИС ЭСФ, закрывающие акты АВР (Р-1) и строительные формы КС-2 / КС-3. Сертификаты негорючести МЧС РК (Класс КМ1).
-        </p>
-      </div>
-      <div class="b2b-legal-action">
-        <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%BE%20%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D1%80%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D1%81%20%D0%9D%D0%94%D0%A1%2012%25%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B8" target="_blank" rel="noopener noreferrer" class="btn btn-wa">
-          <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
-          Запросить КП в WhatsApp (60 мин)
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================ -->
 <!-- ACT 5: ПЯТЬ ШАГОВ ДО ГОТОВОГО ИНТЕРЬЕРА                     -->
 <!-- ============================================================ -->
 <section class="section" id="process">
@@ -4709,7 +4506,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <h5>Сервисы</h5>
         <ul>
           <li><a href="javascript:void(0)" onclick="openSamplerModal()">Онлайн-подбор текстиля</a></li>
-          <li><a href="#b2b">Корпоративный отдел (НДС 12%)</a></li>
+          <li><a href="javascript:void(0)" onclick="openFabricModal('satin', event)">Каталог премиальных тканей</a></li>
           <li><a href="#cinematics">Видео-портфолио цеха</a></li>
           <li><a href="javascript:void(0)" onclick="openWhatsAppForRole('designer')">Дизайнерский Клуб (10%)</a></li>
         </ul>
@@ -6649,18 +6446,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       }
     }
 
-    // Auto-advance loop: gentle film reel preview when user is resting idle at the very top (scrollY <= 5)
-    function startAutoTimer(){
-      stopAutoTimer();
-      autoTimer = setInterval(function(){
-        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        if(scrollY <= 5 && (Date.now() - lastScrollTime > 3500)){
-          var nextIdx = ((currentIndex >= 0 ? currentIndex : 0) + 1) % total;
-          setSlide(nextIdx);
-        }
-      }, 4500);
-    }
-
     function stopAutoTimer(){
       if(autoTimer) {
         clearInterval(autoTimer);
@@ -6674,7 +6459,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         scrollY = window.pageYOffset || document.documentElement.scrollTop;
       }
       var trackTop = trackEl ? trackEl.offsetTop : 0;
-      var trackHeight = trackEl ? trackEl.offsetHeight : (window.innerHeight * 3.5);
+      var trackHeight = trackEl ? trackEl.offsetHeight : (window.innerHeight * 2.0);
       var maxScroll = Math.max(1, trackHeight - window.innerHeight);
 
       // Scroll progress through pinned track [0.0 ... 1.0]
@@ -6739,7 +6524,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           setSlide(fIdx);
           if(trackEl){
             var trackTop = trackEl.offsetTop;
-            var trackHeight = trackEl.offsetHeight || (window.innerHeight * 3.5);
+            var trackHeight = trackEl.offsetHeight || (window.innerHeight * 2.0);
             var maxScroll = Math.max(1, trackHeight - window.innerHeight);
             var targetY = trackTop + (maxScroll * ((fIdx + 0.25) / total));
             targetScrollY = targetY;
@@ -6753,7 +6538,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     if(scrollHintEl){
       scrollHintEl.addEventListener('click', function(){
         if(!trackEl) return;
-        var trackHeight = trackEl.offsetHeight || (window.innerHeight * 3.5);
+        var trackHeight = trackEl.offsetHeight || (window.innerHeight * 2.0);
         var maxScroll = Math.max(1, trackHeight - window.innerHeight);
         var step = maxScroll / total;
         targetScrollY = (window.pageYOffset || document.documentElement.scrollTop) + step;
@@ -6763,7 +6548,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     // Initial pass
     updateShowcase(currentScrollY);
-    startAutoTimer();
   }
   initHeroShowcase();
 
@@ -6978,9 +6762,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         ctx.translate(pt.x, pt.y);
         ctx.rotate(headDir - Math.PI / 2);
         ctx.globalAlpha = fish.opacity;
-        ctx.filter = 'hue-rotate(240deg) saturate(1.35) brightness(1.05)';
-        ctx.shadowColor = 'rgba(168, 85, 247, 0.55)';
-        ctx.shadowBlur = 10;
         ctx.drawImage(koiImg, 0, sy, srcW, sh, -dw / 2, -dh / 2, dw, dh);
         ctx.restore();
       }
