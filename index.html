@@ -689,7 +689,7 @@
 .calc-voice-text-col b { font-size: 0.84rem; color: #fff; line-height: 1.25; }
 .calc-voice-text-col span { font-size: 0.72rem; color: rgba(255, 255, 255, 0.7); }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 section[id], div[id] { scroll-margin-top: 84px; }
 body {
   margin: 0;
@@ -1198,11 +1198,11 @@ p { margin: 0; }
 }
 .mobile-menu .btn { margin-top: 20px; font-family: 'Manrope', sans-serif; }
 
-/* HERO PINNED SHOWCASE TRACK & STICKY HERO */
+/* HERO PINNED SHOWCASE TRACK & STICKY HERO (350vh FILM REEL) */
 .hero-pin-track {
   position: relative;
-  height: 320vh;
-  background: var(--petrol-deep);
+  height: 350vh;
+  background: #0E0E10;
 }
 
 .hero {
@@ -1211,6 +1211,7 @@ p { margin: 0; }
   left: 0;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
   overflow: hidden;
   display: flex;
@@ -1233,7 +1234,7 @@ p { margin: 0; }
   height: 100%;
   opacity: 0;
   transform: scale(1.0);
-  transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 5s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
   pointer-events: none;
   backface-visibility: hidden;
@@ -1241,7 +1242,8 @@ p { margin: 0; }
 }
 .hero-slide.active {
   opacity: 1;
-  transform: scale(1.045);
+  transform: scale(1.025);
+  pointer-events: auto;
 }
 .hero-slide img {
   position: absolute;
@@ -1249,25 +1251,30 @@ p { margin: 0; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.95) brightness(0.82);
+  filter: contrast(1.02) brightness(0.96);
+  transform: translateZ(0);
 }
-.hero-ambient-video {
+.hero-slide::after {
+  content: "";
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.16;
-  mix-blend-mode: screen;
+  box-shadow: inset 0 0 120px rgba(10, 5, 14, 0.42);
   pointer-events: none;
+}
+.hero-ambient-video {
+  display: none !important;
 }
 .hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(22, 11, 28, 0.8) 0%, rgba(35, 18, 43, 0.45) 40%, rgba(22, 11, 28, 0.84) 75%, rgba(22, 11, 28, 0.98) 100%);
+  background: 
+    linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.15) 30%, transparent 60%),
+    linear-gradient(0deg, rgba(12, 12, 14, 0.88) 0%, rgba(12, 12, 14, 0.38) 40%, transparent 100%);
   pointer-events: none;
 }
+
+/* HAUTE COUTURE FILMSTRIP / FRAME TRACKER BADGE */
 .hero-project-badge {
   position: absolute;
   right: 28px;
@@ -1275,43 +1282,112 @@ p { margin: 0; }
   z-index: 5;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  background: rgba(16, 30, 32, 0.76);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  gap: 12px;
+  padding: 6px 14px 6px 10px;
+  background: rgba(16, 12, 22, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(217, 188, 139, 0.28);
   border-radius: 999px;
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.9);
-  pointer-events: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  transition: all 0.4s ease;
+  pointer-events: auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
-.hero-project-badge .hpb-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 8px var(--gold);
-  animation: hpbPulse 2s infinite;
+.hero-project-badge:hover {
+  border-color: rgba(217, 188, 139, 0.55);
 }
-@keyframes hpbPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.85); }
+
+.hero-filmstrip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
-.hero-project-badge .hpb-counter {
-  font-weight: 700;
-  color: var(--gold-soft);
+.film-frame {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(217, 188, 139, 0.2);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.45);
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.74rem;
+  font-size: 0.70rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  user-select: none;
+}
+.film-frame .film-bracket {
+  opacity: 0.35;
+  font-weight: 300;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.film-frame .film-num {
+  padding: 0 1px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.film-frame .film-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(217, 188, 139, 0.42) 0%, rgba(255, 255, 255, 0.26) 100%);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+.film-frame:hover {
+  border-color: rgba(217, 188, 139, 0.55);
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.09);
+}
+.film-frame:hover .film-bracket {
+  opacity: 0.7;
+}
+
+/* Active Film Frame: filled with luminous golden/white light */
+.film-frame.active {
+  background: rgba(217, 188, 139, 0.18);
+  border-color: var(--gold);
+  color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(197, 160, 105, 0.48), inset 0 0 8px rgba(255, 255, 255, 0.2);
+}
+.film-frame.active .film-bracket {
+  opacity: 1;
+  color: var(--gold-soft);
+}
+.film-frame.active .film-num {
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.75), 0 0 16px rgba(217, 188, 139, 0.5);
+}
+.film-frame.active .film-glow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hpb-divider {
+  width: 1px;
+  height: 13px;
+  background: rgba(217, 188, 139, 0.28);
+  margin: 0 2px;
 }
 .hero-project-badge .hpb-title {
-  max-width: 320px;
+  max-width: 290px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: 0.02em;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.92);
+  transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* ELEGANT HAUTE COUTURE SCROLL INDICATOR */
@@ -1324,9 +1400,9 @@ p { margin: 0; }
   align-items: center;
   gap: 9px;
   padding: 8px 18px;
-  background: rgba(16, 30, 32, 0.76);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(16, 12, 22, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(217, 188, 139, 0.28);
   border-radius: 999px;
   font-size: 0.78rem;
@@ -1334,7 +1410,7 @@ p { margin: 0; }
   color: var(--gold-soft);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  transition: opacity 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s;
   will-change: opacity, transform;
 }
 .hero-scroll-hint:hover {
@@ -1355,24 +1431,43 @@ p { margin: 0; }
 
 @media (max-width: 760px) {
   .hero-project-badge {
-    right: 14px;
+    right: 12px;
     bottom: 12px;
-    padding: 6px 12px;
-    font-size: 0.72rem;
+    padding: 5px 10px 5px 8px;
+    gap: 8px;
+    max-width: calc(100vw - 24px);
+  }
+  .hero-filmstrip {
+    gap: 3px;
+  }
+  .film-frame {
+    padding: 2px 4px;
+    font-size: 0.65rem;
   }
   .hero-project-badge .hpb-title {
-    max-width: 175px;
+    max-width: 135px;
+    font-size: 0.68rem;
   }
   .hero-scroll-hint {
-    left: 14px;
+    left: 12px;
     bottom: 48px;
     padding: 6px 12px;
     font-size: 0.70rem;
     gap: 6px;
-    max-width: calc(100vw - 28px);
+    max-width: calc(100vw - 24px);
   }
 }
 @media (max-width: 480px) {
+  .film-frame .film-bracket {
+    display: none;
+  }
+  .film-frame {
+    padding: 2px 5px;
+    font-size: 0.64rem;
+  }
+  .hero-project-badge .hpb-title {
+    max-width: 110px;
+  }
   .hero-scroll-hint {
     bottom: 46px;
     font-size: 0.67rem;
@@ -1381,16 +1476,18 @@ p { margin: 0; }
 }
 #silkBackgroundCanvas { display: none !important; }
 .hero-inner { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-.hero h1 { max-width: 17ch; text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4); }
+.hero-inner .eyebrow { text-shadow: 0 1px 8px rgba(0, 0, 0, 0.65); }
+.hero h1 { max-width: 17ch; text-shadow: 0 2px 24px rgba(0, 0, 0, 0.7), 0 1px 4px rgba(0, 0, 0, 0.5); }
 .hero-sub {
   max-width: 58ch;
   margin-top: 22px;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.94);
   font-size: 1.08rem;
   font-weight: 300;
   line-height: 1.6;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.65);
 }
-.hero-sub b { font-weight: 600; color: #fff; }
+.hero-sub b { font-weight: 600; color: #fff; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.7); }
 
 .doors {
   display: grid;
@@ -3429,7 +3526,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 </div>
 
 <!-- ============================================================ -->
-<!-- HERO PINNED SHOWCASE TRACK (320vh STICKY SCROLL REEL)       -->
+<!-- HERO PINNED SHOWCASE TRACK (350vh STICKY SCROLL REEL)       -->
 <!-- ============================================================ -->
 <div class="hero-pin-track" id="heroPinTrack">
   <section class="hero" id="top">
@@ -3460,9 +3557,16 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </div>
     <canvas id="heroKoiCanvas"></canvas>
     <div class="hero-project-badge" id="heroProjectBadge" aria-live="polite">
-      <span class="hpb-dot"></span>
-      <span class="hpb-counter" id="hpbCounter">1 / 5</span>
+      <div class="hero-filmstrip" id="heroFilmstrip" role="tablist" aria-label="Плёнка объектов">
+        <button type="button" class="film-frame active" data-frame="0" aria-label="Кадр 01: Панорамная гостиная в резиденции"><span class="film-bracket">[</span><span class="film-num">01</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
+        <button type="button" class="film-frame" data-frame="1" aria-label="Кадр 02: Загородная вилла"><span class="film-bracket">[</span><span class="film-num">02</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
+        <button type="button" class="film-frame" data-frame="2" aria-label="Кадр 03: Мастер-спальня с авторским кутюром"><span class="film-bracket">[</span><span class="film-num">03</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
+        <button type="button" class="film-frame" data-frame="3" aria-label="Кадр 04: Парадный двусветный холл"><span class="film-bracket">[</span><span class="film-num">04</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
+        <button type="button" class="film-frame" data-frame="4" aria-label="Кадр 05: Ресторан «Невеста»"><span class="film-bracket">[</span><span class="film-num">05</span><span class="film-bracket">]</span><span class="film-glow"></span></button>
+      </div>
+      <span class="hpb-divider" aria-hidden="true"></span>
       <span class="hpb-title" id="hpbTitle">Панорамная гостиная в резиденции · Астана</span>
+      <span class="hpb-counter" id="hpbCounter" style="display:none;" aria-hidden="true">1 / 5</span>
     </div>
     <div class="hero-scroll-hint" id="heroScrollHint" role="button" aria-label="Листайте вниз для обзора лучших объектов">
       <span class="hsh-text">Листайте вниз для обзора лучших объектов</span>
@@ -6495,7 +6599,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   });
 
   /* ============================================================ */
-  /* HERO DYNAMIC MULTI-PROJECT SHOWCASE (STICKY PINNED SCROLL)   */
+  /* HERO DYNAMIC MULTI-PROJECT SHOWCASE (HAUTE FILM SCROLL REEL) */
   /* ============================================================ */
   function initHeroShowcase(){
     var trackEl = document.getElementById('heroPinTrack');
@@ -6504,13 +6608,19 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var counterEl = document.getElementById('hpbCounter');
     var titleEl = document.getElementById('hpbTitle');
     var scrollHintEl = document.getElementById('heroScrollHint');
+    var filmFrames = document.querySelectorAll('.film-frame');
     if(!slides.length) return;
 
-    var currentIndex = 0;
+    var currentIndex = -1;
     var total = slides.length;
     var autoTimer = null;
     var lastScrollTime = 0;
-    var isTicking = false;
+    var isLerping = false;
+    var rafId = null;
+
+    // Smoothed scroll interpolation state (lerp)
+    var currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+    var targetScrollY = currentScrollY;
 
     function setSlide(idx){
       if(idx < 0 || idx >= total) return;
@@ -6518,25 +6628,34 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       currentIndex = idx;
 
       for(var i = 0; i < total; i++){
-        if(i === idx){
-          slides[i].classList.add('active');
-        } else {
-          slides[i].classList.remove('active');
+        var isActive = (i === idx);
+        slides[i].classList.toggle('active', isActive);
+        if(filmFrames[i]){
+          filmFrames[i].classList.toggle('active', isActive);
+          filmFrames[i].setAttribute('aria-selected', isActive ? 'true' : 'false');
         }
       }
 
       if(counterEl) counterEl.textContent = (idx + 1) + ' / ' + total;
       var curTitle = slides[idx].getAttribute('data-title') || '';
-      if(titleEl) titleEl.textContent = curTitle;
+      if(titleEl && titleEl.textContent !== curTitle){
+        titleEl.style.opacity = '0';
+        titleEl.style.transform = 'translateY(2px)';
+        setTimeout(function(){
+          titleEl.textContent = curTitle;
+          titleEl.style.opacity = '1';
+          titleEl.style.transform = 'translateY(0)';
+        }, 120);
+      }
     }
 
-    // Auto-advance loop: only gentle auto-reel when user is resting idle at the very top (scrollY <= 5)
+    // Auto-advance loop: gentle film reel preview when user is resting idle at the very top (scrollY <= 5)
     function startAutoTimer(){
       stopAutoTimer();
       autoTimer = setInterval(function(){
         var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        if(scrollY <= 5 && (Date.now() - lastScrollTime > 2500)){
-          var nextIdx = (currentIndex + 1) % total;
+        if(scrollY <= 5 && (Date.now() - lastScrollTime > 3500)){
+          var nextIdx = ((currentIndex >= 0 ? currentIndex : 0) + 1) % total;
           setSlide(nextIdx);
         }
       }, 4500);
@@ -6549,42 +6668,52 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       }
     }
 
-    // Pinned scroll scrubber: calculate scroll progress in heroPinTrack
-    function updateShowcase(){
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    // Pinned scroll scrubber: calculate scroll progress in heroPinTrack with lerp interpolation
+    function updateShowcase(scrollY){
+      if(typeof scrollY !== 'number'){
+        scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      }
       var trackTop = trackEl ? trackEl.offsetTop : 0;
-      var trackHeight = trackEl ? trackEl.offsetHeight : (window.innerHeight * 3.2);
+      var trackHeight = trackEl ? trackEl.offsetHeight : (window.innerHeight * 3.5);
       var maxScroll = Math.max(1, trackHeight - window.innerHeight);
 
       // Scroll progress through pinned track [0.0 ... 1.0]
       var rawProgress = (scrollY - trackTop) / maxScroll;
-      var progress = Math.max(0, Math.min(0.999, rawProgress));
+      var progress = Math.max(0, Math.min(0.9999, rawProgress));
 
-      // Scroll hint indicator: smoothly fades out as scroll starts
+      // Scroll hint indicator: softly disappears at the first movement of scroll (0 -> 70px)
       if(scrollHintEl){
-        if(scrollY <= 5){
+        if(scrollY <= 2){
           scrollHintEl.style.opacity = '1';
           scrollHintEl.style.transform = 'translateY(0)';
           scrollHintEl.style.pointerEvents = 'auto';
         } else {
-          var hintOpacity = Math.max(0, 1 - (scrollY / 160));
-          scrollHintEl.style.opacity = hintOpacity.toFixed(2);
-          scrollHintEl.style.transform = 'translateY(' + Math.min(10, scrollY * 0.08) + 'px)';
-          if(hintOpacity <= 0.02) scrollHintEl.style.pointerEvents = 'none';
+          var hintOpacity = Math.max(0, 1 - (scrollY / 70));
+          scrollHintEl.style.opacity = hintOpacity.toFixed(3);
+          scrollHintEl.style.transform = 'translateY(' + (Math.min(1, scrollY / 70) * 10).toFixed(1) + 'px)';
+          scrollHintEl.style.pointerEvents = hintOpacity <= 0.02 ? 'none' : 'auto';
         }
       }
 
       // Map progress to slides (0 to total - 1)
-      if(rawProgress >= 0 && rawProgress < 1.0){
+      // While screen is pinned (rawProgress < 1.0), evenly divide across 5 frames:
+      // Slide 1: [0.00, 0.20)
+      // Slide 2: [0.20, 0.40)
+      // Slide 3: [0.40, 0.60)
+      // Slide 4: [0.60, 0.80)
+      // Slide 5: [0.80, 1.00]
+      // Only after 5th slide is thoroughly viewed and rawProgress >= 1.0 does the page unpin and move down!
+      if(rawProgress < 1.0){
         var targetIdx = Math.floor(progress * total);
         if(targetIdx >= total) targetIdx = total - 1;
+        if(targetIdx < 0) targetIdx = 0;
         setSlide(targetIdx);
-      } else if(rawProgress >= 1.0){
-        // Ensure final slide (5/5) is locked when track ends and page proceeds down
+      } else {
         setSlide(total - 1);
       }
     }
 
+    var isTicking = false;
     function onScroll(){
       lastScrollTime = Date.now();
       if(!isTicking){
@@ -6599,16 +6728,41 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
 
+    // Filmstrip frame tracker: direct click scrub to specific photo frame
+    filmFrames.forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var fIdx = parseInt(btn.getAttribute('data-frame'), 10);
+        if(!isNaN(fIdx)){
+          lastScrollTime = Date.now();
+          setSlide(fIdx);
+          if(trackEl){
+            var trackTop = trackEl.offsetTop;
+            var trackHeight = trackEl.offsetHeight || (window.innerHeight * 3.5);
+            var maxScroll = Math.max(1, trackHeight - window.innerHeight);
+            var targetY = trackTop + (maxScroll * ((fIdx + 0.25) / total));
+            targetScrollY = targetY;
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+          if(typeof haptic === 'function') haptic();
+        }
+      });
+    });
+
     if(scrollHintEl){
       scrollHintEl.addEventListener('click', function(){
         if(!trackEl) return;
-        var step = (trackEl.offsetHeight - window.innerHeight) / (total - 1);
+        var trackHeight = trackEl.offsetHeight || (window.innerHeight * 3.5);
+        var maxScroll = Math.max(1, trackHeight - window.innerHeight);
+        var step = maxScroll / total;
+        targetScrollY = (window.pageYOffset || document.documentElement.scrollTop) + step;
         window.scrollBy({ top: step || 400, behavior: 'smooth' });
       });
     }
 
     // Initial pass
-    updateShowcase();
+    updateShowcase(currentScrollY);
     startAutoTimer();
   }
   initHeroShowcase();
@@ -6705,7 +6859,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         turnSpeed: 0.016 + Math.random() * 0.008,
         targetAngle: Math.random() * Math.PI * 2,
         scale: baseScale,
-        opacity: 0.42 + Math.random() * 0.08,
+        opacity: 0.52 + Math.random() * 0.10,
         phase: Math.random() * Math.PI * 2,
         wiggleFreq: 0.10 + Math.random() * 0.02,
         timer: Math.floor(Math.random() * 140) + 60
@@ -6824,8 +6978,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         ctx.translate(pt.x, pt.y);
         ctx.rotate(headDir - Math.PI / 2);
         ctx.globalAlpha = fish.opacity;
-        ctx.shadowColor = 'rgba(217, 188, 139, 0.35)';
-        ctx.shadowBlur = 8;
+        ctx.filter = 'hue-rotate(240deg) saturate(1.35) brightness(1.05)';
+        ctx.shadowColor = 'rgba(168, 85, 247, 0.55)';
+        ctx.shadowBlur = 10;
         ctx.drawImage(koiImg, 0, sy, srcW, sh, -dw / 2, -dh / 2, dw, dh);
         ctx.restore();
       }
