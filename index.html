@@ -4109,7 +4109,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   <div class="wrap">
     <div class="section-head center">
       <span class="eyebrow c">Реальные объекты в Астане · До и После</span>
-      <h2>Преображение пространств: <span class="serif-accent">B2B проекты и резиденции</span></h2>
+      <h2>Преображение пространств: <span class="serif-accent">проекты и резиденции</span></h2>
       <p class="lead" style="margin-left:auto;margin-right:auto">
         Потяните интерактивный ползунок влево-вправо: посмотрите, как солнцезащита и текстильная архитектура <span class="muar-a">MUAR&nbsp;A</span> решают задачи перегрева (+38°C), защиты от бликов, акустики и тихой роскоши в Астане.
       </p>
@@ -5763,9 +5763,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       name: 'Мастер-спальня: Светлый интерьер & Покрывало',
       beforeImg: 'assets/muar/master-bed-before.webp',
       afterImg: 'assets/muar/master-bed-light.webp',
-      beforeLabel: 'БЫЛО: Слепящий свет без фильтрации и уюта',
+      beforeLabel: 'БЫЛО: Со шторами (слепящий свет без фильтрации и уюта)',
       afterLabel: 'СТАЛО: Французский тюль, портьеры & авторское покрывало',
-      beforeDesc: 'Мастер-спальня в жилом комплексе: яркий прямой свет утомляет зрение, отсутствует приватность и законченный текстильный ансамбль интерьера.',
+      beforeDesc: 'Мастер-спальня в жилом комплексе: вариант со шторами без правильной светофильтрации и уюта. Яркий прямой свет утомляет зрение, отсутствует приватность и законченный текстильный ансамбль интерьера.',
       afterDesc: 'Светлый кутюрный ансамбль MUAR A: рассеивающая вуаль, плотные портьеры со сборкой 1:2 и фигурно простёганное покрывало на синтепоне с хлопковым подкладом.',
       metricBefore: 'Слепящий свет · Холод',
       metricAfter: 'Светлый уют · Комплект 100%',
@@ -5868,6 +5868,11 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       }
       if(lblBefore) lblBefore.textContent = sc.beforeLabel;
       if(lblAfter) lblAfter.innerHTML = sc.afterLabel;
+
+      var presetBtnBefore = document.querySelector('.ba-presets .ba-preset-btn:first-child');
+      if(presetBtnBefore){
+        presetBtnBefore.textContent = (key === 'master_bed') ? 'Со шторами (До)' : 'Без солнцезащиты (До)';
+      }
 
       if(typeof haptic === 'function') haptic();
     };
