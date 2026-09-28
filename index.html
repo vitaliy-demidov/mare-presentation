@@ -147,24 +147,27 @@
   --maxw: 1260px;
 }
 
-/* COMPACT LUXURY FABRIC SELECTOR CARDS (3-COLUMN SINGLE ROW) */
+/* LUXURY FABRIC SELECTOR CARDS (3 ROWS × 2 COLUMNS PER USER REQUEST) */
 .fabric-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
 }
-@media (max-width: 680px) {
-  .fabric-grid { grid-template-columns: 1fr; gap: 8px; }
+@media (max-width: 540px) {
+  .fabric-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+  }
 }
 .fabric-card {
   display: flex;
   align-items: center;
-  gap: 9px;
-  min-height: 58px;
-  padding: 8px 10px;
+  gap: 13px;
+  min-height: 74px;
+  padding: 12px 15px;
   background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
   text-align: left;
   cursor: pointer;
   position: relative;
@@ -174,24 +177,24 @@
 .fabric-card:hover {
   border-color: var(--gold);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(185, 138, 75, 0.14);
+  box-shadow: 0 10px 24px rgba(185, 138, 75, 0.16);
 }
 .fabric-card.active {
   background: #FFF;
   border-color: var(--gold);
-  box-shadow: 0 0 0 1.5px var(--gold), 0 8px 24px rgba(200, 169, 126, 0.22);
+  box-shadow: 0 0 0 1.5px var(--gold), 0 10px 26px rgba(200, 169, 126, 0.24);
   transform: translateY(-1px);
 }
 .fabric-card.active .fabric-thumb {
-  box-shadow: 0 0 10px rgba(217, 188, 139, 0.45);
+  box-shadow: 0 0 12px rgba(217, 188, 139, 0.5);
 }
 .fabric-thumb {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
   object-fit: cover;
   flex: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 .fabric-details {
   flex: 1;
@@ -199,20 +202,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5px;
+  gap: 2px;
 }
 .fabric-name {
-  font-size: 0.8rem;
+  font-size: 0.94rem;
   font-weight: 700;
   color: var(--ink);
-  line-height: 1.2;
+  line-height: 1.25;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   letter-spacing: -0.01em;
 }
 .fabric-meta {
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--gold);
   line-height: 1.2;
@@ -223,15 +226,15 @@
 .fabric-example-link {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
-  font-size: 0.67rem;
+  gap: 4px;
+  font-size: 0.74rem;
   font-weight: 600;
   color: var(--muted);
   line-height: 1.1;
   cursor: pointer;
   transition: color 0.2s ease, transform 0.2s ease;
   width: fit-content;
-  margin-top: 1px;
+  margin-top: 2px;
 }
 .fabric-example-link svg {
   flex-shrink: 0;
@@ -242,7 +245,7 @@
   transform: translateX(1px);
 }
 .fabric-catalog-link {
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: var(--gold-dark);
   text-decoration: none;
@@ -255,20 +258,58 @@
 .fabric-check {
   display: none;
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 15px;
-  height: 15px;
+  top: 8px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: var(--gold);
   color: #fff;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: 800;
   align-items: center;
   justify-content: center;
   flex: none;
+  box-shadow: 0 2px 6px rgba(185, 138, 75, 0.4);
 }
 .fabric-card.active .fabric-check { display: flex; }
+
+@media (max-width: 480px) {
+  .fabric-grid {
+    gap: 8px;
+  }
+  .fabric-card {
+    padding: 8px 8px;
+    min-height: 64px;
+    gap: 8px;
+    border-radius: 12px;
+  }
+  .fabric-thumb {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+  .fabric-name {
+    font-size: 0.80rem;
+    white-space: normal;
+    line-height: 1.16;
+  }
+  .fabric-meta {
+    font-size: 0.70rem;
+    white-space: normal;
+  }
+  .fabric-example-link {
+    font-size: 0.66rem;
+    margin-top: 1px;
+  }
+  .fabric-check {
+    top: 5px;
+    right: 5px;
+    width: 15px;
+    height: 15px;
+    font-size: 0.60rem;
+  }
+}
 
 /* COMPACT PRODUCT CHIPS (1-ROW 3-OPTIONS) */
 .chips.calc-product-chips {
@@ -1149,46 +1190,46 @@ p { margin: 0; }
   opacity: 1;
   color: var(--petrol);
 }
-/* AMBIENT SOUND CONTROLLER (QUIET LUXURY GLASS PILL) */
+/* AMBIENT SOUND CONTROLLER (COMPACT LUXURY FLOATING SIDE PILL) */
 .ambient-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px 6px 10px;
-  background: rgba(26, 20, 32, 0.72);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(217, 188, 139, 0.35);
+  gap: 7px;
+  padding: 6px 12px 6px 9px;
+  background: rgba(22, 16, 26, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(217, 188, 139, 0.38);
   border-radius: 999px;
   font-family: 'Manrope', sans-serif;
-  font-size: 0.76rem;
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--gold-soft);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
   user-select: none;
 }
 .ambient-pill:hover {
   border-color: var(--gold);
-  background: rgba(36, 26, 44, 0.90);
+  background: rgba(34, 24, 42, 0.95);
   color: #fff;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(217, 188, 139, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 188, 139, 0.3);
 }
 .ambient-pill.active {
-  border-color: rgba(217, 188, 139, 0.85);
-  background: rgba(36, 24, 46, 0.92);
+  border-color: rgba(217, 188, 139, 0.9);
+  background: rgba(38, 25, 48, 0.95);
   color: #fff;
-  box-shadow: 0 0 16px rgba(217, 188, 139, 0.4);
+  box-shadow: 0 0 16px rgba(217, 188, 139, 0.5);
 }
 .ambient-eq {
   display: inline-flex;
   align-items: flex-end;
   gap: 2px;
-  width: 14px;
-  height: 12px;
+  width: 13px;
+  height: 11px;
 }
 .eq-bar {
   width: 2px;
@@ -1209,12 +1250,11 @@ p { margin: 0; }
 
 @keyframes eqBounce {
   0%, 100% { height: 3px; }
-  50% { height: 12px; }
+  50% { height: 11px; }
 }
 
-@media (max-width: 600px) {
-  .header-cta .ambient-pill .ambient-text { display: none; }
-  .header-cta .ambient-pill { padding: 7px 9px; }
+.ambient-float-btn {
+  margin-bottom: 2px;
 }
 
 .header-cta { display: flex; align-items: center; gap: 10px; }
@@ -2768,9 +2808,27 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   .gal { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .gal-cap { opacity: 1; transform: translateY(0); padding: 14px; background: linear-gradient(0deg, rgba(16, 30, 32, 0.94) 0%, rgba(16, 30, 32, 0.45) 75%, transparent 100%); }
   .gal-cap h4 { font-size: 1.05rem; }
-  .gal-cap p { font-size: 0.72rem; }
-  .float-triggers { display: none !important; }
-  .modal-backdrop { padding: 12px; }
+  .float-triggers {
+    display: flex !important;
+    right: 14px;
+    bottom: 16px;
+    gap: 8px;
+    z-index: 95;
+  }
+  .float-sampler-btn { display: none !important; }
+  .float-wa {
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 10px 24px -8px rgba(31, 122, 85, 0.85);
+  }
+  .float-wa svg {
+    width: 24px;
+    height: 24px;
+  }
+  .ambient-float-btn {
+    padding: 5px 9px;
+    font-size: 0.68rem;
+  }
   .modal-card { max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 24px 18px; margin: auto; }
   .ba-scene-tabs { gap: 8px; margin-bottom: 16px; }
   .ba-scene-btn { font-size: 0.82rem; padding: 9px 14px; min-height: 38px; display: inline-flex; align-items: center; }
@@ -3615,15 +3673,6 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     </nav>
 
     <div class="header-cta">
-      <button type="button" class="ambient-pill" id="ambientToggleBtn" aria-label="Включить атмосферу салона" title="Атмосфера салона MUAR A">
-        <span class="ambient-eq" aria-hidden="true">
-          <span class="eq-bar bar-1"></span>
-          <span class="eq-bar bar-2"></span>
-          <span class="eq-bar bar-3"></span>
-          <span class="eq-bar bar-4"></span>
-        </span>
-        <span class="ambient-text">Включить звук</span>
-      </button>
       <a href="https://instagram.com/muar.a" target="_blank" rel="noopener noreferrer" class="btn btn-insta btn-sm" aria-label="Instagram">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -4061,14 +4110,14 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
             </div>
           </div>
 
-          <!-- 2. Universal Fabrics (All 6 Collections in 3 Columns) -->
+          <!-- 2. Universal Fabrics (6 Collections in 3 Rows × 2 Columns) -->
           <div>
             <span class="f-label">2. Коллекция ткани (6 универсальных фактур)</span>
             <div class="fabric-grid" id="fabricGrid">
               
               <!-- 1. Satin -->
               <button type="button" class="fabric-card active" data-v="satin" onclick="setFabric('satin')">
-                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Матовый сатин</div>
                   <div class="fabric-meta">18&nbsp;000&nbsp;₸/м &middot; Турция</div>
@@ -4082,7 +4131,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
               <!-- 2. Linen -->
               <button type="button" class="fabric-card" data-v="linen" onclick="setFabric('linen')">
-                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Фактурный лён</div>
                   <div class="fabric-meta">24&nbsp;000&nbsp;₸/м &middot; Турция</div>
@@ -4096,7 +4145,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
               <!-- 3. Dimout -->
               <button type="button" class="fabric-card" data-v="dimout" onclick="setFabric('dimout')">
-                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Dimout / Блэкаут</div>
                   <div class="fabric-meta">32&nbsp;000&nbsp;₸/м &middot; Европа</div>
@@ -4110,7 +4159,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
               <!-- 4. Velvet -->
               <button type="button" class="fabric-card" data-v="velvet" onclick="setFabric('velvet')">
-                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Бархат Velvet</div>
                   <div class="fabric-meta">38&nbsp;000&nbsp;₸/м &middot; Италия</div>
@@ -4124,7 +4173,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
               <!-- 5. Jacquard -->
               <button type="button" class="fabric-card" data-v="jacquard" onclick="setFabric('jacquard')">
-                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Кутюрный жаккард</div>
                   <div class="fabric-meta">48&nbsp;000&nbsp;₸/м &middot; Бельгия</div>
@@ -4138,7 +4187,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
               <!-- 6. Royal Luxe -->
               <button type="button" class="fabric-card" data-v="royal" onclick="setFabric('royal')">
-                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="40" height="40" loading="lazy" decoding="async">
+                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
                 <div class="fabric-details">
                   <div class="fabric-name">Королевский бархат</div>
                   <div class="fabric-meta">58&nbsp;000&nbsp;₸/м &middot; Италия</div>
@@ -4647,6 +4696,15 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 <!-- ПЛАВАЮЩИЕ КНОПКИ                                             -->
 <!-- ============================================================ -->
 <div class="float-triggers">
+  <button type="button" class="ambient-pill ambient-float-btn" id="ambientToggleBtn" aria-label="Включить атмосферу салона" title="Атмосфера салона MUAR A">
+    <span class="ambient-eq" aria-hidden="true">
+      <span class="eq-bar bar-1"></span>
+      <span class="eq-bar bar-2"></span>
+      <span class="eq-bar bar-3"></span>
+      <span class="eq-bar bar-4"></span>
+    </span>
+    <span class="ambient-text">Звук</span>
+  </button>
   <a class="float-wa" href="javascript:void(0)" onclick="openWhatsAppModal()" aria-label="Связаться в WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
   </a>
@@ -6755,15 +6813,15 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       fishes.push({
         x: startX,
         y: startY,
-        speed: 0.92 + Math.random() * 0.36,
+        speed: 0.38 + Math.random() * 0.15,
         angle: Math.random() * Math.PI * 2,
-        turnSpeed: 0.016 + Math.random() * 0.008,
+        turnSpeed: 0.006 + Math.random() * 0.003,
         targetAngle: Math.random() * Math.PI * 2,
         scale: baseScale,
         opacity: 0.52 + Math.random() * 0.10,
         phase: Math.random() * Math.PI * 2,
-        wiggleFreq: 0.10 + Math.random() * 0.02,
-        timer: Math.floor(Math.random() * 140) + 60
+        wiggleFreq: 0.040 + Math.random() * 0.010,
+        timer: Math.floor(Math.random() * 260) + 160
       });
     }
 
@@ -6773,8 +6831,8 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       fish.phase += fish.wiggleFreq;
       fish.timer--;
       if (fish.timer <= 0) {
-        fish.targetAngle = fish.angle + (Math.random() - 0.5) * 1.5;
-        fish.timer = Math.floor(Math.random() * 160) + 90;
+        fish.targetAngle = fish.angle + (Math.random() - 0.5) * 0.9;
+        fish.timer = Math.floor(Math.random() * 280) + 180;
       }
 
       var diff = fish.targetAngle - fish.angle;
@@ -6785,7 +6843,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       // Gentle boids separation / repulsion: prevent koi from crossing or clumping
       var repelX = 0;
       var repelY = 0;
-      var minDist = isMobile ? 160 : 250;
+      var minDist = isMobile ? 180 : 260;
       if (allFishes && allFishes.length > 1) {
         for (var j = 0; j < allFishes.length; j++) {
           if (j === index) continue;
@@ -6804,16 +6862,16 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           var aDiff = avoidAngle - fish.angle;
           while (aDiff < -Math.PI) aDiff += Math.PI * 2;
           while (aDiff > Math.PI) aDiff -= Math.PI * 2;
-          fish.angle += aDiff * 0.035;
+          fish.angle += aDiff * 0.012;
         }
       }
 
       // Soft margin steering to stay gracefully within the visible hero pond
       var edgePad = isMobile ? 40 : 80;
-      if (fish.x < edgePad) fish.angle += 0.025;
-      else if (fish.x > (width || 800) - edgePad) fish.angle += 0.025;
-      if (fish.y < edgePad) fish.angle += 0.025;
-      else if (fish.y > (height || 600) - edgePad) fish.angle += 0.025;
+      if (fish.x < edgePad) fish.angle += 0.008;
+      else if (fish.x > (width || 800) - edgePad) fish.angle += 0.008;
+      if (fish.y < edgePad) fish.angle += 0.008;
+      else if (fish.y > (height || 600) - edgePad) fish.angle += 0.008;
 
       fish.x += Math.cos(fish.angle) * fish.speed;
       fish.y += Math.sin(fish.angle) * fish.speed;
@@ -6841,7 +6899,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
       for (var i = 0; i < numSlices; i++) {
         var frac = i / (numSlices - 1); // 0 = head, 1 = tail
-        var wave = Math.sin(fish.phase - frac * 5.4) * (26 * fish.scale * Math.pow(frac, 1.35));
+        var wave = Math.sin(fish.phase - frac * 4.4) * (15 * fish.scale * Math.pow(frac, 1.35));
 
         var bx = fish.x + Math.cos(backAngle) * (i * segDist);
         var by = fish.y + Math.sin(backAngle) * (i * segDist);
@@ -6952,13 +7010,13 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   var audioCtx = null;
   var isAudioPlaying = false;
   var fadeInterval = null;
-  var targetVolume = 0.25;
+  var targetVolume = 0.65;
 
   function getAudio() {
     if (!ambientAudio) {
       ambientAudio = new Audio('assets/muar/ambient-lounge.mp3');
       ambientAudio.loop = true;
-      ambientAudio.preload = 'none';
+      ambientAudio.preload = 'auto';
       ambientAudio.volume = 0;
     }
     return ambientAudio;
@@ -7002,26 +7060,30 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     var a = getAudio();
     getAudioContext();
     if (fadeInterval) clearInterval(fadeInterval);
-    a.play().then(function() {
-      isAudioPlaying = true;
-      updateSoundUI();
-      fadeInterval = setInterval(function() {
-        if (!isAudioPlaying) {
-          clearInterval(fadeInterval);
-          return;
-        }
-        if (a.volume < targetVolume - 0.01) {
-          a.volume = Math.min(targetVolume, a.volume + 0.025);
-        } else {
-          a.volume = targetVolume;
-          clearInterval(fadeInterval);
-        }
-      }, 100);
-    }).catch(function(err) {
-      console.log('Audio deferred until user gesture:', err);
-      isAudioPlaying = false;
-      updateSoundUI();
-    });
+    a.volume = 0.30;
+    var playPromise = a.play();
+    if (playPromise !== undefined) {
+      playPromise.then(function() {
+        isAudioPlaying = true;
+        updateSoundUI();
+        fadeInterval = setInterval(function() {
+          if (!isAudioPlaying) {
+            clearInterval(fadeInterval);
+            return;
+          }
+          if (a.volume < targetVolume - 0.02) {
+            a.volume = Math.min(targetVolume, a.volume + 0.05);
+          } else {
+            a.volume = targetVolume;
+            clearInterval(fadeInterval);
+          }
+        }, 60);
+      }).catch(function(err) {
+        console.log('Audio deferred until user gesture:', err);
+        isAudioPlaying = false;
+        updateSoundUI();
+      });
+    }
   }
 
   function fadeOutSound() {
@@ -7030,14 +7092,14 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     updateSoundUI();
     if (fadeInterval) clearInterval(fadeInterval);
     fadeInterval = setInterval(function() {
-      if (a.volume > 0.03) {
-        a.volume = Math.max(0, a.volume - 0.03);
+      if (a.volume > 0.06) {
+        a.volume = Math.max(0, a.volume - 0.06);
       } else {
         a.pause();
         a.volume = 0;
         clearInterval(fadeInterval);
       }
-    }, 80);
+    }, 50);
   }
 
   function toggleAmbientSound() {
@@ -7056,7 +7118,11 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       b.classList.toggle('active', isAudioPlaying);
       var label = b.querySelector('.ambient-text');
       if (label) {
-        label.textContent = isAudioPlaying ? 'Атмосфера салона' : 'Включить звук';
+        if (b.classList.contains('ambient-float-btn')) {
+          label.textContent = isAudioPlaying ? 'Звук вкл' : 'Звук';
+        } else {
+          label.textContent = isAudioPlaying ? 'Атмосфера салона' : 'Включить звук';
+        }
       }
       b.setAttribute('aria-pressed', isAudioPlaying ? 'true' : 'false');
     });
@@ -7067,6 +7133,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
   var mobSoundBtn = document.getElementById('mobAmbientToggleBtn');
   if (mobSoundBtn) mobSoundBtn.addEventListener('click', toggleAmbientSound);
+
+  try {
+    getAudio();
+  } catch(e) {}
 
   })();
 </script>
