@@ -394,6 +394,220 @@
   white-space: nowrap;
 }
 
+/* HERO B2B / B2C DUAL CTA BUTTONS */
+.hero-cta-btn {
+  display: inline-flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  padding: 12px 22px !important;
+  border-radius: var(--r) !important;
+  text-decoration: none !important;
+  line-height: 1.25 !important;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease !important;
+  text-align: left !important;
+}
+.hero-cta-btn .cta-top {
+  font-size: 0.94rem !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+}
+.hero-cta-btn .cta-bot {
+  font-size: 0.72rem !important;
+  opacity: 0.85 !important;
+  font-weight: 400 !important;
+  margin-top: 2px !important;
+}
+@media (max-width: 640px) {
+  .hero-cta-btn {
+    width: 100% !important;
+    padding: 11px 18px !important;
+  }
+}
+
+/* CALCULATOR AUDIENCE SWITCH (B2C vs B2B) */
+.calc-audience-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.audience-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  background: var(--white);
+  border: 1.5px solid var(--line-gold);
+  border-radius: var(--r);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: left;
+}
+.audience-btn:hover {
+  border-color: var(--gold);
+  background: #FFFDF9;
+}
+.audience-btn.active {
+  background: var(--petrol);
+  border-color: var(--petrol);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(22, 11, 28, 0.22);
+}
+.audience-btn .aud-badge {
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(217, 188, 139, 0.25);
+  color: var(--gold-dark);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.audience-btn.active .aud-badge {
+  background: var(--gold);
+  color: var(--petrol-deep);
+}
+.audience-btn .aud-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: block;
+}
+.audience-btn .aud-desc {
+  font-size: 0.73rem;
+  opacity: 0.75;
+  display: block;
+  margin-top: 1px;
+}
+.audience-btn.active .aud-desc {
+  opacity: 0.85;
+  color: #E2E8F0;
+}
+@media (max-width: 580px) {
+  .calc-audience-switch {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .audience-btn {
+    padding: 10px 14px;
+  }
+}
+
+/* BED SIZE SELECTOR CHIPS */
+.bed-size-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+@media (max-width: 580px) {
+  .bed-size-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.bed-chip {
+  padding: 10px 10px;
+  background: var(--white);
+  border: 1px solid var(--line-gold);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  font-size: 0.82rem;
+  text-align: center;
+  transition: all 0.2s;
+  color: #443F39;
+}
+.bed-chip:hover {
+  border-color: var(--gold);
+}
+.bed-chip.active {
+  background: var(--petrol);
+  color: #fff;
+  font-weight: 700;
+  border-color: var(--petrol);
+  box-shadow: 0 4px 12px rgba(31, 58, 61, 0.25);
+}
+
+/* B2B CABINET PACKAGES GRID */
+.b2b-package-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 14px;
+}
+@media (max-width: 640px) {
+  .b2b-package-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.b2b-pkg-card {
+  padding: 14px;
+  border: 1.5px solid var(--line-gold);
+  border-radius: var(--r);
+  background: var(--white);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  position: relative;
+}
+.b2b-pkg-card:hover {
+  border-color: var(--gold);
+}
+.b2b-pkg-card.active {
+  border-color: var(--gold);
+  background: #FDFBF7;
+  box-shadow: 0 4px 14px rgba(217, 188, 139, 0.22);
+}
+.b2b-pkg-card .pkg-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+.b2b-pkg-card .pkg-name {
+  font-size: 0.90rem;
+  font-weight: 700;
+  color: var(--petrol-deep);
+  margin: 4px 0 2px;
+}
+.b2b-pkg-card .pkg-price {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--gold-dark);
+}
+.b2b-pkg-card .pkg-desc {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.35;
+  margin-top: 4px;
+}
+.b2b-concept-preview {
+  margin-top: 14px;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid var(--line-gold);
+  border-radius: var(--r);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.b2b-concept-thumb {
+  width: 110px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.b2b-concept-info {
+  font-size: 0.76rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.b2b-concept-info b {
+  color: var(--ink);
+  display: block;
+  margin-bottom: 2px;
+}
+
 /* B2B 3 DIRECTIONS GRID */
 .b2b-trio-grid {
   display: grid;
@@ -3757,13 +3971,17 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       </p>
 
       <div class="hero-actions">
-        <a href="#calculator" class="btn btn-gold" style="padding:15px 32px; font-size:0.95rem; font-weight:600; box-shadow:0 8px 24px rgba(217,188,139,0.35);">
-          <span>Рассчитать стоимость пошива</span>
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:8px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="#calculator" class="btn btn-gold hero-cta-btn hero-cta-b2c" onclick="setCalcAudience('b2c')">
+          <span class="cta-top">B2C · Частные резиденции</span>
+          <span class="cta-bot">Портьеры, римские шторы, покрывала →</span>
         </a>
-        <button type="button" class="btn btn-ghost" onclick="openSamplerModal()" style="padding:15px 26px; font-size:0.95rem; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.32); backdrop-filter:blur(10px); color:#fff;">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-right:8px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-          <span>Выезд декоратора с образцами</span>
+        <a href="#calculator" class="btn btn-ghost hero-cta-btn hero-cta-b2b" onclick="setCalcAudience('b2b')" style="background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.32); backdrop-filter:blur(10px); color:#fff;">
+          <span class="cta-top">B2B · Для бизнеса &amp; HoReCa</span>
+          <span class="cta-bot">Кабинеты, офисы, сметы с НДС →</span>
+        </a>
+        <button type="button" class="btn btn-ghost hero-cta-sampler" onclick="openSamplerModal()" style="padding:14px 22px; font-size:0.86rem; background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.22); backdrop-filter:blur(8px); color:rgba(255,255,255,0.92); border-radius:var(--r);">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" style="margin-right:6px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          <span>Выезд с чемоданом образцов</span>
         </button>
       </div>
 
@@ -3903,8 +4121,9 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     <div class="ba-scene-tabs" role="tablist" aria-label="Сцены До и После">
       <button class="ba-scene-btn active" onclick="switchBaScene('b2b_canopy', this)">B2B Ресторан: Навесы &amp; Паруса</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('b2b_office', this)">B2B Кабинет: Screen 1% &amp; Панорама</button>
       <button class="ba-scene-btn" onclick="switchBaScene('living_luxe', this)">Гостиная: Складка 1:2</button>
-      <button class="ba-scene-btn" onclick="switchBaScene('master_bed', this)">Мастер-спальня: Blackout 100%</button>
+      <button class="ba-scene-btn" onclick="switchBaScene('master_bed', this)">Мастер-спальня: Светлый интерьер &amp; Покрывало</button>
     </div>
 
     <div class="ba-wrapper reveal">
@@ -4099,143 +4318,334 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     <div class="calc-shell reveal">
       <div class="calc-body">
         <div class="calc-fields">
-          
-          <!-- 1. Product Selection (3 Options in 1 Line) -->
-          <div>
-            <span class="f-label">1. Изделие</span>
-            <div class="chips calc-product-chips" data-group="product">
-              <button type="button" class="chip active" data-v="curtain" onclick="setProduct('curtain', this)">Портьеры в пол</button>
-              <button type="button" class="chip" data-v="roman" onclick="setProduct('roman', this)">Римские шторы</button>
-              <button type="button" class="chip" data-v="bedspread" onclick="setProduct('bedspread', this)">Покрывала</button>
-            </div>
+
+          <!-- 0. AUDIENCE SWITCHER: B2C vs B2B -->
+          <div class="calc-audience-switch">
+            <button type="button" class="audience-btn active" id="btnAudienceB2C" onclick="setCalcAudience('b2c', this)">
+              <span class="aud-badge">B2C</span>
+              <span class="aud-info">
+                <span class="aud-title">Для частных клиентов</span>
+                <span class="aud-desc">Портьеры · Римские шторы · Авторские покрывала</span>
+              </span>
+            </button>
+            <button type="button" class="audience-btn" id="btnAudienceB2B" onclick="setCalcAudience('b2b', this)">
+              <span class="aud-badge">B2B</span>
+              <span class="aud-info">
+                <span class="aud-title">Для бизнеса &amp; HoReCa</span>
+                <span class="aud-desc">Кабинеты руководителей · Офисы · Сметы с НДС</span>
+              </span>
+            </button>
           </div>
 
-          <!-- 2. Universal Fabrics (6 Collections in 3 Rows × 2 Columns) -->
-          <div>
-            <span class="f-label">2. Коллекция ткани (6 универсальных фактур)</span>
-            <div class="fabric-grid" id="fabricGrid">
-              
-              <!-- 1. Satin -->
-              <button type="button" class="fabric-card active" data-v="satin" onclick="setFabric('satin')">
-                <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Матовый сатин</div>
-                  <div class="fabric-meta">18&nbsp;000&nbsp;₸/м &middot; Турция</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('satin', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 2. Linen -->
-              <button type="button" class="fabric-card" data-v="linen" onclick="setFabric('linen')">
-                <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Фактурный лён</div>
-                  <div class="fabric-meta">24&nbsp;000&nbsp;₸/м &middot; Турция</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('linen', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 3. Dimout -->
-              <button type="button" class="fabric-card" data-v="dimout" onclick="setFabric('dimout')">
-                <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Dimout / Блэкаут</div>
-                  <div class="fabric-meta">32&nbsp;000&nbsp;₸/м &middot; Европа</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('dimout', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 4. Velvet -->
-              <button type="button" class="fabric-card" data-v="velvet" onclick="setFabric('velvet')">
-                <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Бархат Velvet</div>
-                  <div class="fabric-meta">38&nbsp;000&nbsp;₸/м &middot; Италия</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('velvet', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 5. Jacquard -->
-              <button type="button" class="fabric-card" data-v="jacquard" onclick="setFabric('jacquard')">
-                <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Кутюрный жаккард</div>
-                  <div class="fabric-meta">48&nbsp;000&nbsp;₸/м &middot; Бельгия</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('jacquard', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
-              <!-- 6. Royal Luxe -->
-              <button type="button" class="fabric-card" data-v="royal" onclick="setFabric('royal')">
-                <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
-                <div class="fabric-details">
-                  <div class="fabric-name">Королевский бархат</div>
-                  <div class="fabric-meta">58&nbsp;000&nbsp;₸/м &middot; Италия</div>
-                  <span class="fabric-example-link" onclick="openFabricModal('royal', event)" title="Посмотреть фото в интерьере">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
-                    Примеры ↗
-                  </span>
-                </div>
-                <span class="fabric-check" aria-hidden="true">✓</span>
-              </button>
-
+          <!-- B2C CONTROLS -->
+          <div id="b2cControls">
+            <!-- 1. Product Selection (3 Options in 1 Line) -->
+            <div style="margin-bottom: 20px;">
+              <span class="f-label">1. Изделие</span>
+              <div class="chips calc-product-chips" data-group="product">
+                <button type="button" class="chip active" data-v="curtain" onclick="setProduct('curtain', this)">Портьеры в пол</button>
+                <button type="button" class="chip" data-v="roman" onclick="setProduct('roman', this)">Римские шторы</button>
+                <button type="button" class="chip" data-v="bedspread" onclick="setProduct('bedspread', this)">Покрывала &amp; Текстиль</button>
+              </div>
             </div>
-          </div>
 
-          <!-- 3. Dimensions Input (Width Only, 1 Window) -->
-          <div id="widthGroup">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
-              <span class="f-label" style="margin-bottom: 0;" id="calcDimLabel">3. Габариты окна</span>
-              <span style="font-size: 0.74rem; color: var(--gold-dark); font-weight: 600;" id="calcFoldBadge">Складка 1:2 (стандарт)</span>
+            <!-- 2. Universal Fabrics (6 Collections in 3 Rows × 2 Columns) -->
+            <div style="margin-bottom: 20px;">
+              <span class="f-label">2. Коллекция ткани (6 универсальных фактур)</span>
+              <div class="fabric-grid" id="fabricGrid">
+                
+                <!-- 1. Satin -->
+                <button type="button" class="fabric-card" data-v="satin" onclick="setFabric('satin')">
+                  <img src="assets/muar/fabric-satin.webp" alt="Сатин Soft-Touch" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
+                  <div class="fabric-details">
+                    <div class="fabric-name">Матовый сатин</div>
+                    <div class="fabric-meta">18&nbsp;000&nbsp;₸/м &middot; Турция</div>
+                    <span class="fabric-example-link" onclick="openFabricModal('satin', event)" title="Посмотреть фото в интерьере">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                      Примеры ↗
+                    </span>
+                  </div>
+                  <span class="fabric-check" aria-hidden="true">✓</span>
+                </button>
+
+                <!-- 2. Linen (Default 24k reference per Asengul) -->
+                <button type="button" class="fabric-card active" data-v="linen" onclick="setFabric('linen')">
+                  <img src="assets/muar/fabric-linen.webp" alt="Фактурный лен" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
+                  <div class="fabric-details">
+                    <div class="fabric-name">Фактурный лён</div>
+                    <div class="fabric-meta">24&nbsp;000&nbsp;₸/м &middot; Турция</div>
+                    <span class="fabric-example-link" onclick="openFabricModal('linen', event)" title="Посмотреть фото в интерьере">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                      Примеры ↗
+                    </span>
+                  </div>
+                  <span class="fabric-check" aria-hidden="true">✓</span>
+                </button>
+
+                <!-- 3. Dimout -->
+                <button type="button" class="fabric-card" data-v="dimout" onclick="setFabric('dimout')">
+                  <img src="assets/muar/fabric-dimout.webp" alt="Dimout / Blackout" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
+                  <div class="fabric-details">
+                    <div class="fabric-name">Dimout / Блэкаут</div>
+                    <div class="fabric-meta">32&nbsp;000&nbsp;₸/м &middot; Европа</div>
+                    <span class="fabric-example-link" onclick="openFabricModal('dimout', event)" title="Посмотреть фото в интерьере">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                      Примеры ↗
+                    </span>
+                  </div>
+                  <span class="fabric-check" aria-hidden="true">✓</span>
+                </button>
+
+                <!-- 4. Velvet -->
+                <button type="button" class="fabric-card" data-v="velvet" onclick="setFabric('velvet')">
+                  <img src="assets/muar/fabric-velvet.webp" alt="Бархат Velvet Touch" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
+                  <div class="fabric-details">
+                    <div class="fabric-name">Бархат Velvet</div>
+                    <div class="fabric-meta">38&nbsp;000&nbsp;₸/м &middot; Италия</div>
+                    <span class="fabric-example-link" onclick="openFabricModal('velvet', event)" title="Посмотреть фото в интерьере">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                      Примеры ↗
+                    </span>
+                  </div>
+                  <span class="fabric-check" aria-hidden="true">✓</span>
+                </button>
+
+                <!-- 5. Jacquard -->
+                <button type="button" class="fabric-card" data-v="jacquard" onclick="setFabric('jacquard')">
+                  <img src="assets/muar/fabric-jacquard.webp" alt="Жаккард с кантом" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
+                  <div class="fabric-details">
+                    <div class="fabric-name">Кутюрный жаккард</div>
+                    <div class="fabric-meta">48&nbsp;000&nbsp;₸/м &middot; Бельгия</div>
+                    <span class="fabric-example-link" onclick="openFabricModal('jacquard', event)" title="Посмотреть фото в интерьере">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                      Примеры ↗
+                    </span>
+                  </div>
+                  <span class="fabric-check" aria-hidden="true">✓</span>
+                </button>
+
+                <!-- 6. Royal Luxe -->
+                <button type="button" class="fabric-card" data-v="royal" onclick="setFabric('royal')">
+                  <img src="assets/muar/fabric-royal.webp" alt="Королевский бархат Royal Luxe" class="fabric-thumb" width="52" height="52" loading="lazy" decoding="async">
+                  <div class="fabric-details">
+                    <div class="fabric-name">Королевский бархат</div>
+                    <div class="fabric-meta">58&nbsp;000&nbsp;₸/м &middot; Италия</div>
+                    <span class="fabric-example-link" onclick="openFabricModal('royal', event)" title="Посмотреть фото в интерьере">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+                      Примеры ↗
+                    </span>
+                  </div>
+                  <span class="fabric-check" aria-hidden="true">✓</span>
+                </button>
+
+              </div>
             </div>
-            <div class="inputs" style="grid-template-columns: 1fr;">
-              <div class="inp">
-                <div class="unit">
-                  <input id="b2c-w" type="number" min="0.8" max="15" step="0.1" value="3.2" oninput="recalc(false)">
-                  <span class="suf">м</span>
+
+            <!-- 3. Dynamic Dimensions by Product -->
+            <!-- 3a. Curtains Dimensions -->
+            <div id="dimCurtain" style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                <span class="f-label" style="margin-bottom: 0;">3. Ширина карниза</span>
+                <span style="font-size: 0.74rem; color: var(--gold-dark); font-weight: 600;">Складка 1:2 (по ГОСТу) · Высота до 305 см</span>
+              </div>
+              <div class="inputs" style="grid-template-columns: 1fr;">
+                <div class="inp">
+                  <div class="unit">
+                    <input id="b2c-w" type="number" min="1.0" max="15" step="0.1" value="3.0" oninput="recalc(false)">
+                    <span class="suf">м карниза</span>
+                  </div>
                 </div>
+              </div>
+              <p style="font-size: 0.72rem; color: var(--muted); margin-top: 6px; line-height: 1.35;">
+                Коэффициент сборки 1:2 — автоматический расчет: 6.0 пог. м ткани на 3.0 м карниза. Цеховой пошив 4&nbsp;900&nbsp;₸/м.
+              </p>
+            </div>
+
+            <!-- 3b. Roman Shades Dimensions -->
+            <div id="dimRoman" style="display: none; margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                <span class="f-label" style="margin-bottom: 0;">3. Габариты римской шторы</span>
+                <span style="font-size: 0.74rem; color: var(--gold-dark); font-weight: 600;">Прямое полотно (+0.4 м на подгиб)</span>
+              </div>
+              <div class="inputs" style="grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div class="inp">
+                  <div class="unit">
+                    <input id="b2c-w-roman" type="number" min="0.6" max="3.5" step="0.05" value="1.9" oninput="recalc(false)">
+                    <span class="suf">м ширины</span>
+                  </div>
+                </div>
+                <div class="inp">
+                  <div class="unit">
+                    <input id="b2c-h-roman" type="number" min="0.8" max="4.0" step="0.05" value="2.5" oninput="recalc(false)">
+                    <span class="suf">м высоты</span>
+                  </div>
+                </div>
+              </div>
+              <p style="font-size: 0.72rem; color: var(--muted); margin-top: 6px; line-height: 1.35;">
+                Расход ткани: ширина + 0.4 м (2.3 пог. м). Механизм: 20&nbsp;000&nbsp;₸/пог. м. Цеховой пошив: 9&nbsp;000&nbsp;₸/м².
+              </p>
+            </div>
+
+            <!-- 3c. Bedspread Dimensions -->
+            <div id="dimBedspread" style="display: none; margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+                <span class="f-label" style="margin-bottom: 0;">3. Размер кровати / спального места</span>
+                <span style="font-size: 0.74rem; color: var(--gold-dark); font-weight: 600;">Синтепон &amp; хлопковый подклад</span>
+              </div>
+              <div class="bed-size-grid">
+                <button type="button" class="bed-chip active" data-m="3.0" data-name="180×200 см (спуск 45 см)" onclick="setBedSize(3.0, '180×200 см (спуск 45 см)', this)">
+                  180 × 200 см · 3.0 пог. м (стандарт)
+                </button>
+                <button type="button" class="bed-chip" data-m="2.8" data-name="160×200 см (спуск 45 см)" onclick="setBedSize(2.8, '160×200 см (спуск 45 см)', this)">
+                  160 × 200 см · 2.8 пог. м
+                </button>
+                <button type="button" class="bed-chip" data-m="3.4" data-name="200×200 см (King size)" onclick="setBedSize(3.4, '200×200 см (King size)', this)">
+                  200 × 200 см · 3.4 пог. м (King)
+                </button>
+              </div>
+              <p style="font-size: 0.72rem; color: var(--muted); margin-top: 6px; line-height: 1.35;">
+                Фиксированная стоимость: 100&nbsp;000&nbsp;₸ за пошив со стёжкой, плотный синтепон 200 г/м² и 100% хлопковый подклад.
+              </p>
+            </div>
+
+            <!-- 4. Addons by Product -->
+            <!-- 4a. Curtains Addons -->
+            <div id="addonCurtain" style="display: flex; flex-direction: column; gap: 8px;">
+              <span class="f-label" style="margin-bottom: 2px;">4. Комплектация и опции</span>
+              <div class="addon-grid">
+                <label class="addon-card">
+                  <input type="checkbox" id="checkLining" checked onchange="recalc(false)">
+                  <div class="addon-info">
+                    <span class="addon-title">Сатиновый подклад по ГОСТу</span>
+                    <span class="addon-price">+10&nbsp;900&nbsp;₸/м · ткань + пошив</span>
+                  </div>
+                </label>
+                <label class="addon-card">
+                  <input type="checkbox" id="checkTulle" onchange="recalc(false)">
+                  <div class="addon-info">
+                    <span class="addon-title">Французская вуаль 1:2</span>
+                    <span class="addon-price">+9&nbsp;500&nbsp;₸/м · с навеской</span>
+                  </div>
+                </label>
+                <label class="addon-card">
+                  <input type="checkbox" id="checkSomfy" onchange="recalc(false)">
+                  <div class="addon-info">
+                    <span class="addon-title">Электрокарниз Somfy</span>
+                    <span class="addon-price">+85&nbsp;000&nbsp;₸ · Франция</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- 4b. Roman Addons -->
+            <div id="addonRoman" style="display: none; flex-direction: column; gap: 8px;">
+              <span class="f-label" style="margin-bottom: 2px;">4. Дополнительные опции</span>
+              <div class="addon-grid" style="grid-template-columns: 1fr;">
+                <label class="addon-card">
+                  <input type="checkbox" id="checkSomfyRoman" onchange="recalc(false)">
+                  <div class="addon-info">
+                    <span class="addon-title">Электропривод Somfy для римских штор</span>
+                    <span class="addon-price">+75&nbsp;000&nbsp;₸ · Франция, пульт Telis</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- 4c. Bedspread Addons -->
+            <div id="addonBedspread" style="display: none; flex-direction: column; gap: 8px;">
+              <span class="f-label" style="margin-bottom: 2px;">4. Декоративный ансамбль</span>
+              <div class="addon-grid" style="grid-template-columns: 1fr;">
+                <label class="addon-card">
+                  <input type="checkbox" id="checkPillows" onchange="recalc(false)">
+                  <div class="addon-info">
+                    <span class="addon-title">Комплект интерьерных подушек (2 шт.)</span>
+                    <span class="addon-price">+28&nbsp;000&nbsp;₸ · 45×45 см, съемный чехол на молнии</span>
+                  </div>
+                </label>
               </div>
             </div>
           </div>
 
-          <!-- 4. Optional Addons for Curtains (Compact 2 Columns) -->
-          <div id="curtainOptions" style="display: flex; flex-direction: column; gap: 8px;">
-            <span class="f-label" style="margin-bottom: 2px;">4. Дополнительные опции</span>
-            <div class="addon-grid">
-              <label class="addon-card">
-                <input type="checkbox" id="checkTulle" checked onchange="recalc(false)">
-                <div class="addon-info">
-                  <span class="addon-title">Французская вуаль</span>
-                  <span class="addon-price">+9&nbsp;500&nbsp;₸/м · с навеской</span>
+          <!-- B2B CONTROLS -->
+          <div id="b2bControls" style="display: none;">
+            <div style="margin-bottom: 18px;">
+              <span class="f-label">1. Пакет для корпоративных объектов и офисов</span>
+              <div class="b2b-package-grid">
+                
+                <div class="b2b-pkg-card active" data-pkg="pkg_curtain" onclick="setB2bPackage('pkg_curtain', this)">
+                  <span class="pkg-tag">Пакет 01</span>
+                  <div class="pkg-name">Кабинет 1: Портьеры на сатине</div>
+                  <div class="pkg-price">238&nbsp;800&nbsp;₸</div>
+                  <div class="pkg-desc">Карниз 3.0 м (6 пог. м ткани 24k) + сатиновый подклад по ГОСТу. Акустический комфорт.</div>
                 </div>
-              </label>
-              <label class="addon-card">
-                <input type="checkbox" id="checkSomfy" onchange="recalc(false)">
-                <div class="addon-info">
-                  <span class="addon-title">Электрокарниз Somfy</span>
-                  <span class="addon-price">+85&nbsp;000&nbsp;₸ · Франция</span>
+
+                <div class="b2b-pkg-card" data-pkg="pkg_blinds" onclick="setB2bPackage('pkg_blinds', this)">
+                  <span class="pkg-tag">Пакет 02</span>
+                  <div class="pkg-name">Кабинет 2: Портьеры + Жалюзи</div>
+                  <div class="pkg-price">322&nbsp;950&nbsp;₸</div>
+                  <div class="pkg-desc">Портьеры 3.0 м + горизонтальные жалюзи 1.9×2.5 м (алюминий). Точный контроль света.</div>
                 </div>
-              </label>
+
+                <div class="b2b-pkg-card" data-pkg="pkg_roman" onclick="setB2bPackage('pkg_roman', this)">
+                  <span class="pkg-tag">Пакет 03</span>
+                  <div class="pkg-name">Кабинет 3: Портьеры + Римские</div>
+                  <div class="pkg-price">374&nbsp;750&nbsp;₸</div>
+                  <div class="pkg-desc">Портьеры 3.0 м + римская штора 1.9×2.5 м с цепочным механизмом. Уют и статус (референс).</div>
+                </div>
+
+                <div class="b2b-pkg-card" data-pkg="pkg_roller" onclick="setB2bPackage('pkg_roller', this)">
+                  <span class="pkg-tag">Пакет 04</span>
+                  <div class="pkg-name">Офис: Контрактные ролл-шторы</div>
+                  <div class="pkg-price">от 69&nbsp;300&nbsp;₸</div>
+                  <div class="pkg-desc">Проем 1.9×2.5 м (4.95 м²). Негорючая ткань Screen 50% или Blackout 100%. Защита от бликов.</div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- B2B Dynamic Options -->
+            <div id="b2bBlindsOptions" style="display: none; margin-bottom: 18px;">
+              <span class="f-label">2. Материал ламелей горизонтальных жалюзи (проем 1.9 × 2.5 м)</span>
+              <div class="bed-size-grid">
+                <button type="button" class="bed-chip active" data-btype="aluminum" onclick="setBlindsType('aluminum', this)">
+                  Алюминий 16/25 мм · 17&nbsp;000&nbsp;₸/м² (база)
+                </button>
+                <button type="button" class="bed-chip" data-btype="composite" onclick="setBlindsType('composite', this)">
+                  ДПК-композит · 53&nbsp;400&nbsp;₸/м²
+                </button>
+                <button type="button" class="bed-chip" data-btype="wood" onclick="setBlindsType('wood', this)">
+                  Натуральное дерево · 102&nbsp;000&nbsp;₸/м²
+                </button>
+              </div>
+            </div>
+
+            <div id="b2bRollerOptions" style="display: none; margin-bottom: 18px;">
+              <span class="f-label">2. Степень затемнения ткани ролл-штор (проем 1.9 × 2.5 м)</span>
+              <div class="bed-size-grid" style="grid-template-columns: 1fr 1fr;">
+                <button type="button" class="bed-chip active" data-rtype="screen" onclick="setRollerType('screen', this)">
+                  Screen 50% затенение · 14&nbsp;000&nbsp;₸/м² (69&nbsp;300&nbsp;₸)
+                </button>
+                <button type="button" class="bed-chip" data-rtype="blackout" onclick="setRollerType('blackout', this)">
+                  Blackout 100% затемнение · 24&nbsp;000&nbsp;₸/м² (118&nbsp;800&nbsp;₸)
+                </button>
+              </div>
+            </div>
+
+            <!-- Visual Reference Card -->
+            <div class="b2b-concept-preview">
+              <img src="assets/muar/b2b-cabinet-reference.webp" alt="3 концепции оформления панорамного кабинета" class="b2b-concept-thumb" width="110" height="60" loading="lazy" decoding="async">
+              <div class="b2b-concept-info">
+                <b>Дизайн-концепции MUAR A: 3 варианта оформления углового кабинета</b>
+                Панорамные портьеры · Контроль жалюзи · Элегантные римские шторы. Расчет строго по нормативам Asengul.
+              </div>
+            </div>
+
+            <!-- Corporate Trust Strip -->
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; font-size: 0.74rem; color: var(--gold-dark); font-weight: 600;">
+              <span>✓ Договор с ТОО/ИП</span>
+              <span>✓ Смета с НДС</span>
+              <span>✓ Сертификаты КМ1</span>
+              <span>✓ Безналичный расчет</span>
             </div>
           </div>
 
@@ -4244,7 +4654,7 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
         <!-- RIGHT: RESULTS BREAKDOWN & WHATSAPP ACTION -->
         <aside class="calc-result">
           <span class="r-lbl" id="resTitleLabel">Смета под ключ · Портьеры</span>
-          <div class="price" id="priceOut" data-v="131800">131 800 ₸</div>
+          <div class="price" id="priceOut" data-v="238800">238 800 ₸</div>
           <p class="r-note" id="modeNote">Включает ткань, цеховой пошив по ГОСТам и профильный карниз</p>
 
           <div class="r-break" id="breakdown">
@@ -4254,10 +4664,10 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
           <div class="r-actions">
             <button class="btn btn-wa btn-block" id="calcWa" onclick="sendCalcToWhatsApp()">
               <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1.1.1-1.7-.2-2.3-.8-4.6-3.2-5.4-5.5-.3-.6-.3-1.2-.2-1.7 0-.5.7-1.6 1.2-1.8.2-.1.5-.1.7.3l.8 1.5c.1.2 0 .4-.1.6l-.4.5c-.1.2-.2.3-.1.5.4.9 1.4 2 2.3 2.4.2.1.4 0 .5-.1l.5-.4c.2-.2.4-.2.6-.1l1.5.8c.4.2.4.5.3.7Z"/></svg>
-              Зафиксировать расчет в WhatsApp
+              <span id="calcWaBtnText">Зафиксировать расчет в WhatsApp</span>
             </button>
 
-            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); line-height: 1.4; margin-top: 10px; text-align: center;">
+            <p style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); line-height: 1.4; margin-top: 10px; text-align: center;" id="calcFooterNote">
               Предварительный расчет носит ознакомительный характер. Точную смету с учетом высоты потолков утвердит декоратор.
             </p>
           </div>
@@ -5321,6 +5731,22 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       beforeFilter: 'none',
       showGallery: true
     },
+    b2b_office: {
+      name: 'B2B Кабинет: Screen 1% & Панорама',
+      beforeImg: 'assets/muar/b2b-office-before.webp',
+      afterImg: 'assets/muar/b2b-office-after.webp',
+      beforeLabel: 'БЫЛО: Слепящий перегрев и блики на мониторах',
+      afterLabel: 'СТАЛО: Контрактный Screen & Комфорт 22°C',
+      beforeDesc: 'Кабинет и переговорная с панорамным остеклением в Астане: слепящий солнечный свет, перегрев помещения до +36°C и нечитаемые мониторы сотрудников.',
+      afterDesc: 'Комплексное B2B решение MUAR A: контрактная солнцезащита Screen 1% с сохранением панорамного вида на Астану, автоматика Somfy и защита от перегрева.',
+      metricBefore: 'Блики 100% · Перегрев +36°C',
+      metricAfter: 'Screen 1% · Комфорт 22°C',
+      badgeObject: 'Бизнес-центр / Кабинет (Астана)',
+      badgeSystem: 'Моторизованные системы Somfy с настенным управлением',
+      badgeCert: 'Негорючий текстиль КМ1, договор и безналичный расчет с НДС',
+      beforeFilter: 'none',
+      showGallery: false
+    },
     living_luxe: {
       name: 'Гостиная: Складка 1:2',
       beforeImg: 'assets/muar/living-luxe-before.webp',
@@ -5338,24 +5764,26 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
       showGallery: false
     },
     master_bed: {
-      name: 'Мастер-спальня: Blackout 100%',
+      name: 'Мастер-спальня: Светлый интерьер & Покрывало',
       beforeImg: 'assets/muar/master-bed-before.webp',
-      afterImg: 'assets/muar/master-bed-after.webp',
-      beforeLabel: 'БЫЛО: Слепящий свет с лоджии (нарушение сна)',
-      afterLabel: 'СТАЛО: Blackout 100% & Портьеры Velvet Touch',
-      beforeDesc: 'Мастер-спальня с выходом на остекленную лоджию: утреннее солнце с 5:00 утра мешает глубокому сну, комната быстро нагревается в летний период.',
-      afterDesc: '100% светоизоляция Blackout в сочетании с бархатными портьерами теплого оттенка и авторским текстильным оформлением изголовья кровати.',
-      metricBefore: 'Свет в 5:00 · Нагрев',
-      metricAfter: 'Блэкаут 100% · Глубокий сон',
-      badgeObject: 'Мастер-спальня в жилом комплексе (Астана)',
-      badgeSystem: 'Светоизоляционная система Blackout с плотным прилеганием к нише',
-      badgeCert: 'Итальянский бархат Velvet Touch, сертифицированный гипоаллергенный состав',
+      afterImg: 'assets/muar/master-bed-light.webp',
+      beforeLabel: 'БЫЛО: Слепящий свет без фильтрации и уюта',
+      afterLabel: 'СТАЛО: Французский тюль, портьеры & авторское покрывало',
+      beforeDesc: 'Мастер-спальня в жилом комплексе: яркий прямой свет утомляет зрение, отсутствует приватность и законченный текстильный ансамбль интерьера.',
+      afterDesc: 'Светлый кутюрный ансамбль MUAR A: рассеивающая вуаль, плотные портьеры со сборкой 1:2 и фигурно простёганное покрывало на синтепоне с хлопковым подкладом.',
+      metricBefore: 'Слепящий свет · Холод',
+      metricAfter: 'Светлый уют · Комплект 100%',
+      badgeObject: 'Мастер-спальня в резиденции (Астана)',
+      badgeSystem: 'Скрытый потолочный карнизный профиль со сборкой «Волна»',
+      badgeCert: 'Натуральный хлопок, синтепон 200 г/м², премиум-текстиль Турция',
       beforeFilter: 'none',
       showGallery: false
     }
   };
   // Backward compatibility aliases
   BA_SCENES.b2b = BA_SCENES.b2b_canopy;
+  BA_SCENES.b2 = BA_SCENES.b2b_office;
+  BA_SCENES.office = BA_SCENES.b2b_office;
   BA_SCENES.living = BA_SCENES.living_luxe;
   BA_SCENES.room2 = BA_SCENES.b2b_canopy;
   BA_SCENES.villa_lift = BA_SCENES.master_bed;
@@ -5507,22 +5935,61 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   };
 
   var calcState = {
+    audience: 'b2c',
     product: 'curtain',
-    fabric: 'satin',
-    w: 3.2
+    fabric: 'linen', // Linen 24k matches Asengul's reference sheet
+    w: 3.0,
+    wRoman: 1.9,
+    hRoman: 2.5,
+    bedSizeMeters: 3.0,
+    bedSizeName: '180 × 200 см (спуск 45 см)',
+    b2bPackage: 'pkg_curtain',
+    blindsType: 'aluminum',
+    rollerType: 'screen'
   };
+  window.calcState = calcState;
+
+  function setCalcAudience(aud, btn){
+    calcState.audience = aud;
+    var b2cBtn = document.getElementById('btnAudienceB2C');
+    var b2bBtn = document.getElementById('btnAudienceB2B');
+    if(b2cBtn) b2cBtn.classList.toggle('active', aud === 'b2c');
+    if(b2bBtn) b2bBtn.classList.toggle('active', aud === 'b2b');
+
+    var b2cBox = document.getElementById('b2cControls');
+    var b2bBox = document.getElementById('b2bControls');
+    if(b2cBox) b2cBox.style.display = (aud === 'b2c') ? 'block' : 'none';
+    if(b2bBox) b2bBox.style.display = (aud === 'b2b') ? 'block' : 'none';
+
+    if (typeof window.playSilkClick === 'function') window.playSilkClick(1800);
+    recalc(false);
+  }
+  window.setCalcAudience = setCalcAudience;
 
   function setProduct(prod, btn){
     calcState.product = prod;
-    var group = btn.closest('.chips');
+    var group = btn ? btn.closest('.chips') : document.querySelector('.calc-product-chips');
     if(group){
       $$('.chip', group).forEach(function(c){ c.classList.remove('active'); });
-      btn.classList.add('active');
+      if(btn) btn.classList.add('active');
     }
-    var curtainOpts = document.getElementById('curtainOptions');
-    if(curtainOpts){
-      curtainOpts.style.display = (prod === 'curtain') ? 'flex' : 'none';
-    }
+
+    // Dynamic dimension groups
+    var dimCurtain = document.getElementById('dimCurtain');
+    var dimRoman = document.getElementById('dimRoman');
+    var dimBed = document.getElementById('dimBedspread');
+    if(dimCurtain) dimCurtain.style.display = (prod === 'curtain') ? 'block' : 'none';
+    if(dimRoman) dimRoman.style.display = (prod === 'roman') ? 'block' : 'none';
+    if(dimBed) dimBed.style.display = (prod === 'bedspread') ? 'block' : 'none';
+
+    // Dynamic addons
+    var addCurtain = document.getElementById('addonCurtain');
+    var addRoman = document.getElementById('addonRoman');
+    var addBed = document.getElementById('addonBedspread');
+    if(addCurtain) addCurtain.style.display = (prod === 'curtain') ? 'flex' : 'none';
+    if(addRoman) addRoman.style.display = (prod === 'roman') ? 'flex' : 'none';
+    if(addBed) addBed.style.display = (prod === 'bedspread') ? 'flex' : 'none';
+
     if (typeof window.playSilkClick === 'function') window.playSilkClick(1900);
     recalc(false);
   }
@@ -5537,6 +6004,55 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
     recalc(false);
   }
   window.setFabric = setFabric;
+
+  function setBedSize(meters, name, btn){
+    calcState.bedSizeMeters = meters;
+    calcState.bedSizeName = name;
+    if(btn){
+      $$('.bed-chip', btn.parentElement).forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+    if (typeof window.playSilkClick === 'function') window.playSilkClick(1850);
+    recalc(false);
+  }
+  window.setBedSize = setBedSize;
+
+  function setB2bPackage(pkg, card){
+    calcState.b2bPackage = pkg;
+    $$('.b2b-pkg-card').forEach(function(c){ c.classList.remove('active'); });
+    if(card) card.classList.add('active');
+
+    var blindsOpt = document.getElementById('b2bBlindsOptions');
+    var rollerOpt = document.getElementById('b2bRollerOptions');
+    if(blindsOpt) blindsOpt.style.display = (pkg === 'pkg_blinds') ? 'block' : 'none';
+    if(rollerOpt) rollerOpt.style.display = (pkg === 'pkg_roller') ? 'block' : 'none';
+
+    if (typeof window.playSilkClick === 'function') window.playSilkClick(1950);
+    recalc(false);
+  }
+  window.setB2bPackage = setB2bPackage;
+
+  function setBlindsType(type, btn){
+    calcState.blindsType = type;
+    if(btn){
+      $$('.bed-chip', btn.parentElement).forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+    if (typeof window.playSilkClick === 'function') window.playSilkClick(1700);
+    recalc(false);
+  }
+  window.setBlindsType = setBlindsType;
+
+  function setRollerType(type, btn){
+    calcState.rollerType = type;
+    if(btn){
+      $$('.bed-chip', btn.parentElement).forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+    if (typeof window.playSilkClick === 'function') window.playSilkClick(1700);
+    recalc(false);
+  }
+  window.setRollerType = setRollerType;
 
   /* ============================================================ */
   /* FABRIC EXAMPLES MODAL DATA & CONTROLLER                      */
@@ -5712,94 +6228,192 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   window.switchB2bImg = switchB2bImg;
 
   function compute(){
-    var w = Math.max(parseFloat($('#b2c-w').value) || 3.2, 0.8);
-    var fab = FABRICS_6[calcState.fabric] || FABRICS_6.satin;
-    var prodKey = calcState.product || 'curtain';
+    var isB2B = (calcState.audience === 'b2b');
 
-    var fabricMeters = 0;
-    var fabricCost = 0;
-    var tailoringCost = 0;
-    var hardwareCost = 0;
-    var tulleCost = 0;
-    var somfyCost = 0;
+    // ==========================================
+    // B2B MODE (Exact Asengul Sheet 6, 4, 5)
+    // ==========================================
+    if(isB2B){
+      var pkg = calcState.b2bPackage || 'pkg_curtain';
+      var lines = [];
+      var total = 0;
+      var prodTitle = '';
+
+      if(pkg === 'pkg_curtain'){
+        prodTitle = 'Кабинет 1: Портьеры на сатине';
+        // Sheet 1 C8 / Sheet 6 C8: 3m rod with 24k fabric = 238 800 ₸
+        var w = 3.0;
+        var meters = w * 2.0; // 6.0m
+        var fabCost = meters * 24000; // 144 000
+        var tailCost = meters * 4900; // 29 400
+        var liningCost = meters * 10900; // 65 400 (satin lining fabric 6k + tailoring 4.9k)
+        total = fabCost + tailCost + liningCost; // 238 800
+
+        lines = [
+          ['Пакет B2B', 'Кабинет 1 · Портьеры на сатине'],
+          ['Назначение', 'Кабинет руководителя / представительская зона'],
+          ['Габариты карниза', '3.0 м (высота до 305 см)'],
+          ['Расход ткани (1:2)', '6.0 пог. м · Фактурный лён 24 000 ₸/м'],
+          ['Ткань портьер', fmt(fabCost)],
+          ['Цеховой пошив по ГОСТу РК', fmt(tailCost) + ' (4 900 ₸/м)'],
+          ['Сатиновый подклад по ГОСТу', fmt(liningCost) + ' (ткань + пошив 10 900 ₸/м)'],
+          ['Условия для юрлиц', 'Договор с ТОО, смета с НДС, безналичный расчет']
+        ];
+        return { total: total, lines: lines, product: prodTitle, isB2B: true };
+      }
+      else if(pkg === 'pkg_blinds'){
+        prodTitle = 'Кабинет 2: Портьеры + Жалюзи';
+        // Curtain base: 238 800 ₸
+        var curtainBase = 238800;
+        // Blinds: 1.9m x 2.5m = 4.75 + 0.2 = 4.95 m2
+        var area = (1.9 * 2.5) + 0.2; // 4.95 m2
+        var bType = calcState.blindsType || 'aluminum';
+        var blindsRate = 17000;
+        var blindsName = 'Алюминий 16/25 мм';
+        if(bType === 'composite'){ blindsRate = 53400; blindsName = 'ДПК-композит'; }
+        else if(bType === 'wood'){ blindsRate = 102000; blindsName = 'Натуральное дерево'; }
+
+        var blindsCost = Math.round(area * blindsRate);
+        total = curtainBase + blindsCost;
+
+        lines = [
+          ['Пакет B2B', 'Кабинет 2 · Портьеры + Жалюзи'],
+          ['Портьеры на сатине (3.0 м)', fmt(curtainBase) + ' (с пошивом и подкладом)'],
+          ['Горизонтальные жалюзи', blindsName + ' · ' + area.toFixed(2) + ' м²'],
+          ['Стоимость жалюзи', fmt(blindsCost) + ' (' + fmt(blindsRate) + ' ₸/м²)'],
+          ['Светоконтроль', 'Полное перекрытие прямых бликов на экранах'],
+          ['Условия для юрлиц', 'Договор с ТОО, закрывающие с НДС, гарантия 3 года']
+        ];
+        return { total: total, lines: lines, product: prodTitle, isB2B: true };
+      }
+      else if(pkg === 'pkg_roman'){
+        prodTitle = 'Кабинет 3: Портьеры + Римские шторы';
+        var curtainBase3 = 238800;
+        var romanBase = 135950;
+        total = curtainBase3 + romanBase;
+
+        lines = [
+          ['Пакет B2B', 'Кабинет 3 · Портьеры + Римские шторы'],
+          ['Дизайн-концепция', 'Текстурный статус (референс MUAR A)'],
+          ['Портьеры на сатине (3.0 м)', fmt(curtainBase3) + ' (с пошивом и подкладом)'],
+          ['Римская штора (1.9 × 2.5 м)', fmt(romanBase) + ' (ткань 2.3м, пошив 9k, механизм 20k)'],
+          ['Преимущество', 'Мягкий рассеянный свет + премиальный текстильный уют'],
+          ['Условия для юрлиц', 'Договор с ТОО, смета с НДС, сертификаты КМ1']
+        ];
+        return { total: total, lines: lines, product: prodTitle, isB2B: true };
+      }
+      else {
+        // pkg_roller: Sheet 4
+        prodTitle = 'Контрактные ролл-шторы для офиса';
+        var rArea = (1.9 * 2.5) + 0.2; // 4.95 m2
+        var rType = calcState.rollerType || 'screen';
+        var rRate = (rType === 'blackout') ? 24000 : 14000;
+        var rName = (rType === 'blackout') ? 'Blackout 100% затемнение' : 'Screen 50% солнцезащита';
+        total = Math.round(rArea * rRate);
+
+        lines = [
+          ['Изделие', 'Контрактные ролл-шторы'],
+          ['Проем окна', '1.9 × 2.5 м (' + rArea.toFixed(2) + ' м² с запасом)'],
+          ['Ткань', rName],
+          ['Цена за м²', fmt(rRate) + ' ₸/м²'],
+          ['Комплектация', 'Алюминиевый вал, цепочный редуктор, утяжелитель'],
+          ['Свойства', 'Негорючесть КМ1, 0% бликов на экранах сотрудников'],
+          ['Условия для юрлиц', 'Договор с ТОО, безналичный расчет с НДС']
+        ];
+        return { total: total, lines: lines, product: prodTitle, isB2B: true };
+      }
+    }
+
+    // ==========================================
+    // B2C MODE (Exact Asengul Sheet 1, 2, 3)
+    // ==========================================
+    var prodKey = calcState.product || 'curtain';
+    var fab = FABRICS_6[calcState.fabric] || FABRICS_6.linen;
     var lines = [];
+    var total = 0;
 
     if(prodKey === 'curtain'){
-      // Standard 1:2 fold ratio automated
-      fabricMeters = w * 2.0;
-      fabricCost = fabricMeters * fab.price;
-      tailoringCost = fabricMeters * 4500;
-      hardwareCost = w * 9500;
+      var w = Math.max(parseFloat($('#b2c-w').value) || 3.0, 1.0);
+      var fabricMeters = w * 2.0;
+      var fabricCost = fabricMeters * fab.price;
+      var tailoringCost = fabricMeters * 4900; // Asengul Sheet 1: 4900 ₸/м
+      var hasLining = $('#checkLining') && $('#checkLining').checked;
+      var liningCost = hasLining ? (fabricMeters * 10900) : 0; // Asengul Sheet 1: 6000 fabric + 4900 tailoring = 10 900 ₸/м
 
       var hasTulle = $('#checkTulle') && $('#checkTulle').checked;
+      var tulleCost = hasTulle ? (w * 2.0 * 9500) : 0;
+
       var hasSomfy = $('#checkSomfy') && $('#checkSomfy').checked;
+      var somfyCost = hasSomfy ? 85000 : 0;
 
-      if(hasTulle){
-        var tulleMeters = w * 2.0;
-        tulleCost = tulleMeters * 9500;
-      }
-      if(hasSomfy){
-        somfyCost = 85000;
-      }
-
-      var total = fabricCost + tailoringCost + hardwareCost + tulleCost + somfyCost;
+      total = fabricCost + tailoringCost + liningCost + tulleCost + somfyCost;
 
       lines = [
         ['Изделие', 'Портьеры в пол (комплект)'],
         ['Ткань', fab.name],
         ['Расход ткани (складка 1:2)', fabricMeters.toFixed(1) + ' пог. м (на ' + w.toFixed(1) + ' м карниза)'],
-        ['Стоимость ткани', fmt(fabricCost)],
-        ['Пошив в цехе по ГОСТам', fmt(tailoringCost)],
-        ['Карнизный профиль & навес', fmt(hardwareCost)]
+        ['Стоимость ткани', fmt(fabricCost) + ' (' + fmt(fab.price) + ' ₸/м)'],
+        ['Цеховой пошив по ГОСТу РК', fmt(tailoringCost) + ' (4 900 ₸/м)']
       ];
-      if(hasTulle) lines.push(['Французская вуаль (тюль 1:2)', fmt(tulleCost)]);
-      if(hasSomfy) lines.push(['Электрокарниз Somfy Ultra', fmt(somfyCost)]);
+      if(hasLining) lines.push(['Сатиновый подклад по ГОСТу', fmt(liningCost) + ' (10 900 ₸/м: ткань + пошив)']);
+      if(hasTulle) lines.push(['Французская вуаль 1:2', fmt(tulleCost) + ' (с навеской)']);
+      if(hasSomfy) lines.push(['Электрокарниз Somfy Ultra', fmt(somfyCost) + ' (Франция, бесшумный)']);
 
-      return { total: total, lines: lines, product: 'Портьеры в пол', meters: fabricMeters, fabric: fab.name, width: w };
+      return { total: total, lines: lines, product: 'Портьеры в пол', meters: fabricMeters, fabric: fab.name, width: w, isB2B: false };
     }
     else if(prodKey === 'roman'){
-      // Flat panel (without folds)
-      fabricMeters = w * 1.0;
-      fabricCost = fabricMeters * fab.price;
-      tailoringCost = 16000;
-      hardwareCost = w * 18000;
+      var wR = Math.max(parseFloat($('#b2c-w-roman').value) || 1.9, 0.6);
+      var hR = Math.max(parseFloat($('#b2c-h-roman').value) || 2.5, 0.8);
 
-      var hasSomfyRoman = $('#checkSomfy') && $('#checkSomfy').checked;
-      if(hasSomfyRoman){
-        somfyCost = 75000;
-      }
+      // Asengul Sheet 2:
+      // fabric consumption = w + 0.4
+      var fabricMetersR = wR + 0.4;
+      var fabricCostR = fabricMetersR * fab.price;
+      // mechanism = w * 20 000
+      var mechCost = wR * 20000;
+      // tailoring = (w * h) * 9 000
+      var tailoringCostR = (wR * hR) * 9000;
 
-      var totalRoman = fabricCost + tailoringCost + hardwareCost + somfyCost;
+      var hasSomfyR = $('#checkSomfyRoman') && $('#checkSomfyRoman').checked;
+      var somfyCostR = hasSomfyR ? 75000 : 0;
+
+      total = fabricCostR + mechCost + tailoringCostR + somfyCostR;
+
       lines = [
-        ['Изделие', 'Римская штора'],
+        ['Изделие', 'Римская штора (' + wR.toFixed(2) + ' × ' + hR.toFixed(2) + ' м)'],
         ['Ткань', fab.name],
-        ['Расход ткани (прямое полотно)', fabricMeters.toFixed(1) + ' пог. м (на ' + w.toFixed(1) + ' м проёма)'],
-        ['Стоимость ткани', fmt(fabricCost)],
-        ['Пошив со спицами и утяжелителем', fmt(tailoringCost)],
-        ['Подъемный механизм с цепочкой', fmt(hardwareCost)]
+        ['Расход ткани (+0.4 м на подгиб)', fabricMetersR.toFixed(1) + ' пог. м'],
+        ['Стоимость ткани', fmt(fabricCostR) + ' (' + fmt(fab.price) + ' ₸/м)'],
+        ['Подъемный механизм с цепочкой', fmt(mechCost) + ' (20 000 ₸/пог. м)'],
+        ['Цеховой пошив со спицами', fmt(tailoringCostR) + ' (9 000 ₸/м²)']
       ];
-      if(hasSomfyRoman) lines.push(['Электропривод Somfy', fmt(somfyCost)]);
+      if(hasSomfyR) lines.push(['Электропривод Somfy', fmt(somfyCostR) + ' (Франция)']);
 
-      return { total: totalRoman, lines: lines, product: 'Римская штора', meters: fabricMeters, fabric: fab.name, width: w };
+      return { total: total, lines: lines, product: 'Римская штора', meters: fabricMetersR, fabric: fab.name, width: wR, height: hR, isB2B: false };
     }
     else {
-      // Bedspread & textiles (standard 5.0m for double bed)
-      fabricMeters = 5.0;
-      fabricCost = fabricMeters * fab.price;
-      tailoringCost = 35000;
-      hardwareCost = 12000;
+      // Bedspread: Asengul Sheet 3
+      var bedMeters = calcState.bedSizeMeters || 3.0;
+      var bedName = calcState.bedSizeName || '180 × 200 см (спуск 45 см)';
+      var fabricCostB = bedMeters * fab.price;
+      // Fixed tailoring + padding (synthepon + cotton) = 100 000 ₸
+      var tailoringFixed = 100000;
 
-      var totalBed = fabricCost + tailoringCost + hardwareCost;
+      var hasPillows = $('#checkPillows') && $('#checkPillows').checked;
+      var pillowsCost = hasPillows ? 28000 : 0;
+
+      total = fabricCostB + tailoringFixed + pillowsCost;
+
       lines = [
-        ['Изделие', 'Покрывало & декоративный текстиль'],
+        ['Изделие', 'Покрывало на кровать ' + bedName],
         ['Ткань', fab.name],
-        ['Расход полотна', '5.0 пог. м (двуспальный размер)'],
-        ['Стоимость ткани', fmt(fabricCost)],
-        ['Фигурная стежка & пошив в цехе', fmt(tailoringCost)],
-        ['Подкладка & кант ручной работы', fmt(hardwareCost)]
+        ['Расход полотна по норме', bedMeters.toFixed(1) + ' пог. м'],
+        ['Стоимость ткани', fmt(fabricCostB) + ' (' + fmt(fab.price) + ' ₸/м)'],
+        ['Пошив со стёжкой, синтепон 200г & хлопок', fmt(tailoringFixed) + ' (цеховой стандарт)']
       ];
+      if(hasPillows) lines.push(['Комплект декоративных подушек (2 шт.)', fmt(pillowsCost) + ' (45×45 см, со съемным чехлом)']);
 
-      return { total: totalBed, lines: lines, product: 'Покрывало & текстиль', meters: fabricMeters, fabric: fab.name, width: w };
+      return { total: total, lines: lines, product: 'Покрывало & Текстиль', meters: bedMeters, fabric: fab.name, isB2B: false };
     }
   }
 
@@ -5853,25 +6467,26 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
 
     var rtl = document.getElementById('resTitleLabel');
     var mn = document.getElementById('modeNote');
-    var cdl = document.getElementById('calcDimLabel');
-    var cfb = document.getElementById('calcFoldBadge');
-    var prod = calcState.product || 'curtain';
+    var waBtnText = document.getElementById('calcWaBtnText');
+    var footNote = document.getElementById('calcFooterNote');
 
-    if(prod === 'curtain'){
-      if(rtl) rtl.textContent = 'Смета под ключ · Портьеры';
-      if(mn) mn.textContent = 'Включает ткань, цеховой пошив по ГОСТам и профильный карниз';
-      if(cdl) cdl.textContent = '3. Ширина карниза';
-      if(cfb) cfb.textContent = 'Складка 1:2 (стандарт)';
-    } else if(prod === 'roman'){
-      if(rtl) rtl.textContent = 'Смета под ключ · Римская штора';
-      if(mn) mn.textContent = 'Включает ткань, пошив со спицами/утяжелителем и подъемный механизм';
-      if(cdl) cdl.textContent = '3. Ширина оконного проема';
-      if(cfb) cfb.textContent = 'Прямое полотно';
-    } else if(prod === 'bedspread'){
-      if(rtl) rtl.textContent = 'Смета под ключ · Покрывало & Текстиль';
-      if(mn) mn.textContent = 'Включает премиальную ткань, фигурную стёжку, подкладку и цеховой пошив';
-      if(cdl) cdl.textContent = '3. Размер кровати / спального места';
-      if(cfb) cfb.textContent = 'Двуспальный размер';
+    if(r.isB2B){
+      if(rtl) rtl.textContent = 'Корпоративная смета · ' + r.product;
+      if(mn) mn.textContent = 'Официальный договор, закрывающие документы с НДС, сертификаты КМ1 негорючести';
+      if(waBtnText) waBtnText.textContent = 'Запросить КП и счет в WhatsApp';
+      if(footNote) footNote.textContent = 'Расчет по корпоративному тарифу MUAR A. Возможен безналичный расчет с НДС.';
+    } else {
+      var prod = calcState.product || 'curtain';
+      if(rtl) rtl.textContent = 'Смета под ключ · ' + r.product;
+      if(waBtnText) waBtnText.textContent = 'Зафиксировать расчет в WhatsApp';
+      if(footNote) footNote.textContent = 'Предварительный расчет носит ознакомительный характер. Точную смету утвердит декоратор при замере.';
+      if(prod === 'curtain'){
+        if(mn) mn.textContent = 'Включает ткань 320 см, цеховой пошив 4 900 ₸/м, сатиновый подклад и профильный карниз';
+      } else if(prod === 'roman'){
+        if(mn) mn.textContent = 'Включает ткань (+0.4 м), подъемный механизм 20 000 ₸/м и пошив со спицами 9 000 ₸/м²';
+      } else if(prod === 'bedspread'){
+        if(mn) mn.textContent = 'Включает ткань (3.0 пог. м), фигурную стёжку, синтепон 200 г/м² и 100% хлопковый подклад';
+      }
     }
   }
   window.recalc = recalc;
@@ -6311,21 +6926,32 @@ footer .logo-word i { color: rgba(255, 255, 255, 0.5); }
   function sendCalcToWhatsApp(){
     var r = compute();
     var linesStr = r.lines.map(function(l){ return "• " + l[0] + ": " + l[1]; }).join("\n");
-    var msg = "Здравствуйте, MUAR A! Предварительный расчет с сайта:\n\n" +
+    var isB2b = (calcState.audience === 'b2b');
+    var header = isB2b
+      ? "Здравствуйте, MUAR A! Коммерческий расчет (B2B / HoReCa / Офис) с сайта:\n\n"
+      : "Здравствуйте, MUAR A! Предварительный расчет с сайта (Частный интерьер):\n\n";
+    var guarantee = isB2b
+      ? "(Официальный договор с ТОО, закрывающие документы с НДС, гарантия 3 года)"
+      : "(Собственный цех в Астане по ГОСТам РК, гарантия 3 года, образцы на выезд)";
+    var callout = isB2b
+      ? "Хотелось бы получить официальное коммерческое предложение со спецификацией и согласовать выезд декоратора на объект."
+      : "Хотелось бы зафиксировать этот расчет и проконсультироваться с дизайнером.";
+
+    var msg = header +
       linesStr + "\n\n" +
-      "Предварительная стоимость: " + fmt(r.total) + "\n" +
-      "(Собственный цех в Астане по ГОСТам РК, гарантия 3 года)\n\n" +
-      "Хотелось бы зафиксировать этот расчет и проконсультироваться с дизайнером.";
+      "Предварительный итог: " + fmt(r.total) + "\n" +
+      guarantee + "\n\n" +
+      callout;
 
     if (window.MaisonPoissonDispatcher) {
       try {
         var leadData = {
-          funnel: 'b2c',
+          funnel: isB2b ? 'b2b' : 'b2c',
           curtainType: r.product,
-          width: r.width,
-          fabric: r.fabric,
+          width: r.width || r.meters || '',
+          fabric: r.fabric || (isB2b ? 'Контрактные материалы' : ''),
           estimatedBudget: r.total,
-          calloutAction: 'Хочу зафиксировать расчет и проконсультироваться с дизайнером.'
+          calloutAction: callout
         };
         MaisonPoissonDispatcher.dispatchLead(leadData, { phone: WA, dispatchWhatsapp: false });
       } catch(e){}
