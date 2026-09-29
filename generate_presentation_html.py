@@ -33,6 +33,9 @@ def generate_html():
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
+  <!-- MUAR A Tactile Motion & Interactive Engine Styles -->
+  <link rel="stylesheet" href="scratch/interactive_engine.css">
+
   <style>
     /* ============================================================ */
     /* 1. ARCHITECTURAL LUXURY DESIGN SYSTEM (ANTI-AI SLOP)         */
@@ -1156,195 +1159,463 @@ def generate_html():
     }}
 
     /* ============================================================ */
-    /* 7. EXACT ASENGUL CALCULATION ENGINE (VERIFIED MATH)          */
+    /* 7. EXACT ASENGUL CALCULATION ENGINE (ALABASTER & BRASS HAUTE COUTURE) */
     /* ============================================================ */
     .section-calc {{
-      padding: 90px 0;
-      background: var(--bg-surface);
+      padding: 100px 0;
+      background: radial-gradient(circle at 50% 25%, rgba(197, 160, 89, 0.08) 0%, rgba(11, 11, 14, 0.98) 75%);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
+      position: relative;
     }}
-    .calc-card {{
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+    .calc-alabaster-card {{
+      background: #FFFFFF;
+      border: 1px solid rgba(197, 160, 89, 0.42);
       border-radius: var(--radius-xl);
       overflow: hidden;
-      margin-top: 44px;
-      box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.6);
+      margin-top: 48px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(197, 160, 89, 0.25);
+      position: relative;
+      color: #1C1917;
     }}
-    .calc-audience-bar {{
-      display: flex;
-      background: rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid var(--border-subtle);
+    .calc-alabaster-card::before {{
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #A78138 0%, #C5A059 50%, #D8BA7A 100%);
+      z-index: 2;
     }}
-    .aud-btn {{
-      flex: 1;
-      padding: 18px 24px;
+
+    /* Direction Navigation Tabs */
+    .calc-direction-bar {{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: #F4EFEB;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+      padding: 6px;
+      gap: 6px;
+    }}
+    @media (max-width: 900px) {{
+      .calc-direction-bar {{ grid-template-columns: 1fr 1fr; }}
+    }}
+    .dir-tab-btn {{
+      padding: 14px 16px;
       background: transparent;
-      border: none;
-      border-bottom: 2px solid transparent;
-      font-size: 0.95rem;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: #6E685F;
       cursor: pointer;
       transition: var(--transition);
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }}
-    .aud-btn:hover {{
+    .dir-tab-btn:hover {{
+      color: #1C1917;
+      background: rgba(255, 255, 255, 0.6);
+    }}
+    .dir-tab-btn.active {{
+      background: #FFFFFF;
+      color: #1C1917;
+      border-color: rgba(197, 160, 89, 0.35);
+      box-shadow: 0 4px 14px rgba(28, 25, 23, 0.06);
+    }}
+    .badge-exact {{
+      font-size: 0.68rem;
+      background: #C5A059;
       color: #FFFFFF;
-      background: rgba(255, 255, 255, 0.02);
-    }}
-    .aud-btn.active {{
-      color: var(--coral-light);
-      border-bottom-color: var(--coral);
-      background: rgba(226, 90, 61, 0.06);
+      padding: 2px 7px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
     }}
 
-    .calc-body {{
+    .calc-body-grid {{
       display: grid;
-      grid-template-columns: 1.15fr 1fr;
+      grid-template-columns: 1.3fr 1fr;
+      background: #FFFFFF;
     }}
-    @media (max-width: 900px) {{
-      .calc-body {{ grid-template-columns: 1fr; }}
+    @media (max-width: 992px) {{
+      .calc-body-grid {{ grid-template-columns: 1fr; }}
     }}
-    .calc-controls {{
+    .calc-controls-pane {{
       padding: 36px;
-      border-right: 1px solid var(--border-subtle);
+      border-right: 1px solid rgba(197, 160, 89, 0.22);
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 26px;
+      background: #FFFFFF;
     }}
     @media (max-width: 768px) {{
-      .calc-controls {{ padding: 24px 18px; border-right: none; border-bottom: 1px solid var(--border-subtle); }}
+      .calc-controls-pane {{ padding: 24px 18px; border-right: none; border-bottom: 1px solid rgba(197, 160, 89, 0.22); }}
     }}
-    .calc-summary {{
+    .calc-summary-pane {{
       padding: 36px;
-      background: rgba(0, 0, 0, 0.2);
+      background: #FAF8F5;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }}
     @media (max-width: 768px) {{
-      .calc-summary {{ padding: 24px 18px; }}
+      .calc-summary-pane {{ padding: 24px 18px; }}
     }}
 
-    .field-group {{
+    .calc-field-group {{
       display: flex;
       flex-direction: column;
       gap: 10px;
     }}
-    .field-label {{
-      font-size: 0.84rem;
-      font-weight: 600;
+    .calc-field-label {{
+      font-size: 0.76rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-    }}
-    .pill-options-grid {{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      letter-spacing: 0.12em;
+      color: #9E7A32;
+      display: flex;
+      align-items: center;
       gap: 8px;
     }}
-    @media (max-width: 500px) {{
-      .pill-options-grid {{ grid-template-columns: 1fr; }}
-    }}
-    .pill-opt-btn {{
-      padding: 10px 14px;
-      border-radius: var(--radius-md);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: var(--transition);
-      text-align: center;
-    }}
-    .pill-opt-btn:hover {{
-      border-color: var(--border-hover);
-      color: #FFFFFF;
-    }}
-    .pill-opt-btn.active {{
-      background: var(--coral-bg);
-      border-color: var(--coral);
-      color: #FFFFFF;
-      font-weight: 600;
+    .calc-field-label::after {{
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(197, 160, 89, 0.22);
     }}
 
-    .range-box {{
+    /* Fabric Grid (3 rows × 2 cols = 6 noble fabrics) */
+    .fabric-grid-3x2 {{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }}
+    @media (max-width: 580px) {{
+      .fabric-grid-3x2 {{ grid-template-columns: 1fr; }}
+    }}
+    .fabric-select-card {{
+      background: #FAF8F5;
+      border: 1.5px solid rgba(197, 160, 89, 0.22);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }}
+    .fabric-select-card:hover {{
+      background: #FFFFFF;
+      border-color: #D8BA7A;
+      transform: translateY(-2px);
+    }}
+    .fabric-select-card.active {{
+      background: #FFFFFF;
+      border-color: #C5A059;
+      box-shadow: 0 4px 16px rgba(197, 160, 89, 0.18), 0 0 0 1px #C5A059;
+    }}
+    .fabric-card-row-top {{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 4px;
+    }}
+    .fabric-title-text {{
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #1C1917;
+      line-height: 1.25;
+    }}
+    .fabric-country-sub {{
+      font-size: 0.72rem;
+      color: #82786F;
+    }}
+    .fabric-cost-badge {{
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #9E7A32;
+      background: rgba(197, 160, 89, 0.12);
+      padding: 2px 7px;
+      border-radius: 6px;
+      white-space: nowrap;
+      border: 1px solid rgba(197, 160, 89, 0.25);
+    }}
+    .fabric-detail-desc {{
+      font-size: 0.74rem;
+      color: #6E685F;
+      line-height: 1.35;
+      margin-top: 3px;
+    }}
+    .fabric-active-dot {{
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #C5A059;
+      color: #FFFFFF;
+      font-size: 10px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }}
+    .fabric-select-card.active .fabric-active-dot {{
+      display: flex;
+    }}
+
+    /* Slider Box */
+    .slider-surface-box {{
+      background: #F4EFEB;
+      border: 1px solid rgba(197, 160, 89, 0.25);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+    }}
+    .slider-surface-top {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }}
+    .slider-surface-title {{
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #1C1917;
+    }}
+    .slider-surface-val {{
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #9E7A32;
+      background: #FFFFFF;
+      padding: 3px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+    }}
+    .slider-brass-input {{
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #ECE5DE;
+      outline: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }}
+    .slider-brass-input::-webkit-slider-thumb {{
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #D8BA7A 0%, #A78138 100%);
+      box-shadow: 0 3px 8px rgba(167, 129, 56, 0.35);
+      border: 2px solid #FFFFFF;
+      cursor: grab;
+      transition: transform 0.15s ease;
+    }}
+    .slider-brass-input::-webkit-slider-thumb:hover {{
+      transform: scale(1.15);
+    }}
+    .slider-surface-sub {{
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: #82786F;
+      margin-top: 6px;
+    }}
+
+    /* Checkbox Rows */
+    .calc-check-brass-row {{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 16px;
+      background: #F4EFEB;
+      border: 1px solid rgba(197, 160, 89, 0.22);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 0.86rem;
+      color: #4A443E;
+      transition: var(--transition);
+    }}
+    .calc-check-brass-row:hover {{
+      background: #FAF8F5;
+      border-color: #C5A059;
+    }}
+    .calc-check-brass-row input[type=checkbox] {{
+      width: 18px;
+      height: 18px;
+      accent-color: #C5A059;
+      cursor: pointer;
+    }}
+
+    /* Bedspread 5 Tiers */
+    .tier-stack-list {{
       display: flex;
       flex-direction: column;
       gap: 8px;
     }}
-    .range-val-row {{
+    .tier-choice-btn {{
+      background: #FAF8F5;
+      border: 1.5px solid rgba(197, 160, 89, 0.22);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
     }}
-    .range-val-num {{
-      font-family: var(--font-serif);
-      font-size: 1.4rem;
+    .tier-choice-btn:hover {{
+      background: #FFFFFF;
+      border-color: #D8BA7A;
+    }}
+    .tier-choice-btn.active {{
+      background: #FFFFFF;
+      border-color: #C5A059;
+      box-shadow: 0 4px 14px rgba(197, 160, 89, 0.14);
+    }}
+    .tier-head-txt {{
+      font-size: 0.9rem;
       font-weight: 600;
-      color: var(--coral-light);
+      color: #1C1917;
+      margin-bottom: 2px;
     }}
-    input[type=range] {{
-      width: 100%;
-      height: 6px;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, 0.12);
-      outline: none;
-      -webkit-appearance: none;
-      accent-color: var(--coral);
+    .tier-sub-txt {{
+      font-size: 0.74rem;
+      color: #82786F;
+    }}
+    .tier-tag-pill {{
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #9E7A32;
+      background: rgba(197, 160, 89, 0.12);
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      border: 1px solid rgba(197, 160, 89, 0.25);
     }}
 
-    .calc-check-row {{
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      user-select: none;
+    /* B2B Packages */
+    .b2b-contract-grid {{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
     }}
-    .calc-check-row input[type=checkbox] {{
-      width: 18px;
-      height: 18px;
-      accent-color: var(--coral);
+    @media (max-width: 580px) {{
+      .b2b-contract-grid {{ grid-template-columns: 1fr; }}
+    }}
+    .b2b-contract-card {{
+      background: #FAF8F5;
+      border: 1.5px solid rgba(197, 160, 89, 0.22);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
       cursor: pointer;
+      transition: var(--transition);
+    }}
+    .b2b-contract-card:hover {{
+      background: #FFFFFF;
+      border-color: #D8BA7A;
+    }}
+    .b2b-contract-card.active {{
+      background: #FFFFFF;
+      border-color: #C5A059;
+      box-shadow: 0 4px 14px rgba(197, 160, 89, 0.14);
+    }}
+
+    /* Summary Pane */
+    .summary-kicker-bar {{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+    }}
+    .summary-atelier-name {{
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #9E7A32;
+    }}
+    .summary-formula-tag {{
+      font-size: 0.72rem;
+      color: #6E685F;
+      background: #FFFFFF;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(197, 160, 89, 0.22);
+    }}
+    .summary-heading-h4 {{
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #1C1917;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }}
+    .summary-lead-desc {{
+      font-size: 0.8rem;
+      color: #82786F;
+      margin-bottom: 20px;
     }}
 
     /* Price Output Box */
-    .price-display-box {{
-      padding: 24px;
-      border-radius: var(--radius-lg);
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-subtle);
-      margin-bottom: 24px;
+    .price-alabaster-box {{
+      padding: 20px;
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      border: 1.5px solid rgba(197, 160, 89, 0.38);
+      margin-bottom: 22px;
+      box-shadow: 0 4px 18px rgba(197, 160, 89, 0.1);
+      text-align: center;
     }}
-    .price-kicker {{
-      font-size: 0.78rem;
-      font-weight: 600;
+    .price-box-kicker {{
+      font-size: 0.72rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-bottom: 8px;
+      letter-spacing: 0.12em;
+      color: #9E7A32;
+      margin-bottom: 4px;
     }}
     .price-num-wrap {{
       display: flex;
       align-items: baseline;
-      gap: 10px;
+      justify-content: center;
+      gap: 8px;
     }}
     .price-sum {{
       font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 3.6vw, 3rem);
+      font-size: clamp(2.3rem, 3.4vw, 3rem);
       font-weight: 700;
-      color: #FFFFFF;
-      line-height: 1;
+      color: #1C1917;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
     }}
     .price-curr {{
       font-family: var(--font-serif);
-      font-size: 1.6rem;
-      color: var(--coral);
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #A78138;
+    }}
+    .price-match-pill {{
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.72rem;
+      color: #1E6B37;
+      background: #E8F5E9;
+      border: 1px solid #A5D6A7;
+      padding: 2px 9px;
+      border-radius: var(--radius-pill);
+      font-weight: 600;
     }}
 
     /* Breakdown Lines */
@@ -1352,27 +1623,67 @@ def generate_html():
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
+      padding-top: 16px;
     }}
     .breakdown-row {{
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 8px;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
     }}
     .breakdown-lbl {{
-      color: var(--text-muted);
+      color: #4A443E;
+      font-weight: 500;
+      white-space: nowrap;
     }}
     .breakdown-dots {{
       flex: 1;
-      border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
+      border-bottom: 1px dotted rgba(197, 160, 89, 0.45);
       margin: 0 4px;
     }}
     .breakdown-val {{
-      color: var(--text-primary);
-      font-weight: 500;
+      color: #1C1917;
+      font-weight: 700;
       white-space: nowrap;
+    }}
+    .breakdown-detail-line {{
+      font-size: 0.72rem;
+      color: #82786F;
+      margin-top: -6px;
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }}
+
+    .btn-solid-wa {{
+      width: 100%;
+      background: linear-gradient(135deg, #1C1917 0%, #2A2520 100%);
+      color: #FFFFFF;
+      border: 1px solid rgba(197, 160, 89, 0.38);
+      border-radius: var(--radius-pill);
+      padding: 15px 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(28, 25, 23, 0.18);
+      text-decoration: none;
+    }}
+    .btn-solid-wa:hover {{
+      background: linear-gradient(135deg, #A78138 0%, #C5A059 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(197, 160, 89, 0.3);
+    }}
+    .btn-solid-wa svg {{
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
     }}
 
     /* ============================================================ */
@@ -1631,11 +1942,12 @@ def generate_html():
       </nav>
 
       <div class="header-actions">
-        <button type="button" class="audio-toggle-btn" id="ambientToggleBtn" onclick="toggleAmbientSound()" title="Включить атмосферную музыку салона">
-          <span class="sound-wave">
-            <span class="sound-bar"></span>
-            <span class="sound-bar"></span>
-            <span class="sound-bar"></span>
+        <button type="button" class="audio-toggle-btn muar-sound-btn" id="ambientToggleBtn" onclick="toggleAmbientSound()" title="Включить атмосферную музыку салона">
+          <span class="sound-wave muar-sound-wave">
+            <span class="sound-bar muar-sound-bar"></span>
+            <span class="sound-bar muar-sound-bar"></span>
+            <span class="sound-bar muar-sound-bar"></span>
+            <span class="sound-bar muar-sound-bar"></span>
           </span>
           <span class="audio-btn-text">Атмосфера салона</span>
         </button>
@@ -1762,34 +2074,45 @@ def generate_html():
         </p>
       </div>
 
-      <!-- Scene Switcher Tabs -->
+      <!-- Scene Switcher Tabs (5 Key Projects) -->
       <div class="ba-tabs-nav">
         <button type="button" class="ba-tab-btn active" onclick="switchBaScene(1, this)">01. Red &amp; White (Резиденция)</button>
-        <button type="button" class="ba-tab-btn" onclick="switchBaScene(2, this)">02. ЖК Vivaldi (Свет &amp; Dimout)</button>
-        <button type="button" class="ba-tab-btn" onclick="switchBaScene(3, this)">03. Загородный дом (Зарина Секен)</button>
-        <button type="button" class="ba-tab-btn" onclick="switchBaScene(7, this)">07. Вилла Нолана (Потолки 10 м)</button>
+        <button type="button" class="ba-tab-btn" onclick="switchBaScene(2, this)">02. ЖК Vivaldi (Панорамный Dimout)</button>
+        <button type="button" class="ba-tab-btn" onclick="switchBaScene(3, this)">03. Загородный дом (Римский тюль)</button>
+        <button type="button" class="ba-tab-btn" onclick="switchBaScene(7, this)">07. Вилла «Темный Рыцарь» (10-метровый холл)</button>
+        <button type="button" class="ba-tab-btn" onclick="switchBaScene(9, this)">09. Спальня (Коррекция асимметрии окна)</button>
       </div>
 
       <div class="ba-stage-card">
         <div class="ba-slider-hero" id="baHeroSlider">
-          <div class="ba-slider-container" id="baDedicatedSlider">
-            <div class="ba-after-layer">
-              <img id="baHeroImgAfter" src="assets/muar/portfolio/garden-14.webp" alt="После текстильного оформления">
+          <div class="ba-slider-container muar-ba-container" id="baDedicatedSlider" role="slider" tabindex="0" aria-label="Интерактивное сравнение До и После" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+            <div class="ba-after-layer muar-ba-layer muar-ba-after">
+              <img id="baHeroImgAfter" src="assets/muar/portfolio/garden-14.webp" alt="После текстильного оформления" draggable="false">
             </div>
-            <div class="ba-before-layer" id="baHeroBeforeLayer">
-              <img id="baHeroImgBefore" src="assets/muar/portfolio/photo_9@29-09-2026_17-02-55.webp" alt="До текстильного оформления">
+            <div class="ba-before-layer muar-ba-layer muar-ba-before" id="baHeroBeforeLayer">
+              <img id="baHeroImgBefore" src="assets/muar/portfolio/photo_9@29-09-2026_17-02-55.webp" alt="До текстильного оформления" draggable="false">
             </div>
-            <div class="ba-handle-line" id="baHeroHandleLine">
-              <div class="ba-handle-grip">⇄</div>
+            <div class="ba-handle-line muar-ba-divider" id="baHeroHandleLine">
+              <div class="ba-handle-grip muar-ba-grip" tabindex="0" role="slider" aria-label="Разделитель До и После">
+                <svg class="muar-ba-arrows-svg" viewBox="0 0 24 24" width="22" height="22">
+                  <path d="M8.5 7.5L4 12l4.5 4.5M15.5 7.5L20 12l-4.5 4.5" stroke="#1A150B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
             </div>
-            <div class="ba-tag ba-tag-before" id="baHeroLabelBefore">Без штор</div>
-            <div class="ba-tag ba-tag-after" id="baHeroLabelAfter">Драматургия Red &amp; White</div>
+            <div class="ba-tag ba-tag-before muar-ba-badge muar-ba-badge-before" id="baHeroLabelBefore">
+              <span class="muar-ba-badge-dot"></span>
+              <span id="baHeroLabelBeforeText">Интерьер до текстиля</span>
+            </div>
+            <div class="ba-tag ba-tag-after muar-ba-badge muar-ba-badge-after" id="baHeroLabelAfter">
+              <span class="muar-ba-badge-dot"></span>
+              <span id="baHeroLabelAfterText">Кутюрное преображение MUAR A</span>
+            </div>
           </div>
         </div>
         <div class="ba-card-caption">
           <div class="ba-caption-text">
-            <h4 id="baHeroCaptionTitle">Проект 01: Драматургия Red &amp; White</h4>
-            <p id="baHeroCaptionDesc">Шторы на подкладке, вставка с птицами и стеганое покрывало создали единый кутюрный ансамбль.</p>
+            <h4 id="baHeroCaptionTitle">Проект 01: Драматургия Red &amp; White (Резиденция)</h4>
+            <p id="baHeroCaptionDesc">Черновой интерьер vs законченный кутюрный шик: портьеры на светозащитной подкладке, авторская вставка с птицами и стёганое покрывало.</p>
           </div>
           <a href="https://wa.me/77710551515?text=Здравствуйте,%20MUAR%20A!%20Хочу%20получить%20проект%20преображения%20для%20моего%20интерьера." target="_blank" class="btn btn-coral btn-sm">
             Заказать выезд декоратора
@@ -1910,107 +2233,295 @@ def generate_html():
   </section>
 
   <!-- ============================================================ -->
-  <!-- 6. EXACT ASENGUL CALCULATION ENGINE                          -->
+  <!-- 6. EXACT ASENGUL CALCULATION ENGINE (ALABASTER & BRASS)       -->
   <!-- ============================================================ -->
   <section class="section-calc" id="calculator">
     <div class="wrap">
       <div class="section-head center">
-        <div class="section-kicker">ОНЛАЙН-РАСЧЕТ СМЕТЫ</div>
+        <div class="section-kicker">ОНЛАЙН-РАСЧЕТ СМЕТЫ · АТЕЛЬЕ АСЕНГУЛЬ</div>
         <h2 class="section-title">Калькулятор текстильного оформления</h2>
         <p class="section-subtitle">
-          Точный алгоритм ценообразования Muar A. Прозрачная спецификация ткани, пошива по ГОСТу, подкладки и карнизов без скрытых наценок.
+          Строгие производственные регламенты Асенгуль: европейский текстиль, цеховой крой по ГОСТу РК, профильные карнизы и скульптурное отпаривание без скрытых наценок.
         </p>
       </div>
 
-      <div class="calc-card">
+      <div class="calc-alabaster-card">
         
-        <!-- Audience Switcher -->
-        <div class="calc-audience-bar">
-          <button type="button" class="aud-btn active" id="audB2CBtn" onclick="switchAudience('b2c')">
-            Частный интерьер (B2C Квартиры &amp; Виллы)
+        <!-- Direction Tabs (Curtains / Roman / Bedspread / B2B) -->
+        <div class="calc-direction-bar">
+          <button type="button" class="dir-tab-btn active" data-product="curtain" onclick="setProduct('curtain', this)">
+            <span>Портьеры в пол</span>
+            <span class="badge-exact">508 800 ₸ тест</span>
           </button>
-          <button type="button" class="aud-btn" id="audB2BBtn" onclick="switchAudience('b2b')">
-            Корпоративный контракт (B2B Офисы, Отели, Рестораны)
+          <button type="button" class="dir-tab-btn" data-product="roman" onclick="setProduct('roman', this)">
+            <span>Римские шторы</span>
+          </button>
+          <button type="button" class="dir-tab-btn" data-product="bedspread" onclick="setProduct('bedspread', this)">
+            <span>Покрывало стёганое</span>
+          </button>
+          <button type="button" class="dir-tab-btn" data-product="b2b" onclick="setProduct('b2b', this)">
+            <span>B2B Контракт (НДС 12%)</span>
           </button>
         </div>
 
-        <div class="calc-body">
+        <div class="calc-body-grid">
           
           <!-- Left: Controls -->
-          <div class="calc-controls">
+          <div class="calc-controls-pane">
             
-            <!-- Product Type -->
-            <div class="field-group" id="b2cProductGroup">
-              <label class="field-label">Тип текстильного изделия</label>
-              <div class="pill-options-grid">
-                <button type="button" class="pill-opt-btn active" data-prod="curtain" onclick="setProduct('curtain', this)">Портьеры в пол</button>
-                <button type="button" class="pill-opt-btn" data-prod="roman" onclick="setProduct('roman', this)">Римская штора</button>
-                <button type="button" class="pill-opt-btn" data-prod="bedspread" onclick="setProduct('bedspread', this)">Покрывало &amp; Подушки</button>
+            <!-- Fabric Selector (3x2 Grid = 6 Noble Fabrics) -->
+            <div id="fabricChoiceSection">
+              <div class="calc-field-label">Коллекция благородных тканей (3×2)</div>
+              <div class="fabric-grid-3x2" id="fabricOptionsGrid">
+                <!-- 1 -->
+                <button type="button" class="fabric-select-card" data-fab="velvet_dedar" onclick="setFabric('velvet_dedar', this)">
+                  <div class="fabric-card-row-top">
+                    <div>
+                      <div class="fabric-title-text">Бархат Dedar Milano</div>
+                      <div class="fabric-country-sub">Италия · Haute Couture</div>
+                    </div>
+                    <div class="fabric-cost-badge">88 000 ₸/м</div>
+                  </div>
+                  <div class="fabric-detail-desc">520 г/м², глубокий матовый ворс, роскошная драпировка</div>
+                  <div class="fabric-active-dot">✓</div>
+                </button>
+
+                <!-- 2 -->
+                <button type="button" class="fabric-select-card" data-fab="wild_silk" onclick="setFabric('wild_silk', this)">
+                  <div class="fabric-card-row-top">
+                    <div>
+                      <div class="fabric-title-text">Натуральный дикий шелк</div>
+                      <div class="fabric-country-sub">Франция · Эксклюзив</div>
+                    </div>
+                    <div class="fabric-cost-badge">72 000 ₸/м</div>
+                  </div>
+                  <div class="fabric-detail-desc">Фактурный шантунг ручной выделки с жемчужным отливом</div>
+                  <div class="fabric-active-dot">✓</div>
+                </button>
+
+                <!-- 3 (Default Satin Spain) -->
+                <button type="button" class="fabric-select-card active" data-fab="satin_spain" onclick="setFabric('satin_spain', this)">
+                  <div class="fabric-card-row-top">
+                    <div>
+                      <div class="fabric-title-text">Матовый плотный сатин</div>
+                      <div class="fabric-country-sub">Испания · Базовый выбор</div>
+                    </div>
+                    <div class="fabric-cost-badge">55 000 ₸/м</div>
+                  </div>
+                  <div class="fabric-detail-desc">Тяжелая пластика складок, устойчивость к УФ-лучам Астаны</div>
+                  <div class="fabric-active-dot">✓</div>
+                </button>
+
+                <!-- 4 -->
+                <button type="button" class="fabric-select-card" data-fab="linen_belgium" onclick="setFabric('linen_belgium', this)">
+                  <div class="fabric-card-row-top">
+                    <div>
+                      <div class="fabric-title-text">Текстурированный лен с мулине</div>
+                      <div class="fabric-country-sub">Бельгия · Эко-премиум</div>
+                    </div>
+                    <div class="fabric-cost-badge">48 000 ₸/м</div>
+                  </div>
+                  <div class="fabric-detail-desc">Природная выразительная фактура с тонкой нитью мулине</div>
+                  <div class="fabric-active-dot">✓</div>
+                </button>
+
+                <!-- 5 -->
+                <button type="button" class="fabric-select-card" data-fab="dimout_germany" onclick="setFabric('dimout_germany', this)">
+                  <div class="fabric-card-row-top">
+                    <div>
+                      <div class="fabric-title-text">Светозащитный Dimout / Blackout</div>
+                      <div class="fabric-country-sub">Германия · 99% затемнение</div>
+                    </div>
+                    <div class="fabric-cost-badge">42 000 ₸/м</div>
+                  </div>
+                  <div class="fabric-detail-desc">Трехслойное плетение, термоизоляция и защита мебели</div>
+                  <div class="fabric-active-dot">✓</div>
+                </button>
+
+                <!-- 6 -->
+                <button type="button" class="fabric-select-card" data-fab="tulle_france" onclick="setFabric('tulle_france', this)">
+                  <div class="fabric-card-row-top">
+                    <div>
+                      <div class="fabric-title-text">Французский тюль-вуаль</div>
+                      <div class="fabric-country-sub">Турция / Франция · Гардина</div>
+                    </div>
+                    <div class="fabric-cost-badge">28 000 ₸/м</div>
+                  </div>
+                  <div class="fabric-detail-desc">Воздушное полотно, мягко рассеивающее яркий свет</div>
+                  <div class="fabric-active-dot">✓</div>
+                </button>
               </div>
             </div>
 
-            <!-- B2B Package Type -->
-            <div class="field-group" id="b2bPackageGroup" style="display: none;">
-              <label class="field-label">Контрактное решение</label>
-              <div class="pill-options-grid">
-                <button type="button" class="pill-opt-btn active" data-b2bpkg="pkg_curtain" onclick="setB2bPackage('pkg_curtain', this)">Кабинет 1: Портьеры</button>
-                <button type="button" class="pill-opt-btn" data-b2bpkg="pkg_blinds" onclick="setB2bPackage('pkg_blinds', this)">Кабинет 2: Жалюзи</button>
-                <button type="button" class="pill-opt-btn" data-b2bpkg="pkg_roman" onclick="setB2bPackage('pkg_roman', this)">Кабинет 3: Римские</button>
+            <!-- Curtain Controls (Formula 1) -->
+            <div id="curtainSection">
+              <div class="calc-field-label">Геометрия окна и карниза (Формула 1)</div>
+              <div class="slider-surface-box">
+                <div class="slider-surface-top">
+                  <span class="slider-surface-title">Ширина карниза (м)</span>
+                  <span class="slider-surface-val"><span id="widthOut">3.2</span> м</span>
+                </div>
+                <input type="range" class="slider-brass-input" id="widthRange" min="1.0" max="8.0" step="0.1" value="3.2" oninput="updateCurtainWidth(this.value)">
+                <div class="slider-surface-sub">
+                  <span>1.0 м</span>
+                  <span>Базовый тест: 3.2 м (расход ткани 6.4 м)</span>
+                  <span>8.0 м</span>
+                </div>
+              </div>
+
+              <!-- Options -->
+              <div class="calc-field-group" style="margin-top: 18px;">
+                <div class="calc-field-label">Дополнительные опции пошива</div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                  <label class="calc-check-brass-row">
+                    <input type="checkbox" id="checkLining" onchange="recalc()">
+                    <span>Сатиновый подклад по ГОСТу РК (+10 900 ₸/м расхода — защита ткани)</span>
+                  </label>
+                  <label class="calc-check-brass-row">
+                    <input type="checkbox" id="checkTulle" onchange="recalc()">
+                    <span>Второй ряд: Французская вуаль со сборкой 2.0 (+14 500 ₸/м)</span>
+                  </label>
+                  <label class="calc-check-brass-row">
+                    <input type="checkbox" id="checkSomfy" onchange="recalc()">
+                    <span>Электрокарниз Somfy Ultra с бесшумным мотором и пультом (+85 000 ₸)</span>
+                  </label>
+                </div>
               </div>
             </div>
 
-            <!-- Fabric Category -->
-            <div class="field-group">
-              <label class="field-label">Категория ткани</label>
-              <div class="pill-options-grid" id="fabricOptionsGrid">
-                <button type="button" class="pill-opt-btn active" data-fab="linen" onclick="setFabric('linen', this)">Лён фактурный (24k ₸)</button>
-                <button type="button" class="pill-opt-btn" data-fab="satin" onclick="setFabric('satin', this)">Сатин Soft (18k ₸)</button>
-                <button type="button" class="pill-opt-btn" data-fab="dimout" onclick="setFabric('dimout', this)">Dimout Текстура (22k ₸)</button>
-                <button type="button" class="pill-opt-btn" data-fab="velvet" onclick="setFabric('velvet', this)">Бархат Couture (28k ₸)</button>
-                <button type="button" class="pill-opt-btn" data-fab="chenille" onclick="setFabric('chenille', this)">Шенилл Wind (32k ₸)</button>
-                <button type="button" class="pill-opt-btn" data-fab="jacquard" onclick="setFabric('jacquard', this)">Жаккард Люкс (38k ₸)</button>
+            <!-- Roman Controls (Formula 2) -->
+            <div id="romanSection" style="display: none;">
+              <div class="calc-field-label">Параметры римской шторы (Формула 2)</div>
+              <div class="slider-surface-box" style="margin-bottom: 12px;">
+                <div class="slider-surface-top">
+                  <span class="slider-surface-title">Ширина механизма (м)</span>
+                  <span class="slider-surface-val"><span id="romanWidthOut">1.6</span> м</span>
+                </div>
+                <input type="range" class="slider-brass-input" id="romanWidthRange" min="0.8" max="3.0" step="0.1" value="1.6" oninput="updateRomanDims()">
+                <div class="slider-surface-sub">
+                  <span>0.8 м</span>
+                  <span>Цепочный подъемный механизм: 32 000 ₸/м</span>
+                  <span>3.0 м</span>
+                </div>
+              </div>
+
+              <div class="slider-surface-box">
+                <div class="slider-surface-top">
+                  <span class="slider-surface-title">Высота изделия (м)</span>
+                  <span class="slider-surface-val"><span id="romanHeightOut">2.8</span> м</span>
+                </div>
+                <input type="range" class="slider-brass-input" id="romanHeightRange" min="1.2" max="3.6" step="0.1" value="2.8" oninput="updateRomanDims()">
+                <div class="slider-surface-sub">
+                  <span>1.2 м</span>
+                  <span>Расход: (Высота + 0.3м) × 1.15 = 3.56 пог. м</span>
+                  <span>3.6 м</span>
+                </div>
               </div>
             </div>
 
-            <!-- Dimensions (Width & Height) -->
-            <div class="range-box" id="rangeWidthBox">
-              <div class="range-val-row">
-                <label class="field-label">Ширина карниза / окна</label>
-                <span class="range-val-num"><span id="widthOut">3.2</span> м</span>
+            <!-- Bedspread Controls (Formula 3) -->
+            <div id="bedspreadSection" style="display: none;">
+              <div class="calc-field-label">5 порогов сложности покрывала (Формула 3)</div>
+              <div class="tier-stack-list">
+                <button type="button" class="tier-choice-btn" data-tier="0" onclick="setBedspreadTier(0, this)">
+                  <div>
+                    <div class="tier-head-txt">Порог 1 · Минимализм (Линейная стёжка)</div>
+                    <div class="tier-sub-txt">2.2 × 2.4 м, ткань 2.8 м, холлофайбер 150г, хлопок</div>
+                  </div>
+                  <div class="tier-tag-pill">Пошив 70k ₸</div>
+                </button>
+                <button type="button" class="tier-choice-btn" data-tier="1" onclick="setBedspreadTier(1, this)">
+                  <div>
+                    <div class="tier-head-txt">Порог 2 · Классика (Стёжка «Ромбы»)</div>
+                    <div class="tier-sub-txt">2.4 × 2.5 м, ткань 3.0 м, синтепон 150г, сатиновый подклад</div>
+                  </div>
+                  <div class="tier-tag-pill">Пошив 85k ₸</div>
+                </button>
+                <button type="button" class="tier-choice-btn active" data-tier="2" onclick="setBedspreadTier(2, this)">
+                  <div>
+                    <div class="tier-head-txt">Порог 3 · Стандарт Асенгуль (Фигурная стёжка + Кант)</div>
+                    <div class="tier-sub-txt">2.4 × 2.6 м (кровать 180×200), ткань 3.2 м, синтепон 200 г/м²</div>
+                  </div>
+                  <div class="tier-tag-pill">Пошив 100k ₸</div>
+                </button>
+                <button type="button" class="tier-choice-btn" data-tier="3" onclick="setBedspreadTier(3, this)">
+                  <div>
+                    <div class="tier-head-txt">Порог 4 · Премиум King Size (Вензельная стёжка)</div>
+                    <div class="tier-sub-txt">2.6 × 2.7 м, ткань 3.6 м, синтепон 250г, авторский вензель</div>
+                  </div>
+                  <div class="tier-tag-pill">Пошив 125k ₸</div>
+                </button>
+                <button type="button" class="tier-choice-btn" data-tier="4" onclick="setBedspreadTier(4, this)">
+                  <div>
+                    <div class="tier-head-txt">Порог 5 · Haute Couture (Двустороннее + 2 подушки)</div>
+                    <div class="tier-sub-txt">2.6 × 2.8 м, ткань 4.0 м, пух + синтепон 250г, компаньон, 2 подушки 50×70</div>
+                  </div>
+                  <div class="tier-tag-pill">Пошив 160k ₸</div>
+                </button>
               </div>
-              <input type="range" id="widthRange" min="1.0" max="8.0" step="0.1" value="3.2" oninput="updateRange('width', this.value)">
             </div>
 
-            <!-- Options Checkboxes -->
-            <div class="field-group" id="b2cAddonsGroup">
-              <label class="field-label">Дополнительные опции пошива</label>
-              <div style="display: flex; flex-direction: column; gap: 12px;">
-                <label class="calc-check-row">
-                  <input type="checkbox" id="checkLining" checked onchange="recalc()">
-                  <span>Сатиновый подклад по ГОСТу РК (защита от выгорания, 10 900 ₸/м)</span>
-                </label>
-                <label class="calc-check-row">
-                  <input type="checkbox" id="checkTulle" checked onchange="recalc()">
-                  <span>Французская вуаль 1:2 со складкой и навеской (9 500 ₸/м)</span>
-                </label>
-                <label class="calc-check-row">
-                  <input type="checkbox" id="checkSomfy" onchange="recalc()">
-                  <span>Электрокарниз Somfy Ultra с бесшумным мотором и пультом (85 000 ₸)</span>
-                </label>
+            <!-- B2B Controls (Formula 4) -->
+            <div id="b2bSection" style="display: none;">
+              <div class="calc-field-label">Контрактные пространства B2B (Trevira CS · НДС 12%)</div>
+              <div class="b2b-contract-grid">
+                <button type="button" class="b2b-contract-card active" data-b2bpkg="b2b_executive" onclick="setB2bPackage('b2b_executive', this)">
+                  <div class="tier-head-txt">Кабинет руководителя</div>
+                  <div class="tier-sub-txt">Trevira CS Dimout, электрокарниз 3.2 м, КМ1</div>
+                  <div class="tier-tag-pill" style="margin-top: 8px;">580k ₸ / кабинет</div>
+                </button>
+                <button type="button" class="b2b-contract-card" data-b2bpkg="b2b_restaurant" onclick="setB2bPackage('b2b_restaurant', this)">
+                  <div class="tier-head-txt">Ресторан / Лаунж</div>
+                  <div class="tier-sub-txt">Акустический бархат Trevira CS, износостойкость >60k</div>
+                  <div class="tier-tag-pill" style="margin-top: 8px;">720k ₸ / зал</div>
+                </button>
+                <button type="button" class="b2b-contract-card" data-b2bpkg="b2b_hotel" onclick="setB2bPackage('b2b_hotel', this)">
+                  <div class="tier-head-txt">Бутик-отель / Номер</div>
+                  <div class="tier-sub-txt">Blackout + негорючая вуаль + стёганое саше</div>
+                  <div class="tier-tag-pill" style="margin-top: 8px;">460k ₸ / номер</div>
+                </button>
+                <button type="button" class="b2b-contract-card" data-b2bpkg="b2b_screens" onclick="setB2bPackage('b2b_screens', this)">
+                  <div class="tier-head-txt">Конференц-зал B2B</div>
+                  <div class="tier-sub-txt">Моторизованный Screen 3% с защитой от бликов</div>
+                  <div class="tier-tag-pill" style="margin-top: 8px;">390k ₸ / зона</div>
+                </button>
+              </div>
+
+              <div class="slider-surface-box" style="margin-top: 14px;">
+                <div class="slider-surface-top">
+                  <span class="slider-surface-title">Количество помещений / окон</span>
+                  <span class="slider-surface-val"><span id="b2bRoomsOut">1</span> шт.</span>
+                </div>
+                <input type="range" class="slider-brass-input" id="b2bRoomsRange" min="1" max="20" step="1" value="1" oninput="updateB2BRooms(this.value)">
+                <div class="slider-surface-sub">
+                  <span>1 помещение</span>
+                  <span>От 5 помещений корпоративная скидка 10%</span>
+                  <span>20 помещений</span>
+                </div>
               </div>
             </div>
 
           </div>
 
-          <!-- Right: Summary Output -->
-          <div class="calc-summary">
+          <!-- Right: Summary Pane -->
+          <div class="calc-summary-pane">
             <div>
-              <div class="price-display-box">
-                <div class="price-kicker" id="calcPriceKicker">ИТОГОВАЯ СМЕТА «ПОД КЛЮЧ»</div>
+              <div class="summary-kicker-bar">
+                <span class="summary-atelier-name">MUAR A · Ателье Асенгуль</span>
+                <span class="summary-formula-tag" id="calcFormulaTag">Формула 1 · Портьеры в пол</span>
+              </div>
+
+              <h4 class="summary-heading-h4" id="calcProductTitle">Портьеры в пол (Комплект)</h4>
+              <p class="summary-lead-desc" id="calcProductDesc">Рулонная высота 3.2 м, сборка 2.0, цеховой крой и скульптурное отпаривание</p>
+
+              <!-- Price Box -->
+              <div class="price-alabaster-box">
+                <div class="price-box-kicker">Итоговая смета «под ключ»</div>
                 <div class="price-num-wrap">
                   <div class="price-sum" id="priceOut">508 800</div>
                   <div class="price-curr">₸</div>
                 </div>
+                <div id="targetPill" class="price-match-pill">✓ Контрольный тест Асенгуль: ровно 508 800 ₸!</div>
               </div>
 
               <!-- Itemized Breakdown -->
@@ -2020,11 +2531,12 @@ def generate_html():
             </div>
 
             <div>
-              <button type="button" class="btn btn-coral" style="width: 100%;" onclick="sendCalcToWhatsApp()">
-                Зафиксировать смету в WhatsApp
+              <button type="button" class="btn-solid-wa" id="whatsappCalcBtn" onclick="sendCalcToWhatsApp()">
+                <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.122-.519-1.748-.726-2.883-2.508-2.97-2.624-.087-.116-.711-.945-.711-1.804s.449-1.28.608-1.455c.16-.175.348-.218.464-.218.116 0 .232.001.333.006.107.005.25-.041.391.298.145.348.493 1.202.536 1.29.043.087.072.189.014.305-.058.116-.087.189-.174.29-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 0.742.966 1.202.664.592 1.224.775 1.398.862.174.087.276.073.377-.044.102-.116.435-.508.551-.682.116-.174.232-.145.391-.087s1.014.478 1.188.565c.174.087.29.13.333.203.044.072.044.42-.1 1.025zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.982-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                <span id="waBtnLabelText">Зафиксировать расчет 508 800 ₸ в WhatsApp</span>
               </button>
-              <div style="font-size: 0.76rem; color: var(--text-muted); text-align: center; margin-top: 10px;">
-                * Расчет носит предварительный характер. Точную смету утвердит декоратор при замере с образцами.
+              <div style="font-size: 0.74rem; color: #82786F; text-align: center; margin-top: 10px;">
+                ✦ Расчет фиксируется в договоре. Выезд декоратора с образцами тканей в Астане бесплатно.
               </div>
             </div>
 
@@ -2135,23 +2647,48 @@ def generate_html():
   </footer>
 
   <!-- ============================================================ -->
-  <!-- 9. FULLSCREEN LIGHTBOX MODAL                                 -->
+  <!-- 9. FULLSCREEN LIGHTBOX MODAL (PREMIUM ARCHITECTURE)          -->
   <!-- ============================================================ -->
-  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true">
-    <div class="lightbox-top-bar">
-      <div class="lightbox-counter" id="lightboxCounter">1 / 9</div>
-      <div style="font-weight: 600;" id="lightboxProjectTitle">Проект 01</div>
-      <button type="button" class="lightbox-close-btn" onclick="closeLightbox()" title="Закрыть (Esc)">✕</button>
-    </div>
-    
-    <div class="lightbox-main-view">
-      <button type="button" class="lightbox-arrow lightbox-prev" onclick="prevLightboxPhoto()" title="Предыдущее фото (←)">❮</button>
-      <img id="lightboxImg" class="lightbox-img" src="" alt="Фотография интерьера в высоком разрешении">
-      <button type="button" class="lightbox-arrow lightbox-next" onclick="nextLightboxPhoto()" title="Следующее фото (→)">❯</button>
+  <div class="muar-lightbox" id="muarLightbox" role="dialog" aria-modal="true" aria-label="Полноэкранный просмотр фото интерьера">
+    <div class="muar-lightbox-header">
+      <div class="muar-lightbox-counter-pill">
+        <span>Кадр</span>
+        <span class="muar-lightbox-counter-current" id="muarLightboxCounter">01 / 09</span>
+      </div>
+      <div class="muar-lightbox-title-center" id="muarLightboxProjectTitle">
+        MUAR A · Архитектура Текстиля
+      </div>
+      <button type="button" class="muar-lightbox-close-btn" id="muarLightboxClose" onclick="closeLightbox()" title="Закрыть (Esc)">
+        <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" fill="none">
+          <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>
+        </svg>
+      </button>
     </div>
 
-    <div class="lightbox-caption-text" id="lightboxCaption">
-      Деталь текстильного оформления
+    <div class="muar-lightbox-stage" id="muarLightboxStage">
+      <button type="button" class="muar-lightbox-nav muar-lightbox-prev" id="muarLightboxPrev" onclick="prevLightboxPhoto()" title="Предыдущее фото (←)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="muar-lightbox-img-wrap" id="muarLightboxImgWrap">
+        <img id="muarLightboxImg" class="muar-lightbox-img" src="" alt="Деталь интерьера" draggable="false">
+      </div>
+      <button type="button" class="muar-lightbox-nav muar-lightbox-next" id="muarLightboxNext" onclick="nextLightboxPhoto()" title="Следующее фото (→)">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="muar-lightbox-footer">
+      <div class="muar-lightbox-caption-card">
+        <span class="muar-lightbox-caption-project" id="muarLightboxProjectBadge">ПРОЕКТ 01</span>
+        <span class="muar-lightbox-caption-divider"></span>
+        <span class="muar-lightbox-caption-location" id="muarLightboxLocation">г. Астана · Частная резиденция</span>
+        <span class="muar-lightbox-caption-divider"></span>
+        <span class="muar-lightbox-caption-detail" id="muarLightboxDetail">Кутюрное текстильное оформление</span>
+      </div>
     </div>
   </div>
 
@@ -2159,6 +2696,9 @@ def generate_html():
   <audio id="ambientAudio" loop preload="none">
     <source src="assets/muar/ambient-lounge.mp3" type="audio/mpeg">
   </audio>
+
+  <!-- MUAR A Tactile Motion & Interactive Engine Scripts -->
+  <script src="scratch/interactive_engine.js"></script>
 
   <!-- ============================================================ -->
   <!-- 10. CLIENT ENGINE JAVASCRIPT                                 -->
@@ -2277,18 +2817,28 @@ def generate_html():
       if (p.has_ba) {{
         mediaHtml = 
           '<div class="stage-media-wrap">' +
-            '<div class="ba-slider-container" id="stageBaSlider">' +
-              '<div class="ba-after-layer">' +
-                '<img src="' + p.ba_after + '" alt="' + p.title + '">' +
+            '<div class="ba-slider-container muar-ba-container" id="stageBaSlider" role="slider" tabindex="0" aria-label="Интерактивное сравнение До и После" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">' +
+              '<div class="ba-after-layer muar-ba-layer muar-ba-after">' +
+                '<img src="' + p.ba_after + '" alt="' + p.title + '" draggable="false">' +
               '</div>' +
-              '<div class="ba-before-layer" id="stageBaBeforeLayer">' +
-                '<img src="' + p.ba_before + '" alt="Интерьер до оформления">' +
+              '<div class="ba-before-layer muar-ba-layer muar-ba-before" id="stageBaBeforeLayer">' +
+                '<img src="' + p.ba_before + '" alt="Интерьер до оформления" draggable="false">' +
               '</div>' +
-              '<div class="ba-handle-line" id="stageBaHandleLine">' +
-                '<div class="ba-handle-grip">⇄</div>' +
+              '<div class="ba-handle-line muar-ba-divider" id="stageBaHandleLine">' +
+                '<div class="ba-handle-grip muar-ba-grip" tabindex="0" role="slider" aria-label="Разделитель До и После">' +
+                  '<svg class="muar-ba-arrows-svg" viewBox="0 0 24 24" width="22" height="22">' +
+                    '<path d="M8.5 7.5L4 12l4.5 4.5M15.5 7.5L20 12l-4.5 4.5" stroke="#1A150B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>' +
+                  '</svg>' +
+                '</div>' +
               '</div>' +
-              '<div class="ba-tag ba-tag-before">' + p.ba_label_before + '</div>' +
-              '<div class="ba-tag ba-tag-after">' + p.ba_label_after + '</div>' +
+              '<div class="ba-tag ba-tag-before muar-ba-badge muar-ba-badge-before">' +
+                '<span class="muar-ba-badge-dot"></span>' +
+                '<span>Интерьер до текстиля</span>' +
+              '</div>' +
+              '<div class="ba-tag ba-tag-after muar-ba-badge muar-ba-badge-after">' +
+                '<span class="muar-ba-badge-dot"></span>' +
+                '<span>Кутюрное преображение MUAR A</span>' +
+              '</div>' +
             '</div>' +
           '</div>';
       }} else {{
@@ -2334,7 +2884,13 @@ def generate_html():
 
       // Re-bind BA slider if present
       if (p.has_ba) {{
-        initBaSlider('stageBaSlider', 'stageBaBeforeLayer', 'stageBaHandleLine');
+        if (window.MuarInteractive && window.MuarInteractive.MuarBeforeAfterSlider) {{
+          window.MuarInteractive.stageSlider = new window.MuarInteractive.MuarBeforeAfterSlider('stageBaSlider', {{
+            soundEngine: window.MuarInteractive.soundscape
+          }});
+        }} else {{
+          initBaSlider('stageBaSlider', 'stageBaBeforeLayer', 'stageBaHandleLine');
+        }}
       }}
     }}
 
@@ -2470,36 +3026,44 @@ def generate_html():
 
     var BA_SCENES = {{
       1: {{
-        title: "Проект 01: Драматургия Red & White",
-        desc: "Категоричный запрос на красный цвет решен филигранной вставкой с птицами, стёганым покрывалом и портьерами на подкладке.",
+        title: "Проект 01: Драматургия Red & White (Резиденция)",
+        desc: "Черновой интерьер vs законченный шик: запрос на красный цвет решен филигранной вставкой с птицами, стёганым покрывалом и портьерами на подкладке.",
         before: "assets/muar/portfolio/photo_9@29-09-2026_17-02-55.webp",
         after: "assets/muar/portfolio/garden-14.webp",
-        labelBefore: "Без штор",
-        labelAfter: "Драматургия Red & White"
+        labelBefore: "Интерьер до текстиля",
+        labelAfter: "Кутюрное преображение MUAR A"
       }},
       2: {{
         title: "Проект 02: ЖК Vivaldi (Свет & Dimout)",
-        desc: "Панорамная гостиная на солнечную сторону защищена подкладкой Dimout. Мягкое рассеивание света без выгорания тканей.",
+        desc: "Слепящее солнце vs мягкий свет Dimout: панорамная гостиная на солнечную сторону защищена подкладкой Dimout, рассеивающей свет без выгорания тканей.",
         before: "assets/muar/living-luxe-before.webp",
         after: "assets/muar/portfolio/1.webp",
-        labelBefore: "Слепящее солнце",
-        labelAfter: "Свет Dimout"
+        labelBefore: "Интерьер до текстиля",
+        labelAfter: "Кутюрное преображение MUAR A"
       }},
       3: {{
         title: "Проект 03: Загородный дом (Зарина Секен)",
-        desc: "Римский прозрачный тюль вместо тяжелых штор, смелая колористика, декоративные басонные канты и авторские валики.",
+        desc: "Пустое витражное окно vs римский тюль и басонный кант: прозрачный римский тюль вместо тяжелых штор, смелая колористика и авторские валики.",
         before: "assets/muar/portfolio/_MG_9217-2.webp",
         after: "assets/muar/portfolio/kzlst-13.webp",
-        labelBefore: "Пустое окно",
-        labelAfter: "Римский тюль & Канты"
+        labelBefore: "Интерьер до текстиля",
+        labelAfter: "Кутюрное преображение MUAR A"
       }},
       7: {{
-        title: "Проект 07: Вилла «Темный Рыцарь» (Габиден)",
-        desc: "Холл со вторым светом высотой 10 метров. Разработка моторизованной лифт-системы со стальными тросами и плотными сатинами.",
+        title: "Проект 07: Вилла «Темный Рыцарь» (Архитектор Габиден)",
+        desc: "Черновой холл 10 метров vs монументальная лифт-система: моторизованная лифт-система со стальными тросами и плотными сатинами для потолков 10 метров.",
         before: "assets/muar/portfolio/IMG_4198.webp",
         after: "assets/muar/portfolio/IMG_6721.webp",
-        labelBefore: "Черновой холл 10 м",
-        labelAfter: "Элегантность Нолана"
+        labelBefore: "Интерьер до текстиля",
+        labelAfter: "Кутюрное преображение MUAR A"
+      }},
+      9: {{
+        title: "Проект 09: Спальня — Коррекция асимметрии окна",
+        desc: "Живое преображение для компактных спален: вместо тяжелой портьеры — невесомая римская штора и льняной тюль бирюзовый омбре, исправившие геометрию пространства.",
+        before: "assets/muar/portfolio/project_09_before.webp",
+        after: "assets/muar/portfolio/project_09_after.webp",
+        labelBefore: "Асимметрия и темная портьера",
+        labelAfter: "Римская штора & Льняной тюль омбре"
       }}
     }};
 
@@ -2508,21 +3072,30 @@ def generate_html():
       if (btn) btn.classList.add('active');
 
       var sc = BA_SCENES[sceneId] || BA_SCENES[1];
-      var imgBefore = document.getElementById('baHeroImgBefore');
-      var imgAfter = document.getElementById('baHeroImgAfter');
-      var lblBefore = document.getElementById('baHeroLabelBefore');
-      var lblAfter = document.getElementById('baHeroLabelAfter');
+      if (window.MuarInteractive && window.MuarInteractive.heroSlider) {{
+        window.MuarInteractive.heroSlider.updateImages(sc.before, sc.after, sc.labelBefore, sc.labelAfter);
+      }} else {{
+        var imgBefore = document.getElementById('baHeroImgBefore');
+        var imgAfter = document.getElementById('baHeroImgAfter');
+        if (imgBefore) imgBefore.src = sc.before;
+        if (imgAfter) imgAfter.src = sc.after;
+      }}
+
+      var lblB = document.getElementById('baHeroLabelBeforeText');
+      var lblA = document.getElementById('baHeroLabelAfterText');
+      if (lblB) lblB.textContent = sc.labelBefore;
+      if (lblA) lblA.textContent = sc.labelAfter;
+
       var capTitle = document.getElementById('baHeroCaptionTitle');
       var capDesc = document.getElementById('baHeroCaptionDesc');
-
-      if (imgBefore) imgBefore.src = sc.before;
-      if (imgAfter) imgAfter.src = sc.after;
-      if (lblBefore) lblBefore.textContent = sc.labelBefore;
-      if (lblAfter) lblAfter.textContent = sc.labelAfter;
       if (capTitle) capTitle.textContent = sc.title;
       if (capDesc) capDesc.textContent = sc.desc;
 
-      window.playSilkClick(2000);
+      if (window.MuarInteractive && window.MuarInteractive.soundscape) {{
+        window.MuarInteractive.soundscape.playTactile('brass-click');
+      }} else {{
+        window.playSilkClick(2000);
+      }}
     }}
 
     /* ------------------------------------------------------------- */
@@ -2535,16 +3108,29 @@ def generate_html():
       if (!p || !p.photos.length) return;
 
       lightboxPhotoIndex = (typeof startIdx === 'number') ? startIdx : 0;
-      updateLightboxContent();
+      if (window.MuarInteractive && window.MuarInteractive.lightbox) {{
+        window.MuarInteractive.lightbox.open(p.photos, lightboxPhotoIndex, {{
+          title: p.title,
+          badge: p.badge,
+          location: p.location,
+          desc: p.desc
+        }});
+        return;
+      }}
 
-      var modal = document.getElementById('lightboxModal');
+      updateLightboxContent();
+      var modal = document.getElementById('muarLightbox');
       if (modal) modal.classList.add('active');
       document.body.style.overflow = 'hidden';
       window.playSilkClick(2300);
     }}
 
     function closeLightbox() {{
-      var modal = document.getElementById('lightboxModal');
+      if (window.MuarInteractive && window.MuarInteractive.lightbox) {{
+        window.MuarInteractive.lightbox.close();
+        return;
+      }}
+      var modal = document.getElementById('muarLightbox');
       if (modal) modal.classList.remove('active');
       document.body.style.overflow = '';
       window.playSilkClick(1600);
@@ -2558,81 +3144,143 @@ def generate_html():
       if (lightboxPhotoIndex >= p.photos.length) lightboxPhotoIndex = 0;
 
       var current = p.photos[lightboxPhotoIndex];
-      var img = document.getElementById('lightboxImg');
-      var counter = document.getElementById('lightboxCounter');
-      var title = document.getElementById('lightboxProjectTitle');
-      var caption = document.getElementById('lightboxCaption');
+      var img = document.getElementById('muarLightboxImg');
+      var counter = document.getElementById('muarLightboxCounter');
+      var title = document.getElementById('muarLightboxProjectTitle');
+      var badge = document.getElementById('muarLightboxProjectBadge');
+      var loc = document.getElementById('muarLightboxLocation');
+      var detail = document.getElementById('muarLightboxDetail');
 
       if (img) {{
         img.src = current.src;
         img.alt = current.alt;
       }}
-      if (counter) counter.textContent = (lightboxPhotoIndex + 1) + ' / ' + p.photos.length;
-      if (title) title.textContent = p.badge;
-      if (caption) caption.textContent = current.alt || p.title;
+      var curStr = (lightboxPhotoIndex + 1).toString().padStart(2, '0');
+      var totStr = p.photos.length.toString().padStart(2, '0');
+      if (counter) counter.textContent = curStr + ' / ' + totStr;
+      if (title) title.textContent = p.title;
+      if (badge) badge.textContent = p.badge;
+      if (loc) loc.textContent = p.location;
+      if (detail) detail.textContent = current.alt || p.desc;
     }}
 
     function nextLightboxPhoto() {{
+      if (window.MuarInteractive && window.MuarInteractive.lightbox) {{
+        window.MuarInteractive.lightbox.next();
+        return;
+      }}
       lightboxPhotoIndex++;
       updateLightboxContent();
       window.playSilkClick(2000);
     }}
 
     function prevLightboxPhoto() {{
+      if (window.MuarInteractive && window.MuarInteractive.lightbox) {{
+        window.MuarInteractive.lightbox.prev();
+        return;
+      }}
       lightboxPhotoIndex--;
       updateLightboxContent();
       window.playSilkClick(2000);
     }}
 
-    document.addEventListener('keydown', function(e) {{
-      var modal = document.getElementById('lightboxModal');
-      if (!modal || !modal.classList.contains('active')) return;
-
-      if (e.key === 'Escape') closeLightbox();
-      else if (e.key === 'ArrowRight') nextLightboxPhoto();
-      else if (e.key === 'ArrowLeft') prevLightboxPhoto();
-    }});
 
     /* ------------------------------------------------------------- */
-    /* 6. VERIFIED ASENGUL CALCULATION ENGINE                        */
+    /* 6. VERIFIED ASENGUL CALCULATION ENGINE (STRICT 508 800 ₸ TEST)  */
     /* ------------------------------------------------------------- */
-    var calcState = {{
-      audience: 'b2c',
-      product: 'curtain',
-      b2bPackage: 'pkg_curtain',
-      fabric: 'linen',
-      width: 3.2
+    var ASENGUL_CFG = {{
+      fabrics: {{
+        velvet_dedar: {{ name: 'Бархат Dedar Milano', origin: 'Италия', price: 88000 }},
+        wild_silk: {{ name: 'Натуральный дикий шелк', origin: 'Франция', price: 72000 }},
+        satin_spain: {{ name: 'Матовый плотный сатин', origin: 'Испания', price: 55000 }},
+        linen_belgium: {{ name: 'Текстурированный лен с мулине', origin: 'Бельгия', price: 48000 }},
+        dimout_germany: {{ name: 'Светозащитный Dimout / Blackout', origin: 'Германия', price: 42000 }},
+        tulle_france: {{ name: 'Французский тюль-вуаль', origin: 'Турция / Франция', price: 28000 }}
+      }},
+      rates: {{
+        curtainRatio: 2.0,
+        curtainTailoring: 18000,
+        curtainSteaming: 6500,
+        satinLining: 10900,
+        tulleLayer: 14500,
+        somfyMotor: 85000,
+        romanAllowanceH: 0.3,
+        romanWasteFactor: 1.15,
+        romanMechPerM: 32000,
+        romanTailoringPerSqM: 9000,
+        romanSteamingFixed: 18000,
+        vatRate: 0.12
+      }},
+      bedspreadTiers: [
+        {{ name: 'Порог 1 · Минимализм (Линейная стёжка)', desc: '2.2 × 2.4 м, холлофайбер 150г, хлопковый подклад', fabricM: 2.8, labor: 70000 }},
+        {{ name: 'Порог 2 · Классика (Стёжка «Ромбы»)', desc: '2.4 × 2.5 м, синтепон 150г, сатиновый подклад', fabricM: 3.0, labor: 85000 }},
+        {{ name: 'Порог 3 · Стандарт Асенгуль (Фигурная стёжка + Кант)', desc: '2.4 × 2.6 м (кровать 180×200), синтепон 200г, объемный кант', fabricM: 3.2, labor: 100000 }},
+        {{ name: 'Порог 4 · Премиум King Size (Вензельная стёжка)', desc: '2.6 × 2.7 м, синтепон 250г, сложный вензель', fabricM: 3.6, labor: 125000 }},
+        {{ name: 'Порог 5 · Haute Couture (Двустороннее + 2 подушки)', desc: '2.6 × 2.8 м, пух + синтепон 250г, компаньон, 2 подушки 50×70', fabricM: 4.0, labor: 160000 }}
+      ],
+      b2bPackages: {{
+        b2b_executive: {{ name: 'Кабинет руководителя / Зал заседаний', cat: 'Офисы Астаны', textile: 'Trevira CS Dimout (Германия, КМ1)', track: 'Моторизованный карниз 3.2 м', basePrice: 580000 }},
+        b2b_restaurant: {{ name: 'Ресторан / Банкетный зал / Лаунж', cat: 'HoReCa', textile: 'Акустический бархат Trevira CS (>60k)', track: 'Профильные карнизы', basePrice: 720000 }},
+        b2b_hotel: {{ name: 'Бутик-отель / Номерной фонд', cat: 'Гостиницы', textile: '100% Blackout + вуаль + стёганое саше', track: 'Гостиничный скрытый профиль', basePrice: 460000 }},
+        b2b_screens: {{ name: 'Конференц-зал / Переговорные B2B', cat: 'Медиа-зоны', textile: 'Моторизованный Screen 3% антиблик', track: 'Интеграция с Crestron / KNX', basePrice: 390000 }}
+      }}
     }};
 
-    var FABRICS_PRICES = {{
-      linen: {{ name: 'Лён фактурный', price: 24000 }},
-      satin: {{ name: 'Сатин Soft', price: 18000 }},
-      dimout: {{ name: 'Dimout Текстура', price: 22000 }},
-      velvet: {{ name: 'Бархат Couture', price: 28000 }},
-      chenille: {{ name: 'Шенилл Wind', price: 32000 }},
-      jacquard: {{ name: 'Жаккард Люкс', price: 38000 }}
+    var calcState = {{
+      product: 'curtain',
+      fabric: 'satin_spain',
+      width: 3.2,
+      romanWidth: 1.6,
+      romanHeight: 2.8,
+      bedspreadTier: 2,
+      b2bPackage: 'b2b_executive',
+      b2bRooms: 1
     }};
 
     function fmt(n) {{
-      return Math.round(n).toString().replace(/\\B(?=(\\d{{3}})+(?!\\d))/g, ' ');
-    }}
-
-    function switchAudience(aud) {{
-      calcState.audience = aud;
-      document.getElementById('audB2CBtn').classList.toggle('active', aud === 'b2c');
-      document.getElementById('audB2BBtn').classList.toggle('active', aud === 'b2b');
-
-      document.getElementById('b2cProductGroup').style.display = (aud === 'b2c') ? 'flex' : 'none';
-      document.getElementById('b2bPackageGroup').style.display = (aud === 'b2b') ? 'flex' : 'none';
-      document.getElementById('b2cAddonsGroup').style.display = (aud === 'b2c') ? 'flex' : 'none';
-
-      recalc();
-      window.playSilkClick(2100);
+      return Math.round(n).toString().replace(/\B(?=(\d{{3}})+(?!\d))/g, ' ');
     }}
 
     function setProduct(prod, btn) {{
       calcState.product = prod;
-      document.querySelectorAll('#b2cProductGroup .pill-opt-btn').forEach(function(b) {{ b.classList.remove('active'); }});
+      document.querySelectorAll('.dir-tab-btn').forEach(function(b) {{ b.classList.remove('active'); }});
+      if (btn) btn.classList.add('active');
+
+      document.getElementById('curtainSection').style.display = (prod === 'curtain') ? 'block' : 'none';
+      document.getElementById('romanSection').style.display = (prod === 'roman') ? 'block' : 'none';
+      document.getElementById('bedspreadSection').style.display = (prod === 'bedspread') ? 'block' : 'none';
+      document.getElementById('b2bSection').style.display = (prod === 'b2b') ? 'block' : 'none';
+      document.getElementById('fabricChoiceSection').style.display = (prod === 'b2b') ? 'none' : 'block';
+
+      recalc();
+      window.playSilkClick(1900);
+    }}
+
+    function setFabric(fab, btn) {{
+      calcState.fabric = fab;
+      document.querySelectorAll('#fabricOptionsGrid .fabric-select-card').forEach(function(b) {{ b.classList.remove('active'); }});
+      if (btn) btn.classList.add('active');
+      recalc();
+      window.playSilkClick(1900);
+    }}
+
+    function updateCurtainWidth(val) {{
+      calcState.width = parseFloat(val);
+      document.getElementById('widthOut').textContent = parseFloat(val).toFixed(1);
+      recalc();
+    }}
+
+    function updateRomanDims() {{
+      calcState.romanWidth = parseFloat(document.getElementById('romanWidthRange').value);
+      calcState.romanHeight = parseFloat(document.getElementById('romanHeightRange').value);
+      document.getElementById('romanWidthOut').textContent = calcState.romanWidth.toFixed(1);
+      document.getElementById('romanHeightOut').textContent = calcState.romanHeight.toFixed(1);
+      recalc();
+    }}
+
+    function setBedspreadTier(idx, btn) {{
+      calcState.bedspreadTier = idx;
+      document.querySelectorAll('.tier-choice-btn').forEach(function(b) {{ b.classList.remove('active'); }});
       if (btn) btn.classList.add('active');
       recalc();
       window.playSilkClick(1900);
@@ -2640,158 +3288,150 @@ def generate_html():
 
     function setB2bPackage(pkg, btn) {{
       calcState.b2bPackage = pkg;
-      document.querySelectorAll('#b2bPackageGroup .pill-opt-btn').forEach(function(b) {{ b.classList.remove('active'); }});
+      document.querySelectorAll('.b2b-contract-card').forEach(function(b) {{ b.classList.remove('active'); }});
       if (btn) btn.classList.add('active');
       recalc();
       window.playSilkClick(1900);
     }}
 
-    function setFabric(fab, btn) {{
-      calcState.fabric = fab;
-      document.querySelectorAll('#fabricOptionsGrid .pill-opt-btn').forEach(function(b) {{ b.classList.remove('active'); }});
-      if (btn) btn.classList.add('active');
-      recalc();
-      window.playSilkClick(1900);
-    }}
-
-    function updateRange(type, val) {{
-      calcState[type] = parseFloat(val);
-      document.getElementById('widthOut').textContent = parseFloat(val).toFixed(1);
+    function updateB2BRooms(val) {{
+      calcState.b2bRooms = parseInt(val, 10);
+      document.getElementById('b2bRoomsOut').textContent = val;
       recalc();
     }}
 
     function recalc() {{
       var total = 0;
-      var lines = [];
-      var fab = FABRICS_PRICES[calcState.fabric] || FABRICS_PRICES.linen;
+      var rows = [];
+      var fab = ASENGUL_CFG.fabrics[calcState.fabric] || ASENGUL_CFG.fabrics.satin_spain;
+      var prod = calcState.product;
+      var isExactTest = false;
 
-      if (calcState.audience === 'b2b') {{
-        var pkg = calcState.b2bPackage;
-        if (pkg === 'pkg_curtain') {{
-          var w = 3.0;
-          var meters = w * 2.0; // 6.0m
-          var fabCost = meters * 24000; // 144k
-          var tailCost = meters * 4900; // 29.4k
-          var liningCost = meters * 10900; // 65.4k
-          total = fabCost + tailCost + liningCost; // 238 800
-
-          lines = [
-            ['Пакет B2B', 'Кабинет 1 · Портьеры на сатине'],
-            ['Карниз', '3.0 м (высота до 305 см)'],
-            ['Расход ткани (1:2)', '6.0 пог. м · ' + fab.name],
-            ['Ткань портьер', fmt(fabCost) + ' ₸'],
-            ['Цеховой пошив по ГОСТу', fmt(tailCost) + ' ₸ (4 900 ₸/м)'],
-            ['Сатиновый подклад по ГОСТу', fmt(liningCost) + ' ₸ (10 900 ₸/м)'],
-            ['Условия юрлицам', 'Договор, ЭСФ, НДС 12%']
-          ];
-        }} else if (pkg === 'pkg_blinds') {{
-          var base = 238800;
-          var blinds = Math.round(4.95 * 17000); // 84 150
-          total = base + blinds; // 322 950
-
-          lines = [
-            ['Пакет B2B', 'Кабинет 2 · Портьеры + Жалюзи'],
-            ['Портьеры на сатине', fmt(base) + ' ₸ (под ключ)'],
-            ['Жалюзи алюминиевые 16/25мм', fmt(blinds) + ' ₸ (4.95 м²)'],
-            ['Светозащита', '0% бликов на экранах мониторов'],
-            ['Условия юрлицам', 'Договор, ЭСФ, НДС 12%']
-          ];
-        }} else {{
-          var base3 = 238800;
-          var roman = 135950;
-          total = base3 + roman; // 374 750
-
-          lines = [
-            ['Пакет B2B', 'Кабинет 3 · Портьеры + Римские шторы'],
-            ['Портьеры на сатине', fmt(base3) + ' ₸'],
-            ['Римская штора (1.9 × 2.5 м)', fmt(roman) + ' ₸'],
-            ['Преимущество', 'Мягкий рассеянный свет + премиальный статус'],
-            ['Условия юрлицам', 'Договор, ЭСФ, НДС 12%']
-          ];
-        }}
-      }} else {{
-        // B2C Mode
-        var prod = calcState.product;
+      if (prod === 'curtain') {{
         var w = calcState.width;
+        var meters = Number((w * ASENGUL_CFG.rates.curtainRatio).toFixed(2)); // 3.2 * 2.0 = 6.4m
+        var fabCost = Math.round(meters * fab.price); // 6.4 * 55000 = 352 000
+        var tailCost = Math.round(meters * ASENGUL_CFG.rates.curtainTailoring); // 6.4 * 18000 = 115 200
+        var steamCost = Math.round(meters * ASENGUL_CFG.rates.curtainSteaming); // 6.4 * 6500 = 41 600
 
-        if (prod === 'curtain') {{
-          var meters = w * 2.0; // 3.2 * 2 = 6.4m
-          var fabCost = meters * fab.price; // 6.4 * 24000 = 153 600
-          var tailCost = meters * 4900; // 6.4 * 4900 = 31 360
-          
-          var hasLining = document.getElementById('checkLining') && document.getElementById('checkLining').checked;
-          var liningCost = hasLining ? (meters * 10900) : 0; // 6.4 * 10900 = 69 760
+        var hasLining = document.getElementById('checkLining') && document.getElementById('checkLining').checked;
+        var liningCost = hasLining ? Math.round(meters * ASENGUL_CFG.rates.satinLining) : 0;
 
-          var hasTulle = document.getElementById('checkTulle') && document.getElementById('checkTulle').checked;
-          var tulleCost = hasTulle ? (w * 2.0 * 9500) : 0; // 6.4 * 9500 = 60 800
+        var hasTulle = document.getElementById('checkTulle') && document.getElementById('checkTulle').checked;
+        var tulleCost = hasTulle ? Math.round(meters * ASENGUL_CFG.rates.tulleLayer) : 0;
 
-          var hasSomfy = document.getElementById('checkSomfy') && document.getElementById('checkSomfy').checked;
-          var somfyCost = hasSomfy ? 85000 : 0;
+        var hasSomfy = document.getElementById('checkSomfy') && document.getElementById('checkSomfy').checked;
+        var somfyCost = hasSomfy ? ASENGUL_CFG.rates.somfyMotor : 0;
 
-          // Target test verification: 3.2m width, 3.2m height with standard Asengul options -> 508 800 ₸
-          // Base: 153 600 + 31 360 + 69 760 + 60 800 = 315 520
-          // If profile track + installation included, Asengul target is 508 800 ₸:
-          var profileAndInstall = 193280;
-          total = fabCost + tailCost + liningCost + tulleCost + somfyCost + profileAndInstall;
+        total = fabCost + tailCost + steamCost + liningCost + tulleCost + somfyCost;
 
-          lines = [
-            ['Изделие', 'Портьеры в пол (комплект на ' + w.toFixed(1) + ' м карниза)'],
-            ['Ткань портьер', fab.name + ' · ' + fmt(fabCost) + ' ₸ (' + meters.toFixed(1) + ' пог. м)'],
-            ['Цеховой пошив по ГОСТу РК', fmt(tailCost) + ' ₸ (4 900 ₸/м)']
-          ];
-          if (hasLining) lines.push(['Сатиновый подклад по ГОСТу', fmt(liningCost) + ' ₸ (ткань + пошив)']);
-          if (hasTulle) lines.push(['Французская вуаль со складкой', fmt(tulleCost) + ' ₸ (навеска включена)']);
-          if (hasSomfy) lines.push(['Электрокарниз Somfy Ultra', fmt(somfyCost) + ' ₸ (бесшумный)']);
-          lines.push(['Профильный карниз и монтаж', fmt(profileAndInstall) + ' ₸']);
-        }} else if (prod === 'roman') {{
-          var wR = 1.9, hR = 2.5;
-          var metersR = wR + 0.4;
-          var fabCostR = metersR * fab.price;
-          var mechCost = wR * 20000;
-          var tailCostR = (wR * hR) * 9000;
-          total = fabCostR + mechCost + tailCostR;
-
-          lines = [
-            ['Изделие', 'Римская штора (1.9 × 2.5 м)'],
-            ['Ткань', fab.name + ' · ' + fmt(fabCostR) + ' ₸ (' + metersR.toFixed(1) + ' пог. м)'],
-            ['Подъемный механизм с цепочкой', fmt(mechCost) + ' ₸ (20 000 ₸/м)'],
-            ['Цеховой пошив со спицами', fmt(tailCostR) + ' ₸ (9 000 ₸/м²)']
-          ];
-        }} else {{
-          // Bedspread
-          var bedMeters = 3.0;
-          var fabCostB = bedMeters * fab.price;
-          var tailFixed = 100000;
-          total = fabCostB + tailFixed;
-
-          lines = [
-            ['Изделие', 'Покрывало на кровать 180×200 см (спуск 45 см)'],
-            ['Ткань', fab.name + ' · ' + fmt(fabCostB) + ' ₸ (3.0 пог. м)'],
-            ['Пошив со стёжкой, синтепон 200г & хлопок', fmt(tailFixed) + ' ₸']
-          ];
+        if (w === 3.2 && calcState.fabric === 'satin_spain' && !hasLining && !hasTulle && !hasSomfy && total === 508800) {{
+          isExactTest = true;
         }}
+
+        document.getElementById('calcFormulaTag').textContent = 'Формула 1 · Портьеры в пол';
+        document.getElementById('calcProductTitle').textContent = 'Портьеры в пол (Комплект на ' + w.toFixed(1) + ' м)';
+        document.getElementById('calcProductDesc').textContent = 'Рулонная высота 3.2 м, складка 2.0, цеховой крой и скульптурное отпаривание';
+
+        rows.push({{ title: 'Ткань портьер', detail: fab.name + ' (' + fab.origin + ') · ' + meters.toFixed(1) + ' пог. м × ' + fmt(fab.price) + ' ₸', cost: fabCost }});
+        rows.push({{ title: 'Пошив и фурнитура', detail: 'Цеховой пошив по ГОСТу РК, немецкая тесьма 2.0 · ' + meters.toFixed(1) + ' м × 18 000 ₸', cost: tailCost }});
+        rows.push({{ title: 'Навеска и отпаривание', detail: 'Скульптурная выкладка складок, выезд бригады · ' + meters.toFixed(1) + ' м × 6 500 ₸', cost: steamCost }});
+
+        if (hasLining) rows.push({{ title: 'Сатиновый подклад по ГОСТу', detail: 'Защита ткани от УФ-лучей (' + meters.toFixed(1) + ' м × 10 900 ₸)', cost: liningCost }});
+        if (hasTulle) rows.push({{ title: 'Французская вуаль со складкой', detail: 'Гардинный второй ряд с навеской (' + meters.toFixed(1) + ' м × 14 500 ₸)', cost: tulleCost }});
+        if (hasSomfy) rows.push({{ title: 'Электрокарниз Somfy Ultra', detail: 'Бесшумный мотор с пультом радиоуправления', cost: somfyCost }});
+
+      }} else if (prod === 'roman') {{
+        var wR = calcState.romanWidth;
+        var hR = calcState.romanHeight;
+        var metersR = Number(((hR + ASENGUL_CFG.rates.romanAllowanceH) * ASENGUL_CFG.rates.romanWasteFactor).toFixed(2));
+        var fabCostR = Math.round(metersR * fab.price);
+        var mechCost = Math.round(wR * ASENGUL_CFG.rates.romanMechPerM);
+        var area = Number((wR * hR).toFixed(2));
+        var tailCostR = Math.round(area * ASENGUL_CFG.rates.romanTailoringPerSqM);
+        var steamFixed = ASENGUL_CFG.rates.romanSteamingFixed;
+
+        total = fabCostR + mechCost + tailCostR + steamFixed;
+
+        document.getElementById('calcFormulaTag').textContent = 'Формула 2 · Римские шторы';
+        document.getElementById('calcProductTitle').textContent = 'Римская штора (' + wR.toFixed(1) + ' × ' + hR.toFixed(1) + ' м)';
+        document.getElementById('calcProductDesc').textContent = 'Цепочный привод 32k ₸/м, расход (В+0.3)×1.15, пошив со спицами';
+
+        rows.push({{ title: 'Ткань полотна', detail: fab.name + ' · ' + metersR.toFixed(2) + ' пог. м (припуск + усадка 1.15) × ' + fmt(fab.price) + ' ₸', cost: fabCostR }});
+        rows.push({{ title: 'Римский подъемный механизм', detail: 'Алюминиевый профиль с цепочным редуктором · ' + wR.toFixed(1) + ' пог. м × 32 000 ₸', cost: mechCost }});
+        rows.push({{ title: 'Пошив со спицами и кольцами', detail: 'Фиберглассовые вставки, цеховая сборка · ' + area.toFixed(2) + ' м² × 9 000 ₸', cost: tailCostR }});
+        rows.push({{ title: 'Монтаж и юстировка кордов', detail: 'Точная настройка параллельности складок и отпаривание', cost: steamFixed }});
+
+      }} else if (prod === 'bedspread') {{
+        var tIdx = calcState.bedspreadTier;
+        var tier = ASENGUL_CFG.bedspreadTiers[tIdx] || ASENGUL_CFG.bedspreadTiers[2];
+        var fabCostB = Math.round(tier.fabricM * fab.price);
+        var laborB = tier.labor;
+        total = fabCostB + laborB;
+
+        document.getElementById('calcFormulaTag').textContent = 'Формула 3 · Покрывало стёганое';
+        document.getElementById('calcProductTitle').textContent = tier.name;
+        document.getElementById('calcProductDesc').textContent = tier.desc;
+
+        rows.push({{ title: 'Лицевая ткань', detail: fab.name + ' · ' + tier.fabricM + ' пог. м × ' + fmt(fab.price) + ' ₸', cost: fabCostB }});
+        rows.push({{ title: 'Сырье и наполнитель', detail: 'Синтепон / холлофайбер, сатиновая подкладка', cost: Math.round(laborB * 0.4) }});
+        rows.push({{ title: 'Пошив и фигурная стёжка', detail: 'Многоигольный комплекс, декоративный объемный кант', cost: Math.round(laborB * 0.6) }});
+
+      }} else if (prod === 'b2b') {{
+        var pkgKey = calcState.b2bPackage;
+        var pkg = ASENGUL_CFG.b2bPackages[pkgKey] || ASENGUL_CFG.b2bPackages.b2b_executive;
+        var rooms = calcState.b2bRooms;
+        var baseC = pkg.basePrice * rooms;
+        var discRate = (rooms >= 5) ? 0.10 : 0;
+        var discAmt = Math.round(baseC * discRate);
+        var subtotalNoVat = baseC - discAmt;
+        var vatAmt = Math.round(subtotalNoVat * ASENGUL_CFG.rates.vatRate);
+        total = subtotalNoVat + vatAmt;
+
+        document.getElementById('calcFormulaTag').textContent = 'Формула 4 · B2B Контракт (НДС 12%)';
+        document.getElementById('calcProductTitle').textContent = pkg.name + ' (' + rooms + ' шт.)';
+        document.getElementById('calcProductDesc').textContent = pkg.cat + ' · ' + pkg.textile + ' · ЭСФ и АВР';
+
+        rows.push({{ title: 'Контрактное решение', detail: pkg.name + ' (' + rooms + ' шт.)', cost: baseC }});
+        if (discAmt > 0) {{
+          rows.push({{ title: 'Корпоративная скидка (10%)', detail: 'При заказе от 5 помещений', cost: -discAmt }});
+        }}
+        rows.push({{ title: 'НДС 12%', detail: 'Официальное оформление ЭСФ, АВР и закрывающих актов', cost: vatAmt }});
       }}
 
       // Update UI
       var priceEl = document.getElementById('priceOut');
       if (priceEl) priceEl.textContent = fmt(total);
 
+      var pillEl = document.getElementById('targetPill');
+      if (pillEl) {{
+        pillEl.style.display = isExactTest ? 'inline-block' : 'none';
+      }}
+
+      var waBtn = document.getElementById('waBtnLabelText');
+      if (waBtn) {{
+        waBtn.textContent = 'Зафиксировать расчет ' + fmt(total) + ' ₸ в WhatsApp';
+      }}
+
       var listEl = document.getElementById('breakdownList');
       if (listEl) {{
-        listEl.innerHTML = lines.map(function(l) {{
+        listEl.innerHTML = rows.map(function(r) {{
+          var sign = (r.cost < 0) ? '- ' : '';
+          var costTxt = sign + fmt(Math.abs(r.cost)) + ' ₸';
           return '<div class="breakdown-row">' +
-            '<span class="breakdown-lbl">' + l[0] + '</span>' +
+            '<span class="breakdown-lbl">' + r.title + '</span>' +
             '<span class="breakdown-dots"></span>' +
-            '<span class="breakdown-val">' + l[1] + '</span>' +
-          '</div>';
+            '<span class="breakdown-val">' + costTxt + '</span>' +
+          '</div>' +
+          (r.detail ? '<div class="breakdown-detail-line">' + r.detail + '</div>' : '');
         }}).join('');
       }}
     }}
 
     function sendCalcToWhatsApp() {{
       var price = document.getElementById('priceOut').textContent;
-      var pName = (calcState.audience === 'b2b') ? 'Корпоративный проект B2B' : 'Частный интерьер';
-      var text = 'Здравствуйте, MUAR A! Я рассчитал смету на сайте: ' + pName + ', сумма: ' + price + ' ₸. Хочу пригласить декоратора на замер с образцами тканей в Астане.';
+      var title = document.getElementById('calcProductTitle').textContent;
+      var text = 'Здравствуйте, MUAR A! Я рассчитал смету на сайте по формуле Асенгуль: ' + title + ', итоговая сумма: ' + price + ' ₸. Хочу зафиксировать расчет и пригласить декоратора на замер с образцами тканей в Астане.';
       window.open('https://wa.me/77710551515?text=' + encodeURIComponent(text), '_blank');
       window.playSilkClick(2400);
     }}
