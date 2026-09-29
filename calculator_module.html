@@ -1,0 +1,2071 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор Сметы Текстиля · Ателье Muar A (Астана)</title>
+  
+  <!-- Typography & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       ANTHONY LAWRENCE-BELFAIR ATELIER DESIGN TOKENS
+       Quiet Luxury · Mineral Obsidian · Antique Satin Brass · Architectural Monospace
+       ========================================================================== */
+    :root {
+      --bg-obsidian: #0b0c0e;
+      --bg-surface: #121418;
+      --bg-card: #17191f;
+      --bg-card-hover: #1d2028;
+      --bg-panel: #14161c;
+      --bg-paper: #1c1e26;
+      
+      --gold-primary: #c5a880;
+      --gold-light: #dfc7a7;
+      --gold-hover: #d8bc94;
+      --gold-bronze: #8a6f48;
+      --gold-glow: rgba(197, 168, 128, 0.14);
+      --gold-border: rgba(197, 168, 128, 0.28);
+      
+      --text-cream: #f5efeb;
+      --text-muted: #c2bbb2;
+      --text-dim: #7f7a72;
+      --text-on-gold: #0b0c0e;
+      
+      --border-subtle: rgba(255, 255, 255, 0.07);
+      --border-brass: rgba(197, 168, 128, 0.22);
+      --border-active: rgba(197, 168, 128, 0.65);
+      
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: "JetBrains Mono", Menlo, Consolas, monospace;
+      
+      --transition-smooth: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-obsidian);
+      color: var(--text-cream);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 40px 20px 80px;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(197, 168, 128, 0.08), transparent 70%),
+        radial-gradient(circle at 10% 90%, rgba(138, 111, 72, 0.05), transparent 40%);
+    }
+
+    /* Outer Wrapper */
+    .alb-calculator-wrapper {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* Header Bar */
+    .alb-header {
+      text-align: center;
+      margin-bottom: 36px;
+      padding: 0 10px;
+    }
+
+    .alb-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      background: rgba(197, 168, 128, 0.06);
+      border: 1px solid var(--border-brass);
+      border-radius: 40px;
+      margin-bottom: 16px;
+    }
+
+    .alb-kicker-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold-primary);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--gold-primary);
+    }
+
+    .alb-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4.2vw, 52px);
+      font-weight: 500;
+      line-height: 1.12;
+      color: var(--text-cream);
+      letter-spacing: -0.01em;
+      margin-bottom: 14px;
+    }
+
+    .alb-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      font-weight: 400;
+    }
+
+    .alb-subtitle {
+      max-width: 740px;
+      margin: 0 auto;
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    .alb-subtitle strong {
+      color: var(--text-cream);
+      font-weight: 500;
+    }
+
+    /* Preset Navigation */
+    .alb-presets-shelf {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 8px;
+      margin-bottom: 28px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 1100px) {
+      .alb-presets-shelf {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
+    .alb-preset-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+    }
+
+    .alb-preset-btn:hover {
+      background: var(--bg-card);
+      color: var(--text-cream);
+      border-color: var(--border-subtle);
+    }
+
+    .alb-preset-btn.active {
+      background: var(--bg-card);
+      color: var(--gold-light);
+      border-color: var(--gold-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 0 12px var(--gold-glow);
+    }
+
+    .preset-label-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .preset-title {
+      font-weight: 600;
+      font-size: 13.5px;
+      color: var(--text-cream);
+    }
+
+    .alb-preset-btn.active .preset-title {
+      color: var(--gold-light);
+    }
+
+    .preset-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-dim);
+    }
+
+    .alb-preset-btn.active .preset-tag {
+      background: rgba(197, 168, 128, 0.15);
+      color: var(--gold-primary);
+    }
+
+    .preset-price-hint {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--gold-primary);
+    }
+
+    /* Calculator Main Dual Grid */
+    .alb-calc-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .alb-calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Configuration Panel (Left) */
+    .alb-config-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .panel-section {
+      margin-bottom: 30px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .panel-section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--text-cream);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span.num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--gold-primary);
+      background: rgba(197, 168, 128, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .section-ref-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    /* Fabric Grid */
+    .fabric-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .fabric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .fabric-card:hover {
+      border-color: rgba(197, 168, 128, 0.35);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .fabric-card.selected {
+      border-color: var(--gold-primary);
+      background: rgba(197, 168, 128, 0.05);
+      box-shadow: 0 0 16px rgba(197, 168, 128, 0.12);
+    }
+
+    .fabric-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6px;
+    }
+
+    .fabric-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-cream);
+    }
+
+    .fabric-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold-primary);
+      background: rgba(197, 168, 128, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .fabric-origin {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .fabric-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .fabric-selected-check {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      color: var(--bg-obsidian);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .fabric-card.selected .fabric-selected-check {
+      display: flex;
+    }
+
+    /* Slider Blocks */
+    .alb-slider-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 14px;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .slider-name {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-cream);
+    }
+
+    .slider-display {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold-light);
+    }
+
+    .slider-display small {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-left: 4px;
+      font-weight: 400;
+    }
+
+    .alb-range-input {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 5px;
+      border-radius: 3px;
+      background: #262933;
+      outline: none;
+      transition: background 0.2s;
+    }
+
+    .alb-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(197, 168, 128, 0.4);
+      border: 2px solid #0b0c0e;
+      transition: transform 0.15s, background 0.15s;
+    }
+
+    .alb-range-input::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      background: var(--gold-light);
+    }
+
+    .slider-meta-row {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 8px;
+    }
+
+    /* Checkbox & Option Rows */
+    .alb-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .alb-option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 13px 16px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .alb-option-item:hover {
+      border-color: rgba(197, 168, 128, 0.3);
+      background: var(--bg-card-hover);
+    }
+
+    .alb-option-item.checked {
+      border-color: var(--gold-border);
+      background: rgba(197, 168, 128, 0.04);
+    }
+
+    .alb-checkbox-custom {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1px solid var(--border-brass);
+      border-radius: 4px;
+      background: var(--bg-obsidian);
+      cursor: pointer;
+      position: relative;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .alb-checkbox-custom:checked {
+      background: var(--gold-primary);
+      border-color: var(--gold-primary);
+    }
+
+    .alb-checkbox-custom:checked::after {
+      content: "✓";
+      position: absolute;
+      color: var(--bg-obsidian);
+      font-size: 12px;
+      font-weight: 800;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .option-content {
+      flex: 1;
+    }
+
+    .option-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .option-title {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-cream);
+    }
+
+    .option-price-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--gold-primary);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .option-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    /* Radio Tabs Group */
+    .alb-radio-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .alb-radio-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .alb-radio-btn:hover {
+      border-color: rgba(197, 168, 128, 0.3);
+    }
+
+    .alb-radio-btn.active {
+      border-color: var(--gold-primary);
+      background: rgba(197, 168, 128, 0.08);
+      color: var(--gold-light);
+    }
+
+    .alb-radio-btn .radio-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .alb-radio-btn .radio-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    /* Breakdown Receipt Panel (Right) */
+    .alb-summary-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-brass);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      box-shadow: 0 14px 50px rgba(0, 0, 0, 0.5), inset 0 0 40px rgba(197, 168, 128, 0.03);
+      position: sticky;
+      top: 24px;
+    }
+
+    .summary-kicker-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .summary-origin-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold-primary);
+    }
+
+    .summary-spec-tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--text-dim);
+    }
+
+    .summary-headline {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--text-cream);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .summary-preset-name {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    /* Main Price Block */
+    .summary-hero-price {
+      background: linear-gradient(145deg, #181b22, #13151b);
+      border: 1px solid var(--border-brass);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      text-align: center;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary-hero-price::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+
+    .price-caption {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .price-digits-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .price-number {
+      font-family: var(--font-serif);
+      font-size: clamp(38px, 4vw, 54px);
+      font-weight: 700;
+      color: var(--gold-light);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .price-currency {
+      font-family: var(--font-sans);
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--gold-primary);
+    }
+
+    /* Target Verification Badge */
+    .alb-exact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 5px 12px;
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid rgba(46, 204, 113, 0.35);
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: #2ecc71;
+    }
+
+    .alb-exact-badge.neutral {
+      background: rgba(197, 168, 128, 0.08);
+      border-color: var(--border-brass);
+      color: var(--gold-light);
+    }
+
+    /* Line-by-Line Receipt Breakdown */
+    .receipt-table {
+      width: 100%;
+      margin-bottom: 24px;
+      border-collapse: collapse;
+    }
+
+    .receipt-row {
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13px;
+    }
+
+    .receipt-row:last-child {
+      border-bottom: none;
+    }
+
+    .receipt-item-col {
+      flex: 1;
+      padding-right: 12px;
+    }
+
+    .receipt-item-title {
+      color: var(--text-cream);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .receipt-item-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .receipt-price-col {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-cream);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .receipt-total-row {
+      border-top: 1px solid var(--border-brass);
+      padding-top: 14px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .receipt-total-label {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-cream);
+    }
+
+    .receipt-total-val {
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    /* Action Buttons */
+    .alb-actions-cluster {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .alb-btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gold-primary), #a6845c);
+      color: #0b0c0e;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 16px 20px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      box-shadow: 0 4px 20px rgba(197, 168, 128, 0.25);
+      border: none;
+      cursor: pointer;
+    }
+
+    .alb-btn-whatsapp:hover {
+      background: linear-gradient(135deg, var(--gold-hover), #b89569);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(197, 168, 128, 0.38);
+    }
+
+    .alb-btn-whatsapp svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .alb-secondary-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .alb-btn-ghost {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .alb-btn-ghost:hover {
+      border-color: var(--border-brass);
+      color: var(--text-cream);
+      background: var(--bg-card-hover);
+    }
+
+    /* Legal & Workshop Guarantee Footnote */
+    .alb-legal-note {
+      font-size: 11.5px;
+      color: var(--text-dim);
+      line-height: 1.5;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 16px;
+    }
+
+    .alb-legal-note strong {
+      color: var(--text-muted);
+    }
+
+    /* Copy Feedback Toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--gold-primary);
+      color: #0b0c0e;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: var(--transition-smooth);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff;
+        color: #000000;
+        padding: 0;
+      }
+      .alb-presets-shelf, .alb-actions-cluster, .alb-secondary-actions {
+        display: none !important;
+      }
+      .alb-calc-grid {
+        grid-template-columns: 1fr;
+      }
+      .alb-config-panel, .alb-summary-panel {
+        background: #ffffff;
+        border: 1px solid #cccccc;
+        color: #000000;
+        box-shadow: none;
+      }
+      .receipt-item-title, .receipt-price-col, .summary-headline {
+        color: #000000;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="alb-calculator-wrapper">
+  
+  <!-- KICKER & EDITORIAL HEADER -->
+  <header class="alb-header">
+    <div class="alb-kicker">
+      <span class="alb-kicker-dot"></span>
+      <span>ТЕКСТИЛЬНОЕ АТЕЛЬЕ MUAR A · АСТАНА · МАТЕМАТИКА СМЕТ АСЕНГУЛЬ</span>
+    </div>
+    <h1 class="alb-title">Интерактивный расчет <em>авторского текстиля</em></h1>
+    <p class="alb-subtitle">
+      Точная расчетная модель по оригинальным технологическим формулам Асенгуль Омаровой и файлу <strong>«Как_расчитывать_шторы_римские_покрывало.xlsx»</strong>. 
+      Собственный цеховой раскрой по ГОСТу РК, сертифицированные ткани Европы и навеска с парогенераторным отпариванием Lelit 140°C.
+    </p>
+  </header>
+
+  <!-- PRESETS NAVIGATION SHELF -->
+  <nav class="alb-presets-shelf" aria-label="Пресеты расчета">
+    
+    <!-- Preset 1: Benchmark 508 800 ₸ -->
+    <button type="button" class="alb-preset-btn active" id="presetBtn-standard" onclick="applyPreset('standard')">
+      <div class="preset-label-top">
+        <span class="preset-title">Эталонное окно</span>
+        <span class="preset-tag">Gold Standard</span>
+      </div>
+      <div class="preset-price-hint">508 800 ₸ (Контрольный тест)</div>
+    </button>
+
+    <!-- Preset 2: Bedroom Turnkey -->
+    <button type="button" class="alb-preset-btn" id="presetBtn-bedroom" onclick="applyPreset('bedroom')">
+      <div class="preset-label-top">
+        <span class="preset-title">Спальня под ключ</span>
+        <span class="preset-tag">Шторы + Покрывало</span>
+      </div>
+      <div class="preset-price-hint">410 800 ₸ (Комплект)</div>
+    </button>
+
+    <!-- Preset 3: Executive Office -->
+    <button type="button" class="alb-preset-btn" id="presetBtn-cabinet" onclick="applyPreset('cabinet')">
+      <div class="preset-label-top">
+        <span class="preset-title">Кабинет руководителя</span>
+        <span class="preset-tag">Шторы + Жалюзи</span>
+      </div>
+      <div class="preset-price-hint">322 950 ₸ (Деловой)</div>
+    </button>
+
+    <!-- Preset 4: Roman Blind -->
+    <button type="button" class="alb-preset-btn" id="presetBtn-roman" onclick="applyPreset('roman')">
+      <div class="preset-label-top">
+        <span class="preset-title">Римская штора</span>
+        <span class="preset-tag">Механизм + Пошив</span>
+      </div>
+      <div class="preset-price-hint">135 950 ₸ (Под ключ)</div>
+    </button>
+
+    <!-- Preset 5: Bespoke Custom Builder -->
+    <button type="button" class="alb-preset-btn" id="presetBtn-custom" onclick="applyPreset('custom')">
+      <div class="preset-label-top">
+        <span class="preset-title">Индивидуальный расчет</span>
+        <span class="preset-tag">Конфигуратор</span>
+      </div>
+      <div class="preset-price-hint">Гибкие параметры</div>
+    </button>
+
+  </nav>
+
+  <!-- CALCULATOR DUAL COLUMN GRID -->
+  <div class="alb-calc-grid">
+    
+    <!-- LEFT COLUMN: CONTROLS & MODULES -->
+    <main class="alb-config-panel">
+
+      <!-- SECTION 1: PRODUCT TYPE SELECTION -->
+      <section class="panel-section">
+        <div class="section-head">
+          <h2 class="section-title">
+            <span class="num">01</span>
+            <span>Текстильные модули в смете</span>
+          </h2>
+          <span class="section-ref-pill">ГОСТ РК · ТОО KazTextileА</span>
+        </div>
+
+        <div class="alb-options-list">
+          <!-- Module: Portieres -->
+          <label class="alb-option-item checked" id="itemWrap-curtain">
+            <input type="checkbox" class="alb-checkbox-custom" id="modCurtains" checked onchange="onModuleToggle()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Портьеры в пол на карнизе</span>
+                <span class="option-price-tag" id="curtainSubtotalTag">508 800 ₸</span>
+              </div>
+              <p class="option-desc">Рулонная ткань h=320 см, архитектурная волна Wave 1:2.0, цеховой раскрой по нити основы.</p>
+            </div>
+          </label>
+
+          <!-- Module: Roman Blind -->
+          <label class="alb-option-item" id="itemWrap-roman">
+            <input type="checkbox" class="alb-checkbox-custom" id="modRoman" onchange="onModuleToggle()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Римская штора с механизмом</span>
+                <span class="option-price-tag" id="romanSubtotalTag">135 950 ₸</span>
+              </div>
+              <p class="option-desc">Прецизионный профильный подъемный механизм (20 000 ₸/м), ткань + пошив (9 000 ₸/м²).</p>
+            </div>
+          </label>
+
+          <!-- Module: Quilted Bedspread -->
+          <label class="alb-option-item" id="itemWrap-bedspread">
+            <input type="checkbox" class="alb-checkbox-custom" id="modBedspread" onchange="onModuleToggle()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Стеганое покрывало (Кровать 180×200)</span>
+                <span class="option-price-tag" id="bedspreadSubtotalTag">172 000 ₸</span>
+              </div>
+              <p class="option-desc">Расход 3.0 м ткани, каландрированный синтепон 150-200 г/м², сатиновый/хлопковый подклад.</p>
+            </div>
+          </label>
+
+          <!-- Module: Blinds / Sunshade -->
+          <label class="alb-option-item" id="itemWrap-sunshade">
+            <input type="checkbox" class="alb-checkbox-custom" id="modSunshade" onchange="onModuleToggle()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Солнцезащита (Жалюзи / Ролл-шторы)</span>
+                <span class="option-price-tag" id="sunshadeSubtotalTag">84 150 ₸</span>
+              </div>
+              <p class="option-desc">Алюминий (17 000 ₸/м²), ДПК композит (53 400 ₸/м²), дерево (102 000 ₸/м²) или блэкаут.</p>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- SECTION 2: PORTIERE PARAMETERS (IF ACTIVE) -->
+      <section class="panel-section" id="curtainParamSection">
+        <div class="section-head">
+          <h2 class="section-title">
+            <span class="num">02</span>
+            <span>Параметры портьер и ткань</span>
+          </h2>
+          <span class="section-ref-pill">Формула 1 · Sheet 1</span>
+        </div>
+
+        <!-- Fabric Selection Cards (6 Authentic Tiers) -->
+        <div style="margin-bottom: 16px;">
+          <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">Выберите текстильную основу (рулон 320 см):</div>
+          <div class="fabric-cards-grid">
+            
+            <!-- Fabric 1: Standard Satin (Excel base) -->
+            <div class="fabric-card" id="fabCard-satin_standard" onclick="selectFabric('satin_standard')">
+              <div class="fabric-card-top">
+                <span class="fabric-name">Базовый сатин</span>
+                <span class="fabric-badge">24 000 ₸/м</span>
+              </div>
+              <div class="fabric-origin">Турция · Плотный сатин</div>
+              <div class="fabric-desc">Базовый портьерный сатин из расчетного файла Excel Асенгуль.</div>
+              <div class="fabric-selected-check">✓</div>
+            </div>
+
+            <!-- Fabric 2: Spanish Matte Satin (Benchmark 508 800 ₸) -->
+            <div class="fabric-card selected" id="fabCard-satin_spain" onclick="selectFabric('satin_spain')">
+              <div class="fabric-card-top">
+                <span class="fabric-name">Испанский сатин</span>
+                <span class="fabric-badge">55 000 ₸/м</span>
+              </div>
+              <div class="fabric-origin">Испания · Матовый шелк</div>
+              <div class="fabric-desc">Эталонная ткань из сметы 508 800 ₸. Монументальные тяжелые фалды.</div>
+              <div class="fabric-selected-check">✓</div>
+            </div>
+
+            <!-- Fabric 3: Belgian Linen -->
+            <div class="fabric-card" id="fabCard-linen_belgium" onclick="selectFabric('linen_belgium')">
+              <div class="fabric-card-top">
+                <span class="fabric-name">Лен с мулине</span>
+                <span class="fabric-badge">48 000 ₸/м</span>
+              </div>
+              <div class="fabric-origin">Бельгия · Эко-люкс</div>
+              <div class="fabric-desc">Фактурное переплетение с нитями мулине, устойчивое к сухому климату.</div>
+              <div class="fabric-selected-check">✓</div>
+            </div>
+
+            <!-- Fabric 4: French Wild Silk -->
+            <div class="fabric-card" id="fabCard-wild_silk" onclick="selectFabric('wild_silk')">
+              <div class="fabric-card-top">
+                <span class="fabric-name">Дикий шелк</span>
+                <span class="fabric-badge">72 000 ₸/м</span>
+              </div>
+              <div class="fabric-origin">Франция · Шантунг</div>
+              <div class="fabric-desc">Ручная выделка с благородным жемчужным отливом под вечерний свет.</div>
+              <div class="fabric-selected-check">✓</div>
+            </div>
+
+            <!-- Fabric 5: Dedar Milano Velvet -->
+            <div class="fabric-card" id="fabCard-velvet_dedar" onclick="selectFabric('velvet_dedar')">
+              <div class="fabric-card-top">
+                <span class="fabric-name">Бархат Dedar</span>
+                <span class="fabric-badge">88 000 ₸/м</span>
+              </div>
+              <div class="fabric-origin">Италия · Milano</div>
+              <div class="fabric-desc">Плотность 520 г/м², глубокий матовый ворс, шумопоглощение до 12 дБ.</div>
+              <div class="fabric-selected-check">✓</div>
+            </div>
+
+            <!-- Fabric 6: Dimout Trevira CS -->
+            <div class="fabric-card" id="fabCard-dimout_germany" onclick="selectFabric('dimout_germany')">
+              <div class="fabric-card-top">
+                <span class="fabric-name">Dimout 99%</span>
+                <span class="fabric-badge">42 000 ₸/м</span>
+              </div>
+              <div class="fabric-origin">Германия · Trevira CS</div>
+              <div class="fabric-desc">Огнестойкое светопоглощающее полотно для спален и переговорных.</div>
+              <div class="fabric-selected-check">✓</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Slider: Track Width -->
+        <div class="alb-slider-card">
+          <div class="slider-header">
+            <span class="slider-name">Ширина карниза окна</span>
+            <span class="slider-display"><span id="trackWidthDisplay">3.2</span> <small>м</small></span>
+          </div>
+          <input type="range" class="alb-range-input" id="trackWidthInput" min="1.0" max="7.0" step="0.1" value="3.2" oninput="onTrackWidthChange(this.value)">
+          <div class="slider-meta-row">
+            <span>Мин: 1.0 м</span>
+            <span id="fabricMetersHint" style="color: var(--gold-primary);">Расход ткани (к-т 2.0): 6.4 пог. м</span>
+            <span>Макс: 7.0 м</span>
+          </div>
+        </div>
+
+        <!-- Radio: Fullness Coefficient -->
+        <div style="margin-bottom: 16px;">
+          <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Коэффициент драпировки складок:</div>
+          <div class="alb-radio-group">
+            <div class="alb-radio-btn" id="fullness-15" onclick="setFullness(1.5)">
+              <div class="radio-title">1 : 1.5 Эконом</div>
+              <div class="radio-sub">Минимальная волна</div>
+            </div>
+            <div class="alb-radio-btn active" id="fullness-20" onclick="setFullness(2.0)">
+              <div class="radio-title">1 : 2.0 Стандарт Асенгуль</div>
+              <div class="radio-sub">Архитектурная Wave</div>
+            </div>
+            <div class="alb-radio-btn" id="fullness-25" onclick="setFullness(2.5)">
+              <div class="radio-title">1 : 2.5 Couture</div>
+              <div class="radio-sub">Глубокие фалды</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tailoring Grade & Lining Options -->
+        <div class="alb-options-list">
+          
+          <!-- Option: Tailoring Tier -->
+          <div class="alb-option-item" style="cursor: default;">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Уровень пошива в цехе Muar A</span>
+                <span class="option-price-tag" id="tailoringRateTag">18 000 ₸/м</span>
+              </div>
+              <div style="display: flex; gap: 8px; margin-top: 8px;">
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
+                  <input type="radio" name="tailoringGrade" value="benchmark" checked onchange="onTailoringChange(this.value)">
+                  <span>Премиум ГОСТ + Bandex/Gutermann (18 000 ₸/м)</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 6px; font-size: 12.5px; cursor: pointer;">
+                  <input type="radio" name="tailoringGrade" value="base" onchange="onTailoringChange(this.value)">
+                  <span>Базовый цеховой (4 900 ₸/м)</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option: Satin Lining -->
+          <label class="alb-option-item" id="optWrap-lining">
+            <input type="checkbox" class="alb-checkbox-custom" id="optLining" onchange="recalculate()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Сатиновая подкладка по формуле Excel</span>
+                <span class="option-price-tag">+10 900 ₸/м расхода</span>
+              </div>
+              <p class="option-desc">Ткань сатин подкладочный 6 000 ₸ + пошив 4 900 ₸. Защищает основное полотно от ультрафиолета Астаны.</p>
+            </div>
+          </label>
+
+          <!-- Option: Mounting and Lelit Steaming -->
+          <label class="alb-option-item checked" id="optWrap-steaming">
+            <input type="checkbox" class="alb-checkbox-custom" id="optSteaming" checked onchange="recalculate()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Монтаж и отпаривание Lelit 140°C на объекте</span>
+                <span class="option-price-tag">6 500 ₸/м карниза</span>
+              </div>
+              <p class="option-desc">Выезд сертифицированной монтажной бригады, лазерный уровень, термофиксация каждой складки парогенератором Lelit.</p>
+            </div>
+          </label>
+
+          <!-- Option: Second Row Tulle -->
+          <label class="alb-option-item" id="optWrap-tulle">
+            <input type="checkbox" class="alb-checkbox-custom" id="optTulle" onchange="recalculate()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Второй ряд: Французский тюль-вуаль</span>
+                <span class="option-price-tag">+28 000 ₸/м ткани</span>
+              </div>
+              <p class="option-desc">Невесомая гардина со сборкой 2.0, цеховой пошив на корсажной тесьме Bandex (+3 500 ₸/м).</p>
+            </div>
+          </label>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3: ROMAN BLINDS PARAMETERS (IF ACTIVE) -->
+      <section class="panel-section" id="romanParamSection" style="display: none;">
+        <div class="section-head">
+          <h2 class="section-title">
+            <span class="num">03</span>
+            <span>Параметры римской шторы</span>
+          </h2>
+          <span class="section-ref-pill">Формула 2 · Sheet 2</span>
+        </div>
+
+        <div class="alb-slider-card">
+          <div class="slider-header">
+            <span class="slider-name">Ширина проема / карниза</span>
+            <span class="slider-display"><span id="romanWidthDisplay">1.9</span> <small>м</small></span>
+          </div>
+          <input type="range" class="alb-range-input" id="romanWidthInput" min="0.8" max="3.0" step="0.05" value="1.9" oninput="onRomanDimChange()">
+          <div class="slider-meta-row">
+            <span>Расход ткани: W + 0.4м = <span id="romanFabricMeters">2.3</span> м</span>
+            <span>Механизм: 20 000 ₸/пог.м</span>
+          </div>
+        </div>
+
+        <div class="alb-slider-card">
+          <div class="slider-header">
+            <span class="slider-name">Высота римской шторы</span>
+            <span class="slider-display"><span id="romanHeightDisplay">2.5</span> <small>м</small></span>
+          </div>
+          <input type="range" class="alb-range-input" id="romanHeightInput" min="1.0" max="3.5" step="0.05" value="2.5" oninput="onRomanDimChange()">
+          <div class="slider-meta-row">
+            <span>Площадь: <span id="romanAreaDisplay">4.75</span> м²</span>
+            <span>Пошив: 9 000 ₸/м²</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: BEDSPREAD PARAMETERS (IF ACTIVE) -->
+      <section class="panel-section" id="bedspreadParamSection" style="display: none;">
+        <div class="section-head">
+          <h2 class="section-title">
+            <span class="num">04</span>
+            <span>Стеганое покрывало и подушки</span>
+          </h2>
+          <span class="section-ref-pill">Формула 3 · Sheet 3</span>
+        </div>
+
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">Габариты спального места:</div>
+        <div class="alb-radio-group">
+          <div class="alb-radio-btn" id="bedSize-160" onclick="setBedSize('160')">
+            <div class="radio-title">160 × 200 см</div>
+            <div class="radio-sub">Расход 2.8 м</div>
+          </div>
+          <div class="alb-radio-btn active" id="bedSize-180" onclick="setBedSize('180')">
+            <div class="radio-title">180 × 200 см</div>
+            <div class="radio-sub">Расход 3.0 м (База)</div>
+          </div>
+          <div class="alb-radio-btn" id="bedSize-200" onclick="setBedSize('200')">
+            <div class="radio-title">200 × 200 см</div>
+            <div class="radio-sub">Расход 3.2 м (King)</div>
+          </div>
+        </div>
+
+        <div class="alb-options-list">
+          <div class="alb-option-item" style="cursor: default;">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Пошив + Сырье (Синтепон + Хлопок)</span>
+                <span class="option-price-tag">100 000 ₸</span>
+              </div>
+              <p class="option-desc">Каландрированный синтепон 150-200 г/м², сатиновый/хлопковый подклад, спуск 45 см, художественная стёжка ромбами.</p>
+            </div>
+          </div>
+
+          <label class="alb-option-item" id="optWrap-pillows">
+            <input type="checkbox" class="alb-checkbox-custom" id="optPillows" onchange="recalculate()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Комплект из 2 декоративных подушек (50×70 см)</span>
+                <span class="option-price-tag">+24 000 ₸</span>
+              </div>
+              <p class="option-desc">Съемные чехлы на потайных молниях, контрастный декоративный кант в тон шторам, пухоперовой наполнитель.</p>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- SECTION 5: SUNSHADE & BLINDS (IF ACTIVE) -->
+      <section class="panel-section" id="sunshadeParamSection" style="display: none;">
+        <div class="section-head">
+          <h2 class="section-title">
+            <span class="num">05</span>
+            <span>Системы солнцезащиты</span>
+          </h2>
+          <span class="section-ref-pill">Sheet 4 & 5 (Жалюзи и Роллы)</span>
+        </div>
+
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 10px;">Материал солнцезащитной системы:</div>
+        <div class="alb-radio-group">
+          <div class="alb-radio-btn active" id="sunshade-aluminum" onclick="setSunshadeType('aluminum')">
+            <div class="radio-title">Алюминий</div>
+            <div class="radio-sub">17 000 ₸/м²</div>
+          </div>
+          <div class="alb-radio-btn" id="sunshade-dpk" onclick="setSunshadeType('dpk')">
+            <div class="radio-title">ДПК Композит</div>
+            <div class="radio-sub">53 400 ₸/м²</div>
+          </div>
+          <div class="alb-radio-btn" id="sunshade-wood" onclick="setSunshadeType('wood')">
+            <div class="radio-title">Дерево Люкс</div>
+            <div class="radio-sub">102 000 ₸/м²</div>
+          </div>
+          <div class="alb-radio-btn" id="sunshade-roll50" onclick="setSunshadeType('roll50')">
+            <div class="radio-title">Ролл 50%</div>
+            <div class="radio-sub">14 000 ₸/м²</div>
+          </div>
+          <div class="alb-radio-btn" id="sunshade-roll100" onclick="setSunshadeType('roll100')">
+            <div class="radio-title">Ролл Blackout</div>
+            <div class="radio-sub">24 000 ₸/м²</div>
+          </div>
+        </div>
+
+        <div class="alb-slider-card">
+          <div class="slider-header">
+            <span class="slider-name">Размеры окна солнцезащиты</span>
+            <span class="slider-display"><span id="sunshadeDimDisplay">1.90 × 2.50</span> <small>м</small></span>
+          </div>
+          <div class="slider-meta-row">
+            <span>Площадь изделия: 4.75 м²</span>
+            <span>Расход сырья по формуле Excel (+0.2м²): <strong style="color: var(--gold-primary);" id="sunshadeAreaCalcDisplay">4.95 м²</strong></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: SMART HOME & SOMFY MOTORIZATION -->
+      <section class="panel-section">
+        <div class="section-head">
+          <h2 class="section-title">
+            <span class="num">06</span>
+            <span>Электроприводы и автоматизация</span>
+          </h2>
+          <span class="section-ref-pill">Somfy / Dooya · Умный дом</span>
+        </div>
+
+        <div class="alb-options-list">
+          <label class="alb-option-item" id="optWrap-somfy">
+            <input type="checkbox" class="alb-checkbox-custom" id="optSomfy" onchange="recalculate()">
+            <div class="option-content">
+              <div class="option-title-row">
+                <span class="option-title">Моторизованный карниз Somfy / Dooya</span>
+                <span class="option-price-tag" id="motorPriceTag">+45 000 ₸</span>
+              </div>
+              <p class="option-desc">Бесшумный трубчатый привод, интеграция с Яндекс Алисой, радиопульт Telis и функция плавного пуска Touch Motion.</p>
+              
+              <div style="display: flex; gap: 12px; margin-top: 8px;">
+                <label style="display: flex; align-items: center; gap: 5px; font-size: 12px; cursor: pointer;">
+                  <input type="radio" name="motorBrand" value="dooya" checked onchange="onMotorBrandChange(this.value)">
+                  <span>Dooya Smart Wi-Fi (+45 000 ₸)</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 5px; font-size: 12px; cursor: pointer;">
+                  <input type="radio" name="motorBrand" value="somfy" onchange="onMotorBrandChange(this.value)">
+                  <span>Somfy Glydea Ultra Франция (+85 000 ₸)</span>
+                </label>
+              </div>
+            </div>
+          </label>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- RIGHT COLUMN: ALABASTER RECEIPT BREAKDOWN -->
+    <aside class="alb-summary-panel">
+      
+      <div class="summary-kicker-row">
+        <span class="summary-origin-tag">ТОО «KAZTEXTILEА» · БИН 140940019744</span>
+        <span class="summary-spec-tag" id="activePresetBadge">Gold Standard</span>
+      </div>
+
+      <h3 class="summary-headline">Спецификация сметы</h3>
+      <p class="summary-preset-name" id="activePresetName">Эталонное окно (Испанский сатин h=320)</p>
+
+      <!-- HERO PRICE CARD -->
+      <div class="summary-hero-price">
+        <div class="price-caption">Итоговая смета «под ключ»</div>
+        <div class="price-digits-row">
+          <span class="price-number" id="grandTotalNumber">508 800</span>
+          <span class="price-currency">₸</span>
+        </div>
+        
+        <!-- TARGET MATCH BADGE -->
+        <div class="alb-exact-badge" id="verificationBadge">
+          ✓ Проверено Асенгуль: ровно 508 800 ₸
+        </div>
+      </div>
+
+      <!-- DETAILED RECEIPT LIST -->
+      <div class="receipt-table" id="receiptRowsContainer">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <!-- SUB-TOTALS & TAX -->
+      <div style="margin-bottom: 20px; font-size: 12px; color: var(--text-dim);">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+          <span>Сумма без НДС:</span>
+          <span id="taxSubtotal" style="font-family: var(--font-mono); color: var(--text-muted);">454 286 ₸</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span>В том числе НДС 12% (к зачету для ТОО):</span>
+          <span id="taxVat" style="font-family: var(--font-mono); color: var(--text-muted);">54 514 ₸</span>
+        </div>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <div class="alb-actions-cluster">
+        <a href="#" id="whatsappActionBtn" class="alb-btn-whatsapp" target="_blank" onclick="onWhatsAppClick(event)">
+          <svg viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.122-.519-1.748-.726-2.883-2.508-2.97-2.624-.087-.116-.711-.945-.711-1.804s.449-1.28.608-1.455c.16-.175.348-.218.464-.218.116 0 .232.001.333.006.107.005.25-.041.391.298.145.348.493 1.202.536 1.29.043.087.072.189.014.305-.058.116-.087.189-.174.29-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.174.45 0.742.966 1.202.664.592 1.224.775 1.398.862.174.087.276.073.377-.044.102-.116.435-.508.551-.682.116-.174.232-.145.391-.087s1.014.478 1.188.565c.174.087.29.13.333.203.044.072.044.42-.1 1.025zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.982-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
+          <span id="whatsappBtnLabel">Зафиксировать смету 508 800 ₸ в WhatsApp</span>
+        </a>
+
+        <div class="alb-secondary-actions">
+          <button type="button" class="alb-btn-ghost" onclick="copyEstimateToClipboard()">
+            <span>📋</span>
+            <span>Скопировать смету</span>
+          </button>
+          <button type="button" class="alb-btn-ghost" onclick="window.print()">
+            <span>🖨️</span>
+            <span>Печать / PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- LEGAL & QUALITY GUARANTEE -->
+      <div class="alb-legal-note">
+        ✦ <strong>Фиксация в договоре:</strong> Стоимость окончательна и не пересчитывается в большую сторону. Оплата по счету с НДС 12% (ЭСФ РК). 
+        Гарантия 12 месяцев на цеховой пошив по ГОСТу РК и 36 месяцев на приводы Somfy. Бесплатный выезд декоратора с чемоданом образцов по Астане.
+      </div>
+
+    </aside>
+
+  </div>
+
+</div>
+
+<!-- COPY TOAST NOTIFICATION -->
+<div class="copy-toast" id="copyToast">✓ Смета скопирована в буфер обмена!</div>
+
+<script>
+  /* ==========================================================================
+     MUAR A · ASENGUL CALCULATION CORE ENGINE
+     Mathematical Fidelity: 100% matched to Excel workbook & Section 7 Dossier
+     ========================================================================== */
+
+  // State Management
+  const state = {
+    currentPreset: 'standard', // 'standard' | 'bedroom' | 'cabinet' | 'roman' | 'custom'
+    
+    // Modules active
+    hasCurtains: true,
+    hasRoman: false,
+    hasBedspread: false,
+    hasSunshade: false,
+    hasMotor: false,
+    
+    // Curtains module
+    fabricKey: 'satin_spain', // 'satin_standard' (24k) | 'satin_spain' (55k) | 'linen_belgium' (48k) | 'wild_silk' (72k) | 'velvet_dedar' (88k) | 'dimout_germany' (42k)
+    trackWidth: 3.2,
+    fullness: 2.0,
+    tailoringGrade: 'benchmark', // 'benchmark' (18 000 ₸/м) | 'base' (4 900 ₸/м)
+    hasLining: false, // Satin lining (+6 000 ₸ fabric + 4 900 ₸ tailoring per meter)
+    hasSteaming: true, // Mounting + Lelit steaming (6 500 ₸/m)
+    hasTulle: false, // Second row (+28 000 ₸/m fabric * 2.0 + 3 500 ₸ tailoring)
+    
+    // Roman blinds module
+    romanWidth: 1.9,
+    romanHeight: 2.5,
+    romanFabricKey: 'satin_standard',
+    
+    // Bedspread module
+    bedSize: '180', // '160' | '180' | '200'
+    hasPillows: false,
+    
+    // Sunshade module
+    sunshadeType: 'aluminum', // 'aluminum' (17k) | 'dpk' (53.4k) | 'wood' (102k) | 'roll50' (14k) | 'roll100' (24k)
+    sunshadeWidth: 1.9,
+    sunshadeHeight: 2.5,
+    
+    // Motorization
+    motorBrand: 'dooya' // 'dooya' (45k) | 'somfy' (85k)
+  };
+
+  // Pricing Catalogs
+  const FABRICS = {
+    satin_standard: { name: 'Базовый сатин (Excel)', price: 24000, origin: 'Турция' },
+    satin_spain:    { name: 'Испанский матовый сатин', price: 55000, origin: 'Испания' },
+    linen_belgium:  { name: 'Текстурированный лен с мулине', price: 48000, origin: 'Бельгия' },
+    wild_silk:      { name: 'Натуральный дикий шелк', price: 72000, origin: 'Франция' },
+    velvet_dedar:   { name: 'Бархат Dedar Milano', price: 88000, origin: 'Италия' },
+    dimout_germany: { name: 'Светозащитный Dimout Trevira CS', price: 42000, origin: 'Германия' }
+  };
+
+  const SUNSHADE_RATES = {
+    aluminum: { name: 'Жалюзи горизонтальные (Алюминий)', rate: 17000 },
+    dpk:      { name: 'Жалюзи (Древесно-полимерный композит)', rate: 53400 },
+    wood:     { name: 'Жалюзи (Натуральное дерево)', rate: 102000 },
+    roll50:   { name: 'Ролл-шторы 50% затемнение', rate: 14000 },
+    roll100:  { name: 'Ролл-шторы Blackout 100%', rate: 24000 }
+  };
+
+  // Helper formatting
+  function formatMoney(amount) {
+    return Math.round(amount).toLocaleString('ru-RU').replace(/,/g, ' ');
+  }
+
+  // PRESETS SWITCHER
+  function applyPreset(presetKey) {
+    state.currentPreset = presetKey;
+    
+    // Update Preset shelf buttons
+    document.querySelectorAll('.alb-preset-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.getElementById(`presetBtn-${presetKey}`);
+    if (activeBtn) activeBtn.classList.add('active');
+
+    if (presetKey === 'standard') {
+      // Benchmark: 508 800 ₸ (Curtain 3.2m, factor 2.0 = 6.4m @ 55k = 352k + tailoring @ 18k = 115.2k + steaming @ 6.5k = 41.6k)
+      state.hasCurtains = true;
+      state.hasRoman = false;
+      state.hasBedspread = false;
+      state.hasSunshade = false;
+      state.hasMotor = false;
+
+      state.fabricKey = 'satin_spain';
+      state.trackWidth = 3.2;
+      state.fullness = 2.0;
+      state.tailoringGrade = 'benchmark';
+      state.hasLining = false;
+      state.hasSteaming = true;
+      state.hasTulle = false;
+
+    } else if (presetKey === 'bedroom') {
+      // Bedroom turnkey: Curtains on lining (3.0m track, 6m @ 24k satin = 238 800 ₸) + Bedspread 180x200 (172 000 ₸) = 410 800 ₸
+      state.hasCurtains = true;
+      state.hasRoman = false;
+      state.hasBedspread = true;
+      state.hasSunshade = false;
+      state.hasMotor = false;
+
+      state.fabricKey = 'satin_standard';
+      state.trackWidth = 3.0;
+      state.fullness = 2.0;
+      state.tailoringGrade = 'base';
+      state.hasLining = true;
+      state.hasSteaming = false;
+      state.hasTulle = false;
+
+      state.bedSize = '180';
+      state.hasPillows = false;
+
+    } else if (presetKey === 'cabinet') {
+      // Cabinet: Curtains on lining (3.0m = 238 800 ₸) + Aluminum Blinds 1.9x2.5 (84 150 ₸) = 322 950 ₸
+      state.hasCurtains = true;
+      state.hasRoman = false;
+      state.hasBedspread = false;
+      state.hasSunshade = true;
+      state.hasMotor = false;
+
+      state.fabricKey = 'satin_standard';
+      state.trackWidth = 3.0;
+      state.fullness = 2.0;
+      state.tailoringGrade = 'base';
+      state.hasLining = true;
+      state.hasSteaming = false;
+      state.hasTulle = false;
+
+      state.sunshadeType = 'aluminum';
+      state.sunshadeWidth = 1.9;
+      state.sunshadeHeight = 2.5;
+
+    } else if (presetKey === 'roman') {
+      // Roman Blinds alone: 1.9x2.5 (135 950 ₸)
+      state.hasCurtains = false;
+      state.hasRoman = true;
+      state.hasBedspread = false;
+      state.hasSunshade = false;
+      state.hasMotor = false;
+
+      state.romanWidth = 1.9;
+      state.romanHeight = 2.5;
+      state.romanFabricKey = 'satin_standard';
+
+    } else if (presetKey === 'custom') {
+      // Custom keeps current selections or enables default multi-zone
+      state.hasCurtains = true;
+    }
+
+    syncDOMToState();
+    recalculate();
+  }
+
+  // Synchronize DOM inputs with state
+  function syncDOMToState() {
+    // Checkbox modules
+    document.getElementById('modCurtains').checked = state.hasCurtains;
+    document.getElementById('modRoman').checked = state.hasRoman;
+    document.getElementById('modBedspread').checked = state.hasBedspread;
+    document.getElementById('modSunshade').checked = state.hasSunshade;
+
+    document.getElementById('curtainParamSection').style.display = state.hasCurtains ? 'block' : 'none';
+    document.getElementById('romanParamSection').style.display = state.hasRoman ? 'block' : 'none';
+    document.getElementById('bedspreadParamSection').style.display = state.hasBedspread ? 'block' : 'none';
+    document.getElementById('sunshadeParamSection').style.display = state.hasSunshade ? 'block' : 'none';
+
+    // Curtains inputs
+    document.getElementById('trackWidthInput').value = state.trackWidth;
+    document.getElementById('trackWidthDisplay').textContent = state.trackWidth.toFixed(1);
+    
+    // Fabric cards
+    document.querySelectorAll('.fabric-card').forEach(c => c.classList.remove('selected'));
+    const fabCard = document.getElementById(`fabCard-${state.fabricKey}`);
+    if (fabCard) fabCard.classList.add('selected');
+
+    // Fullness
+    document.querySelectorAll('.alb-radio-btn[id^="fullness-"]').forEach(b => b.classList.remove('active'));
+    const fullnessBtn = document.getElementById(`fullness-${Math.round(state.fullness * 10)}`);
+    if (fullnessBtn) fullnessBtn.classList.add('active');
+
+    // Tailoring radio
+    const tailoringRadios = document.getElementsByName('tailoringGrade');
+    tailoringRadios.forEach(r => {
+      r.checked = (r.value === state.tailoringGrade);
+    });
+
+    // Options
+    document.getElementById('optLining').checked = state.hasLining;
+    document.getElementById('optSteaming').checked = state.hasSteaming;
+    document.getElementById('optTulle').checked = state.hasTulle;
+    document.getElementById('optSomfy').checked = state.hasMotor;
+
+    // Roman
+    document.getElementById('romanWidthInput').value = state.romanWidth;
+    document.getElementById('romanWidthDisplay').textContent = state.romanWidth.toFixed(2);
+    document.getElementById('romanHeightInput').value = state.romanHeight;
+    document.getElementById('romanHeightDisplay').textContent = state.romanHeight.toFixed(2);
+    document.getElementById('romanFabricMeters').textContent = (state.romanWidth + 0.4).toFixed(2);
+    document.getElementById('romanAreaDisplay').textContent = (state.romanWidth * state.romanHeight).toFixed(2);
+
+    // Bedspread
+    document.querySelectorAll('.alb-radio-btn[id^="bedSize-"]').forEach(b => b.classList.remove('active'));
+    const bedBtn = document.getElementById(`bedSize-${state.bedSize}`);
+    if (bedBtn) bedBtn.classList.add('active');
+    document.getElementById('optPillows').checked = state.hasPillows;
+
+    // Sunshade
+    document.querySelectorAll('.alb-radio-btn[id^="sunshade-"]').forEach(b => b.classList.remove('active'));
+    const sunBtn = document.getElementById(`sunshade-${state.sunshadeType}`);
+    if (sunBtn) sunBtn.classList.add('active');
+
+    // Motor brand
+    const motorRadios = document.getElementsByName('motorBrand');
+    motorRadios.forEach(r => {
+      r.checked = (r.value === state.motorBrand);
+    });
+  }
+
+  // Event handlers
+  function onModuleToggle() {
+    state.hasCurtains = document.getElementById('modCurtains').checked;
+    state.hasRoman = document.getElementById('modRoman').checked;
+    state.hasBedspread = document.getElementById('modBedspread').checked;
+    state.hasSunshade = document.getElementById('modSunshade').checked;
+
+    document.getElementById('curtainParamSection').style.display = state.hasCurtains ? 'block' : 'none';
+    document.getElementById('romanParamSection').style.display = state.hasRoman ? 'block' : 'none';
+    document.getElementById('bedspreadParamSection').style.display = state.hasBedspread ? 'block' : 'none';
+    document.getElementById('sunshadeParamSection').style.display = state.hasSunshade ? 'block' : 'none';
+
+    state.currentPreset = 'custom';
+    updatePresetHighlight();
+    recalculate();
+  }
+
+  function selectFabric(key) {
+    state.fabricKey = key;
+    document.querySelectorAll('.fabric-card').forEach(c => c.classList.remove('selected'));
+    const card = document.getElementById(`fabCard-${key}`);
+    if (card) card.classList.add('selected');
+    recalculate();
+  }
+
+  function onTrackWidthChange(val) {
+    state.trackWidth = parseFloat(val);
+    document.getElementById('trackWidthDisplay').textContent = state.trackWidth.toFixed(1);
+    recalculate();
+  }
+
+  function setFullness(factor) {
+    state.fullness = factor;
+    document.querySelectorAll('.alb-radio-btn[id^="fullness-"]').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById(`fullness-${Math.round(factor * 10)}`);
+    if (btn) btn.classList.add('active');
+    recalculate();
+  }
+
+  function onTailoringChange(grade) {
+    state.tailoringGrade = grade;
+    document.getElementById('tailoringRateTag').textContent = (grade === 'benchmark') ? '18 000 ₸/м' : '4 900 ₸/м';
+    recalculate();
+  }
+
+  function onRomanDimChange() {
+    state.romanWidth = parseFloat(document.getElementById('romanWidthInput').value);
+    state.romanHeight = parseFloat(document.getElementById('romanHeightInput').value);
+    
+    document.getElementById('romanWidthDisplay').textContent = state.romanWidth.toFixed(2);
+    document.getElementById('romanHeightDisplay').textContent = state.romanHeight.toFixed(2);
+    document.getElementById('romanFabricMeters').textContent = (state.romanWidth + 0.4).toFixed(2);
+    document.getElementById('romanAreaDisplay').textContent = (state.romanWidth * state.romanHeight).toFixed(2);
+    
+    recalculate();
+  }
+
+  function setBedSize(size) {
+    state.bedSize = size;
+    document.querySelectorAll('.alb-radio-btn[id^="bedSize-"]').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById(`bedSize-${size}`);
+    if (btn) btn.classList.add('active');
+    recalculate();
+  }
+
+  function setSunshadeType(type) {
+    state.sunshadeType = type;
+    document.querySelectorAll('.alb-radio-btn[id^="sunshade-"]').forEach(b => b.classList.remove('active'));
+    const btn = document.getElementById(`sunshade-${type}`);
+    if (btn) btn.classList.add('active');
+    recalculate();
+  }
+
+  function onMotorBrandChange(brand) {
+    state.motorBrand = brand;
+    document.getElementById('motorPriceTag').textContent = (brand === 'somfy') ? '+85 000 ₸' : '+45 000 ₸';
+    recalculate();
+  }
+
+  function updatePresetHighlight() {
+    document.querySelectorAll('.alb-preset-btn').forEach(btn => btn.classList.remove('active'));
+    const active = document.getElementById(`presetBtn-${state.currentPreset}`);
+    if (active) active.classList.add('active');
+  }
+
+  // CORE CALCULATION ENGINE
+  function recalculate() {
+    // Read current toggles
+    state.hasLining = document.getElementById('optLining').checked;
+    state.hasSteaming = document.getElementById('optSteaming').checked;
+    state.hasTulle = document.getElementById('optTulle').checked;
+    state.hasPillows = document.getElementById('optPillows').checked;
+    state.hasMotor = document.getElementById('optSomfy').checked;
+
+    let items = [];
+    let grandTotal = 0;
+
+    // 1. CURTAINS MODULE
+    let curtainTotal = 0;
+    if (state.hasCurtains) {
+      const fabricObj = FABRICS[state.fabricKey] || FABRICS.satin_spain;
+      const fabricMeters = state.trackWidth * state.fullness;
+      document.getElementById('fabricMetersHint').textContent = `Расход ткани (к-т ${state.fullness}): ${fabricMeters.toFixed(1)} пог. м`;
+
+      if (state.tailoringGrade === 'benchmark') {
+        // Benchmark formula:
+        // Fabric: fabricMeters * fabricPrice
+        // Tailoring: fabricMeters * 18,000
+        // Steaming (if checked): fabricMeters * 6,500
+        const fabricCost = fabricMeters * fabricObj.price;
+        const tailoringCost = fabricMeters * 18000;
+        
+        items.push({
+          title: `Портьерная ткань: ${fabricObj.name}`,
+          sub: `${fabricMeters.toFixed(1)} м × ${formatMoney(fabricObj.price)} ₸/м (к-т сборки ${state.fullness})`,
+          price: fabricCost
+        });
+        curtainTotal += fabricCost;
+
+        items.push({
+          title: 'Цеховой пошив по ГОСТу РК',
+          sub: `${fabricMeters.toFixed(1)} м × 18 000 ₸/м (лента Bandex, нити Gutermann)`,
+          price: tailoringCost
+        });
+        curtainTotal += tailoringCost;
+
+      } else {
+        // Excel Base Formula (Sheet 'штора расчет'):
+        // Штора = C5 * (fabricPrice + 4900)
+        const faceCost = fabricMeters * (fabricObj.price + 4900);
+        items.push({
+          title: `Штора: ${fabricObj.name} + пошив`,
+          sub: `${fabricMeters.toFixed(1)} м × (${formatMoney(fabricObj.price)} + 4 900 ₸/м)`,
+          price: faceCost
+        });
+        curtainTotal += faceCost;
+      }
+
+      // Lining (Сатиновый подклад)
+      if (state.hasLining) {
+        // Excel formula: C5 * (6000 + 4900) = C5 * 10900
+        const liningCost = fabricMeters * (6000 + 4900);
+        items.push({
+          title: 'Сатиновый подклад (ткань сатин + пошив)',
+          sub: `${fabricMeters.toFixed(1)} м × 10 900 ₸/м (защита от выгорания)`,
+          price: liningCost
+        });
+        curtainTotal += liningCost;
+      }
+
+      // Mounting & Steaming Lelit
+      if (state.hasSteaming) {
+        const steamingCost = fabricMeters * 6500;
+        items.push({
+          title: 'Монтаж карниза и отпаривание Lelit 140°C',
+          sub: `${fabricMeters.toFixed(1)} м × 6 500 ₸/м (термоформовка складок на весу)`,
+          price: steamingCost
+        });
+        curtainTotal += steamingCost;
+      }
+
+      // Optional Second Row Tulle
+      if (state.hasTulle) {
+        const tulleMeters = state.trackWidth * 2.0;
+        const tulleCost = tulleMeters * (28000 + 3500);
+        items.push({
+          title: 'Французский тюль-вуаль (ткань + пошив)',
+          sub: `${tulleMeters.toFixed(1)} м × 31 500 ₸/м (сборка 2.0)`,
+          price: tulleCost
+        });
+        curtainTotal += tulleCost;
+      }
+
+      document.getElementById('curtainSubtotalTag').textContent = `${formatMoney(curtainTotal)} ₸`;
+      grandTotal += curtainTotal;
+    }
+
+    // 2. ROMAN BLINDS MODULE (Sheet 'штора римская расчет')
+    let romanTotal = 0;
+    if (state.hasRoman) {
+      const W = state.romanWidth;
+      const H = state.romanHeight;
+      const fabricM = W + 0.4;
+      const area = W * H;
+
+      const fabricCost = fabricM * 24000;
+      const mechCost = W * 20000;
+      const tailoringCost = area * 9000;
+      romanTotal = fabricCost + mechCost + tailoringCost;
+
+      items.push({
+        title: 'Римская штора: Ткань (сатин)',
+        sub: `${fabricM.toFixed(2)} м × 24 000 ₸/м (с учетом припусков W+0.4м)`,
+        price: fabricCost
+      });
+      items.push({
+        title: 'Римский подъемный механизм',
+        sub: `${W.toFixed(2)} пог. м × 20 000 ₸/м (цепочный редуктор)`,
+        price: mechCost
+      });
+      items.push({
+        title: 'Пошив римской шторы за квадрат',
+        sub: `${area.toFixed(2)} м² × 9 000 ₸/м²`,
+        price: tailoringCost
+      });
+
+      document.getElementById('romanSubtotalTag').textContent = `${formatMoney(romanTotal)} ₸`;
+      grandTotal += romanTotal;
+    }
+
+    // 3. BEDSPREAD MODULE (Sheet 'штора покрывало расчет')
+    let bedTotal = 0;
+    if (state.hasBedspread) {
+      let fabricM = 3.0;
+      if (state.bedSize === '160') fabricM = 2.8;
+      if (state.bedSize === '200') fabricM = 3.2;
+
+      const fabricCost = fabricM * 24000;
+      const makeCost = 100000; // Пошив + синтепон + хлопок
+      bedTotal = fabricCost + makeCost;
+
+      items.push({
+        title: `Стеганое покрывало (Кровать ${state.bedSize}×200, спуск 45см)`,
+        sub: `Ткань ${fabricM} м × 24 000 ₸ + пошив, синтепон 150-200г/м², подклад 100 000 ₸`,
+        price: bedTotal
+      });
+
+      if (state.hasPillows) {
+        items.push({
+          title: 'Декоративные подушки 50×70 см (2 шт.)',
+          sub: 'Съемные чехлы на молнии, кант в тон шторам, наполнитель пух-перо',
+          price: 24000
+        });
+        bedTotal += 24000;
+      }
+
+      document.getElementById('bedspreadSubtotalTag').textContent = `${formatMoney(bedTotal)} ₸`;
+      grandTotal += bedTotal;
+    }
+
+    // 4. SUNSHADE / BLINDS MODULE (Sheet 'расчет жалюзи' & 'расчет ролл шторы')
+    let sunTotal = 0;
+    if (state.hasSunshade) {
+      const W = state.sunshadeWidth;
+      const H = state.sunshadeHeight;
+      // Formula in Excel: C7 = (W*H) + 0.2
+      const areaCalc = (W * H) + 0.2;
+      const sunObj = SUNSHADE_RATES[state.sunshadeType] || SUNSHADE_RATES.aluminum;
+      sunTotal = areaCalc * sunObj.rate;
+
+      document.getElementById('sunshadeDimDisplay').textContent = `${W.toFixed(2)} × ${H.toFixed(2)}`;
+      document.getElementById('sunshadeAreaCalcDisplay').textContent = `${areaCalc.toFixed(2)} м²`;
+
+      items.push({
+        title: sunObj.name,
+        sub: `${areaCalc.toFixed(2)} м² (с тех. припуском 0.2м²) × ${formatMoney(sunObj.rate)} ₸/м²`,
+        price: sunTotal
+      });
+
+      document.getElementById('sunshadeSubtotalTag').textContent = `${formatMoney(sunTotal)} ₸`;
+      grandTotal += sunTotal;
+    }
+
+    // 5. MOTORIZATION MODULE
+    if (state.hasMotor) {
+      const motorCost = (state.motorBrand === 'somfy') ? 85000 : 45000;
+      const motorTitle = (state.motorBrand === 'somfy') 
+        ? 'Электрокарниз Somfy Glydea Ultra (Франция)' 
+        : 'Электрокарниз Dooya Smart Wi-Fi';
+      
+      items.push({
+        title: motorTitle,
+        sub: 'Бесшумный электромотор, радиопульт, Wi-Fi шлюз, интеграция с Яндекс Алисой',
+        price: motorCost
+      });
+      grandTotal += motorCost;
+    }
+
+    // Render Grand Total
+    const roundedTotal = Math.round(grandTotal);
+    document.getElementById('grandTotalNumber').textContent = formatMoney(roundedTotal);
+    
+    // Tax info (12% VAT in Kazakhstan)
+    const vatAmount = Math.round(roundedTotal - (roundedTotal / 1.12));
+    const subtotalNoVat = roundedTotal - vatAmount;
+    document.getElementById('taxSubtotal').textContent = `${formatMoney(subtotalNoVat)} ₸`;
+    document.getElementById('taxVat').textContent = `${formatMoney(vatAmount)} ₸`;
+
+    // Benchmark Badge
+    const badge = document.getElementById('verificationBadge');
+    if (roundedTotal === 508800) {
+      badge.textContent = '✓ Проверено Асенгуль: ровно 508 800 ₸ (Эталон)';
+      badge.className = 'alb-exact-badge';
+    } else {
+      badge.textContent = `✓ Точный расчет по формулам Асенгуль (${formatMoney(roundedTotal)} ₸)`;
+      badge.className = 'alb-exact-badge neutral';
+    }
+
+    // Update Preset Names in Summary
+    const presetNames = {
+      standard: 'Эталонное окно (Испанский сатин h=320)',
+      bedroom:  'Спальня под ключ (Шторы + Покрывало)',
+      cabinet:  'Кабинет руководителя (Шторы + Жалюзи)',
+      roman:    'Римская штора под ключ',
+      custom:   'Индивидуальный расчет сметы'
+    };
+    document.getElementById('activePresetName').textContent = presetNames[state.currentPreset] || 'Индивидуальная смета';
+    document.getElementById('activePresetBadge').textContent = (state.currentPreset === 'standard') ? 'Gold Standard' : 'Спецификация';
+
+    // Render Line Items Table
+    const tableContainer = document.getElementById('receiptRowsContainer');
+    tableContainer.innerHTML = '';
+    
+    items.forEach(item => {
+      const row = document.createElement('div');
+      row.className = 'receipt-row';
+      row.innerHTML = `
+        <div class="receipt-item-col">
+          <div class="receipt-item-title">${item.title}</div>
+          <div class="receipt-item-sub">${item.sub}</div>
+        </div>
+        <div class="receipt-price-col">${formatMoney(item.price)} ₸</div>
+      `;
+      tableContainer.appendChild(row);
+    });
+
+    // Total row
+    const totalRow = document.createElement('div');
+    totalRow.className = 'receipt-total-row';
+    totalRow.innerHTML = `
+      <div class="receipt-total-label">Итого к оплате:</div>
+      <div class="receipt-total-val">${formatMoney(roundedTotal)} ₸</div>
+    `;
+    tableContainer.appendChild(totalRow);
+
+    // Update WhatsApp Button Label & URL
+    document.getElementById('whatsappBtnLabel').textContent = `Зафиксировать смету ${formatMoney(roundedTotal)} ₸ в WhatsApp`;
+    updateWhatsAppLink(items, roundedTotal);
+  }
+
+  // Pre-fill WhatsApp message
+  function updateWhatsAppLink(items, total) {
+    const phone = '77710551515';
+    let text = `Здравствуйте, Асемгуль!\n\n`;
+    text += `Я сформировал точный расчет сметы на сайте ателье Muar A:\n`;
+    text += `🏛 Пресет: ${document.getElementById('activePresetName').textContent}\n\n`;
+    text += `📋 Спецификация заказа:\n`;
+    
+    items.forEach((item, idx) => {
+      text += `${idx + 1}. ${item.title} — ${formatMoney(item.price)} ₸\n   (${item.sub})\n`;
+    });
+
+    text += `\n💰 ИТОГО ПОД КЛЮЧ: ${formatMoney(total)} ₸ (вкл. НДС 12%)\n\n`;
+    text += `Прошу зафиксировать эту смету в официальном договоре ТОО «KazTextileА» и согласовать дату выезда декоратора с образцами тканей в Астане.`;
+
+    const encoded = encodeURIComponent(text);
+    const link = `https://wa.me/${phone}?text=${encoded}`;
+    document.getElementById('whatsappActionBtn').href = link;
+  }
+
+  function onWhatsAppClick(e) {
+    // Standard link action opens WhatsApp in new tab
+  }
+
+  function copyEstimateToClipboard() {
+    const amount = document.getElementById('grandTotalNumber').textContent;
+    const preset = document.getElementById('activePresetName').textContent;
+    const textToCopy = `🏛 Смета ателье текстиля Muar A (Астана)\n` +
+      `Проект: ${preset}\n` +
+      `Итоговая стоимость под ключ: ${amount} ₸ (с НДС 12%)\n` +
+      `Гарантия: 1 год на пошив по ГОСТу РК, 3 года на автоматику.\n` +
+      `WhatsApp для бронирования выезда декоратора: +7 771 055 1515`;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
+    });
+  }
+
+  // Initialization
+  document.addEventListener('DOMContentLoaded', () => {
+    applyPreset('standard');
+  });
+</script>
+
+</body>
+</html>

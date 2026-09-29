@@ -1,0 +1,1179 @@
+/* ==========================================================================
+   ALB DESIGN SYSTEM — NYC BESPOKE WORKROOM & TEXTILE ATELIER
+   Aesthetic Reference: Anthony Lawrence-Belfair (Long Island City / NYC)
+   Art Direction: Warm Luxury Neutrals, Haute Couture Editorial, Architectural Calm
+   Author: Subagent 1 (Art Director & NY Workroom Aesthetic Architect)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. GOOGLE FONTS IMPORT
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Roboto:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS (:root)
+   -------------------------------------------------------------------------- */
+:root {
+  /* --- PALETTE: WARM LUXURY NEUTRALS --- */
+  --alb-color-linen:          #F7F5F2; /* Pure linen / warm ecru canvas ground */
+  --alb-color-canvas:         #EFECE8; /* Muted studio background / soft warm paper */
+  --alb-color-surface:        #FFFFFF; /* Atelier pristine white for elevated cards */
+  --alb-color-stone:          #DDD6D4; /* Iconic ALB warm stone / greige (footer & highlights) */
+  --alb-color-stone-light:    #EAE5E3; /* Subtle stone hover & input tint */
+  --alb-color-stone-dark:     #C9C1BE; /* Deepened stone for borders and dividers */
+  --alb-color-border-taupe:   #E3DFDC; /* Architectural border taupe / hairlines */
+  --alb-color-border-subtle:  rgba(33, 33, 33, 0.08); /* Organic soft hairline */
+  
+  /* --- PALETTE: EDITORIAL CHARCOALS & BLACKS --- */
+  --alb-color-charcoal:       #212121; /* Signature deep charcoal / bespoke black */
+  --alb-color-secondary:      #585858; /* Secondary muted charcoal for body & meta links */
+  --alb-color-muted:          #7E7975; /* Subdued caption taupe-gray */
+  --alb-color-faint:          #A8A39F; /* Faint metadata and placeholder color */
+  --alb-color-accent-gray:    #979797; /* ALB signature nav underline & structural gray */
+  --alb-color-dark-header:    #2B2B2B; /* Deep graphite for scrolled nav & dark overlays */
+  --alb-color-dark-hero:      #393533; /* Deep warm umber banner background */
+
+  /* --- PALETTE: COUTURE BRASS & SILK ACCENTS --- */
+  --alb-color-brass:          #C5A880; /* Antique spun gold / couture brass */
+  --alb-color-brass-hover:    #D8BC94; /* Light champagne gold hover */
+  --alb-color-brass-deep:     #8A6F48; /* Deep bronze accent */
+  --alb-color-brass-glow:     rgba(197, 168, 128, 0.16);
+
+  /* --- TYPOGRAPHY FAMILIES --- */
+  --alb-font-serif:           'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --alb-font-display:         'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --alb-font-sans:            'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --alb-font-body:            'Roboto', 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --alb-font-mono:            'JetBrains Mono', 'Space Mono', SFMono-Regular, monospace;
+
+  /* --- FLUID TYPOGRAPHY SCALE --- */
+  --alb-type-hero:            clamp(2.75rem, 5.5vw, 4.5rem);  /* 44px - 72px */
+  --alb-type-title:           clamp(2.15rem, 4.2vw, 3.4rem);  /* 34px - 54px */
+  --alb-type-h1:              clamp(1.85rem, 3.2vw, 2.6rem);  /* 30px - 42px */
+  --alb-type-h2:              clamp(1.45rem, 2.2vw, 1.95rem); /* 23px - 31px */
+  --alb-type-h3:              clamp(1.2rem, 1.6vw, 1.5rem);   /* 19px - 24px */
+  --alb-type-h4:              clamp(1.05rem, 1.2vw, 1.25rem); /* 17px - 20px */
+  --alb-type-body-lg:         1.125rem;                       /* 18px */
+  --alb-type-body:            1rem;                           /* 16px */
+  --alb-type-body-sm:         0.875rem;                       /* 14px */
+  --alb-type-caption:         0.8125rem;                      /* 13px */
+  --alb-type-telemetry:       0.6875rem;                      /* 11px */
+
+  /* --- LETTER SPACING & TRACKING --- */
+  --alb-tracking-tight:       -0.02em;
+  --alb-tracking-normal:      0;
+  --alb-tracking-nav:         0.06em;
+  --alb-tracking-wide:        0.1em;
+  --alb-tracking-caps:        0.16em;
+  --alb-tracking-telemetry:   0.2em;
+
+  /* --- SPATIAL RHYTHM SYSTEM --- */
+  --alb-space-3xs:            2px;
+  --alb-space-2xs:            4px;
+  --alb-space-xs:             8px;
+  --alb-space-sm:             12px;
+  --alb-space-md:             16px;
+  --alb-space-lg:             24px;
+  --alb-space-xl:             32px;
+  --alb-space-2xl:            48px;
+  --alb-space-3xl:            64px;
+  --alb-space-4xl:            80px;
+  --alb-space-5xl:            120px;
+
+  /* --- CONTAINERS & WIDTHS --- */
+  --alb-container-max:        1320px;
+  --alb-container-inner:      1180px;
+  --alb-container-standard:   980px;
+  --alb-container-reading:    720px;
+  --alb-container-narrow:     580px;
+
+  /* --- LUXURY ELEVATION & SHADOWS --- */
+  --alb-shadow-subtle:        0 2px 10px rgba(33, 33, 33, 0.03);
+  --alb-shadow-card:          0 10px 28px rgba(33, 33, 33, 0.06);
+  --alb-shadow-hover:         0 16px 40px rgba(33, 33, 33, 0.12);
+  --alb-shadow-deep:          0 24px 60px rgba(0, 0, 0, 0.18);
+  --alb-shadow-brass:         0 12px 32px rgba(197, 168, 128, 0.22);
+
+  /* --- ATELIER TIMING & TRANSITIONS --- */
+  --alb-transition-fast:      all 0.2s ease-in-out;
+  --alb-transition-smooth:    all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --alb-transition-header:    all 0.75s cubic-bezier(0, 1, 0.5, 1);
+  --alb-transition-image:     transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. HTML5 RESET & LUXURY ATELIER BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.65;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--alb-color-linen);
+  color: var(--alb-color-charcoal);
+}
+
+body {
+  font-family: var(--alb-font-body);
+  font-weight: 300;
+  font-size: var(--alb-type-body);
+  color: var(--alb-color-charcoal);
+  background-color: var(--alb-color-linen);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Selection Highlight in warm stone with deep charcoal typography */
+::selection {
+  background-color: var(--alb-color-stone);
+  color: var(--alb-color-charcoal);
+}
+::-moz-selection {
+  background-color: var(--alb-color-stone);
+  color: var(--alb-color-charcoal);
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-style: none;
+}
+
+/* Smooth Focus Outlines */
+:focus-visible {
+  outline: 2px solid var(--alb-color-charcoal);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   3. EDITORIAL TYPOGRAPHY RULES
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--alb-font-sans);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--alb-color-charcoal);
+  margin-bottom: var(--alb-space-md);
+}
+
+/* High-Fashion Editorial Serif Class Overrides */
+.alb-serif {
+  font-family: var(--alb-font-serif);
+}
+
+.alb-display {
+  font-family: var(--alb-font-display);
+  letter-spacing: var(--alb-tracking-wide);
+}
+
+.alb-heading-hero {
+  font-family: var(--alb-font-serif);
+  font-size: var(--alb-type-hero);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: var(--alb-tracking-tight);
+}
+
+.alb-heading-archive {
+  font-family: var(--alb-font-serif);
+  font-size: var(--alb-type-title);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.alb-heading-1 {
+  font-size: var(--alb-type-h1);
+  font-weight: 500;
+}
+
+.alb-heading-2 {
+  font-size: var(--alb-type-h2);
+  font-weight: 500;
+}
+
+.alb-heading-3 {
+  font-size: var(--alb-type-h3);
+  font-weight: 500;
+}
+
+.alb-heading-4 {
+  font-size: var(--alb-type-h4);
+  font-weight: 500;
+}
+
+/* Atelier Metadata, Labels & Tags */
+.alb-meta,
+.alb-tag,
+.alb-eyebrow {
+  font-family: var(--alb-font-sans);
+  font-size: var(--alb-type-telemetry);
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-caps);
+  text-transform: uppercase;
+  color: var(--alb-color-secondary);
+}
+
+.alb-eyebrow-brass {
+  color: var(--alb-color-brass);
+}
+
+/* Body Text Styling */
+p {
+  margin-bottom: var(--alb-space-md);
+  color: var(--alb-color-secondary);
+  line-height: 1.65;
+}
+
+.alb-lead {
+  font-size: var(--alb-type-body-lg);
+  line-height: 1.7;
+  color: var(--alb-color-charcoal);
+  font-weight: 300;
+}
+
+.alb-caption {
+  font-size: var(--alb-type-caption);
+  color: var(--alb-color-muted);
+}
+
+/* Atelier Quotes */
+.alb-blockquote {
+  border-left: 2px solid var(--alb-color-accent-gray);
+  padding-left: var(--alb-space-lg);
+  margin: var(--alb-space-xl) 0;
+  font-family: var(--alb-font-serif);
+  font-size: var(--alb-type-h3);
+  font-style: italic;
+  color: var(--alb-color-charcoal);
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   4. CONTAINERS & EDITORIAL GRID SYSTEM
+   -------------------------------------------------------------------------- */
+.alb-wrap,
+.alb-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.alb-container-max {
+  max-width: var(--alb-container-max);
+}
+
+.alb-container-inner {
+  max-width: var(--alb-container-inner);
+}
+
+.alb-container-standard {
+  max-width: var(--alb-container-standard);
+}
+
+.alb-container-reading {
+  max-width: var(--alb-container-reading);
+}
+
+.alb-container-narrow {
+  max-width: var(--alb-container-narrow);
+}
+
+/* Responsive CSS Grid */
+.alb-grid {
+  display: grid;
+  gap: var(--alb-space-xl);
+}
+
+.alb-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.alb-grid-3 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .alb-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .alb-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .alb-wrap,
+  .alb-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.alb-grid-gap-lg {
+  gap: var(--alb-space-2xl);
+}
+
+/* Legacy Float Clears (for Genesis / ALB compatibility) */
+.alb-clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------------------------------------------------
+   5. DISTINCTIVE ALB HEADER & NAVIGATION
+   -------------------------------------------------------------------------- */
+.alb-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  padding: 24px 0;
+  transition: var(--alb-transition-header);
+}
+
+.alb-header.shrink,
+.alb-header.scrolled {
+  background-color: rgba(43, 43, 43, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.alb-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--alb-container-inner);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Brand / Logo Area */
+.alb-title-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: var(--alb-transition-header);
+}
+
+.alb-logo-link {
+  display: inline-block;
+  text-decoration: none;
+  line-height: 0;
+}
+
+.alb-logo {
+  max-width: 68px;
+  height: auto;
+  transition: var(--alb-transition-header);
+}
+
+.alb-header.shrink .alb-logo {
+  max-width: 52px;
+}
+
+.alb-brand-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.alb-site-title {
+  font-family: var(--alb-font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: var(--alb-tracking-wide);
+  color: var(--alb-color-surface);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.alb-site-description {
+  font-family: var(--alb-font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--alb-color-stone);
+  text-transform: uppercase;
+}
+
+/* Navigation Menu */
+.alb-nav-primary {
+  display: flex;
+  align-items: center;
+}
+
+.alb-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.alb-menu-item {
+  position: relative;
+}
+
+.alb-menu a,
+.alb-nav-link {
+  font-family: var(--alb-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-nav);
+  text-transform: uppercase;
+  color: var(--alb-color-surface);
+  text-decoration: none;
+  padding: 8px 0;
+  display: inline-block;
+  transition: color var(--alb-transition-fast);
+}
+
+/* Distinctive ALB Underline Hover Effect */
+.alb-menu a span,
+.alb-nav-link span {
+  display: inline-block;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color var(--alb-transition-fast), color var(--alb-transition-fast);
+}
+
+.alb-menu a:hover span,
+.alb-menu a:focus span,
+.alb-menu .current-menu-item > a span,
+.alb-nav-link:hover span,
+.alb-nav-link.active span {
+  border-bottom: 2px solid var(--alb-color-accent-gray);
+  color: var(--alb-color-surface);
+}
+
+/* Dropdown Sub-menus */
+.alb-sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background-color: rgba(33, 33, 33, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  list-style: none;
+  padding: 12px 0;
+  margin-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: var(--alb-transition-smooth);
+  box-shadow: var(--alb-shadow-dropdown);
+  z-index: 1010;
+}
+
+.alb-menu-item:hover .alb-sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.alb-sub-menu li a {
+  padding: 8px 20px;
+  display: block;
+  font-size: 12px;
+  color: #DDD6D4;
+}
+
+.alb-sub-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   6. PAGE BANNER & ATELIER HERO SECTION
+   -------------------------------------------------------------------------- */
+.alb-page-header {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--alb-color-dark-hero);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: var(--alb-color-surface);
+  text-align: center;
+  padding: 140px 20px 80px;
+  overflow: hidden;
+}
+
+@media (min-width: 960px) {
+  .alb-page-header {
+    height: 580px;
+    padding: 160px 40px 100px;
+  }
+}
+
+/* Atelier Dark Overlay */
+.alb-page-header .wrap,
+.alb-page-header-overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--alb-container-standard);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.alb-page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(33, 33, 33, 0.45);
+  z-index: 1;
+}
+
+.alb-archive-title,
+.alb-page-title {
+  font-family: var(--alb-font-serif);
+  font-size: var(--alb-type-hero);
+  font-weight: 400;
+  color: var(--alb-color-surface);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--alb-space-sm);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
+.alb-page-subtitle {
+  font-family: var(--alb-font-sans);
+  font-size: var(--alb-type-caption);
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-caps);
+  text-transform: uppercase;
+  color: var(--alb-color-stone);
+  max-width: 600px;
+}
+
+/* Category Filter Tabs / Atelier Sub-Navigation */
+.alb-category-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: var(--alb-space-xl);
+  list-style: none;
+  padding: 0;
+}
+
+.alb-category-nav a {
+  font-family: var(--alb-font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-wide);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: var(--alb-transition-fast);
+}
+
+.alb-category-nav a:hover,
+.alb-category-nav a.active {
+  background-color: var(--alb-color-surface);
+  color: var(--alb-color-charcoal);
+  border-color: var(--alb-color-surface);
+}
+
+/* --------------------------------------------------------------------------
+   7. EDITORIAL WORKROOM GRID & PROJECT CARDS
+   -------------------------------------------------------------------------- */
+.alb-workroom-section {
+  padding: var(--alb-space-4xl) 0;
+  background-color: var(--alb-color-linen);
+}
+
+/* Workroom Entry / Project Card */
+.alb-entry,
+.alb-card-project {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  transition: var(--alb-transition-smooth);
+  margin-bottom: var(--alb-space-2xl);
+}
+
+.alb-entry-image-link {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--alb-color-stone);
+  aspect-ratio: 3 / 2;
+  margin-bottom: var(--alb-space-lg);
+  border: 1px solid var(--alb-color-border-taupe);
+}
+
+.alb-entry-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--alb-transition-image);
+  transform: scale(1);
+}
+
+.alb-entry-image-link:hover .alb-entry-image {
+  transform: scale(1.04);
+}
+
+/* Entry Details */
+.alb-entry-meta {
+  font-family: var(--alb-font-sans);
+  font-size: var(--alb-type-telemetry);
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-caps);
+  text-transform: uppercase;
+  color: var(--alb-color-muted);
+  margin-bottom: var(--alb-space-xs);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alb-entry-meta .separator {
+  color: var(--alb-color-accent-gray);
+}
+
+.alb-entry-title {
+  font-family: var(--alb-font-serif);
+  font-size: var(--alb-type-h2);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: var(--alb-space-sm);
+  color: var(--alb-color-charcoal);
+}
+
+.alb-entry-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--alb-transition-fast);
+}
+
+.alb-entry-title a:hover {
+  color: var(--alb-color-secondary);
+}
+
+.alb-entry-content {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--alb-color-secondary);
+  margin-bottom: var(--alb-space-md);
+  font-weight: 300;
+}
+
+/* ALB Signature More Link ("Read More" / "Смотреть проект") */
+.alb-more-link-container {
+  margin-top: auto;
+  padding-top: var(--alb-space-xs);
+}
+
+.alb-more-link {
+  display: inline-block;
+  font-family: var(--alb-font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-wide);
+  text-transform: uppercase;
+  color: var(--alb-color-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: var(--alb-transition-fast);
+}
+
+.alb-more-link:hover,
+.alb-more-link:focus {
+  color: var(--alb-color-charcoal);
+  border-bottom: 1px solid var(--alb-color-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   8. BESPOKE ATELIER BUTTONS & CONTROLS
+   -------------------------------------------------------------------------- */
+.alb-button,
+.alb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--alb-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-wide);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 28px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--alb-transition-fast);
+  line-height: 1;
+}
+
+/* Primary Dark Button */
+.alb-button-primary {
+  background-color: var(--alb-color-charcoal);
+  color: var(--alb-color-surface);
+  border-color: var(--alb-color-charcoal);
+}
+
+.alb-button-primary:hover,
+.alb-button-primary:focus {
+  background-color: var(--alb-color-secondary);
+  color: var(--alb-color-surface);
+  border-color: var(--alb-color-secondary);
+}
+
+/* Warm Stone / Secondary Button */
+.alb-button-stone,
+.alb-button-secondary {
+  background-color: var(--alb-color-stone);
+  color: var(--alb-color-charcoal);
+  border-color: var(--alb-color-stone);
+}
+
+.alb-button-stone:hover,
+.alb-button-stone:focus {
+  background-color: var(--alb-color-charcoal);
+  color: var(--alb-color-surface);
+  border-color: var(--alb-color-charcoal);
+}
+
+/* Clean Outline Button */
+.alb-button-outline {
+  background-color: transparent;
+  color: var(--alb-color-charcoal);
+  border-color: var(--alb-color-charcoal);
+}
+
+.alb-button-outline:hover,
+.alb-button-outline:focus {
+  background-color: var(--alb-color-charcoal);
+  color: var(--alb-color-surface);
+}
+
+/* Pure White Inverse Button (used in dark sections & before-footer) */
+.alb-button-white {
+  background-color: var(--alb-color-surface);
+  color: var(--alb-color-charcoal);
+  border-color: var(--alb-color-surface);
+}
+
+.alb-button-white:hover,
+.alb-button-white:focus {
+  background-color: var(--alb-color-charcoal);
+  color: var(--alb-color-surface);
+  border-color: var(--alb-color-charcoal);
+}
+
+/* Antique Brass Couture Button */
+.alb-button-brass {
+  background-color: var(--alb-color-brass);
+  color: var(--alb-color-charcoal);
+  border-color: var(--alb-color-brass);
+}
+
+.alb-button-brass:hover,
+.alb-button-brass:focus {
+  background-color: var(--alb-color-brass-hover);
+  color: var(--alb-color-charcoal);
+  box-shadow: var(--alb-shadow-brass);
+}
+
+/* Form Controls & Inputs (Matching ALB focus state in #DDD6D4) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  font-family: var(--alb-font-body);
+  font-size: 15px;
+  color: var(--alb-color-charcoal);
+  background-color: var(--alb-color-surface);
+  border: 1px solid var(--alb-color-border-taupe);
+  padding: 14px 18px;
+  transition: var(--alb-transition-fast);
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  background-color: var(--alb-color-stone);
+  border-color: var(--alb-color-secondary);
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   9. TEXTILE SPECIFICATIONS & ATELIER DATA HUD
+   -------------------------------------------------------------------------- */
+.alb-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--alb-space-md);
+  margin: var(--alb-space-xl) 0;
+  padding: var(--alb-space-lg);
+  background-color: var(--alb-color-canvas);
+  border: 1px solid var(--alb-color-border-taupe);
+}
+
+.alb-spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.alb-spec-label {
+  font-family: var(--alb-font-sans);
+  font-size: var(--alb-type-telemetry);
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-caps);
+  text-transform: uppercase;
+  color: var(--alb-color-muted);
+  margin-bottom: 4px;
+}
+
+.alb-spec-value {
+  font-family: var(--alb-font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--alb-color-charcoal);
+}
+
+.alb-spec-value-mono {
+  font-family: var(--alb-font-mono);
+  font-size: 14px;
+  color: var(--alb-color-charcoal);
+}
+
+/* Pleat & Draping Cards (French Triple Pleat, Box, Goblet) */
+.alb-pleat-card {
+  border: 1px solid var(--alb-color-border-taupe);
+  background-color: var(--alb-color-surface);
+  padding: var(--alb-space-lg);
+  display: flex;
+  flex-direction: column;
+  transition: var(--alb-transition-smooth);
+}
+
+.alb-pleat-card:hover {
+  box-shadow: var(--alb-shadow-card);
+  border-color: var(--alb-color-stone-dark);
+}
+
+.alb-pleat-title {
+  font-family: var(--alb-font-serif);
+  font-size: var(--alb-type-h3);
+  font-weight: 500;
+  margin-bottom: var(--alb-space-xs);
+}
+
+.alb-pleat-ratio {
+  font-family: var(--alb-font-mono);
+  font-size: var(--alb-type-telemetry);
+  color: var(--alb-color-brass-deep);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--alb-space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   10. BEFORE-FOOTER CTA BANNER
+   -------------------------------------------------------------------------- */
+.alb-before-footer {
+  position: relative;
+  background-color: var(--alb-color-secondary);
+  background-image: url('https://anthonylawrence.com/wp-content/uploads/contact-us.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 90px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  clear: both;
+}
+
+.alb-before-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(33, 33, 33, 0.55);
+  z-index: 1;
+}
+
+.alb-before-footer .wrap {
+  position: relative;
+  z-index: 2;
+  max-width: var(--alb-container-narrow);
+  margin: 0 auto;
+}
+
+.alb-before-footer-title {
+  font-family: var(--alb-font-serif);
+  font-size: var(--alb-type-title);
+  font-weight: 400;
+  color: var(--alb-color-surface);
+  margin-bottom: var(--alb-space-sm);
+  letter-spacing: 0.02em;
+}
+
+.alb-before-footer-text {
+  font-family: var(--alb-font-body);
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--alb-space-xl);
+}
+
+.alb-before-footer .alb-button {
+  background-color: var(--alb-color-surface);
+  color: var(--alb-color-charcoal);
+  padding: 16px 36px;
+  font-size: 13px;
+  letter-spacing: var(--alb-tracking-wide);
+}
+
+.alb-before-footer .alb-button:hover,
+.alb-before-footer .alb-button:focus {
+  background-color: var(--alb-color-charcoal);
+  color: var(--alb-color-surface);
+  border-color: var(--alb-color-charcoal);
+}
+
+/* --------------------------------------------------------------------------
+   11. CLASSIC BESPOKE ATELIER FOOTER
+   -------------------------------------------------------------------------- */
+.alb-site-footer {
+  background-color: var(--alb-color-stone);
+  font-family: var(--alb-font-sans);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--alb-color-charcoal);
+  padding: 70px 20px 50px;
+  text-align: center;
+}
+
+.alb-site-footer .wrap {
+  max-width: var(--alb-container-standard);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alb-footer-logo {
+  max-width: 108px;
+  height: auto;
+  margin-bottom: var(--alb-space-xl);
+}
+
+/* Secondary Footer Nav */
+.alb-footer-nav {
+  margin-bottom: var(--alb-space-xl);
+  width: 100%;
+}
+
+.alb-footer-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 32px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alb-footer-menu a {
+  font-family: var(--alb-font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: var(--alb-tracking-nav);
+  text-transform: uppercase;
+  color: var(--alb-color-charcoal);
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  transition: var(--alb-transition-fast);
+}
+
+.alb-footer-menu a:hover,
+.alb-footer-menu a:focus {
+  border-bottom: 1px solid var(--alb-color-secondary);
+}
+
+/* Minimalist Social Icons */
+.alb-social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: var(--alb-space-xl);
+  list-style: none;
+  padding: 0;
+}
+
+.alb-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--alb-color-charcoal);
+  color: var(--alb-color-charcoal);
+  text-decoration: none;
+  background-color: transparent;
+  transition: var(--alb-transition-fast);
+}
+
+.alb-social-link svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.alb-social-link:hover,
+.alb-social-link:focus {
+  background-color: var(--alb-color-charcoal);
+  color: var(--alb-color-surface);
+}
+
+/* Copyright & Creds */
+.alb-footer-creds {
+  font-size: 11px;
+  color: var(--alb-color-secondary);
+  line-height: 1.8;
+}
+
+.alb-footer-creds a {
+  color: var(--alb-color-charcoal);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--alb-color-charcoal);
+}
+
+.alb-footer-creds a:hover {
+  border-bottom-style: solid;
+}
+
+/* --------------------------------------------------------------------------
+   12. ATELIER LUXURY TEXTURES, DIVIDERS & UTILITIES
+   -------------------------------------------------------------------------- */
+.alb-bg-linen {
+  background-color: var(--alb-color-linen);
+}
+
+.alb-bg-canvas {
+  background-color: var(--alb-color-canvas);
+}
+
+.alb-bg-stone {
+  background-color: var(--alb-color-stone);
+}
+
+.alb-bg-charcoal {
+  background-color: var(--alb-color-charcoal);
+  color: var(--alb-color-surface);
+}
+
+/* Hairline Dividers */
+.alb-divider {
+  height: 1px;
+  width: 100%;
+  background-color: var(--alb-color-border-taupe);
+  border: none;
+  margin: var(--alb-space-2xl) 0;
+}
+
+.alb-divider-centered {
+  width: 74px;
+  margin: var(--alb-space-lg) auto;
+}
+
+.alb-divider-brass {
+  background-color: var(--alb-color-brass);
+}
+
+/* --------------------------------------------------------------------------
+   13. ANIMATIONS & INTERACTIVE STATES
+   -------------------------------------------------------------------------- */
+@keyframes albFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes albSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes albLineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 74px;
+  }
+}
+
+.alb-animate-fade {
+  animation: albFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.alb-animate-slide-up {
+  animation: albSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,1377 @@
+/**
+ * ============================================================================
+ * MUAR A · TACTILE INTERACTIONS & TRANSITIONS LIBRARY
+ * ============================================================================
+ * Design Inspiration: Anthony Lawrence-Belfair, Apple HIG Liquid Glass & Editorial Luxury
+ * High-performance 60fps tactile components:
+ * 1. Before / After Split Slider with Draggable Handle & Multi-Touch Support
+ * 2. Project Monograph Drawer & Fullscreen Modal with Editorial Narrative
+ * 3. Atelier Audio Commentary Player with Dynamic Web Audio API Waveform
+ * 4. Smooth Category Filtering Tabs with Sliding Gold Capsule Pill
+ * ============================================================================
+ */
+
+:root {
+  /* Surfaces & Atmosphere */
+  --tactile-obsidian: #0b0c0e;
+  --tactile-charcoal: #121316;
+  --tactile-graphite: #181a1f;
+  --tactile-surface-elevated: rgba(255, 255, 255, 0.035);
+  --tactile-surface-hover: rgba(255, 255, 255, 0.06);
+
+  /* Gold & Metallic Accents */
+  --tactile-gold: #c5a880;
+  --tactile-gold-light: #d8bc94;
+  --tactile-gold-deep: #8a6f48;
+  --tactile-gold-glow: rgba(197, 168, 128, 0.16);
+  --tactile-gold-border: rgba(197, 168, 128, 0.24);
+
+  /* Textiles & Typography */
+  --tactile-cream: #f5efeb;
+  --tactile-muted: #bfb8af;
+  --tactile-faded: #78746d;
+  --tactile-border: rgba(255, 255, 255, 0.08);
+
+  /* Fonts */
+  --tactile-font-serif: "Cormorant Garamond", "Instrument Serif", Georgia, serif;
+  --tactile-font-sans: "Manrope", "PP Neue Montreal", -apple-system, sans-serif;
+  --tactile-font-mono: "JetBrains Mono", "Space Mono", monospace;
+
+  /* Physics & Transitions */
+  --tactile-ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  --tactile-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --tactile-ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* Depths & Z-indices */
+  --tactile-z-slider: 20;
+  --tactile-z-audio: 80;
+  --tactile-z-drawer-backdrop: 990;
+  --tactile-z-drawer: 1000;
+  --tactile-z-toast: 1100;
+}
+
+/* ==========================================================================
+   1. BEFORE / AFTER SPLIT SLIDER (Anthony Lawrence-Belfair Inspired)
+   ========================================================================== */
+
+.tactile-ba-slider-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.tactile-ba-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9.5;
+  min-height: 380px;
+  max-height: 720px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--tactile-charcoal);
+  border: 1px solid var(--tactile-border);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(197, 168, 128, 0.1);
+  cursor: ew-resize;
+  touch-action: pan-y;
+  outline: none;
+  transition: box-shadow 0.4s var(--tactile-ease-luxury);
+}
+
+.tactile-ba-container:focus-visible {
+  box-shadow: 0 0 0 2px var(--tactile-gold), 0 24px 64px rgba(0, 0, 0, 0.7);
+}
+
+.tactile-ba-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tactile-ba-layer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  display: block;
+}
+
+.tactile-ba-before {
+  z-index: 2;
+  clip-path: inset(0 50% 0 0);
+  will-change: clip-path;
+}
+
+.tactile-ba-after {
+  z-index: 1;
+}
+
+/* Brass Hairline Divider */
+.tactile-ba-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(197, 168, 128, 0.2),
+    rgba(216, 188, 148, 0.95) 20%,
+    rgba(197, 168, 128, 1) 50%,
+    rgba(216, 188, 148, 0.95) 80%,
+    rgba(197, 168, 128, 0.2)
+  );
+  box-shadow: 0 0 12px rgba(197, 168, 128, 0.4), 0 0 2px rgba(0, 0, 0, 0.8);
+  z-index: 5;
+  transform: translateX(-50%);
+  pointer-events: none;
+  will-change: left;
+}
+
+/* Brushed Brass Medallion Handle */
+.tactile-ba-handle-grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f5e8d5 0%, #c5a880 45%, #8a6f48 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55),
+              0 2px 6px rgba(0, 0, 0, 0.4),
+              0 0 0 4px rgba(197, 168, 128, 0.15),
+              inset 0 1px 2px rgba(255, 255, 255, 0.8),
+              inset 0 -1px 2px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: grab;
+  transition: transform 0.25s var(--tactile-ease-luxury), box-shadow 0.25s var(--tactile-ease-luxury);
+}
+
+.tactile-ba-handle-grip:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65),
+              0 0 0 6px rgba(197, 168, 128, 0.25),
+              inset 0 1px 3px rgba(255, 255, 255, 0.9);
+}
+
+.tactile-ba-handle-grip:active,
+.tactile-ba-container.is-dragging .tactile-ba-handle-grip {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.04);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7),
+              0 0 0 8px rgba(197, 168, 128, 0.35);
+}
+
+.tactile-ba-arrows-svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4));
+}
+
+/* Floating Editorial Pills */
+.tactile-ba-pill {
+  position: absolute;
+  top: 24px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(11, 12, 14, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--tactile-cream);
+  font-family: var(--tactile-font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tactile-ba-pill-before {
+  left: 24px;
+}
+
+.tactile-ba-pill-after {
+  right: 24px;
+}
+
+.tactile-ba-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tactile-ba-pill-before .tactile-ba-dot {
+  background: #a89f91;
+  box-shadow: 0 0 6px rgba(168, 159, 145, 0.5);
+}
+
+.tactile-ba-pill-after .tactile-ba-dot {
+  background: var(--tactile-gold);
+  box-shadow: 0 0 8px rgba(197, 168, 128, 0.8);
+}
+
+/* Slider Scene Navigation Tabs */
+.tactile-ba-scenes-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tactile-ba-scene-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--tactile-border);
+  color: var(--tactile-muted);
+  font-family: var(--tactile-font-mono);
+  font-size: 0.75rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s var(--tactile-ease-luxury);
+  white-space: nowrap;
+}
+
+.tactile-ba-scene-btn:hover {
+  background: rgba(197, 168, 128, 0.08);
+  color: var(--tactile-cream);
+  border-color: rgba(197, 168, 128, 0.3);
+}
+
+.tactile-ba-scene-btn.is-active {
+  background: var(--tactile-gold);
+  color: var(--tactile-obsidian);
+  font-weight: 600;
+  border-color: var(--tactile-gold);
+  box-shadow: 0 4px 16px rgba(197, 168, 128, 0.3);
+}
+
+/* Slider Caption & Meta Card */
+.tactile-ba-caption {
+  margin-top: 20px;
+  padding: 20px 24px;
+  border-radius: 10px;
+  background: var(--tactile-charcoal);
+  border: 1px solid var(--tactile-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.tactile-ba-caption-content h4 {
+  font-family: var(--tactile-font-serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--tactile-cream);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.tactile-ba-caption-content p {
+  font-family: var(--tactile-font-sans);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--tactile-muted);
+  margin: 0;
+}
+
+.tactile-ba-caption-pct {
+  font-family: var(--tactile-font-mono);
+  font-size: 0.8125rem;
+  color: var(--tactile-gold);
+  background: rgba(197, 168, 128, 0.1);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 168, 128, 0.2);
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   2. PROJECT MONOGRAPH DRAWER & FULLSCREEN MODAL
+   ========================================================================== */
+
+/* Velvet Obsidian Backdrop */
+.tactile-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 6, 8, 0.78);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  z-index: var(--tactile-z-drawer-backdrop);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s var(--tactile-ease-luxury);
+}
+
+.tactile-drawer-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Slide-out Drawer Container */
+.tactile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(900px, 94vw);
+  background: var(--tactile-obsidian);
+  border-left: 1px solid rgba(197, 168, 128, 0.2);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.85);
+  z-index: var(--tactile-z-drawer);
+  transform: translateX(100%);
+  transition: transform 0.5s var(--tactile-ease-luxury), width 0.35s var(--tactile-ease-luxury);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  outline: none;
+}
+
+.tactile-drawer.is-open {
+  transform: translateX(0);
+}
+
+/* Fullscreen Mode */
+.tactile-drawer.is-fullscreen {
+  width: 100vw;
+  border-left: none;
+}
+
+/* Drawer Header */
+.tactile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 1px solid var(--tactile-border);
+  background: rgba(11, 12, 14, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.tactile-drawer-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tactile-drawer-folio-num {
+  font-family: var(--tactile-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tactile-gold);
+  background: rgba(197, 168, 128, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.tactile-drawer-cat-badge {
+  font-family: var(--tactile-font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--tactile-muted);
+}
+
+/* Header Controls Right */
+.tactile-drawer-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tactile-drawer-nav-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--tactile-border);
+  color: var(--tactile-cream);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s var(--tactile-ease-luxury);
+}
+
+.tactile-drawer-nav-btn:hover {
+  background: rgba(197, 168, 128, 0.15);
+  border-color: var(--tactile-gold);
+  color: var(--tactile-gold);
+  transform: translateY(-1px);
+}
+
+.tactile-drawer-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--tactile-border);
+  color: var(--tactile-cream);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s var(--tactile-ease-luxury);
+}
+
+.tactile-drawer-close-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* Drawer Scrollable Body */
+.tactile-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 32px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Scrollbar for Drawer */
+.tactile-drawer-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tactile-drawer-body::-webkit-scrollbar-track {
+  background: var(--tactile-obsidian);
+}
+
+.tactile-drawer-body::-webkit-scrollbar-thumb {
+  background: rgba(197, 168, 128, 0.25);
+  border-radius: 3px;
+}
+
+.tactile-drawer-body::-webkit-scrollbar-thumb:hover {
+  background: rgba(197, 168, 128, 0.5);
+}
+
+/* Hero Visual Stage */
+.tactile-drawer-stage {
+  position: relative;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--tactile-charcoal);
+  border: 1px solid var(--tactile-border);
+  margin-bottom: 28px;
+}
+
+.tactile-drawer-main-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 520px;
+  overflow: hidden;
+}
+
+.tactile-drawer-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--tactile-ease-luxury);
+}
+
+.tactile-drawer-main-img-wrap:hover .tactile-drawer-main-img {
+  transform: scale(1.02);
+}
+
+.tactile-drawer-photo-counter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  font-family: var(--tactile-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--tactile-cream);
+  background: rgba(11, 12, 14, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+/* Mode Switcher: Photo vs Before/After */
+.tactile-drawer-stage-toggle {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  background: rgba(11, 12, 14, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 999px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 5;
+}
+
+.tactile-stage-tab-btn {
+  background: none;
+  border: none;
+  color: var(--tactile-muted);
+  font-family: var(--tactile-font-mono);
+  font-size: 0.6875rem;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tactile-stage-tab-btn.is-active {
+  background: var(--tactile-gold);
+  color: var(--tactile-obsidian);
+  font-weight: 600;
+}
+
+/* Thumbnails Filmstrip */
+.tactile-drawer-filmstrip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 12px 14px;
+  background: var(--tactile-graphite);
+  border-top: 1px solid var(--tactile-border);
+  -webkit-overflow-scrolling: touch;
+}
+
+.tactile-drawer-thumb {
+  width: 72px;
+  height: 52px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0.55;
+  transition: all 0.2s var(--tactile-ease-luxury);
+}
+
+.tactile-drawer-thumb:hover {
+  opacity: 0.9;
+  border-color: rgba(197, 168, 128, 0.4);
+}
+
+.tactile-drawer-thumb.is-active {
+  opacity: 1;
+  border-color: var(--tactile-gold);
+  box-shadow: 0 0 10px rgba(197, 168, 128, 0.4);
+  transform: translateY(-2px);
+}
+
+.tactile-drawer-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Monograph Editorial Narrative */
+.tactile-drawer-article {
+  margin-bottom: 32px;
+}
+
+.tactile-drawer-plaque {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 22px;
+  border-radius: 8px;
+  background: rgba(197, 168, 128, 0.05);
+  border: 1px solid var(--tactile-gold-border);
+  margin-bottom: 24px;
+}
+
+.tactile-drawer-seal {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--tactile-gold);
+  color: var(--tactile-obsidian);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 0 14px rgba(197, 168, 128, 0.4);
+}
+
+.tactile-drawer-plaque-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tactile-drawer-plaque-kicker {
+  font-family: var(--tactile-font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tactile-gold);
+}
+
+.tactile-drawer-plaque-name {
+  font-family: var(--tactile-font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--tactile-cream);
+}
+
+.tactile-drawer-plaque-role {
+  font-family: var(--tactile-font-sans);
+  font-size: 0.8125rem;
+  color: var(--tactile-muted);
+}
+
+.tactile-drawer-title {
+  font-family: var(--tactile-font-serif);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--tactile-cream);
+  margin: 0 0 18px 0;
+}
+
+/* Designer Quote Card */
+.tactile-drawer-quote {
+  position: relative;
+  margin: 24px 0;
+  padding: 22px 28px;
+  border-left: 2px solid var(--tactile-gold);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0 8px 8px 0;
+}
+
+.tactile-drawer-quote-mark {
+  font-family: var(--tactile-font-serif);
+  font-size: 3rem;
+  line-height: 0.8;
+  color: var(--tactile-gold);
+  opacity: 0.4;
+  margin-bottom: 8px;
+}
+
+.tactile-drawer-quote blockquote {
+  margin: 0;
+  font-family: var(--tactile-font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--tactile-cream);
+}
+
+.tactile-drawer-quote-author {
+  margin-top: 12px;
+  font-family: var(--tactile-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--tactile-gold);
+  text-transform: uppercase;
+}
+
+.tactile-drawer-story {
+  font-family: var(--tactile-font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--tactile-muted);
+  margin-bottom: 28px;
+}
+
+.tactile-drawer-story p {
+  margin: 0 0 16px 0;
+}
+
+/* Technical Specifications HUD */
+.tactile-drawer-specs-wrap {
+  margin-bottom: 32px;
+  background: var(--tactile-charcoal);
+  border: 1px solid var(--tactile-border);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.tactile-drawer-specs-title {
+  font-family: var(--tactile-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tactile-gold);
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tactile-drawer-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.tactile-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: var(--tactile-font-sans);
+  font-size: 0.8125rem;
+  color: var(--tactile-cream);
+  line-height: 1.45;
+}
+
+.tactile-spec-bullet {
+  color: var(--tactile-gold);
+  font-size: 0.875rem;
+  line-height: 1;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+/* Drawer Footer Action Bar */
+.tactile-drawer-footer {
+  padding: 20px 32px;
+  border-top: 1px solid var(--tactile-border);
+  background: rgba(11, 12, 14, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.tactile-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--tactile-gold);
+  color: var(--tactile-obsidian);
+  font-family: var(--tactile-font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--tactile-gold);
+  transition: all 0.25s var(--tactile-ease-luxury);
+  box-shadow: 0 4px 18px rgba(197, 168, 128, 0.25);
+}
+
+.tactile-btn-primary:hover {
+  background: var(--tactile-gold-light);
+  border-color: var(--tactile-gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(197, 168, 128, 0.35);
+}
+
+.tactile-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--tactile-cream);
+  font-family: var(--tactile-font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--tactile-border);
+  transition: all 0.2s ease;
+}
+
+.tactile-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ==========================================================================
+   3. ATELIER AUDIO COMMENTARY PLAYER (Asengul's Voice Notes)
+   ========================================================================== */
+
+.tactile-audio-module {
+  background: var(--tactile-charcoal);
+  border: 1px solid var(--tactile-gold-border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tactile-audio-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.tactile-audio-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tactile-audio-mic-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(197, 168, 128, 0.12);
+  color: var(--tactile-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tactile-audio-kicker {
+  font-family: var(--tactile-font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tactile-gold);
+  display: block;
+}
+
+.tactile-audio-label {
+  font-family: var(--tactile-font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--tactile-cream);
+  display: block;
+}
+
+.tactile-audio-track-select {
+  background: var(--tactile-graphite);
+  border: 1px solid var(--tactile-border);
+  color: var(--tactile-muted);
+  font-family: var(--tactile-font-sans);
+  font-size: 0.75rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+  max-width: 220px;
+}
+
+.tactile-audio-track-select:focus {
+  border-color: var(--tactile-gold);
+}
+
+/* Audio Player Main Controls */
+.tactile-audio-main-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tactile-audio-play-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ecd7ba 0%, #c5a880 50%, #8a6f48 100%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(197, 168, 128, 0.35);
+  color: var(--tactile-obsidian);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s var(--tactile-ease-luxury), box-shadow 0.2s var(--tactile-ease-luxury);
+}
+
+.tactile-audio-play-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 22px rgba(197, 168, 128, 0.5);
+}
+
+.tactile-audio-play-btn:active {
+  transform: scale(0.96);
+}
+
+.tactile-audio-play-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  display: block;
+}
+
+/* Visualizer & Waveform Canvas */
+.tactile-audio-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tactile-audio-waveform-wrap {
+  width: 100%;
+  height: 38px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.tactile-audio-waveform-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Scrubber Line Overlay */
+.tactile-audio-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  background: rgba(197, 168, 128, 0.2);
+  border-right: 2px solid var(--tactile-gold);
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
+.tactile-audio-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--tactile-font-mono);
+  font-size: 0.6875rem;
+  color: var(--tactile-faded);
+}
+
+.tactile-audio-time-row .is-current {
+  color: var(--tactile-gold);
+}
+
+/* Transcript Drawer Toggle */
+.tactile-transcript-toggle {
+  background: none;
+  border: none;
+  color: var(--tactile-gold);
+  font-family: var(--tactile-font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+.tactile-transcript-toggle:hover {
+  color: var(--tactile-gold-light);
+}
+
+.tactile-transcript-content {
+  margin-top: 12px;
+  padding: 14px 18px;
+  border-radius: 6px;
+  background: var(--tactile-graphite);
+  border: 1px solid var(--tactile-border);
+  font-family: var(--tactile-font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--tactile-cream);
+  display: none;
+  animation: tactileFadeIn 0.3s ease;
+}
+
+.tactile-transcript-content.is-open {
+  display: block;
+}
+
+.tactile-transcript-quote {
+  font-style: italic;
+  color: var(--tactile-muted);
+}
+
+/* ==========================================================================
+   4. CATEGORY FILTERING TABS (Luxury Capsule Design)
+   ========================================================================== */
+
+.tactile-filter-bar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px;
+  background: var(--tactile-charcoal);
+  border: 1px solid var(--tactile-border);
+  border-radius: 999px;
+  margin: 0 auto 36px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+}
+
+.tactile-filter-btn {
+  position: relative;
+  background: transparent;
+  border: none;
+  color: var(--tactile-muted);
+  font-family: var(--tactile-font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.25s var(--tactile-ease-luxury);
+  white-space: nowrap;
+  outline: none;
+  z-index: 2;
+}
+
+.tactile-filter-btn:hover {
+  color: var(--tactile-cream);
+}
+
+.tactile-filter-btn.is-active {
+  color: var(--tactile-obsidian);
+  font-weight: 600;
+}
+
+/* Count Badge inside tab */
+.tactile-filter-count {
+  font-family: var(--tactile-font-mono);
+  font-size: 0.6875rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.tactile-filter-btn.is-active .tactile-filter-count {
+  background: rgba(11, 12, 14, 0.2);
+  color: var(--tactile-obsidian);
+}
+
+/* Sliding Gold Capsule Pill */
+.tactile-filter-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  background: var(--tactile-gold);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(197, 168, 128, 0.35);
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.4s var(--tactile-ease-luxury), width 0.35s var(--tactile-ease-luxury);
+}
+
+/* Card Filtering Animation */
+.tactile-animating-card {
+  transition: opacity 0.4s var(--tactile-ease-luxury),
+              transform 0.4s var(--tactile-ease-luxury);
+  will-change: opacity, transform;
+}
+
+.tactile-card-hidden {
+  opacity: 0 !important;
+  transform: translateY(20px) scale(0.97) !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+.tactile-card-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ==========================================================================
+   5. OPEN MONOGRAPH TRIGGER BUTTONS (On Cards)
+   ========================================================================== */
+
+.tactile-card-trigger-wrap {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tactile-open-drawer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(197, 168, 128, 0.08);
+  border: 1px solid var(--tactile-gold-border);
+  color: var(--tactile-gold);
+  font-family: var(--tactile-font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s var(--tactile-ease-luxury);
+}
+
+.tactile-open-drawer-btn:hover {
+  background: var(--tactile-gold);
+  color: var(--tactile-obsidian);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(197, 168, 128, 0.3);
+}
+
+.tactile-open-drawer-btn svg {
+  transition: transform 0.2s ease;
+}
+
+.tactile-open-drawer-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   6. ANIMATIONS & RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+@keyframes tactileFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tactilePulseGold {
+  0% {
+    box-shadow: 0 0 0 0 rgba(197, 168, 128, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(197, 168, 128, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(197, 168, 128, 0);
+  }
+}
+
+/* Mobile & Tablet Adaptation */
+@media (max-width: 900px) {
+  .tactile-drawer {
+    width: 100vw;
+    top: auto;
+    bottom: 0;
+    height: 92vh;
+    border-left: none;
+    border-top: 1px solid var(--tactile-gold-border);
+    border-radius: 18px 18px 0 0;
+    transform: translateY(100%);
+  }
+
+  .tactile-drawer.is-open {
+    transform: translateY(0);
+  }
+
+  .tactile-drawer-header {
+    padding: 14px 20px;
+  }
+
+  .tactile-drawer-body {
+    padding: 20px;
+  }
+
+  .tactile-drawer-footer {
+    padding: 16px 20px;
+    flex-direction: column;
+  }
+
+  .tactile-drawer-footer .tactile-btn-primary,
+  .tactile-drawer-footer .tactile-btn-secondary {
+    width: 100%;
+  }
+
+  .tactile-ba-pill {
+    padding: 6px 12px;
+    font-size: 0.625rem;
+    top: 14px;
+  }
+
+  .tactile-ba-pill-before {
+    left: 14px;
+  }
+
+  .tactile-ba-pill-after {
+    right: 14px;
+  }
+
+  .tactile-ba-handle-grip {
+    width: 44px;
+    height: 44px;
+  }
+
+  .tactile-filter-bar {
+    border-radius: 12px;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 4px;
+  }
+
+  .tactile-filter-btn {
+    padding: 8px 14px;
+    font-size: 0.75rem;
+  }
+
+  .tactile-audio-main-bar {
+    flex-wrap: wrap;
+  }
+
+  .tactile-audio-track-select {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .tactile-drawer,
+  .tactile-drawer-backdrop,
+  .tactile-ba-divider,
+  .tactile-filter-indicator,
+  .tactile-animating-card {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   7. FLOATING ATELIER AUDIO DOCK (Asengul's Voice Notes)
+   ========================================================================== */
+.tactile-audio-dock-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: var(--tactile-z-audio);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(11, 12, 14, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--tactile-gold-border);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55), 0 0 12px rgba(197, 168, 128, 0.15);
+  color: var(--tactile-cream);
+  font-family: var(--tactile-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.25s var(--tactile-ease-luxury);
+  outline: none;
+}
+
+.tactile-audio-dock-btn:hover {
+  background: var(--tactile-charcoal);
+  border-color: var(--tactile-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 18px rgba(197, 168, 128, 0.3);
+}
+
+.tactile-audio-dock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tactile-gold);
+  display: inline-block;
+  animation: tactilePulseGold 2.2s infinite;
+}
+
+.tactile-audio-dock-panel {
+  position: fixed;
+  bottom: 76px;
+  left: 24px;
+  width: min(420px, calc(100vw - 48px));
+  background: var(--tactile-obsidian);
+  border: 1px solid var(--tactile-gold-border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  z-index: var(--tactile-z-audio);
+  display: none;
+  animation: tactileFadeIn 0.3s var(--tactile-ease-luxury);
+}
+
+.tactile-audio-dock-panel.is-open {
+  display: block;
+}
+
+.tactile-audio-dock-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--tactile-border);
+}
+
+.tactile-audio-dock-close {
+  background: none;
+  border: none;
+  color: var(--tactile-faded);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.2s ease;
+}
+
+.tactile-audio-dock-close:hover {
+  color: var(--tactile-cream);
+}
+

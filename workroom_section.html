@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>The Workroom · Собственный швейный цех и мастера кутюра · MUAR A Астана</title>
+  <meta name="description" content="Подлинный швейный цех интерьерного текстиля MUAR A в Астане (ТОО KazTextileА, ул. Керей, Жәнибек хандар, 50/1). Мастера Жанар, Марал, Анара. 6 стандартов кутюрного пошива, лазерный раскрой, немецкие нити Gütermann, тесьма Bandex, итальянские парогенераторы Lelit 140°C.">
+  <meta name="theme-color" content="#131211">
+
+  <!-- Google Fonts: Cormorant Garamond, Manrope, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       THE WORKROOM · ANTHONY LAWRENCE-BELFAIR INSPIRED ATELIER DESIGN SYSTEM
+       Scoped & Root Variables
+       ========================================================================== */
+    :root {
+      --wr-noir-void: #0B0A09;
+      --wr-noir-deep: #131211;
+      --wr-noir-surface: #1A1817;
+      --wr-noir-elevated: #24211F;
+      --wr-noir-plum: #190E22;
+      --wr-noir-glass: rgba(19, 18, 17, 0.88);
+      --wr-noir-border: rgba(197, 160, 105, 0.22);
+
+      --wr-gold-primary: #C5A069;
+      --wr-gold-light: #DFC598;
+      --wr-gold-deep: #9E7B42;
+      --wr-gold-pale: #F0DFC0;
+      --wr-gold-sheen: linear-gradient(135deg, #DFC598 0%, #C5A069 50%, #9E7B42 100%);
+      --wr-gold-glow: rgba(197, 160, 105, 0.28);
+
+      --wr-alabaster: #FAF8F5;
+      --wr-cashmere: #F4EFEB;
+      --wr-text-primary: #FAF8F5;
+      --wr-text-secondary: rgba(250, 248, 245, 0.82);
+      --wr-text-muted: rgba(250, 248, 245, 0.52);
+      --wr-text-faint: rgba(250, 248, 245, 0.32);
+
+      --wr-font-serif: 'Cormorant Garamond', Georgia, serif;
+      --wr-font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --wr-font-mono: 'JetBrains Mono', monospace;
+
+      --wr-radius-sm: 6px;
+      --wr-radius-md: 12px;
+      --wr-radius-lg: 18px;
+      --wr-radius-xl: 26px;
+      --wr-radius-pill: 9999px;
+
+      --wr-ease-luxury: cubic-bezier(0.19, 1, 0.22, 1);
+      --wr-transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    /* Reset & Base Scoping */
+    .workroom-experience-root {
+      background-color: var(--wr-noir-deep);
+      background-image: 
+        radial-gradient(circle at 50% 0%, #20132C 0%, transparent 60%),
+        radial-gradient(circle at 10% 40%, rgba(197, 160, 105, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 90% 70%, rgba(158, 123, 66, 0.05) 0%, transparent 50%);
+      color: var(--wr-text-primary);
+      font-family: var(--wr-font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--wr-noir-border);
+      border-bottom: 1px solid var(--wr-noir-border);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      box-sizing: border-box;
+    }
+
+    .workroom-experience-root *,
+    .workroom-experience-root *::before,
+    .workroom-experience-root *::after {
+      box-sizing: border-box;
+    }
+
+    .wr-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .workroom-experience-root {
+        padding: 70px 0;
+      }
+      .wr-container {
+        padding: 0 16px;
+      }
+    }
+
+    /* ==========================================================================
+       1. ATMOSPHERIC SECTION HEADER
+       ========================================================================== */
+    .wr-header {
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto 72px;
+      position: relative;
+    }
+
+    .wr-kicker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 18px;
+      border-radius: var(--wr-radius-pill);
+      background: rgba(197, 160, 105, 0.08);
+      border: 1px solid rgba(197, 160, 105, 0.35);
+      font-family: var(--wr-font-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--wr-gold-light);
+      margin-bottom: 22px;
+      backdrop-filter: blur(8px);
+    }
+
+    .wr-kicker-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--wr-gold-primary);
+      box-shadow: 0 0 10px var(--wr-gold-primary);
+      animation: wrPulse 2.4s infinite ease-in-out;
+    }
+
+    @keyframes wrPulse {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    .wr-main-title {
+      font-family: var(--wr-font-serif);
+      font-size: clamp(2.4rem, 4.4vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.14;
+      letter-spacing: -0.01em;
+      color: var(--wr-alabaster);
+      margin: 0 0 24px;
+    }
+
+    .wr-main-title em {
+      font-style: italic;
+      color: var(--wr-gold-light);
+      font-weight: 400;
+      position: relative;
+    }
+
+    .wr-lead-text {
+      font-family: var(--wr-font-sans);
+      font-size: clamp(1.02rem, 1.3vw, 1.22rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--wr-text-secondary);
+      max-width: 820px;
+      margin: 0 auto 36px;
+    }
+
+    .wr-lead-text strong {
+      color: var(--wr-alabaster);
+      font-weight: 600;
+    }
+
+    /* Provenance Stat Ribbon */
+    .wr-provenance-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      background: rgba(26, 24, 23, 0.65);
+      border: 1px solid var(--wr-noir-border);
+      border-radius: var(--wr-radius-lg);
+      padding: 22px 28px;
+      backdrop-filter: blur(14px);
+      margin-bottom: 72px;
+    }
+
+    .wr-stat-cell {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      border-right: 1px solid rgba(197, 160, 105, 0.15);
+      padding-right: 16px;
+    }
+
+    .wr-stat-cell:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .wr-stat-val {
+      font-family: var(--wr-font-serif);
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--wr-gold-light);
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+
+    .wr-stat-lbl {
+      font-family: var(--wr-font-sans);
+      font-size: 0.82rem;
+      color: var(--wr-text-muted);
+      line-height: 1.45;
+    }
+
+    @media (max-width: 900px) {
+      .wr-provenance-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .wr-stat-cell:nth-child(2) {
+        border-right: none;
+      }
+    }
+    @media (max-width: 540px) {
+      .wr-provenance-ribbon {
+        grid-template-columns: 1fr;
+        padding: 20px;
+      }
+      .wr-stat-cell {
+        border-right: none;
+        border-bottom: 1px solid rgba(197, 160, 105, 0.15);
+        padding-bottom: 14px;
+      }
+      .wr-stat-cell:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+    }
+
+    /* ==========================================================================
+       2. CINEMA THEATER & HERO VIDEO: ZHANAR SINGING
+       ========================================================================== */
+    .wr-theater-section {
+      margin-bottom: 100px;
+    }
+
+    .wr-theater-card {
+      background: var(--wr-noir-surface);
+      border: 1px solid var(--wr-noir-border);
+      border-radius: var(--wr-radius-xl);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      align-items: stretch;
+      position: relative;
+    }
+
+    @media (max-width: 1024px) {
+      .wr-theater-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .wr-player-pane {
+      position: relative;
+      background: #000;
+      min-height: 440px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .wr-native-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.5s ease;
+    }
+
+    .wr-player-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.75) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+
+    .wr-theater-card.is-playing .wr-player-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .wr-theater-card.is-playing:hover .wr-player-overlay {
+      opacity: 1;
+      pointer-events: auto;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
+    }
+
+    .wr-overlay-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wr-live-sound-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(19, 18, 17, 0.85);
+      border: 1px solid rgba(197, 160, 105, 0.4);
+      padding: 6px 14px;
+      border-radius: var(--wr-radius-pill);
+      font-family: var(--wr-font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+    }
+
+    /* Sound Bars Animation */
+    .wr-sound-wave {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 14px;
+    }
+    .wr-sound-bar {
+      width: 2px;
+      background: var(--wr-gold-primary);
+      border-radius: 1px;
+      animation: wrSoundJump 1.2s infinite ease-in-out;
+    }
+    .wr-sound-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .wr-sound-bar:nth-child(2) { height: 12px; animation-delay: 0.3s; }
+    .wr-sound-bar:nth-child(3) { height: 8px; animation-delay: 0.5s; }
+    .wr-sound-bar:nth-child(4) { height: 14px; animation-delay: 0.2s; }
+
+    @keyframes wrSoundJump {
+      0%, 100% { transform: scaleY(0.4); }
+      50% { transform: scaleY(1.3); }
+    }
+
+    .wr-duration-pill {
+      font-family: var(--wr-font-mono);
+      font-size: 0.74rem;
+      padding: 4px 10px;
+      border-radius: var(--wr-radius-pill);
+      background: rgba(0, 0, 0, 0.8);
+      color: var(--wr-alabaster);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    /* Big Play Button */
+    .wr-big-play {
+      align-self: center;
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: rgba(19, 18, 17, 0.85);
+      border: 2px solid var(--wr-gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wr-gold-light);
+      box-shadow: 0 0 32px rgba(197, 160, 105, 0.4);
+      transition: var(--wr-transition);
+      cursor: pointer;
+    }
+    .wr-big-play:hover {
+      transform: scale(1.08);
+      border-color: #FFF;
+      box-shadow: 0 0 45px rgba(223, 197, 152, 0.6);
+      color: #FFF;
+    }
+    .wr-big-play svg {
+      width: 32px;
+      height: 32px;
+      margin-left: 4px;
+      fill: currentColor;
+    }
+
+    /* Player Controls Bar */
+    .wr-player-controls {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(19, 18, 17, 0.9);
+      padding: 10px 16px;
+      border-radius: var(--wr-radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+    }
+    .wr-ctrl-btn {
+      background: none;
+      border: none;
+      color: var(--wr-alabaster);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+    .wr-ctrl-btn:hover {
+      color: var(--wr-gold-light);
+    }
+    .wr-ctrl-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .wr-timeline-slider {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      position: relative;
+      cursor: pointer;
+    }
+    .wr-timeline-fill {
+      height: 100%;
+      background: var(--wr-gold-sheen);
+      border-radius: 2px;
+      width: 0%;
+      position: relative;
+    }
+    .wr-timeline-fill::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: -4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--wr-alabaster);
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .wr-timeline-slider:hover .wr-timeline-fill::after {
+      opacity: 1;
+    }
+
+    .wr-timecode-text {
+      font-family: var(--wr-font-mono);
+      font-size: 0.74rem;
+      color: var(--wr-text-muted);
+      white-space: nowrap;
+    }
+
+    /* Storytelling Pane */
+    .wr-story-pane {
+      padding: 48px 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 1px solid var(--wr-noir-border);
+      background: linear-gradient(135deg, rgba(26, 24, 23, 0.95) 0%, rgba(20, 15, 28, 0.95) 100%);
+    }
+
+    @media (max-width: 1024px) {
+      .wr-story-pane {
+        border-left: none;
+        border-top: 1px solid var(--wr-noir-border);
+        padding: 36px 24px;
+      }
+    }
+
+    .wr-story-header {
+      margin-bottom: 24px;
+    }
+
+    .wr-story-kicker {
+      font-family: var(--wr-font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.15em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .wr-story-title {
+      font-family: var(--wr-font-serif);
+      font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+      font-weight: 600;
+      color: var(--wr-alabaster);
+      line-height: 1.22;
+      margin: 0 0 16px;
+    }
+
+    .wr-story-desc {
+      font-family: var(--wr-font-sans);
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: var(--wr-text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .wr-quote-bubble {
+      background: rgba(197, 160, 105, 0.06);
+      border-left: 3px solid var(--wr-gold-primary);
+      border-radius: 0 var(--wr-radius-md) var(--wr-radius-md) 0;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+    }
+
+    .wr-quote-text {
+      font-family: var(--wr-font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: var(--wr-gold-pale);
+      margin: 0 0 8px;
+    }
+
+    .wr-quote-author {
+      font-family: var(--wr-font-sans);
+      font-size: 0.78rem;
+      color: var(--wr-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Video Switcher Tabs */
+    .wr-reel-switcher {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .wr-switcher-label {
+      font-family: var(--wr-font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--wr-text-muted);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .wr-reel-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 560px) {
+      .wr-reel-tabs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .wr-reel-tab {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--wr-radius-md);
+      padding: 10px 12px;
+      cursor: pointer;
+      text-align: left;
+      transition: var(--wr-transition);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .wr-reel-tab:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--wr-gold-primary);
+    }
+
+    .wr-reel-tab.is-active {
+      background: rgba(197, 160, 105, 0.14);
+      border-color: var(--wr-gold-primary);
+      box-shadow: 0 0 16px rgba(197, 160, 105, 0.2);
+    }
+
+    .wr-tab-num {
+      font-family: var(--wr-font-mono);
+      font-size: 0.68rem;
+      color: var(--wr-gold-light);
+    }
+    .wr-tab-title {
+      font-family: var(--wr-font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--wr-alabaster);
+    }
+    .wr-tab-dur {
+      font-family: var(--wr-font-mono);
+      font-size: 0.68rem;
+      color: var(--wr-text-muted);
+    }
+
+    /* ==========================================================================
+       3. MASTER CRAFTSPEOPLE TRILOGY (ZHANAR, MARAL, ANARA)
+       ========================================================================== */
+    .wr-masters-section {
+      margin-bottom: 110px;
+    }
+
+    .wr-section-subhead {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 54px;
+    }
+
+    .wr-subhead-kicker {
+      font-family: var(--wr-font-mono);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .wr-subhead-title {
+      font-family: var(--wr-font-serif);
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      font-weight: 500;
+      color: var(--wr-alabaster);
+      line-height: 1.2;
+      margin: 0 0 14px;
+    }
+
+    .wr-subhead-desc {
+      font-family: var(--wr-font-sans);
+      font-size: 0.98rem;
+      color: var(--wr-text-secondary);
+      line-height: 1.65;
+    }
+
+    .wr-masters-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 1024px) {
+      .wr-masters-grid {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        margin: 0 auto;
+      }
+    }
+
+    .wr-master-card {
+      background: var(--wr-noir-surface);
+      border: 1px solid var(--wr-noir-border);
+      border-radius: var(--wr-radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--wr-transition);
+      position: relative;
+    }
+
+    .wr-master-card:hover {
+      border-color: var(--wr-gold-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.7);
+    }
+
+    .wr-master-media {
+      position: relative;
+      height: 320px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .wr-master-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.7s var(--wr-ease-luxury);
+    }
+
+    .wr-master-card:hover .wr-master-img {
+      transform: scale(1.06);
+    }
+
+    .wr-master-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(19, 18, 17, 0.1) 0%, rgba(19, 18, 17, 0.85) 100%);
+    }
+
+    .wr-master-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background: rgba(19, 18, 17, 0.85);
+      border: 1px solid rgba(197, 160, 105, 0.4);
+      padding: 5px 12px;
+      border-radius: var(--wr-radius-pill);
+      font-family: var(--wr-font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .wr-media-play-trigger {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(19, 18, 17, 0.9);
+      border: 1.5px solid var(--wr-gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wr-gold-light);
+      cursor: pointer;
+      transition: var(--wr-transition);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .wr-media-play-trigger:hover {
+      transform: scale(1.12);
+      border-color: #FFF;
+      color: #FFF;
+      box-shadow: 0 0 25px var(--wr-gold-glow);
+    }
+
+    .wr-media-play-trigger svg {
+      width: 22px;
+      height: 22px;
+      margin-left: 2px;
+      fill: currentColor;
+    }
+
+    .wr-master-body {
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .wr-master-role {
+      font-family: var(--wr-font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .wr-master-name {
+      font-family: var(--wr-font-serif);
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: var(--wr-alabaster);
+      margin: 0 0 14px;
+      line-height: 1.2;
+    }
+
+    .wr-master-bio {
+      font-family: var(--wr-font-sans);
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--wr-text-secondary);
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .wr-spec-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 18px;
+    }
+
+    .wr-spec-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: var(--wr-font-sans);
+      font-size: 0.82rem;
+      color: var(--wr-text-muted);
+      margin-bottom: 10px;
+      line-height: 1.45;
+    }
+
+    .wr-spec-item svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      fill: var(--wr-gold-primary);
+      margin-top: 2px;
+    }
+
+    .wr-spec-item strong {
+      color: var(--wr-alabaster);
+    }
+
+    .wr-master-action {
+      margin-top: auto;
+    }
+
+    .wr-btn-outline-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 12px 20px;
+      border-radius: var(--wr-radius-pill);
+      background: transparent;
+      border: 1px solid rgba(197, 160, 105, 0.4);
+      color: var(--wr-gold-light);
+      font-family: var(--wr-font-sans);
+      font-size: 0.84rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: var(--wr-transition);
+      text-decoration: none;
+    }
+
+    .wr-btn-outline-gold:hover {
+      background: rgba(197, 160, 105, 0.12);
+      border-color: var(--wr-gold-light);
+      color: #FFF;
+      box-shadow: 0 0 20px rgba(197, 160, 105, 0.25);
+    }
+
+    /* ==========================================================================
+       4. THE 6 CRAFT STANDARDS BLUEPRINT (ГОСТ РК & КУТЮР)
+       ========================================================================== */
+    .wr-standards-section {
+      margin-bottom: 110px;
+    }
+
+    .wr-standards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 1024px) {
+      .wr-standards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 640px) {
+      .wr-standards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .wr-standard-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--wr-noir-border);
+      border-radius: var(--wr-radius-lg);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      transition: var(--wr-transition);
+      position: relative;
+    }
+
+    .wr-standard-card:hover {
+      background: rgba(255, 255, 255, 0.045);
+      border-color: var(--wr-gold-primary);
+      transform: translateY(-4px);
+    }
+
+    .wr-std-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .wr-std-roman {
+      font-family: var(--wr-font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--wr-gold-light);
+      line-height: 1;
+    }
+
+    .wr-std-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(197, 160, 105, 0.1);
+      border: 1px solid rgba(197, 160, 105, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--wr-gold-light);
+    }
+    .wr-std-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .wr-std-title {
+      font-family: var(--wr-font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--wr-alabaster);
+      line-height: 1.3;
+      margin: 0 0 12px;
+    }
+
+    .wr-std-desc {
+      font-family: var(--wr-font-sans);
+      font-size: 0.88rem;
+      color: var(--wr-text-secondary);
+      line-height: 1.65;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .wr-std-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--wr-font-mono);
+      font-size: 0.72rem;
+      color: var(--wr-gold-light);
+      background: rgba(197, 160, 105, 0.08);
+      border: 1px solid rgba(197, 160, 105, 0.22);
+      padding: 5px 12px;
+      border-radius: var(--wr-radius-pill);
+      align-self: flex-start;
+    }
+
+    /* Expandable Protocol Drawer */
+    .wr-std-details {
+      margin-top: 14px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.1);
+      padding-top: 12px;
+      font-size: 0.8rem;
+      color: var(--wr-text-muted);
+      line-height: 1.55;
+      display: none;
+    }
+    .wr-standard-card.is-expanded .wr-std-details {
+      display: block;
+      animation: wrFadeIn 0.3s ease;
+    }
+    .wr-std-toggle {
+      background: none;
+      border: none;
+      color: var(--wr-gold-light);
+      font-family: var(--wr-font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      margin-top: 14px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .wr-std-toggle:hover {
+      color: #FFF;
+    }
+
+    @keyframes wrFadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       5. ATELIER PHOTO GALLERY & WORKSHOP ARCHITECTURE
+       ========================================================================== */
+    .wr-gallery-section {
+      margin-bottom: 100px;
+    }
+
+    .wr-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 240px;
+      gap: 18px;
+    }
+
+    @media (max-width: 1024px) {
+      .wr-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+      }
+    }
+    @media (max-width: 540px) {
+      .wr-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 240px;
+      }
+    }
+
+    .wr-gallery-item {
+      position: relative;
+      border-radius: var(--wr-radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--wr-noir-border);
+      cursor: pointer;
+      background: var(--wr-noir-surface);
+    }
+
+    .wr-gallery-item.span-2-col {
+      grid-column: span 2;
+    }
+    .wr-gallery-item.span-2-row {
+      grid-row: span 2;
+    }
+
+    @media (max-width: 540px) {
+      .wr-gallery-item.span-2-col {
+        grid-column: span 1;
+      }
+      .wr-gallery-item.span-2-row {
+        grid-row: span 1;
+      }
+    }
+
+    .wr-gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--wr-ease-luxury);
+    }
+
+    .wr-gallery-item:hover .wr-gallery-img {
+      transform: scale(1.06);
+    }
+
+    .wr-gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(19, 18, 17, 0.88) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      opacity: 0.85;
+      transition: opacity 0.3s ease;
+    }
+
+    .wr-gallery-item:hover .wr-gallery-overlay {
+      opacity: 1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(19, 18, 17, 0.94) 100%);
+    }
+
+    .wr-gallery-badge {
+      font-family: var(--wr-font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .wr-gallery-caption {
+      font-family: var(--wr-font-serif);
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--wr-alabaster);
+      line-height: 1.25;
+      margin: 0;
+    }
+
+    .wr-gallery-zoom-icon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(19, 18, 17, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: var(--wr-transition);
+    }
+
+    .wr-gallery-item:hover .wr-gallery-zoom-icon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ==========================================================================
+       6. WORKROOM PROVENANCE & FACTORY TRUST PLAQUE
+       ========================================================================== */
+    .wr-trust-plaque {
+      background: linear-gradient(135deg, rgba(26, 24, 23, 0.95) 0%, rgba(20, 15, 28, 0.95) 100%);
+      border: 1px solid rgba(197, 160, 105, 0.38);
+      border-radius: var(--wr-radius-xl);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    @media (max-width: 900px) {
+      .wr-trust-plaque {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+      }
+    }
+
+    .wr-plaque-kicker {
+      font-family: var(--wr-font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .wr-plaque-title {
+      font-family: var(--wr-font-serif);
+      font-size: clamp(1.8rem, 2.6vw, 2.5rem);
+      font-weight: 600;
+      color: var(--wr-alabaster);
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
+
+    .wr-plaque-desc {
+      font-family: var(--wr-font-sans);
+      font-size: 0.94rem;
+      color: var(--wr-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .wr-address-block {
+      background: rgba(19, 18, 17, 0.7);
+      border: 1px solid rgba(197, 160, 105, 0.25);
+      border-radius: var(--wr-radius-md);
+      padding: 18px 22px;
+      margin-bottom: 24px;
+    }
+
+    .wr-address-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--wr-font-sans);
+      font-size: 0.9rem;
+      color: var(--wr-alabaster);
+      margin-bottom: 8px;
+    }
+    .wr-address-line:last-child {
+      margin-bottom: 0;
+    }
+    .wr-address-line svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--wr-gold-primary);
+      flex-shrink: 0;
+    }
+
+    .wr-plaque-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .wr-btn-gold-solid {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--wr-radius-pill);
+      background: var(--wr-gold-sheen);
+      color: var(--wr-noir-deep);
+      font-family: var(--wr-font-sans);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: var(--wr-transition);
+      box-shadow: 0 4px 20px rgba(197, 160, 105, 0.35);
+    }
+    .wr-btn-gold-solid:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(223, 197, 152, 0.5);
+      color: #000;
+    }
+
+    .wr-cert-box {
+      border: 1px solid rgba(197, 160, 105, 0.3);
+      border-radius: var(--wr-radius-lg);
+      padding: 24px;
+      background: rgba(19, 18, 17, 0.6);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .wr-cert-preview {
+      width: 100%;
+      max-width: 220px;
+      border-radius: var(--wr-radius-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      margin-bottom: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .wr-cert-preview:hover {
+      transform: scale(1.04);
+    }
+
+    .wr-cert-label {
+      font-family: var(--wr-font-mono);
+      font-size: 0.72rem;
+      color: var(--wr-gold-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .wr-cert-sub {
+      font-family: var(--wr-font-sans);
+      font-size: 0.82rem;
+      color: var(--wr-text-muted);
+      line-height: 1.45;
+    }
+
+    /* ==========================================================================
+       7. FULLSCREEN CINEMA & LIGHTBOX MODAL
+       ========================================================================== */
+    .wr-cinema-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 10, 9, 0.96);
+      z-index: 99999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .wr-cinema-modal.is-open {
+      display: flex;
+      animation: wrModalIn 0.35s var(--wr-ease-luxury);
+    }
+    @keyframes wrModalIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .wr-modal-dialog {
+      width: 100%;
+      max-width: 1100px;
+      background: var(--wr-noir-surface);
+      border: 1px solid var(--wr-gold-primary);
+      border-radius: var(--wr-radius-xl);
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .wr-modal-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(19, 18, 17, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--wr-alabaster);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: var(--wr-transition);
+    }
+    .wr-modal-close-btn:hover {
+      background: var(--wr-gold-primary);
+      color: var(--wr-noir-deep);
+      transform: rotate(90deg);
+    }
+
+    .wr-modal-media-wrap {
+      width: 100%;
+      background: #000;
+      aspect-ratio: 16 / 9;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wr-modal-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .wr-modal-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .wr-modal-footer {
+      padding: 24px 32px;
+      background: var(--wr-noir-surface);
+      border-top: 1px solid rgba(197, 160, 105, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .wr-modal-meta-kicker {
+      font-family: var(--wr-font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--wr-gold-light);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .wr-modal-meta-title {
+      font-family: var(--wr-font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--wr-alabaster);
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .wr-modal-dialog {
+        border-radius: var(--wr-radius-md);
+      }
+      .wr-modal-footer {
+        padding: 16px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body style="margin: 0; background: #0B0A09;">
+
+  <!-- ========================================================================
+       WORKROOM SECTION EMBED CONTAINER
+       ======================================================================== -->
+  <section class="workroom-experience-root" id="the-workroom" aria-label="Собственный цех и мастера кутюра MUAR A">
+    <div class="wr-container">
+
+      <!-- 1. Header with Editorial Kicker & Provenance -->
+      <header class="wr-header">
+        <div class="wr-kicker-badge">
+          <span class="wr-kicker-dot"></span>
+          <span>THE WORKROOM · СОБСТВЕННЫЙ ЦЕХ В АСТАНЕ · EST. 2014</span>
+        </div>
+        <h2 class="wr-main-title">
+          Сердце текстильного дома: <em>Живая душа мастеров</em>
+        </h2>
+        <p class="wr-lead-text">
+          В отличие от 90% салонов, отдающих рулоны надомницам в тесные квартиры, <strong>MUAR A</strong> сохраняет священный дух мануфактур уровня <em>Anthony Lawrence-Belfair</em>. 350 м² профессионального пространства в Астане, прецизионные столы технологического раскроя, немецкие станки Dürkopp Adler и мастера, посвятившие ремеслу четверть века.
+        </p>
+
+        <!-- Provenance Stat Ribbon -->
+        <div class="wr-provenance-ribbon">
+          <div class="wr-stat-cell">
+            <span class="wr-stat-val">350 м²</span>
+            <span class="wr-stat-lbl">Площадь специализированного цеха в Астане</span>
+          </div>
+          <div class="wr-stat-cell">
+            <span class="wr-stat-val">0%</span>
+            <span class="wr-stat-lbl">Надомниц и субподряда: полный внутренний контроль</span>
+          </div>
+          <div class="wr-stat-cell">
+            <span class="wr-stat-val">12 точек</span>
+            <span class="wr-stat-lbl">Инструментального контроля ОТК перед сдачей</span>
+          </div>
+          <div class="wr-stat-cell">
+            <span class="wr-stat-val">ЕАЭС</span>
+            <span class="wr-stat-lbl">Официальная декларация качества и ГОСТ РК</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- 2. The Cinema Theater & Zhanar Video Hero Player -->
+      <div class="wr-theater-section">
+        <article class="wr-theater-card" id="wrTheaterCard">
+          
+          <!-- Video Player Pane -->
+          <div class="wr-player-pane">
+            <video 
+              id="wrHeroVideo"
+              class="wr-native-video" 
+              poster="assets/muar/craft-zhanar-poster.jpg" 
+              preload="metadata"
+              playsinline
+              src="assets/muar/zhanar-singing.mp4">
+              <source src="assets/muar/zhanar-singing.mp4" type="video/mp4">
+              Ваш браузер не поддерживает встроенное видео.
+            </video>
+
+            <!-- Video Overlay (Initial & Hover state) -->
+            <div class="wr-player-overlay" id="wrPlayerOverlay" onclick="toggleHeroVideoPlay()">
+              <div class="wr-overlay-top">
+                <div class="wr-live-sound-chip">
+                  <div class="wr-sound-wave">
+                    <span class="wr-sound-bar"></span>
+                    <span class="wr-sound-bar"></span>
+                    <span class="wr-sound-bar"></span>
+                    <span class="wr-sound-bar"></span>
+                  </div>
+                  <span id="wrSoundChipText">ЖИВОЙ ГОЛОС ЦЕХА · ЖАНАР</span>
+                </div>
+                <span class="wr-duration-pill" id="wrDurationPill">04:09</span>
+              </div>
+
+              <!-- Big Golden Play Button -->
+              <div class="wr-big-play" role="button" aria-label="Воспроизвести фильм о мастере Жанар">
+                <svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+
+              <!-- Bottom Controls Bar -->
+              <div class="wr-player-controls" onclick="event.stopPropagation()">
+                <button type="button" class="wr-ctrl-btn" id="wrPlayToggleBtn" onclick="toggleHeroVideoPlay()" aria-label="Воспроизведение / Пауза">
+                  <svg id="wrPlayIcon" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                  <svg id="wrPauseIcon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                </button>
+
+                <div class="wr-timeline-slider" id="wrTimelineSlider" onclick="seekHeroVideo(event)">
+                  <div class="wr-timeline-fill" id="wrTimelineFill"></div>
+                </div>
+
+                <span class="wr-timecode-text" id="wrTimecodeText">00:00 / 04:09</span>
+
+                <button type="button" class="wr-ctrl-btn" id="wrMuteBtn" onclick="toggleHeroVideoMute()" aria-label="Звук">
+                  <svg id="wrVolumeHighIcon" viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  <svg id="wrVolumeMuteIcon" viewBox="0 0 24 24" style="display:none;"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+
+                <button type="button" class="wr-ctrl-btn" onclick="openCinemaModal('assets/muar/zhanar-singing.mp4', 'Мастер Жанар: Традиционная песня и кутюрный шов')" aria-label="Полноэкранный просмотр">
+                  <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video Narrative & Switcher Pane -->
+          <div class="wr-story-pane">
+            <div>
+              <div class="wr-story-header">
+                <span class="wr-story-kicker">КИНОХРОНИКА ЦЕХА · АСТАНА</span>
+                <h3 class="wr-story-title" id="wrStoryTitle">
+                  Жанар: Песня души и безупречная строчка
+                </h3>
+                <p class="wr-story-desc" id="wrStoryDesc">
+                  В швейном цехе MUAR A царит особая медитативная аура. Старший мастер индивидуального пошива Жанар во время работы над сложнейшими тканями поет старинные казахские напевы. Ритм ее голоса и дыхания синхронизируется с ходом иглы немецкого станка Dürkopp Adler, превращая каждый метр портьеры в одушевленное произведение кутюра.
+                </p>
+              </div>
+
+              <!-- Quote Block -->
+              <div class="wr-quote-bubble">
+                <p class="wr-quote-text" id="wrQuoteText">
+                  «Когда ты шьешь шелк или тяжелый бархат с песней в сердце — ткань перестает сопротивляться. Нить ложится мягко, шов никогда не стягивается, а в доме, куда придут эти шторы, поселяется мир и благополучие».
+                </p>
+                <div class="wr-quote-author" id="wrQuoteAuthor">
+                  Жанар · Старший мастер индивидуального пошива (стаж 20+ лет)
+                </div>
+              </div>
+            </div>
+
+            <!-- Video Reel Switcher Tabs -->
+            <div class="wr-reel-switcher">
+              <span class="wr-switcher-label">Выбор хроники цеха:</span>
+              <div class="wr-reel-tabs">
+                
+                <div class="wr-reel-tab is-active" onclick="switchWorkshopReel('zhanar', this)">
+                  <span class="wr-tab-num">01 · КУТЮР</span>
+                  <span class="wr-tab-title">Жанар (Песня)</span>
+                  <span class="wr-tab-dur">04:09 · HD</span>
+                </div>
+
+                <div class="wr-reel-tab" onclick="switchWorkshopReel('maral', this)">
+                  <span class="wr-tab-num">02 · ВТО & СКЛАДКА</span>
+                  <span class="wr-tab-title">Марал (Складка)</span>
+                  <span class="wr-tab-dur">01:10 · HD</span>
+                </div>
+
+                <div class="wr-reel-tab" onclick="switchWorkshopReel('journey', this)">
+                  <span class="wr-tab-num">03 · РЕГЛАМЕНТ</span>
+                  <span class="wr-tab-title">Путь изделия</span>
+                  <span class="wr-tab-dur">01:31 · HD</span>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </article>
+      </div>
+
+      <!-- 3. Master Craftspeople Trilogy -->
+      <section class="wr-masters-section" id="masters-trilogy">
+        <div class="wr-section-subhead">
+          <span class="wr-subhead-kicker">МАСТЕРА ВЫСШЕЙ КАТЕГОРИИ</span>
+          <h3 class="wr-subhead-title">Хранители традиций ручного кутюра</h3>
+          <p class="wr-subhead-desc">
+            В цехе MUAR A работают мастера, чей суммарный опыт превышает 60 лет. Здесь нет текучки кадров и безликого конвейера — каждое изделие имеет своего персонального автора.
+          </p>
+        </div>
+
+        <div class="wr-masters-grid">
+          
+          <!-- Master 1: Zhanar -->
+          <article class="wr-master-card">
+            <div class="wr-master-media">
+              <img 
+                src="assets/muar/craft-zhanar.webp" 
+                alt="Жанар — старший мастер индивидуального пошива MUAR A" 
+                class="wr-master-img"
+                loading="eager"
+                onerror="this.src='assets/muar/craft-zhanar-poster.jpg'">
+              <div class="wr-master-gradient"></div>
+              <span class="wr-master-badge">ДУША ЦЕХА · СТАЖ 20+ ЛЕТ</span>
+              <div class="wr-media-play-trigger" onclick="openCinemaModal('assets/muar/zhanar-singing.mp4', 'Мастер Жанар: Традиционная песня и кутюрный шов')" role="button" aria-label="Смотреть видео о Жанар">
+                <svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+            <div class="wr-master-body">
+              <span class="wr-master-role">Старший мастер индивидуального пошива</span>
+              <h4 class="wr-master-name">Жанар</h4>
+              <p class="wr-master-bio">
+                Мастер тончайшей моторики и живого звука. Специализируется на капризных натуральных материалах — диком шелке, шерсти и тяжелом королевском бархате. Поет казахские народные песни прямо за работой, задавая идеальный темп стежка.
+              </p>
+              <ul class="wr-spec-list">
+                <li class="wr-spec-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  <span><strong>Коронная техника:</strong> филигранное совмещение слоев бархата с учетом направления ворса</span>
+                </li>
+                <li class="wr-spec-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span><strong>Оборудование:</strong> немецкий станок Dürkopp Adler, иглы Schmetz Super Universal</span>
+                </li>
+              </ul>
+              <div class="wr-master-action">
+                <button type="button" class="wr-btn-outline-gold" onclick="openCinemaModal('assets/muar/zhanar-singing.mp4', 'Мастер Жанар: Традиционная песня и кутюрный пошив')">
+                  Смотреть фильм с песней (04:09)
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Master 2: Maral -->
+          <article class="wr-master-card">
+            <div class="wr-master-media">
+              <img 
+                src="assets/muar/craft-maral.webp" 
+                alt="Марал — главный технолог производства и мастер ВТО MUAR A" 
+                class="wr-master-img"
+                loading="eager"
+                onerror="this.src='assets/muar/craft-maral-poster.jpg'">
+              <div class="wr-master-gradient"></div>
+              <span class="wr-master-badge">ГЛАВНЫЙ ТЕХНОЛОГ · СТАЖ 25 ЛЕТ</span>
+              <div class="wr-media-play-trigger" onclick="openCinemaModal('assets/muar/craft-maral.mp4', 'Мастер Марал: Искусство ручной складки и ВТО')" role="button" aria-label="Смотреть видео о Марал">
+                <svg viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+            <div class="wr-master-body">
+              <span class="wr-master-role">Главный технолог & Мастер ВТО</span>
+              <h4 class="wr-master-name">Марал</h4>
+              <p class="wr-master-bio">
+                Легенда текстильного цеха. Более 14 000 сданных объектов премиум-класса. Мастер глубокой влажно-тепловой обработки (ВТО) на итальянских бойлерных станциях Lelit при температуре сухого пара 140°C и давлении 4.5 Bar.
+              </p>
+              <ul class="wr-spec-list">
+                <li class="wr-spec-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  <span><strong>Коронная техника:</strong> термофиксация «памяти складки» 1:2.0 / 1:2.5 и подгонка раппорта 0 мм</span>
+                </li>
+                <li class="wr-spec-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span><strong>Оборудование:</strong> итальянская паровая система Lelit PG024N, вакуумный утюжильный стол</span>
+                </li>
+              </ul>
+              <div class="wr-master-action">
+                <button type="button" class="wr-btn-outline-gold" onclick="openCinemaModal('assets/muar/craft-maral.mp4', 'Мастер Марал: Искусство ручной складки')">
+                  Смотреть фильм о мастере (01:10)
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Master 3: Anara -->
+          <article class="wr-master-card">
+            <div class="wr-master-media">
+              <img 
+                src="assets/muar/craft-anara.webp" 
+                alt="Анара — мастер ручной драпировки и потайных швов MUAR A" 
+                class="wr-master-img"
+                loading="eager"
+                onerror="this.src='assets/muar/strength-4-atelier.webp'">
+              <div class="wr-master-gradient"></div>
+              <span class="wr-master-badge">КУТЮРНЫЙ МОНТАЖ · СТАЖ 18 ЛЕТ</span>
+              <div class="wr-media-play-trigger" onclick="openLightboxImage('assets/muar/craft-anara.webp', 'Мастер Анара: Ювелирная ручная драпировка и невидимый потайной шов Blindstitch')" role="button" aria-label="Смотреть макро-фото работы Анары">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </div>
+            </div>
+            <div class="wr-master-body">
+              <span class="wr-master-role">Мастер ручной драпировки & Потайных швов</span>
+              <h4 class="wr-master-name">Анара</h4>
+              <p class="wr-master-bio">
+                Хранительница секретов парижских ателье. Ручная закладка тройных французских бокалов, идеальное сопряжение корсажной тесьмы Bandex, потайные подгибы с закрытым срезом и потайным креплением свинцовых грузиков.
+              </p>
+              <ul class="wr-spec-list">
+                <li class="wr-spec-item">
+                  <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  <span><strong>Коронная техника:</strong> двойная подгибка 10–12 см с ручной потайной строчкой нитью в нить</span>
+                </li>
+                <li class="wr-spec-item">
+                  <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span><strong>Материалы:</strong> корсажная лента Bandex (Германия), армированные нити Gütermann Mara 120</span>
+                </li>
+              </ul>
+              <div class="wr-master-action">
+                <button type="button" class="wr-btn-outline-gold" onclick="openLightboxImage('assets/muar/craft-anara.webp', 'Мастер Анара: Ручная сборка корсажной ленты Bandex')">
+                  Осмотреть кутюрный шов (Макро)
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 4. The 6 Craft Standards Blueprint -->
+      <section class="wr-standards-section" id="craft-standards">
+        <div class="wr-section-subhead">
+          <span class="wr-subhead-kicker">СТАНДАРТЫ КАЧЕСТВА ГОСТ РК & HAUTE COUTURE</span>
+          <h3 class="wr-subhead-title">6 Непреложных законов нашего цеха</h3>
+          <p class="wr-subhead-desc">
+            Каждое изделие, покидающее цех MUAR A, создается по жестким технологическим картам. Мы исключаем человеческий фактор там, где требуется строгая геометрия, и доверяем рукам мастеров там, где нужна душа.
+          </p>
+        </div>
+
+        <div class="wr-standards-grid">
+          
+          <!-- Standard 1 -->
+          <article class="wr-standard-card">
+            <div class="wr-std-header">
+              <span class="wr-std-roman">I</span>
+              <div class="wr-std-icon">
+                <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+              </div>
+            </div>
+            <h4 class="wr-std-title">Лазерный и нитяной раскрой по нити основы</h4>
+            <p class="wr-std-desc">
+              Раскрой полотен длиной до 6 метров производится на профессиональных вакуумных столах. Перед резом мастер выдергивает контрольную нить утка. Никакого «винта» и перекоса полотна на карнизе.
+            </p>
+            <div class="wr-std-tag">Допуск геометрии: ±1 мм на 3 метра</div>
+            
+            <button type="button" class="wr-std-toggle" onclick="toggleStandardCard(this)">
+              <span>Технологический протокол</span> ↓
+            </button>
+            <div class="wr-std-details">
+              В отличие от надомного раскроя «на коленях», цеховой стол обеспечивает идеальный прямой угол 90.00°. Нить основы не деформируется под собственным весом ткани.
+            </div>
+          </article>
+
+          <!-- Standard 2 -->
+          <article class="wr-standard-card">
+            <div class="wr-std-header">
+              <span class="wr-std-roman">II</span>
+              <div class="wr-std-icon">
+                <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+              </div>
+            </div>
+            <h4 class="wr-std-title">Двойная подгибка 10–12 см с ручной строчкой</h4>
+            <p class="wr-std-desc">
+              Тяжелый кутюрный подгиб низа (10–12 см) формирует монументальный отвес портьеры. Ручной потайной шов Blindstitch исключает видимые нити на лицевой стороне.
+            </p>
+            <div class="wr-std-tag">Свинцовые грузики в углах шва</div>
+
+            <button type="button" class="wr-std-toggle" onclick="toggleStandardCard(this)">
+              <span>Технологический протокол</span> ↓
+            </button>
+            <div class="wr-std-details">
+              В каждый угол вшивается калиброванный свинцовый утяжелитель 25–50 г. Боковые края никогда не «взлетают» и не закручиваются наружу («эффект чайки» исключен).
+            </div>
+          </article>
+
+          <!-- Standard 3 -->
+          <article class="wr-standard-card">
+            <div class="wr-std-header">
+              <span class="wr-std-roman">III</span>
+              <div class="wr-std-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+            </div>
+            <h4 class="wr-std-title">Немецкая лента Bandex & нити Gütermann</h4>
+            <p class="wr-std-desc">
+              Используем исключительно австрийско-немецкую корсажную тесьму Bandex с защитой от UV-разрушения и армированные нити Gütermann Mara 120 из Германии.
+            </p>
+            <div class="wr-std-tag">Срок службы ленты: 15+ лет без рассыхания</div>
+
+            <button type="button" class="wr-std-toggle" onclick="toggleStandardCard(this)">
+              <span>Технологический протокол</span> ↓
+            </button>
+            <div class="wr-std-details">
+              Дешевая китайская тесьма желтеет и трескается от солнца за 2 года. Bandex сохраняет упругость кордов даже при 100 стирках и интенсивном солнечном ультрафиолете.
+            </div>
+          </article>
+
+          <!-- Standard 4 -->
+          <article class="wr-standard-card">
+            <div class="wr-std-header">
+              <span class="wr-std-roman">IV</span>
+              <div class="wr-std-icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="7" y1="8" x2="17" y2="8"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="7" y1="16" x2="13" y2="16"/></svg>
+              </div>
+            </div>
+            <h4 class="wr-std-title">Индивидуальный техпаспорт на каждое окно</h4>
+            <p class="wr-std-desc">
+              Каждому комплекту присваивается несмываемый серийный номер партии, маркировка ткани, схема сборки складок и лист личной ответственности мастера ОТК.
+            </p>
+            <div class="wr-std-tag">1 год безусловной гарантии по ГОСТ РК</div>
+
+            <button type="button" class="wr-std-toggle" onclick="toggleStandardCard(this)">
+              <span>Технологический протокол</span> ↓
+            </button>
+            <div class="wr-std-details">
+              В паспорте фиксируются артикул фабрики, параметры усадки, дата ВТО и персональная роспись ведущего технолога Марал.
+            </div>
+          </article>
+
+          <!-- Standard 5 -->
+          <article class="wr-standard-card">
+            <div class="wr-std-header">
+              <span class="wr-std-roman">V</span>
+              <div class="wr-std-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+            </div>
+            <h4 class="wr-std-title">Влажно-тепловая декатировка при 140°C ДО пошива</h4>
+            <p class="wr-std-desc">
+              100% натуральных и смесовых тканей (лен, шерсть, хлопок, шелк) проходят принудительную термоусадку сухим паром Lelit при давлении 4.5 Bar ДО первого разреза.
+            </p>
+            <div class="wr-std-tag">Нулевая усадка на окне клиента (0%)</div>
+
+            <button type="button" class="wr-std-toggle" onclick="toggleStandardCard(this)">
+              <span>Технологический протокол</span> ↓
+            </button>
+            <div class="wr-std-details">
+              Если сшить штору без декатировки, после первой же влажной чистки полотно укоротится на 5–12 см («подстреленные шторы»). Мы исключаем этот риск на 100%.
+            </div>
+          </article>
+
+          <!-- Standard 6 -->
+          <article class="wr-standard-card">
+            <div class="wr-std-header">
+              <span class="wr-std-roman">VI</span>
+              <div class="wr-std-icon">
+                <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </div>
+            </div>
+            <h4 class="wr-std-title">Формовка и термофиксация складок на весу</h4>
+            <p class="wr-std-desc">
+              Готовое изделие вывешивается на технологическом высотном стенде цеха, формуется в канонические складки 1:2.0 или 1:2.5 и пропаривается вертикально парогенератором.
+            </p>
+            <div class="wr-std-tag">Эффект «Memory Fold»: вечная волна</div>
+
+            <button type="button" class="wr-std-toggle" onclick="toggleStandardCard(this)">
+              <span>Технологический протокол</span> ↓
+            </button>
+            <div class="wr-std-details">
+              Ткань запоминает заданную волну на молекулярном уровне. Даже при ежедневном раздвижении штор складки сохраняют безупречный архитектурный ритм.
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 5. Curated Atelier Photo Gallery -->
+      <section class="wr-gallery-section" id="workshop-gallery">
+        <div class="wr-section-subhead">
+          <span class="wr-subhead-kicker">ФОТОХРОНИКА МАНУФАКТУРЫ</span>
+          <h3 class="wr-subhead-title">Атмосфера цеха в деталях</h3>
+          <p class="wr-subhead-desc">
+            Нажмите на любую фотографию для детального осмотра оборудования, рабочих столов и макро-стежков наших мастеров.
+          </p>
+        </div>
+
+        <div class="wr-gallery-grid">
+          
+          <!-- Photo 1: Big Atelier Floor (Span 2 col) -->
+          <div class="wr-gallery-item span-2-col" onclick="openLightboxImage('assets/muar/strength-4-atelier.webp', 'Главный раскройный зал цеха MUAR A в Астане (350 м²)')">
+            <img src="assets/muar/strength-4-atelier.webp" alt="Главный раскройный цех MUAR A" class="wr-gallery-img" loading="eager">
+            <div class="wr-gallery-overlay">
+              <span class="wr-gallery-badge">ПРОИЗВОДСТВЕННЫЙ ЗАЛ · 350 М²</span>
+              <h5 class="wr-gallery-caption">Технологические столы раскроя и станки Dürkopp Adler</h5>
+            </div>
+            <div class="wr-gallery-zoom-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <!-- Photo 2: Master Zhanar portrait -->
+          <div class="wr-gallery-item" onclick="openLightboxImage('assets/muar/craft-zhanar.webp', 'Мастер Жанар за швейным станком (стаж 20+ лет)')">
+            <img src="assets/muar/craft-zhanar.webp" alt="Мастер Жанар в цехе" class="wr-gallery-img" loading="eager">
+            <div class="wr-gallery-overlay">
+              <span class="wr-gallery-badge">МАСТЕР ШИТЬЯ</span>
+              <h5 class="wr-gallery-caption">Жанар: работа с королевским бархатом</h5>
+            </div>
+            <div class="wr-gallery-zoom-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <!-- Photo 3: Master Maral portrait -->
+          <div class="wr-gallery-item" onclick="openLightboxImage('assets/muar/craft-maral.webp', 'Мастер Марал: ювелирный контроль складки')">
+            <img src="assets/muar/craft-maral.webp" alt="Мастер Марал в цехе" class="wr-gallery-img" loading="eager">
+            <div class="wr-gallery-overlay">
+              <span class="wr-gallery-badge">ТЕХНОЛОГ ВТО</span>
+              <h5 class="wr-gallery-caption">Марал: паровая формовка складок</h5>
+            </div>
+            <div class="wr-gallery-zoom-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <!-- Photo 4: Sewing School (Span 2 row) -->
+          <div class="wr-gallery-item span-2-row" onclick="openLightboxImage('assets/muar/strength-6-school.webp', 'Школа швейного мастерства MUAR A — передача кутюрных традиций')">
+            <img src="assets/muar/strength-6-school.webp" alt="Школа швейного мастерства MUAR A" class="wr-gallery-img" loading="eager">
+            <div class="wr-gallery-overlay">
+              <span class="wr-gallery-badge">ШКОЛА МАСТЕРСТВА</span>
+              <h5 class="wr-gallery-caption">Обучение текстильных декораторов Казахстана стандартам кутюра</h5>
+            </div>
+            <div class="wr-gallery-zoom-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <!-- Photo 5: Macro Cushions Stitch -->
+          <div class="wr-gallery-item" onclick="openLightboxImage('assets/muar/residence-cushions-macro.webp', 'Макро-геометрия ручного потайного стежка декоративных подушек')">
+            <img src="assets/muar/residence-cushions-macro.webp" alt="Макро-стежки цеха MUAR A" class="wr-gallery-img" loading="eager">
+            <div class="wr-gallery-overlay">
+              <span class="wr-gallery-badge">РУЧНОЙ СТЕЖОК</span>
+              <h5 class="wr-gallery-caption">Макро-детализация потайного шва</h5>
+            </div>
+            <div class="wr-gallery-zoom-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <!-- Photo 6: Hand-Made Trim Detail -->
+          <div class="wr-gallery-item" onclick="openLightboxImage('assets/muar/case-seken-trim.webp', 'Басонный декоративный кант ручной работы (проект Зарины Секен)')">
+            <img src="assets/muar/case-seken-trim.webp" alt="Басонный кант ручной работы" class="wr-gallery-img" loading="eager">
+            <div class="wr-gallery-overlay">
+              <span class="wr-gallery-badge">БАСОННЫЙ КАНТ</span>
+              <h5 class="wr-gallery-caption">Ручная посадка бахромы и кистей</h5>
+            </div>
+            <div class="wr-gallery-zoom-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+          <!-- Photo 7: Quality Marks & GOST (Span 2 col) -->
+          <div class="wr-gallery-item span-2-col" onclick="openLightboxImage('assets/muar/strength-7-gost.webp', 'Официальные стандарты ГОСТ РК и система контроля качества цеха')">
+            <img src="assets/muar/strength-7-gost.webp" alt="Стандарты ГОСТ и сертификаты" class="wr-gallery-img" loading="eager">
+            <div class="wr-gallery-overlay">
+              <span class="wr-gallery-badge">ОТК & СЕРТИФИКАЦИЯ</span>
+              <h5 class="wr-gallery-caption">Система 12 контрольных точек проверки каждого изделия</h5>
+            </div>
+            <div class="wr-gallery-zoom-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. Provenance & Factory Trust Plaque -->
+      <div class="wr-trust-plaque">
+        <div class="wr-plaque-content">
+          <span class="wr-plaque-kicker">ОФИЦИАЛЬНОЕ ПРОИЗВОДСТВО В АСТАНЕ</span>
+          <h3 class="wr-plaque-title">Приглашаем на персональную экскурсию в наш цех</h3>
+          <p class="wr-plaque-desc">
+            Мы открыто демонстрируем технологию архитекторам, дизайнерам интерьера и владельцам резиденций. Приезжайте, чтобы лично убедиться в точности раскройных столов, чистоте швейных постов и высочайшем классе мастеров.
+          </p>
+
+          <div class="wr-address-block">
+            <div class="wr-address-line">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              <span><strong>ТОО «KazTextileА» (MUAR A)</strong> · БИН 140940019744</span>
+            </div>
+            <div class="wr-address-line">
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg>
+              <span>г. Астана, район Есиль, ул. Керей, Жәнибек хандар, д. 50/1, ВП 18</span>
+            </div>
+            <div class="wr-address-line">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Режим работы: Пн–Сб 09:00–19:00 · Вс по предварительной записи</span>
+            </div>
+          </div>
+
+          <div class="wr-plaque-actions">
+            <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%D0%BF%D1%80%D1%8F%D0%BC%D1%83%D1%8E%20%D0%BD%D0%B0%20%D1%8D%D0%BA%D1%81%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8E%20%D0%B2%20%D1%88%D0%B2%D0%B5%D0%B9%D0%BD%D1%8B%D0%B9%20%D1%86%D0%B5%D1%85%20MUAR%20A%20%D0%B2%20%D0%90%D1%81%D1%82%D0%B0%D0%BD%D0%B5." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="wr-btn-gold-solid">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+              <span>Записаться на экскурсию в цех</span>
+            </a>
+            
+            <a href="tel:+77710551515" class="wr-btn-outline-gold" style="width: auto; padding: 14px 24px;">
+              <span>+7 (771) 055-15-15</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Certificate Box -->
+        <div class="wr-cert-box">
+          <img 
+            src="assets/muar/certificate_eaeu.webp" 
+            alt="Официальная Декларация о соответствии ЕАЭС MUAR A" 
+            class="wr-cert-preview" 
+            onclick="openLightboxImage('assets/muar/certificate_eaeu.webp', 'Декларация о соответствии Евразийского экономического союза (ЕАЭС)')"
+            onerror="this.src='assets/muar/strength-7-gost.webp'">
+          <div class="wr-cert-label">ДЕКЛАРАЦИЯ ЕАЭС</div>
+          <div class="wr-cert-sub">
+            № ЕАЭС N RU Д-KZ.РА01.В.79282<br>
+            Официальное подтверждение стандартов безопасности и пошива
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CINEMA & LIGHTBOX MODAL DIALOG
+       ======================================================================== -->
+  <div class="wr-cinema-modal" id="wrCinemaModal" onclick="closeCinemaModal(event)" role="dialog" aria-modal="true" aria-label="Медиапросмотр">
+    <div class="wr-modal-dialog" onclick="event.stopPropagation()">
+      <button type="button" class="wr-modal-close-btn" onclick="closeCinemaModal(null)" aria-label="Закрыть окно">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div class="wr-modal-media-wrap" id="wrModalMediaWrap">
+        <!-- Injected Video or Image -->
+      </div>
+
+      <div class="wr-modal-footer">
+        <div>
+          <div class="wr-modal-meta-kicker" id="wrModalKicker">ЭКСПОНАТ ЦЕХА MUAR A</div>
+          <h4 class="wr-modal-meta-title" id="wrModalTitle">Название экспоната</h4>
+        </div>
+        <div>
+          <span style="font-family: var(--wr-font-mono); font-size: 0.76rem; color: var(--wr-gold-light);">ESC ДЛЯ ВЫХОДА</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       WORKROOM INTERACTIVE LOGIC
+       ======================================================================== -->
+  <script>
+    (function() {
+      // Reel data registry
+      var REEL_DATA = {
+        'zhanar': {
+          title: 'Жанар: Песня души и безупречная строчка',
+          desc: 'В швейном цехе MUAR A царит особая медитативная аура. Старший мастер индивидуального пошива Жанар во время работы над сложнейшими тканями поет старинные казахские напевы. Ритм ее голоса и дыхания синхронизируется с ходом иглы немецкого станка Dürkopp Adler, превращая каждый метр портьеры в одушевленное произведение кутюра.',
+          quote: '«Когда ты шьешь шелк или тяжелый бархат с песней в сердце — ткань перестает сопротивляться. Нить ложится мягко, шов никогда не стягивается, а в доме, куда придут эти шторы, поселяется мир и благополучие».',
+          author: 'Жанар · Старший мастер индивидуального пошива (стаж 20+ лет)',
+          videoSrc: 'assets/muar/zhanar-singing.mp4',
+          poster: 'assets/muar/craft-zhanar-poster.jpg',
+          soundLabel: 'ЖИВОЙ ГОЛОС ЦЕХА · ЖАНАР',
+          duration: '04:09'
+        },
+        'maral': {
+          title: 'Марал: Искусство ручной складки и ВТО',
+          desc: 'Главный технолог производства Марал со стажем 25 лет демонстрирует филигранную французскую тройную складку с коэффициентом 1:2.0, закрытый потайной шов нитями Gütermann (Германия) и нижний подгиб 10 см со скрытыми свинцовыми грузиками.',
+          quote: '«Настоящее качество шторы видно с изнанки. Когда ткань падает в пол монументальной волной, а с лица незаметен ни один стежок — только тогда изделие имеет право покинуть наш цех и украсить ваш дом».',
+          author: 'Марал · Главный технолог производства (стаж 25 лет)',
+          videoSrc: 'assets/muar/craft-maral.mp4',
+          poster: 'assets/muar/craft-maral-poster.jpg',
+          soundLabel: 'ПАРОГЕНЕРАТОР LELIT 140°C · МАРАЛ',
+          duration: '01:10'
+        },
+        'journey': {
+          title: 'Путь изделия: от лазера до скульптурного пара',
+          desc: 'Полный технологический регламент заказа под ключ в Астане: лазерный замер окна, текстильный сценарий декоратора, паровая декатировка полотен при 140°C ДО раскроя, цеховой пошив и финальное вертикальное отпаривание на объекте.',
+          quote: '«Цех — это не просто станки. Это строжайшая дисциплина миллиметров, когда каждый шов выверен по нити основы, а полотно сохраняет первозданную геометрию годами».',
+          author: 'Регламент ОТК текстильного дома MUAR A',
+          videoSrc: 'assets/muar/order-journey.mp4',
+          poster: 'assets/muar/order-journey-poster.jpg',
+          soundLabel: 'ТЕХНОЛОГИЧЕСКИЙ РЕГЛАМЕНТ · ОТК',
+          duration: '01:31'
+        }
+      };
+
+      var heroVideo = document.getElementById('wrHeroVideo');
+      var theaterCard = document.getElementById('wrTheaterCard');
+      var timelineFill = document.getElementById('wrTimelineFill');
+      var timecodeText = document.getElementById('wrTimecodeText');
+      var playIcon = document.getElementById('wrPlayIcon');
+      var pauseIcon = document.getElementById('wrPauseIcon');
+      var volumeHighIcon = document.getElementById('wrVolumeHighIcon');
+      var volumeMuteIcon = document.getElementById('wrVolumeMuteIcon');
+
+      // Helper: Format Seconds to MM:SS
+      function formatTime(sec) {
+        if (isNaN(sec) || !isFinite(sec)) return '00:00';
+        var m = Math.floor(sec / 60);
+        var s = Math.floor(sec % 60);
+        return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      }
+
+      // Toggle Play/Pause for Hero Video
+      window.toggleHeroVideoPlay = function() {
+        if (!heroVideo) return;
+        if (heroVideo.paused) {
+          heroVideo.play().then(function() {
+            theaterCard.classList.add('is-playing');
+            if (playIcon) playIcon.style.display = 'none';
+            if (pauseIcon) pauseIcon.style.display = 'block';
+          }).catch(function(e) {
+            console.warn('Auto-play blocked or error:', e);
+          });
+        } else {
+          heroVideo.pause();
+          theaterCard.classList.remove('is-playing');
+          if (playIcon) playIcon.style.display = 'block';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+        }
+      };
+
+      // Toggle Mute
+      window.toggleHeroVideoMute = function() {
+        if (!heroVideo) return;
+        heroVideo.muted = !heroVideo.muted;
+        if (heroVideo.muted) {
+          if (volumeHighIcon) volumeHighIcon.style.display = 'none';
+          if (volumeMuteIcon) volumeMuteIcon.style.display = 'block';
+        } else {
+          if (volumeHighIcon) volumeHighIcon.style.display = 'block';
+          if (volumeMuteIcon) volumeMuteIcon.style.display = 'none';
+        }
+      };
+
+      // Seek Video on Timeline Click
+      window.seekHeroVideo = function(e) {
+        if (!heroVideo || !heroVideo.duration) return;
+        var slider = document.getElementById('wrTimelineSlider');
+        var rect = slider.getBoundingClientRect();
+        var pos = (e.clientX - rect.left) / rect.width;
+        pos = Math.max(0, Math.min(1, pos));
+        heroVideo.currentTime = pos * heroVideo.duration;
+      };
+
+      // Video Timeupdate Listener
+      if (heroVideo) {
+        heroVideo.addEventListener('timeupdate', function() {
+          if (!heroVideo.duration) return;
+          var pct = (heroVideo.currentTime / heroVideo.duration) * 100;
+          if (timelineFill) timelineFill.style.width = pct + '%';
+          if (timecodeText) {
+            timecodeText.textContent = formatTime(heroVideo.currentTime) + ' / ' + formatTime(heroVideo.duration);
+          }
+        });
+
+        heroVideo.addEventListener('ended', function() {
+          theaterCard.classList.remove('is-playing');
+          if (playIcon) playIcon.style.display = 'block';
+          if (pauseIcon) pauseIcon.style.display = 'none';
+        });
+      }
+
+      // Switch Workshop Reel
+      window.switchWorkshopReel = function(reelKey, tabEl) {
+        var data = REEL_DATA[reelKey];
+        if (!data || !heroVideo) return;
+
+        // Update active tab
+        var allTabs = document.querySelectorAll('.wr-reel-tab');
+        allTabs.forEach(function(t) { t.classList.remove('is-active'); });
+        if (tabEl) tabEl.classList.add('is-active');
+
+        // Pause currently playing video
+        heroVideo.pause();
+        theaterCard.classList.remove('is-playing');
+        if (playIcon) playIcon.style.display = 'block';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+
+        // Update video sources
+        heroVideo.src = data.videoSrc;
+        heroVideo.poster = data.poster;
+        heroVideo.load();
+
+        // Update Text
+        document.getElementById('wrStoryTitle').textContent = data.title;
+        document.getElementById('wrStoryDesc').textContent = data.desc;
+        document.getElementById('wrQuoteText').textContent = data.quote;
+        document.getElementById('wrQuoteAuthor').textContent = data.author;
+        document.getElementById('wrSoundChipText').textContent = data.soundLabel;
+        document.getElementById('wrDurationPill').textContent = data.duration;
+        document.getElementById('wrTimecodeText').textContent = '00:00 / ' + data.duration;
+        if (timelineFill) timelineFill.style.width = '0%';
+      };
+
+      // Toggle Craft Standard Card Details
+      window.toggleStandardCard = function(btn) {
+        var card = btn.closest('.wr-standard-card');
+        if (!card) return;
+        var isExpanded = card.classList.toggle('is-expanded');
+        var span = btn.querySelector('span');
+        if (span) {
+          span.textContent = isExpanded ? 'Скрыть протокол' : 'Технологический протокол';
+        }
+      };
+
+      // Modal Dialog Logic
+      var modal = document.getElementById('wrCinemaModal');
+      var modalMediaWrap = document.getElementById('wrModalMediaWrap');
+      var modalTitle = document.getElementById('wrModalTitle');
+      var modalKicker = document.getElementById('wrModalKicker');
+
+      window.openCinemaModal = function(videoSrc, title) {
+        if (!modal || !modalMediaWrap) return;
+        modalMediaWrap.innerHTML = `
+          <video 
+            class="wr-modal-video" 
+            controls 
+            autoplay 
+            playsinline 
+            src="${videoSrc}">
+            <source src="${videoSrc}" type="video/mp4">
+          </video>
+        `;
+        if (modalTitle) modalTitle.textContent = title || 'Кинохроника цеха MUAR A';
+        if (modalKicker) modalKicker.textContent = 'ВИДЕОЭКСПОНАТ · THE WORKROOM';
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+
+        // Pause hero video if it was playing
+        if (heroVideo && !heroVideo.paused) {
+          window.toggleHeroVideoPlay();
+        }
+      };
+
+      window.openLightboxImage = function(imgSrc, title) {
+        if (!modal || !modalMediaWrap) return;
+        modalMediaWrap.innerHTML = `
+          <img class="wr-modal-img" src="${imgSrc}" alt="${title}">
+        `;
+        if (modalTitle) modalTitle.textContent = title || 'Экспонат цеха MUAR A';
+        if (modalKicker) modalKicker.textContent = 'ФОТОХРОНИКА · ВЫСОКОЕ РАЗРЕШЕНИЕ';
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeCinemaModal = function(e) {
+        if (e && e.target !== modal && !e.target.closest('.wr-modal-close-btn')) {
+          return;
+        }
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+        if (modalMediaWrap) {
+          var modalVid = modalMediaWrap.querySelector('video');
+          if (modalVid) modalVid.pause();
+          modalMediaWrap.innerHTML = '';
+        }
+      };
+
+      // Keyboard Esc to Close Modal
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('is-open')) {
+          window.closeCinemaModal(null);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

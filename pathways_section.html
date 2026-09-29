@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>MUAR A · Клиентские маршруты B2C & B2B · Текстильный дом Астаны</title>
+  <meta name="description" content="Два клиентских маршрута студии MUAR A: 6 выверенных этапов частного текстильного оформления (B2C) и специализированный портал для архитекторов, девелоперов и отелей с НДС 12% (B2B, ТОО «KazTextileА»).">
+  
+  <!-- Canonical Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       MUAR A · DUAL PATHWAY ARCHITECTURE (B2C & B2B)
+       Quiet Luxury Design Tokens & Editorial System
+       ========================================================================== */
+    :root {
+      /* Surfaces */
+      --pw-bg-canvas: #FAF8F5;
+      --pw-bg-subtle: #F4EFEB;
+      --pw-bg-surface: #FFFFFF;
+      --pw-bg-elevated: #FFFFFF;
+      
+      /* Dark Obsidian Palette */
+      --pw-noir-deep: #131211;
+      --pw-noir-surface: #1A1817;
+      --pw-noir-card: #201E1C;
+      --pw-noir-elevated: #2A2624;
+      
+      /* Precious Metals */
+      --pw-gold-primary: #C5A069;
+      --pw-gold-deep: #9E7B42;
+      --pw-gold-light: #DFC598;
+      --pw-gold-sheen: linear-gradient(135deg, #DFC598 0%, #C5A069 50%, #9E7B42 100%);
+      --pw-gold-soft: rgba(197, 160, 105, 0.12);
+      
+      /* Borders & Hairlines */
+      --pw-border-silk: 1px solid rgba(197, 160, 105, 0.25);
+      --pw-border-subtle: 1px solid rgba(19, 18, 17, 0.08);
+      --pw-border-noir: 1px solid rgba(255, 255, 255, 0.10);
+      --pw-border-active: 1px solid rgba(197, 160, 105, 0.65);
+      
+      /* Typography */
+      --pw-font-serif: 'Cormorant Garamond', Georgia, serif;
+      --pw-font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      --pw-font-mono: 'JetBrains Mono', monospace;
+      
+      --pw-text-noir: #131211;
+      --pw-text-secondary: #4A4540;
+      --pw-text-muted: #7E776F;
+      --pw-text-gold: #9E7B42;
+      --pw-text-light: #FAF8F5;
+      --pw-text-light-muted: rgba(250, 248, 245, 0.65);
+      
+      /* Elevations & Radii */
+      --pw-radius-sm: 8px;
+      --pw-radius-md: 14px;
+      --pw-radius-lg: 20px;
+      --pw-radius-pill: 9999px;
+      --pw-shadow-card: 0 10px 30px rgba(19, 18, 17, 0.04), 0 1px 3px rgba(197, 160, 105, 0.08);
+      --pw-shadow-hover: 0 18px 45px rgba(19, 18, 17, 0.09), 0 4px 12px rgba(197, 160, 105, 0.18);
+      --pw-transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--pw-bg-canvas);
+      color: var(--pw-text-noir);
+      font-family: var(--pw-font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 40px 16px;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        padding: 60px 24px;
+      }
+    }
+
+    /* Outer Wrapper Container */
+    .pathways-section-wrapper {
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+
+    /* Section Header */
+    .pw-header-center {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto 36px;
+    }
+
+    .pw-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--pw-font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pw-text-gold);
+      margin-bottom: 12px;
+      padding: 4px 14px;
+      background: var(--pw-gold-soft);
+      border: var(--pw-border-silk);
+      border-radius: var(--pw-radius-pill);
+    }
+
+    .pw-title {
+      font-family: var(--pw-font-serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.12;
+      color: var(--pw-text-noir);
+      letter-spacing: -0.015em;
+      margin-bottom: 16px;
+    }
+
+    .pw-title em {
+      font-style: italic;
+      color: var(--pw-gold-deep);
+      font-weight: 400;
+    }
+
+    .pw-subtitle {
+      font-family: var(--pw-font-sans);
+      font-size: clamp(1rem, 1.2vw, 1.15rem);
+      color: var(--pw-text-secondary);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    /* ==========================================================================
+       MASTER SWITCHER: THE TWO DOORS (ДВЕ ДВЕРИ)
+       ========================================================================== */
+    .pw-switcher-container {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 48px;
+    }
+
+    .pw-switcher-track {
+      background: #EBE5DD;
+      padding: 6px;
+      border-radius: var(--pw-radius-pill);
+      display: inline-flex;
+      position: relative;
+      border: 1px solid rgba(197, 160, 105, 0.35);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .pw-tab-btn {
+      position: relative;
+      z-index: 2;
+      border: none;
+      background: transparent;
+      padding: 14px 28px;
+      border-radius: var(--pw-radius-pill);
+      cursor: pointer;
+      font-family: var(--pw-font-sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--pw-text-secondary);
+      transition: var(--pw-transition);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .pw-tab-btn:hover {
+      color: var(--pw-text-noir);
+    }
+
+    .pw-tab-btn.active {
+      color: var(--pw-noir-deep);
+      background: var(--pw-bg-surface);
+      box-shadow: 0 4px 18px rgba(19, 18, 17, 0.12), 0 1px 3px rgba(197, 160, 105, 0.2);
+    }
+
+    .pw-tab-badge {
+      font-family: var(--pw-font-mono);
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: var(--pw-radius-pill);
+      background: rgba(19, 18, 17, 0.06);
+      color: var(--pw-text-secondary);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: var(--pw-transition);
+    }
+
+    .pw-tab-btn.active .pw-tab-badge {
+      background: var(--pw-gold-soft);
+      color: var(--pw-gold-deep);
+      border: 1px solid rgba(197, 160, 105, 0.3);
+    }
+
+    .pw-tab-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* Tab Panels */
+    .pw-panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .pw-panel.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       B2C PATHWAY: 6 EXACT STEPS GRID
+       ========================================================================== */
+    .b2c-flow-banner {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FAF6F0 100%);
+      border: var(--pw-border-silk);
+      border-radius: var(--pw-radius-lg);
+      padding: 24px 32px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: var(--pw-shadow-card);
+    }
+
+    .b2c-flow-banner-info {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .b2c-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--pw-gold-primary);
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(197, 160, 105, 0.25);
+    }
+
+    .b2c-flow-quote {
+      font-size: 0.95rem;
+      color: var(--pw-text-noir);
+      line-height: 1.5;
+    }
+
+    .b2c-flow-quote strong {
+      font-weight: 700;
+      color: var(--pw-gold-deep);
+    }
+
+    .b2c-flow-quote span {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--pw-text-muted);
+      margin-top: 2px;
+      font-family: var(--pw-font-mono);
+    }
+
+    .b2c-banner-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .b2c-tag-pill {
+      font-family: var(--pw-font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 6px 12px;
+      background: var(--pw-bg-surface);
+      border: 1px solid rgba(197, 160, 105, 0.3);
+      border-radius: var(--pw-radius-pill);
+      color: var(--pw-text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 6 Steps Grid */
+    .b2c-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 640px) {
+      .b2c-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .b2c-steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Step Card */
+    .b2c-step-card {
+      background: var(--pw-bg-surface);
+      border: var(--pw-border-subtle);
+      border-radius: var(--pw-radius-lg);
+      padding: 32px 28px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--pw-shadow-card);
+      transition: var(--pw-transition);
+      overflow: hidden;
+    }
+
+    .b2c-step-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--pw-gold-sheen);
+      opacity: 0;
+      transition: var(--pw-transition);
+    }
+
+    .b2c-step-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--pw-shadow-hover);
+      border-color: rgba(197, 160, 105, 0.4);
+    }
+
+    .b2c-step-card:hover::before {
+      opacity: 1;
+    }
+
+    .b2c-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .b2c-step-number {
+      font-family: var(--pw-font-mono);
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+      color: #E2DBD2;
+      transition: var(--pw-transition);
+    }
+
+    .b2c-step-card:hover .b2c-step-number {
+      color: var(--pw-gold-primary);
+    }
+
+    .b2c-step-badge {
+      font-family: var(--pw-font-mono);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      background: var(--pw-bg-subtle);
+      border: 1px solid rgba(197, 160, 105, 0.25);
+      border-radius: var(--pw-radius-pill);
+      color: var(--pw-text-gold);
+    }
+
+    .b2c-step-title {
+      font-family: var(--pw-font-serif);
+      font-size: 1.45rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--pw-text-noir);
+      margin-bottom: 12px;
+    }
+
+    .b2c-step-essence {
+      font-size: 0.92rem;
+      color: var(--pw-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* Key bullet points of each step */
+    .b2c-step-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-top: 1px dashed rgba(197, 160, 105, 0.2);
+      padding-top: 16px;
+    }
+
+    .b2c-bullet-item {
+      font-size: 0.85rem;
+      color: var(--pw-text-secondary);
+      line-height: 1.45;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .b2c-bullet-dot {
+      color: var(--pw-gold-deep);
+      font-size: 0.9rem;
+      line-height: 1;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Accordion / Expandable details */
+    .b2c-accordion-toggle {
+      border: none;
+      background: transparent;
+      padding: 8px 0;
+      color: var(--pw-gold-deep);
+      font-family: var(--pw-font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      border-top: 1px solid rgba(19, 18, 17, 0.05);
+      transition: var(--pw-transition);
+    }
+
+    .b2c-accordion-toggle:hover {
+      color: var(--pw-text-noir);
+    }
+
+    .b2c-accordion-arrow {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s ease;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .b2c-accordion-toggle.expanded .b2c-accordion-arrow {
+      transform: rotate(180deg);
+    }
+
+    .b2c-accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+      font-size: 0.82rem;
+      color: var(--pw-text-secondary);
+      line-height: 1.55;
+      background: var(--pw-bg-subtle);
+      border-radius: var(--pw-radius-sm);
+      margin-top: 8px;
+    }
+
+    .b2c-accordion-content.expanded {
+      max-height: 260px;
+      opacity: 1;
+      padding: 12px 14px;
+    }
+
+    /* Card Footer Artifact */
+    .b2c-card-artifact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(19, 18, 17, 0.06);
+      font-size: 0.75rem;
+      font-family: var(--pw-font-mono);
+      color: var(--pw-text-muted);
+    }
+
+    .b2c-artifact-icon {
+      width: 14px;
+      height: 14px;
+      color: var(--pw-gold-deep);
+      flex-shrink: 0;
+    }
+
+    /* B2C Bottom Action Callout */
+    .b2c-bottom-cta {
+      background: var(--pw-noir-deep);
+      color: var(--pw-text-light);
+      border-radius: var(--pw-radius-lg);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+      border: var(--pw-border-noir);
+    }
+
+    @media (min-width: 900px) {
+      .b2c-bottom-cta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .b2c-cta-text h4 {
+      font-family: var(--pw-font-serif);
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: var(--pw-text-light);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .b2c-cta-text h4 em {
+      font-style: italic;
+      color: var(--pw-gold-light);
+    }
+
+    .b2c-cta-text p {
+      font-size: 0.92rem;
+      color: var(--pw-text-light-muted);
+      max-width: 600px;
+      line-height: 1.5;
+    }
+
+    .b2c-cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-gold-couture {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--pw-gold-sheen);
+      color: #131211;
+      padding: 14px 26px;
+      border-radius: var(--pw-radius-pill);
+      font-family: var(--pw-font-sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--pw-transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(197, 160, 105, 0.35);
+    }
+
+    .btn-gold-couture:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(197, 160, 105, 0.5);
+      filter: brightness(1.05);
+    }
+
+    .btn-glass-subtle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--pw-text-light);
+      padding: 14px 22px;
+      border-radius: var(--pw-radius-pill);
+      font-family: var(--pw-font-sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: var(--pw-transition);
+      cursor: pointer;
+    }
+
+    .btn-glass-subtle:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(197, 160, 105, 0.5);
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       B2B PATHWAY: CORPORATE PORTAL
+       ========================================================================== */
+    .b2b-credentials-strip {
+      background: var(--pw-noir-surface);
+      border: var(--pw-border-noir);
+      border-radius: var(--pw-radius-lg);
+      padding: 24px 30px;
+      margin-bottom: 32px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      color: var(--pw-text-light);
+    }
+
+    @media (min-width: 640px) {
+      .b2b-credentials-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .b2b-credentials-strip {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .b2b-cred-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-left: 2px solid var(--pw-gold-primary);
+      padding-left: 16px;
+    }
+
+    .b2b-cred-label {
+      font-family: var(--pw-font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pw-gold-light);
+    }
+
+    .b2b-cred-val {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--pw-text-light);
+      line-height: 1.3;
+    }
+
+    .b2b-cred-note {
+      font-size: 0.78rem;
+      color: var(--pw-text-light-muted);
+    }
+
+    /* B2B 4-Pillars Grid */
+    .b2b-pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    @media (min-width: 800px) {
+      .b2b-pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .b2b-card {
+      background: var(--pw-bg-surface);
+      border: var(--pw-border-subtle);
+      border-radius: var(--pw-radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--pw-shadow-card);
+      transition: var(--pw-transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .b2b-card:hover {
+      border-color: rgba(197, 160, 105, 0.45);
+      box-shadow: var(--pw-shadow-hover);
+      transform: translateY(-4px);
+    }
+
+    .b2b-card-badge {
+      font-family: var(--pw-font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      background: var(--pw-gold-soft);
+      border: 1px solid rgba(197, 160, 105, 0.3);
+      border-radius: var(--pw-radius-pill);
+      color: var(--pw-gold-deep);
+      display: inline-block;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .b2b-card-title {
+      font-family: var(--pw-font-serif);
+      font-size: 1.65rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--pw-text-noir);
+      margin-bottom: 14px;
+    }
+
+    .b2b-card-desc {
+      font-size: 0.92rem;
+      color: var(--pw-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
+
+    .b2b-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .b2b-feature-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: var(--pw-text-secondary);
+      line-height: 1.45;
+    }
+
+    .b2b-feature-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--pw-gold-deep);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* B2B Samples Box Card Highlight */
+    .b2b-card.highlight-samples {
+      background: linear-gradient(135deg, #1C1A18 0%, #131211 100%);
+      color: var(--pw-text-light);
+      border: 1px solid rgba(197, 160, 105, 0.4);
+    }
+
+    .b2b-card.highlight-samples .b2b-card-title {
+      color: var(--pw-text-light);
+    }
+
+    .b2b-card.highlight-samples .b2b-card-desc {
+      color: var(--pw-text-light-muted);
+    }
+
+    .b2b-card.highlight-samples .b2b-feature-row {
+      color: var(--pw-text-light-muted);
+    }
+
+    /* B2B Engineering Matrix */
+    .b2b-matrix-wrap {
+      background: var(--pw-bg-surface);
+      border: var(--pw-border-subtle);
+      border-radius: var(--pw-radius-lg);
+      padding: 32px 28px;
+      margin-bottom: 40px;
+      box-shadow: var(--pw-shadow-card);
+    }
+
+    .b2b-matrix-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid rgba(19, 18, 17, 0.08);
+    }
+
+    .b2b-matrix-title {
+      font-family: var(--pw-font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--pw-text-noir);
+    }
+
+    .b2b-matrix-sub {
+      font-size: 0.85rem;
+      color: var(--pw-text-muted);
+      font-family: var(--pw-font-mono);
+    }
+
+    .b2b-table-responsive {
+      overflow-x: auto;
+    }
+
+    .b2b-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .b2b-spec-table th {
+      font-family: var(--pw-font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--pw-gold-deep);
+      padding: 12px 14px;
+      background: var(--pw-bg-subtle);
+      border-bottom: 1px solid rgba(197, 160, 105, 0.25);
+    }
+
+    .b2b-spec-table td {
+      padding: 14px;
+      border-bottom: 1px solid rgba(19, 18, 17, 0.06);
+      color: var(--pw-text-secondary);
+      vertical-align: middle;
+    }
+
+    .b2b-spec-table tr:hover td {
+      background: rgba(197, 160, 105, 0.03);
+    }
+
+    .b2b-tag-km1 {
+      display: inline-block;
+      font-family: var(--pw-font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #B45309;
+      background: #FEF3C7;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #FDE68A;
+    }
+
+    /* B2B Legal & Quick Dispatcher */
+    .b2b-legal-card {
+      background: var(--pw-bg-surface);
+      border: var(--pw-border-silk);
+      border-radius: var(--pw-radius-lg);
+      padding: 32px;
+      box-shadow: var(--pw-shadow-card);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    @media (min-width: 900px) {
+      .b2b-legal-card {
+        grid-template-columns: 1.3fr 0.9fr;
+      }
+    }
+
+    .b2b-legal-left h4 {
+      font-family: var(--pw-font-serif);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--pw-text-noir);
+      margin-bottom: 12px;
+    }
+
+    .b2b-legal-left p {
+      font-size: 0.9rem;
+      color: var(--pw-text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .b2b-requisites-box {
+      background: var(--pw-bg-subtle);
+      border: 1px solid rgba(197, 160, 105, 0.25);
+      border-radius: var(--pw-radius-md);
+      padding: 16px 20px;
+      font-family: var(--pw-font-mono);
+      font-size: 0.8rem;
+      color: var(--pw-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .b2b-requisites-box strong {
+      color: var(--pw-text-noir);
+    }
+
+    .b2b-copy-btn {
+      background: transparent;
+      border: 1px dashed var(--pw-gold-deep);
+      color: var(--pw-gold-deep);
+      font-family: var(--pw-font-mono);
+      font-size: 0.74rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: var(--pw-radius-pill);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--pw-transition);
+    }
+
+    .b2b-copy-btn:hover {
+      background: var(--pw-gold-soft);
+      border-style: solid;
+    }
+
+    .b2b-action-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      background: #FAF6F0;
+      padding: 24px;
+      border-radius: var(--pw-radius-md);
+      border: 1px solid rgba(197, 160, 105, 0.25);
+    }
+
+    .b2b-action-title {
+      font-family: var(--pw-font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--pw-text-noir);
+      line-height: 1.3;
+    }
+
+    .b2b-action-note {
+      font-size: 0.82rem;
+      color: var(--pw-text-muted);
+      line-height: 1.45;
+    }
+
+    /* Toast Notification */
+    .pw-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--pw-noir-deep);
+      color: var(--pw-text-light);
+      padding: 12px 20px;
+      border-radius: var(--pw-radius-pill);
+      font-family: var(--pw-font-mono);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(197, 160, 105, 0.4);
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .pw-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Modal for Samples Box */
+    .pw-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 18, 17, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .pw-modal-overlay.open {
+      display: flex;
+    }
+
+    .pw-modal-card {
+      background: var(--pw-bg-surface);
+      border: var(--pw-border-silk);
+      border-radius: var(--pw-radius-lg);
+      max-width: 540px;
+      width: 100%;
+      padding: 36px 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .pw-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--pw-text-muted);
+      transition: var(--pw-transition);
+    }
+
+    .pw-modal-close:hover {
+      color: var(--pw-text-noir);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       COMPONENT ROOT: DUAL PATHWAY SECTION (B2C & B2B)
+       Can be embedded directly into index.html via <section id="customer-pathways">
+       ======================================================================== -->
+  <section class="pathways-section-wrapper" id="customer-pathways" aria-label="Клиентские маршруты MUAR A">
+    
+    <!-- Section Editorial Header -->
+    <header class="pw-header-center">
+      <span class="pw-kicker">✦ Архитектура Клиентского Опыта · Две Двери</span>
+      <h2 class="pw-title">
+        Два персонализированных маршрута:<br>
+        <em>Частные резиденции</em> или <em>Корпоративный дивизион</em>
+      </h2>
+      <p class="pw-subtitle">
+        Мы устранили шаблонные формы и непрозрачные наценки. Выберите ваш статус: прозрачный сервис полного цикла для частных интерьеров либо юридически защищенный портал для архитекторов и девелоперов.
+      </p>
+    </header>
+
+    <!-- Master Switcher: Segmented Control Tabs -->
+    <div class="pw-switcher-container">
+      <div class="pw-switcher-track" role="tablist" aria-label="Выбор профиля клиента">
+        
+        <button type="button" 
+                class="pw-tab-btn active" 
+                id="tab-btn-b2c" 
+                role="tab" 
+                aria-selected="true" 
+                aria-controls="panel-b2c"
+                onclick="switchPathwayTab('b2c')">
+          <svg class="pw-tab-icon" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Частные резиденции &amp; Пентхаусы</span>
+          <span class="pw-tab-badge">B2C · 6 этапов</span>
+        </button>
+
+        <button type="button" 
+                class="pw-tab-btn" 
+                id="tab-btn-b2b" 
+                role="tab" 
+                aria-selected="false" 
+                aria-controls="panel-b2b"
+                onclick="switchPathwayTab('b2b')">
+          <svg class="pw-tab-icon" viewBox="0 0 24 24">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          </svg>
+          <span>Архитекторы, Девелоперы &amp; Отели</span>
+          <span class="pw-tab-badge">B2B · НДС 12%</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         TAB PANEL 1: B2C CUSTOMER JOURNEY (6 EXACT STEPS)
+         ======================================================================== -->
+    <div class="pw-panel active" id="panel-b2c" role="tabpanel" aria-labelledby="tab-btn-b2c">
+      
+      <!-- Voice Insights Banner (Asengul's exact philosophy) -->
+      <div class="b2c-flow-banner">
+        <div class="b2c-flow-banner-info">
+          <div class="b2c-avatar-wrap">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: #131211; display:flex; align-items:center; justify-content:center; color: #DFC598; font-family: var(--pw-font-serif); font-size: 1.5rem; font-weight: 600; border: 2px solid var(--pw-gold-primary);">
+              А
+            </div>
+          </div>
+          <div class="b2c-flow-quote">
+            <strong>«Шторы — это архитектурное завершение дорогого ремонта»</strong>
+            <span>Асемгуль Омарова · Основатель MUAR A, Топ-30 текстильных декораторов СНГ</span>
+          </div>
+        </div>
+        <div class="b2c-banner-tags">
+          <span class="b2c-tag-pill">✦ Собственный цех 350 м²</span>
+          <span class="b2c-tag-pill">✦ Никаких швей-надомниц</span>
+          <span class="b2c-tag-pill">✦ Фиксация сметы в тенге</span>
+          <span class="b2c-tag-pill">✦ Пар Lelit 140°C</span>
+        </div>
+      </div>
+
+      <!-- 6 Sequential Steps Cards Grid -->
+      <div class="b2c-steps-grid">
+
+        <!-- STEP 01 -->
+        <article class="b2c-step-card">
+          <div>
+            <div class="b2c-card-top">
+              <span class="b2c-step-number">01</span>
+              <span class="b2c-step-badge">Старт &amp; Видео</span>
+            </div>
+            <h3 class="b2c-step-title">Анализ и видео-презентация</h3>
+            <p class="b2c-step-essence">
+              Отправьте дизайн-проект, рендеры или просто фото окон со смартфона. Мы не навязываем шаблонные решения, а глубоко анализируем архитектуру пространства.
+            </p>
+            <ul class="b2c-step-bullets">
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Оценка освещенности, высоты потолков и пропорций эркеров;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Подбор европейских фактур (бельгийский шенилл, итальянский бархат, шелк, французский лен);</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Персональное <strong>видео-обоснование</strong> в живом свете с демонстрацией пластики складок и предварительным расчетом.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="b2c-accordion-toggle" onclick="toggleStepAccordion(this)">
+              <span>Стандарты этапа #01</span>
+              <svg class="b2c-accordion-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="b2c-accordion-content">
+              Клиент видит реальные образцы ткани в естественном свете на видео еще до выезда на объект. Это экономит время деловых людей и исключает ошибку выбора оттенка по экрану смартфона.
+            </div>
+            <div class="b2c-card-artifact">
+              <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+              <span>Артефакт: Видео-разбор + предварительная смета</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 02 -->
+        <article class="b2c-step-card">
+          <div>
+            <div class="b2c-card-top">
+              <span class="b2c-step-number">02</span>
+              <span class="b2c-step-badge">Инженерия &amp; Смета</span>
+            </div>
+            <h3 class="b2c-step-title">Фиксированная смета и замер</h3>
+            <p class="b2c-step-essence">
+              Точный выездной или проверенный дистанционный замер ниш и карнизов. Сумма фиксируется в договоре и не увеличивается в процессе работы.
+            </p>
+            <ul class="b2c-step-bullets">
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Выездной лазерный замер в 5 точках высоты (учет уклонов пола и натяжного потолка в Астане);</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Аудит потолочных ниш: проверка ширины (от 18–22 см под 2 ряда + LED) и выноса радиаторов;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Проверенный дистанционный чек-лист с видеоинструкцией для заказчиков из Алматы и других городов.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="b2c-accordion-toggle" onclick="toggleStepAccordion(this)">
+              <span>Стандарты этапа #02</span>
+              <svg class="b2c-accordion-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="b2c-accordion-content">
+              Бюджет закрепляется в договоре в тенге. Никаких «непредвиденных расходов» на тесьму или доставку. Если замер выявил кривизну потолка — мы закладываем компенсационную подгонку высоты в цехе.
+            </div>
+            <div class="b2c-card-artifact">
+              <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span>Артефакт: Официальный договор с твердым бюджетом</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 03 -->
+        <article class="b2c-step-card">
+          <div>
+            <div class="b2c-card-top">
+              <span class="b2c-step-number">03</span>
+              <span class="b2c-step-badge">Автоматика &amp; Монтаж</span>
+            </div>
+            <h3 class="b2c-step-title">Монтаж систем и автоматики</h3>
+            <p class="b2c-step-essence">
+              Монтаж скрытых профилей, надежных римских механизмов и бесшумных электроприводов Somfy / Dooya с плавным стартом и интеграцией в Умный Дом.
+            </p>
+            <ul class="b2c-step-bullets">
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Электрокарнизы Somfy (Франция) и Dooya (Li-ion акб или 230V) с уровнем шума &lt;35 дБ;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Интеграция с Алисой, Apple HomeKit и выключателями сухого контакта;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Отправка калиброванных комплектов в другие города РК либо монтаж нашими аккредитованными мастерами.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="b2c-accordion-toggle" onclick="toggleStepAccordion(this)">
+              <span>Стандарты этапа #03</span>
+              <svg class="b2c-accordion-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="b2c-accordion-content">
+              Монтаж выполняется до чистовой навески ткани перфораторами с вакуумным пылеудалением. Приводы тестируются под статической нагрузкой, программируются конечные точки открытия и закрытия.
+            </div>
+            <div class="b2c-card-artifact">
+              <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span>Артефакт: Протестированная электросистема Somfy/Dooya</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 04 -->
+        <article class="b2c-step-card">
+          <div>
+            <div class="b2c-card-top">
+              <span class="b2c-step-number">04</span>
+              <span class="b2c-step-badge">Кутюрный цех 350 м²</span>
+            </div>
+            <h3 class="b2c-step-title">Пошив в собственном цехе</h3>
+            <p class="b2c-step-essence">
+              Никаких надомниц и случайных посредников. Собственное производство 350 м² в Астане с немецким оборудованием Dürkopp Adler и строгим контролем ОТК.
+            </p>
+            <ul class="b2c-step-bullets">
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Обязательная декатировка (ВТО) ткани паром перед раскроем — исключает усадку;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Немецкие армированные нити Gutermann и австрийская корсажная тесьма Bandex;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Двойные подгибки 10–12 см с потайным стежком и свинцовые утяжелители в боковых углах.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="b2c-accordion-toggle" onclick="toggleStepAccordion(this)">
+              <span>Стандарты этапа #04</span>
+              <svg class="b2c-accordion-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="b2c-accordion-content">
+              Мастера с опытом от 10 до 25 лет кроят 3-метровые полотна на вакуумных столах строго по нитям основы. Это исключает перекос шторы «винтом», гарантируя эталонное падение ткани по стандартам ГОСТ РК.
+            </div>
+            <div class="b2c-card-artifact">
+              <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              <span>Артефакт: Технический паспорт изделия цеха</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 05 -->
+        <article class="b2c-step-card">
+          <div>
+            <div class="b2c-card-top">
+              <span class="b2c-step-number">05</span>
+              <span class="b2c-step-badge">Пар Lelit 140°C</span>
+            </div>
+            <h3 class="b2c-step-title">Финишная навеска или детальный видеоотчет</h3>
+            <p class="b2c-step-essence">
+              Сервис «Белые перчатки» на объекте в Астане либо отправка изделий с вдетыми крючками и пошаговой видеоинструкцией для межгорода.
+            </p>
+            <ul class="b2c-step-bullets">
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Ювелирная навеска на микро-крючки с шагом ровно 8 см под лазерный уровень;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Вертикальное отпаривание итальянскими парогенераторами <strong>Lelit (сухой пар 140°C)</strong>;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Фиксация фалд лентами на 48 часов для идеальной термопамяти формы складок.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="b2c-accordion-toggle" onclick="toggleStepAccordion(this)">
+              <span>Стандарты этапа #05</span>
+              <svg class="b2c-accordion-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="b2c-accordion-content">
+              Для удаленных заказов шторы упаковываются в текстильные чехлы с уже вдетыми на нужную высоту регулируемыми крючками. Заказчику или его помощнику остается только вщелкнуть их в карниз.
+            </div>
+            <div class="b2c-card-artifact">
+              <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <span>Артефакт: Безупречный зазор 5-10 мм от пола</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- STEP 06 -->
+        <article class="b2c-step-card">
+          <div>
+            <div class="b2c-card-top">
+              <span class="b2c-step-number">06</span>
+              <span class="b2c-step-badge">Гарантия &amp; Паспорт</span>
+            </div>
+            <h3 class="b2c-step-title">Завершенный статус и гарантия</h3>
+            <p class="b2c-step-essence">
+              Официальное подтверждение качества. Заказчик получает пакет документов, гарантию и постоянное сервисное сопровождение текстильного дома.
+            </p>
+            <ul class="b2c-step-bullets">
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Официальный <strong>Паспорт качества изделия</strong> с указанием состава и артикула ткани;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Гарантийный талон: 12 месяцев на текстиль и пошив, 36 месяцев на приводы Somfy;</span>
+              </li>
+              <li class="b2c-bullet-item">
+                <span class="b2c-bullet-dot">✦</span>
+                <span>Рекомендации по уходу и приоритетная запись на сезонный сертифицированный клининг.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button type="button" class="b2c-accordion-toggle" onclick="toggleStepAccordion(this)">
+              <span>Стандарты этапа #06</span>
+              <svg class="b2c-accordion-arrow" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="b2c-accordion-content">
+              Мы остаемся на связи годами. Если вам потребуется дополнить комнату покрывалом, валиками или оформить спальни на втором этаже резиденции — мы поднимем сохраненную карту объекта без повторных замеров.
+            </div>
+            <div class="b2c-card-artifact">
+              <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>Артефакт: Паспорт качества + Сервисная карта</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- B2C Action Callout -->
+      <div class="b2c-bottom-cta">
+        <div class="b2c-cta-text">
+          <h4>Начните с <em>бесплатного видео-разбора</em> ваших окон</h4>
+          <p>
+            Пришлите план квартиры или фото окон в WhatsApp. Асемгуль или ведущий дизайнер запишет персональное видео с разбором фактур и точным расчетом сметы за 2 часа.
+          </p>
+        </div>
+        <div class="b2c-cta-actions">
+          <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D1%82%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%84%D0%BE%D1%82%D0%BE%20%D0%BE%D0%BA%D0%BE%D0%BD%20%D0%B8%D0%BB%D0%B8%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE-%D1%80%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%D0%B0%20%D0%B8%20%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%D0%B0%20%D1%81%D0%BC%D0%B5%D1%82%D1%8B." 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-gold-couture">
+            <svg style="width:18px;height:18px;fill:currentColor;" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
+            <span>Отправить проект в WhatsApp</span>
+          </a>
+          <a href="#calculator" class="btn-glass-subtle">
+            <span>Калькулятор сметы (508 800 ₸) →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================
+         TAB PANEL 2: B2B COMMERCIAL PORTAL
+         ======================================================================== -->
+    <div class="pw-panel" id="panel-b2b" role="tabpanel" aria-labelledby="tab-btn-b2b">
+      
+      <!-- B2B Credentials Strip -->
+      <div class="b2b-credentials-strip">
+        <div class="b2b-cred-item">
+          <span class="b2b-cred-label">Контрагент в Астане</span>
+          <span class="b2b-cred-val">ТОО «KazTextileА»</span>
+          <span class="b2b-cred-note">БИН: 140940019744 · ОУР</span>
+        </div>
+        <div class="b2b-cred-item">
+          <span class="b2b-cred-label">Налоговый режим</span>
+          <span class="b2b-cred-val">НДС 12% выделен</span>
+          <span class="b2b-cred-note">100% зачет для бухгалтерии</span>
+        </div>
+        <div class="b2b-cred-item">
+          <span class="b2b-cred-label">Сертификация ЕАЭС</span>
+          <span class="b2b-cred-val">Класс КМ1 (Г1, В1)</span>
+          <span class="b2b-cred-note">ТР ТС 043/2017 &amp; СНиП РК</span>
+        </div>
+        <div class="b2b-cred-item">
+          <span class="b2b-cred-label">Признание отрасли</span>
+          <span class="b2b-cred-val">1 Место Golden Textile</span>
+          <span class="b2b-cred-note">Номинация «Коммерческий текстиль»</span>
+        </div>
+      </div>
+
+      <!-- 4 Pillars of B2B Commercial Portal -->
+      <div class="b2b-pillars-grid">
+
+        <!-- PILLAR 1: Legal & Tax -->
+        <article class="b2b-card">
+          <div>
+            <span class="b2b-card-badge">01. Бухгалтерия &amp; Налоги</span>
+            <h3 class="b2b-card-title">Официальный договор, ОУР и НДС 12%</h3>
+            <p class="b2b-card-desc">
+              Полная юридическая прозрачность для финансовой службы девелоперов, генподрядчиков и корпоративных заказчиков Астаны.
+            </p>
+            <ul class="b2b-features-list">
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Официальный НДС 12%:</strong> выделяется во всех счетах, договорах и сметах, принимается к налоговому вычету;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>ЭДО за 24 часа:</strong> выписка ЭСФ в системе ИС ЭСФ КГД МФ РК, акты выполненных работ по форме Р-1;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Формы КС-2 и КС-3:</strong> оформление актов приемки СМР и справок о стоимости для строительного технадзора;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Твердая цена в тенге:</strong> исключение валютных рисков при колебаниях EUR/USD на весь период поставки.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="b2c-card-artifact" style="margin-top:0;">
+            <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Налоговая безопасность: ТОО «KazTextileА», БИН 140940019744</span>
+          </div>
+        </article>
+
+        <!-- PILLAR 2: CAD / Revit & Automation Schematics -->
+        <article class="b2b-card">
+          <div>
+            <span class="b2b-card-badge">02. Проектирование &amp; BIM</span>
+            <h3 class="b2b-card-title">CAD/Revit узлы ниш и схемы приводов</h3>
+            <p class="b2b-card-desc">
+              Инженерная поддержка проектных институтов, архитекторов и студий дизайна интерьера на стадии рабочей документации (РД).
+            </p>
+            <ul class="b2b-features-list">
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>BIM &amp; CAD семейства:</strong> готовые чертежи потолочных ниш (глубина, зазоры под LED и карнизные треки);</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Схемы кабельных трасс:</strong> точки выводов 230V, сухие контакты, фазовое управление, RS485;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Интеграция в диспетчеризацию здания:</strong> протоколы KNX, Lutron, Modbus, Crestron, BACnet;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Экспресс-расчет по ведомости проемов:</strong> спецификация с НДС 12% строго за 60–120 минут.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="b2c-card-artifact" style="margin-top:0;">
+            <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <span>Форматы выдачи: DWG, Revit RFA, PDF, расчетные ведомости Excel</span>
+          </div>
+        </article>
+
+        <!-- PILLAR 3: Architect Samples Box -->
+        <article class="b2b-card highlight-samples">
+          <div>
+            <span class="b2b-card-badge" style="background:rgba(197,160,105,0.2); color:#DFC598;">03. Инструмент Архитектора</span>
+            <h3 class="b2b-card-title">Чемодан образцов (Samples Box) на объект</h3>
+            <p class="b2b-card-desc">
+              Доставляем профессиональный мобильный кейс материалов и действующих систем прямо в ваше архитектурное бюро или на стройплощадку в Астане.
+            </p>
+            <ul class="b2b-features-list">
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="#DFC598" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Действующий стенд мотора:</strong> электропривод Somfy / Forest с радиопультом для демонстрации заказчику;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="#DFC598" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Физические срезы профилей:</strong> валы Ø50, Ø65, Ø85 мм, кассетные U-направляющие со щеточными уплотнителями;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="#DFC598" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Веера контрактных тканей:</strong> полотна Screen 1%, 3%, 5%, негорючий бархат Trevira CS, ламели жалюзи RAL 50 мм;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="#DFC598" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Выезд ведущего инженера:</strong> лазерный замер проемов Leica Disto и тепловизионный аудит инсоляции.</span>
+              </li>
+            </ul>
+          </div>
+          <button type="button" class="btn-gold-couture" style="width:100%; justify-content:center; margin-top:16px;" onclick="openSamplesModal()">
+            <svg style="width:18px;height:18px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            <span>Заказать Samples Box в бюро</span>
+          </button>
+        </article>
+
+        <!-- PILLAR 4: EAEU & Fire Safety KM1 -->
+        <article class="b2b-card">
+          <div>
+            <span class="b2b-card-badge">04. Нормативы &amp; Безопасность</span>
+            <h3 class="b2b-card-title">Декларация ЕАЭС и пожарный класс КМ1</h3>
+            <p class="b2b-card-desc">
+              Все используемые в корпоративных проектах материалы строго сертифицированы для общественных и высотных зданий Республики Казахстан.
+            </p>
+            <ul class="b2b-features-list">
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Декларация ЕАЭС (ТР ТС):</strong> подтверждение соответствия регламентам легкой промышленности Таможенного союза;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Пожарный класс КМ1 (Г1, В1, Д2, Т2):</strong> негорючие ткани Trevira CS по ТР ТС 043/2017 и СНиП РК 2.02-05-2009;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Собственный цех 350 м²:</strong> раскрой на столах вакуумного прижима, автоматы Dürkopp Adler, испытательный стенд моторов;</span>
+              </li>
+              <li class="b2b-feature-row">
+                <svg class="b2b-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Монтаж с допусками:</strong> штатные бригады с аттестацией до 1000В, высотные допуски, пылеудаление Hilti.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="b2c-card-artifact" style="margin-top:0;">
+            <svg class="b2c-artifact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>Полный пакет протоколов огневых испытаний для МЧС РК</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Engineering Solutions Matrix -->
+      <div class="b2b-matrix-wrap">
+        <div class="b2b-matrix-header">
+          <div>
+            <h3 class="b2b-matrix-title">Инженерная матрица контрактных солнцезащитных систем</h3>
+            <p class="b2b-matrix-sub">Протестировано на объектах Астаны: БЦ Talan Towers, Hilton, дипломатические резиденции</p>
+          </div>
+          <span class="b2c-tag-pill">✓ Стандарты ГОСТ РК &amp; CE</span>
+        </div>
+
+        <div class="b2b-table-responsive">
+          <table class="b2b-spec-table">
+            <thead>
+              <tr>
+                <th>Тип системы</th>
+                <th>Характеристики &amp; Оптика</th>
+                <th>Назначение в объекте</th>
+                <th>Пожарный класс</th>
+                <th>Управление</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Солнцезащита Screen 1–5%</strong></td>
+                <td>Отражение до 95% тепла, антиблик мониторов, обзор панорамы</td>
+                <td>Open Space, витражи БЦ класса «А», фасадные зоны</td>
+                <td><span class="b2b-tag-km1">КМ1 (Г1, В1)</span></td>
+                <td>Somfy Sonesse 40/50 WT/RTS, KNX</td>
+              </tr>
+              <tr>
+                <td><strong>Кассетный Blackout 100%</strong></td>
+                <td>Боковые U-направляющие, щеточные демпферы, 0% щелей</td>
+                <td>VIP Boardrooms, переговорные ВКС, залы проекторов</td>
+                <td><span class="b2b-tag-km1">КМ1 / Blackout</span></td>
+                <td>Кнопка сценария Crestron / Реле</td>
+              </tr>
+              <tr>
+                <td><strong>Жалюзи 50 мм по RAL</strong></td>
+                <td>Магниево-алюминиевая ламель 0.23 мм, термоокраска в тон профиля</td>
+                <td>Кабинеты CEO, переговорные со стеклянными перегородками</td>
+                <td>Негорючий металл</td>
+                <td>Электропривод 230V / Юстировка 1°</td>
+              </tr>
+              <tr>
+                <td><strong>Драпировки Trevira CS</strong></td>
+                <td>Молекулярная негорючесть, звукопоглощение NRC 0.85</td>
+                <td>Отели 5★, апартаменты, театры, пути эвакуации</td>
+                <td><span class="b2b-tag-km1">КМ1 (ТР ТС 043)</span></td>
+                <td>Моторизованный карниз Forest Shuttle</td>
+              </tr>
+              <tr>
+                <td><strong>Лифт-системы карнизов (6–10м)</strong></td>
+                <td>Опускание балки на авиатросах на уровень 1.2м от пола</td>
+                <td>Окна второго света, атриумы, загородные резиденции</td>
+                <td>Запас троса 10:1</td>
+                <td>Радиопульт / безопасный клининг за 15 мин</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- B2B Legal Box & Direct Spec Request -->
+      <div class="b2b-legal-card">
+        <div class="b2b-legal-left">
+          <h4>Юридический и налоговый паспорт контрагента</h4>
+          <p>
+            Для заключения официального договора и выставления счета на оплату вы можете использовать реквизиты ниже. Все документы подписываются через ЭДО или доставляются курьером по Астане.
+          </p>
+          <div class="b2b-requisites-box" id="b2bRequisitesText">
+            <strong>ТОО «KazTextileА»</strong><br>
+            БИН: 140940019744<br>
+            Юр. адрес: 010000, Казахстан, г. Астана, район Есиль, ул. Керей, Жәнибек хандар, 50/1, ВП 18<br>
+            Налоговый режим: ОУР, плательщик НДС 12%<br>
+            Банк: АО «ForteBank» / АО «Halyk Bank», г. Астана<br>
+            ЭДО: ИС ЭСФ, Doculog.kz, Учёт.kz, 1С:ЭДО
+          </div>
+          <button type="button" class="b2b-copy-btn" onclick="copyB2BRequisites()">
+            <svg style="width:14px;height:14px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Скопировать реквизиты в буфер</span>
+          </button>
+        </div>
+
+        <div class="b2b-action-col">
+          <h4 class="b2b-action-title">Запросить смету с НДС 12% за 60–120 минут</h4>
+          <p class="b2b-action-note">
+            Отправьте ведомость проемов (PDF, DWG, Excel) на почту или в проектный WhatsApp дивизиона.
+          </p>
+          
+          <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5,%20%D0%A2%D0%9E%D0%9E%20%C2%ABKazTextile%D0%90%C2%BB!%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%20%D1%81%D0%BE%D0%BB%D0%BD%D1%86%D0%B5%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D1%8B%20%D0%B8%20%D0%BC%D0%BE%D1%82%D0%BE%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B8%20%D0%B4%D0%BB%D1%8F%20%D1%8E%D1%80%D0%B8%D0%B4%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BB%D0%B8%D1%86%D0%B0.%20%D0%97%D0%B0%D0%BF%D1%80%D0%B0%D1%88%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%20%D0%9A%D0%9F%20%D1%81%20%D0%B2%D1%8B%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%D0%BC%20%D0%9D%D0%94%D0%A1%2012%25%20%D0%B8%20%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D0%BC%D0%B8%20%D0%9A%D0%A1-2/%D0%9A%D0%A1-3." 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-gold-couture" 
+             style="justify-content:center;">
+            <span>Запросить КП с НДС 12%</span>
+          </a>
+
+          <a href="mailto:b2b@muara.kz?subject=Запрос%20B2B%20спецификации%20с%20НДС%2012%25&body=Здравствуйте,%20проектный%20отдел%20ТОО%20«KazTextileА»!%0A%0AПросим%20рассчитать%20стоимость%20солнцезащитных%20систем%20и%20моторизации%20для%20нашего%20объекта.%0AПрикрепляем%20ведомость%20проемов.%0A%0AНаши%20реквизиты:%0AНаименование:%0AБИН:%0AКонтакты%20ГИПа/дизайнера:" 
+             class="btn-glass-subtle" 
+             style="background:rgba(19,18,17,0.06); color:var(--pw-text-noir); border-color:rgba(19,18,17,0.12); justify-content:center;">
+            <svg style="width:16px;height:16px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Отправить проект на b2b@muara.kz</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Toast Notification element -->
+  <div class="pw-toast" id="pwToast">
+    <svg style="width:18px;height:18px;color:#10B981;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="pwToastMsg">Реквизиты скопированы в буфер обмена</span>
+  </div>
+
+  <!-- Modal for Architect Samples Box -->
+  <div class="pw-modal-overlay" id="samplesModal" onclick="closeModalOnBackdrop(event)">
+    <div class="pw-modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="pw-modal-close" onclick="closeSamplesModal()" aria-label="Закрыть">×</button>
+      
+      <span class="b2b-card-badge">Астана · Сервис для Проектировщиков</span>
+      <h3 id="modalTitle" style="font-family:var(--pw-font-serif); font-size:1.75rem; color:var(--pw-text-noir); margin-bottom:12px; line-height:1.2;">
+        Заказать чемодан образцов <em>(Samples Box)</em>
+      </h3>
+      <p style="font-size:0.9rem; color:var(--pw-text-secondary); line-height:1.55; margin-bottom:20px;">
+        Мы бесплатно доставим мобильный кейс инженера в ваше архитектурное бюро или на строящийся объект в Астане (Talan Towers, Abu Dhabi Plaza, ЖК Sensata, BI Village).
+      </p>
+
+      <div style="background:var(--pw-bg-subtle); border-radius:var(--pw-radius-sm); padding:14px; font-size:0.82rem; color:var(--pw-text-secondary); margin-bottom:22px; line-height:1.5;">
+        <strong>В кейсе:</strong> действующий привод Somfy с пультом, срезы валов Ø50-85мм, веера огнестойких тканей Trevira CS (КМ1), образцы Screen 1-5% и ламелей жалюзи RAL 50мм.
+      </div>
+
+      <a href="https://wa.me/77710551515?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D1%8B%20%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B5%20%D0%B1%D1%8E%D1%80%D0%BE%20/%20%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D1%81%D1%82%D1%83%D0%B4%D0%B8%D1%8F.%20%D0%A5%D0%BE%D1%82%D0%B8%D0%BC%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%20%D0%B2%D1%8B%D0%B5%D0%B7%D0%B4%D0%BD%D0%BE%D0%B9%20%D1%87%D0%B5%D0%BC%D0%BE%D0%B4%D0%B0%D0%BD%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D1%86%D0%BE%D0%B2%20(Samples%20Box)%20%D0%B8%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%20%D0%BF%D0%BE%20%D0%BD%D0%B8%D1%88%D0%B0%D0%BC%20%D0%B8%20Somfy%20%D0%B2%20%D0%BD%D0%B0%D1%88%20%D0%BE%D1%84%D0%B8%D1%81." 
+         target="_blank" 
+         rel="noopener" 
+         class="btn-gold-couture" 
+         style="width:100%; justify-content:center;">
+        <span>Согласовать доставку кейса через WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       INTERACTIVE JAVASCRIPT LOGIC
+       ======================================================================== -->
+  <script>
+    /**
+     * Switch between B2C and B2B Pathways
+     * @param {'b2c' | 'b2b'} tabName 
+     */
+    function switchPathwayTab(tabName) {
+      const btnB2C = document.getElementById('tab-btn-b2c');
+      const btnB2B = document.getElementById('tab-btn-b2b');
+      const panelB2C = document.getElementById('panel-b2c');
+      const panelB2B = document.getElementById('panel-b2b');
+
+      if (tabName === 'b2c') {
+        btnB2C.classList.add('active');
+        btnB2C.setAttribute('aria-selected', 'true');
+        btnB2B.classList.remove('active');
+        btnB2B.setAttribute('aria-selected', 'false');
+
+        panelB2C.classList.add('active');
+        panelB2B.classList.remove('active');
+        
+        // Update URL hash without scroll jumps
+        if (history.replaceState) {
+          history.replaceState(null, null, '#pathway-b2c');
+        }
+      } else {
+        btnB2B.classList.add('active');
+        btnB2B.setAttribute('aria-selected', 'true');
+        btnB2C.classList.remove('active');
+        btnB2C.setAttribute('aria-selected', 'false');
+
+        panelB2B.classList.add('active');
+        panelB2C.classList.remove('active');
+
+        if (history.replaceState) {
+          history.replaceState(null, null, '#pathway-b2b');
+        }
+      }
+    }
+
+    /**
+     * Toggle step card accordion details
+     * @param {HTMLElement} btn 
+     */
+    function toggleStepAccordion(btn) {
+      btn.classList.toggle('expanded');
+      const content = btn.nextElementSibling;
+      if (content) {
+        content.classList.toggle('expanded');
+      }
+    }
+
+    /**
+     * Copy B2B company requisites to clipboard
+     */
+    function copyB2BRequisites() {
+      const textToCopy = `ТОО «KazTextileА»
+БИН: 140940019744
+Адрес: 010000, Казахстан, г. Астана, район Есиль, ул. Керей, Жәнибек хандар, 50/1, ВП 18
+Налоговый режим: Общеустановленный режим (ОУР), официальный плательщик НДС 12%
+ЭДО: ИС ЭСФ, Doculog.kz, Учёт.kz, 1С:ЭДО
+Контакты B2B-отдела: +7 (771) 055-15-15, b2b@muara.kz`;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast('Реквизиты ТОО «KazTextileА» скопированы в буфер');
+      }).catch(err => {
+        console.error('Не удалось скопировать', err);
+      });
+    }
+
+    /**
+     * Show brief toast notification
+     * @param {string} msg 
+     */
+    function showToast(msg) {
+      const toast = document.getElementById('pwToast');
+      const toastMsg = document.getElementById('pwToastMsg');
+      if (!toast || !toastMsg) return;
+
+      toastMsg.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    /**
+     * Samples Box Modal controls
+     */
+    function openSamplesModal() {
+      const modal = document.getElementById('samplesModal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeSamplesModal() {
+      const modal = document.getElementById('samplesModal');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.id === 'samplesModal') {
+        closeSamplesModal();
+      }
+    }
+
+    // Hash navigation listener on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash;
+      if (hash === '#pathway-b2b' || hash === '#b2b') {
+        switchPathwayTab('b2b');
+      } else if (hash === '#pathway-b2c' || hash === '#b2c') {
+        switchPathwayTab('b2c');
+      }
+    });
+
+    // Keyboard navigation for tabs
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSamplesModal();
+      }
+    });
+  </script>
+</body>
+</html>
