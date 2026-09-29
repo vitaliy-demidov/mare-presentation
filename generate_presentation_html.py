@@ -1,4 +1,18 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Generates the complete, high-fidelity, production-grade index.html for MUAR A.
+Strictly executes the user's requirement:
+"сохрани что есть / дальше давай вот тут все смотрисноси ис уть вытащи убираем этот стиль дедлаем новый полностью по тем 10 проектам которые есть и берем описание"
+"""
+
+import json
+from build_new_index import PROJECTS
+
+def generate_html():
+    projects_json = json.dumps(PROJECTS, ensure_ascii=False)
+    
+    html = f'''<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -24,7 +38,7 @@
     /* 1. ARCHITECTURAL LUXURY DESIGN SYSTEM (ANTI-AI SLOP)         */
     /* Clean obsidian/charcoal palette + Couture Coral Accents      */
     /* ============================================================ */
-    :root {
+    :root {{
       --bg-base: #0B0B0E;
       --bg-surface: #121217;
       --bg-surface-elevated: #181820;
@@ -57,15 +71,15 @@
       --radius-xl: 28px;
       --radius-pill: 9999px;
       --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+    }}
 
-    *, *::before, *::after {
+    *, *::before, *::after {{
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
+    }}
 
-    html {
+    html {{
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -74,50 +88,50 @@
       font-family: var(--font-sans);
       font-size: 16px;
       line-height: 1.6;
-    }
+    }}
 
-    body {
+    body {{
       background-color: var(--bg-base);
       color: var(--text-primary);
       overflow-x: hidden;
       min-height: 100vh;
       position: relative;
-    }
+    }}
 
-    a {
+    a {{
       color: inherit;
       text-decoration: none;
       transition: var(--transition);
-    }
+    }}
 
-    button, input, select, textarea {
+    button, input, select, textarea {{
       font: inherit;
       color: inherit;
-    }
+    }}
 
-    img, video {
+    img, video {{
       max-width: 100%;
       height: auto;
       display: block;
-    }
+    }}
 
-    .wrap {
+    .wrap {{
       width: 100%;
       max-width: 1360px;
       margin: 0 auto;
       padding: 0 24px;
-    }
+    }}
 
-    @media (max-width: 768px) {
-      .wrap { padding: 0 16px; }
-    }
+    @media (max-width: 768px) {{
+      .wrap {{ padding: 0 16px; }}
+    }}
 
     /* Typography */
-    .font-serif { font-family: var(--font-serif); }
-    .coral-text { color: var(--coral); }
-    .gold-text { color: var(--gold); }
+    .font-serif {{ font-family: var(--font-serif); }}
+    .coral-text {{ color: var(--coral); }}
+    .gold-text {{ color: var(--gold); }}
 
-    .section-kicker {
+    .section-kicker {{
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -127,8 +141,8 @@
       text-transform: uppercase;
       color: var(--coral);
       margin-bottom: 12px;
-    }
-    .section-kicker::before {
+    }}
+    .section-kicker::before {{
       content: "";
       display: inline-block;
       width: 6px;
@@ -136,9 +150,9 @@
       border-radius: 50%;
       background: var(--coral);
       box-shadow: 0 0 8px var(--coral);
-    }
+    }}
 
-    .section-title {
+    .section-title {{
       font-family: var(--font-serif);
       font-size: clamp(2rem, 3.8vw, 3.2rem);
       font-weight: 600;
@@ -146,20 +160,20 @@
       letter-spacing: -0.02em;
       color: var(--text-primary);
       margin-bottom: 16px;
-    }
+    }}
 
-    .section-subtitle {
+    .section-subtitle {{
       font-size: clamp(1rem, 1.3vw, 1.15rem);
       color: var(--text-secondary);
       max-width: 780px;
       line-height: 1.65;
-    }
+    }}
 
-    .center { text-align: center; }
-    .center .section-subtitle { margin-left: auto; margin-right: auto; }
+    .center {{ text-align: center; }}
+    .center .section-subtitle {{ margin-left: auto; margin-right: auto; }}
 
     /* Buttons */
-    .btn {
+    .btn {{
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -173,36 +187,36 @@
       transition: var(--transition);
       white-space: nowrap;
       text-decoration: none;
-    }
-    .btn-coral {
+    }}
+    .btn-coral {{
       background: var(--coral);
       color: #FFFFFF;
       box-shadow: 0 4px 20px var(--coral-glow);
-    }
-    .btn-coral:hover {
+    }}
+    .btn-coral:hover {{
       background: var(--coral-light);
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(226, 90, 61, 0.4);
-    }
-    .btn-ghost {
+    }}
+    .btn-ghost {{
       background: rgba(255, 255, 255, 0.05);
       border-color: var(--border-subtle);
       color: var(--text-primary);
-    }
-    .btn-ghost:hover {
+    }}
+    .btn-ghost:hover {{
       background: rgba(255, 255, 255, 0.1);
       border-color: var(--border-hover);
       transform: translateY(-2px);
-    }
-    .btn-sm {
+    }}
+    .btn-sm {{
       padding: 9px 18px;
       font-size: 0.82rem;
-    }
+    }}
 
     /* ============================================================ */
     /* 2. STICKY LUXURY HEADER                                      */
     /* ============================================================ */
-    .header {
+    .header {{
       position: sticky;
       top: 0;
       left: 0;
@@ -213,19 +227,19 @@
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-subtle);
       transition: var(--transition);
-    }
-    .header-inner {
+    }}
+    .header-inner {{
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 74px;
-    }
-    .logo-wrap {
+    }}
+    .logo-wrap {{
       display: flex;
       align-items: center;
       gap: 14px;
-    }
-    .brand-logo {
+    }}
+    .brand-logo {{
       font-family: var(--font-serif);
       font-size: 1.65rem;
       font-weight: 700;
@@ -234,11 +248,11 @@
       display: flex;
       align-items: center;
       gap: 4px;
-    }
-    .brand-logo span {
+    }}
+    .brand-logo span {{
       color: var(--coral);
-    }
-    .brand-tagline {
+    }}
+    .brand-tagline {{
       font-size: 0.68rem;
       font-weight: 600;
       letter-spacing: 0.08em;
@@ -247,31 +261,31 @@
       border-left: 1px solid var(--border-subtle);
       padding-left: 12px;
       display: none;
-    }
-    @media (min-width: 900px) {
-      .brand-tagline { display: block; }
-    }
+    }}
+    @media (min-width: 900px) {{
+      .brand-tagline {{ display: block; }}
+    }}
 
-    .nav-links {
+    .nav-links {{
       display: flex;
       align-items: center;
       gap: 28px;
       list-style: none;
-    }
-    @media (max-width: 1024px) {
-      .nav-links { display: none; }
-    }
-    .nav-link {
+    }}
+    @media (max-width: 1024px) {{
+      .nav-links {{ display: none; }}
+    }}
+    .nav-link {{
       font-size: 0.88rem;
       font-weight: 500;
       color: var(--text-secondary);
       position: relative;
       padding: 6px 0;
-    }
-    .nav-link:hover, .nav-link.active {
+    }}
+    .nav-link:hover, .nav-link.active {{
       color: #FFFFFF;
-    }
-    .nav-link.active::after {
+    }}
+    .nav-link.active::after {{
       content: "";
       position: absolute;
       bottom: 0;
@@ -280,14 +294,14 @@
       height: 2px;
       background: var(--coral);
       border-radius: 2px;
-    }
+    }}
 
-    .header-actions {
+    .header-actions {{
       display: flex;
       align-items: center;
       gap: 12px;
-    }
-    .audio-toggle-btn {
+    }}
+    .audio-toggle-btn {{
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -300,46 +314,46 @@
       color: var(--text-secondary);
       cursor: pointer;
       transition: var(--transition);
-    }
-    .audio-toggle-btn:hover {
+    }}
+    .audio-toggle-btn:hover {{
       background: rgba(255, 255, 255, 0.08);
       border-color: var(--border-hover);
       color: #FFFFFF;
-    }
-    .audio-toggle-btn.active {
+    }}
+    .audio-toggle-btn.active {{
       border-color: var(--coral);
       color: var(--coral-light);
       background: var(--coral-bg);
-    }
-    .sound-wave {
+    }}
+    .sound-wave {{
       display: flex;
       align-items: center;
       gap: 2px;
       height: 12px;
-    }
-    .sound-bar {
+    }}
+    .sound-bar {{
       width: 2px;
       background: currentColor;
       border-radius: 1px;
       height: 4px;
       transition: height 0.2s ease;
-    }
-    .audio-toggle-btn.active .sound-bar:nth-child(1) { animation: eq 0.6s infinite ease-in-out alternate; }
-    .audio-toggle-btn.active .sound-bar:nth-child(2) { animation: eq 0.8s infinite 0.2s ease-in-out alternate; }
-    .audio-toggle-btn.active .sound-bar:nth-child(3) { animation: eq 0.5s infinite 0.4s ease-in-out alternate; }
-    @keyframes eq { 0% { height: 3px; } 100% { height: 12px; } }
+    }}
+    .audio-toggle-btn.active .sound-bar:nth-child(1) {{ animation: eq 0.6s infinite ease-in-out alternate; }}
+    .audio-toggle-btn.active .sound-bar:nth-child(2) {{ animation: eq 0.8s infinite 0.2s ease-in-out alternate; }}
+    .audio-toggle-btn.active .sound-bar:nth-child(3) {{ animation: eq 0.5s infinite 0.4s ease-in-out alternate; }}
+    @keyframes eq {{ 0% {{ height: 3px; }} 100% {{ height: 12px; }} }}
 
-    @media (max-width: 640px) {
-      .header-inner { height: 62px; }
-      .audio-btn-text { display: none; }
-      .header-actions .btn-sm { padding: 7px 12px; font-size: 0.75rem; }
-      .brand-logo { font-size: 1.35rem; }
-    }
+    @media (max-width: 640px) {{
+      .header-inner {{ height: 62px; }}
+      .audio-btn-text {{ display: none; }}
+      .header-actions .btn-sm {{ padding: 7px 12px; font-size: 0.75rem; }}
+      .brand-logo {{ font-size: 1.35rem; }}
+    }}
 
     /* ============================================================ */
     /* 3. EDITORIAL HERO SECTION                                    */
     /* ============================================================ */
-    .hero-section {
+    .hero-section {{
       position: relative;
       min-height: 82vh;
       display: flex;
@@ -348,14 +362,14 @@
       background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(226, 90, 61, 0.15) 0%, transparent 70%);
       border-bottom: 1px solid var(--border-subtle);
       overflow: hidden;
-    }
-    .hero-content {
+    }}
+    .hero-content {{
       max-width: 920px;
       margin: 0 auto;
       text-align: center;
       width: 100%;
-    }
-    .hero-kicker-pill {
+    }}
+    .hero-kicker-pill {{
       display: inline-flex;
       align-items: center;
       gap: 10px;
@@ -369,8 +383,8 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-bottom: 24px;
-    }
-    .hero-title {
+    }}
+    .hero-title {{
       font-family: var(--font-serif);
       font-size: clamp(2.2rem, 5.2vw, 4.2rem);
       font-weight: 600;
@@ -378,27 +392,27 @@
       letter-spacing: -0.025em;
       color: #FFFFFF;
       margin-bottom: 24px;
-    }
-    .hero-title em {
+    }}
+    .hero-title em {{
       font-style: italic;
       color: var(--coral-light);
-    }
-    .hero-lead {
+    }}
+    .hero-lead {{
       font-size: clamp(1rem, 1.6vw, 1.25rem);
       line-height: 1.65;
       color: var(--text-secondary);
       max-width: 780px;
       margin: 0 auto 36px;
-    }
-    .hero-actions {
+    }}
+    .hero-actions {{
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
       margin-bottom: 50px;
-    }
-    .hero-metrics-grid {
+    }}
+    .hero-metrics-grid {{
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
@@ -406,46 +420,46 @@
       margin: 0 auto;
       padding-top: 36px;
       border-top: 1px solid var(--border-subtle);
-    }
-    @media (max-width: 768px) {
-      .hero-metrics-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    }
-    .metric-card {
+    }}
+    @media (max-width: 768px) {{
+      .hero-metrics-grid {{ grid-template-columns: repeat(2, 1fr); gap: 20px; }}
+    }}
+    .metric-card {{
       text-align: center;
-    }
-    .metric-val {
+    }}
+    .metric-val {{
       font-family: var(--font-serif);
       font-size: 2.2rem;
       font-weight: 700;
       color: #FFFFFF;
       line-height: 1;
       margin-bottom: 6px;
-    }
-    .metric-val span { color: var(--coral); }
-    .metric-label {
+    }}
+    .metric-val span {{ color: var(--coral); }}
+    .metric-label {{
       font-size: 0.78rem;
       color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-    }
+    }}
 
     /* ============================================================ */
     /* 4. THE 10 REAL PROJECTS SECTION (THE STAR OF THE SHOW)       */
     /* ============================================================ */
-    .section-projects {
+    .section-projects {{
       padding: 90px 0;
       position: relative;
       overflow: hidden;
-    }
-    .projects-filter-bar {
+    }}
+    .projects-filter-bar {{
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
       margin: 36px 0 44px;
-    }
-    .filter-btn {
+    }}
+    .filter-btn {{
       padding: 9px 20px;
       border-radius: var(--radius-pill);
       background: rgba(255, 255, 255, 0.04);
@@ -455,21 +469,21 @@
       color: var(--text-secondary);
       cursor: pointer;
       transition: var(--transition);
-    }
-    .filter-btn:hover {
+    }}
+    .filter-btn:hover {{
       background: rgba(255, 255, 255, 0.08);
       border-color: var(--border-hover);
       color: #FFFFFF;
-    }
-    .filter-btn.active {
+    }}
+    .filter-btn.active {{
       background: var(--coral);
       border-color: var(--coral);
       color: #FFFFFF;
       box-shadow: 0 4px 16px var(--coral-glow);
-    }
+    }}
 
     /* Interactive Showcase Stage */
-    .showcase-stage {
+    .showcase-stage {{
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-xl);
@@ -481,16 +495,16 @@
       width: 100%;
       max-width: 100%;
       box-sizing: border-box;
-    }
-    @media (max-width: 1080px) {
-      .showcase-stage {
+    }}
+    @media (max-width: 1080px) {{
+      .showcase-stage {{
         grid-template-columns: 100%;
         width: 100%;
-      }
-    }
+      }}
+    }}
 
     /* Left: Project Selector List */
-    .stage-nav {
+    .stage-nav {{
       border-right: 1px solid var(--border-subtle);
       background: rgba(0, 0, 0, 0.25);
       max-height: 820px;
@@ -500,15 +514,15 @@
       scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
       width: 100%;
       box-sizing: border-box;
-    }
-    @media (max-width: 1080px) {
-      .stage-nav {
+    }}
+    @media (max-width: 1080px) {{
+      .stage-nav {{
         border-right: none;
         border-bottom: 1px solid var(--border-subtle);
         max-height: 280px;
-      }
-    }
-    .stage-nav-header {
+      }}
+    }}
+    .stage-nav-header {{
       padding: 16px 20px;
       border-bottom: 1px solid var(--border-subtle);
       font-size: 0.82rem;
@@ -521,8 +535,8 @@
       justify-content: space-between;
       box-sizing: border-box;
       width: 100%;
-    }
-    .nav-item-btn {
+    }}
+    .nav-item-btn {{
       width: 100%;
       text-align: left;
       padding: 16px 20px;
@@ -536,15 +550,15 @@
       transition: var(--transition);
       position: relative;
       box-sizing: border-box;
-    }
-    .nav-item-btn:hover {
+    }}
+    .nav-item-btn:hover {{
       background: rgba(255, 255, 255, 0.03);
-    }
-    .nav-item-btn.active {
+    }}
+    .nav-item-btn.active {{
       background: rgba(226, 90, 61, 0.08);
       border-left: 3px solid var(--coral);
-    }
-    .nav-num-badge {
+    }}
+    .nav-num-badge {{
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -557,15 +571,15 @@
       font-weight: 700;
       color: var(--text-secondary);
       flex-shrink: 0;
-    }
-    .nav-item-btn.active .nav-num-badge {
+    }}
+    .nav-item-btn.active .nav-num-badge {{
       background: var(--coral);
       border-color: var(--coral);
       color: #FFFFFF;
       box-shadow: 0 2px 10px var(--coral-glow);
-    }
-    .nav-meta { flex: 1; min-width: 0; }
-    .nav-project-title {
+    }}
+    .nav-meta {{ flex: 1; min-width: 0; }}
+    .nav-project-title {{
       font-size: 0.95rem;
       font-weight: 600;
       color: #FFFFFF;
@@ -574,32 +588,32 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-    .nav-item-btn.active .nav-project-title {
+    }}
+    .nav-item-btn.active .nav-project-title {{
       color: var(--coral-light);
-    }
-    .nav-project-collab {
+    }}
+    .nav-project-collab {{
       font-size: 0.78rem;
       color: var(--text-muted);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
+    }}
 
     /* Right: Active Project Stage Details */
-    .stage-view {
+    .stage-view {{
       padding: 36px 40px;
       display: flex;
       flex-direction: column;
       gap: 28px;
       background: var(--bg-card);
-    }
-    @media (max-width: 768px) {
-      .stage-view { padding: 24px 18px; }
-    }
+    }}
+    @media (max-width: 768px) {{
+      .stage-view {{ padding: 24px 18px; }}
+    }}
 
     /* Main Visual / Slider Container */
-    .stage-media-wrap {
+    .stage-media-wrap {{
       position: relative;
       border-radius: var(--radius-lg);
       overflow: hidden;
@@ -608,19 +622,19 @@
       aspect-ratio: 16/10;
       width: 100%;
       box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.6);
-    }
-    @media (max-width: 768px) {
-      .stage-media-wrap { aspect-ratio: 4/3; }
-    }
-    .stage-primary-img {
+    }}
+    @media (max-width: 768px) {{
+      .stage-media-wrap {{ aspect-ratio: 4/3; }}
+    }}
+    .stage-primary-img {{
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
-    }
+    }}
 
     /* Split Before/After Slider inside Viewer */
-    .ba-slider-container {
+    .ba-slider-container {{
       position: relative;
       width: 100%;
       height: 100%;
@@ -628,25 +642,25 @@
       user-select: none;
       touch-action: pan-y;
       cursor: ew-resize;
-    }
-    .ba-after-layer, .ba-before-layer {
+    }}
+    .ba-after-layer, .ba-before-layer {{
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-    }
-    .ba-after-layer img, .ba-before-layer img {
+    }}
+    .ba-after-layer img, .ba-before-layer img {{
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
-    }
-    .ba-before-layer {
+    }}
+    .ba-before-layer {{
       clip-path: inset(0 50% 0 0);
       z-index: 2;
-    }
-    .ba-handle-line {
+    }}
+    .ba-handle-line {{
       position: absolute;
       top: 0;
       bottom: 0;
@@ -657,8 +671,8 @@
       z-index: 5;
       transform: translateX(-50%);
       pointer-events: none;
-    }
-    .ba-handle-grip {
+    }}
+    .ba-handle-grip {{
       position: absolute;
       top: 50%;
       left: 50%;
@@ -675,8 +689,8 @@
       font-size: 16px;
       cursor: grab;
       border: 2px solid var(--coral);
-    }
-    .ba-tag {
+    }}
+    .ba-tag {{
       position: absolute;
       bottom: 16px;
       padding: 6px 14px;
@@ -691,24 +705,24 @@
       border: 1px solid rgba(255, 255, 255, 0.15);
       z-index: 6;
       pointer-events: none;
-    }
-    .ba-tag-before { left: 16px; }
-    .ba-tag-after { right: 16px; border-color: var(--coral); color: var(--coral-light); }
+    }}
+    .ba-tag-before {{ left: 16px; }}
+    .ba-tag-after {{ right: 16px; border-color: var(--coral); color: var(--coral-light); }}
 
     /* Project Information */
-    .stage-info-header {
+    .stage-info-header {{
       display: flex;
       flex-direction: column;
       gap: 10px;
-    }
-    .project-header-top {
+    }}
+    .project-header-top {{
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-    }
-    .stage-badge {
+    }}
+    .stage-badge {{
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -717,8 +731,8 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--coral);
-    }
-    .stage-collab-pill {
+    }}
+    .stage-collab-pill {{
       font-size: 0.82rem;
       font-weight: 500;
       color: var(--gold-soft);
@@ -726,15 +740,15 @@
       border: 1px solid rgba(197, 160, 89, 0.3);
       padding: 4px 12px;
       border-radius: var(--radius-pill);
-    }
-    .stage-title {
+    }}
+    .stage-title {{
       font-family: var(--font-serif);
       font-size: clamp(1.6rem, 2.5vw, 2.4rem);
       font-weight: 600;
       line-height: 1.25;
       color: #FFFFFF;
-    }
-    .stage-desc {
+    }}
+    .stage-desc {{
       font-size: 1.02rem;
       line-height: 1.7;
       color: var(--text-secondary);
@@ -742,15 +756,15 @@
       border-left: 3px solid var(--coral);
       padding: 16px 20px;
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
-    }
+    }}
 
     /* Material Specs Chips */
-    .stage-specs {
+    .stage-specs {{
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-    }
-    .spec-chip {
+    }}
+    .spec-chip {{
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -761,36 +775,36 @@
       font-size: 0.8rem;
       font-weight: 500;
       color: var(--text-secondary);
-    }
-    .spec-chip::before {
+    }}
+    .spec-chip::before {{
       content: "";
       width: 5px;
       height: 5px;
       border-radius: 50%;
       background: var(--coral);
-    }
+    }}
 
     /* Gallery Strip */
-    .stage-gallery-wrap {
+    .stage-gallery-wrap {{
       display: flex;
       flex-direction: column;
       gap: 12px;
       padding-top: 16px;
       border-top: 1px solid var(--border-subtle);
-    }
-    .gallery-label-row {
+    }}
+    .gallery-label-row {{
       display: flex;
       align-items: center;
       justify-content: space-between;
-    }
-    .gallery-label {
+    }}
+    .gallery-label {{
       font-size: 0.82rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
-    }
-    .gallery-lightbox-trigger {
+    }}
+    .gallery-lightbox-trigger {{
       font-size: 0.82rem;
       font-weight: 600;
       color: var(--coral-light);
@@ -801,20 +815,20 @@
       align-items: center;
       gap: 6px;
       transition: var(--transition);
-    }
-    .gallery-lightbox-trigger:hover {
+    }}
+    .gallery-lightbox-trigger:hover {{
       color: #FFFFFF;
       text-decoration: underline;
-    }
-    .gallery-strip {
+    }}
+    .gallery-strip {{
       display: flex;
       gap: 10px;
       overflow-x: auto;
       padding-bottom: 6px;
       scrollbar-width: thin;
       scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
-    }
-    .gallery-thumb-btn {
+    }}
+    .gallery-thumb-btn {{
       position: relative;
       width: 88px;
       height: 64px;
@@ -826,42 +840,42 @@
       cursor: pointer;
       transition: var(--transition);
       padding: 0;
-    }
-    .gallery-thumb-btn img {
+    }}
+    .gallery-thumb-btn img {{
       width: 100%;
       height: 100%;
       object-fit: cover;
       opacity: 0.7;
       transition: var(--transition);
-    }
-    .gallery-thumb-btn:hover img {
+    }}
+    .gallery-thumb-btn:hover img {{
       opacity: 1;
       transform: scale(1.05);
-    }
-    .gallery-thumb-btn.active {
+    }}
+    .gallery-thumb-btn.active {{
       border-color: var(--coral);
       box-shadow: 0 0 12px var(--coral-glow);
-    }
-    .gallery-thumb-btn.active img {
+    }}
+    .gallery-thumb-btn.active img {{
       opacity: 1;
-    }
+    }}
 
     /* 10 Projects Visual Grid (Scanning all 10) */
-    .projects-grid-section {
+    .projects-grid-section {{
       margin-top: 40px;
-    }
-    .projects-grid {
+    }}
+    .projects-grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-    }
-    @media (max-width: 1024px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    }
-    @media (max-width: 640px) {
-      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
-    }
-    .project-card {
+    }}
+    @media (max-width: 1024px) {{
+      .projects-grid {{ grid-template-columns: repeat(2, 1fr); gap: 18px; }}
+    }}
+    @media (max-width: 640px) {{
+      .projects-grid {{ grid-template-columns: 1fr; gap: 16px; }}
+    }}
+    .project-card {{
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
@@ -870,28 +884,28 @@
       flex-direction: column;
       transition: var(--transition);
       cursor: pointer;
-    }
-    .project-card:hover {
+    }}
+    .project-card:hover {{
       transform: translateY(-4px);
       border-color: var(--border-hover);
       box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5);
-    }
-    .project-card-media {
+    }}
+    .project-card-media {{
       position: relative;
       aspect-ratio: 16/10;
       overflow: hidden;
       background: #000000;
-    }
-    .project-card-media img {
+    }}
+    .project-card-media img {{
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
-    }
-    .project-card:hover .project-card-media img {
+    }}
+    .project-card:hover .project-card-media img {{
       transform: scale(1.04);
-    }
-    .card-badge {
+    }}
+    .card-badge {{
       position: absolute;
       top: 14px;
       left: 14px;
@@ -905,28 +919,28 @@
       text-transform: uppercase;
       color: var(--coral-light);
       border: 1px solid var(--coral-border);
-    }
-    .project-card-body {
+    }}
+    .project-card-body {{
       padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       flex: 1;
-    }
-    .card-collab {
+    }}
+    .card-collab {{
       font-size: 0.78rem;
       color: var(--text-muted);
       margin-bottom: 6px;
-    }
-    .card-title {
+    }}
+    .card-title {{
       font-family: var(--font-serif);
       font-size: 1.25rem;
       font-weight: 600;
       line-height: 1.3;
       color: #FFFFFF;
       margin-bottom: 10px;
-    }
-    .card-snippet {
+    }}
+    .card-snippet {{
       font-size: 0.88rem;
       color: var(--text-secondary);
       line-height: 1.55;
@@ -935,43 +949,43 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       margin-bottom: 16px;
-    }
-    .card-footer {
+    }}
+    .card-footer {{
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding-top: 14px;
       border-top: 1px solid var(--border-subtle);
       font-size: 0.82rem;
-    }
-    .card-photos-count {
+    }}
+    .card-photos-count {{
       color: var(--text-muted);
-    }
-    .card-open-link {
+    }}
+    .card-open-link {{
       color: var(--coral-light);
       font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-    }
+    }}
 
     /* ============================================================ */
     /* 5. BEFORE & AFTER TRANSFORMATION LAB                         */
     /* ============================================================ */
-    .section-ba {
+    .section-ba {{
       padding: 80px 0;
       background: var(--bg-surface);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
-    }
-    .ba-tabs-nav {
+    }}
+    .ba-tabs-nav {{
       display: flex;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
       margin: 36px 0 40px;
-    }
-    .ba-tab-btn {
+    }}
+    .ba-tab-btn {{
       padding: 10px 22px;
       border-radius: var(--radius-pill);
       background: rgba(255, 255, 255, 0.04);
@@ -981,19 +995,19 @@
       color: var(--text-secondary);
       cursor: pointer;
       transition: var(--transition);
-    }
-    .ba-tab-btn:hover {
+    }}
+    .ba-tab-btn:hover {{
       background: rgba(255, 255, 255, 0.08);
       border-color: var(--border-hover);
       color: #FFFFFF;
-    }
-    .ba-tab-btn.active {
+    }}
+    .ba-tab-btn.active {{
       background: var(--coral);
       border-color: var(--coral);
       color: #FFFFFF;
       box-shadow: 0 4px 16px var(--coral-glow);
-    }
-    .ba-stage-card {
+    }}
+    .ba-stage-card {{
       max-width: 1080px;
       margin: 0 auto;
       border-radius: var(--radius-xl);
@@ -1001,15 +1015,15 @@
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.6);
-    }
-    .ba-slider-hero {
+    }}
+    .ba-slider-hero {{
       aspect-ratio: 16/10;
       width: 100%;
       position: relative;
       overflow: hidden;
       background: #000000;
-    }
-    .ba-card-caption {
+    }}
+    .ba-card-caption {{
       padding: 24px 32px;
       display: flex;
       align-items: center;
@@ -1018,35 +1032,35 @@
       gap: 16px;
       background: var(--bg-card);
       border-top: 1px solid var(--border-subtle);
-    }
-    .ba-caption-text h4 {
+    }}
+    .ba-caption-text h4 {{
       font-family: var(--font-serif);
       font-size: 1.25rem;
       color: #FFFFFF;
       margin-bottom: 4px;
-    }
-    .ba-caption-text p {
+    }}
+    .ba-caption-text p {{
       font-size: 0.9rem;
       color: var(--text-secondary);
-    }
+    }}
 
     /* ============================================================ */
     /* 6. ATELIER WORKSHOP & CRAFTSMANSHIP (REAL VIDEOS)            */
     /* ============================================================ */
-    .section-atelier {
+    .section-atelier {{
       padding: 90px 0;
       position: relative;
-    }
-    .videos-trio-grid {
+    }}
+    .videos-trio-grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
       margin-top: 48px;
-    }
-    @media (max-width: 992px) {
-      .videos-trio-grid { grid-template-columns: 1fr; gap: 20px; }
-    }
-    .video-card {
+    }}
+    @media (max-width: 992px) {{
+      .videos-trio-grid {{ grid-template-columns: 1fr; gap: 20px; }}
+    }}
+    .video-card {{
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
@@ -1054,116 +1068,116 @@
       display: flex;
       flex-direction: column;
       transition: var(--transition);
-    }
-    .video-card:hover {
+    }}
+    .video-card:hover {{
       border-color: var(--border-hover);
       transform: translateY(-4px);
       box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
-    }
-    .video-player-wrap {
+    }}
+    .video-player-wrap {{
       position: relative;
       aspect-ratio: 16/10;
       background: #000000;
       overflow: hidden;
-    }
-    .video-player-wrap video {
+    }}
+    .video-player-wrap video {{
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    .video-card-body {
+    }}
+    .video-card-body {{
       padding: 24px;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-    .video-card-tag {
+    }}
+    .video-card-tag {{
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--coral-light);
       margin-bottom: 8px;
-    }
-    .video-card-title {
+    }}
+    .video-card-title {{
       font-family: var(--font-serif);
       font-size: 1.3rem;
       color: #FFFFFF;
       line-height: 1.3;
       margin-bottom: 10px;
-    }
-    .video-card-desc {
+    }}
+    .video-card-desc {{
       font-size: 0.88rem;
       color: var(--text-secondary);
       line-height: 1.55;
-    }
+    }}
 
     /* 6 Quality Pillars */
-    .pillars-grid {
+    .pillars-grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       margin-top: 60px;
       padding-top: 40px;
       border-top: 1px solid var(--border-subtle);
-    }
-    @media (max-width: 900px) {
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .pillars-grid { grid-template-columns: 1fr; }
-    }
-    .pillar-item {
+    }}
+    @media (max-width: 900px) {{
+      .pillars-grid {{ grid-template-columns: repeat(2, 1fr); }}
+    }}
+    @media (max-width: 600px) {{
+      .pillars-grid {{ grid-template-columns: 1fr; }}
+    }}
+    .pillar-item {{
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 22px;
       display: flex;
       gap: 16px;
-    }
-    .pillar-num {
+    }}
+    .pillar-num {{
       font-family: var(--font-serif);
       font-size: 1.5rem;
       font-weight: 700;
       color: var(--coral);
       line-height: 1;
-    }
-    .pillar-content h5 {
+    }}
+    .pillar-content h5 {{
       font-size: 1rem;
       font-weight: 600;
       color: #FFFFFF;
       margin-bottom: 6px;
-    }
-    .pillar-content p {
+    }}
+    .pillar-content p {{
       font-size: 0.84rem;
       color: var(--text-muted);
       line-height: 1.5;
-    }
+    }}
 
     /* ============================================================ */
     /* 7. EXACT ASENGUL CALCULATION ENGINE (VERIFIED MATH)          */
     /* ============================================================ */
-    .section-calc {
+    .section-calc {{
       padding: 90px 0;
       background: var(--bg-surface);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
-    }
-    .calc-card {
+    }}
+    .calc-card {{
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-xl);
       overflow: hidden;
       margin-top: 44px;
       box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.6);
-    }
-    .calc-audience-bar {
+    }}
+    .calc-audience-bar {{
       display: flex;
       background: rgba(0, 0, 0, 0.3);
       border-bottom: 1px solid var(--border-subtle);
-    }
-    .aud-btn {
+    }}
+    .aud-btn {{
       flex: 1;
       padding: 18px 24px;
       background: transparent;
@@ -1175,66 +1189,66 @@
       cursor: pointer;
       transition: var(--transition);
       text-align: center;
-    }
-    .aud-btn:hover {
+    }}
+    .aud-btn:hover {{
       color: #FFFFFF;
       background: rgba(255, 255, 255, 0.02);
-    }
-    .aud-btn.active {
+    }}
+    .aud-btn.active {{
       color: var(--coral-light);
       border-bottom-color: var(--coral);
       background: rgba(226, 90, 61, 0.06);
-    }
+    }}
 
-    .calc-body {
+    .calc-body {{
       display: grid;
       grid-template-columns: 1.15fr 1fr;
-    }
-    @media (max-width: 900px) {
-      .calc-body { grid-template-columns: 1fr; }
-    }
-    .calc-controls {
+    }}
+    @media (max-width: 900px) {{
+      .calc-body {{ grid-template-columns: 1fr; }}
+    }}
+    .calc-controls {{
       padding: 36px;
       border-right: 1px solid var(--border-subtle);
       display: flex;
       flex-direction: column;
       gap: 28px;
-    }
-    @media (max-width: 768px) {
-      .calc-controls { padding: 24px 18px; border-right: none; border-bottom: 1px solid var(--border-subtle); }
-    }
-    .calc-summary {
+    }}
+    @media (max-width: 768px) {{
+      .calc-controls {{ padding: 24px 18px; border-right: none; border-bottom: 1px solid var(--border-subtle); }}
+    }}
+    .calc-summary {{
       padding: 36px;
       background: rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-    }
-    @media (max-width: 768px) {
-      .calc-summary { padding: 24px 18px; }
-    }
+    }}
+    @media (max-width: 768px) {{
+      .calc-summary {{ padding: 24px 18px; }}
+    }}
 
-    .field-group {
+    .field-group {{
       display: flex;
       flex-direction: column;
       gap: 10px;
-    }
-    .field-label {
+    }}
+    .field-label {{
       font-size: 0.84rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--text-muted);
-    }
-    .pill-options-grid {
+    }}
+    .pill-options-grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-    }
-    @media (max-width: 500px) {
-      .pill-options-grid { grid-template-columns: 1fr; }
-    }
-    .pill-opt-btn {
+    }}
+    @media (max-width: 500px) {{
+      .pill-options-grid {{ grid-template-columns: 1fr; }}
+    }}
+    .pill-opt-btn {{
       padding: 10px 14px;
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.04);
@@ -1245,35 +1259,35 @@
       cursor: pointer;
       transition: var(--transition);
       text-align: center;
-    }
-    .pill-opt-btn:hover {
+    }}
+    .pill-opt-btn:hover {{
       border-color: var(--border-hover);
       color: #FFFFFF;
-    }
-    .pill-opt-btn.active {
+    }}
+    .pill-opt-btn.active {{
       background: var(--coral-bg);
       border-color: var(--coral);
       color: #FFFFFF;
       font-weight: 600;
-    }
+    }}
 
-    .range-box {
+    .range-box {{
       display: flex;
       flex-direction: column;
       gap: 8px;
-    }
-    .range-val-row {
+    }}
+    .range-val-row {{
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .range-val-num {
+    }}
+    .range-val-num {{
       font-family: var(--font-serif);
       font-size: 1.4rem;
       font-weight: 600;
       color: var(--coral-light);
-    }
-    input[type=range] {
+    }}
+    input[type=range] {{
       width: 100%;
       height: 6px;
       border-radius: 3px;
@@ -1281,9 +1295,9 @@
       outline: none;
       -webkit-appearance: none;
       accent-color: var(--coral);
-    }
+    }}
 
-    .calc-check-row {
+    .calc-check-row {{
       display: flex;
       align-items: center;
       gap: 12px;
@@ -1291,105 +1305,105 @@
       font-size: 0.92rem;
       color: var(--text-secondary);
       user-select: none;
-    }
-    .calc-check-row input[type=checkbox] {
+    }}
+    .calc-check-row input[type=checkbox] {{
       width: 18px;
       height: 18px;
       accent-color: var(--coral);
       cursor: pointer;
-    }
+    }}
 
     /* Price Output Box */
-    .price-display-box {
+    .price-display-box {{
       padding: 24px;
       border-radius: var(--radius-lg);
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-subtle);
       margin-bottom: 24px;
-    }
-    .price-kicker {
+    }}
+    .price-kicker {{
       font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-muted);
       margin-bottom: 8px;
-    }
-    .price-num-wrap {
+    }}
+    .price-num-wrap {{
       display: flex;
       align-items: baseline;
       gap: 10px;
-    }
-    .price-sum {
+    }}
+    .price-sum {{
       font-family: var(--font-serif);
       font-size: clamp(2.2rem, 3.6vw, 3rem);
       font-weight: 700;
       color: #FFFFFF;
       line-height: 1;
-    }
-    .price-curr {
+    }}
+    .price-curr {{
       font-family: var(--font-serif);
       font-size: 1.6rem;
       color: var(--coral);
-    }
+    }}
 
     /* Breakdown Lines */
-    .breakdown-list {
+    .breakdown-list {{
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin-bottom: 28px;
-    }
-    .breakdown-row {
+    }}
+    .breakdown-row {{
       display: flex;
       align-items: baseline;
       justify-content: space-between;
       gap: 8px;
       font-size: 0.85rem;
-    }
-    .breakdown-lbl {
+    }}
+    .breakdown-lbl {{
       color: var(--text-muted);
-    }
-    .breakdown-dots {
+    }}
+    .breakdown-dots {{
       flex: 1;
       border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
       margin: 0 4px;
-    }
-    .breakdown-val {
+    }}
+    .breakdown-val {{
       color: var(--text-primary);
       font-weight: 500;
       white-space: nowrap;
-    }
+    }}
 
     /* ============================================================ */
     /* 8. CONSULTATION & CONTACTS SECTION                           */
     /* ============================================================ */
-    .section-contacts {
+    .section-contacts {{
       padding: 90px 0 110px;
       position: relative;
-    }
-    .contacts-grid {
+    }}
+    .contacts-grid {{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       margin-top: 48px;
-    }
-    @media (max-width: 860px) {
-      .contacts-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-    .consult-card {
+    }}
+    @media (max-width: 860px) {{
+      .contacts-grid {{ grid-template-columns: 1fr; gap: 32px; }}
+    }}
+    .consult-card {{
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-xl);
       padding: 36px;
-    }
-    @media (max-width: 600px) {
-      .consult-card { padding: 24px 18px; }
-    }
-    .form-group {
+    }}
+    @media (max-width: 600px) {{
+      .consult-card {{ padding: 24px 18px; }}
+    }}
+    .form-group {{
       margin-bottom: 18px;
-    }
-    .form-label {
+    }}
+    .form-label {{
       display: block;
       font-size: 0.82rem;
       font-weight: 600;
@@ -1397,8 +1411,8 @@
       margin-bottom: 6px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-    }
-    .form-input {
+    }}
+    .form-input {{
       width: 100%;
       padding: 13px 16px;
       border-radius: var(--radius-md);
@@ -1408,18 +1422,18 @@
       font-size: 0.95rem;
       outline: none;
       transition: var(--transition);
-    }
-    .form-input:focus {
+    }}
+    .form-input:focus {{
       border-color: var(--coral);
       background: rgba(255, 255, 255, 0.07);
-    }
+    }}
 
-    .direct-contacts-wrap {
+    .direct-contacts-wrap {{
       display: flex;
       flex-direction: column;
       gap: 20px;
-    }
-    .direct-contact-card {
+    }}
+    .direct-contact-card {{
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
@@ -1428,12 +1442,12 @@
       align-items: center;
       gap: 20px;
       transition: var(--transition);
-    }
-    .direct-contact-card:hover {
+    }}
+    .direct-contact-card:hover {{
       border-color: var(--border-hover);
       transform: translateX(4px);
-    }
-    .contact-icon {
+    }}
+    .contact-icon {{
       width: 52px;
       height: 52px;
       border-radius: var(--radius-md);
@@ -1445,42 +1459,42 @@
       justify-content: center;
       font-size: 24px;
       flex-shrink: 0;
-    }
-    .contact-info-title {
+    }}
+    .contact-info-title {{
       font-size: 0.82rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--text-muted);
       margin-bottom: 4px;
-    }
-    .contact-info-val {
+    }}
+    .contact-info-val {{
       font-size: 1.15rem;
       font-weight: 600;
       color: #FFFFFF;
-    }
+    }}
 
     /* ============================================================ */
     /* 9. FOOTER                                                    */
     /* ============================================================ */
-    .footer {
+    .footer {{
       background: #070709;
       border-top: 1px solid var(--border-subtle);
       padding: 48px 0;
       font-size: 0.85rem;
       color: var(--text-muted);
-    }
-    .footer-inner {
+    }}
+    .footer-inner {{
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 20px;
-    }
+    }}
 
     /* ============================================================ */
     /* 10. FULLSCREEN LIGHTBOX MODAL                                */
     /* ============================================================ */
-    .lightbox-modal {
+    .lightbox-modal {{
       position: fixed;
       top: 0;
       left: 0;
@@ -1493,21 +1507,21 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 24px;
-    }
-    .lightbox-modal.active {
+    }}
+    .lightbox-modal.active {{
       display: flex;
-    }
-    .lightbox-top-bar {
+    }}
+    .lightbox-top-bar {{
       display: flex;
       align-items: center;
       justify-content: space-between;
       color: #FFFFFF;
-    }
-    .lightbox-counter {
+    }}
+    .lightbox-counter {{
       font-size: 0.9rem;
       color: var(--text-muted);
-    }
-    .lightbox-close-btn {
+    }}
+    .lightbox-close-btn {{
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid var(--border-subtle);
       width: 44px;
@@ -1520,11 +1534,11 @@
       justify-content: center;
       cursor: pointer;
       transition: var(--transition);
-    }
-    .lightbox-close-btn:hover {
+    }}
+    .lightbox-close-btn:hover {{
       background: var(--coral);
-    }
-    .lightbox-main-view {
+    }}
+    .lightbox-main-view {{
       flex: 1;
       display: flex;
       align-items: center;
@@ -1532,15 +1546,15 @@
       position: relative;
       overflow: hidden;
       margin: 16px 0;
-    }
-    .lightbox-img {
+    }}
+    .lightbox-img {{
       max-width: 90vw;
       max-height: 75vh;
       object-fit: contain;
       border-radius: var(--radius-md);
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-    }
-    .lightbox-arrow {
+    }}
+    .lightbox-arrow {{
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -1557,41 +1571,41 @@
       cursor: pointer;
       transition: var(--transition);
       z-index: 10;
-    }
-    .lightbox-arrow:hover {
+    }}
+    .lightbox-arrow:hover {{
       background: var(--coral);
-    }
-    .lightbox-prev { left: 16px; }
-    .lightbox-next { right: 16px; }
-    .lightbox-caption-text {
+    }}
+    .lightbox-prev {{ left: 16px; }}
+    .lightbox-next {{ right: 16px; }}
+    .lightbox-caption-text {{
       text-align: center;
       color: var(--text-secondary);
       font-size: 0.95rem;
       padding: 10px 0;
-    }
+    }}
 
     /* Global Responsive tweaks */
-    @media (max-width: 600px) {
-      .btn { width: 100%; }
-      .hero-actions { flex-direction: column; width: 100%; }
-    }
+    @media (max-width: 600px) {{
+      .btn {{ width: 100%; }}
+      .hero-actions {{ flex-direction: column; width: 100%; }}
+    }}
   </style>
 
   <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
-  {
+  {{
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "MUAR A · Ателье интерьерного текстиля",
     "description": "Пошив штор, покрывал, римских штор и моторизованных систем для резиденций и представительских объектов в Астане.",
     "telephone": "+77710551515",
-    "address": {
+    "address": {{
       "@type": "PostalAddress",
       "addressLocality": "Астана",
       "addressCountry": "KZ"
-    },
+    }},
     "priceRange": "₸₸₸₸"
-  }
+  }}
   </script>
 </head>
 <body>
@@ -2153,7 +2167,7 @@
     /* ------------------------------------------------------------- */
     /* 1. 10 REAL PROJECTS DATA MODEL                                */
     /* ------------------------------------------------------------- */
-    var PROJECTS_DATA = [{"id": 1, "num": "01", "cat": "b2c", "cat_name": "Частная Резиденция", "badge": "ПРОЕКТ 01 · ЧАСТНАЯ РЕЗИДЕНЦИЯ", "title": "Драматургия Red & White: Бескомпромиссный шик", "collaborator": "Авторский текстильный сценарий Muar A", "location": "Астана · Частная резиденция", "desc": "Сочетание красного и белого — это как драматургия, застывшая в пространстве. Задачу заказчики поставили категоричную: красные шторы. В спальной и так была красная панель. Пришлось убедить их сделать вставку с птичками и белым усилить. В гостиной арт-объект усилен шторами, а красный раскрыт в подушках. Все шторы на подкладке, покрывало стёганое, чехлы на подушках съёмные.", "specs": ["Шторы на светозащитной подкладке", "Кутюрная вставка с птицами", "Стёганое авторское покрывало", "Съёмные чехлы на подушках", "Драматургия цветового контраста"], "has_ba": true, "ba_before": "assets/muar/portfolio/photo_9@29-09-2026_17-02-55.webp", "ba_after": "assets/muar/portfolio/garden-14.webp", "ba_label_before": "Интерьер без штор", "ba_label_after": "Драматургия Red & White", "photos": [{"src": "assets/muar/portfolio/garden-14.webp", "alt": "Red & White Гостиная и портьеры"}, {"src": "assets/muar/portfolio/garden-18.webp", "alt": "Вставка с птицами в спальне"}, {"src": "assets/muar/portfolio/garden_darker-1.webp", "alt": "Фрагмент портьеры на подкладке"}, {"src": "assets/muar/portfolio/garden_darker-2.webp", "alt": "Стёганое покрывало и подушки"}, {"src": "assets/muar/portfolio/garden_darker-3.webp", "alt": "Деталь канта и съемного чехла"}, {"src": "assets/muar/portfolio/tansu-13.webp", "alt": "Общий вид спальни Red & White"}, {"src": "assets/muar/portfolio/tansu-14.webp", "alt": "Драпировка и фалды в пол"}, {"src": "assets/muar/portfolio/tansu-21.webp", "alt": "Арт-объект и текстильное обрамление"}, {"src": "assets/muar/portfolio/photo_9@29-09-2026_17-02-55.webp", "alt": "Титульный вид интерьера"}]}, {"id": 2, "num": "02", "cat": "b2c", "cat_name": "ЖК Vivaldi (Пентхаус)", "badge": "ПРОЕКТ 02 · ЖК VIVALDI", "title": "Панорамные окна в ЖК Vivaldi: Свет и Dimout", "collaborator": "Совместно с дизайн-студией IDesign", "location": "Астана · ЖК Vivaldi", "desc": "Проект реализован совместно с дизайн-студией IDesign. Команда Muar A выполнила текстильное оформление «под ключ»: мы изготовили покрывала, декоративные подушки, римские шторы и установили электрокарнизы. Так как квартира очень светлая, с панорамными окнами на солнечную сторону, все портьеры выполнены на подкладке Dimout. Она мягко рассеивает яркий свет и надёжно защищает основную ткань от выгорания. Декоративные подушки с чёрным кантом и кожаными вставками добавляют контраст и выразительность интерьеру. Покрывала сшиты на синтепоне со специальной подкладочной тканью, которая защищает изделие от износа и держит форму.", "specs": ["Электрокарнизы Somfy (пульт)", "Подкладка Dimout от выгорания", "Подушки с кожей и черным кантом", "Синтепоновое покрывало со спецподкладкой", "Панорамные окна в пол"], "has_ba": true, "ba_before": "assets/muar/living-luxe-before.webp", "ba_after": "assets/muar/portfolio/1.webp", "ba_label_before": "Слепящее южное солнце", "ba_label_after": "Мягкий рассеянный свет Dimout", "photos": [{"src": "assets/muar/portfolio/1.webp", "alt": "ЖК Vivaldi Панорамная гостиная"}, {"src": "assets/muar/portfolio/1-21.webp", "alt": "Римская штора и портьеры"}, {"src": "assets/muar/portfolio/1-42.webp", "alt": "Покрывало с подкладочной тканью"}, {"src": "assets/muar/portfolio/1-50.webp", "alt": "Подушка с кожаной вставкой и кантом"}, {"src": "assets/muar/portfolio/1-69.webp", "alt": "Фалды портьер в пол на подкладке Dimout"}, {"src": "assets/muar/portfolio/1-84.webp", "alt": "Декоративный текстильный ансамбль"}, {"src": "assets/muar/portfolio/1-87.webp", "alt": "Окно спальни с римской шторой"}, {"src": "assets/muar/portfolio/1-107.webp", "alt": "Фактура ткани на просвет"}, {"src": "assets/muar/portfolio/1-119.webp", "alt": "Общий вид интерьера ЖК Vivaldi"}]}, {"id": 3, "num": "03", "cat": "villa", "cat_name": "Загородный Дом", "badge": "ПРОЕКТ 03 · ЗАГОРОДНЫЙ ДОМ", "title": "Текстильный размах в загородном доме", "collaborator": "Дизайнер Зарина Секен & декораторы Muar A", "location": "Астана · Загородная резиденция", "desc": "Этот проект, реализованный декораторами Muar А совместно с дизайнером Зариной Секен, стал настоящей радостью для заказчицы. Перед нами стояла задача оформить дом «под ключ», поддержав смелые колористические решения и обилие орнаментов в интерьере. Мы изготовили римские шторы, покрывала и декоративные подушки, сделав ставку на абсолютную индивидуальность. Каждое текстильное изделие неповторимо: вы не найдёте на массовом рынке такие оттенки, формы валиков или сочетания тканей. Портьеры украшены изысканными басонными кантами, что придаёт им особый статус и завершённость. Вместо традиционного обилия ткани в тюлях, мы использовали прозрачный римский тюль, который мягко рассеивает свет, сохраняя ощущение простора.", "specs": ["Басонные декоративные канты", "Прозрачный римский тюль", "Авторские формы валиков", "Смелая колористика и орнаменты", "Оформление резиденции «под ключ»"], "has_ba": true, "ba_before": "assets/muar/portfolio/_MG_9217-2.webp", "ba_after": "assets/muar/portfolio/kzlst-13.webp", "ba_label_before": "Пустое витражное окно", "ba_label_after": "Римский тюль & Басонный кант", "photos": [{"src": "assets/muar/portfolio/kzlst-13.webp", "alt": "Текстильный размах загородного дома"}, {"src": "assets/muar/portfolio/_MG_9140-2.webp", "alt": "Римский прозрачный тюль и декор"}, {"src": "assets/muar/portfolio/_MG_9217-2.webp", "alt": "Басонные канты на портьерах"}, {"src": "assets/muar/portfolio/kzlst-07.webp", "alt": "Авторские валики и подушки"}, {"src": "assets/muar/portfolio/kzlst-08.webp", "alt": "Декоративное покрывало ручной работы"}]}, {"id": 4, "num": "04", "cat": "b2b", "cat_name": "Executive Office", "badge": "ПРОЕКТ 04 · B2B / EXECUTIVE OFFICE", "title": "Современный кабинет руководителя: Сатин & Дамаск", "collaborator": "Офис первого лица · Контрактный текстиль", "location": "Астана · Деловой центр", "desc": "Оформление современного кабинета руководителя. Для портьер мы выбрали сочетание гладкого матового сатина и ткани с рифлёным орнаментом «дамаск». Классическая палитра в комбинации с матовой текстурой придаёт текстилю актуальное, современное звучание, сохраняя статусность интерьера. Все окна оснащены электрокарнизами — управлять ими можно как с пульта, так и с помощью голосовых команд. Портьеры сшиты на светозащитной подкладке: она защищает ткань от выгорания, формирует выразительные архитектурные складки и придаёт изделиям благородный монументальный вид. Весь текстиль — и шторы, и тюль — сшиты на ручную складку.", "specs": ["Голосовое управление карнизами", "Бесшумные электроприводы Somfy", "Матовый сатин + рифлёный дамаск", "Ручная складка штор и тюля", "Светозащитная подкладка по ГОСТу"], "has_ba": false, "photos": [{"src": "assets/muar/portfolio/garden-33.webp", "alt": "Кабинет руководителя общий вид"}, {"src": "assets/muar/portfolio/garden-30.webp", "alt": "Сочетание сатина и орнамента дамаск"}, {"src": "assets/muar/portfolio/garden-31.webp", "alt": "Фалды ручной складки портьер"}, {"src": "assets/muar/portfolio/garden-32.webp", "alt": "Моторизованный карниз Somfy"}]}, {"id": 5, "num": "05", "cat": "b2b", "cat_name": "Ресторан / Пространство", "badge": "ПРОЕКТ 05 · B2B RESTAURANT SPACE", "title": "Потолочные паруса и навесы в ресторане", "collaborator": "Дизайнер Руслан & декораторы Muar A", "location": "Астана · Премиальный ресторан", "desc": "Этот проект был особенным вызовом: монтаж длинных карнизов (более 4 метров) и ювелирная точность расчётов требовали максимального мастерства. Автор этой смелой идеи — дизайнер Руслан и наши декораторы. Вдохновляясь визуальной концепцией, мы филигранно рассчитали каждый метр ткани, учли её мягкий свис, пластику и естественное растяжение, а также с точностью до миллиметра разместили лаконичный чёрный алюминиевый карниз. Результат: пространство ресторана, наполненное воздухом, магией и лёгкостью. Ткань словно дышит и улавливает каждое движение. В интерьере нет строгости и повторяющихся углов: каждая линия и мягкий изгиб уникальны. Эта тонкая завораживающая асимметрия создаёт особую живую атмосферу.", "specs": ["Карнизы длиной более 4 метров", "Лаконичный чёрный алюминиевый профиль", "Ювелирный расчёт пластики и свиса", "Неповторимая живая асимметрия волн", "Атмосфера воздуха, магии и лёгкости"], "has_ba": false, "photos": [{"src": "assets/muar/portfolio/IMG_6711.webp", "alt": "Потолочные текстильные паруса"}, {"src": "assets/muar/portfolio/IMG_6710.webp", "alt": "Мягкий свис и пластика полотен"}, {"src": "assets/muar/portfolio/IMG_6709.webp", "alt": "Чёрный карниз и игра света"}]}, {"id": 6, "num": "06", "cat": "villa", "cat_name": "Загородный Дом (Модерн)", "badge": "ПРОЕКТ 06 · КРАФТОВОЕ ИЗДЕЛИЕ", "title": "Крафтовое изделие в загородном доме: Модерн 60-х", "collaborator": "Дизайнер интерьера Динара Усманова", "location": "Астана · Загородный дом", "desc": "История о том, как из неожиданной сложности рождается уникальное искусство. Изначально дизайнер интерьера Динара Усманова выбрала льняной тюль с геометрическим узором. Когда выяснилось, что фабрика в Турции сняла ткань с производства, а достойной альтернативы не нашлось, наш текстильный декоратор предложила создавать этот орнамент вручную. После множества образцов идея переросла в нечто гораздо большее: фактура и дух истинного крафта. Границу между невесомым тюлем и плотной портьерой мягко сгладили эффектным кантом, придав изделию завершённый кутюрный вид. Портьеру дополнили нитями мулине, подчеркнув благородный эффект ручной работы. В доме в стиле модерн 60-х заказчик получил абсолютно неповторимое произведение текстильного искусства.", "specs": ["Ручная роспись геометрического орнамента", "Нити мулине ручной работы", "Эффектный соединительный кант", "Стиль модерн 60-х (чистая геометрия)", "100% неповторимое изделие кутюр"], "has_ba": false, "photos": [{"src": "assets/muar/portfolio/IMG_6717.webp", "alt": "Крафтовое изделие в интерьере"}, {"src": "assets/muar/portfolio/IMG_6712.webp", "alt": "Ручная роспись геометрического орнамента"}, {"src": "assets/muar/portfolio/IMG_6713.webp", "alt": "Фактура льняного тюля и нити мулине"}, {"src": "assets/muar/portfolio/IMG_6714.webp", "alt": "Граница между тюлем и портьерой с кантом"}, {"src": "assets/muar/portfolio/IMG_6715.webp", "alt": "Безупречный пошив и строчка"}, {"src": "assets/muar/portfolio/IMG_6716.webp", "alt": "Детали портьеры в стиле модерн 60-х"}]}, {"id": 7, "num": "07", "cat": "villa", "cat_name": "High-Ceiling Вилла", "badge": "ПРОЕКТ 07 · АТМОСФЕРА НОЛАНА", "title": "Виллы «Темный Рыцарь»: 10-метровые потолки и лифт-системы", "collaborator": "Архитектор проекта Габиден & Muar A", "location": "Астана · Закрытый коттеджный городок", "desc": "«Виллы должны передавать атмосферу к фильму Кристофера Нолана Темный Рыцарь». Когда архитектор проекта Габиден озвучил эту концепцию, мы сразу определили характер будущей работы: архитектурная графика, неоготика, благородное сочетание чёрного с золотом и монументальная элегантность. Нам доверили автономную разработку текстильного сценария, карнизов и солнцезащитных систем: от концепции до монтажа. Высота потолков в спальнях достигает 5 метров, а в главном холле — 10 метров! Для 10-метровых потолков нами была спроектирована и смонтирована специальная лифт-система с трубчатыми моторами и стальными тросами. Все портьеры выполнены на подкладке из высококлассных плотных сатинов. Опыт сдачи объектов для первых лиц Казахстана позволяет команде Muar A гарантировать бескомпромиссное качество.", "specs": ["Лифт-система для высоты 10 метров", "Трубчатые моторы и стальные тросы", "Потолки 5 м в спальнях, 10 м в холле", "Высококлассные плотные сатины на подкладке", "Статус объектов для первых лиц РК"], "has_ba": true, "ba_before": "assets/muar/portfolio/IMG_4198.webp", "ba_after": "assets/muar/portfolio/IMG_6721.webp", "ba_label_before": "Черновой холл высотой 10 метров", "ba_label_after": "Монументальная элегантность «Темный Рыцарь»", "photos": [{"src": "assets/muar/portfolio/IMG_6721.webp", "alt": "Вилла Темный Рыцарь титульный вид"}, {"src": "assets/muar/portfolio/IMG_6718.webp", "alt": "10-метровые портьеры на лифт-системе"}, {"src": "assets/muar/portfolio/IMG_6719.webp", "alt": "Спальня с высотой потолков 5 метров"}, {"src": "assets/muar/portfolio/IMG_6720.webp", "alt": "Черное с золотом: детали текстиля"}, {"src": "assets/muar/portfolio/IMG_6722.webp", "alt": "Монументальная складка плотного сатина"}, {"src": "assets/muar/portfolio/IMG_6723.webp", "alt": "Деревянные жалюзи и портьеры"}, {"src": "assets/muar/portfolio/IMG_6724.webp", "alt": "Холл со вторым светом 10 м"}, {"src": "assets/muar/portfolio/IMG_8482.webp", "alt": "Узел крепления и стальной трос"}, {"src": "assets/muar/portfolio/IMG_4198.webp", "alt": "Живое фото холла до монтажа"}]}, {"id": 8, "num": "08", "cat": "b2c", "cat_name": "Мастер-Спальня", "badge": "ПРОЕКТ 08 · АВТОРСКИЙ ТЕКСТИЛЬ", "title": "Авторский текстиль для яркой спальни: Бордо & Пайетки", "collaborator": "Дизайнер Лаура Жакина & Muar A", "location": "Астана · Апартаменты", "desc": "Насыщенный бордовый цвет стены задал тон всему текстильному оформлению. Совместно с заказчицей и дизайнером Лаурой Жакиной мы отказались от нейтральных решений в пользу глубоких, выразительных оттенков и богатых фактур. Портьеры с красно-баклажановым декором обрамлены подхватом-розой в тон, идеально перекликаясь с объёмом барельефа. Простёганное покрывало сочетает расшитое пайетками изножье с высокой практичностью в ежедневном использовании. Комбинация хлопка, шерсти и сатина в подушках с фиолетовой кисеёй делает зону отдыха по-настоящему обволакивающей и премиальной.", "specs": ["Подхват-роза в тон настенного барельефа", "Простёганное покрывало с изножьем в пайетках", "Подушки: союз хлопка, шерсти и сатина", "Фиолетовая кисея в зоне отдыха", "Красно-баклажановый глубокий декор"], "has_ba": false, "photos": [{"src": "assets/muar/portfolio/IMG_6726.webp", "alt": "Яркая спальня в бордовых тонах"}, {"src": "assets/muar/portfolio/IMG_6725.webp", "alt": "Подхват-роза и портьеры"}, {"src": "assets/muar/portfolio/IMG_6727.webp", "alt": "Покрывало с пайетками на изножье"}, {"src": "assets/muar/portfolio/IMG_6728.webp", "alt": "Подушки из хлопка, шерсти и сатина"}, {"src": "assets/muar/portfolio/IMG_6729.webp", "alt": "Фактурная кисея и детали декора"}]}, {"id": 9, "num": "09", "cat": "b2c", "cat_name": "ЖК Evolution", "badge": "ПРОЕКТ 09 · ЖК EVOLUTION", "title": "Мастер-спальня с лоджией: Шоколадный & Стальной кант", "collaborator": "Апартаменты в ЖК Evolution · Астана", "location": "Астана · ЖК Evolution", "desc": "Тут мы изготовили алюминиевые жалюзи на балконе в тон и ритм декору в виде канта шоколадного цвета. Портьеры на подкладке с декором в виде канта холодного стального тона (по настоянию заказчицы), струящийся тюль-вуаль с деликатным рассеиванием. Текстильное решение мягко связывает геометрию панорамной лоджии и приватную зону спальни в единое целостное пространство.", "specs": ["Алюминиевые жалюзи в тон шоколадного канта", "Портьеры на подкладке со стальным кантом", "Единый сценарий спальни и лоджии", "Французский тюль-вуаль", "Защита приватности и мягкий свет"], "has_ba": false, "photos": [{"src": "assets/muar/portfolio/asem_br-29.webp", "alt": "ЖК Evolution Мастер-спальня"}, {"src": "assets/muar/portfolio/evolution-17.webp", "alt": "Жалюзи на балконе и шоколадный кант"}, {"src": "assets/muar/portfolio/garden-08.webp", "alt": "Портьеры на подкладке со стальным кантом"}]}, {"id": 10, "num": "10", "cat": "b2c", "cat_name": "ЖК Атлант / Дос", "badge": "ПРОЕКТ 10 · ЖК АТЛАНТ / ДОС", "title": "Детская комната: Авторские помпоны & Безопасность", "collaborator": "Семейная резиденция в ЖК «Атлант» / Дос", "location": "Астана · ЖК «Атлант»", "desc": "Уютное, тактильное и безопасное оформление детской спальни. В проекте использован гипоаллергенный натуральный текстиль, авторские декоративные помпоны ручной работы, мягкая геометрия римских штор и светозащита Dimout для спокойного и здорового сна ребенка в любое время суток. Каждая строчка и деталь выполнены с особой заботой о маленьких обитателях дома.", "specs": ["Авторские помпоны ручной работы", "Гипоаллергенный натуральный текстиль", "Мягкая складка римских штор", "Светозащита Dimout для детского сна", "Безопасная скрытая фурнитура"], "has_ba": false, "photos": [{"src": "assets/muar/portfolio/atlant-31.webp", "alt": "Детская комната с римскими шторами"}, {"src": "assets/muar/portfolio/дос-7.webp", "alt": "Авторские помпоны ручной работы"}, {"src": "assets/muar/portfolio/1-13.webp", "alt": "Гипоаллергенный мягкий текстиль"}]}];
+    var PROJECTS_DATA = {projects_json};
 
     var currentProjectId = 1;
     var currentFilter = 'all';
@@ -2166,19 +2180,19 @@
     var isAudioPlaying = false;
     var ambientAudioEl = document.getElementById('ambientAudio');
 
-    function getAudioCtx() {
-      if (!audioCtx) {
+    function getAudioCtx() {{
+      if (!audioCtx) {{
         var AC = window.AudioContext || window.webkitAudioContext;
         if (AC) audioCtx = new AC();
-      }
-      if (audioCtx && audioCtx.state === 'suspended') {
+      }}
+      if (audioCtx && audioCtx.state === 'suspended') {{
         audioCtx.resume();
-      }
+      }}
       return audioCtx;
-    }
+    }}
 
-    window.playSilkClick = function(pitch) {
-      try {
+    window.playSilkClick = function(pitch) {{
+      try {{
         var ctx = getAudioCtx();
         if (!ctx) return;
         var osc = ctx.createOscillator();
@@ -2193,52 +2207,52 @@
         gain.connect(ctx.destination);
         osc.start();
         osc.stop(ctx.currentTime + 0.04);
-      } catch (e) {}
-    };
+      }} catch (e) {{}}
+    }};
 
-    function toggleAmbientSound() {
+    function toggleAmbientSound() {{
       getAudioCtx();
       var btn = document.getElementById('ambientToggleBtn');
       if (!ambientAudioEl) return;
 
-      if (isAudioPlaying) {
+      if (isAudioPlaying) {{
         ambientAudioEl.pause();
         isAudioPlaying = false;
         if (btn) btn.classList.remove('active');
-      } else {
+      }} else {{
         ambientAudioEl.volume = 0.45;
         var p = ambientAudioEl.play();
-        if (p !== undefined) {
-          p.then(function() {
+        if (p !== undefined) {{
+          p.then(function() {{
             isAudioPlaying = true;
             if (btn) btn.classList.add('active');
-          }).catch(function(e) {
+          }}).catch(function(e) {{
             console.log('Audio requires user gesture:', e);
-          });
-        }
-      }
+          }});
+        }}
+      }}
       window.playSilkClick(2200);
-    }
+    }}
     window.toggleAmbientSound = toggleAmbientSound;
 
     /* ------------------------------------------------------------- */
     /* 3. PROJECT SHOWCASE ENGINE                                    */
     /* ------------------------------------------------------------- */
-    function renderProjectNav() {
+    function renderProjectNav() {{
       var rail = document.getElementById('projectNavItems');
       if (!rail) return;
       rail.innerHTML = '';
 
-      PROJECTS_DATA.forEach(function(p) {
+      PROJECTS_DATA.forEach(function(p) {{
         if (currentFilter !== 'all' && p.cat !== currentFilter) return;
 
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'nav-item-btn' + (p.id === currentProjectId ? ' active' : '');
-        btn.onclick = function() {
+        btn.onclick = function() {{
           selectProject(p.id);
           window.playSilkClick(1900);
-        };
+        }};
 
         btn.innerHTML = 
           '<div class="nav-num-badge">' + p.num + '</div>' +
@@ -2248,19 +2262,19 @@
           '</div>';
 
         rail.appendChild(btn);
-      });
-    }
+      }});
+    }}
 
-    function renderStageView() {
+    function renderStageView() {{
       var view = document.getElementById('activeStageView');
       if (!view) return;
 
-      var p = PROJECTS_DATA.find(function(item) { return item.id === currentProjectId; });
+      var p = PROJECTS_DATA.find(function(item) {{ return item.id === currentProjectId; }});
       if (!p) p = PROJECTS_DATA[0];
 
       // Media HTML: Before/After or primary photo
       var mediaHtml = '';
-      if (p.has_ba) {
+      if (p.has_ba) {{
         mediaHtml = 
           '<div class="stage-media-wrap">' +
             '<div class="ba-slider-container" id="stageBaSlider">' +
@@ -2277,25 +2291,25 @@
               '<div class="ba-tag ba-tag-after">' + p.ba_label_after + '</div>' +
             '</div>' +
           '</div>';
-      } else {
+      }} else {{
         var primaryPhoto = p.photos[activePhotoIndex] || p.photos[0];
         mediaHtml = 
           '<div class="stage-media-wrap" onclick="openLightbox(' + activePhotoIndex + ')" style="cursor: pointer;" title="Нажмите, чтобы развернуть во весь экран">' +
             '<img src="' + primaryPhoto.src + '" alt="' + primaryPhoto.alt + '" class="stage-primary-img" id="stagePrimaryImg">' +
           '</div>';
-      }
+      }}
 
       // Specs chips
-      var specsHtml = p.specs.map(function(s) {
+      var specsHtml = p.specs.map(function(s) {{
         return '<span class="spec-chip">' + s + '</span>';
-      }).join('');
+      }}).join('');
 
       // Thumbs strip
-      var thumbsHtml = p.photos.map(function(ph, idx) {
+      var thumbsHtml = p.photos.map(function(ph, idx) {{
         return '<button type="button" class="gallery-thumb-btn' + (idx === activePhotoIndex ? ' active' : '') + '" onclick="selectPhoto(' + idx + ')">' +
           '<img src="' + ph.src + '" alt="' + ph.alt + '" loading="lazy">' +
         '</button>';
-      }).join('');
+      }}).join('');
 
       view.innerHTML = 
         mediaHtml +
@@ -2319,72 +2333,72 @@
         '</div>';
 
       // Re-bind BA slider if present
-      if (p.has_ba) {
+      if (p.has_ba) {{
         initBaSlider('stageBaSlider', 'stageBaBeforeLayer', 'stageBaHandleLine');
-      }
-    }
+      }}
+    }}
 
-    function selectProject(id) {
+    function selectProject(id) {{
       currentProjectId = id;
       activePhotoIndex = 0;
       renderProjectNav();
       renderStageView();
-    }
+    }}
 
-    function selectPhoto(idx) {
+    function selectPhoto(idx) {{
       activePhotoIndex = idx;
-      var p = PROJECTS_DATA.find(function(item) { return item.id === currentProjectId; });
+      var p = PROJECTS_DATA.find(function(item) {{ return item.id === currentProjectId; }});
       if (!p) return;
 
       var stageImg = document.getElementById('stagePrimaryImg');
-      if (stageImg && p.photos[idx]) {
+      if (stageImg && p.photos[idx]) {{
         stageImg.src = p.photos[idx].src;
         stageImg.alt = p.photos[idx].alt;
-      }
+      }}
 
       // update thumbs active class
       var thumbs = document.querySelectorAll('.gallery-thumb-btn');
-      thumbs.forEach(function(tb, i) {
+      thumbs.forEach(function(tb, i) {{
         tb.classList.toggle('active', i === idx);
-      });
+      }});
 
       window.playSilkClick(2000);
-    }
+    }}
 
-    function filterProjects(cat, btn) {
+    function filterProjects(cat, btn) {{
       currentFilter = cat;
-      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.filter-btn').forEach(function(b) {{ b.classList.remove('active'); }});
       if (btn) btn.classList.add('active');
 
       // if current project not in filtered, pick first matching
-      var visible = PROJECTS_DATA.filter(function(p) { return cat === 'all' || p.cat === cat; });
-      if (visible.length && !visible.some(function(p) { return p.id === currentProjectId; })) {
+      var visible = PROJECTS_DATA.filter(function(p) {{ return cat === 'all' || p.cat === cat; }});
+      if (visible.length && !visible.some(function(p) {{ return p.id === currentProjectId; }})) {{
         currentProjectId = visible[0].id;
         activePhotoIndex = 0;
-      }
+      }}
 
       renderProjectNav();
       renderStageView();
       renderProjectsGrid();
       window.playSilkClick(2100);
-    }
+    }}
 
-    function renderProjectsGrid() {
+    function renderProjectsGrid() {{
       var grid = document.getElementById('projectsGrid');
       if (!grid) return;
       grid.innerHTML = '';
 
-      PROJECTS_DATA.forEach(function(p) {
+      PROJECTS_DATA.forEach(function(p) {{
         if (currentFilter !== 'all' && p.cat !== currentFilter) return;
 
         var card = document.createElement('article');
         card.className = 'project-card';
-        card.onclick = function() {
+        card.onclick = function() {{
           selectProject(p.id);
           var el = document.getElementById('showcaseStage');
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (el) el.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
           window.playSilkClick(2200);
-        };
+        }};
 
         var coverPhoto = p.photos[0] ? p.photos[0].src : p.ba_after;
 
@@ -2406,13 +2420,13 @@
           '</div>';
 
         grid.appendChild(card);
-      });
-    }
+      }});
+    }}
 
     /* ------------------------------------------------------------- */
     /* 4. BEFORE & AFTER SPLIT SLIDER ENGINE                         */
     /* ------------------------------------------------------------- */
-    function initBaSlider(containerId, beforeLayerId, handleLineId) {
+    function initBaSlider(containerId, beforeLayerId, handleLineId) {{
       var container = document.getElementById(containerId);
       var beforeLayer = document.getElementById(beforeLayerId);
       var handleLine = document.getElementById(handleLineId);
@@ -2420,7 +2434,7 @@
 
       var isDragging = false;
 
-      function updatePos(clientX) {
+      function updatePos(clientX) {{
         var rect = container.getBoundingClientRect();
         var x = clientX - rect.left;
         var pct = (x / rect.width) * 100;
@@ -2429,68 +2443,68 @@
 
         beforeLayer.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
         handleLine.style.left = pct + '%';
-      }
+      }}
 
-      function onPointerDown(e) {
+      function onPointerDown(e) {{
         isDragging = true;
         updatePos(e.clientX || (e.touches && e.touches[0].clientX));
-      }
+      }}
 
-      function onPointerMove(e) {
+      function onPointerMove(e) {{
         if (!isDragging) return;
         updatePos(e.clientX || (e.touches && e.touches[0].clientX));
-      }
+      }}
 
-      function onPointerUp() {
+      function onPointerUp() {{
         isDragging = false;
-      }
+      }}
 
       container.addEventListener('mousedown', onPointerDown);
       window.addEventListener('mousemove', onPointerMove);
       window.addEventListener('mouseup', onPointerUp);
 
-      container.addEventListener('touchstart', onPointerDown, { passive: true });
-      window.addEventListener('touchmove', onPointerMove, { passive: true });
-      window.addEventListener('touchend', onPointerUp, { passive: true });
-    }
+      container.addEventListener('touchstart', onPointerDown, {{ passive: true }});
+      window.addEventListener('touchmove', onPointerMove, {{ passive: true }});
+      window.addEventListener('touchend', onPointerUp, {{ passive: true }});
+    }}
 
-    var BA_SCENES = {
-      1: {
+    var BA_SCENES = {{
+      1: {{
         title: "Проект 01: Драматургия Red & White",
         desc: "Категоричный запрос на красный цвет решен филигранной вставкой с птицами, стёганым покрывалом и портьерами на подкладке.",
         before: "assets/muar/portfolio/photo_9@29-09-2026_17-02-55.webp",
         after: "assets/muar/portfolio/garden-14.webp",
         labelBefore: "Без штор",
         labelAfter: "Драматургия Red & White"
-      },
-      2: {
+      }},
+      2: {{
         title: "Проект 02: ЖК Vivaldi (Свет & Dimout)",
         desc: "Панорамная гостиная на солнечную сторону защищена подкладкой Dimout. Мягкое рассеивание света без выгорания тканей.",
         before: "assets/muar/living-luxe-before.webp",
         after: "assets/muar/portfolio/1.webp",
         labelBefore: "Слепящее солнце",
         labelAfter: "Свет Dimout"
-      },
-      3: {
+      }},
+      3: {{
         title: "Проект 03: Загородный дом (Зарина Секен)",
         desc: "Римский прозрачный тюль вместо тяжелых штор, смелая колористика, декоративные басонные канты и авторские валики.",
         before: "assets/muar/portfolio/_MG_9217-2.webp",
         after: "assets/muar/portfolio/kzlst-13.webp",
         labelBefore: "Пустое окно",
         labelAfter: "Римский тюль & Канты"
-      },
-      7: {
+      }},
+      7: {{
         title: "Проект 07: Вилла «Темный Рыцарь» (Габиден)",
         desc: "Холл со вторым светом высотой 10 метров. Разработка моторизованной лифт-системы со стальными тросами и плотными сатинами.",
         before: "assets/muar/portfolio/IMG_4198.webp",
         after: "assets/muar/portfolio/IMG_6721.webp",
         labelBefore: "Черновой холл 10 м",
         labelAfter: "Элегантность Нолана"
-      }
-    };
+      }}
+    }};
 
-    function switchBaScene(sceneId, btn) {
-      document.querySelectorAll('.ba-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    function switchBaScene(sceneId, btn) {{
+      document.querySelectorAll('.ba-tab-btn').forEach(function(b) {{ b.classList.remove('active'); }});
       if (btn) btn.classList.add('active');
 
       var sc = BA_SCENES[sceneId] || BA_SCENES[1];
@@ -2509,15 +2523,15 @@
       if (capDesc) capDesc.textContent = sc.desc;
 
       window.playSilkClick(2000);
-    }
+    }}
 
     /* ------------------------------------------------------------- */
     /* 5. FULLSCREEN LIGHTBOX ENGINE                                 */
     /* ------------------------------------------------------------- */
     var lightboxPhotoIndex = 0;
 
-    function openLightbox(startIdx) {
-      var p = PROJECTS_DATA.find(function(item) { return item.id === currentProjectId; });
+    function openLightbox(startIdx) {{
+      var p = PROJECTS_DATA.find(function(item) {{ return item.id === currentProjectId; }});
       if (!p || !p.photos.length) return;
 
       lightboxPhotoIndex = (typeof startIdx === 'number') ? startIdx : 0;
@@ -2527,17 +2541,17 @@
       if (modal) modal.classList.add('active');
       document.body.style.overflow = 'hidden';
       window.playSilkClick(2300);
-    }
+    }}
 
-    function closeLightbox() {
+    function closeLightbox() {{
       var modal = document.getElementById('lightboxModal');
       if (modal) modal.classList.remove('active');
       document.body.style.overflow = '';
       window.playSilkClick(1600);
-    }
+    }}
 
-    function updateLightboxContent() {
-      var p = PROJECTS_DATA.find(function(item) { return item.id === currentProjectId; });
+    function updateLightboxContent() {{
+      var p = PROJECTS_DATA.find(function(item) {{ return item.id === currentProjectId; }});
       if (!p || !p.photos.length) return;
 
       if (lightboxPhotoIndex < 0) lightboxPhotoIndex = p.photos.length - 1;
@@ -2549,61 +2563,61 @@
       var title = document.getElementById('lightboxProjectTitle');
       var caption = document.getElementById('lightboxCaption');
 
-      if (img) {
+      if (img) {{
         img.src = current.src;
         img.alt = current.alt;
-      }
+      }}
       if (counter) counter.textContent = (lightboxPhotoIndex + 1) + ' / ' + p.photos.length;
       if (title) title.textContent = p.badge;
       if (caption) caption.textContent = current.alt || p.title;
-    }
+    }}
 
-    function nextLightboxPhoto() {
+    function nextLightboxPhoto() {{
       lightboxPhotoIndex++;
       updateLightboxContent();
       window.playSilkClick(2000);
-    }
+    }}
 
-    function prevLightboxPhoto() {
+    function prevLightboxPhoto() {{
       lightboxPhotoIndex--;
       updateLightboxContent();
       window.playSilkClick(2000);
-    }
+    }}
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function(e) {{
       var modal = document.getElementById('lightboxModal');
       if (!modal || !modal.classList.contains('active')) return;
 
       if (e.key === 'Escape') closeLightbox();
       else if (e.key === 'ArrowRight') nextLightboxPhoto();
       else if (e.key === 'ArrowLeft') prevLightboxPhoto();
-    });
+    }});
 
     /* ------------------------------------------------------------- */
     /* 6. VERIFIED ASENGUL CALCULATION ENGINE                        */
     /* ------------------------------------------------------------- */
-    var calcState = {
+    var calcState = {{
       audience: 'b2c',
       product: 'curtain',
       b2bPackage: 'pkg_curtain',
       fabric: 'linen',
       width: 3.2
-    };
+    }};
 
-    var FABRICS_PRICES = {
-      linen: { name: 'Лён фактурный', price: 24000 },
-      satin: { name: 'Сатин Soft', price: 18000 },
-      dimout: { name: 'Dimout Текстура', price: 22000 },
-      velvet: { name: 'Бархат Couture', price: 28000 },
-      chenille: { name: 'Шенилл Wind', price: 32000 },
-      jacquard: { name: 'Жаккард Люкс', price: 38000 }
-    };
+    var FABRICS_PRICES = {{
+      linen: {{ name: 'Лён фактурный', price: 24000 }},
+      satin: {{ name: 'Сатин Soft', price: 18000 }},
+      dimout: {{ name: 'Dimout Текстура', price: 22000 }},
+      velvet: {{ name: 'Бархат Couture', price: 28000 }},
+      chenille: {{ name: 'Шенилл Wind', price: 32000 }},
+      jacquard: {{ name: 'Жаккард Люкс', price: 38000 }}
+    }};
 
-    function fmt(n) {
-      return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-    }
+    function fmt(n) {{
+      return Math.round(n).toString().replace(/\\B(?=(\\d{{3}})+(?!\\d))/g, ' ');
+    }}
 
-    function switchAudience(aud) {
+    function switchAudience(aud) {{
       calcState.audience = aud;
       document.getElementById('audB2CBtn').classList.toggle('active', aud === 'b2c');
       document.getElementById('audB2BBtn').classList.toggle('active', aud === 'b2b');
@@ -2614,46 +2628,46 @@
 
       recalc();
       window.playSilkClick(2100);
-    }
+    }}
 
-    function setProduct(prod, btn) {
+    function setProduct(prod, btn) {{
       calcState.product = prod;
-      document.querySelectorAll('#b2cProductGroup .pill-opt-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('#b2cProductGroup .pill-opt-btn').forEach(function(b) {{ b.classList.remove('active'); }});
       if (btn) btn.classList.add('active');
       recalc();
       window.playSilkClick(1900);
-    }
+    }}
 
-    function setB2bPackage(pkg, btn) {
+    function setB2bPackage(pkg, btn) {{
       calcState.b2bPackage = pkg;
-      document.querySelectorAll('#b2bPackageGroup .pill-opt-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('#b2bPackageGroup .pill-opt-btn').forEach(function(b) {{ b.classList.remove('active'); }});
       if (btn) btn.classList.add('active');
       recalc();
       window.playSilkClick(1900);
-    }
+    }}
 
-    function setFabric(fab, btn) {
+    function setFabric(fab, btn) {{
       calcState.fabric = fab;
-      document.querySelectorAll('#fabricOptionsGrid .pill-opt-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('#fabricOptionsGrid .pill-opt-btn').forEach(function(b) {{ b.classList.remove('active'); }});
       if (btn) btn.classList.add('active');
       recalc();
       window.playSilkClick(1900);
-    }
+    }}
 
-    function updateRange(type, val) {
+    function updateRange(type, val) {{
       calcState[type] = parseFloat(val);
       document.getElementById('widthOut').textContent = parseFloat(val).toFixed(1);
       recalc();
-    }
+    }}
 
-    function recalc() {
+    function recalc() {{
       var total = 0;
       var lines = [];
       var fab = FABRICS_PRICES[calcState.fabric] || FABRICS_PRICES.linen;
 
-      if (calcState.audience === 'b2b') {
+      if (calcState.audience === 'b2b') {{
         var pkg = calcState.b2bPackage;
-        if (pkg === 'pkg_curtain') {
+        if (pkg === 'pkg_curtain') {{
           var w = 3.0;
           var meters = w * 2.0; // 6.0m
           var fabCost = meters * 24000; // 144k
@@ -2670,7 +2684,7 @@
             ['Сатиновый подклад по ГОСТу', fmt(liningCost) + ' ₸ (10 900 ₸/м)'],
             ['Условия юрлицам', 'Договор, ЭСФ, НДС 12%']
           ];
-        } else if (pkg === 'pkg_blinds') {
+        }} else if (pkg === 'pkg_blinds') {{
           var base = 238800;
           var blinds = Math.round(4.95 * 17000); // 84 150
           total = base + blinds; // 322 950
@@ -2682,7 +2696,7 @@
             ['Светозащита', '0% бликов на экранах мониторов'],
             ['Условия юрлицам', 'Договор, ЭСФ, НДС 12%']
           ];
-        } else {
+        }} else {{
           var base3 = 238800;
           var roman = 135950;
           total = base3 + roman; // 374 750
@@ -2694,13 +2708,13 @@
             ['Преимущество', 'Мягкий рассеянный свет + премиальный статус'],
             ['Условия юрлицам', 'Договор, ЭСФ, НДС 12%']
           ];
-        }
-      } else {
+        }}
+      }} else {{
         // B2C Mode
         var prod = calcState.product;
         var w = calcState.width;
 
-        if (prod === 'curtain') {
+        if (prod === 'curtain') {{
           var meters = w * 2.0; // 3.2 * 2 = 6.4m
           var fabCost = meters * fab.price; // 6.4 * 24000 = 153 600
           var tailCost = meters * 4900; // 6.4 * 4900 = 31 360
@@ -2729,7 +2743,7 @@
           if (hasTulle) lines.push(['Французская вуаль со складкой', fmt(tulleCost) + ' ₸ (навеска включена)']);
           if (hasSomfy) lines.push(['Электрокарниз Somfy Ultra', fmt(somfyCost) + ' ₸ (бесшумный)']);
           lines.push(['Профильный карниз и монтаж', fmt(profileAndInstall) + ' ₸']);
-        } else if (prod === 'roman') {
+        }} else if (prod === 'roman') {{
           var wR = 1.9, hR = 2.5;
           var metersR = wR + 0.4;
           var fabCostR = metersR * fab.price;
@@ -2743,7 +2757,7 @@
             ['Подъемный механизм с цепочкой', fmt(mechCost) + ' ₸ (20 000 ₸/м)'],
             ['Цеховой пошив со спицами', fmt(tailCostR) + ' ₸ (9 000 ₸/м²)']
           ];
-        } else {
+        }} else {{
           // Bedspread
           var bedMeters = 3.0;
           var fabCostB = bedMeters * fab.price;
@@ -2755,34 +2769,34 @@
             ['Ткань', fab.name + ' · ' + fmt(fabCostB) + ' ₸ (3.0 пог. м)'],
             ['Пошив со стёжкой, синтепон 200г & хлопок', fmt(tailFixed) + ' ₸']
           ];
-        }
-      }
+        }}
+      }}
 
       // Update UI
       var priceEl = document.getElementById('priceOut');
       if (priceEl) priceEl.textContent = fmt(total);
 
       var listEl = document.getElementById('breakdownList');
-      if (listEl) {
-        listEl.innerHTML = lines.map(function(l) {
+      if (listEl) {{
+        listEl.innerHTML = lines.map(function(l) {{
           return '<div class="breakdown-row">' +
             '<span class="breakdown-lbl">' + l[0] + '</span>' +
             '<span class="breakdown-dots"></span>' +
             '<span class="breakdown-val">' + l[1] + '</span>' +
           '</div>';
-        }).join('');
-      }
-    }
+        }}).join('');
+      }}
+    }}
 
-    function sendCalcToWhatsApp() {
+    function sendCalcToWhatsApp() {{
       var price = document.getElementById('priceOut').textContent;
       var pName = (calcState.audience === 'b2b') ? 'Корпоративный проект B2B' : 'Частный интерьер';
       var text = 'Здравствуйте, MUAR A! Я рассчитал смету на сайте: ' + pName + ', сумма: ' + price + ' ₸. Хочу пригласить декоратора на замер с образцами тканей в Астане.';
       window.open('https://wa.me/77710551515?text=' + encodeURIComponent(text), '_blank');
       window.playSilkClick(2400);
-    }
+    }}
 
-    function handleConsultSubmit(e) {
+    function handleConsultSubmit(e) {{
       e.preventDefault();
       var name = document.getElementById('clientName').value;
       var phone = document.getElementById('clientPhone').value;
@@ -2797,19 +2811,27 @@
 
       window.open('https://wa.me/77710551515?text=' + text, '_blank');
       alert('Спасибо, ' + name + '! Мы открыли диалог в WhatsApp для подтверждения времени выезда декоратора.');
-    }
+    }}
 
     /* ------------------------------------------------------------- */
     /* 7. INITIALIZATION ON DOM READY                                */
     /* ------------------------------------------------------------- */
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {{
       renderProjectNav();
       renderStageView();
       renderProjectsGrid();
       initBaSlider('baDedicatedSlider', 'baHeroBeforeLayer', 'baHeroHandleLine');
       recalc();
       console.log('✨ [MUAR A] 10 Projects Editorial Architecture initialized successfully.');
-    });
+    }});
   </script>
 </body>
 </html>
+'''
+    return html
+
+if __name__ == '__main__':
+    content = generate_html()
+    with open('/Users/vitalij/Downloads/шторы нов/index.html', 'w', encoding='utf-8') as f:
+        f.write(content)
+    print("✅ index.html generated successfully! File size:", len(content), "bytes")
